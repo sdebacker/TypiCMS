@@ -1,0 +1,45 @@
+{
+    "name": "jasonlewis/basset",
+    "description": "A better asset management package for Laravel.",
+    "keywords": ["assets", "basset", "laravel"],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Jason Lewis",
+            "email": "jason.lewis1991@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "kriswallsmith/assetic": "1.1.*"
+    },
+    "require-dev": {
+        "mockery/mockery": ">=0.7.2",
+        "illuminate/config": "4.0.*",
+        "illuminate/console": "4.0.*",
+        "illuminate/filesystem": "4.0.*",
+        "illuminate/log": "4.0.*",
+        "illuminate/routing": "4.0.*",
+        "illuminate/support": "4.0.*",
+        "symfony/process": "2.3.*"
+    },
+    "suggest": {
+        "aws/aws-sdk-php": "Deploy static assets directly to your S3 buckets.",
+        "rackspace/php-cloudfiles": "Deploy static assets directly to your Cloud Files container."
+    },
+    "autoload": {
+        "psr-0": {
+            "Basset": "src/"
+        },
+        "classmap": [
+            "tests/Cases/FilterTestCase.php"
+        ],
+        "files": ["src/helpers.php"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.0-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,37 @@
+/**
+ * Import Twitter Bootstrap Base File
+ */
+@import "../../vendor/twbs/bootstrap/less/bootstrap";
+
+body { padding-top: 60px; padding-bottom: 60px; }
+
+.list-main { margin: 0; padding-left: 20px; list-style-type: none; background: url(../../../img/fond_liste.png);
+
+	ul { list-style-type: none;	}
+	.private > div .title { padding-left: 20px; background: url(../../../img/icn_locked.png) no-repeat left center; }
+
+	li { line-height: 26px; position: relative;
+		.title { color: #333; line-height: 26px; position: absolute; left: 45px; padding-left: 3px; top: 0; display: block; max-width: 500px; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; text-overflow: ellipsis; }
+	}
+	form { display: inline-block; }
+	.switch { display: inline-block; width: 22px; text-indent: -9999px; background: no-repeat 0 2px url(../../../img/switch-xs.png); margin-left: 5px; }
+	.offline > div .switch { background-position: 0 -20px; }
+
+}
+
+.sortable {
+	.disclose { position: absolute; left: -15px; top: 9px; width: 10px; height: 10px; display: inline-block; background-repeat: no-repeat; }
+	.mjs-nestedSortable-branch .disclose { cursor: pointer; }
+	li { position: relative;
+		div { cursor: move; display: inline-block; }
+	}
+	li.mjs-nestedSortable-collapsed > ul { display: none; }
+	li.mjs-nestedSortable-collapsed > div > .disclose { background-image: url(../../../img/directoryCollapsed.png); }
+	li.mjs-nestedSortable-expanded > div > .disclose { background-image: url(../../../img/directory.png); }
+	li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div { background: #fafafa; }
+	
+	.placeholder { overflow: hidden; background-color: #9D9; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+	.mjs-nestedSortable-error { background: #fbe3e4; border-color: transparent; }
+}
+
+

@@ -1,0 +1,6 @@
+#fileList { line-height: 18px; padding: 0; margin: 18px 0; list-style-type: none; }
+#fileList li { position: relative; }
+#fileList .progress { margin-bottom: 9px; }
+#fileList .removeFile { cursor:pointer; display: block; font-size: 9px; line-height: 10px; font-weight: bold; text-align: center; width: 12px; height: 12px; background-color: #CCC; position: absolute; right:3px; top:2px; border-radius:6px; background-color: #111; }
+#fileList .txt { text-shadow:0 1px 1px rgba(255,255,255,.8); position: absolute; top:0; left:5px; padding: 0; margin: 0; white-space: nowrap; overflow:hidden; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; text-overflow: ellipsis; }
+#fileList .percent { position: absolute; right:10px; top:0; text-shadow:0 1px 1px rgba(255,255,255,.8); font-weight: bold; }

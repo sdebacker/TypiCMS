@@ -1,0 +1,68 @@
+{
+	"name": "sdebacker/typi-cms",
+	"description": "A simple multilingual CMS",
+	"keywords": ["CMS", "multilingual", "laravel", "Typi"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Typi Design",
+			"email": "info@typidesign.be"
+		},
+		{
+			"name": "Samuel De Backer",
+			"email": "info@typidesign.be",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"laravel/framework": "4.0.x-dev",
+		"cartalyst/sentry": "2.0.*",
+		"leafo/lessphp": "0.4.0",
+		"twbs/bootstrap": "v3.0.0",
+		"edvinaskrucas/notification": "1.*",
+		"anahkiasen/former": "dev-develop",
+		"ink/ink-translatable": "dev-master",
+		"jwage/easy-csv": "dev-master",
+		"jasonlewis/basset": "dev-master",
+		"natxet/CssMin": "dev-master",
+		"mrclay/minify": "dev-master",
+		"bkwld/croppa": "3.*",
+        "thujohn/rss": "dev-master",
+		"barryvdh/laravel-debugbar": "dev-master",
+		"mccool/database-backup": "dev-master",
+		"eluceo/ical": "dev-master"
+	},
+	"require-dev": {
+		"raveren/kint": "dev-master"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		],
+		"psr-0": {
+			"TypiCMS": "app"
+		}
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan optimize"
+		],
+		"pre-update-cmd": [
+			"php artisan clear-compiled"
+		],
+		"post-update-cmd": [
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev"
+}
