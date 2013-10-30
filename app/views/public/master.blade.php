@@ -24,6 +24,8 @@
 
 <div class="container" id="content">
 
+ee
+
 	<nav role="navigation" class="menu menu-languages pull-right">
 		{{-- $languagesMenuList --}}
 		<ul class="nav nav-pills">
