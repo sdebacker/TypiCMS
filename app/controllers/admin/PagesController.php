@@ -81,18 +81,18 @@ class PagesController extends BaseController {
 	 */
 	public function store()
 	{
-		// // Numeric values must be integer for checkboxes not to be checked.
+		// Numeric values must be integer for checkboxes not to be checked.
 		// $post = array();
 		// foreach (Input::all() as $key => $value) {
 		// 	$post[$key] = is_numeric($value) ? (int) $value : $value ;
 		// }
 
-		if ( $this->form->save( $post ) ) {
+		if ( $this->form->save( Input::all() ) ) {
 			return Redirect::route('admin.pages.index');
 		}
 
 		return Redirect::route('admin.pages.create')
-			->withInput($post)
+			->withInput()
 			->withErrors($this->form->errors());
 
 	}
@@ -106,18 +106,13 @@ class PagesController extends BaseController {
 	 */
 	public function update($model)
 	{
-		// // Numeric values must be integer for checkboxes not to be checked.
-		// $post = array();
-		// foreach (Input::all() as $key => $value) {
-		// 	$post[$key] = is_numeric($value) ? (int) $value : $value ;
-		// }
 
 		if ( ! Request::ajax()) {
-			if ( $this->form->update( $post ) ) {
+			if ( $this->form->update( Input::all() ) ) {
 				return Redirect::route('admin.pages.index');
 			}
 		} else {
-			$this->repository->update( $post );
+			$this->repository->update( Input::all() );
 		}
 
 		if ( ! Request::ajax()) {
