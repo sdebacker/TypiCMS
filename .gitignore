@@ -1,9 +1,1 @@
-app/storage/cache
-app/storage/logs
-app/storage/views
-app/storage/meta
-app/storage/sessions
-app/storage/backup
-public/builds
-public/uploads
 .DS_Store
