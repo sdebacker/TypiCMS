@@ -113,6 +113,7 @@ class PagesController extends BaseController {
 			$post[$key] = is_numeric($value) ? (int) $value : $value ;
 		}
 		d($post);
+		exit();
 		if ( ! Request::ajax()) {
 			if ( $this->form->update( $post ) ) {
 				return Redirect::route('admin.pages.index');
@@ -126,7 +127,6 @@ class PagesController extends BaseController {
 				->withInput()
 				->withErrors($this->form->errors());
 		}
-		exit();
 	}
 
 	/**
