@@ -106,13 +106,18 @@ class PagesController extends BaseController {
 	 */
 	public function update($model)
 	{
+		// Numeric values must be integer for checkboxes not to be checked.
+		$post = array();
+		foreach (Input::all() as $key => $value) {
+			$post[$key] = is_numeric($value) ? (int) $value : $value ;
+		}
 
 		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) ) {
+			if ( $this->form->update( $post ) ) {
 				return Redirect::route('admin.pages.index');
 			}
 		} else {
-			$this->repository->update( Input::all() );
+			$this->repository->update( $post );
 		}
 
 		if ( ! Request::ajax()) {
