@@ -38,14 +38,10 @@ function enableSortable() {
 			// console.log(serializedDatas);
 			$.ajax({
 				type: 'POST',
-				dataType: 'json',
 				url: document.URL.split('?')[0] + '/sort',
 				data: serializedDatas
-			}).done(function (msg) {
-				alertify.log(msg.responsetext, msg.responsetype);
 			}).fail(function () {
-				alertify.log(translate('An error occurred'), 'error');
-				// reloadPage();
+				alertify.error(translate('An error occurred'));
 			});
 		}
 	};

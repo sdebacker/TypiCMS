@@ -130,7 +130,7 @@ class PagesController extends BaseController {
 	 */
 	public function sort()
 	{
-		$sort = $this->repository->sort( Input::all() );
+		$this->repository->sort( Input::all() );
 	}
 
 
