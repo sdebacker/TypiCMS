@@ -30,7 +30,7 @@
 @include('_navbar')
 
 <div class="container-global col-xs-12">
-ee
+
 	@yield('menu')
 
 	<script type="text/javascript">
