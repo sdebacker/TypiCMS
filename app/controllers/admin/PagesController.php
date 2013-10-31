@@ -52,6 +52,7 @@ class PagesController extends BaseController {
 	 */
 	public function edit($model)
 	{
+		d($model);
 		$this->title['child'] = trans('pages.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
