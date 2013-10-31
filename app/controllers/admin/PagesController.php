@@ -126,6 +126,7 @@ class PagesController extends BaseController {
 				->withInput()
 				->withErrors($this->form->errors());
 		}
+		exit();
 	}
 
 	/**
