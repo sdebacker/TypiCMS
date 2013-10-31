@@ -84,11 +84,6 @@ class ProjectsController extends BaseController {
 	 */
 	public function store($category)
 	{
-		// Numeric values must be integer for checkboxes not to be checked.
-		$post = array();
-		foreach (Input::all() as $key => $value) {
-			$post[$key] = is_numeric($value) ? (int) $value : $value ;
-		}
 
 		if ( $this->form->save( $post ) ) {
 			return Redirect::route('admin.categories.projects.index', $category->id);

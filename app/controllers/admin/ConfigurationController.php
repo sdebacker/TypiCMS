@@ -78,11 +78,6 @@ class ConfigurationController extends BaseController {
 	 */
 	public function store()
 	{
-		// Numeric values must be integer for checkboxes not to be checked.
-		$post = array();
-		foreach (Input::all() as $key => $value) {
-			$post[$key] = is_numeric($value) ? (int) $value : $value ;
-		}
 
 		if ( $this->repository->create( $post ) ) {
 			return Redirect::route('admin.configuration.index');
