@@ -52,8 +52,6 @@ class PagesController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		d($model->rss_enabled);
-		d($model->is_home);
 		$this->title['child'] = trans('pages.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
@@ -83,11 +81,11 @@ class PagesController extends BaseController {
 	 */
 	public function store()
 	{
-		// Numeric values must be integer for checkboxes not to be checked.
-		$post = array();
-		foreach (Input::all() as $key => $value) {
-			$post[$key] = is_numeric($value) ? (int) $value : $value ;
-		}
+		// // Numeric values must be integer for checkboxes not to be checked.
+		// $post = array();
+		// foreach (Input::all() as $key => $value) {
+		// 	$post[$key] = is_numeric($value) ? (int) $value : $value ;
+		// }
 
 		if ( $this->form->save( $post ) ) {
 			return Redirect::route('admin.pages.index');
@@ -108,11 +106,11 @@ class PagesController extends BaseController {
 	 */
 	public function update($model)
 	{
-		// Numeric values must be integer for checkboxes not to be checked.
-		$post = array();
-		foreach (Input::all() as $key => $value) {
-			$post[$key] = is_numeric($value) ? (int) $value : $value ;
-		}
+		// // Numeric values must be integer for checkboxes not to be checked.
+		// $post = array();
+		// foreach (Input::all() as $key => $value) {
+		// 	$post[$key] = is_numeric($value) ? (int) $value : $value ;
+		// }
 
 		if ( ! Request::ajax()) {
 			if ( $this->form->update( $post ) ) {
