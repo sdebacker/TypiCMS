@@ -42,7 +42,7 @@ class UsersController extends BaseController {
 		try {
 			$this->repository->authenticate($credentials, false);
 			Notification::success('Welcome');
-			return Redirect::route('dashboard');
+			return Redirect::intended('dashboard');
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
 			return Redirect::route('users.login')->withInput();

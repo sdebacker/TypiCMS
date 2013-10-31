@@ -57,7 +57,7 @@ Route::filter('auth.basic', function()
 Route::filter('auth.admin', function()
 {
 	if ( ! Sentry::check()) {
-		return Redirect::to('users/login');
+		return Redirect::guest('users/login');
 	}
 });
 
