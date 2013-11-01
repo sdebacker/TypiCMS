@@ -769,12 +769,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "0f3c054dff866aa687ab07572b731fb2ba32e703"
+            "reference": "7f99ac07d38fd367d1f5f85693ae8433738f7f94"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0f3c054dff866aa687ab07572b731fb2ba32e703",
-            "reference": "0f3c054dff866aa687ab07572b731fb2ba32e703",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7f99ac07d38fd367d1f5f85693ae8433738f7f94",
+            "reference": "7f99ac07d38fd367d1f5f85693ae8433738f7f94",
             "shasum": ""
         },
         "require": {
@@ -794,7 +794,7 @@
             "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
             "raven/raven": "Allow sending log messages to a Sentry server"
         },
-        "time": "2013-10-28 09:41:17",
+        "time": "2013-10-31 21:38:39",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1360,12 +1360,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "dce714875ea98bac87f515d3db25d7d41356502b"
+            "reference": "3f9a8e7339c09cd73fe6af7603c99c2d42977ef7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/dce714875ea98bac87f515d3db25d7d41356502b",
-            "reference": "dce714875ea98bac87f515d3db25d7d41356502b",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3f9a8e7339c09cd73fe6af7603c99c2d42977ef7",
+            "reference": "3f9a8e7339c09cd73fe6af7603c99c2d42977ef7",
             "shasum": ""
         },
         "require": {
@@ -1406,7 +1406,7 @@
             "zendframework/zend-cache": "2.0.*",
             "zendframework/zend-log": "2.0.*"
         },
-        "time": "2013-10-30 20:42:33",
+        "time": "2013-11-01 00:02:04",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1891,68 +1891,6 @@
             }
         ],
         "description": "A set of classes to create and manipulate HTML objects abstractions"
-    },
-    {
-        "name": "anahkiasen/former",
-        "version": "dev-develop",
-        "version_normalized": "dev-develop",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Anahkiasen/former.git",
-            "reference": "bea18acd268e8287314fe4c887a6a5eb67e50874"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Anahkiasen/former/zipball/bea18acd268e8287314fe4c887a6a5eb67e50874",
-            "reference": "bea18acd268e8287314fe4c887a6a5eb67e50874",
-            "shasum": ""
-        },
-        "require": {
-            "anahkiasen/html-object": "dev-master",
-            "anahkiasen/underscore-php": "dev-master",
-            "illuminate/config": "~4",
-            "illuminate/container": "~4",
-            "illuminate/http": "~4",
-            "illuminate/routing": "~4",
-            "illuminate/session": "~4",
-            "illuminate/translation": "~4"
-        },
-        "require-dev": {
-            "illuminate/database": "~4",
-            "mockery/mockery": "dev-master"
-        },
-        "time": "2013-10-18 22:19:40",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-agnostic": "3.x.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Former": "src",
-                "Laravel": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Fabre",
-                "email": "ehtnam6@gmail.com"
-            }
-        ],
-        "description": "A powerful form builder",
-        "homepage": "http://anahkiasen.github.com/former/",
-        "keywords": [
-            "bootstrap",
-            "form",
-            "foundation",
-            "laravel"
-        ]
     },
     {
         "name": "twbs/bootstrap",
@@ -2744,74 +2682,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "aws/aws-sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "d4be84aab7e999879e63ac1bfa1d886e2b6591f9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d4be84aab7e999879e63ac1bfa1d886e2b6591f9",
-            "reference": "d4be84aab7e999879e63ac1bfa1d886e2b6591f9",
-            "shasum": ""
-        },
-        "require": {
-            "guzzle/guzzle": "~3.7.0",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "doctrine/cache": "~1.0",
-            "ext-openssl": "*",
-            "monolog/monolog": "1.4.*",
-            "phpunit/phpunit": "3.7.*",
-            "symfony/class-loader": "2.*",
-            "symfony/yaml": "2.*"
-        },
-        "suggest": {
-            "doctrine/cache": "Adds support for caching of credentials and responses",
-            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
-            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-            "monolog/monolog": "Adds support for logging HTTP requests and responses",
-            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
-        },
-        "time": "2013-10-29 18:15:23",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Aws": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Amazon Web Services",
-                "homepage": "http://aws.amazon.com"
-            }
-        ],
-        "description": "AWS SDK for PHP",
-        "homepage": "http://aws.amazon.com/sdkforphp2",
-        "keywords": [
-            "amazon",
-            "aws",
-            "dynamodb",
-            "ec2",
-            "s3",
-            "sdk"
-        ]
-    },
-    {
         "name": "symfony/process",
         "version": "2.3.x-dev",
         "version_normalized": "2.3.9999999.9999999-dev",
@@ -2981,18 +2851,148 @@
         ]
     },
     {
+        "name": "anahkiasen/former",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Anahkiasen/former.git",
+            "reference": "852db5c240f3e5e069725b684a820c4e9b16eb25"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Anahkiasen/former/zipball/852db5c240f3e5e069725b684a820c4e9b16eb25",
+            "reference": "852db5c240f3e5e069725b684a820c4e9b16eb25",
+            "shasum": ""
+        },
+        "require": {
+            "anahkiasen/html-object": "dev-master",
+            "anahkiasen/underscore-php": "dev-master",
+            "illuminate/config": "~4",
+            "illuminate/container": "~4",
+            "illuminate/http": "~4",
+            "illuminate/routing": "~4",
+            "illuminate/session": "~4",
+            "illuminate/translation": "~4"
+        },
+        "require-dev": {
+            "illuminate/database": "~4",
+            "mockery/mockery": "dev-master"
+        },
+        "time": "2013-10-31 21:12:34",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-agnostic": "3.x.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Former": "src",
+                "Laravel": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Fabre",
+                "email": "ehtnam6@gmail.com"
+            }
+        ],
+        "description": "A powerful form builder",
+        "homepage": "http://anahkiasen.github.com/former/",
+        "keywords": [
+            "bootstrap",
+            "form",
+            "foundation",
+            "laravel"
+        ]
+    },
+    {
+        "name": "aws/aws-sdk-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aws/aws-sdk-php.git",
+            "reference": "204550d00de76f70c8a69444823320354a0898c7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/204550d00de76f70c8a69444823320354a0898c7",
+            "reference": "204550d00de76f70c8a69444823320354a0898c7",
+            "shasum": ""
+        },
+        "require": {
+            "guzzle/guzzle": "~3.7.0",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "doctrine/cache": "~1.0",
+            "ext-openssl": "*",
+            "monolog/monolog": "1.4.*",
+            "phpunit/phpunit": "3.7.*",
+            "symfony/class-loader": "2.*",
+            "symfony/yaml": "2.*"
+        },
+        "suggest": {
+            "doctrine/cache": "Adds support for caching of credentials and responses",
+            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+            "monolog/monolog": "Adds support for logging HTTP requests and responses",
+            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+        },
+        "time": "2013-10-31 19:16:43",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Aws": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Amazon Web Services",
+                "homepage": "http://aws.amazon.com"
+            }
+        ],
+        "description": "AWS SDK for PHP",
+        "homepage": "http://aws.amazon.com/sdkforphp2",
+        "keywords": [
+            "amazon",
+            "aws",
+            "dynamodb",
+            "ec2",
+            "s3",
+            "sdk"
+        ]
+    },
+    {
         "name": "laravel/framework",
         "version": "4.0.x-dev",
         "version_normalized": "4.0.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "a8cdb683a097e04281ada784d9073c8a83f72bf1"
+            "reference": "7afae9546a7600f4b910e93e4f0213da3deece4c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/a8cdb683a097e04281ada784d9073c8a83f72bf1",
-            "reference": "a8cdb683a097e04281ada784d9073c8a83f72bf1",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/7afae9546a7600f4b910e93e4f0213da3deece4c",
+            "reference": "7afae9546a7600f4b910e93e4f0213da3deece4c",
             "shasum": ""
         },
         "require": {
@@ -3056,7 +3056,7 @@
             "pda/pheanstalk": "2.1.*",
             "phpunit/phpunit": "3.7.*"
         },
-        "time": "2013-10-31 16:50:52",
+        "time": "2013-10-31 21:15:49",
         "type": "library",
         "extra": {
             "branch-alias": {
