@@ -16,7 +16,7 @@ class MenuSeeder extends Seeder {
 		$typi_menulinks = array(
 		  array('id' => '1','menu_id' => '1','page_id' => '1','parent' => '0','position' => '1','target' => '','module_name' => '','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-09-03 22:08:05','updated_at' => '2013-10-05 19:31:13'),
 		  array('id' => '2','menu_id' => '1','page_id' => '2','parent' => '0','position' => '5','target' => '','module_name' => '','restricted_to' => '','class' => 'menu-contact','link_type' => '','created_at' => '2013-09-03 22:08:35','updated_at' => '2013-10-05 19:31:13'),
-		  array('id' => '16','menu_id' => '1','page_id' => '29','parent' => '0','position' => '2','target' => '_blank','module_name' => 'poi','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-09-09 23:18:49','updated_at' => '2013-10-05 19:31:13'),
+		  array('id' => '16','menu_id' => '1','page_id' => '29','parent' => '0','position' => '2','target' => '','module_name' => 'poi','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-09-09 23:18:49','updated_at' => '2013-10-05 19:31:13'),
 		  array('id' => '17','menu_id' => '1','page_id' => '0','parent' => '0','position' => '3','target' => '','module_name' => 'events','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-10-05 19:30:30','updated_at' => '2013-10-05 19:31:51'),
 		  array('id' => '18','menu_id' => '1','page_id' => '0','parent' => '0','position' => '4','target' => '','module_name' => 'projects','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-10-05 19:31:09','updated_at' => '2013-10-05 19:31:51')
 		);
