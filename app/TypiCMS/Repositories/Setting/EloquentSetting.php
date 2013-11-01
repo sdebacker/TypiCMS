@@ -13,12 +13,6 @@ class EloquentSetting implements SettingInterface {
 	{
 		$this->model = $model;
 		$this->cache = $cache;
-
-		$this->listProperties = array(
-			'sortable' => true,
-			'display' => array('%s %s', 'key', 'value')
-		);
-
 	}
 
 
@@ -41,10 +35,10 @@ class EloquentSetting implements SettingInterface {
 		$data = array();
 		foreach ($this->model->get() as $model) {
 			$value = is_numeric($model->value) ? (int) $model->value : $model->value ;
-			if ($model->group != 'config') {
-				$data[$model->group][$model->key] = $value;
+			if ($model->group_name != 'config') {
+				$data[$model->group_name][$model->key_name] = $value;
 			} else {
-				$data[$model->key] = $value;
+				$data[$model->key_name] = $value;
 			}
 		}
 		$data = (object) $data;
@@ -68,16 +62,16 @@ class EloquentSetting implements SettingInterface {
 		$data = array_except($data, '_method');
 		$data = array_except($data, '_token');
 
-		foreach ($data as $group => $array) {
+		foreach ($data as $group_name => $array) {
 			if ( ! is_array($array)) {
-				$array = array($group => $array);
-				$group = 'config';
+				$array = array($group_name => $array);
+				$group_name = 'config';
 			}
-			foreach ($array as $key => $value) {
-				$model = $this->model->where('key', $key)->where('group', $group)->first();
+			foreach ($array as $key_name => $value) {
+				$model = $this->model->where('key_name', $key_name)->where('group_name', $group_name)->first();
 				$model = $model ? $model : new $this->model ;
-				$model->group = $group;
-				$model->key = $key;
+				$model->group_name = $group_name;
+				$model->key_name = $key_name;
 				$model->value = $value;
 				$save = $model->save();
 			}
