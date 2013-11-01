@@ -8,6 +8,7 @@ use TypiCMS\Models\Project;
 use TypiCMS\Models\Category;
 use TypiCMS\Models\User;
 use TypiCMS\Models\Event;
+use TypiCMS\Models\Configuration;
 
 use TypiCMS\Repositories\Page\EloquentPage;
 use TypiCMS\Repositories\File\EloquentFile;
@@ -107,6 +108,7 @@ class RepositoriesServiceProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Repositories\Configuration\ConfigurationInterface', function($app)
 		{
 			return new EloquentConfiguration(
+				new Configuration,
 				new LaravelCache($app['cache'], 'configuration', 10)
 			);
 		});

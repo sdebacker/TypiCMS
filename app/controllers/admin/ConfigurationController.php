@@ -79,12 +79,12 @@ class ConfigurationController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->repository->create( $post ) ) {
+		if ( $this->repository->create( Input::all() ) ) {
 			return Redirect::route('admin.configuration.index');
 		}
 
 		return Redirect::route('admin.configuration.index')
-			->withInput($post);
+			->withInput();
 
 	}
 

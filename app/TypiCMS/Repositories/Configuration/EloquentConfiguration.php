@@ -1,16 +1,17 @@
 <?php namespace TypiCMS\Repositories\Configuration;
 
 use Config;
-use DBconfig;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
+use Illuminate\Database\Eloquent\Model;
 
 class EloquentConfiguration implements ConfigurationInterface {
 
 	// Class expects an Eloquent model and a cache interface
-	public function __construct(CacheInterface $cache)
+	public function __construct(Model $model, CacheInterface $cache)
 	{
+		$this->model = $model;
 		$this->cache = $cache;
 
 		$this->listProperties = array(
@@ -62,21 +63,7 @@ class EloquentConfiguration implements ConfigurationInterface {
 	 */
 	public function create(array $data)
 	{
-		// save translated settings
-		foreach (Config::get('app.locales') as $lang) {
-			foreach ($data[$lang] as $key => $value) {
-				// d($lang.'.'.$key, $value);
-				DBconfig::set($lang.'.'.$key, $value);
-			}
-		}
-		// save other settings
-		$data = array_except($data, Config::get('app.locales'));
-		foreach ($data as $key => $value) {
-			// d($key, $value);
-			DBconfig::set($key, $value);
-		}
-		exit();
-		return true;
+		return $this->update($data);
 	}
 
 
@@ -89,17 +76,29 @@ class EloquentConfiguration implements ConfigurationInterface {
 	public function update(array $data)
 	{
 
-		$model = $this->model->find($data['id']);
-
-		$data = array_except($data, Config::get('app.locales'), '_method', '_token');
 		$data = array_except($data, '_method');
 		$data = array_except($data, '_token');
 
 		foreach ($data as $key => $value) {
-			$model->$key = $value;
+			if (is_array($value)) {
+				foreach ($value as $key2 => $value2) {
+					// d($key, $key2, $value2);
+					$model = $this->model->where('key', $key2)->where('group', $key)->first();
+					$model = $model ? $model : new $this->model ;
+					$model->group = $key;
+					$model->key = $key2;
+					$model->value = $value2;
+					$save = $model->save();
+					// d($save);
+				}
+			} else {
+				$model = $this->model->where('key', $key)->where('group', 'config')->first();
+				$model = $model ? $model : new $this->model ;
+				$model->key = $key;
+				$model->value = $value;
+				$model->save();
+			}
 		}
-
-		$model->save();
 
 		return true;
 		
