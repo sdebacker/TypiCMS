@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('SentrySeeder');
 		$this->command->info('Sentry tables seeded.');
+		$this->call('SettingsSeeder');
+		$this->command->info('Settings seeded.');
 		$this->call('PageSeeder');
 		$this->command->info('Pages seeded.');
 		$this->call('MenuSeeder');

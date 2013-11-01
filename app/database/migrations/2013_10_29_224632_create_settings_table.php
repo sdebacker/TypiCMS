@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConfigurationTable extends Migration {
+class CreateSettingsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,8 +12,7 @@ class CreateConfigurationTable extends Migration {
 	 */
 	public function up()
 	{
-		/** @var \Illuminate\Database\Schema\Blueprint $table */
-		Schema::create('configuration', function(Blueprint $table)
+		Schema::create('settings', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('package')->nullable();
@@ -22,7 +21,6 @@ class CreateConfigurationTable extends Migration {
 			$table->string('value')->nullable();
 			$table->string('type');
 			$table->string('environment')->nullable();
-			$table->unique(array('package', 'key', 'environment'));
 			$table->timestamps();
 		});
 	}
@@ -34,7 +32,7 @@ class CreateConfigurationTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('configuration');
+		Schema::drop('settings');
 	}
 
 }

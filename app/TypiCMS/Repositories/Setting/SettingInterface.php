@@ -1,6 +1,6 @@
-<?php namespace TypiCMS\Repositories\Configuration;
+<?php namespace TypiCMS\Repositories\Setting;
 
-interface ConfigurationInterface
+interface SettingInterface
 {
 
     /**

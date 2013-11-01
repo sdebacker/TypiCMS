@@ -43,7 +43,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 	Route::get('/', array('as' => 'dashboard', 'uses' => 'App\Controllers\Admin\DashboardController@index'));
 	Route::get('backup', array('as' => 'backup', 'uses' => 'App\Controllers\Admin\DashboardController@backup'));
 
-	Route::resource('configuration', 'App\Controllers\Admin\ConfigurationController');
+	Route::resource('settings', 'App\Controllers\Admin\SettingsController');
 
 	Route::resource('pages', 'App\Controllers\Admin\PagesController');
 	Route::post('pages/sort', array('as' => 'admin.pages.sort', 'uses' => 'App\Controllers\Admin\PagesController@sort'));

@@ -1,4 +1,4 @@
-<?php namespace TypiCMS\Repositories\Configuration;
+<?php namespace TypiCMS\Repositories\Setting;
 
 use Config;
 
@@ -6,7 +6,7 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class EloquentConfiguration implements ConfigurationInterface {
+class EloquentSetting implements SettingInterface {
 
 	// Class expects an Eloquent model and a cache interface
 	public function __construct(Model $model, CacheInterface $cache)
@@ -31,7 +31,7 @@ class EloquentConfiguration implements ConfigurationInterface {
 	{
 		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
-		$key = md5('configurationsall');
+		$key = md5('Settingsall');
 
 		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
 			return $this->cache->get($key);

@@ -2,7 +2,7 @@
 
 use TypiCMS\NestedCollection;
 
-class Configuration extends \Eloquent {
+class Setting extends \Eloquent {
 
 	protected $guarded = array();
 	
@@ -11,6 +11,6 @@ class Configuration extends \Eloquent {
 	 *
 	 * @var string
 	 */
-	protected $table = 'configuration';
+	protected $table = 'settings';
 
 }

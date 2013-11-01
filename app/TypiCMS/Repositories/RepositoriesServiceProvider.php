@@ -8,7 +8,7 @@ use TypiCMS\Models\Project;
 use TypiCMS\Models\Category;
 use TypiCMS\Models\User;
 use TypiCMS\Models\Event;
-use TypiCMS\Models\Configuration;
+use TypiCMS\Models\Setting;
 
 use TypiCMS\Repositories\Page\EloquentPage;
 use TypiCMS\Repositories\File\EloquentFile;
@@ -19,7 +19,7 @@ use TypiCMS\Repositories\Category\EloquentCategory;
 use TypiCMS\Repositories\Event\EloquentEvent;
 use TypiCMS\Repositories\User\SentryUser;
 use TypiCMS\Repositories\Dashboard\EloquentDashboard;
-use TypiCMS\Repositories\Configuration\EloquentConfiguration;
+use TypiCMS\Repositories\Setting\EloquentSetting;
 
 use TypiCMS\Services\Cache\LaravelCache;
 use Illuminate\Support\ServiceProvider;
@@ -105,10 +105,10 @@ class RepositoriesServiceProvider extends ServiceProvider {
 			);
 		});
 
-		$app->bind('TypiCMS\Repositories\Configuration\ConfigurationInterface', function($app)
+		$app->bind('TypiCMS\Repositories\Setting\SettingInterface', function($app)
 		{
-			return new EloquentConfiguration(
-				new Configuration,
+			return new EloquentSetting(
+				new Setting,
 				new LaravelCache($app['cache'], 'configuration', 10)
 			);
 		});

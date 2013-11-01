@@ -10,7 +10,7 @@
 		</div>
 		<div class="navbar-collapse collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li>{{ HTML::linkRoute('admin.configuration.index', ucfirst(trans('global.configuration'))) }}</li>
+				<li>{{ HTML::linkRoute('admin.settings.index', ucfirst(trans('global.settings'))) }}</li>
 				<li>{{ HTML::linkRoute('admin.users.index', Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name ) }}</li>
 				<li>{{ HTML::linkRoute('users.logout', ucfirst(trans('users.log out')) ) }}</li>
 				<li>{{ HTML::linkRoute('admin.users.index', ucFirst( trans_choice('global.modules.users', 2) ) ) }}</li>
