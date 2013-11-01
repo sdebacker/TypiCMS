@@ -44,11 +44,11 @@ abstract class BaseController extends Controller {
 
 		// Si une langue est présente dans l'url
 		if ($lang = Request::segment(1)) {
-			d(Config::get('settings.truc'));
-			$this->applicationName = Config::get('settings.truc');
 
 			// mettre la langue en config en fonction de l'url
 			Config::set('app.contentlocale', $lang);
+
+			$this->applicationName = Config::get('settings.website_title');
 
 			// Sélectionner les éléments du menu principal
 			$mainMenuItems = Menulink::getMenu('main');
