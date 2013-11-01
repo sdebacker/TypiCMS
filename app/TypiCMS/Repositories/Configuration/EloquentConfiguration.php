@@ -19,39 +19,36 @@ class EloquentConfiguration implements ConfigurationInterface {
 			'display' => array('%s %s', 'key', 'value')
 		);
 
-		$this->select = array(
-			'id',
-			'package',
-			'group',
-			'key',
-			'value',
-			'type',
-			'environment',
-		);
-
 	}
 
-    /**
-     * Retrieve article by id
-     * regardless of status
-     *
-     * @param  int $id item ID
-     * @return stdObject object of article information
-     */
-    public function byId($id)
-    {
-    	return 'item';
-    }
 
 	/**
 	 * Get all models
 	 *
-	 * @param boolean $all Show published or all
      * @return StdClass Object with $items
 	 */
-	public function getAll($all = false)
+	public function getAll()
 	{
-    	return 'all';
+		// Build our cache item key, unique per model number,
+		// limit and if we're showing all
+		$key = md5('configurationsall');
+
+		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		// Item not cached, retrieve it
+		$datas = array();
+		foreach ($this->model->get() as $model) {
+			$value = is_numeric($model->value) ? (int) $model->value : $model->value ;
+			$datas[$model->group][$model->key] = $value;
+		}
+		$datas = (object) $datas;
+
+		// Store in cache for next request
+		$this->cache->put($key, $datas);
+
+		return $datas;
 	}
 
 

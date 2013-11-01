@@ -4,21 +4,11 @@ interface ConfigurationInterface
 {
 
     /**
-     * Retrieve article by id
-     * regardless of status
-     *
-     * @param  int $id item ID
-     * @return stdObject object of article information
-     */
-    public function byId($id);
-
-    /**
      * Get all pages
      *
-     * @param boolean $all Show published or all
      * @return StdClass Object with $items
      */
-    public function getAll($all = false);
+    public function getAll();
 
     /**
      * Create a new item

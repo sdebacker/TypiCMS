@@ -13,24 +13,4 @@ class Configuration extends \Eloquent {
 	 */
 	protected $table = 'configuration';
 
-	public $view = 'configuration';
-	public $route = 'configuration';
-
-
-	/**
-	 * lists
-	 */
-	public $order = 'id';
-	public $direction = 'desc';
-
-	/**
-	 * Custom collection
-	 *
-	 * @return InvoiceCollection object
-	 */
-	public function newCollection(array $models = array())
-	{
-		return new NestedCollection($models);
-	}
-
 }

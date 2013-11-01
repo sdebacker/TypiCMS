@@ -22,52 +22,9 @@ class ConfigurationController extends BaseController {
 	 */
 	public function index()
 	{
-		$models = $this->repository->getAll(true);
-		$this->layout->content = View::make('admin.configuration.index')
-			->with('models', $models);
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		$model = $this->repository;
-		$this->title['child'] = trans('configurations.New');
-		$this->layout->content = View::make('admin.configuration.create')
-			->with('model', $model);
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($model)
-	{
-		$this->title['child'] = trans('configurations.Edit');
-		$model->setTranslatedFields();
-		Former::populate($model);
-		$this->layout->content = View::make('admin.configuration.edit')
-			->with('model', $model);
-	}
-
-
-	/**
-	 * Show resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($model)
-	{
-		$this->title['child'] = trans('configurations.Show');
-		$this->layout->content = View::make('admin.configuration.show')
-			->with('model', $model);
+		$datas = $this->repository->getAll(true);
+		Former::populate($datas);
+		$this->layout->content = View::make('admin.configuration.index');
 	}
 
 
@@ -98,18 +55,9 @@ class ConfigurationController extends BaseController {
 	public function update($model)
 	{
 
-		if ( ! Request::ajax()) {
-			if ( $this->repository->update( Input::all() ) ) {
-				return Redirect::route('admin.configuration.index');
-			}
-		} else {
-			$this->repository->update( Input::all() );
-		}
+		$this->repository->update( Input::all() );
+		return Redirect::route('admin.configuration.index')->withInput();
 
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.configuration.edit', $model->id )
-				->withInput();
-		}
 	}
 
 
