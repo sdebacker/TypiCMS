@@ -10,6 +10,8 @@
 
 		<ul class="nav nav-tabs">
 
+			{{ Former::text('truc'); }}
+
 			@foreach ($locales as $lang)
 
 			<li class="@if ($contentlocale == $lang)active@endif">

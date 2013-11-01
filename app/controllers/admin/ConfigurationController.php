@@ -36,27 +36,8 @@ class ConfigurationController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->repository->create( Input::all() ) ) {
-			return Redirect::route('admin.configuration.index');
-		}
-
-		return Redirect::route('admin.configuration.index')
-			->withInput();
-
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($model)
-	{
-
-		$this->repository->update( Input::all() );
-		return Redirect::route('admin.configuration.index')->withInput();
+		$this->repository->store( Input::all() );
+		return Redirect::route('admin.configuration.index');
 
 	}
 

@@ -38,29 +38,21 @@ class EloquentConfiguration implements ConfigurationInterface {
 		}
 
 		// Item not cached, retrieve it
-		$datas = array();
+		$data = array();
 		foreach ($this->model->get() as $model) {
 			$value = is_numeric($model->value) ? (int) $model->value : $model->value ;
-			$datas[$model->group][$model->key] = $value;
+			if ($model->group != 'config') {
+				$data[$model->group][$model->key] = $value;
+			} else {
+				$data[$model->key] = $value;
+			}
 		}
-		$datas = (object) $datas;
+		$data = (object) $data;
 
 		// Store in cache for next request
-		$this->cache->put($key, $datas);
+		$this->cache->put($key, $data);
 
-		return $datas;
-	}
-
-
-	/**
-	 * Create a new model
-	 *
-	 * @param array  Data to create a new object
-	 * @return boolean
-	 */
-	public function create(array $data)
-	{
-		return $this->update($data);
+		return $data;
 	}
 
 
@@ -70,30 +62,24 @@ class EloquentConfiguration implements ConfigurationInterface {
 	 * @param array  Data to update a model
 	 * @return boolean
 	 */
-	public function update(array $data)
+	public function store(array $data)
 	{
 
 		$data = array_except($data, '_method');
 		$data = array_except($data, '_token');
 
-		foreach ($data as $key => $value) {
-			if (is_array($value)) {
-				foreach ($value as $key2 => $value2) {
-					// d($key, $key2, $value2);
-					$model = $this->model->where('key', $key2)->where('group', $key)->first();
-					$model = $model ? $model : new $this->model ;
-					$model->group = $key;
-					$model->key = $key2;
-					$model->value = $value2;
-					$save = $model->save();
-					// d($save);
-				}
-			} else {
-				$model = $this->model->where('key', $key)->where('group', 'config')->first();
+		foreach ($data as $group => $array) {
+			if ( ! is_array($array)) {
+				$array = array($group => $array);
+				$group = 'config';
+			}
+			foreach ($array as $key => $value) {
+				$model = $this->model->where('key', $key)->where('group', $group)->first();
 				$model = $model ? $model : new $this->model ;
+				$model->group = $group;
 				$model->key = $key;
 				$model->value = $value;
-				$model->save();
+				$save = $model->save();
 			}
 		}
 
