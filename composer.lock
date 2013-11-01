@@ -1473,12 +1473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7afae9546a7600f4b910e93e4f0213da3deece4c"
+                "reference": "710440c1d52e18b152cfe13b4aaf1b6a56449ba6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7afae9546a7600f4b910e93e4f0213da3deece4c",
-                "reference": "7afae9546a7600f4b910e93e4f0213da3deece4c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/710440c1d52e18b152cfe13b4aaf1b6a56449ba6",
+                "reference": "710440c1d52e18b152cfe13b4aaf1b6a56449ba6",
                 "shasum": ""
             },
             "require": {
@@ -1578,7 +1578,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-10-31 21:15:49"
+            "time": "2013-11-01 13:48:39"
         },
         {
             "name": "leafo/lessphp",
@@ -1627,12 +1627,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "db7bf99c4c469689aab4cce2d43d6b2c7dbb2dc7"
+                "reference": "a7e1479ed47a93152d7f7af34d9b73daf43c19c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/db7bf99c4c469689aab4cce2d43d6b2c7dbb2dc7",
-                "reference": "db7bf99c4c469689aab4cce2d43d6b2c7dbb2dc7",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/a7e1479ed47a93152d7f7af34d9b73daf43c19c1",
+                "reference": "a7e1479ed47a93152d7f7af34d9b73daf43c19c1",
                 "shasum": ""
             },
             "require": {
@@ -1669,7 +1669,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2013-10-28 13:16:10"
+            "time": "2013-11-01 15:24:10"
         },
         {
             "name": "mccool/database-backup",
