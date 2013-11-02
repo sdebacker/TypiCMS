@@ -19,6 +19,8 @@ abstract class BaseController extends Controller {
 	public $lang;
 
 	protected $model;
+	protected $mainMenu;
+	protected $footerMenu;
 
 	// The cool kids’ way of handling page titles.
 	// https://gist.github.com/jonathanmarvens/6017139
@@ -39,9 +41,6 @@ abstract class BaseController extends Controller {
 	{
 		$this->repository = $repository;
 
-		$mainMenu = '';
-		$languagesMenu = array();
-
 		// Si une langue est présente dans l'url
 		if ($lang = Request::segment(1)) {
 
@@ -50,21 +49,17 @@ abstract class BaseController extends Controller {
 
 			$this->applicationName = Config::get('settings.website_title');
 
-
 			// Main menu
 			$mainMenuItems = Menulink::getMenu('main');
 			$listBuilder = new ListBuilder;
-			$mainMenu = $listBuilder->buildPublic($mainMenuItems);
+			$this->mainMenu = $listBuilder->buildPublic($mainMenuItems);
 
 			// Footer menu
 			$footerMenuItems = Menulink::getMenu('footer');
 			$listBuilder = new ListBuilder;
-			$footerMenu = $listBuilder->buildPublic($footerMenuItems);
+			$this->footerMenu = $listBuilder->buildPublic($footerMenuItems);
 
-			$languagesMenu = $this->languagesMenu();
 		}
-
-		// $this->model = $model;
 
 		$instance = $this;
 
@@ -72,9 +67,9 @@ abstract class BaseController extends Controller {
 			$view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));
 		});
 
-		View::share('mainMenu', $mainMenu);
-		View::share('footerMenu', $footerMenu);
-		View::share('languagesMenu', $languagesMenu);
+		View::share('mainMenu', $this->mainMenu);
+		View::share('footerMenu', $this->footerMenu);
+		View::share('languagesMenu', $this->languagesMenu());
 		View::share('lang', $lang);
 
 	}
