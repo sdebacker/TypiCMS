@@ -45,7 +45,7 @@ class UsersController extends BaseController {
 			return Redirect::intended(route('dashboard'));
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
-			return Redirect::route('users.login')->withInput();
+			return Redirect::route('login')->withInput();
 		}
 	}
 
@@ -54,7 +54,7 @@ class UsersController extends BaseController {
 	{
 		$this->repository->logout();
 		Notification::success('You are logged out.');
-		return Redirect::route('users.login');
+		return Redirect::route('login');
 	}
 
 
@@ -190,7 +190,7 @@ class UsersController extends BaseController {
 	{
 
 		if ( ! $this->form->valid( Input::all() ) ) {
-			return Redirect::route('users.register')
+			return Redirect::route('register')
 				->withInput()
 				->withErrors($this->form->errors());
 		}
@@ -205,12 +205,12 @@ class UsersController extends BaseController {
 			$message = 'Your account has been created. ';
 			$message .= $noConfirmation ? 'You can now log in.' : 'Check your email for the confirmation link.' ;
 			Notification::success($message);
-			return Redirect::route('users.login');
+			return Redirect::route('login');
 
 		} catch (Exception $e) {
 
 			Notification::error($e->getMessage());
-			return Redirect::route('users.register')->withInput();
+			return Redirect::route('register')->withInput();
 			
 		}
 
@@ -228,7 +228,7 @@ class UsersController extends BaseController {
 			Notification::error($e->getMessage());
 		}
 
-		return Redirect::route('users.login');
+		return Redirect::route('login');
 
 	}
 
@@ -243,7 +243,7 @@ class UsersController extends BaseController {
 	public function postResetpassword () {
 
 		if ( ! $this->form->resetPasswordValid( Input::all() ) ) {
-			return Redirect::route('users.resetpassword')
+			return Redirect::route('resetpassword')
 				->withInput()
 				->withErrors($this->form->errors());
 		}
@@ -262,11 +262,11 @@ class UsersController extends BaseController {
 			});
 
 			Notification::success('An email was sent with password reset information.');
-			return Redirect::route('users.login');
+			return Redirect::route('login');
 
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
-			return Redirect::route('users.resetpassword')->withInput();
+			return Redirect::route('resetpassword')->withInput();
 		}
 
 
@@ -285,7 +285,7 @@ class UsersController extends BaseController {
 			$user = $this->repository->byId($userId);
 			if ( ! $this->repository->checkResetPasswordCode($user, $resetCode) ) {
 				Notification::error('This password reset token is invalid.');
-				return Redirect::route('users.login');
+				return Redirect::route('login');
 			}
 			$data['id'] = $userId;
 			$data['resetCode'] = $resetCode;
@@ -308,7 +308,7 @@ class UsersController extends BaseController {
 		$input = Input::all();
 
 		if ( ! $this->form->changePasswordValid( $input ) ) {
-			return Redirect::route('users.changepassword', array($input['id'], $input['resetCode']))
+			return Redirect::route('changepassword', array($input['id'], $input['resetCode']))
 				->withInput()
 				->withErrors($this->form->errors());
 		}
@@ -334,7 +334,7 @@ class UsersController extends BaseController {
 						return Redirect::route('dashboard');
 					} catch (Exception $e) {
 						Notification::error($e->getMessage());
-						return Redirect::route('users.login')->withInput();
+						return Redirect::route('login')->withInput();
 					}
 
 				} else {
@@ -348,7 +348,7 @@ class UsersController extends BaseController {
 			Notification::error($e->getMessage());
 		}
 
-		return Redirect::route('users.login');
+		return Redirect::route('login');
 
 	}
 

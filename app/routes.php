@@ -2,20 +2,20 @@
 /**
  * Login / logout.
  */
-Route::get('users/login', array('as' => 'users.login', 'uses' => 'App\Controllers\Admin\UsersController@getLogin'));
+Route::get('users/login', array('as' => 'login', 'uses' => 'App\Controllers\Admin\UsersController@getLogin'));
 Route::post('users/login', 'App\Controllers\Admin\UsersController@postLogin');
 
-Route::get('users/logout', array('as' => 'users.logout', 'uses' => 'App\Controllers\Admin\UsersController@getLogout'));
+Route::get('users/logout', array('as' => 'logout', 'uses' => 'App\Controllers\Admin\UsersController@getLogout'));
 
-Route::get('users/register', array('as' => 'users.register', 'uses' => 'App\Controllers\Admin\UsersController@getRegister'));
+Route::get('users/register', array('as' => 'register', 'uses' => 'App\Controllers\Admin\UsersController@getRegister'));
 Route::post('users/register', 'App\Controllers\Admin\UsersController@postRegister');
 
-Route::get('users/activate', array('as' => 'users.activate', 'uses' => 'App\Controllers\Admin\UsersController@getActivate'));
+Route::get('users/activate', array('as' => 'activate', 'uses' => 'App\Controllers\Admin\UsersController@getActivate'));
 
-Route::get('users/resetpassword', array('as' => 'users.resetpassword', 'uses' => 'App\Controllers\Admin\UsersController@getResetpassword'));
+Route::get('users/resetpassword', array('as' => 'resetpassword', 'uses' => 'App\Controllers\Admin\UsersController@getResetpassword'));
 Route::post('users/resetpassword', 'App\Controllers\Admin\UsersController@postResetpassword');
 
-Route::get('users/changepassword/{userid}/{resetcode}', array('as' => 'users.changepassword', 'uses' => 'App\Controllers\Admin\UsersController@getChangepassword'));
+Route::get('users/changepassword/{userid}/{resetcode}', array('as' => 'changepassword', 'uses' => 'App\Controllers\Admin\UsersController@getChangepassword'));
 Route::post('users/changepassword/{userid}/{resetcode}', 'App\Controllers\Admin\UsersController@postChangepassword');
 
 /**
