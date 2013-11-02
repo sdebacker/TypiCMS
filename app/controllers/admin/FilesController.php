@@ -105,12 +105,12 @@ class FilesController extends BaseController {
 			$post[$key] = is_numeric($value) ? (int) $value : $value ;
 		}
 
-		if ( $this->form->save( $post ) ) {
+		if ( $this->form->save( Input::all() ) ) {
 			return Redirect::route('admin.files.index');
 		}
 
 		return Redirect::route('admin.files.create')
-			->withInput($post)
+			->withInput()
 			->withErrors($this->form->errors());
 
 	}

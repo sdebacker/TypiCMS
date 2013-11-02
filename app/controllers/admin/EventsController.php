@@ -81,12 +81,12 @@ class EventsController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->form->save( $post ) ) {
+		if ( $this->form->save( Input::all() ) ) {
 			return Redirect::route('admin.events.index');
 		}
 
 		return Redirect::route('admin.events.create')
-			->withInput($post)
+			->withInput()
 			->withErrors($this->form->errors());
 
 	}

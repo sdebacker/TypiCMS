@@ -85,12 +85,12 @@ class ProjectsController extends BaseController {
 	public function store($category)
 	{
 
-		if ( $this->form->save( $post ) ) {
+		if ( $this->form->save( Input::all() ) ) {
 			return Redirect::route('admin.categories.projects.index', $category->id);
 		}
 
 		return Redirect::route('admin.categories.projects.create', $category->id)
-			->withInput($post)
+			->withInput()
 			->withErrors($this->form->errors());
 
 	}

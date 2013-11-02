@@ -103,12 +103,12 @@ class MenuLinksController extends BaseController {
 	public function store($menu)
 	{
 
-		if ( $this->form->save( $post ) ) {
+		if ( $this->form->save( Input::all() ) ) {
 			return Redirect::route('admin.menus.menulinks.index', $menu->id);
 		}
 
 		return Redirect::route('admin.menus.menulinks.create', $menu->id)
-			->withInput($post)
+			->withInput()
 			->withErrors($this->form->errors());
 
 	}
