@@ -1067,12 +1067,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "3f9a8e7339c09cd73fe6af7603c99c2d42977ef7"
+                "reference": "4e9e345e3212eb44a628a8f1a92416afe726de85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3f9a8e7339c09cd73fe6af7603c99c2d42977ef7",
-                "reference": "3f9a8e7339c09cd73fe6af7603c99c2d42977ef7",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4e9e345e3212eb44a628a8f1a92416afe726de85",
+                "reference": "4e9e345e3212eb44a628a8f1a92416afe726de85",
                 "shasum": ""
             },
             "require": {
@@ -1151,7 +1151,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-11-01 00:02:04"
+            "time": "2013-11-01 22:43:11"
         },
         {
             "name": "ink/ink-translatable",
@@ -1473,12 +1473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "710440c1d52e18b152cfe13b4aaf1b6a56449ba6"
+                "reference": "2a90190c4d219aa4e1cce642b85f6bd26bbfcb41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/710440c1d52e18b152cfe13b4aaf1b6a56449ba6",
-                "reference": "710440c1d52e18b152cfe13b4aaf1b6a56449ba6",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2a90190c4d219aa4e1cce642b85f6bd26bbfcb41",
+                "reference": "2a90190c4d219aa4e1cce642b85f6bd26bbfcb41",
                 "shasum": ""
             },
             "require": {
@@ -1578,7 +1578,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-01 13:48:39"
+            "time": "2013-11-01 22:02:35"
         },
         {
             "name": "leafo/lessphp",
