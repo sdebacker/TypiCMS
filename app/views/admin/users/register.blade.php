@@ -4,11 +4,11 @@
 
 	<div id="register" class="container-login col-sm-4 col-sm-offset-4">
 
-		<h1>Register New Account</h1>
+		<h1>{{ trans('users.Register new account') }}</h1>
 
 		{{ Former::vertical_open()->role('form') }}
 
-			{{ Former::lg_email()->label('Email')->required() }}
+			{{ Former::lg_email()->label('email')->required() }}
 
 			<div class="row">
 				<div class="col-lg-6">
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 
-			{{ Former::lg_primary_block_button()->type('submit')->value('Register'); }}
+			{{ Former::lg_primary_block_button()->type('submit')->value('register'); }}
 
 		{{ Former::close() }}
 

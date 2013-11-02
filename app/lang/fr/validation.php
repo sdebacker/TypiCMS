@@ -121,7 +121,7 @@ return array(
 		'HH:MM' => 'HH:MM',
 		'DDMMYYYY' => 'JJ.MM.AAAA',
 
-		// Menulink
+		// Menulinks
 		'page_id' => 'page',
 		'menu_id' => 'menu',
 		'module_name' => 'module',
@@ -129,6 +129,18 @@ return array(
 		'class' => 'class',
 		'restricted_to' => 'restreint à',
 		'link_type' => 'type de lien',
+
+		// Users
+		'first_name' => 'prénom',
+		'last_name' => 'nom',
+		'groups' => 'groupes',
+		'email' => 'email',
+		'password' => 'mot de passe',
+		'password_confirmation' => 'Confirmer le mot de passe',
+		'reset password' => 'réinitialiser le mot de passe',
+		'register' => 's’enregistrer',
+		'Change password (if not empty)' => 'Nouveau mot de passe',
+		'save' => 'enregistrer',
 
 		'Submit' => 'Envoyer',
 		'Reset' => 'Reinitialiser',

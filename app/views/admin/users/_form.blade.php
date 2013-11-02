@@ -37,7 +37,7 @@
 
 	<div class="col-sm-3">
 
-	{{ Former::checkboxes('Groups')->checkboxes($groups)->check($selectedGroups) }}
+	{{ Former::checkboxes('groups')->checkboxes($groups)->check($selectedGroups) }}
 
 	</div>
 

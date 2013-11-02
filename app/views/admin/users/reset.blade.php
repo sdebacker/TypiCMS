@@ -8,9 +8,9 @@
 
 		{{ Former::open_vertical()->role('form') }}
 
-			{{ Former::lg_text('email')->placeholder('Email')->label('') }}
+			{{ Former::lg_text('email')->placeholder('email')->label('') }}
 
-			{{ Former::lg_primary_block_button()->type('submit')->value('Reset Password') }}
+			{{ Former::lg_primary_block_button()->type('submit')->value('reset password') }}
 
 		{{ Former::close() }}
 		

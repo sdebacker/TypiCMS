@@ -8,7 +8,7 @@ return array(
 	|--------------------------------------------------------------------------
 	*/
 	'modules' => array(
-		'configuration' => 'configuration',
+		'settings'      => 'configuration',
 		'pages'         => 'page|pages',
 		'files'         => 'fichier|fichiers',
 		'events'        => 'événement|événements',
@@ -32,11 +32,7 @@ return array(
 		'meta data' => 'méta données',
 		'options' => 'options',
 	),
-	'log out' => 'se déconnecter',
-	'log in'  => 'se connecter',
-	'username'  => 'identifiant',
-	'password'  => 'mot de passe',
-	'configuration'  => 'configuration',
+	'settings'  => 'configuration',
 	'dashboard' => array(
 		'Dashboard' => 'Tableau de bord',
 		'Welcome, :name!' => 'Bienvenue :name !',

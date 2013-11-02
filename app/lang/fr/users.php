@@ -8,5 +8,7 @@ return array(
 	|--------------------------------------------------------------------------
 	*/
 	'log out' => 'se déconnecter',
-
+	'Forgot your password?' => 'Mot de passe oublié ?',
+	'Register new account' => 'Nouveau compte',
+	'New password' => 'Nouveau mot de passe',
 );

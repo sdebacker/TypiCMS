@@ -4,7 +4,7 @@
 
 	<div id="login" class="container-login col-sm-4 col-sm-offset-4">
 
-		<h1>Please choose a new password</h1>
+		<h1>{{ trans('users.New password') }}</h1>
 
 		{{ Former::vertical_open()->role('form'); }}
 
@@ -21,7 +21,7 @@
 
 		{{ Former::hidden('id', $id); }}
 
-		{{ Former::lg_primary_block_button()->type('submit')->value('Save'); }}
+		{{ Former::lg_primary_block_button()->type('submit')->value('save'); }}
 
 		{{ Former::close(); }}
 
