@@ -148,7 +148,6 @@ return array(
 		'Cancel' => 'Annuler',
 	),
 
-
 	// Values, for example for select menus
 	'values' => array(
 		'Active tab' => 'Onglet actif',
