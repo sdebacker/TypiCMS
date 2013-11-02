@@ -10,7 +10,7 @@
 
 			{{ Former::lg_password('password')->label('')->placeholder('password')->help(link_to_route('resetpassword', trans('users.Forgot your password?'))) }}
 
-			{{ Former::lg_primary_block_button()->type('submit')->value('users.log in'); }}
+			{{ Former::lg_primary_block_button()->type('submit')->value('log in'); }}
 
 		{{ Former::close() }}
 		

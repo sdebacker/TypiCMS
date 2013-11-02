@@ -141,6 +141,7 @@ return array(
 		'register' => 's’enregistrer',
 		'Change password (if not empty)' => 'Nouveau mot de passe',
 		'save' => 'enregistrer',
+		'log in' => 's’enregistrer',
 
 		'Submit' => 'Envoyer',
 		'Reset' => 'Reinitialiser',
