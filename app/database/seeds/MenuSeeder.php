@@ -18,7 +18,9 @@ class MenuSeeder extends Seeder {
 		  array('id' => '2','menu_id' => '1','page_id' => '2','parent' => '0','position' => '5','target' => '','module_name' => '','restricted_to' => '','class' => 'menu-contact','link_type' => '','created_at' => '2013-09-03 22:08:35','updated_at' => '2013-10-05 19:31:13'),
 		  array('id' => '16','menu_id' => '1','page_id' => '29','parent' => '0','position' => '2','target' => '','module_name' => 'poi','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-09-09 23:18:49','updated_at' => '2013-10-05 19:31:13'),
 		  array('id' => '17','menu_id' => '1','page_id' => '0','parent' => '0','position' => '3','target' => '','module_name' => 'events','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-10-05 19:30:30','updated_at' => '2013-10-05 19:31:51'),
-		  array('id' => '18','menu_id' => '1','page_id' => '0','parent' => '0','position' => '4','target' => '','module_name' => 'projects','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-10-05 19:31:09','updated_at' => '2013-10-05 19:31:51')
+		  array('id' => '18','menu_id' => '1','page_id' => '0','parent' => '0','position' => '4','target' => '','module_name' => 'projects','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-10-05 19:31:09','updated_at' => '2013-10-05 19:31:51'),
+		  array('id' => '19','menu_id' => '2','page_id' => '2','parent' => '0','position' => '2','target' => '','module_name' => '','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-11-02 17:20:16','updated_at' => '2013-11-02 17:31:37'),
+		  array('id' => '20','menu_id' => '2','page_id' => '1','parent' => '0','position' => '1','target' => '','module_name' => '','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:31:37')
 		);
 
 		// `typicms`.`typi_menulinks_translations`
@@ -37,7 +39,13 @@ class MenuSeeder extends Seeder {
 		  array('id' => '51','menulink_id' => '17','lang' => 'en','status' => '1','title' => 'Events','url' => '','uri' => 'en/events','created_at' => '2013-10-05 19:30:30','updated_at' => '2013-10-05 19:31:51'),
 		  array('id' => '52','menulink_id' => '18','lang' => 'fr','status' => '1','title' => 'Projets','url' => '','uri' => 'fr/projets','created_at' => '2013-10-05 19:31:09','updated_at' => '2013-10-05 19:31:11'),
 		  array('id' => '53','menulink_id' => '18','lang' => 'nl','status' => '1','title' => 'Projecten','url' => '','uri' => 'nl/projecten','created_at' => '2013-10-05 19:31:09','updated_at' => '2013-10-05 19:31:49'),
-		  array('id' => '54','menulink_id' => '18','lang' => 'en','status' => '1','title' => 'Projects','url' => '','uri' => 'en/projects','created_at' => '2013-10-05 19:31:09','updated_at' => '2013-10-05 19:31:51')
+		  array('id' => '54','menulink_id' => '18','lang' => 'en','status' => '1','title' => 'Projects','url' => '','uri' => 'en/projects','created_at' => '2013-10-05 19:31:09','updated_at' => '2013-10-05 19:31:51'),
+		  array('id' => '55','menulink_id' => '19','lang' => 'fr','status' => '1','title' => 'Contact','url' => '','uri' => '','created_at' => '2013-11-02 17:20:16','updated_at' => '2013-11-02 17:20:18'),
+		  array('id' => '56','menulink_id' => '19','lang' => 'nl','status' => '1','title' => 'Contact','url' => '','uri' => '','created_at' => '2013-11-02 17:20:16','updated_at' => '2013-11-02 17:20:16'),
+		  array('id' => '57','menulink_id' => '19','lang' => 'en','status' => '1','title' => 'Contact','url' => '','uri' => '','created_at' => '2013-11-02 17:20:16','updated_at' => '2013-11-02 17:20:16'),
+		  array('id' => '58','menulink_id' => '20','lang' => 'fr','status' => '1','title' => 'Accueil','url' => '','uri' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:20:51'),
+		  array('id' => '59','menulink_id' => '20','lang' => 'nl','status' => '1','title' => 'Home','url' => '','uri' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:20:47'),
+		  array('id' => '60','menulink_id' => '20','lang' => 'en','status' => '1','title' => 'Home','url' => '','uri' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:20:44')
 		);
 
 		// `typicms`.`typi_menus`
