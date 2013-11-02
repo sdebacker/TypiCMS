@@ -50,12 +50,16 @@ abstract class BaseController extends Controller {
 
 			$this->applicationName = Config::get('settings.website_title');
 
-			// Sélectionner les éléments du menu principal
-			$mainMenuItems = Menulink::getMenu('main');
 
-			// Construire le menu
+			// Main menu
+			$mainMenuItems = Menulink::getMenu('main');
 			$listBuilder = new ListBuilder;
 			$mainMenu = $listBuilder->buildPublic($mainMenuItems);
+
+			// Footer menu
+			$footerMenuItems = Menulink::getMenu('footer');
+			$listBuilder = new ListBuilder;
+			$footerMenu = $listBuilder->buildPublic($footerMenuItems);
 
 			$languagesMenu = $this->languagesMenu();
 		}
@@ -69,6 +73,7 @@ abstract class BaseController extends Controller {
 		});
 
 		View::share('mainMenu', $mainMenu);
+		View::share('footerMenu', $footerMenu);
 		View::share('languagesMenu', $languagesMenu);
 		View::share('lang', $lang);
 
