@@ -10,7 +10,7 @@
 
 		<ul class="nav nav-tabs">
 
-			{{ Former::text('truc'); }}
+			{{ Former::text('webmaster_email'); }}
 
 			@foreach ($locales as $lang)
 
