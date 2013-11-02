@@ -36,7 +36,7 @@ if (Request::segment(1) != 'admin') {
 }
 
 /**
- * Admin side.
+ * Admin routes.
  */
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), function()
 {
@@ -67,9 +67,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 });
 
 /**
- * Public side.
+ * Public routes.
  */
-
 Route::group(array('before' => 'cache', 'after' => 'cache'), function()
 {
 
