@@ -66,6 +66,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 
 });
 
+
 /**
  * Public routes.
  */
