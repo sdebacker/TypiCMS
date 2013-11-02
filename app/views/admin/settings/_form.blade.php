@@ -4,40 +4,33 @@
 
 @stop
 
-<div class="row">
+<ul class="nav nav-tabs">
 
-	<div class="col-sm-6">
+	{{ Former::text('webmaster_email'); }}
 
-		<ul class="nav nav-tabs">
+	@foreach ($locales as $lang)
 
-			{{ Former::text('webmaster_email'); }}
+	<li class="@if ($contentlocale == $lang)active@endif">
+		<a href="#{{ $lang }}" data-target="#{{ $lang }}" data-toggle="tab">{{ $lang }}</a>
+	</li>
 
-			@foreach ($locales as $lang)
+	@endforeach
 
-			<li class="@if ($contentlocale == $lang)active@endif">
-				<a href="#{{ $lang }}" data-target="#{{ $lang }}" data-toggle="tab">{{ $lang }}</a>
-			</li>
+</ul>
 
-			@endforeach
+<div class="tab-content">
 
-		</ul>
+	@foreach ($locales as $lang)
 
-		<div class="tab-content">
-
-			@foreach ($locales as $lang)
-
-			<div class="tab-pane @if ($contentlocale == $lang)active@endif" id="{{ $lang }}">
-				{{ Former::lg_text($lang.'[website_title]')->label('title'); }}
-				{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
-			</div>
-
-			@endforeach
-
-		</div>
-
+	<div class="tab-pane @if ($contentlocale == $lang)active@endif" id="{{ $lang }}">
+		{{ Former::lg_text($lang.'[website_title]')->label('title'); }}
+		{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
 	</div>
 
+	@endforeach
+
 </div>
+
 
 <div>
 	{{ Former::primary_button()->type('submit')->value('Sauver') }}
