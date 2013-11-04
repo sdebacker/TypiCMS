@@ -123,7 +123,7 @@ class UsersController extends BaseController {
 		}
 
 		return Redirect::route('admin.users.create')
-			->withInput()
+			->withInput(Input::except('groups'))
 			->withErrors($this->form->errors());
 
 	}
