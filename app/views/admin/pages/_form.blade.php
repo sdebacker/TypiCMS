@@ -14,7 +14,8 @@
 <div class="tab-content">
 
 	<div class="tab-pane active" id="content">
-
+		
+		@if (count($locales) > 1)
 		<ul class="nav nav-pills">
 			@foreach ($locales as $lang)
 			<li class="@if ($contentlocale == $lang)active@endif">
@@ -22,6 +23,7 @@
 			</li>
 			@endforeach
 		</ul>
+		@endif
 
 		<div class="tab-content">
 

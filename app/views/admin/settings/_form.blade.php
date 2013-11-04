@@ -4,32 +4,30 @@
 
 @stop
 
-<ul class="nav nav-tabs">
-
 	{{ Former::text('webmaster_email'); }}
 
-	@foreach ($locales as $lang)
+		@if (count($locales) > 1)
+		<ul class="nav nav-pills">
+			@foreach ($locales as $lang)
+			<li class="@if ($contentlocale == $lang)active@endif">
+				<a href="#{{ $lang }}" data-target="#{{ $lang }}" data-toggle="tab">{{ $lang }}</a>
+			</li>
+			@endforeach
+		</ul>
+		@endif
 
-	<li class="@if ($contentlocale == $lang)active@endif">
-		<a href="#{{ $lang }}" data-target="#{{ $lang }}" data-toggle="tab">{{ $lang }}</a>
-	</li>
+		<div class="tab-content">
 
-	@endforeach
+			@foreach ($locales as $lang)
 
-</ul>
+			<div class="tab-pane @if ($contentlocale == $lang)active@endif" id="{{ $lang }}">
+				{{ Former::lg_text($lang.'[website_title]')->label('title'); }}
+				{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
+			</div>
 
-<div class="tab-content">
+			@endforeach
 
-	@foreach ($locales as $lang)
-
-	<div class="tab-pane @if ($contentlocale == $lang)active@endif" id="{{ $lang }}">
-		{{ Former::lg_text($lang.'[website_title]')->label('title'); }}
-		{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
-	</div>
-
-	@endforeach
-
-</div>
+		</div>
 
 
 <div>

@@ -154,40 +154,45 @@ abstract class BaseController extends Controller {
 
 		$languagesMenu = array();
 
-		foreach (Config::get('app.locales') as $lg) {
-			// Build translated routes
-			$translatedRouteArray = $routeArray;
-			$translatedRouteArray[0] = $lg;
+		if (count(Config::get('app.locales')) > 1) {
 
-			$translatedRouteName = implode('.', $translatedRouteArray);
-			$routeParams = array();
+			foreach (Config::get('app.locales') as $lg) {
 
-			if (in_array('categories', $translatedRouteArray)) {
-				if (isset($categories[$lg])) {
-					$routeParams[] = $categories[$lg];
-				} else {
-					array_pop($translatedRouteArray);
+				// Build translated routes
+				$translatedRouteArray = $routeArray;
+				$translatedRouteArray[0] = $lg;
+
+				$translatedRouteName = implode('.', $translatedRouteArray);
+				$routeParams = array();
+
+				if (in_array('categories', $translatedRouteArray)) {
+					if (isset($categories[$lg])) {
+						$routeParams[] = $categories[$lg];
+					} else {
+						array_pop($translatedRouteArray);
+					}
 				}
-			}
-			if (in_array('slug', $translatedRouteArray)) {
-				if (isset($slugs[$lg])) {
-					$routeParams[] = $slugs[$lg];
-				} else {
-					array_pop($translatedRouteArray);
+				if (in_array('slug', $translatedRouteArray)) {
+					if (isset($slugs[$lg])) {
+						$routeParams[] = $slugs[$lg];
+					} else {
+						array_pop($translatedRouteArray);
+					}
 				}
+				$translatedRouteName = implode('.', $translatedRouteArray);
+
+				// single page or module index
+				$route = Route::getRoutes()->get($translatedRouteName);
+				// if route in this lang doesn't exist, redirect to homepage
+				! $route and $translatedRouteName = $lg;
+
+				$languagesMenu[] = (object) array(
+					'lang' => $lg,
+					'url' => route($translatedRouteName, $routeParams),
+					'class' => Config::get('app.contentlocale') == $lg ? 'active' : ''
+				);
+
 			}
-			$translatedRouteName = implode('.', $translatedRouteArray);
-
-			// single page or module index
-			$route = Route::getRoutes()->get($translatedRouteName);
-			// if route in this lang doesn't exist, redirect to homepage
-			! $route and $translatedRouteName = $lg;
-
-			$languagesMenu[] = (object) array(
-				'lang' => $lg,
-				'url' => route($translatedRouteName, $routeParams),
-				'class' => Config::get('app.contentlocale') == $lg ? 'active' : ''
-			);
 
 		}
 
