@@ -1473,12 +1473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "241a2fd0c74d3752732b960af83bc9c902035ebd"
+                "reference": "9bc8a753d3f076ea7e77c6b6162fb8805746303b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/241a2fd0c74d3752732b960af83bc9c902035ebd",
-                "reference": "241a2fd0c74d3752732b960af83bc9c902035ebd",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9bc8a753d3f076ea7e77c6b6162fb8805746303b",
+                "reference": "9bc8a753d3f076ea7e77c6b6162fb8805746303b",
                 "shasum": ""
             },
             "require": {
@@ -1578,7 +1578,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-02 18:38:24"
+            "time": "2013-11-04 16:56:46"
         },
         {
             "name": "leafo/lessphp",
@@ -1627,12 +1627,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "a7e1479ed47a93152d7f7af34d9b73daf43c19c1"
+                "reference": "71be65fdcdce2a7228170c25606a1cdd5710e7c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/a7e1479ed47a93152d7f7af34d9b73daf43c19c1",
-                "reference": "a7e1479ed47a93152d7f7af34d9b73daf43c19c1",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/71be65fdcdce2a7228170c25606a1cdd5710e7c2",
+                "reference": "71be65fdcdce2a7228170c25606a1cdd5710e7c2",
                 "shasum": ""
             },
             "require": {
@@ -1669,7 +1669,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2013-11-01 15:24:10"
+            "time": "2013-11-04 17:14:57"
         },
         {
             "name": "mccool/database-backup",
@@ -2953,12 +2953,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/raveren/kint.git",
-                "reference": "aa4f10f0f5bdeabff515513f3a31388f196a5b5f"
+                "reference": "24a15aa6e666aa9492f4bb43b48a3dbf531014ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raveren/kint/zipball/aa4f10f0f5bdeabff515513f3a31388f196a5b5f",
-                "reference": "aa4f10f0f5bdeabff515513f3a31388f196a5b5f",
+                "url": "https://api.github.com/repos/raveren/kint/zipball/24a15aa6e666aa9492f4bb43b48a3dbf531014ac",
+                "reference": "24a15aa6e666aa9492f4bb43b48a3dbf531014ac",
                 "shasum": ""
             },
             "require": {
@@ -2991,7 +2991,7 @@
                 "kint",
                 "php"
             ],
-            "time": "2013-09-23 13:37:34"
+            "time": "2013-11-04 11:02:37"
         }
     ],
     "aliases": [
