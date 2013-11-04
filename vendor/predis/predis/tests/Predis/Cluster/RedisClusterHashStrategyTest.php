@@ -314,6 +314,7 @@ class RedisClusterHashStrategyTest extends StandardTestCase
             'SCARD'                 => 'keys-first',
             'SISMEMBER'             => 'keys-first',
             'SMEMBERS'              => 'keys-first',
+            'SSCAN'                 => 'keys-first',
             'SPOP'                  => 'keys-first',
             'SRANDMEMBER'           => 'keys-first',
             'SREM'                  => 'keys-first',
@@ -333,6 +334,7 @@ class RedisClusterHashStrategyTest extends StandardTestCase
             'ZREVRANGEBYSCORE'      => 'keys-first',
             'ZREVRANK'              => 'keys-first',
             'ZSCORE'                => 'keys-first',
+            'ZSCAN'                 => 'keys-first',
 
             /* commands operating on hashes */
             'HDEL'                  => 'keys-first',
@@ -348,6 +350,7 @@ class RedisClusterHashStrategyTest extends StandardTestCase
             'HSET'                  => 'keys-first',
             'HSETNX'                => 'keys-first',
             'HVALS'                 => 'keys-first',
+            'HSCAN'                 => 'keys-first',
 
             /* scripting */
             'EVAL'                  => 'keys-script',

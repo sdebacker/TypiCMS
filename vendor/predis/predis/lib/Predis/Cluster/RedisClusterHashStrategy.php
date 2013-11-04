@@ -102,6 +102,7 @@ class RedisClusterHashStrategy implements CommandHashStrategyInterface
             'SCARD'                 => $keyIsFirstArgument,
             'SISMEMBER'             => $keyIsFirstArgument,
             'SMEMBERS'              => $keyIsFirstArgument,
+            'SSCAN'                 => $keyIsFirstArgument,
             'SPOP'                  => $keyIsFirstArgument,
             'SRANDMEMBER'           => $keyIsFirstArgument,
             'SREM'                  => $keyIsFirstArgument,
@@ -121,6 +122,7 @@ class RedisClusterHashStrategy implements CommandHashStrategyInterface
             'ZREVRANGEBYSCORE'      => $keyIsFirstArgument,
             'ZREVRANK'              => $keyIsFirstArgument,
             'ZSCORE'                => $keyIsFirstArgument,
+            'ZSCAN'                 => $keyIsFirstArgument,
 
             /* commands operating on hashes */
             'HDEL'                  => $keyIsFirstArgument,
@@ -136,6 +138,7 @@ class RedisClusterHashStrategy implements CommandHashStrategyInterface
             'HSET'                  => $keyIsFirstArgument,
             'HSETNX'                => $keyIsFirstArgument,
             'HVALS'                 => $keyIsFirstArgument,
+            'HSCAN'                 => $keyIsFirstArgument,
 
             /* scripting */
             'EVAL'                  => array($this, 'getKeyFromScriptingCommands'),
