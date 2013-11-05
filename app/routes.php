@@ -79,28 +79,38 @@ Route::group(array('before' => 'cache', 'after' => 'cache'), function()
 	if ( ! App::runningInConsole()) {
 		
 		// Build routes from Table Pages
-		$pages = DB::table('pages')
+		$queryPages = DB::table('pages')
 			->select('pages.id', 'page_id', 'uri', 'lang')
 			->join('pages_translations', 'pages.id', '=', 'pages_translations.page_id')
 			->where('uri', '!=', '')
 			->where('is_home', '!=', 1)
 			->where('status', '=', 1)
-			->orderBy('lang')
-			->get();
+			->orderBy('lang');
+
+		if (Config::get('typicms.cachepublic')) {
+			$queryPages->remember(1440);
+		}
+
+		$pages = $queryPages->get();
 
 		foreach ($pages as $page) {
 			Route::get($page->uri, array('as' => $page->lang.'.pages.'.$page->id, 'uses' => 'App\Controllers\PagesController@uri'));
 		}
 
 		// Build routes from menulinks (modules)
-		$menulinks = DB::table('menulinks')
+		$queryMenulinks = DB::table('menulinks')
 			->select('menulinks.id', 'menulink_id', 'uri', 'lang', 'module_name')
 			->join('menulinks_translations', 'menulinks.id', '=', 'menulinks_translations.menulink_id')
 			->where('uri', '!=', '')
 			->where('module_name', '!=', '')
 			->where('status', '=', 1)
-			->orderBy('module_name')
-			->get();
+			->orderBy('module_name');
+
+		if (Config::get('typicms.cachepublic')) {
+			$queryMenulinks->remember(1440);
+		}
+
+		$menulinks = $queryMenulinks->get();
 
 		$menulinksArray = array();
 		foreach ($menulinks as $menulink) {
