@@ -22,7 +22,7 @@ class EventsController extends BaseController {
 
 		$models = $this->repository->getAll();
 
-		$this->layout->content = View::make('public.'.$this->repository->view().'.index')
+		$this->layout->content = View::make('public.events.index')
 			->with('models', $models);
 	}
 

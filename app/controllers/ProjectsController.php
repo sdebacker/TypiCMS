@@ -42,7 +42,7 @@ class ProjectsController extends BaseController {
 
 		$this->title['parent'] = $model->title;
 		
-		$this->layout->content = View::make('public.'.$this->repository->view().'.show')
+		$this->layout->content = View::make('public.projects.show')
 			->with('model', $model);
 	}
 

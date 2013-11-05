@@ -23,7 +23,7 @@ class CategoriesController extends BaseController {
 
 		$models = $this->repository->getAll();
 
-		$this->layout->content = View::make('public.'.$this->repository->view().'.index')
+		$this->layout->content = View::make('public.categories.index')
 			->with('models', $models);
 	}
 
@@ -40,7 +40,7 @@ class CategoriesController extends BaseController {
 
 		$this->title['parent'] = $model->title;
 		
-		$this->layout->content = View::make('public.'.$this->repository->view().'.show')
+		$this->layout->content = View::make('public.categories.show')
 			->with('model', $model);
 	}
 
