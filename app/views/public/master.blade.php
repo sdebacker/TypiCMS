@@ -11,6 +11,13 @@
 
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 
+	<script type="text/javascript" src="//use.typekit.net/{{ null }}.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<!--[if IE 8]>
+	<script type="text/javascript" src="{{ asset('plugins/respond.min.js') }}"></script>
+	<![endif]-->
+
 	{{ basset_javascripts('public') }}
 
 	@yield('head')
