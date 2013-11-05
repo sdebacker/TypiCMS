@@ -87,6 +87,13 @@ class TagTest extends HtmlObjectTests
     $this->assertEquals(array('data-foo' => 'bar'), $this->object->getAttributes());
   }
 
+  public function testCanGetAttribute()
+  {
+    $this->object->setAttribute('data-foo', 'bar');
+
+    $this->assertEquals('bar', $this->object->getAttribute('data-foo'));
+  }
+
   public function testCanDynamicallySetAttributes()
   {
     $this->object->data_foo('bar');

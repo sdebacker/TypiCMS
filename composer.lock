@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "852db5c240f3e5e069725b684a820c4e9b16eb25"
+                "reference": "720eb9de69bd4765e85e439fa72cd15d68f6cbf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/852db5c240f3e5e069725b684a820c4e9b16eb25",
-                "reference": "852db5c240f3e5e069725b684a820c4e9b16eb25",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/720eb9de69bd4765e85e439fa72cd15d68f6cbf4",
+                "reference": "720eb9de69bd4765e85e439fa72cd15d68f6cbf4",
                 "shasum": ""
             },
             "require": {
@@ -63,7 +63,7 @@
                 "foundation",
                 "laravel"
             ],
-            "time": "2013-10-31 21:12:34"
+            "time": "2013-11-05 18:38:25"
         },
         {
             "name": "anahkiasen/html-object",
@@ -71,12 +71,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/html-object.git",
-                "reference": "c6a901b12285f9a5b4a3731565eef9580d55dbee"
+                "reference": "bb57e95132c794510abbd5712ca04075f2e03f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/c6a901b12285f9a5b4a3731565eef9580d55dbee",
-                "reference": "c6a901b12285f9a5b4a3731565eef9580d55dbee",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/bb57e95132c794510abbd5712ca04075f2e03f3b",
+                "reference": "bb57e95132c794510abbd5712ca04075f2e03f3b",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +99,7 @@
                 }
             ],
             "description": "A set of classes to create and manipulate HTML objects abstractions",
-            "time": "2013-10-16 23:04:59"
+            "time": "2013-11-05 17:40:28"
         },
         {
             "name": "anahkiasen/underscore-php",
@@ -1473,12 +1473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9bc8a753d3f076ea7e77c6b6162fb8805746303b"
+                "reference": "5076824d4c0d4299522010ddb0bf03e7c96278ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9bc8a753d3f076ea7e77c6b6162fb8805746303b",
-                "reference": "9bc8a753d3f076ea7e77c6b6162fb8805746303b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5076824d4c0d4299522010ddb0bf03e7c96278ec",
+                "reference": "5076824d4c0d4299522010ddb0bf03e7c96278ec",
                 "shasum": ""
             },
             "require": {
@@ -1578,7 +1578,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-04 16:56:46"
+            "time": "2013-11-05 01:52:53"
         },
         {
             "name": "leafo/lessphp",
@@ -1951,16 +1951,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.13",
+            "version": "v1.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "92376c92e7edc281a2ca4e3384f3da9237415db6"
+                "reference": "af1d74b154bc62fab79b428877a9b5ab15f9418a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/92376c92e7edc281a2ca4e3384f3da9237415db6",
-                "reference": "92376c92e7edc281a2ca4e3384f3da9237415db6",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/af1d74b154bc62fab79b428877a9b5ab15f9418a",
+                "reference": "af1d74b154bc62fab79b428877a9b5ab15f9418a",
                 "shasum": ""
             },
             "require": {
@@ -1998,7 +1998,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2013-10-12 09:48:20"
+            "time": "2013-11-04 16:58:59"
         },
         {
             "name": "predis/predis",

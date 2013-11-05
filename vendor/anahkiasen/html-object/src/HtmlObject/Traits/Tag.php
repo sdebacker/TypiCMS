@@ -419,6 +419,18 @@ abstract class Tag extends TreeObject
   }
 
   /**
+   * Get an attribute
+   *
+   * @param string $attribute
+   *
+   * @return mixed
+   */
+  public function getAttribute($attribute)
+  {
+    return Helpers::arrayGet($this->attributes, $attribute);
+  }
+
+  /**
    * Replace all attributes with the provided array
    *
    * @param array $attributes The attributes to replace with

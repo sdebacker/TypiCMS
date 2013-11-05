@@ -18,9 +18,11 @@ class Bootup
 {
     static function initAll()
     {
+        ini_set('default_charset', 'UTF-8');
+
         self::initUtf8Encode();
-        self::initMbstring();
         self::initIconv();
+        self::initMbstring();
         self::initExif();
         self::initIntl();
         self::initLocale();
@@ -75,6 +77,8 @@ class Bootup
         }
         else if (!defined('MB_OVERLOAD_MAIL'))
         {
+            extension_loaded('iconv') or static::initIconv();
+
             require __DIR__ . '/Bootup/mbstring.php';
         }
     }
@@ -127,10 +131,6 @@ class Bootup
     {
         if (defined('GRAPHEME_CLUSTER_RX')) return;
 
-        preg_match('/^.$/u', '§') or user_error('PCRE is compiled without UTF-8 support', E_USER_WARNING);
-
-        extension_loaded('intl') or require __DIR__ . '/Bootup/intl.php';
-
         if (PCRE_VERSION < '8.32')
         {
             // (CRLF|([ZWNJ-ZWJ]|T+|L*(LV?V+|LV|LVT)T*|L+|[^Control])[Extend]*|[Control])
@@ -142,6 +142,14 @@ class Bootup
         else
         {
             define('GRAPHEME_CLUSTER_RX', '\X');
+        }
+
+        if (! extension_loaded('intl'))
+        {
+            extension_loaded('iconv') or static::initIconv();
+            extension_loaded('mbstring') or static::initMbstring();
+
+            require __DIR__ . '/Bootup/intl.php';
         }
     }
 
