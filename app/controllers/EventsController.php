@@ -26,4 +26,20 @@ class EventsController extends BaseController {
 			->with('models', $models);
 	}
 
+	/**
+	 * Show event.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($slug)
+	{
+		$model = $this->repository->bySlug($slug);
+
+		$this->title['parent'] = $model->title;
+		
+		$this->layout->content = View::make('public.events.show')
+			->with('model', $model);
+	}
+
 }
