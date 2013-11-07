@@ -7,10 +7,10 @@ class MenuSeeder extends Seeder {
 	public function run()
 	{
 		
-		DB::table('menus')->delete();
-		DB::table('menus_translations')->delete();
-		DB::table('menulinks')->delete();
-		DB::table('menulinks_translations')->delete();
+		DB::table('menus')->truncate();
+		DB::table('menus_translations')->truncate();
+		DB::table('menulinks')->truncate();
+		DB::table('menulinks_translations')->truncate();
 
 		// `typicms`.`typi_menulinks`
 		$typi_menulinks = array(

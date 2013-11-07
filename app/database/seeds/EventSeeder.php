@@ -6,8 +6,8 @@ class EventSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('events')->delete();
-		DB::table('events_translations')->delete();
+		DB::table('events')->truncate();
+		DB::table('events_translations')->truncate();
 
 		$typi_events = array(
 		  array('id' => '1','start_date' => '2013-10-24','end_date' => '0000-00-00','start_time' => ' 20:30','end_time' => '','created_at' => '2013-10-28 23:20:14','updated_at' => '2013-10-28 23:20:14'),

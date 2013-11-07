@@ -6,8 +6,8 @@ class ProjectSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('projects')->delete();
-		DB::table('projects_translations')->delete();
+		DB::table('projects')->truncate();
+		DB::table('projects_translations')->truncate();
 
 		// `typicms`.`typi_pages`
 		$typi_projects = array(

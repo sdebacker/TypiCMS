@@ -6,7 +6,7 @@ class SettingsSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('settings')->delete();
+		DB::table('settings')->truncate();
 
 		$typi_settings = array(
 			array('id' => '1','package' => NULL,'group_name' => 'fr','key_name' => 'website_title','value' => 'Typi CMS (fr)','type' => NULL,'environment' => NULL,'created_at' => '2013-11-01 12:46:46','updated_at' => '2013-11-01 16:40:15'),

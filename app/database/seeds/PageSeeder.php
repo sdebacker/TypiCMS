@@ -6,8 +6,8 @@ class PageSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('pages')->delete();
-		DB::table('pages_translations')->delete();
+		DB::table('pages')->truncate();
+		DB::table('pages_translations')->truncate();
 
 		// `typicms`.`typi_pages`
 		$typi_pages = array(

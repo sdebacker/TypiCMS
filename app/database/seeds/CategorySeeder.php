@@ -6,8 +6,8 @@ class CategorySeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('categories')->delete();
-		DB::table('categories_translations')->delete();
+		DB::table('categories')->truncate();
+		DB::table('categories_translations')->truncate();
 
 		// `typicms`.`typi_pages`
 		$typi_categories = array(
