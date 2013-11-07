@@ -8,7 +8,7 @@
 
 		{{ Former::vertical_open()->role('form') }}
 
-			{{ Former::lg_email()->label('email')->required() }}
+			{{ Former::lg_email('email')->label('email')->required() }}
 
 			<div class="row">
 				<div class="col-lg-6">
