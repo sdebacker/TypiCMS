@@ -14,6 +14,8 @@ class CreateSettingsTable extends Migration {
 	{
 		Schema::create('settings', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
 			$table->string('package')->nullable();
 			$table->string('group_name')->default('config');

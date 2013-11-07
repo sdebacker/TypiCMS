@@ -14,17 +14,22 @@ class CreateCategoriesTable extends Migration {
 	{
 		Schema::create('categories', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
+
+			$table->integer('position')->unsigned();
+
 			$table->timestamps();
 		});
 
 		Schema::create('categories_translations', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->integer('category_id')->unsigned();
 			
-			$table->integer('position')->unsigned();
-
 			$table->string('lang')->index();
 
 			$table->tinyInteger('status');

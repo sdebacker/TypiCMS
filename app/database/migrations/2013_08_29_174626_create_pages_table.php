@@ -15,6 +15,8 @@ class CreatePagesTable extends Migration {
 
 		Schema::create('pages', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
 
 			$table->string('meta_robots_no_index');
@@ -38,6 +40,8 @@ class CreatePagesTable extends Migration {
 
 		Schema::create('pages_translations', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->integer('page_id')->unsigned();
 

@@ -14,6 +14,8 @@ class CreateProjectsTable extends Migration {
 	{
 		Schema::create('projects', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
 			$table->integer('category_id')->unsigned();
 			$table->timestamps();
@@ -21,6 +23,8 @@ class CreateProjectsTable extends Migration {
 
 		Schema::create('projects_translations', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->integer('project_id')->unsigned();
 

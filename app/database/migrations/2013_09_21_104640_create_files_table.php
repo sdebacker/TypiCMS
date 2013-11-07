@@ -14,6 +14,8 @@ class CreateFilesTable extends Migration {
 	{
 		Schema::create('files', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
 			
 			$table->integer('fileable_id')->unsigned();
@@ -42,6 +44,8 @@ class CreateFilesTable extends Migration {
 
 		Schema::create('files_translations', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->integer('file_id')->unsigned();
 

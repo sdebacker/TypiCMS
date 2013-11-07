@@ -14,6 +14,8 @@ class CreateMenusTables extends Migration {
 	{
 		Schema::create('menus', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->string('name');
 
@@ -22,6 +24,8 @@ class CreateMenusTables extends Migration {
 		});
 		Schema::create('menus_translations', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->integer('menu_id')->unsigned();
 
@@ -34,6 +38,8 @@ class CreateMenusTables extends Migration {
 		});
 		Schema::create('menulinks', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->integer('menu_id')->unsigned();
 			$table->integer('page_id')->unsigned();
@@ -50,6 +56,8 @@ class CreateMenusTables extends Migration {
 		});
 		Schema::create('menulinks_translations', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->integer('menulink_id')->unsigned();
 

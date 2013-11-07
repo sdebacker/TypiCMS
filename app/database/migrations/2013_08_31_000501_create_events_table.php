@@ -14,6 +14,8 @@ class CreateEventsTable extends Migration {
 	{
 		Schema::create('events', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
 
 			$table->date('start_date');
@@ -26,6 +28,8 @@ class CreateEventsTable extends Migration {
 
 		Schema::create('events_translations', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id')->unsigned();
 			$table->integer('event_id')->unsigned();
 
