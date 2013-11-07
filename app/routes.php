@@ -10,7 +10,7 @@ Route::get('users/logout', array('as' => 'logout', 'uses' => 'App\Controllers\Ad
 Route::get('users/register', array('as' => 'register', 'uses' => 'App\Controllers\Admin\UsersController@getRegister'));
 Route::post('users/register', 'App\Controllers\Admin\UsersController@postRegister');
 
-Route::get('users/activate', array('as' => 'activate', 'uses' => 'App\Controllers\Admin\UsersController@getActivate'));
+Route::get('users/activate/{userid}/{activationCode}', array('as' => 'activate', 'uses' => 'App\Controllers\Admin\UsersController@getActivate'));
 
 Route::get('users/resetpassword', array('as' => 'resetpassword', 'uses' => 'App\Controllers\Admin\UsersController@getResetpassword'));
 Route::post('users/resetpassword', 'App\Controllers\Admin\UsersController@postResetpassword');
