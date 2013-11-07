@@ -8,6 +8,7 @@ use TypiCMS\Models\Project;
 use TypiCMS\Models\Category;
 use TypiCMS\Models\User;
 use TypiCMS\Models\Event;
+use TypiCMS\Models\News;
 use TypiCMS\Models\Setting;
 
 use TypiCMS\Repositories\Page\EloquentPage;
@@ -17,6 +18,7 @@ use TypiCMS\Repositories\Menulink\EloquentMenulink;
 use TypiCMS\Repositories\Project\EloquentProject;
 use TypiCMS\Repositories\Category\EloquentCategory;
 use TypiCMS\Repositories\Event\EloquentEvent;
+use TypiCMS\Repositories\News\EloquentNews;
 use TypiCMS\Repositories\User\SentryUser;
 use TypiCMS\Repositories\Dashboard\EloquentDashboard;
 use TypiCMS\Repositories\Setting\EloquentSetting;
@@ -87,6 +89,14 @@ class RepositoriesServiceProvider extends ServiceProvider {
 			return new EloquentEvent(
 				new Event,
 				new LaravelCache($app['cache'], 'events', 10)
+			);
+		});
+
+		$app->bind('TypiCMS\Repositories\News\NewsInterface', function($app)
+		{
+			return new EloquentNews(
+				new News,
+				new LaravelCache($app['cache'], 'news', 10)
 			);
 		});
 

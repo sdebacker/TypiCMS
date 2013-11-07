@@ -16,6 +16,8 @@ use TypiCMS\Services\Form\Category\CategoryForm;
 use TypiCMS\Services\Form\Category\CategoryFormLaravelValidator;
 use TypiCMS\Services\Form\Event\EventForm;
 use TypiCMS\Services\Form\Event\EventFormLaravelValidator;
+use TypiCMS\Services\Form\News\NewsForm;
+use TypiCMS\Services\Form\News\NewsFormLaravelValidator;
 use TypiCMS\Services\Form\User\UserForm;
 use TypiCMS\Services\Form\User\UserFormLaravelValidator;
 
@@ -67,6 +69,14 @@ class FormServiceProvider extends ServiceProvider {
 			return new EventForm(
 				new EventFormLaravelValidator( $app['validator'] ),
 				$app->make('TypiCMS\Repositories\Event\EventInterface')
+			);
+		});
+
+		$app->bind('TypiCMS\Services\Form\News\NewsForm', function($app)
+		{
+			return new NewsForm(
+				new NewsFormLaravelValidator( $app['validator'] ),
+				$app->make('TypiCMS\Repositories\News\NewsInterface')
 			);
 		});
 

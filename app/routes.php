@@ -24,6 +24,7 @@ Route::post('users/changepassword/{userid}/{resetcode}', 'App\Controllers\Admin\
 Route::model('pages', 'TypiCMS\Models\Page');
 Route::model('menus', 'TypiCMS\Models\Menu');
 Route::model('menulinks', 'TypiCMS\Models\Menulink');
+Route::model('news', 'TypiCMS\Models\News');
 Route::model('events', 'TypiCMS\Models\Event');
 Route::model('projects', 'TypiCMS\Models\Project');
 Route::model('categories', 'TypiCMS\Models\Category');

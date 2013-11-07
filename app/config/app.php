@@ -60,6 +60,7 @@ return array(
 		'Page'      => array('menu' => false, 'dashboard' => true , 'module' => 'pages'),
 		'User'      => array('menu' => false, 'dashboard' => true , 'module' => 'users'),
 		'File'      => array('menu' => false, 'dashboard' => true , 'module' => 'files'),
+		'News'      => array('menu' => true , 'dashboard' => true , 'module' => 'news'),
 		'Event'     => array('menu' => true , 'dashboard' => true , 'module' => 'events'),
 		'Category'  => array('menu' => true , 'dashboard' => true , 'module' => 'categories'),
 		// 'Project'   => array('menu' => true , 'dashboard' => true , 'module' => 'projects'),
