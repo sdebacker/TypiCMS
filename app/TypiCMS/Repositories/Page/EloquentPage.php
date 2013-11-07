@@ -74,17 +74,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		foreach ($data['item'] as $id => $parent) {
 			
 			$i++;
-			
 			$model = $this->model->find($id);
-			
-			// Change position
 			$model->position = $i;
-
-			// Change parent
-			( ! $parent) and $parent = 0;
-			$model->parent = $parent;
-
-			// save
+			$model->parent = $parent ? $parent : 0 ;
 			$model->save();
 
 			$this->updateUris($model);

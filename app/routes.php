@@ -49,7 +49,10 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 	Route::post('pages/sort', array('as' => 'admin.pages.sort', 'uses' => 'App\Controllers\Admin\PagesController@sort'));
 
 	Route::resource('events', 'App\Controllers\Admin\EventsController');
+
 	Route::resource('categories', 'App\Controllers\Admin\CategoriesController');
+	Route::post('categories/sort', array('as' => 'admin.categories.sort', 'uses' => 'App\Controllers\Admin\CategoriesController@sort'));
+
 	Route::resource('categories.projects', 'App\Controllers\Admin\ProjectsController');
 	Route::resource('news', 'App\Controllers\Admin\NewsController');
 	Route::resource('addresses', 'App\Controllers\Admin\AddressesController');

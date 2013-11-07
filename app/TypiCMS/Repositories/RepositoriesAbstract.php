@@ -270,21 +270,27 @@ abstract class RepositoriesAbstract {
 	{
 		$i = 0;
 
-		foreach ($data['item'] as $id => $parent) {
-			
-			$i++;
-			
-			$model = $this->model->find($id);
-			
-			// Change position
-			$model->position = $i;
+		if (isset($data['nested']) and $data['nested']) {
 
-			// Change parent
-			( ! $parent) and $parent = 0;
-			$data['nested'] and $model->parent = $parent;
+			foreach ($data['item'] as $id => $parent) {
+				
+				$i++;
+				$model = $this->model->find($id);
+				$model->position = $i;
+				$model->parent = $parent ? $parent : 0 ;
+				$model->save();
 
-			// save
-			$model->save();
+			}
+
+		} else {
+
+			foreach ($data['item'] as $key => $id) {
+				
+				$model = $this->model->find($id);
+				$model->position = $key+1;
+				$model->save();
+
+			}
 
 		}
 
