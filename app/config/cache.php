@@ -84,6 +84,6 @@ return array(
 	|
 	*/
 
-	'prefix' => 'TypiCMSe',
+	'prefix' => 'TypiCMS',
 
 );
