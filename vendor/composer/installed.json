@@ -617,12 +617,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/cartalyst/sentry.git",
-            "reference": "2cedb29a128a3c2c1c289550b8e66c464741985c"
+            "reference": "2518d21a0b9f22b42fecd26cc95cfc8e4b097592"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/2cedb29a128a3c2c1c289550b8e66c464741985c",
-            "reference": "2cedb29a128a3c2c1c289550b8e66c464741985c",
+            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/2518d21a0b9f22b42fecd26cc95cfc8e4b097592",
+            "reference": "2518d21a0b9f22b42fecd26cc95cfc8e4b097592",
             "shasum": ""
         },
         "require": {
@@ -640,7 +640,7 @@
             "illuminate/database": "Default sentry user, group and throttling implementations.",
             "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support."
         },
-        "time": "2013-10-19 15:12:54",
+        "time": "2013-11-07 20:51:32",
         "type": "library",
         "extra": {
             "component": "package",
@@ -1263,12 +1263,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "a280594ffbb1b563a0f042182221f39e7de9efa3"
+            "reference": "ffbcdf1db26932b6464ca624ee3a1c167ff3ec94"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a280594ffbb1b563a0f042182221f39e7de9efa3",
-            "reference": "a280594ffbb1b563a0f042182221f39e7de9efa3",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ffbcdf1db26932b6464ca624ee3a1c167ff3ec94",
+            "reference": "ffbcdf1db26932b6464ca624ee3a1c167ff3ec94",
             "shasum": ""
         },
         "require": {
@@ -1309,7 +1309,7 @@
             "zendframework/zend-cache": "2.0.*",
             "zendframework/zend-log": "2.0.*"
         },
-        "time": "2013-11-02 21:40:25",
+        "time": "2013-11-08 04:41:41",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2987,74 +2987,6 @@
         ]
     },
     {
-        "name": "aws/aws-sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "d558342507cd2c333ac58e3ae8f5e21577129f47"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d558342507cd2c333ac58e3ae8f5e21577129f47",
-            "reference": "d558342507cd2c333ac58e3ae8f5e21577129f47",
-            "shasum": ""
-        },
-        "require": {
-            "guzzle/guzzle": "~3.7.0",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "doctrine/cache": "~1.0",
-            "ext-openssl": "*",
-            "monolog/monolog": "1.4.*",
-            "phpunit/phpunit": "3.7.*",
-            "symfony/class-loader": "2.*",
-            "symfony/yaml": "2.*"
-        },
-        "suggest": {
-            "doctrine/cache": "Adds support for caching of credentials and responses",
-            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
-            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-            "monolog/monolog": "Adds support for logging HTTP requests and responses",
-            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
-        },
-        "time": "2013-11-06 19:28:09",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Aws": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Amazon Web Services",
-                "homepage": "http://aws.amazon.com"
-            }
-        ],
-        "description": "AWS SDK for PHP",
-        "homepage": "http://aws.amazon.com/sdkforphp2",
-        "keywords": [
-            "amazon",
-            "aws",
-            "dynamodb",
-            "ec2",
-            "s3",
-            "sdk"
-        ]
-    },
-    {
         "name": "predis/predis",
         "version": "0.8.x-dev",
         "version_normalized": "0.8.9999999.9999999-dev",
@@ -3101,6 +3033,74 @@
             "nosql",
             "predis",
             "redis"
+        ]
+    },
+    {
+        "name": "aws/aws-sdk-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aws/aws-sdk-php.git",
+            "reference": "1f5a64d6f20326e6173b972bd207d89180d1aec6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1f5a64d6f20326e6173b972bd207d89180d1aec6",
+            "reference": "1f5a64d6f20326e6173b972bd207d89180d1aec6",
+            "shasum": ""
+        },
+        "require": {
+            "guzzle/guzzle": "~3.7.0",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "doctrine/cache": "~1.0",
+            "ext-openssl": "*",
+            "monolog/monolog": "1.4.*",
+            "phpunit/phpunit": "3.7.*",
+            "symfony/class-loader": "2.*",
+            "symfony/yaml": "2.*"
+        },
+        "suggest": {
+            "doctrine/cache": "Adds support for caching of credentials and responses",
+            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+            "monolog/monolog": "Adds support for logging HTTP requests and responses",
+            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+        },
+        "time": "2013-11-07 23:21:59",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Aws": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Amazon Web Services",
+                "homepage": "http://aws.amazon.com"
+            }
+        ],
+        "description": "AWS SDK for PHP",
+        "homepage": "http://aws.amazon.com/sdkforphp2",
+        "keywords": [
+            "amazon",
+            "aws",
+            "dynamodb",
+            "ec2",
+            "s3",
+            "sdk"
         ]
     }
 ]

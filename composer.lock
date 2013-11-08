@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d558342507cd2c333ac58e3ae8f5e21577129f47"
+                "reference": "1f5a64d6f20326e6173b972bd207d89180d1aec6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d558342507cd2c333ac58e3ae8f5e21577129f47",
-                "reference": "d558342507cd2c333ac58e3ae8f5e21577129f47",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1f5a64d6f20326e6173b972bd207d89180d1aec6",
+                "reference": "1f5a64d6f20326e6173b972bd207d89180d1aec6",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-06 19:28:09"
+            "time": "2013-11-07 23:21:59"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -301,12 +301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cartalyst/sentry.git",
-                "reference": "2cedb29a128a3c2c1c289550b8e66c464741985c"
+                "reference": "2518d21a0b9f22b42fecd26cc95cfc8e4b097592"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/2cedb29a128a3c2c1c289550b8e66c464741985c",
-                "reference": "2cedb29a128a3c2c1c289550b8e66c464741985c",
+                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/2518d21a0b9f22b42fecd26cc95cfc8e4b097592",
+                "reference": "2518d21a0b9f22b42fecd26cc95cfc8e4b097592",
                 "shasum": ""
             },
             "require": {
@@ -392,7 +392,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2013-10-19 15:12:54"
+            "time": "2013-11-07 20:51:32"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1075,12 +1075,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "a280594ffbb1b563a0f042182221f39e7de9efa3"
+                "reference": "ffbcdf1db26932b6464ca624ee3a1c167ff3ec94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a280594ffbb1b563a0f042182221f39e7de9efa3",
-                "reference": "a280594ffbb1b563a0f042182221f39e7de9efa3",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ffbcdf1db26932b6464ca624ee3a1c167ff3ec94",
+                "reference": "ffbcdf1db26932b6464ca624ee3a1c167ff3ec94",
                 "shasum": ""
             },
             "require": {
@@ -1159,7 +1159,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-11-02 21:40:25"
+            "time": "2013-11-08 04:41:41"
         },
         {
             "name": "ink/ink-translatable",

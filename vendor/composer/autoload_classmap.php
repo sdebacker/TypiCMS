@@ -495,6 +495,7 @@ return array(
     'Aws\\ElasticLoadBalancing\\Exception\\InvalidSecurityGroupException' => $vendorDir . '/aws/aws-sdk-php/src/Aws/ElasticLoadBalancing/Exception/InvalidSecurityGroupException.php',
     'Aws\\ElasticLoadBalancing\\Exception\\InvalidSubnetException' => $vendorDir . '/aws/aws-sdk-php/src/Aws/ElasticLoadBalancing/Exception/InvalidSubnetException.php',
     'Aws\\ElasticLoadBalancing\\Exception\\ListenerNotFoundException' => $vendorDir . '/aws/aws-sdk-php/src/Aws/ElasticLoadBalancing/Exception/ListenerNotFoundException.php',
+    'Aws\\ElasticLoadBalancing\\Exception\\LoadBalancerAttributeNotFoundException' => $vendorDir . '/aws/aws-sdk-php/src/Aws/ElasticLoadBalancing/Exception/LoadBalancerAttributeNotFoundException.php',
     'Aws\\ElasticLoadBalancing\\Exception\\PolicyNotFoundException' => $vendorDir . '/aws/aws-sdk-php/src/Aws/ElasticLoadBalancing/Exception/PolicyNotFoundException.php',
     'Aws\\ElasticLoadBalancing\\Exception\\PolicyTypeNotFoundException' => $vendorDir . '/aws/aws-sdk-php/src/Aws/ElasticLoadBalancing/Exception/PolicyTypeNotFoundException.php',
     'Aws\\ElasticLoadBalancing\\Exception\\SubnetNotFoundException' => $vendorDir . '/aws/aws-sdk-php/src/Aws/ElasticLoadBalancing/Exception/SubnetNotFoundException.php',
