@@ -122,12 +122,13 @@ Route::group(array('before' => 'cache', 'after' => 'cache'), function()
 		}
 
 		// events routes
-		if (isset($menulinksArray['events'])) {
-			foreach ($menulinksArray['events'] as $lang => $uri) {
-				Route::get($uri, array('as' => $lang.'.events', 'uses' => 'App\Controllers\EventsController@index'));
-				Route::get($uri.'/{slug}', array('as' => $lang.'.events'.'.slug', 'uses' => 'App\Controllers\EventsController@show'));
-			}
-		}
+		// Add YYY-MM-DD in url ?
+		// if (isset($menulinksArray['events'])) {
+		// 	foreach ($menulinksArray['events'] as $lang => $uri) {
+		// 		Route::get($uri, array('as' => $lang.'.events', 'uses' => 'App\Controllers\EventsController@index'));
+		// 		Route::get($uri.'/{slug}', array('as' => $lang.'.events'.'.slug', 'uses' => 'App\Controllers\EventsController@show'));
+		// 	}
+		// }
 
 		// projects routes
 		if (isset($menulinksArray['projects'])) {
@@ -135,6 +136,15 @@ Route::group(array('before' => 'cache', 'after' => 'cache'), function()
 				Route::get($uri, array('as' => $lang.'.projects', 'uses' => 'App\Controllers\ProjectsController@index'));
 				Route::get($uri.'/{categories}', array('as' => $lang.'.projects.categories', 'uses' => 'App\Controllers\ProjectsController@index'));
 				Route::get($uri.'/{categories}/{slug}', array('as' => $lang.'.projects.categories.slug', 'uses' => 'App\Controllers\ProjectsController@show'));
+			}
+			unset($menulinksArray['projects']);
+		}
+
+		// modules routes
+		foreach ($menulinksArray as $module => $moduleArray) {
+			foreach ($moduleArray as $lang => $uri) {
+				Route::get($uri, array('as' => $lang.'.'.$module, 'uses' => 'App\Controllers\\'.ucfirst($module).'Controller@index'));
+				Route::get($uri.'/{slug}', array('as' => $lang.'.'.$module.'.slug', 'uses' => 'App\Controllers\\'.ucfirst($module).'Controller@show'));
 			}
 		}
 

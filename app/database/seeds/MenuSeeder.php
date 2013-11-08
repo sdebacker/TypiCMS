@@ -20,7 +20,8 @@ class MenuSeeder extends Seeder {
 		  array('id' => '17','menu_id' => '1','page_id' => '0','parent' => '0','position' => '3','target' => '','module_name' => 'events','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-10-05 19:30:30','updated_at' => '2013-10-05 19:31:51'),
 		  array('id' => '18','menu_id' => '1','page_id' => '0','parent' => '0','position' => '4','target' => '','module_name' => 'projects','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-10-05 19:31:09','updated_at' => '2013-10-05 19:31:51'),
 		  array('id' => '19','menu_id' => '2','page_id' => '2','parent' => '0','position' => '2','target' => '','module_name' => '','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-11-02 17:20:16','updated_at' => '2013-11-02 17:31:37'),
-		  array('id' => '20','menu_id' => '2','page_id' => '1','parent' => '0','position' => '1','target' => '','module_name' => '','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:31:37')
+		  array('id' => '20','menu_id' => '2','page_id' => '1','parent' => '0','position' => '1','target' => '','module_name' => '','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:31:37'),
+		  array('id' => '21','menu_id' => '1','page_id' => '0','parent' => '0','position' => '3','target' => '','module_name' => 'news','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-11-08 11:14:39','updated_at' => '2013-11-08 11:14:45'),
 		);
 
 		// `typicms`.`typi_menulinks_translations`
@@ -45,7 +46,10 @@ class MenuSeeder extends Seeder {
 		  array('id' => '57','menulink_id' => '19','lang' => 'en','status' => '1','title' => 'Contact','url' => '','uri' => '','created_at' => '2013-11-02 17:20:16','updated_at' => '2013-11-02 17:20:16'),
 		  array('id' => '58','menulink_id' => '20','lang' => 'fr','status' => '1','title' => 'Accueil','url' => '','uri' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:20:51'),
 		  array('id' => '59','menulink_id' => '20','lang' => 'nl','status' => '1','title' => 'Home','url' => '','uri' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:20:47'),
-		  array('id' => '60','menulink_id' => '20','lang' => 'en','status' => '1','title' => 'Home','url' => '','uri' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:20:44')
+		  array('id' => '60','menulink_id' => '20','lang' => 'en','status' => '1','title' => 'Home','url' => '','uri' => '','created_at' => '2013-11-02 17:20:43','updated_at' => '2013-11-02 17:20:44'),
+		  array('id' => '61','menulink_id' => '21','lang' => 'fr','status' => '1','title' => 'Actualités','url' => '','uri' => 'fr/actualites','created_at' => '2013-11-08 11:14:39','updated_at' => '2013-11-08 11:14:39'),
+		  array('id' => '62','menulink_id' => '21','lang' => 'nl','status' => '1','title' => 'Nieuws','url' => '','uri' => 'nl/nieuws','created_at' => '2013-11-08 11:14:39','updated_at' => '2013-11-08 11:14:39'),
+		  array('id' => '63','menulink_id' => '21','lang' => 'en','status' => '1','title' => 'News','url' => '','uri' => 'en/news','created_at' => '2013-11-08 11:14:39','updated_at' => '2013-11-08 11:14:39'),
 		);
 
 		// `typicms`.`typi_menus`
