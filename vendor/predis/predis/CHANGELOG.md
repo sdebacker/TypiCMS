@@ -6,6 +6,14 @@ v0.8.5 (2013-xx-xx)
 
 - Added `SCAN`, `SSCAN`, `ZSCAN`, `HSCAN` to the server profile for Redis 2.8.
 
+- Implemented PHP iterators for incremental iterations over Redis collections:
+
+    - keyspace (cursor-based iterator using `SCAN`)
+    - sets (cursor-based iterator using `SSCAN`)
+    - sorted sets (cursor-based iterator using `ZSCAN`)
+    - hashes (cursor-based iterator using `HSCAN`)
+    - lists (plain iterator using `LRANGE`)
+
 - `Predis\Client::pubSubLoop()` should now be used instead of the deprecated
   `Predis\Client::pubSub()` (which still works like usual to avoid B/C breaks).
   `Predis\Client::pubSub()` will change in the next major version of Predis to

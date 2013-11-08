@@ -10,6 +10,6 @@ return array(
     $vendorDir . '/swiftmailer/swiftmailer/lib/swift_required.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     $vendorDir . '/kriswallsmith/assetic/src/functions.php',
-    $vendorDir . '/jasonlewis/basset/src/helpers.php',
     $vendorDir . '/raveren/kint/Kint.class.php',
+    $vendorDir . '/jasonlewis/basset/src/helpers.php',
 );

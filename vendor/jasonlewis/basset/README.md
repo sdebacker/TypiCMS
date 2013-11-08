@@ -1,3 +1,10 @@
+## No Longer Maintained
+
+Basset is no longer being maintained by me (Jason Lewis). Appologies to those of you that have invested time into this package. Feel free to fork it if
+you feel the need but I strongly urged you to shift over to using [Grunt](http://gruntjs.com/) to manage the compiling and concatenation of your assets.
+
+Once again, I'm sorry, I just don't have the time and Grunt does an amazing job.
+
 ## Basset for Laravel 4
 
 [![Build Status](https://secure.travis-ci.org/jasonlewis/basset.png)](http://travis-ci.org/jasonlewis/basset)

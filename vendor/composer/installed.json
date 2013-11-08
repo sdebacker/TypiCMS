@@ -1578,77 +1578,6 @@
         ]
     },
     {
-        "name": "jasonlewis/basset",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jasonlewis/basset.git",
-            "reference": "d1e7d7c8c448a1cca2538d38289af3b34fc3e18c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jasonlewis/basset/zipball/d1e7d7c8c448a1cca2538d38289af3b34fc3e18c",
-            "reference": "d1e7d7c8c448a1cca2538d38289af3b34fc3e18c",
-            "shasum": ""
-        },
-        "require": {
-            "kriswallsmith/assetic": "1.1.*",
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "illuminate/config": "4.0.*",
-            "illuminate/console": "4.0.*",
-            "illuminate/filesystem": "4.0.*",
-            "illuminate/log": "4.0.*",
-            "illuminate/routing": "4.0.*",
-            "illuminate/support": "4.0.*",
-            "mockery/mockery": ">=0.7.2",
-            "symfony/process": "2.3.*"
-        },
-        "suggest": {
-            "aws/aws-sdk-php": "Deploy static assets directly to your S3 buckets.",
-            "rackspace/php-cloudfiles": "Deploy static assets directly to your Cloud Files container."
-        },
-        "time": "2013-06-14 06:13:15",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Basset": "src/"
-            },
-            "classmap": [
-                "tests/Cases/FilterTestCase.php"
-            ],
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-2-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Jason Lewis",
-                "email": "jason.lewis1991@gmail.com",
-                "homepage": "http://jasonlewis.me",
-                "role": "Creator"
-            }
-        ],
-        "description": "A better asset management package for Laravel.",
-        "keywords": [
-            "assets",
-            "basset",
-            "laravel"
-        ]
-    },
-    {
         "name": "symfony/event-dispatcher",
         "version": "2.3.x-dev",
         "version_normalized": "2.3.9999999.9999999-dev",
@@ -1918,49 +1847,6 @@
         "keywords": [
             "cache",
             "caching"
-        ]
-    },
-    {
-        "name": "edvinaskrucas/notification",
-        "version": "1.2.1",
-        "version_normalized": "1.2.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/edvinaskrucas/notification.git",
-            "reference": "ccb7a33257c9793e384348d122541d4703a678ac"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/edvinaskrucas/notification/zipball/ccb7a33257c9793e384348d122541d4703a678ac",
-            "reference": "ccb7a33257c9793e384348d122541d4703a678ac",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/config": "4.0.x",
-            "illuminate/session": "4.0.x",
-            "illuminate/support": "4.0.x",
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "mockery/mockery": "0.7.*"
-        },
-        "time": "2013-10-01 18:19:59",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Krucas\\Notification": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Edvinas Kručas",
-                "email": "edv.krucas@gmail.com"
-            }
         ]
     },
     {
@@ -2308,58 +2194,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "symfony/http-foundation",
-        "version": "2.3.x-dev",
-        "version_normalized": "2.3.9999999.9999999-dev",
-        "target-dir": "Symfony/Component/HttpFoundation",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/HttpFoundation.git",
-            "reference": "1bee3412d9ff603a9ed1cce305c0becbd735c307"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/1bee3412d9ff603a9ed1cce305c0becbd735c307",
-            "reference": "1bee3412d9ff603a9ed1cce305c0becbd735c307",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "time": "2013-10-30 08:28:22",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\HttpFoundation\\": ""
-            },
-            "classmap": [
-                "Symfony/Component/HttpFoundation/Resources/stubs"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony HttpFoundation Component",
-        "homepage": "http://symfony.com"
-    },
-    {
         "name": "symfony/process",
         "version": "2.3.x-dev",
         "version_normalized": "2.3.9999999.9999999-dev",
@@ -2480,170 +2314,6 @@
         ],
         "description": "Symfony HttpKernel Component",
         "homepage": "http://symfony.com"
-    },
-    {
-        "name": "barryvdh/laravel-debugbar",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "d65e17d5c34e3954f361d6c02c24aa5e8c72327f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d65e17d5c34e3954f361d6c02c24aa5e8c72327f",
-            "reference": "d65e17d5c34e3954f361d6c02c24aa5e8c72327f",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "~4.0",
-            "maximebf/debugbar": "dev-master",
-            "php": ">=5.3.0"
-        },
-        "time": "2013-10-30 11:38:12",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Barryvdh\\Debugbar": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Barry vd. Heuvel",
-                "email": "barryvdh@gmail.com"
-            }
-        ],
-        "description": "PHP Debugbar integration for Laravel",
-        "keywords": [
-            "debug",
-            "debugbar",
-            "laravel",
-            "profiler",
-            "webprofiler"
-        ]
-    },
-    {
-        "name": "aws/aws-sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "204550d00de76f70c8a69444823320354a0898c7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/204550d00de76f70c8a69444823320354a0898c7",
-            "reference": "204550d00de76f70c8a69444823320354a0898c7",
-            "shasum": ""
-        },
-        "require": {
-            "guzzle/guzzle": "~3.7.0",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "doctrine/cache": "~1.0",
-            "ext-openssl": "*",
-            "monolog/monolog": "1.4.*",
-            "phpunit/phpunit": "3.7.*",
-            "symfony/class-loader": "2.*",
-            "symfony/yaml": "2.*"
-        },
-        "suggest": {
-            "doctrine/cache": "Adds support for caching of credentials and responses",
-            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
-            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-            "monolog/monolog": "Adds support for logging HTTP requests and responses",
-            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
-        },
-        "time": "2013-10-31 19:16:43",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Aws": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Amazon Web Services",
-                "homepage": "http://aws.amazon.com"
-            }
-        ],
-        "description": "AWS SDK for PHP",
-        "homepage": "http://aws.amazon.com/sdkforphp2",
-        "keywords": [
-            "amazon",
-            "aws",
-            "dynamodb",
-            "ec2",
-            "s3",
-            "sdk"
-        ]
-    },
-    {
-        "name": "predis/predis",
-        "version": "0.8.x-dev",
-        "version_normalized": "0.8.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nrk/predis.git",
-            "reference": "695b6dd7b315a828a778a421037c85e718fb9054"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nrk/predis/zipball/695b6dd7b315a828a778a421037c85e718fb9054",
-            "reference": "695b6dd7b315a828a778a421037c85e718fb9054",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "suggest": {
-            "ext-curl": "Allows access to Webdis when paired with phpiredis",
-            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
-        },
-        "time": "2013-11-02 17:52:43",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Predis": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Daniele Alessandri",
-                "email": "suppakilla@gmail.com",
-                "homepage": "http://clorophilla.net"
-            }
-        ],
-        "description": "Flexible and feature-complete PHP client library for Redis",
-        "homepage": "http://github.com/nrk/predis",
-        "keywords": [
-            "nosql",
-            "predis",
-            "redis"
-        ]
     },
     {
         "name": "raveren/kint",
@@ -3093,6 +2763,344 @@
         "keywords": [
             "framework",
             "laravel"
+        ]
+    },
+    {
+        "name": "edvinaskrucas/notification",
+        "version": "1.2.2",
+        "version_normalized": "1.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/edvinaskrucas/notification.git",
+            "reference": "5018c96afea9b3f82008073afd9bd238c45aaef3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/edvinaskrucas/notification/zipball/5018c96afea9b3f82008073afd9bd238c45aaef3",
+            "reference": "5018c96afea9b3f82008073afd9bd238c45aaef3",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "4.*",
+            "illuminate/session": "4.*",
+            "illuminate/support": "4.*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "0.7.*"
+        },
+        "time": "2013-11-06 20:48:29",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Krucas\\Notification": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Edvinas Kručas",
+                "email": "edv.krucas@gmail.com"
+            }
+        ],
+        "description": "Package for Laravel for helping to manage flash / instant notifications / messages.",
+        "keywords": [
+            "flash",
+            "instant",
+            "laravel",
+            "messages",
+            "notifications"
+        ]
+    },
+    {
+        "name": "jasonlewis/basset",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jasonlewis/basset.git",
+            "reference": "79b94c3edef5015a34e3a0f834586358a6f99885"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jasonlewis/basset/zipball/79b94c3edef5015a34e3a0f834586358a6f99885",
+            "reference": "79b94c3edef5015a34e3a0f834586358a6f99885",
+            "shasum": ""
+        },
+        "require": {
+            "kriswallsmith/assetic": "1.1.*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "illuminate/config": "4.0.*",
+            "illuminate/console": "4.0.*",
+            "illuminate/filesystem": "4.0.*",
+            "illuminate/log": "4.0.*",
+            "illuminate/routing": "4.0.*",
+            "illuminate/support": "4.0.*",
+            "mockery/mockery": ">=0.7.2",
+            "symfony/process": "2.3.*"
+        },
+        "suggest": {
+            "aws/aws-sdk-php": "Deploy static assets directly to your S3 buckets.",
+            "rackspace/php-cloudfiles": "Deploy static assets directly to your Cloud Files container."
+        },
+        "time": "2013-11-06 08:17:47",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Basset": "src/"
+            },
+            "classmap": [
+                "tests/Cases/FilterTestCase.php"
+            ],
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Jason Lewis",
+                "email": "jason.lewis1991@gmail.com",
+                "homepage": "http://jasonlewis.me",
+                "role": "Creator"
+            }
+        ],
+        "description": "A better asset management package for Laravel.",
+        "keywords": [
+            "assets",
+            "basset",
+            "laravel"
+        ]
+    },
+    {
+        "name": "symfony/http-foundation",
+        "version": "2.3.x-dev",
+        "version_normalized": "2.3.9999999.9999999-dev",
+        "target-dir": "Symfony/Component/HttpFoundation",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/HttpFoundation.git",
+            "reference": "796619f49371629db8f5ef5ce82f2f52e4fdfd9d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/796619f49371629db8f5ef5ce82f2f52e4fdfd9d",
+            "reference": "796619f49371629db8f5ef5ce82f2f52e4fdfd9d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2013-11-04 06:09:51",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\HttpFoundation\\": ""
+            },
+            "classmap": [
+                "Symfony/Component/HttpFoundation/Resources/stubs"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony HttpFoundation Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "barryvdh/laravel-debugbar",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/barryvdh/laravel-debugbar.git",
+            "reference": "cfc8808295383419802204fc28677c52b8e7f87f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/cfc8808295383419802204fc28677c52b8e7f87f",
+            "reference": "cfc8808295383419802204fc28677c52b8e7f87f",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~4.0",
+            "maximebf/debugbar": "dev-master",
+            "php": ">=5.3.0"
+        },
+        "time": "2013-11-06 14:11:09",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Barryvdh\\Debugbar": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Barry vd. Heuvel",
+                "email": "barryvdh@gmail.com"
+            }
+        ],
+        "description": "PHP Debugbar integration for Laravel",
+        "keywords": [
+            "debug",
+            "debugbar",
+            "laravel",
+            "profiler",
+            "webprofiler"
+        ]
+    },
+    {
+        "name": "aws/aws-sdk-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aws/aws-sdk-php.git",
+            "reference": "d558342507cd2c333ac58e3ae8f5e21577129f47"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d558342507cd2c333ac58e3ae8f5e21577129f47",
+            "reference": "d558342507cd2c333ac58e3ae8f5e21577129f47",
+            "shasum": ""
+        },
+        "require": {
+            "guzzle/guzzle": "~3.7.0",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "doctrine/cache": "~1.0",
+            "ext-openssl": "*",
+            "monolog/monolog": "1.4.*",
+            "phpunit/phpunit": "3.7.*",
+            "symfony/class-loader": "2.*",
+            "symfony/yaml": "2.*"
+        },
+        "suggest": {
+            "doctrine/cache": "Adds support for caching of credentials and responses",
+            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+            "monolog/monolog": "Adds support for logging HTTP requests and responses",
+            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+        },
+        "time": "2013-11-06 19:28:09",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Aws": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Amazon Web Services",
+                "homepage": "http://aws.amazon.com"
+            }
+        ],
+        "description": "AWS SDK for PHP",
+        "homepage": "http://aws.amazon.com/sdkforphp2",
+        "keywords": [
+            "amazon",
+            "aws",
+            "dynamodb",
+            "ec2",
+            "s3",
+            "sdk"
+        ]
+    },
+    {
+        "name": "predis/predis",
+        "version": "0.8.x-dev",
+        "version_normalized": "0.8.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nrk/predis.git",
+            "reference": "62f8730f1aa0e6a6879eaee73819a3a0b57f8dab"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/62f8730f1aa0e6a6879eaee73819a3a0b57f8dab",
+            "reference": "62f8730f1aa0e6a6879eaee73819a3a0b57f8dab",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "suggest": {
+            "ext-curl": "Allows access to Webdis when paired with phpiredis",
+            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+        },
+        "time": "2013-11-07 17:48:53",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Predis": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniele Alessandri",
+                "email": "suppakilla@gmail.com",
+                "homepage": "http://clorophilla.net"
+            }
+        ],
+        "description": "Flexible and feature-complete PHP client library for Redis",
+        "homepage": "http://github.com/nrk/predis",
+        "keywords": [
+            "nosql",
+            "predis",
+            "redis"
         ]
     }
 ]
