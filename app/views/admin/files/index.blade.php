@@ -14,6 +14,10 @@
 		@foreach (Config::get('app.locales') as $locale)
 			{{ Former::hidden($locale.'[alt_attribute]')->value(''); }}
 		@endforeach
+		@if($relatedModel)
+		{{ Former::hidden('fileable_id')->value($relatedModel->id); }}
+		{{ Former::hidden('fileable_type')->value(get_class($relatedModel)); }}
+		@endif
 		{{ Former::actions()->primary_submit('Submit') }}
 	{{ Former::close() }}
 

@@ -29,8 +29,9 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 	 *
 	 * @param array  Data to create a new object
 	 */
-	public function upload(array $files)
+	public function upload(array $input)
 	{
+		$files = $input['file'];
 
 		$destinationPath = 'uploads';
 		
@@ -38,6 +39,8 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 
 			$dataArray = array();
 
+			$dataArray['fileable_id'] = $input['fileable_id'];
+			$dataArray['fileable_type'] = $input['fileable_type'];
 			$dataArray['filename'] = $file->getClientOriginalName();
 			$dataArray['extension'] = '.'.$file->getClientOriginalExtension();
 			$dataArray['filesize'] = $file->getClientSize();
@@ -47,6 +50,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 			$filename = $file->getClientOriginalName();
 
 			if( $file->move($destinationPath, $filename) ) {
+				list($dataArray['width'], $dataArray['height']) = getimagesize($destinationPath.'/'.$filename);
 				$this->model->create($dataArray);
 			}
 

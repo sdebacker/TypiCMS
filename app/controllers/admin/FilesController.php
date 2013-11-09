@@ -24,9 +24,8 @@ class FilesController extends BaseController {
 	 */
 	public function upload()
 	{
-		$files = Input::file('file');
 
-		$this->repository->upload($files);
+		$this->repository->upload(Input::all());
 
 		if ( ! Request::ajax()) {
 			return Redirect::route( 'admin.files.index' );
@@ -39,11 +38,12 @@ class FilesController extends BaseController {
 	 * List models
 	 * GET /admin/model
 	 */
-	public function index()
+	public function index($relatedModel = null)
 	{
 		$models = $this->repository->getAll(true);
 		$list = $this->repository->buildList($models->all());
 		$this->layout->content = View::make('admin.files.index')
+			->with('relatedModel', $relatedModel)
 			->with('models', $models)
 			->with('list', $list);
 	}

@@ -62,6 +62,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 	Route::resource('users', 'App\Controllers\Admin\UsersController');
 
 	Route::resource('files', 'App\Controllers\Admin\FilesController');
+	Route::resource('news.files', 'App\Controllers\Admin\FilesController');
+	Route::resource('pages.files', 'App\Controllers\Admin\FilesController');
+	Route::resource('events.files', 'App\Controllers\Admin\FilesController');
+	Route::resource('partners.files', 'App\Controllers\Admin\FilesController');
+	Route::resource('projects.files', 'App\Controllers\Admin\FilesController');
 	Route::post('files/upload', array('as' => 'admin.files.upload', 'uses' => 'App\Controllers\Admin\FilesController@upload'));
 
 	Route::resource('menus', 'App\Controllers\Admin\MenusController');
