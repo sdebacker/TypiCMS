@@ -34,8 +34,8 @@
 				.replace('æ','ae');
 
 			// remove accents, swap ñ for n, etc
-			var from = "ÃÀÁÄÂẼÈÉËÊÌÍÏÎÕÒÓÖÔÙÚÜÛÑÇãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;-";
-			var to   = "AAAAAEEEEEIIIIOOOOOUUUUNCaaaaaeeeeeiiiiooooouuuunc       ";
+			var from = "ÃÀÁÄÂẼÈÉËÊÌÍÏÎÕÒÓÖÔÙÚÜÛÑÇãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;-'’";
+			var to   = "AAAAAEEEEEIIIIOOOOOUUUUNCaaaaaeeeeeiiiiooooouuuunc         ";
 			for (var i=0, l=from.length ; i<l ; i++) {
 				slugcontent = slugcontent.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
 			}
