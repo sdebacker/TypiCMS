@@ -1,3 +1,6 @@
+@section('languagesMenu')@stop
+@section('mainMenu')@stop
+
 @section('main')
 
 	<div class="row">
@@ -25,3 +28,5 @@
 	</div>
 
 @stop
+
+@section('footerMenu')@stop

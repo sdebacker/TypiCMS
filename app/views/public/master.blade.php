@@ -33,6 +33,7 @@
 
 <div class="container" id="content">
 
+	@section('languagesMenu')
 	<nav role="navigation" class="menu menu-languages pull-right">
 		{{-- $languagesMenuList --}}
 		<ul class="nav nav-pills">
@@ -43,16 +44,21 @@
 			@endforeach
 		</ul>
 	</nav>
+	@show
 
 	@yield('menu')
 
+	@section('mainMenu')
 	<nav role="navigation">
 		{{ $mainMenu }}
 	</nav>
+	@show
 
 	@yield('main')
 
+	@section('footerMenu')
 	@include('public._footer')
+	@show
 
 </div>
 
