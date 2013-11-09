@@ -1263,12 +1263,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "ffbcdf1db26932b6464ca624ee3a1c167ff3ec94"
+            "reference": "4363c95b584dcafc8ff386c27116283ad53d738d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ffbcdf1db26932b6464ca624ee3a1c167ff3ec94",
-            "reference": "ffbcdf1db26932b6464ca624ee3a1c167ff3ec94",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4363c95b584dcafc8ff386c27116283ad53d738d",
+            "reference": "4363c95b584dcafc8ff386c27116283ad53d738d",
             "shasum": ""
         },
         "require": {
@@ -1309,7 +1309,7 @@
             "zendframework/zend-cache": "2.0.*",
             "zendframework/zend-log": "2.0.*"
         },
-        "time": "2013-11-08 04:41:41",
+        "time": "2013-11-08 21:36:09",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1731,48 +1731,6 @@
             "laravel",
             "translatable"
         ]
-    },
-    {
-        "name": "mrclay/minify",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mrclay/minify.git",
-            "reference": "94d2596a5730db509eddcec92fcf67b6139bbdc7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/mrclay/minify/zipball/94d2596a5730db509eddcec92fcf67b6139bbdc7",
-            "reference": "94d2596a5730db509eddcec92fcf67b6139bbdc7",
-            "shasum": ""
-        },
-        "require": {
-            "ext-pcre": "*",
-            "php": ">=5.2.1"
-        },
-        "time": "2013-09-26 13:10:32",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "min/lib/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Stephen Clay",
-                "email": "steve@mrclay.org",
-                "homepage": "http://www.mrclay.org/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Minify is a PHP5 app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
-        "homepage": "http://code.google.com/p/minify/"
     },
     {
         "name": "doctrine/cache",
@@ -2364,58 +2322,6 @@
         ]
     },
     {
-        "name": "maximebf/debugbar",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/maximebf/php-debugbar.git",
-            "reference": "71be65fdcdce2a7228170c25606a1cdd5710e7c2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/71be65fdcdce2a7228170c25606a1cdd5710e7c2",
-            "reference": "71be65fdcdce2a7228170c25606a1cdd5710e7c2",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0",
-            "psr/log": "~1.0"
-        },
-        "require-dev": {
-            "php": ">=5.3.0"
-        },
-        "suggest": {
-            "kriswallsmith/assetic": "The best way to manage assets",
-            "monolog/monolog": "Log using Monolog",
-            "predis/predis": "Redis storage"
-        },
-        "time": "2013-11-04 17:14:57",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "DebugBar": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Bouroumeau-Fuseau",
-                "email": "maxime.bouroumeau@gmail.com",
-                "homepage": "http://maximebf.com"
-            }
-        ],
-        "description": "Debug bar in the browser for php application",
-        "homepage": "https://github.com/maximebf/php-debugbar",
-        "keywords": [
-            "debug"
-        ]
-    },
-    {
         "name": "leafo/lessphp",
         "version": "v0.4.0",
         "version_normalized": "0.4.0.0",
@@ -2587,68 +2493,6 @@
             }
         ],
         "description": "A set of classes to create and manipulate HTML objects abstractions"
-    },
-    {
-        "name": "anahkiasen/former",
-        "version": "dev-develop",
-        "version_normalized": "dev-develop",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Anahkiasen/former.git",
-            "reference": "720eb9de69bd4765e85e439fa72cd15d68f6cbf4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Anahkiasen/former/zipball/720eb9de69bd4765e85e439fa72cd15d68f6cbf4",
-            "reference": "720eb9de69bd4765e85e439fa72cd15d68f6cbf4",
-            "shasum": ""
-        },
-        "require": {
-            "anahkiasen/html-object": "dev-master",
-            "anahkiasen/underscore-php": "dev-master",
-            "illuminate/config": "~4",
-            "illuminate/container": "~4",
-            "illuminate/http": "~4",
-            "illuminate/routing": "~4",
-            "illuminate/session": "~4",
-            "illuminate/translation": "~4"
-        },
-        "require-dev": {
-            "illuminate/database": "~4",
-            "mockery/mockery": "dev-master"
-        },
-        "time": "2013-11-05 18:38:25",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-agnostic": "3.x.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Former": "src",
-                "Laravel": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Fabre",
-                "email": "ehtnam6@gmail.com"
-            }
-        ],
-        "description": "A powerful form builder",
-        "homepage": "http://anahkiasen.github.com/former/",
-        "keywords": [
-            "bootstrap",
-            "form",
-            "foundation",
-            "laravel"
-        ]
     },
     {
         "name": "laravel/framework",
@@ -3036,18 +2880,174 @@
         ]
     },
     {
+        "name": "maximebf/debugbar",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/maximebf/php-debugbar.git",
+            "reference": "57344ccb95b43090dabb6292509df8e94c83ffaa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/57344ccb95b43090dabb6292509df8e94c83ffaa",
+            "reference": "57344ccb95b43090dabb6292509df8e94c83ffaa",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "psr/log": "~1.0"
+        },
+        "require-dev": {
+            "php": ">=5.3.0"
+        },
+        "suggest": {
+            "kriswallsmith/assetic": "The best way to manage assets",
+            "monolog/monolog": "Log using Monolog",
+            "predis/predis": "Redis storage"
+        },
+        "time": "2013-11-08 17:26:30",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "DebugBar": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Bouroumeau-Fuseau",
+                "email": "maxime.bouroumeau@gmail.com",
+                "homepage": "http://maximebf.com"
+            }
+        ],
+        "description": "Debug bar in the browser for php application",
+        "homepage": "https://github.com/maximebf/php-debugbar",
+        "keywords": [
+            "debug"
+        ]
+    },
+    {
+        "name": "anahkiasen/former",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Anahkiasen/former.git",
+            "reference": "ab4ef00babc70943442bc3d3abc648e5b9513990"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Anahkiasen/former/zipball/ab4ef00babc70943442bc3d3abc648e5b9513990",
+            "reference": "ab4ef00babc70943442bc3d3abc648e5b9513990",
+            "shasum": ""
+        },
+        "require": {
+            "anahkiasen/html-object": "dev-master",
+            "anahkiasen/underscore-php": "dev-master",
+            "illuminate/config": "~4",
+            "illuminate/container": "~4",
+            "illuminate/http": "~4",
+            "illuminate/routing": "~4",
+            "illuminate/session": "~4",
+            "illuminate/translation": "~4"
+        },
+        "require-dev": {
+            "illuminate/database": "~4",
+            "mockery/mockery": "dev-master"
+        },
+        "time": "2013-11-08 14:03:02",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-agnostic": "3.x.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Former": "src",
+                "Laravel": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Fabre",
+                "email": "ehtnam6@gmail.com"
+            }
+        ],
+        "description": "A powerful form builder",
+        "homepage": "http://anahkiasen.github.com/former/",
+        "keywords": [
+            "bootstrap",
+            "form",
+            "foundation",
+            "laravel"
+        ]
+    },
+    {
+        "name": "mrclay/minify",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mrclay/minify.git",
+            "reference": "e778d4f71440a381307ce9b65b3ee9b556d5b085"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mrclay/minify/zipball/e778d4f71440a381307ce9b65b3ee9b556d5b085",
+            "reference": "e778d4f71440a381307ce9b65b3ee9b556d5b085",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pcre": "*",
+            "php": ">=5.2.1"
+        },
+        "time": "2013-11-09 01:00:44",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "min/lib/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Steve Clay",
+                "email": "steve@mrclay.org",
+                "homepage": "http://www.mrclay.org/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Minify is a PHP5 app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
+        "homepage": "http://code.google.com/p/minify/"
+    },
+    {
         "name": "aws/aws-sdk-php",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "1f5a64d6f20326e6173b972bd207d89180d1aec6"
+            "reference": "80ec29d00a23471553005e6948609304aeb4e899"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1f5a64d6f20326e6173b972bd207d89180d1aec6",
-            "reference": "1f5a64d6f20326e6173b972bd207d89180d1aec6",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/80ec29d00a23471553005e6948609304aeb4e899",
+            "reference": "80ec29d00a23471553005e6948609304aeb4e899",
             "shasum": ""
         },
         "require": {
@@ -3069,7 +3069,7 @@
             "monolog/monolog": "Adds support for logging HTTP requests and responses",
             "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
         },
-        "time": "2013-11-07 23:21:59",
+        "time": "2013-11-08 18:14:08",
         "type": "library",
         "extra": {
             "branch-alias": {

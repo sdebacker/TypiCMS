@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "720eb9de69bd4765e85e439fa72cd15d68f6cbf4"
+                "reference": "ab4ef00babc70943442bc3d3abc648e5b9513990"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/720eb9de69bd4765e85e439fa72cd15d68f6cbf4",
-                "reference": "720eb9de69bd4765e85e439fa72cd15d68f6cbf4",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/ab4ef00babc70943442bc3d3abc648e5b9513990",
+                "reference": "ab4ef00babc70943442bc3d3abc648e5b9513990",
                 "shasum": ""
             },
             "require": {
@@ -63,7 +63,7 @@
                 "foundation",
                 "laravel"
             ],
-            "time": "2013-11-05 18:38:25"
+            "time": "2013-11-08 14:03:02"
         },
         {
             "name": "anahkiasen/html-object",
@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1f5a64d6f20326e6173b972bd207d89180d1aec6"
+                "reference": "80ec29d00a23471553005e6948609304aeb4e899"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1f5a64d6f20326e6173b972bd207d89180d1aec6",
-                "reference": "1f5a64d6f20326e6173b972bd207d89180d1aec6",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/80ec29d00a23471553005e6948609304aeb4e899",
+                "reference": "80ec29d00a23471553005e6948609304aeb4e899",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-07 23:21:59"
+            "time": "2013-11-08 18:14:08"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1075,12 +1075,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ffbcdf1db26932b6464ca624ee3a1c167ff3ec94"
+                "reference": "4363c95b584dcafc8ff386c27116283ad53d738d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ffbcdf1db26932b6464ca624ee3a1c167ff3ec94",
-                "reference": "ffbcdf1db26932b6464ca624ee3a1c167ff3ec94",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4363c95b584dcafc8ff386c27116283ad53d738d",
+                "reference": "4363c95b584dcafc8ff386c27116283ad53d738d",
                 "shasum": ""
             },
             "require": {
@@ -1159,7 +1159,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-11-08 04:41:41"
+            "time": "2013-11-08 21:36:09"
         },
         {
             "name": "ink/ink-translatable",
@@ -1635,12 +1635,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "71be65fdcdce2a7228170c25606a1cdd5710e7c2"
+                "reference": "57344ccb95b43090dabb6292509df8e94c83ffaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/71be65fdcdce2a7228170c25606a1cdd5710e7c2",
-                "reference": "71be65fdcdce2a7228170c25606a1cdd5710e7c2",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/57344ccb95b43090dabb6292509df8e94c83ffaa",
+                "reference": "57344ccb95b43090dabb6292509df8e94c83ffaa",
                 "shasum": ""
             },
             "require": {
@@ -1677,7 +1677,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2013-11-04 17:14:57"
+            "time": "2013-11-08 17:26:30"
         },
         {
             "name": "mccool/database-backup",
@@ -1793,12 +1793,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mrclay/minify.git",
-                "reference": "94d2596a5730db509eddcec92fcf67b6139bbdc7"
+                "reference": "e778d4f71440a381307ce9b65b3ee9b556d5b085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrclay/minify/zipball/94d2596a5730db509eddcec92fcf67b6139bbdc7",
-                "reference": "94d2596a5730db509eddcec92fcf67b6139bbdc7",
+                "url": "https://api.github.com/repos/mrclay/minify/zipball/e778d4f71440a381307ce9b65b3ee9b556d5b085",
+                "reference": "e778d4f71440a381307ce9b65b3ee9b556d5b085",
                 "shasum": ""
             },
             "require": {
@@ -1817,7 +1817,7 @@
             ],
             "authors": [
                 {
-                    "name": "Stephen Clay",
+                    "name": "Steve Clay",
                     "email": "steve@mrclay.org",
                     "homepage": "http://www.mrclay.org/",
                     "role": "Developer"
@@ -1825,7 +1825,7 @@
             ],
             "description": "Minify is a PHP5 app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
             "homepage": "http://code.google.com/p/minify/",
-            "time": "2013-09-26 13:10:32"
+            "time": "2013-11-09 01:00:44"
         },
         {
             "name": "natxet/CssMin",
