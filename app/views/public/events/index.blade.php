@@ -6,7 +6,7 @@
 		@foreach($models as $model)
 		<li>
 			{{ $model->title }} {{ $model->start_date }}
-			<a href="{{ route($lang.'.'.'events'.'.slug', $model->slug) }}">More</a>
+			<a href="{{ route($lang.'.'.'events'.'.slug', $model->slug) }}">{{ trans('public.More') }}</a>
 		</li>
 		@endforeach
 	</ul>

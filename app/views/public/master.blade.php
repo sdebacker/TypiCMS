@@ -27,40 +27,41 @@
 </head>
 
 <body>
+
 	<a href="#content" class="sr-only">{{ trans('public.Skip to content') }}</a>
 
-{{ $navBar }}
+	{{ $navBar }}
 
-<div class="container" id="content">
+	<div class="container" id="content">
 
-	@section('languagesMenu')
-	<nav role="navigation" class="menu menu-languages pull-right">
-		{{-- $languagesMenuList --}}
-		<ul class="nav nav-pills">
-			@foreach ($languagesMenu as $item)
-				<li class="{{ $item->class }}">
-					<a href="{{ $item->url }}">{{ $item->lang }}</a>
-				</li>
-			@endforeach
-		</ul>
-	</nav>
-	@show
+		@section('languagesMenu')
+		<nav role="navigation" class="menu menu-languages pull-right">
+			{{-- $languagesMenuList --}}
+			<ul class="nav nav-pills">
+				@foreach ($languagesMenu as $item)
+					<li class="{{ $item->class }}">
+						<a href="{{ $item->url }}">{{ $item->lang }}</a>
+					</li>
+				@endforeach
+			</ul>
+		</nav>
+		@show
 
-	@yield('menu')
+		@yield('menu')
 
-	@section('mainMenu')
-	<nav role="navigation">
-		{{ $mainMenu }}
-	</nav>
-	@show
+		@section('mainMenu')
+		<nav role="navigation">
+			{{ $mainMenu }}
+		</nav>
+		@show
 
-	@yield('main')
+		@yield('main')
 
-	@section('footerMenu')
-	@include('public._footer')
-	@show
+		@section('footerMenu')
+		@include('public._footer')
+		@show
 
-</div>
+	</div>
 
 </body>
 

@@ -38,9 +38,10 @@ abstract class BaseController extends Controller {
 
 	public function __construct($repository = null)
 	{
-		// Rendu de la top bar avant changement de langue
+		// top bar
 		$this->navBar = View::make('_navbar')->render();
 
+		// set locale if in URL
 		$firstSegment = Request::segment(1);
 		if (in_array($firstSegment, Config::get('app.locales'))) {
 			App::setLocale($firstSegment);

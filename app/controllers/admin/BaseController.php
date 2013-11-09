@@ -7,8 +7,6 @@ use Config;
 abstract class BaseController extends Controller {
 
 	public $applicationName = 'Admin Typi CMS';
-	// public $locale;
-	// public $locales;
 
 	protected $model;
 	protected $form;
@@ -34,9 +32,6 @@ abstract class BaseController extends Controller {
 		$this->form = $form;
 
 		$instance = $this;
-
-		// $this->locales =       Config::get('app.locales');       // langues gérées par l’application
-		// $this->locale =        Config::get('app.locale');        // langue
 
 		View::composer($this->layout, function ($view) use ($instance) {
 			$view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));

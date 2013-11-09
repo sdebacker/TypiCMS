@@ -3,7 +3,6 @@
 use View;
 use Config;
 use Response;
-use App;
 
 use TypiCMS\Models\Menu;
 use TypiCMS\Repositories\Dashboard\DashboardInterface;
