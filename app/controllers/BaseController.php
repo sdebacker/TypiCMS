@@ -64,7 +64,7 @@ abstract class BaseController extends Controller {
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {
 			$view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));
-			$view->with('navBar', $this->navBar);
+			$view->with('navBar', $instance->navBar);
 		});
 
 		View::share('mainMenu', $this->mainMenu);
