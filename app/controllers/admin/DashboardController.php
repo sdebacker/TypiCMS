@@ -3,6 +3,7 @@
 use View;
 use Config;
 use Response;
+use App;
 
 use TypiCMS\Models\Menu;
 use TypiCMS\Repositories\Dashboard\DashboardInterface;
@@ -60,7 +61,7 @@ class DashboardController extends BaseController {
 
 	public function getWelcomeMessage()
 	{
-		$ch = curl_init('http://www.typi.be/welcomeMessage_'.$this->locale.'.html');
+		$ch = curl_init('http://www.typi.be/welcomeMessage_fr.html');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		$welcomeMessage = curl_exec($ch);
 		if (curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {

@@ -106,9 +106,9 @@ class Menulink extends EloquentTranslatable {
 			->leftJoin('pages', 'pages.id', '=', 'menulinks.page_id')
 			->leftJoin('pages_translations', 'pages_translations.page_id', '=', 'menulinks.page_id')
 
-			->where('menulinks_translations.lang', Config::get('app.contentlocale'))
+			->where('menulinks_translations.lang', Config::get('app.locale'))
 			->where(function($query){
-				$query->where('pages_translations.lang', Config::get('app.contentlocale'));
+				$query->where('pages_translations.lang', Config::get('app.locale'));
 				$query->orWhere('pages_translations.lang', null);
 			})
 			->where('menus.name', $name)

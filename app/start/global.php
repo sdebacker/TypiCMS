@@ -92,20 +92,20 @@ require app_path().'/filters.php';
 if (Request::segment(1) == 'admin') {
 
 	// If we have a query string like ?locale=xx
-	if (Input::get('contentlocale')) {
+	if (Input::get('locale')) {
 
 		// If locale is recognized by our app
-		if (in_array(Input::get('contentlocale'), Config::get('app.locales'))) {
+		if (in_array(Input::get('locale'), Config::get('app.locales'))) {
 
 			// Store locale in session
-			Session::put('contentlocale', Input::get('contentlocale'));
-			Log::info('Lang is now '.Input::get('contentlocale'));
+			Session::put('locale', Input::get('locale'));
+			Log::info('Lang is now '.Input::get('locale'));
 
 		}
 
 	}
 
-	// Set contentlocale for admin
-	Config::set('app.contentlocale', Session::get('contentlocale', Config::get('app.contentlocale')));
+	// Set locale for admin
+	Config::set('app.locale', Session::get('locale', Config::get('app.locale')));
 
 }

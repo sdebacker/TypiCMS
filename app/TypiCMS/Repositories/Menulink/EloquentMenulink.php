@@ -60,7 +60,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 
 	public function getPagesForSelect()
 	{
-		$pagesArray = Page::select('pages.id', 'title', 'lang')->joinTranslations()->where('lang', Config::get('app.contentlocale'))->lists('id', 'title');
+		$pagesArray = Page::select('pages.id', 'title', 'lang')->joinTranslations()->where('lang', Config::get('app.locale'))->lists('id', 'title');
 		$pagesArray = array_merge(array('' => '0'), $pagesArray);
 		$pagesArray = array_flip($pagesArray);
 		return $pagesArray;

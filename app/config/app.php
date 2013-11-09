@@ -54,7 +54,6 @@ return array(
 
 	'locales' => array('fr', 'nl', 'en'),
 	'locale' => 'fr',
-	'contentlocale' => 'fr',
 
 	'modules' => array(
 		'Page'      => array('menu' => false, 'dashboard' => true , 'module' => 'pages'),
@@ -125,8 +124,7 @@ return array(
 		'Illuminate\Foundation\Providers\ServerServiceProvider',
 		'Illuminate\Session\SessionServiceProvider',
 		'Illuminate\Foundation\Providers\TinkerServiceProvider',
-		// 'Illuminate\Translation\TranslationServiceProvider',
-		'TypiCMS\Services\TranslationServiceProvider',
+		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',

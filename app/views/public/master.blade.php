@@ -29,7 +29,7 @@
 <body>
 	<a href="#content" class="sr-only">{{ trans('public.Skip to content') }}</a>
 
-@include('_navbar')
+{{ $navBar }}
 
 <div class="container" id="content">
 

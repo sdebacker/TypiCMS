@@ -23,11 +23,11 @@
 
 	<div class="btn-group pull-right">
 		@foreach (Config::get('app.locales') as $locale)
-			<a class="btn btn-default btn-sm @if($locale == Session::get('contentlocale')) active @endif" href="?contentlocale={{ $locale }}">{{ $locale }}</a>
+			<a class="btn btn-default btn-sm @if($locale == Session::get('locale')) active @endif" href="?locale={{ $locale }}">{{ $locale }}</a>
 		@endforeach
 	</div>
 
-	<div class="list-form" lang="{{ Config::get('app.contentlocale') }}">
+	<div class="list-form" lang="{{ Config::get('app.locale') }}">
 
 		<div class="btn-toolbar"></div>
 

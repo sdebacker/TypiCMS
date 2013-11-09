@@ -3,6 +3,7 @@
 use Controller;
 use View;
 use Config;
+use App;
 use Request;
 
 use TypiCMS\Models\Menulink;
@@ -20,6 +21,7 @@ abstract class BaseController extends Controller {
 	/**
 	 * Menus.
 	 */
+	protected $navBar;
 	protected $menuBuilder;
 	protected $mainMenu;
 	protected $footerMenu;
@@ -36,38 +38,38 @@ abstract class BaseController extends Controller {
 
 	public function __construct($repository = null)
 	{
+		// Rendu de la top bar avant changement de langue
+		$this->navBar = View::make('_navbar')->render();
+
+		$firstSegment = Request::segment(1);
+		if (in_array($firstSegment, Config::get('app.locales'))) {
+			App::setLocale($firstSegment);
+		}
+
 		$this->repository = $repository;
 		$this->menuBuilder = new MenuBuilder;
+		$this->applicationName = Config::get('settings.website_title');
 
-		// Si une langue est présente dans l'url
-		if ($lang = Request::segment(1)) {
+		// Main menu
+		$mainMenuItems = Menulink::getMenu('main');
+		$listBuilder = new ListBuilder;
+		$this->mainMenu = $listBuilder->buildPublic($mainMenuItems);
 
-			// mettre la langue en config en fonction de l'url
-			Config::set('app.contentlocale', $lang);
-
-			$this->applicationName = Config::get('settings.website_title');
-
-			// Main menu
-			$mainMenuItems = Menulink::getMenu('main');
-			$listBuilder = new ListBuilder;
-			$this->mainMenu = $listBuilder->buildPublic($mainMenuItems);
-
-			// Footer menu
-			$footerMenuItems = Menulink::getMenu('footer');
-			$listBuilder = new ListBuilder;
-			$this->footerMenu = $listBuilder->buildPublic($footerMenuItems);
-
-		}
+		// Footer menu
+		$footerMenuItems = Menulink::getMenu('footer');
+		$listBuilder = new ListBuilder;
+		$this->footerMenu = $listBuilder->buildPublic($footerMenuItems);
 
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {
 			$view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));
+			$view->with('navBar', $this->navBar);
 		});
 
 		View::share('mainMenu', $this->mainMenu);
 		View::share('footerMenu', $this->footerMenu);
 		View::share('languagesMenu', $this->menuBuilder->languagesMenu());
-		View::share('lang', $lang);
+		View::share('lang', App::getLocale());
 
 	}
 

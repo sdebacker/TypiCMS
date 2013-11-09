@@ -18,7 +18,7 @@
 		@if (count($locales) > 1)
 		<ul class="nav nav-pills">
 			@foreach ($locales as $lang)
-			<li class="@if ($contentlocale == $lang)active@endif">
+			<li class="@if ($locale == $lang)active@endif">
 				<a href="#{{ $lang }}" data-target="#{{ $lang }}" data-toggle="tab">{{ $lang }}</a>
 			</li>
 			@endforeach
@@ -29,7 +29,7 @@
 
 			@foreach ($locales as $lang)
 
-			<div class="tab-pane @if ($contentlocale == $lang)active@endif" id="{{ $lang }}">
+			<div class="tab-pane @if ($locale == $lang)active@endif" id="{{ $lang }}">
 				{{ Former::lg_text($lang.'[title]')->label('title')->autofocus(); }}
 				{{ Former::text($lang.'[slug]')->label('slug'); }}
 				{{ Former::text($lang.'[uri]')->label('uri'); }}
@@ -47,7 +47,7 @@
 
 		<ul class="nav nav-pills">
 			@foreach ($locales as $lang)
-			<li class="@if ($contentlocale == $lang)active@endif">
+			<li class="@if ($locale == $lang)active@endif">
 				<a href="#meta-{{ $lang }}" data-target="#meta-{{ $lang }}" data-toggle="tab">{{ $lang }}</a>
 			</li>
 			@endforeach
@@ -57,7 +57,7 @@
 
 			@foreach ($locales as $lang)
 
-			<div class="tab-pane @if ($contentlocale == $lang)active@endif" id="meta-{{ $lang }}">
+			<div class="tab-pane @if ($locale == $lang)active@endif" id="meta-{{ $lang }}">
 				{{ Former::text($lang.'[meta_title]')->label('meta_title'); }}
 				{{ Former::text($lang.'[meta_keywords]')->label('meta_keywords'); }}
 				{{ Former::text($lang.'[meta_description]')->label('meta_description'); }}

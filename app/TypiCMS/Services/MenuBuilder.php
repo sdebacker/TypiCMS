@@ -95,7 +95,7 @@ class MenuBuilder {
 				$languagesMenu[] = (object) array(
 					'lang' => $lg,
 					'url' => route($translatedRouteName, $routeParams),
-					'class' => Config::get('app.contentlocale') == $lg ? 'active' : ''
+					'class' => Config::get('app.locale') == $lg ? 'active' : ''
 				);
 
 			}

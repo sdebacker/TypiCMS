@@ -14,7 +14,7 @@ abstract class EloquentTranslatable extends Base {
      */
     public function translations($locale = '')
     {
-		if ( !$locale ) $locale = Config::get('app.contentlocale');
+		if ( !$locale ) $locale = Config::get('app.locale');
 		
         return $this->_translations()->where(static::$translatable['localeField'], '=', $locale);
     }

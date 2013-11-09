@@ -103,7 +103,7 @@ class ListBuilder {
 
 			// Homepage
 			if ($menulink->is_home) {
-				$menulink->page_uri = Config::get('app.contentlocale');
+				$menulink->page_uri = Config::get('app.locale');
 			}
 
 			// Link tu URI (module for example)

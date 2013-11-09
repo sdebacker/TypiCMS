@@ -126,7 +126,7 @@ abstract class RepositoriesAbstract {
 			$query->where('status', 1);
 		}
 
-		$query->where('lang', Config::get('app.contentlocale'));
+		$query->where('lang', Config::get('app.locale'));
 
 		if ($this->model->order and $this->model->direction) {
 			$query->orderBy($this->model->order, $this->model->direction);
@@ -177,7 +177,7 @@ abstract class RepositoriesAbstract {
 			->joinTranslations()
 			->where('slug', $slug)
 			->where('status', 1)
-			->where('lang', Config::get('app.contentlocale'))
+			->where('lang', Config::get('app.locale'))
 			->firstOrFail();
 
 		// Store in cache for next request
