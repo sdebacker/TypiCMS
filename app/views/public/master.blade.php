@@ -11,8 +11,10 @@
 
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 
-	<script type="text/javascript" src="//use.typekit.net/{{ null }}.js"></script>
+	@if(Config::get('app.typekitCode'))
+	<script type="text/javascript" src="//use.typekit.net/{{ Config::get('app.typekitCode') }}.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	@endif
 
 	<!--[if IE 8]>
 	<script type="text/javascript" src="{{ asset('plugins/respond.min.js') }}"></script>

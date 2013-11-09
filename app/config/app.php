@@ -68,6 +68,8 @@ return array(
 		'Menulink'  => array('menu' => false, 'dashboard' => false, 'module' => 'menulinks'),
 	),
 
+	'typekitCode' => null,
+
 	/*
 	|--------------------------------------------------------------------------
 	| Encryption Key
