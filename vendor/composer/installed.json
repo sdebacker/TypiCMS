@@ -1632,52 +1632,6 @@
         ]
     },
     {
-        "name": "ink/ink-translatable",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/orkhan/InkTranslatable.git",
-            "reference": "8f29ecc40b4ef0461076ebe4a09072897c828332"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/8f29ecc40b4ef0461076ebe4a09072897c828332",
-            "reference": "8f29ecc40b4ef0461076ebe4a09072897c828332",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/config": "4.0.x",
-            "illuminate/support": "4.0.x",
-            "php": ">=5.3.0"
-        },
-        "time": "2013-10-19 10:49:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Ink\\InkTranslatable": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Orkhan",
-                "email": "o@inkster.az"
-            }
-        ],
-        "description": "Easy translation manipulation of your Eloquent models in Laravel 4.",
-        "homepage": "https://github.com/orkhan/InkTranslatable",
-        "keywords": [
-            "eloquent",
-            "laravel",
-            "translatable"
-        ]
-    },
-    {
         "name": "doctrine/cache",
         "version": "v1.3.0",
         "version_normalized": "1.3.0.0",
@@ -2661,55 +2615,6 @@
         ]
     },
     {
-        "name": "predis/predis",
-        "version": "0.8.x-dev",
-        "version_normalized": "0.8.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nrk/predis.git",
-            "reference": "62f8730f1aa0e6a6879eaee73819a3a0b57f8dab"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nrk/predis/zipball/62f8730f1aa0e6a6879eaee73819a3a0b57f8dab",
-            "reference": "62f8730f1aa0e6a6879eaee73819a3a0b57f8dab",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "suggest": {
-            "ext-curl": "Allows access to Webdis when paired with phpiredis",
-            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
-        },
-        "time": "2013-11-07 17:48:53",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Predis": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Daniele Alessandri",
-                "email": "suppakilla@gmail.com",
-                "homepage": "http://clorophilla.net"
-            }
-        ],
-        "description": "Flexible and feature-complete PHP client library for Redis",
-        "homepage": "http://github.com/nrk/predis",
-        "keywords": [
-            "nosql",
-            "predis",
-            "redis"
-        ]
-    },
-    {
         "name": "maximebf/debugbar",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2989,18 +2894,113 @@
         "homepage": "http://symfony.com"
     },
     {
+        "name": "ink/ink-translatable",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/orkhan/InkTranslatable.git",
+            "reference": "c29e92ed8dab6799289a4c1f4cf8eba3f8c1da7e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/c29e92ed8dab6799289a4c1f4cf8eba3f8c1da7e",
+            "reference": "c29e92ed8dab6799289a4c1f4cf8eba3f8c1da7e",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "~4",
+            "illuminate/support": "~4",
+            "php": ">=5.3.0"
+        },
+        "time": "2013-11-09 18:41:23",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Ink\\InkTranslatable": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Orkhan",
+                "email": "o@inkster.az"
+            }
+        ],
+        "description": "Easy translation manipulation of your Eloquent models in Laravel 4.",
+        "homepage": "https://github.com/orkhan/InkTranslatable",
+        "keywords": [
+            "eloquent",
+            "laravel",
+            "translatable"
+        ]
+    },
+    {
+        "name": "predis/predis",
+        "version": "0.8.x-dev",
+        "version_normalized": "0.8.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nrk/predis.git",
+            "reference": "b1a51b2ef900c28f389cc7ba498f3698b9749ce6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/b1a51b2ef900c28f389cc7ba498f3698b9749ce6",
+            "reference": "b1a51b2ef900c28f389cc7ba498f3698b9749ce6",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "suggest": {
+            "ext-curl": "Allows access to Webdis when paired with phpiredis",
+            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+        },
+        "time": "2013-11-09 19:00:33",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Predis": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniele Alessandri",
+                "email": "suppakilla@gmail.com",
+                "homepage": "http://clorophilla.net"
+            }
+        ],
+        "description": "Flexible and feature-complete PHP client library for Redis",
+        "homepage": "http://github.com/nrk/predis",
+        "keywords": [
+            "nosql",
+            "predis",
+            "redis"
+        ]
+    },
+    {
         "name": "laravel/framework",
         "version": "4.0.x-dev",
         "version_normalized": "4.0.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "bbf77cc32c227c108c37bff5c2b592d484e30fa2"
+            "reference": "b9dff90f1a8ed78bf84ba62fc93d01dd86cfaa72"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/bbf77cc32c227c108c37bff5c2b592d484e30fa2",
-            "reference": "bbf77cc32c227c108c37bff5c2b592d484e30fa2",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/b9dff90f1a8ed78bf84ba62fc93d01dd86cfaa72",
+            "reference": "b9dff90f1a8ed78bf84ba62fc93d01dd86cfaa72",
             "shasum": ""
         },
         "require": {
@@ -3064,7 +3064,7 @@
             "pda/pheanstalk": "2.1.*",
             "phpunit/phpunit": "3.7.*"
         },
-        "time": "2013-11-09 15:27:12",
+        "time": "2013-11-09 18:39:41",
         "type": "library",
         "extra": {
             "branch-alias": {

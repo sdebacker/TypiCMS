@@ -1,5 +1,7 @@
-@section('languagesMenu')@stop
-@section('mainMenu')@stop
+@section('languagesMenu') @stop
+@section('header')        @stop
+@section('mainMenu')      @stop
+@section('footerMenu')    @stop
 
 @section('main')
 

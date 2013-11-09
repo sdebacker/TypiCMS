@@ -13,6 +13,8 @@ class PublicController extends BaseController {
 	 */
 	public function root()
 	{
+		$this->title['parent'] = 'Choose your language';
+
 		$locales = Config::get('app.locales');
 		$this->layout->content = View::make('public.root')
 			->with('locales', $locales);

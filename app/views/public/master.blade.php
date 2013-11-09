@@ -34,6 +34,12 @@
 
 	<div class="container" id="content">
 
+		@section('header')
+		<header>
+			<h1>{{ link_to_route($lang, Config::get('settings.website_title')) }}</h1>
+		</header>
+		@show
+
 		@section('languagesMenu')
 		<nav role="navigation" class="menu menu-languages pull-right">
 			{{-- $languagesMenuList --}}
@@ -62,6 +68,15 @@
 		@show
 
 	</div>
+	
+	@if(Config::get('app.googleAnalyticsCode'))
+	<script>
+		var _gaq=[['_setAccount','{{ Config::get('app.googleAnalyticsCode') }}'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src='//www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+	@endif
 
 </body>
 

@@ -68,6 +68,7 @@ return array(
 	),
 
 	'typekitCode' => null,
+	'googleAnalyticsCode' => null,
 
 	/*
 	|--------------------------------------------------------------------------
