@@ -37,13 +37,9 @@ class Event extends EloquentTranslatable {
 	/**
 	 * Relations
 	 */
-	// public function eventTranslations()
-	// {
-	// 	return $this->hasMany('TypiCMS\Models\EventTranslation');
-	// }
 	public function files()
 	{
-		return $this->morphMany('File', 'fileable');
+		return $this->morphMany('TypiCMS\Models\File', 'fileable');
 	}
 
 

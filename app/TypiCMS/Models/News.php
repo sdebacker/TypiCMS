@@ -39,7 +39,7 @@ class News extends EloquentTranslatable {
 	 */
 	public function files()
 	{
-		return $this->morphMany('File', 'fileable');
+		return $this->morphMany('TypiCMS\Models\File', 'fileable');
 	}
 
 
