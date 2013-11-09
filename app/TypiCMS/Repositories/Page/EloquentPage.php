@@ -95,7 +95,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		// transform URI
 		foreach (Config::get('app.locales') as $locale) {
 			
-			if ($model->$locale->slug) {
+			if (isset($model->$locale->slug) and $model->$locale->slug) {
 
 				$uri = ($parentModel) ? $parentModel->$locale->uri.'/'.$model->$locale->slug : $locale.'/'.$model->$locale->slug ;
 
