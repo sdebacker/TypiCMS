@@ -1481,12 +1481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5076824d4c0d4299522010ddb0bf03e7c96278ec"
+                "reference": "bbf77cc32c227c108c37bff5c2b592d484e30fa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5076824d4c0d4299522010ddb0bf03e7c96278ec",
-                "reference": "5076824d4c0d4299522010ddb0bf03e7c96278ec",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/bbf77cc32c227c108c37bff5c2b592d484e30fa2",
+                "reference": "bbf77cc32c227c108c37bff5c2b592d484e30fa2",
                 "shasum": ""
             },
             "require": {
@@ -1586,7 +1586,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-05 01:52:53"
+            "time": "2013-11-09 15:27:12"
         },
         {
             "name": "leafo/lessphp",
@@ -2204,12 +2204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "f880062d56edefb25b36f2defa65aafe65959dc7"
+                "reference": "38f924338419db1ce147ef39fff1265ee64faa81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/f880062d56edefb25b36f2defa65aafe65959dc7",
-                "reference": "f880062d56edefb25b36f2defa65aafe65959dc7",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/38f924338419db1ce147ef39fff1265ee64faa81",
+                "reference": "38f924338419db1ce147ef39fff1265ee64faa81",
                 "shasum": ""
             },
             "require": {
@@ -2248,7 +2248,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2013-09-25 06:04:15"
+            "time": "2013-11-05 15:14:13"
         },
         {
             "name": "symfony/css-selector",
