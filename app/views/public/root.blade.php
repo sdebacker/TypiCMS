@@ -6,13 +6,17 @@
 
 			<h1 class="text-center">Choose language</h1>
 
-			<div class="btn-group col-sm-6 col-sm-offset-3">
+			<div class="col-sm-6 col-sm-offset-3">
 
-				@foreach ($locales as $locale)
+				<div class="btn-group btn-group-justified">
 
-				<a href="{{ route($locale) }}" class="btn btn-default">{{ $locale }}</a>
+					@foreach ($locales as $locale)
 
-				@endforeach
+					<a href="{{ route($locale) }}" class="btn btn-default">{{ $locale }}</a>
+
+					@endforeach
+
+				</div>
 
 			</div>
 
