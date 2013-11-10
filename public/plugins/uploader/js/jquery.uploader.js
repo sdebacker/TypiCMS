@@ -268,7 +268,7 @@
 			};
 		},
 		uploadFailed: function () {
-			alert("An error occurred while uploading the file.");	
+			alert("An error occurred while uploading the file.");
 		},
 		uploadCanceled: function () {
 			alert("The upload has been canceled by the user or the browser dropped the connection.");	
