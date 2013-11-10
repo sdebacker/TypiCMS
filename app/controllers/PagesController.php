@@ -31,7 +31,8 @@ class PagesController extends BaseController {
 		$template = ($model->template) ? $model->template : 'page' ;
 
 		$this->layout->content = View::make('public.pages.'.$template)
-			->with('model', $model);
+			->with('model', $model)
+			->nest('files', 'public.files._list', array('models' => $model->files));
 
 	}
 
@@ -64,7 +65,8 @@ class PagesController extends BaseController {
 		$template = ($model->template) ? $model->template : 'page' ;
 
 		$this->layout->content = View::make('public.pages.'.$template)
-			->with('model', $model);
+			->with('model', $model)
+			->nest('files', 'public.files._list', array('models' => $model->files));
 	}
 
 }

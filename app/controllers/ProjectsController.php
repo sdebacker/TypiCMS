@@ -43,7 +43,8 @@ class ProjectsController extends BaseController {
 		$this->title['parent'] = $model->title;
 		
 		$this->layout->content = View::make('public.projects.show')
-			->with('model', $model);
+			->with('model', $model)
+			->nest('files', 'public.files._list', array('models' => $model->files));
 	}
 
 }
