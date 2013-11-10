@@ -15,22 +15,7 @@
 
 
 	<div class="col-sm-6">
-		<h2>Fichiers</h2>
-		<div class="row">
-		@foreach($model->files as $file)
-			<div class="col-sm-3">
-				<div class="thumbnail">
-					<img src="{{ '/'.$file->path.'/'.$file->filename }}" alt="{{ $file->alt_attribute }}">
-					<div class="caption">
-						<p>
-							{{ $file->filename }} <br>
-							{{ $file->width }} × {{ $file->height }}
-						</p>
-					</div>
-				</div>
-			</div>
-		@endforeach
-		</div>
+	{{ $files }}
 	</div>
 
 @stop
