@@ -40,7 +40,7 @@ class FilesController extends BaseController {
 	 */
 	public function index($relatedModel = null)
 	{
-		$models = $this->repository->getAll(true);
+		$models = $this->repository->getAll(true, $relatedModel);
 		$list = $this->repository->buildList($models->all());
 		$this->layout->content = View::make('admin.files.index')
 			->with('relatedModel', $relatedModel)

@@ -105,7 +105,7 @@ abstract class RepositoriesAbstract {
 	 * @param boolean $all Show published or all
      * @return StdClass Object with $items
 	 */
-	public function getAll($all = false)
+	public function getAll($all = false, $relatedModel = null)
 	{
 		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
@@ -120,6 +120,11 @@ abstract class RepositoriesAbstract {
 		$query = $this->model
 			->select($this->select)
 			->joinTranslations();
+
+		if ($relatedModel) {
+			$query->where('fileable_id', $relatedModel->id);
+			$query->where('fileable_type', get_class($relatedModel));
+		}
 
 		// All posts or only published
 		if ( ! $all ) {
