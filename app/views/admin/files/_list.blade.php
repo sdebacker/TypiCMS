@@ -3,9 +3,9 @@
 
 	<div class="row">
 	@foreach($models as $file)
-		<div class="col-sm-3">
+		<div class="col-md-3 col-xs-6">
 			<div class="thumbnail">
-				<img src="{{ '/'.$file->path.'/'.$file->filename }}" alt="{{ $file->alt_attribute }}">
+				<img src="{{ Croppa::url('/'.$file->path.'/'.$file->filename, 135, 135) }}" alt="{{ $file->alt_attribute }}">
 				<div class="caption">
 					<p>
 						{{ $file->filename }} <br>
