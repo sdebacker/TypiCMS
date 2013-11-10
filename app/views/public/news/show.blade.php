@@ -6,3 +6,9 @@
 	<p>Heure début : {{ $model->time }}</p>
 
 @stop
+
+@section('files')
+	<div>
+		{{ $files }}
+	</div>
+@stop

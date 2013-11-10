@@ -63,6 +63,8 @@
 
 		@yield('main')
 
+		@yield('files')
+
 		@section('footerMenu')
 		@include('public._footer')
 		@show

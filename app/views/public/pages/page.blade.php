@@ -19,3 +19,8 @@
 
 @stop
 
+@section('files')
+	<div>
+		{{ $files }}
+	</div>
+@stop

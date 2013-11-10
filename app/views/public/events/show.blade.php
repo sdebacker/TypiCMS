@@ -7,6 +7,9 @@
 	<p>Date fin : {{ $model->end_date }}</p>
 	<p>Heure fin : {{ $model->end_time }}</p>
 
+@stop
+
+@section('files')
 	<div>
 		{{ $files }}
 	</div>
