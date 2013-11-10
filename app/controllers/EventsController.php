@@ -39,7 +39,8 @@ class EventsController extends BaseController {
 		$this->title['parent'] = $model->title;
 		
 		$this->layout->content = View::make('public.events.show')
-			->with('model', $model);
+			->with('model', $model)
+			->nest('files', 'admin.files._list', array('models' => $model->files));
 	}
 
 }

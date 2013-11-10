@@ -7,4 +7,7 @@
 	<p>Date fin : {{ $model->end_date }}</p>
 	<p>Heure fin : {{ $model->end_time }}</p>
 
+	<div>
+		{{ $files }}
+	</div>
 @stop
