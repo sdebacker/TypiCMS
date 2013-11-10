@@ -39,16 +39,15 @@
 		{{ Notification::showSuccess('alertify.success(":message");') }}
 	</script>
 
+	@yield('header')
+
 	<div class="btn-group pull-right">
 		@foreach (Config::get('app.locales') as $locale)
 			<a class="btn btn-default btn-sm @if($locale == Session::get('locale')) active @endif" href="?locale={{ $locale }}">{{ $locale }}</a>
 		@endforeach
-		
 	</div>
 
 	@yield('buttons')
-
-	@yield('header')
 
 	@yield('main')
 
