@@ -20,7 +20,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 			'display' => array('%s %s', 'filename', 'alt_attribute'),
 		);
 
-		$this->select = array('files.id AS id', 'filename', 'extension', 'alt_attribute', 'keywords', 'description', 'status', 'position');
+		$this->select = array('files.id AS id', 'path', 'filename', 'width', 'height', 'extension', 'alt_attribute', 'keywords', 'description', 'status', 'position');
 
 	}
 
