@@ -144,7 +144,7 @@ class PagesController extends BaseController {
 	{
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {
-				return Redirect::route('admin.pages.index');
+				return Redirect::back();
 			}
 		}
 	}

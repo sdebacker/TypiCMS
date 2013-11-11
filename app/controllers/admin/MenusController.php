@@ -139,7 +139,7 @@ class MenusController extends BaseController {
 	{
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {
-				return Redirect::route('admin.menus.index');
+				return Redirect::back();
 			}
 		}
 	}

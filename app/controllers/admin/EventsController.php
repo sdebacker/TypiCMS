@@ -139,7 +139,7 @@ class EventsController extends BaseController {
 	{
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {
-				return Redirect::route('admin.events.index');
+				return Redirect::back();
 			}
 		}
 	}

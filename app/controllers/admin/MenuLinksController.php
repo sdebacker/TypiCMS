@@ -160,7 +160,7 @@ class MenuLinksController extends BaseController {
 	{
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {
-				return Redirect::route('admin.menus.menulinks.index', $menu->id);
+				return Redirect::back();
 			}
 		}
 	}

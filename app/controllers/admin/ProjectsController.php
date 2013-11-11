@@ -142,7 +142,7 @@ class ProjectsController extends BaseController {
 	{
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {
-				return Redirect::route('admin.categories.projects.index', $category->id);
+				return Redirect::back();
 			}
 		}
 	}

@@ -138,7 +138,7 @@ class CategoriesController extends BaseController {
 	{
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {
-				return Redirect::route('admin.categories.index');
+				return Redirect::back();
 			}
 		}
 	}

@@ -163,7 +163,7 @@ class UsersController extends BaseController {
 	{
 		if( $this->repository->destroy($id) ) {
 			if ( ! Request::ajax()) {
-				return Redirect::route('admin.users.index');
+				return Redirect::back();
 			}
 		}
 	}
