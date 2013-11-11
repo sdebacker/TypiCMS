@@ -60,6 +60,9 @@ function showMessage(responsetext, responsetype) {
 			dropZone: 'uploader',
 			allComplete: function (number) {
 				alertify.success(number + ' ' + translate('files uploaded'));
+			},
+			error: function (message) {
+				alertify.error(message);
 			}
 		});
 

@@ -19,6 +19,7 @@
 		maxFiles: '',
 		removable: false,
 		initialize: function () { },
+		error: function (message) { },
 		allComplete: function (numberOfFiles) { }
 	};
 	var fileInput;
@@ -251,7 +252,19 @@
 				}
 			}, false);
 				
-			xhr.addEventListener("load", methods.uploadComplete, false);
+			xhr.addEventListener("load", function(){
+				var message = JSON.parse(xhr.responseText);
+				numberOfFiles += 1;
+				if (numberOfFiles == nbOfFilesToUpload) {
+					if (message.error) {
+						settings.error.call(this, message.error.message);
+						methods.reset();
+					} else {
+						settings.allComplete.call(this, numberOfFiles);
+						methods.reset();
+					}
+				}
+			}, false);
 			xhr.addEventListener("error", methods.uploadFailed, false);
 			xhr.addEventListener("abort", methods.uploadCanceled, false);
 			xhr.open("POST", settings.url, true);
@@ -259,13 +272,6 @@
 			xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 			xhr.send(fd);
 	
-		},
-		uploadComplete: function () {
-			numberOfFiles += 1;
-			if (numberOfFiles == nbOfFilesToUpload) {
-				settings.allComplete.call(this, numberOfFiles);
-				methods.reset();
-			};
 		},
 		uploadFailed: function () {
 			alert("An error occurred while uploading the file.");
