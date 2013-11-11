@@ -158,12 +158,12 @@ class FilesController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($model)
+	public function destroy($relatedModel, $model)
 	{
 		if( $this->repository->delete($model) ) {
 			if ( ! Request::ajax()) {
 				Notification::success('File '.$model->filename.' deleted.');
-				return Redirect::route('admin.files.index');
+				return Redirect::back();
 			}
 		} else {
 			Notification::error('Error deleting file '.$model->filename.'.');

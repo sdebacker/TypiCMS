@@ -34,12 +34,13 @@ body { padding-top: 60px; padding-bottom: 60px; }
 	.mjs-nestedSortable-error { background: #fbe3e4; border-color: transparent; }
 }
 
-.thumbnail { float: left; margin: 10px 20px 10px 0; display: inline-block; position: relative;
-	.caption { font-size: 12px; padding: 0; height: 60px; overflow: hidden; line-height: 16px; }
+.thumbnail { float: left; margin: 10px 20px 10px 0; display: block; position: relative; width: 110px;
+	.caption { font-size: 12px; padding: 0; margin-top: 1px; height: 64px; overflow: hidden; line-height: 16px; }
 	input[type=checkbox] { position: absolute; top: 2px; left: 2px; margin: 0; }
+	&:hover { text-decoration: none; }
 }
 
-.thumbnail-dropzone { margin: 10px 20px 10px 0; height: 170px; width: 110px; display: inline-block; background-color: #EEE; float: left; }
+.thumbnail-dropzone { margin: 10px 20px 10px 0; height: 174px; width: 110px; display: inline-block; background-color: #EEE; float: left; }
 
 .dz-message { text-align: center; margin-top: 40px; }
 .dz-clickable { cursor: pointer; }

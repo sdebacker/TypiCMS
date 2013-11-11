@@ -2,6 +2,8 @@
 
 use Config;
 use Response;
+use Str;
+use Croppa;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -33,15 +35,22 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 	public function upload(array $input)
 	{
 		$file = $input['file'];
-		
+
+		$fileName = Str::slug(pathinfo($file->getClientOriginalName(),PATHINFO_FILENAME));
+
 		$dataArray = array();
 		$dataArray['path']          = 'uploads';
 		$dataArray['fileable_id']   = $input['fileable_id'];
 		$dataArray['fileable_type'] = $input['fileable_type'];
-		$dataArray['filename']      = $file->getClientOriginalName();
 		$dataArray['extension']     = '.'.$file->getClientOriginalExtension();
 		$dataArray['filesize']      = $file->getClientSize();
 		$dataArray['mimetype']      = $file->getClientMimeType();
+		$dataArray['filename']      = $fileName.$dataArray['extension'];
+
+		$filecounter = 1;
+		while (file_exists($dataArray['path'].'/'.$dataArray['filename'])) {
+			$dataArray['filename'] = $fileName.'_'.$filecounter++.$dataArray['extension'];
+		}
 
 		$upload_success = $file->move($dataArray['path'], $dataArray['filename']);
 
@@ -58,7 +67,8 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 	public function delete($model)
 	{
 		if ($model->delete()) {
-			unlink($model->path.'/'.$model->filename);
+			Croppa::delete($model->path.'/'.$model->filename);
+			// unlink($model->path.'/'.$model->filename);
 			return true;
 		}
 		return false;

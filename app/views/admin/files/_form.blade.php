@@ -27,7 +27,7 @@
 				{{ Former::text($lang.'[alt_attribute]')->label('alt_attribute'); }}
 				{{ Former::textarea($lang.'[description]')->label('description'); }}
 				{{ Former::text($lang.'[keywords]')->label('keywords'); }}
-				{{ Former::text($lang.'[status]')->label('status'); }}
+				{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
 			</div>
 
 			@endforeach

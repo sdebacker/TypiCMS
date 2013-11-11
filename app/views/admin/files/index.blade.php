@@ -26,6 +26,7 @@
 		{{ Former::vertical_open_for_files()->route('admin.files.upload')->class('thumbnail thumbnail-dropzone')->id('uploader') }}
 			@foreach (Config::get('app.locales') as $locale)
 				{{ Former::hidden($locale.'[alt_attribute]')->value(''); }}
+				{{ Former::hidden($locale.'[status]')->value(1); }}
 			@endforeach
 			@if($relatedModel)
 			{{ Former::hidden('fileable_id')->value($relatedModel->id); }}
@@ -42,14 +43,14 @@
 
 		<div class="sortable sortable-thumbnails">
 		@foreach ($models as $key => $model)
-			<div class="thumbnail @if($model->status == 1) online @else offline @endif" id="item_{{ $model->id }}">
+			<a href="{{ route('admin.files.edit', $model->id) }}" class="thumbnail @if($model->status == 1) online @else offline @endif" id="item_{{ $model->id }}">
 				<input type="checkbox" value="{{ $model->id }}">
 				<img src="{{ Croppa::url('/'.$model->path.'/'.$model->filename, 100, 100) }}" alt="{{ $model->alt_attribute }}">
 				<div class="caption">
 					<div>{{ $model->filename }}</div>
 					<div>{{ $model->alt_attribute }}</div>
 				</div>
-			</div>
+			</a>
 		@endforeach
 		</div>
 
