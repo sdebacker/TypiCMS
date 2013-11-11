@@ -56,15 +56,22 @@ function showMessage(responsetext, responsetype) {
 
 		checkAndShowMessageDiv();
 
-		// $('#uploader .fileInput').uploader({
-		// 	dropZone: 'uploader',
-		// 	allComplete: function (number) {
-		// 		alertify.success(number + ' ' + translate('files uploaded'));
-		// 	},
-		// 	error: function (message) {
-		// 		alertify.error(message);
-		// 	}
-		// });
+		$('#uploader').dropzone({
+			maxFilesize: 2, // MB
+			previewsContainer: '.dropzone-previews',
+			acceptedFiles: 'image/jpeg,image/gif,image/png',
+			previewTemplate: '<div class="thumbnail dz-preview dz-file-preview">\
+				<div class="dz-details">\
+					<img data-dz-thumbnail src="" alt="">\
+					<div class="caption">\
+						<div data-dz-name></div>\
+						<div data-dz-size></div>\
+						<div class="dz-error-message"><span data-dz-errormessage></span></div>\
+					</div>\
+				</div>\
+				<div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>\
+			</div>'
+		});
 
 	});
 

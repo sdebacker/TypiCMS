@@ -34,4 +34,26 @@ body { padding-top: 60px; padding-bottom: 60px; }
 	.mjs-nestedSortable-error { background: #fbe3e4; border-color: transparent; }
 }
 
+.thumbnail { float: left; margin: 10px 20px 10px 0; display: inline-block; position: relative;
+	.caption { font-size: 12px; padding: 0; height: 60px; overflow: hidden; line-height: 16px; }
+	input[type=checkbox] { position: absolute; top: 2px; left: 2px; margin: 0; }
+}
+
+.thumbnail-dropzone { margin: 10px 20px 10px 0; height: 170px; width: 110px; display: inline-block; background-color: #EEE; float: left; }
+
+.dz-message { text-align: center; margin-top: 40px; }
+.dz-clickable { cursor: pointer; }
+.dz-preview { position: relative;
+	.dz-error-message { display: none; position: absolute; top: 4px; left: 4px; background: rgba(255,255,255,1); color: @brand-danger; width: 100px; min-height: 100px; max-height: 160px; z-index: 500; }
+	.dz-progress { position: absolute; top: 98px; left: 4px; right: 4px; height: 6px; background: #d7d7d7; display: none; }
+	.dz-progress .dz-upload { position: absolute; top: 0; bottom: 0; left: 0; width: 0%; background-color: #8cc657; }
+	&.dz-error:hover .dz-error-message { display: block; }
+	&.dz-processing .dz-progress { display: block; }
+	&.dz-success { border-color: @brand-success;
+		.dz-progress { display: none; }
+	}
+	&.dz-error { border-color: @brand-danger;
+		.dz-progress { display: none; }
+	}
+}
 

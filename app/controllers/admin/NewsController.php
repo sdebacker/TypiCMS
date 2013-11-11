@@ -55,7 +55,8 @@ class NewsController extends BaseController {
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.news.edit')
-			->with('model', $model);
+			->with('model', $model)
+			->nest('files', 'admin.files._list', array('models' => $model->files));
 	}
 
 

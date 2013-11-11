@@ -13,4 +13,8 @@
 
 	{{ Former::close() }}
 
+	<div class="col-sm-6">
+	{{ $files }}
+	</div>
+
 @stop
