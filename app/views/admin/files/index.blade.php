@@ -9,8 +9,7 @@
 
 	<a href="{{ route('admin.files.create') }}" class="btn btn-primary">{{ ucfirst(trans('global.crud.new')) }}</a>
 
-	{{ Former::vertical_open_for_files()->route('admin.files.upload')->class('well')->id('uploader') }}
-		{{ Former::files('file')->accept('image')->max(2, 'MB')->class('fileInput'); }}
+	{{ Former::vertical_open_for_files()->route('admin.files.upload')->class('well dropzone')->id('uploader') }}
 		@foreach (Config::get('app.locales') as $locale)
 			{{ Former::hidden($locale.'[alt_attribute]')->value(''); }}
 		@endforeach
@@ -18,7 +17,10 @@
 		{{ Former::hidden('fileable_id')->value($relatedModel->id); }}
 		{{ Former::hidden('fileable_type')->value(get_class($relatedModel)); }}
 		@endif
+		<div class="fallback">
+		{{ Former::file('file')->accept('image')->max(2, 'MB')->class('fileInput'); }}
 		{{ Former::actions()->primary_submit('Submit') }}
+		</div>
 	{{ Former::close() }}
 
 @stop

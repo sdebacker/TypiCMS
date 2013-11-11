@@ -22,6 +22,8 @@ return array(
                 $collection->javascript('alertify.js/src/alertify.js');
                 $collection->javascript('jquery.listenhancer.js');
                 $collection->javascript('jquery.slug.js');
+                $collection->javascript('dropzone/dropzone.js');
+                $collection->stylesheet('dropzone/css/basic.css');
                 $collection->javascript('../../vendor/twbs/bootstrap/js/tab.js');
 
                 $collection->stylesheet('alertify.js/themes/alertify.core.css');

@@ -56,15 +56,15 @@ function showMessage(responsetext, responsetype) {
 
 		checkAndShowMessageDiv();
 
-		$('#uploader .fileInput').uploader({
-			dropZone: 'uploader',
-			allComplete: function (number) {
-				alertify.success(number + ' ' + translate('files uploaded'));
-			},
-			error: function (message) {
-				alertify.error(message);
-			}
-		});
+		// $('#uploader .fileInput').uploader({
+		// 	dropZone: 'uploader',
+		// 	allComplete: function (number) {
+		// 		alertify.success(number + ' ' + translate('files uploaded'));
+		// 	},
+		// 	error: function (message) {
+		// 		alertify.error(message);
+		// 	}
+		// });
 
 	});
 

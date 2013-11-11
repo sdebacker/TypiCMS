@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Repositories\File;
 
 use Config;
+use Response;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -31,29 +32,25 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 	 */
 	public function upload(array $input)
 	{
-		$files = $input['file'];
-
-		$destinationPath = 'uploads';
+		$file = $input['file'];
 		
-		foreach ($files as $file) {
+		$dataArray = array();
+		$dataArray['path']          = 'uploads';
+		$dataArray['fileable_id']   = $input['fileable_id'];
+		$dataArray['fileable_type'] = $input['fileable_type'];
+		$dataArray['filename']      = $file->getClientOriginalName();
+		$dataArray['extension']     = '.'.$file->getClientOriginalExtension();
+		$dataArray['filesize']      = $file->getClientSize();
+		$dataArray['mimetype']      = $file->getClientMimeType();
 
-			$dataArray = array();
+		$upload_success = $file->move($dataArray['path'], $dataArray['filename']);
 
-			$dataArray['fileable_id'] = $input['fileable_id'];
-			$dataArray['fileable_type'] = $input['fileable_type'];
-			$dataArray['filename'] = $file->getClientOriginalName();
-			$dataArray['extension'] = '.'.$file->getClientOriginalExtension();
-			$dataArray['filesize'] = $file->getClientSize();
-			$dataArray['mimetype'] = $file->getClientMimeType();
-			$dataArray['path'] = $destinationPath;
-
-			$filename = $file->getClientOriginalName();
-
-			if( $file->move($destinationPath, $filename) ) {
-				list($dataArray['width'], $dataArray['height']) = getimagesize($destinationPath.'/'.$filename);
-				$this->model->create($dataArray);
-			}
-
+		if ( $upload_success ) {
+			list($dataArray['width'], $dataArray['height']) = getimagesize($dataArray['path'].'/'.$dataArray['filename']);
+			$this->model->create($dataArray);
+			return Response::json('success', 200);
+		} else {
+			return Response::json('error', 400);
 		}
 
 	}

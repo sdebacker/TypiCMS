@@ -28,7 +28,7 @@ class FilesController extends BaseController {
 		$this->repository->upload(Input::all());
 
 		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.files.index' );
+			return Redirect::back();
 		}
 
 	}

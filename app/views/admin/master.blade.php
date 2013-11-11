@@ -9,14 +9,11 @@
 
 	{{ basset_stylesheets('admin') }}
 
-	{{ HTML::style(asset('plugins/uploader/css/jquery.uploader.css')) }}
 	@yield('css')
 
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 
 	{{ basset_javascripts('admin') }}
-
-	{{ HTML::script(asset('plugins/uploader/js/jquery.uploader.js')) }}
 
 	{{ HTML::script(asset('js/general.js')) }}
 
