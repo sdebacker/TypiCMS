@@ -21,7 +21,7 @@ abstract class BaseController extends Controller {
 	/**
 	 * Menus.
 	 */
-	protected $navBar;
+	public $navBar;
 	protected $menuBuilder;
 	protected $mainMenu;
 	protected $footerMenu;
