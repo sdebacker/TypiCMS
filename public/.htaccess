@@ -1,3 +1,7 @@
+php_flag magic_quotes_gpc off
+php_flag magic_quotes_runtime off
+php_flag magic_quotes_sybase off
+
 # Force UTF-8 for certain file formats.
 <IfModule mod_mime.c>
     AddCharset utf-8 .atom .css .js .json .rss .vtt .webapp .xml
