@@ -769,12 +769,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "a5010756d905264ea2b3f7f27c7df22fb9a3bd8e"
+            "reference": "516447f91312924c63fafd8e6083f28013dd03d9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/a5010756d905264ea2b3f7f27c7df22fb9a3bd8e",
-            "reference": "a5010756d905264ea2b3f7f27c7df22fb9a3bd8e",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/516447f91312924c63fafd8e6083f28013dd03d9",
+            "reference": "516447f91312924c63fafd8e6083f28013dd03d9",
             "shasum": ""
         },
         "require": {
@@ -782,19 +782,23 @@
             "psr/log": "~1.0"
         },
         "require-dev": {
+            "aws/aws-sdk-php": "~2.4.8",
             "doctrine/couchdb": "dev-master",
             "mlehner/gelf-php": "1.0.*",
             "phpunit/phpunit": "~3.7.0",
-            "raven/raven": "0.5.*"
+            "raven/raven": "0.5.*",
+            "ruflin/elastica": "0.90.*"
         },
         "suggest": {
+            "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
             "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
             "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
             "ext-mongo": "Allow sending log messages to a MongoDB server",
             "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-            "raven/raven": "Allow sending log messages to a Sentry server"
+            "raven/raven": "Allow sending log messages to a Sentry server",
+            "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
         },
-        "time": "2013-11-04 08:48:35",
+        "time": "2013-11-11 22:14:57",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -966,73 +970,6 @@
         "keywords": [
             "parser",
             "php"
-        ]
-    },
-    {
-        "name": "doctrine/dbal",
-        "version": "2.4.x-dev",
-        "version_normalized": "2.4.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/dbal.git",
-            "reference": "9efdbcebea17506fb1cdb6b4687c23a6786d2e6b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/dbal/zipball/9efdbcebea17506fb1cdb6b4687c23a6786d2e6b",
-            "reference": "9efdbcebea17506fb1cdb6b4687c23a6786d2e6b",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/common": "~2.4",
-            "php": ">=5.3.2"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "3.7.*",
-            "symfony/console": "~2.0"
-        },
-        "suggest": {
-            "symfony/console": "Allows use of the command line interface"
-        },
-        "time": "2013-09-26 21:18:07",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\DBAL\\": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com",
-                "homepage": "http://www.jwage.com/"
-            },
-            {
-                "name": "Guilherme Blanco",
-                "email": "guilhermeblanco@gmail.com",
-                "homepage": "http://www.instaclick.com"
-            },
-            {
-                "name": "Roman Borschel",
-                "email": "roman@code-factory.org"
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de"
-            }
-        ],
-        "description": "Database Abstraction Layer",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database",
-            "dbal",
-            "persistence",
-            "queryobject"
         ]
     },
     {
@@ -1294,53 +1231,6 @@
             "rest",
             "web service"
         ]
-    },
-    {
-        "name": "mccool/database-backup",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ShawnMcCool/database-backup.git",
-            "reference": "66c8522757dd6bd2e50ee92976d9fd2d191528ae"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/ShawnMcCool/database-backup/zipball/66c8522757dd6bd2e50ee92976d9fd2d191528ae",
-            "reference": "66c8522757dd6bd2e50ee92976d9fd2d191528ae",
-            "shasum": ""
-        },
-        "require": {
-            "aws/aws-sdk-php": "dev-master",
-            "php": ">=5.3.0",
-            "symfony/process": "2.*"
-        },
-        "require-dev": {
-            "illuminate/console": "4.x",
-            "illuminate/container": "4.x",
-            "illuminate/support": "4.x",
-            "mockery/mockery": "dev-master",
-            "phpunit/phpunit": "3.7.*"
-        },
-        "time": "2013-09-29 09:25:05",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "McCool\\DatabaseBackup": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Shawn McCool",
-                "email": "shawn@heybigname.com"
-            }
-        ],
-        "description": "A framework-agnostic driver-based database backup package with a Laravel add-on."
     },
     {
         "name": "jeremeamia/SuperClosure",
@@ -1742,48 +1632,6 @@
             }
         ],
         "description": "Fork of PHPThumb that adds auto-image rotation based on EXIF data and composer support"
-    },
-    {
-        "name": "bkwld/croppa",
-        "version": "3.0.5",
-        "version_normalized": "3.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/BKWLD/croppa.git",
-            "reference": "a816c1126f7d159b49630aeeebd499e355db3d27"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/BKWLD/croppa/zipball/a816c1126f7d159b49630aeeebd499e355db3d27",
-            "reference": "a816c1126f7d159b49630aeeebd499e355db3d27",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "4.0.x",
-            "php": ">=5.3.0",
-            "weotch/phpthumb": "~1.0"
-        },
-        "time": "2013-10-01 15:44:44",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/migrations"
-            ],
-            "psr-0": {
-                "Bkwld\\Croppa": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Robert Reinhard"
-            }
-        ],
-        "description": "Image thumbnail creation through specially formatted URLs for Laravel"
     },
     {
         "name": "thujohn/rss",
@@ -2989,18 +2837,178 @@
         ]
     },
     {
+        "name": "bkwld/croppa",
+        "version": "3.0.6",
+        "version_normalized": "3.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/BKWLD/croppa.git",
+            "reference": "047ef57ea5a40f8100306c1f293a68cfec7a79eb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/BKWLD/croppa/zipball/047ef57ea5a40f8100306c1f293a68cfec7a79eb",
+            "reference": "047ef57ea5a40f8100306c1f293a68cfec7a79eb",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "4.0.x",
+            "php": ">=5.3.0",
+            "weotch/phpthumb": "~1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2013-11-12 18:06:38",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/migrations"
+            ],
+            "psr-0": {
+                "Bkwld\\Croppa": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Robert Reinhard"
+            }
+        ],
+        "description": "Image thumbnail creation through specially formatted URLs for Laravel"
+    },
+    {
+        "name": "doctrine/dbal",
+        "version": "2.4.x-dev",
+        "version_normalized": "2.4.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/dbal.git",
+            "reference": "c3448dc0a163becd5acb50199049996c53cade78"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/dbal/zipball/c3448dc0a163becd5acb50199049996c53cade78",
+            "reference": "c3448dc0a163becd5acb50199049996c53cade78",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/common": "~2.4",
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*",
+            "symfony/console": "~2.0"
+        },
+        "suggest": {
+            "symfony/console": "Allows use of the command line interface"
+        },
+        "time": "2013-11-12 12:38:29",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\DBAL\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com",
+                "homepage": "http://www.jwage.com/",
+                "role": "Creator"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com",
+                "homepage": "http://www.instaclick.com"
+            },
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            }
+        ],
+        "description": "Database Abstraction Layer",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "dbal",
+            "persistence",
+            "queryobject"
+        ]
+    },
+    {
+        "name": "mccool/database-backup",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ShawnMcCool/database-backup.git",
+            "reference": "d46caa756ba1dfa7fe51e01d5ee1691df93bf110"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ShawnMcCool/database-backup/zipball/d46caa756ba1dfa7fe51e01d5ee1691df93bf110",
+            "reference": "d46caa756ba1dfa7fe51e01d5ee1691df93bf110",
+            "shasum": ""
+        },
+        "require": {
+            "aws/aws-sdk-php": "dev-master",
+            "php": ">=5.3.0",
+            "symfony/process": "2.*"
+        },
+        "require-dev": {
+            "illuminate/console": "4.x",
+            "illuminate/container": "4.x",
+            "illuminate/support": "4.x",
+            "mockery/mockery": "dev-master",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2013-11-10 14:21:13",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "McCool\\DatabaseBackup": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Shawn McCool",
+                "email": "shawn@heybigname.com"
+            }
+        ],
+        "description": "A framework-agnostic driver-based database backup package with a Laravel add-on."
+    },
+    {
         "name": "laravel/framework",
         "version": "4.0.x-dev",
         "version_normalized": "4.0.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "b9dff90f1a8ed78bf84ba62fc93d01dd86cfaa72"
+            "reference": "0810bd6ef5d610c61b728e82a7e02caef2cad342"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/b9dff90f1a8ed78bf84ba62fc93d01dd86cfaa72",
-            "reference": "b9dff90f1a8ed78bf84ba62fc93d01dd86cfaa72",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/0810bd6ef5d610c61b728e82a7e02caef2cad342",
+            "reference": "0810bd6ef5d610c61b728e82a7e02caef2cad342",
             "shasum": ""
         },
         "require": {
@@ -3064,7 +3072,7 @@
             "pda/pheanstalk": "2.1.*",
             "phpunit/phpunit": "3.7.*"
         },
-        "time": "2013-11-09 18:39:41",
+        "time": "2013-11-12 04:40:26",
         "type": "library",
         "extra": {
             "branch-alias": {
