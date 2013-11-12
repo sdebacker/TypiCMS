@@ -70,7 +70,7 @@ abstract class EloquentTranslatable extends Base {
 	{
 		return $query->with('translations')->join(
 			$this->table.'_translations',
-			$this->table.'.id', '=', static::$translatable['relationshipField']
+			$this->table.'.id', '=', $this->table.'_translations.'.static::$translatable['relationshipField']
 		);
 	}
 
