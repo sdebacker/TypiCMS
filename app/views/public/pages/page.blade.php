@@ -13,7 +13,7 @@
 
 @section('main')
 
-	<h1>{{ $model->title }}</h1>
+	<h2 class="sr-only">{{ $model->title }}</h2>
 	{{ $model->body }}
 	{{ trans('public.More') }}
 
