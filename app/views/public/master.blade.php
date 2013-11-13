@@ -17,7 +17,7 @@
 	@endif
 
 	<!--[if IE 8]>
-	<script type="text/javascript" src="{{ asset('plugins/respond.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('components/vendor/respond/respond.min.js') }}"></script>
 	<![endif]-->
 
 	{{ basset_javascripts('public') }}
