@@ -23,11 +23,11 @@ return array(
                 $collection->javascript('vendor/jquery-ui/ui/jquery.ui.widget.js');
                 $collection->javascript('vendor/jquery-ui/ui/jquery.ui.sortable.js');
                 $collection->javascript('jquery.mjs.nestedSortable.js');
-                $collection->javascript('vendor/alertify.js/alertify.js/lib/alertify.js');
+                $collection->javascript('vendor/alertify.js/lib/alertify.js');
                 $collection->javascript('jquery.listenhancer.js');
                 $collection->javascript('jquery.slug.js');
                 $collection->javascript('vendor/dropzone/downloads/dropzone.js');
-                $collection->javascript('bootstrap/js/tab.js');
+                $collection->javascript('vendor/bootstrap/js/tab.js');
                 $collection->javascript('vendor/moment/moment.js');
                 $collection->javascript('vendor/bootstrap3-datetimepicker/src/js/bootstrap-datetimepicker.js');
                 $collection->javascript('vendor/bootstrap3-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js');
@@ -53,7 +53,7 @@ return array(
 
             $directory = $collection->directory('components', function($collection)
             {
-                $collection->javascript('bootstrap/js/dropdown.js');
+                $collection->javascript('vendor/bootstrap/js/dropdown.js');
             });
 
             $directory->apply('JsMin');
