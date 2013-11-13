@@ -74,8 +74,8 @@ class SentryUser implements UserInterface {
 	 */
 	public function buildList(array $array = array())
 	{
-		$listObject = new ListBuilder($array, $this->listProperties);
-		return $listObject->build();
+		$listObject = new ListBuilder(null, $this->listProperties);
+		return $listObject->build($array);
 	}
 
 

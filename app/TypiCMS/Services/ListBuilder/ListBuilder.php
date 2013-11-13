@@ -45,12 +45,12 @@ class ListBuilder {
 	 * @param  array
 	 * @return string
 	 */
-	public function build()
+	public function build(array $items = array())
 	{
-		if ($this->items) {
+		if ($items) {
 			$this->list[] = ($this->list) ? '<ul>' : '<ul id="'.$this->id.'" class="'.implode(' ', $this->class).'">' ;
 
-			foreach ($this->items as $item) {
+			foreach ($items as $item) {
 				$liClass = array();
 				// online / offline class
 				$liClass[] = $item->status ? 'online' : 'offline' ;
