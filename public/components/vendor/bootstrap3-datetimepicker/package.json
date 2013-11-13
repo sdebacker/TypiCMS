@@ -1,0 +1,24 @@
+{
+  "name": "bootstrap-datetimepicker",
+  "version": "2.1.11",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eonasdan/bootstrap-datetimepicker.git"
+  },
+  "keywords": [
+    "twitter-bootstrap",
+    "bootstrap",
+    "datepicker",
+    "datetimepicker",
+    "timepicker",
+	"moment"
+  ],
+  "devDependencies": {
+    "uglify-js": "*",
+    "less": "*",
+    "mocha-phantomjs": "*",
+    "mocha": "*",
+    "chai": "*",
+    "coffee-script": "*"
+  }
+}

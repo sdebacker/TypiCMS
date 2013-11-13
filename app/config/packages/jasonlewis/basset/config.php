@@ -15,18 +15,26 @@ return array(
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('plugins', function($collection)
+            $directory = $collection->directory('components', function($collection)
             {
-                $collection->javascript('jquery-ui-1.10.3.custom.min.js');
+                $collection->javascript('vendor/jquery-ui/ui/jquery-ui.js');
+                $collection->javascript('vendor/jquery-ui/ui/jquery.ui.core.js');
+                $collection->javascript('vendor/jquery-ui/ui/jquery.ui.mouse.js');
+                $collection->javascript('vendor/jquery-ui/ui/jquery.ui.widget.js');
+                $collection->javascript('vendor/jquery-ui/ui/jquery.ui.sortable.js');
                 $collection->javascript('jquery.mjs.nestedSortable.js');
-                $collection->javascript('alertify.js/src/alertify.js');
+                $collection->javascript('vendor/alertify.js/alertify.js/lib/alertify.js');
                 $collection->javascript('jquery.listenhancer.js');
                 $collection->javascript('jquery.slug.js');
-                $collection->javascript('dropzone/dropzone.js');
-                $collection->javascript('../../vendor/twbs/bootstrap/js/tab.js');
+                $collection->javascript('vendor/dropzone/downloads/dropzone.js');
+                $collection->javascript('bootstrap/js/tab.js');
+                $collection->javascript('vendor/moment/moment.js');
+                $collection->javascript('vendor/bootstrap3-datetimepicker/src/js/bootstrap-datetimepicker.js');
+                $collection->javascript('vendor/bootstrap3-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js');
 
-                $collection->stylesheet('alertify.js/themes/alertify.core.css');
-                $collection->stylesheet('alertify.js/themes/alertify.bootstrap.css');
+                $collection->stylesheet('vendor/bootstrap3-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
+                $collection->stylesheet('vendor/alertify.js/themes/alertify.core.css');
+                $collection->stylesheet('vendor/alertify.js/themes/alertify.bootstrap.css');
             });
 
             $directory->apply('JsMin');
@@ -43,9 +51,9 @@ return array(
             $directory->apply('CssMin');
             $directory->apply('UriRewriteFilter');
 
-            $directory = $collection->directory('plugins', function($collection)
+            $directory = $collection->directory('components', function($collection)
             {
-                $collection->javascript('../../vendor/twbs/bootstrap/js/dropdown.js');
+                $collection->javascript('bootstrap/js/dropdown.js');
             });
 
             $directory->apply('JsMin');

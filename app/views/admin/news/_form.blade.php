@@ -1,11 +1,5 @@
-@section('css')
-	{{ HTML::style(asset('plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css')) }}
-@stop
-
 @section('js')
 	{{ HTML::script(asset('//tinymce.cachefly.net/4.0/tinymce.min.js')) }}
-	{{ HTML::script(asset('plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')) }}
-	{{ HTML::script(asset('plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.'.$locale.'.js')) }}
 	{{ HTML::script(asset('js/form.js')) }}
 @stop
 

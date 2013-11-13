@@ -12,9 +12,9 @@ function initTinymce(selector) {
 			{title : 'File (link)', selector : 'a', classes : 'file'},
 			{title : 'Button (link)', selector : 'a', classes : 'btn'},
 		],
-		content_css : '/plugins/tinymce/css/tiny_mce.css',
+		content_css : '/components/tinymce/css/tiny_mce.css',
 		toolbar: 'formatselect | styleselect | bold italic | subscript superscript | bullist numlist outdent indent | link unlink | alignleft aligncenter alignright alignjustify | table | nonbreaking | image | code',
-		language_url: '/plugins/tinymce/langs/fr.js'
+		language_url: '/components/tinymce/langs/fr.js'
 	});
 }
 
@@ -36,15 +36,15 @@ function initTinymce(selector) {
 		initTinymce('.editor');
 
 		if ($('.datepicker').length) {
-			$('.datepicker').parent().parent().datetimepicker({
-				format: 'dd.MM.yyyy',
+			$('.datepicker').parent().datetimepicker({
+				format: 'DD.MM.YYYY',
 				pickTime: false,
 				language: lang
 			});
 		};
 
 		if ($('.hourpicker').length) {
-			$('.hourpicker').parent().parent().datetimepicker({
+			$('.hourpicker').parent().datetimepicker({
 				pickDate: false,
 				pickSeconds: false,
 				language: lang
