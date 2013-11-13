@@ -46,7 +46,7 @@ class DashboardController extends BaseController {
 		$database = Config::get('database.connections.mysql.database');
 
 		// SQL file
-		$file = storage_path().'/backup/'.$database.'-'.date('c').'.sql';
+		$file = storage_path().'/backup/'.$database.'.sql';
 
 		// Export
 		$shellProcessor = new ShellProcessor(new Process(''));
