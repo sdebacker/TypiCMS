@@ -7,6 +7,7 @@ use Request;
 class ListBuilder {
 
 	private $list = array();
+	public $items = array();
 	
 	private $id = 'listMain';
 	private $class = array('list-main');
@@ -25,8 +26,9 @@ class ListBuilder {
 	private $formatForDisplay;
 	private $fieldsForDisplay;
 	
-	public function __construct(array $properties = array())
+	public function __construct($items, array $properties = array())
 	{
+		$this->items = $items;
 		foreach ($properties as $property => $value) {
 			$this->$property = $value;
 		}
@@ -43,12 +45,12 @@ class ListBuilder {
 	 * @param  array
 	 * @return string
 	 */
-	public function build(array $items = array())
+	public function build()
 	{
-		if ($items) {
+		if ($this->items) {
 			$this->list[] = ($this->list) ? '<ul>' : '<ul id="'.$this->id.'" class="'.implode(' ', $this->class).'">' ;
 
-			foreach ($items as $item) {
+			foreach ($this->items as $item) {
 				$liClass = array();
 				// online / offline class
 				$liClass[] = $item->status ? 'online' : 'offline' ;
@@ -64,9 +66,9 @@ class ListBuilder {
 					$params = array($item->menu_id, $item->id);
 				}
 				// Pas propre :
-				if (isset($item->category_id) and $item->category_id) {
-					$params = array($item->category_id, $item->id);
-				}
+				// if (isset($item->category_id) and $item->category_id) {
+				// 	$params = array($item->category_id, $item->id);
+				// }
 
 				$this->list[] = '<a href="'.route('admin.'.$item->route.'.edit', $params).'">';
 
@@ -97,9 +99,9 @@ class ListBuilder {
 	 * @param  array
 	 * @return string
 	 */
-	public function buildPublic($items)
+	public function buildPublic()
 	{
-		$items->each(function($menulink) {
+		$this->items->each(function($menulink) {
 
 			// Homepage
 			if ($menulink->is_home) {
@@ -130,18 +132,18 @@ class ListBuilder {
 			}
 		});
 
-		$items->nest();
+		$this->items->nest();
 
-		return $this->toHtml($items);
+		return $this;
 
 	}
 
-	public function toHtml($items)
+	public function toHtml()
 	{
-		if ($items) {
+		if ($this->items) {
 			$this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$this->id.'" class="nav nav-pills">' ;
 
-			foreach ($items as $item) {
+			foreach ($this->items as $item) {
 
 				$aClasses = array();
 				$aDataToggle = '';

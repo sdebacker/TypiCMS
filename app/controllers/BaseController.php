@@ -53,13 +53,13 @@ abstract class BaseController extends Controller {
 
 		// Main menu
 		$mainMenuItems = Menulink::getMenu('main');
-		$listBuilder = new ListBuilder;
-		$this->mainMenu = $listBuilder->buildPublic($mainMenuItems);
+		$listBuilder = new ListBuilder($mainMenuItems);
+		$this->mainMenu = $listBuilder->buildPublic()->toHtml();
 
 		// Footer menu
 		$footerMenuItems = Menulink::getMenu('footer');
-		$listBuilder = new ListBuilder;
-		$this->footerMenu = $listBuilder->buildPublic($footerMenuItems);
+		$listBuilder = new ListBuilder($footerMenuItems);
+		$this->footerMenu = $listBuilder->buildPublic($footerMenuItems)->toHtml();
 
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {

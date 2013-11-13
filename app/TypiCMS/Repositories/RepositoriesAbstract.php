@@ -157,8 +157,8 @@ abstract class RepositoriesAbstract {
 	 */
 	public function buildList(array $array = array())
 	{
-		$listObject = new ListBuilder($this->listProperties);
-		return $listObject->build($array);
+		$listObject = new ListBuilder($array, $this->listProperties);
+		return $listObject->build();
 	}
 
 	/**
