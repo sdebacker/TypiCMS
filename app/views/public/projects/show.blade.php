@@ -1,7 +1,7 @@
 
 @section('main')
 
-	<h1>titre : {{ $model->title }}</h1>
+	<h2>titre : {{ $model->title }}</h2>
 
 @stop
 
