@@ -1,6 +1,5 @@
-
+@if(count($models))
 	<h1><span id="nb_elements">{{ $models->getTotal() }}</span> {{ trans_choice('global.modules.files', $models->getTotal()) }}</h1>
-
 	<div class="row">
 	@foreach($models as $file)
 		<div class="col-md-3 col-xs-6">
@@ -16,3 +15,4 @@
 		</div>
 	@endforeach
 	</div>
+@endif
