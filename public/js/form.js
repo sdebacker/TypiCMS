@@ -41,6 +41,12 @@ function initTinymce(selector) {
 				pickTime: false,
 				language: lang
 			});
+			$('.datepicker-start').parent().on('change.dp', function (e) {
+				$('.datepicker-end').parent().data('DateTimePicker').setStartDate(e.date);
+			});
+			$('.datepicker-end').parent().on('change.dp', function (e) {
+				$('.datepicker-start').parent().data('DateTimePicker').setEndDate(e.date);
+			});
 		};
 
 		if ($('.hourpicker').length) {
