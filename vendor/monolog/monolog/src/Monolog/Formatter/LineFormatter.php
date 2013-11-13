@@ -50,9 +50,7 @@ class LineFormatter extends NormalizerFormatter
             }
         }
         foreach ($vars as $var => $val) {
-            if (false !== strpos($output, '%'.$var.'%')) {
-                $output = str_replace('%'.$var.'%', $this->convertToString($val), $output);
-            }
+            $output = str_replace('%'.$var.'%', $this->convertToString($val), $output);
         }
 
         return $output;
@@ -96,9 +94,9 @@ class LineFormatter extends NormalizerFormatter
 
         $data = $this->normalize($data);
         if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-            return $this->toJson($data, true);
+            return $this->toJson($data);
         }
 
-        return str_replace('\\/', '/', @json_encode($data));
+        return str_replace('\\/', '/', json_encode($data));
     }
 }

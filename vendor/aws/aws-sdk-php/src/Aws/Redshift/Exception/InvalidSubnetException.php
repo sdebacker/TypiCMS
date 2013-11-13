@@ -17,6 +17,6 @@
 namespace Aws\Redshift\Exception;
 
 /**
- * The requested subnet is valid, or not all of the subnets are in the same VPC.
+ * The requested subnet is not valid, or not all of the subnets are in the same VPC.
  */
 class InvalidSubnetException extends RedshiftException {}

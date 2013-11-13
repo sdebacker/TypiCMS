@@ -25,23 +25,20 @@ class NativeMailerHandler extends MailHandler
     protected $headers = array(
         'Content-type: text/plain; charset=utf-8'
     );
-    protected $maxColumnWidth;
 
     /**
-     * @param string|array $to             The receiver of the mail
-     * @param string       $subject        The subject of the mail
-     * @param string       $from           The sender of the mail
-     * @param integer      $level          The minimum logging level at which this handler will be triggered
-     * @param boolean      $bubble         Whether the messages that are handled can bubble up the stack or not
-     * @param int          $maxColumnWidth The maximum column width that the message lines will have
+     * @param string|array $to      The receiver of the mail
+     * @param string       $subject The subject of the mail
+     * @param string       $from    The sender of the mail
+     * @param integer      $level   The minimum logging level at which this handler will be triggered
+     * @param boolean      $bubble  Whether the messages that are handled can bubble up the stack or not
      */
-    public function __construct($to, $subject, $from, $level = Logger::ERROR, $bubble = true, $maxColumnWidth = 70)
+    public function __construct($to, $subject, $from, $level = Logger::ERROR, $bubble = true)
     {
         parent::__construct($level, $bubble);
         $this->to = is_array($to) ? $to : array($to);
         $this->subject = $subject;
         $this->addHeader(sprintf('From: %s', $from));
-        $this->maxColumnWidth = $maxColumnWidth;
     }
 
     /**
@@ -62,7 +59,7 @@ class NativeMailerHandler extends MailHandler
      */
     protected function send($content, array $records)
     {
-        $content = wordwrap($content, $this->maxColumnWidth);
+        $content = wordwrap($content, 70);
         $headers = implode("\r\n", $this->headers) . "\r\n";
         foreach ($this->to as $to) {
             mail($to, $this->subject, $content, $headers);

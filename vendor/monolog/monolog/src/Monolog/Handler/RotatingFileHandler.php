@@ -28,8 +28,6 @@ class RotatingFileHandler extends StreamHandler
     protected $maxFiles;
     protected $mustRotate;
     protected $nextRotation;
-    protected $filenameFormat;
-    protected $dateFormat;
 
     /**
      * @param string  $filename
@@ -42,8 +40,6 @@ class RotatingFileHandler extends StreamHandler
         $this->filename = $filename;
         $this->maxFiles = (int) $maxFiles;
         $this->nextRotation = new \DateTime('tomorrow');
-        $this->filenameFormat = '{filename}-{date}';
-        $this->dateFormat = 'Y-m-d';
 
         parent::__construct($this->getTimedFilename(), $level, $bubble);
     }
@@ -58,12 +54,6 @@ class RotatingFileHandler extends StreamHandler
         if (true === $this->mustRotate) {
             $this->rotate();
         }
-    }
-
-    public function setFilenameFormat($filenameFormat, $dateFormat)
-    {
-        $this->filenameFormat = $filenameFormat;
-        $this->dateFormat = $dateFormat;
     }
 
     /**
@@ -98,7 +88,12 @@ class RotatingFileHandler extends StreamHandler
             return;
         }
 
-        $logFiles = glob($this->getGlobPattern());
+        $fileInfo = pathinfo($this->filename);
+        $glob = $fileInfo['dirname'].'/'.$fileInfo['filename'].'-*';
+        if (!empty($fileInfo['extension'])) {
+            $glob .= '.'.$fileInfo['extension'];
+        }
+        $logFiles = glob($glob);
         if ($this->maxFiles >= count($logFiles)) {
             // no files to remove
             return;
@@ -119,31 +114,11 @@ class RotatingFileHandler extends StreamHandler
     protected function getTimedFilename()
     {
         $fileInfo = pathinfo($this->filename);
-        $timedFilename = str_replace(
-            array('{filename}', '{date}'),
-            array($fileInfo['filename'], date($this->dateFormat)),
-            $fileInfo['dirname'] . '/' . $this->filenameFormat
-        );
-
+        $timedFilename = $fileInfo['dirname'].'/'.$fileInfo['filename'].'-'.date('Y-m-d');
         if (!empty($fileInfo['extension'])) {
             $timedFilename .= '.'.$fileInfo['extension'];
         }
 
         return $timedFilename;
-    }
-
-    protected function getGlobPattern()
-    {
-        $fileInfo = pathinfo($this->filename);
-        $glob = str_replace(
-            array('{filename}', '{date}'),
-            array($fileInfo['filename'], '*'),
-            $fileInfo['dirname'] . '/' . $this->filenameFormat
-        );
-        if (!empty($fileInfo['extension'])) {
-            $glob .= '.'.$fileInfo['extension'];
-        }
-
-        return $glob;
     }
 }

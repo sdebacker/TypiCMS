@@ -13,17 +13,9 @@ namespace Monolog\Handler;
 
 use Monolog\TestCase;
 use Monolog\Logger;
-use Psr\Log\LogLevel;
 
 class NewRelicHandlerTest extends TestCase
 {
-    public static $appname;
-
-    public function setUp()
-    {
-        $this::$appname = null;
-    }
-
     /**
      * @expectedException Monolog\Handler\MissingExtensionException
      */
@@ -43,30 +35,6 @@ class NewRelicHandlerTest extends TestCase
     {
         $handler = new StubNewRelicHandler();
         $handler->handle($this->getRecord(Logger::ERROR, 'log message', array('a' => 'b')));
-    }
-
-    public function testTheAppNameIsNullByDefault()
-    {
-        $handler = new StubNewRelicHandler();
-        $handler->handle($this->getRecord(Logger::ERROR, 'log message'));
-
-        $this->assertEquals(null, $this::$appname);
-    }
-
-    public function testTheAppNameCanBeInjectedFromtheConstructor()
-    {
-        $handler = new StubNewRelicHandler(LogLevel::ALERT, false, 'myAppName');
-        $handler->handle($this->getRecord(Logger::ERROR, 'log message'));
-
-        $this->assertEquals('myAppName', $this::$appname);
-    }
-
-    public function testTheAppNameCanBeOverriddenFromEachLog()
-    {
-        $handler = new StubNewRelicHandler(LogLevel::ALERT, false, 'myAppName');
-        $handler->handle($this->getRecord(Logger::ERROR, 'log message', array('appname' => 'logAppName')));
-
-        $this->assertEquals('logAppName', $this::$appname);
     }
 }
 
@@ -89,11 +57,6 @@ class StubNewRelicHandler extends NewRelicHandler
 function newrelic_notice_error()
 {
     return true;
-}
-
-function newrelic_set_appname($appname)
-{
-    return NewRelicHandlerTest::$appname = $appname;
 }
 
 function newrelic_add_custom_parameter()

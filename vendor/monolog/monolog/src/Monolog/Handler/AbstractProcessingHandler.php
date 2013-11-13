@@ -26,7 +26,7 @@ abstract class AbstractProcessingHandler extends AbstractHandler
      */
     public function handle(array $record)
     {
-        if (!$this->isHandling($record)) {
+        if ($record['level'] < $this->level) {
             return false;
         }
 

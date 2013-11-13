@@ -11,8 +11,6 @@
 
 namespace Monolog\Processor;
 
-use Monolog\Logger;
-
 /**
  * Injects line/file:class/function where the log message came from
  *
@@ -26,24 +24,12 @@ use Monolog\Logger;
  */
 class IntrospectionProcessor
 {
-    private $level;
-
-    public function __construct($level = Logger::DEBUG)
-    {
-        $this->level = $level;
-    }
-
     /**
      * @param  array $record
      * @return array
      */
     public function __invoke(array $record)
     {
-        // return if the level is not high enough
-        if ($record['level'] < $this->level) {
-            return $record;
-        }
-
         $trace = debug_backtrace();
 
         // skip first since it's always the current method

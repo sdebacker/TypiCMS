@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "ab4ef00babc70943442bc3d3abc648e5b9513990"
+                "reference": "a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/ab4ef00babc70943442bc3d3abc648e5b9513990",
-                "reference": "ab4ef00babc70943442bc3d3abc648e5b9513990",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a",
+                "reference": "a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a",
                 "shasum": ""
             },
             "require": {
@@ -63,7 +63,7 @@
                 "foundation",
                 "laravel"
             ],
-            "time": "2013-11-08 14:03:02"
+            "time": "2013-11-13 12:58:52"
         },
         {
             "name": "anahkiasen/html-object",
@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "80ec29d00a23471553005e6948609304aeb4e899"
+                "reference": "5aab7dea0294b64d871b40f1e76a1efca174432a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/80ec29d00a23471553005e6948609304aeb4e899",
-                "reference": "80ec29d00a23471553005e6948609304aeb4e899",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5aab7dea0294b64d871b40f1e76a1efca174432a",
+                "reference": "5aab7dea0294b64d871b40f1e76a1efca174432a",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-08 18:14:08"
+            "time": "2013-11-13 09:51:41"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -257,16 +257,16 @@
         },
         {
             "name": "bkwld/croppa",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BKWLD/croppa.git",
-                "reference": "047ef57ea5a40f8100306c1f293a68cfec7a79eb"
+                "reference": "c606f509c6dfc28c7823b95372c7173afbf1064c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/047ef57ea5a40f8100306c1f293a68cfec7a79eb",
-                "reference": "047ef57ea5a40f8100306c1f293a68cfec7a79eb",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/c606f509c6dfc28c7823b95372c7173afbf1064c",
+                "reference": "c606f509c6dfc28c7823b95372c7173afbf1064c",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 }
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
-            "time": "2013-11-12 18:06:38"
+            "time": "2013-11-13 22:05:57"
         },
         {
             "name": "cartalyst/sentry",
@@ -1485,12 +1485,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0810bd6ef5d610c61b728e82a7e02caef2cad342"
+                "reference": "ce13eaad2506bb913b7318b7d56477c04ac3b571"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0810bd6ef5d610c61b728e82a7e02caef2cad342",
-                "reference": "0810bd6ef5d610c61b728e82a7e02caef2cad342",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ce13eaad2506bb913b7318b7d56477c04ac3b571",
+                "reference": "ce13eaad2506bb913b7318b7d56477c04ac3b571",
                 "shasum": ""
             },
             "require": {
@@ -1590,7 +1590,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-12 04:40:26"
+            "time": "2013-11-13 04:50:56"
         },
         {
             "name": "leafo/lessphp",
@@ -1730,16 +1730,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "dev-master",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "516447f91312924c63fafd8e6083f28013dd03d9"
+                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/516447f91312924c63fafd8e6083f28013dd03d9",
-                "reference": "516447f91312924c63fafd8e6083f28013dd03d9",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f72392d0e6eb855118f5a84e89ac2d257c704abd",
+                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd",
                 "shasum": ""
             },
             "require": {
@@ -1747,21 +1747,16 @@
                 "psr/log": "~1.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "~2.4.8",
                 "doctrine/couchdb": "dev-master",
                 "mlehner/gelf-php": "1.0.*",
-                "phpunit/phpunit": "~3.7.0",
-                "raven/raven": "0.5.*",
-                "ruflin/elastica": "0.90.*"
+                "raven/raven": "0.5.*"
             },
             "suggest": {
-                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+                "raven/raven": "Allow sending log messages to a Sentry server"
             },
             "type": "library",
             "extra": {
@@ -1793,7 +1788,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-11-11 22:14:57"
+            "time": "2013-07-28 22:38:30"
         },
         {
             "name": "mrclay/minify",
@@ -2212,12 +2207,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "38f924338419db1ce147ef39fff1265ee64faa81"
+                "reference": "00848d3e13cf512e77c7498c2b3b0192f61f4b18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/38f924338419db1ce147ef39fff1265ee64faa81",
-                "reference": "38f924338419db1ce147ef39fff1265ee64faa81",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/00848d3e13cf512e77c7498c2b3b0192f61f4b18",
+                "reference": "00848d3e13cf512e77c7498c2b3b0192f61f4b18",
                 "shasum": ""
             },
             "require": {
@@ -2256,7 +2251,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-05 15:14:13"
+            "time": "2013-11-13 21:27:40"
         },
         {
             "name": "symfony/css-selector",
@@ -2573,12 +2568,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "796619f49371629db8f5ef5ce82f2f52e4fdfd9d"
+                "reference": "1c4b897064f4f621031a0e3bc19fd7054d5e0315"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/796619f49371629db8f5ef5ce82f2f52e4fdfd9d",
-                "reference": "796619f49371629db8f5ef5ce82f2f52e4fdfd9d",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/1c4b897064f4f621031a0e3bc19fd7054d5e0315",
+                "reference": "1c4b897064f4f621031a0e3bc19fd7054d5e0315",
                 "shasum": ""
             },
             "require": {
@@ -2614,7 +2609,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-04 06:09:51"
+            "time": "2013-11-13 21:27:40"
         },
         {
             "name": "symfony/http-kernel",
@@ -2799,12 +2794,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Translation.git",
-                "reference": "6aedcff5ea623316dbf2112b78f2f63a257aab01"
+                "reference": "e0012648d7fc96d8f03bb7ca4d5e44f471a15417"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Translation/zipball/6aedcff5ea623316dbf2112b78f2f63a257aab01",
-                "reference": "6aedcff5ea623316dbf2112b78f2f63a257aab01",
+                "url": "https://api.github.com/repos/symfony/Translation/zipball/e0012648d7fc96d8f03bb7ca4d5e44f471a15417",
+                "reference": "e0012648d7fc96d8f03bb7ca4d5e44f471a15417",
                 "shasum": ""
             },
             "require": {
@@ -2845,7 +2840,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-10 13:12:30"
+            "time": "2013-11-13 21:27:40"
         },
         {
             "name": "thujohn/rss",

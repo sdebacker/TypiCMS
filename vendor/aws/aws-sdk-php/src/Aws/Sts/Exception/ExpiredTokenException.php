@@ -17,6 +17,6 @@
 namespace Aws\Sts\Exception;
 
 /**
- * The web identity token that was passed is expired. Get a new identity token from the identity provider and then retry the request.
+ * The web identity token that was passed is expired or is not valid. Get a new identity token from the identity provider and then retry the request.
  */
 class ExpiredTokenException extends StsException {}

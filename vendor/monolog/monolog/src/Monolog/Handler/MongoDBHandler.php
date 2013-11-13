@@ -27,7 +27,7 @@ use Monolog\Formatter\NormalizerFormatter;
  */
 class MongoDBHandler extends AbstractProcessingHandler
 {
-    protected $mongoCollection;
+    private $mongoCollection;
 
     public function __construct($mongo, $database, $collection, $level = Logger::DEBUG, $bubble = true)
     {
