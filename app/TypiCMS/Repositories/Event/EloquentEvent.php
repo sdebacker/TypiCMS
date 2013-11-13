@@ -15,7 +15,7 @@ class EloquentEvent extends RepositoriesAbstract implements EventInterface {
 		$this->cache = $cache;
 
 		$this->listProperties = array(
-			'display' => array('%s : %s', 'start_date', 'title'),
+			'display' => array('%s > %s : %s', 'start_date', 'end_date', 'title'),
 		);
 
 		$this->select = array(

@@ -76,6 +76,8 @@ class ListBuilder {
 				foreach ($this->fieldsForDisplay as $fieldForDisplay) {
 					if (method_exists($item, $fieldForDisplay)) {
 						$fieldsToDisplay[] = $item->$fieldForDisplay();
+					} else if (is_object($item->$fieldForDisplay) and get_class($item->$fieldForDisplay) == 'Carbon\Carbon') {
+						$fieldsToDisplay[] = $item->$fieldForDisplay->format('d.m.Y');
 					} else {
 						$fieldsToDisplay[] = $item->$fieldForDisplay;
 					}

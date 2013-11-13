@@ -35,6 +35,15 @@ class News extends EloquentTranslatable {
 
 
 	/**
+	 * Dates
+	 */
+	public function getDates()
+	{
+		return array('created_at', 'updated_at', 'date');
+	}
+
+
+	/**
 	 * Relations
 	 */
 	public function files()
@@ -70,18 +79,6 @@ class News extends EloquentTranslatable {
 	public function newCollection(array $models = array())
 	{
 		return new NestedCollection($models);
-	}
-
-
-	/**
-	 * Accessors
-	 *
-	 * @return string
-	 */
-	public function getDateAttribute($value)
-	{
-		if ($value == '0000-00-00') return;
-		return \DateTime::createFromFormat('Y-m-d', $value)->format('d.m.Y');
 	}
 
 

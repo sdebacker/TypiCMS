@@ -35,6 +35,15 @@ class Event extends EloquentTranslatable {
 
 
 	/**
+	 * Dates
+	 */
+	public function getDates()
+	{
+		return array('created_at', 'updated_at', 'start_date', 'end_date');
+	}
+
+
+	/**
 	 * Relations
 	 */
 	public function files()
@@ -70,24 +79,6 @@ class Event extends EloquentTranslatable {
 	public function newCollection(array $models = array())
 	{
 		return new NestedCollection($models);
-	}
-
-
-	/**
-	 * Accessors
-	 *
-	 * @return string
-	 */
-	public function getStartDateAttribute($value)
-	{
-		if ($value == '0000-00-00') return;
-		return \DateTime::createFromFormat('Y-m-d', $value)->format('d.m.Y');
-	}
-
-	public function getEndDateAttribute($value)
-	{
-		if ($value == '0000-00-00') return;
-		return \DateTime::createFromFormat('Y-m-d', $value)->format('d.m.Y');
 	}
 
 
