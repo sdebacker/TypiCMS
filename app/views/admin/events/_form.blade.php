@@ -13,7 +13,7 @@
 				{{ Former::text('start_date')->placeholder('DDMMYYYY')->class('form-control datepicker datepicker-start')->append('<span class="glyphicon glyphicon-calendar"></span>'); }}
 			</div>
 			<div class="col-xs-4">
-				{{ Former::text('start_time')->placeholder('HH:MM')->class('form-control hourpicker')->append('<span class="glyphicon glyphicon-time"></span>'); }}
+				{{ Former::text('start_time')->placeholder('HH:MM')->class('form-control timepicker')->append('<span class="glyphicon glyphicon-time"></span>'); }}
 			</div>
 		</div>
 
@@ -22,7 +22,7 @@
 				{{ Former::text('end_date')->placeholder('DDMMYYYY')->class('form-control datepicker datepicker-end')->append('<span class="glyphicon glyphicon-calendar"></span>'); }}
 			</div>
 			<div class="col-xs-4">
-				{{ Former::text('end_time')->placeholder('HH:MM')->class('form-control hourpicker')->append('<span class="glyphicon glyphicon-time"></span>'); }}
+				{{ Former::text('end_time')->placeholder('HH:MM')->class('form-control timepicker')->append('<span class="glyphicon glyphicon-time"></span>'); }}
 			</div>
 		</div>
 

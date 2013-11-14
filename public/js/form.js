@@ -49,8 +49,16 @@ function initTinymce(selector) {
 			});
 		};
 
-		if ($('.hourpicker').length) {
-			$('.hourpicker').parent().datetimepicker({
+		if ($('.datetimepicker').length) {
+			$('.datetimepicker').parent().datetimepicker({
+				format: 'DD.MM.YYYY HH:mm',
+				pickSeconds: false,
+				language: lang
+			});
+		};
+
+		if ($('.timepicker').length) {
+			$('.timepicker').parent().datetimepicker({
 				pickDate: false,
 				pickSeconds: false,
 				language: lang
