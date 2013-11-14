@@ -1,5 +1,5 @@
 <?php
-ini_set('memory_limit', '400M');
+ini_set('memory_limit', '350M');
 date_default_timezone_set('UTC');
 
 // Load the Illuminate Container
@@ -49,7 +49,6 @@ abstract class FormerTests extends IlluminateMock
   public function resetLabels()
   {
     $this->former->labels = array();
-    $this->former->ids    = array();
   }
 
   ////////////////////////////////////////////////////////////////////

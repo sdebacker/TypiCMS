@@ -3,20 +3,20 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8c94e74429226aa7903593604907d0ea",
+    "hash": "1cc5fae9cf98797ee789366b61801fb2",
     "packages": [
         {
             "name": "anahkiasen/former",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a"
+                "reference": "02db81b871aff32443a9a1903c7df98af51c69a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a",
-                "reference": "a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/02db81b871aff32443a9a1903c7df98af51c69a4",
+                "reference": "02db81b871aff32443a9a1903c7df98af51c69a4",
                 "shasum": ""
             },
             "require": {
@@ -63,7 +63,7 @@
                 "foundation",
                 "laravel"
             ],
-            "time": "2013-11-13 12:58:52"
+            "time": "2013-11-05 18:43:17"
         },
         {
             "name": "anahkiasen/html-object",

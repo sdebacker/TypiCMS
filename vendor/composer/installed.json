@@ -2628,68 +2628,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "anahkiasen/former",
-        "version": "dev-develop",
-        "version_normalized": "dev-develop",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Anahkiasen/former.git",
-            "reference": "a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Anahkiasen/former/zipball/a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a",
-            "reference": "a0e673ebc8b7306cd2cfeab123dc52015ba0fe3a",
-            "shasum": ""
-        },
-        "require": {
-            "anahkiasen/html-object": "dev-master",
-            "anahkiasen/underscore-php": "dev-master",
-            "illuminate/config": "~4",
-            "illuminate/container": "~4",
-            "illuminate/http": "~4",
-            "illuminate/routing": "~4",
-            "illuminate/session": "~4",
-            "illuminate/translation": "~4"
-        },
-        "require-dev": {
-            "illuminate/database": "~4",
-            "mockery/mockery": "dev-master"
-        },
-        "time": "2013-11-13 12:58:52",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-agnostic": "3.x.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Former": "src",
-                "Laravel": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Fabre",
-                "email": "ehtnam6@gmail.com"
-            }
-        ],
-        "description": "A powerful form builder",
-        "homepage": "http://anahkiasen.github.com/former/",
-        "keywords": [
-            "bootstrap",
-            "form",
-            "foundation",
-            "laravel"
-        ]
-    },
-    {
         "name": "symfony/console",
         "version": "2.3.x-dev",
         "version_normalized": "2.3.9999999.9999999-dev",
@@ -3104,6 +3042,68 @@
             "ec2",
             "s3",
             "sdk"
+        ]
+    },
+    {
+        "name": "anahkiasen/former",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Anahkiasen/former.git",
+            "reference": "02db81b871aff32443a9a1903c7df98af51c69a4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Anahkiasen/former/zipball/02db81b871aff32443a9a1903c7df98af51c69a4",
+            "reference": "02db81b871aff32443a9a1903c7df98af51c69a4",
+            "shasum": ""
+        },
+        "require": {
+            "anahkiasen/html-object": "dev-master",
+            "anahkiasen/underscore-php": "dev-master",
+            "illuminate/config": "~4",
+            "illuminate/container": "~4",
+            "illuminate/http": "~4",
+            "illuminate/routing": "~4",
+            "illuminate/session": "~4",
+            "illuminate/translation": "~4"
+        },
+        "require-dev": {
+            "illuminate/database": "~4",
+            "mockery/mockery": "dev-master"
+        },
+        "time": "2013-11-05 18:43:17",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-agnostic": "3.x.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Former": "src",
+                "Laravel": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Fabre",
+                "email": "ehtnam6@gmail.com"
+            }
+        ],
+        "description": "A powerful form builder",
+        "homepage": "http://anahkiasen.github.com/former/",
+        "keywords": [
+            "bootstrap",
+            "form",
+            "foundation",
+            "laravel"
         ]
     }
 ]

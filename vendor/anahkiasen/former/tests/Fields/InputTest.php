@@ -83,8 +83,7 @@ class InputTest extends FormerTests
     $this->assertHTML($this->matchField(), $static);
     $this->assertHTML($this->matchControlGroup(), $static);
 
-    $this->resetLabels();
-    $input = $this->former->text('foo', 'bar')->__toString();
+    $input   = $this->former->text('foo', 'bar')->__toString();
     $this->assertHTML($this->matchLabel('Bar', 'foo'), $input);
     $this->assertHTML($this->matchField(), $input);
     $this->assertHTML($this->matchControlGroup(), $input);
@@ -261,13 +260,6 @@ class InputTest extends FormerTests
 
     $static  = $this->former->checkbox('foo')->label($object)->__toString();
     $label = $this->matchLabel('Bar', 'foo');
-    $this->assertHTML($label, $static);
-  }
-
-  public function testUnderscoresInLabelsAreConverted()
-  {
-    $static  = $this->former->text('foo')->label('customer_name')->__toString();
-    $label = $this->matchLabel('Customer name', 'foo');
     $this->assertHTML($label, $static);
   }
 }

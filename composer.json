@@ -20,7 +20,7 @@
 		"leafo/lessphp": "0.4.0",
 		"twbs/bootstrap": "v3.0.0",
 		"edvinaskrucas/notification": "1.*",
-		"anahkiasen/former": "dev-develop",
+		"anahkiasen/former": "dev-master",
 		"ink/ink-translatable": "dev-master",
 		"jwage/easy-csv": "dev-master",
 		"jasonlewis/basset": "dev-master",

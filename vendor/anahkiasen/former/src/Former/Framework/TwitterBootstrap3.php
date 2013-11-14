@@ -148,26 +148,22 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
     return 'has-error';
   }
 
-  /**
-   * Set the fields width from a label width
-   *
-   * @param array $labelWidths
-   */
   protected function setFieldWidths($labelWidths)
   {
     $labelWidthClass = $fieldWidthClass = $fieldOffsetClass = '';
 
     $viewports = $this->getFrameworkOption('viewports');
+
     foreach ($labelWidths as $viewport => $columns) {
       if ($viewport) {
-        $labelWidthClass  .= " col-$viewports[$viewport]-$columns";
-        $fieldWidthClass  .= " col-$viewports[$viewport]-".(12-$columns);
+        $labelWidthClass .= " col-$viewports[$viewport]-$columns";
+        $fieldWidthClass .= " col-$viewports[$viewport]-".(12-$columns);
         $fieldOffsetClass .= " col-$viewports[$viewport]-offset-$columns";
       }
     }
 
-    $this->labelWidth  = ltrim($labelWidthClass);
-    $this->fieldWidth  = ltrim($fieldWidthClass);
+    $this->labelWidth = ltrim($labelWidthClass);
+    $this->fieldWidth = ltrim($fieldWidthClass);
     $this->fieldOffset = ltrim($fieldOffsetClass);
   }
 
@@ -271,9 +267,9 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
   {
     if ($this->app['former.form']->isOfType('horizontal') || $this->app['former.form']->isOfType('inline')) {
       return 'form-group';
+    } else {
+      return null;
     }
-
-    return null;
   }
 
   ////////////////////////////////////////////////////////////////////
@@ -351,9 +347,9 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
   {
     if ($this->app['former.form']->isOfType('horizontal')) {
       return Element::create('div', $field)->addClass($this->fieldWidth);
+    } else {
+      return $field;
     }
-
-    return $field;
   }
 
   /**
@@ -364,11 +360,11 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
    */
   public function wrapActions($actions)
   {
-    // For horizontal forms, we wrap the actions in a div
     if ($this->app['former.form']->isOfType('horizontal')) {
-      return Element::create('div', $actions)->addClass(array($this->fieldOffset, $this->fieldWidth));
+      return Element::create('div', $actions)->addClass(array($this->fieldOffset,$this->fieldWidth));
+    } else {
+      return $actions;
     }
-
-    return $actions;
   }
+
 }
