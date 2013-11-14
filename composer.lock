@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5aab7dea0294b64d871b40f1e76a1efca174432a"
+                "reference": "6c1438b1798f6d1757ddf852db0c4bf5220da3bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5aab7dea0294b64d871b40f1e76a1efca174432a",
-                "reference": "5aab7dea0294b64d871b40f1e76a1efca174432a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6c1438b1798f6d1757ddf852db0c4bf5220da3bb",
+                "reference": "6c1438b1798f6d1757ddf852db0c4bf5220da3bb",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-13 09:51:41"
+            "time": "2013-11-14 09:35:50"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -304,12 +304,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cartalyst/sentry.git",
-                "reference": "2518d21a0b9f22b42fecd26cc95cfc8e4b097592"
+                "reference": "57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/2518d21a0b9f22b42fecd26cc95cfc8e4b097592",
-                "reference": "2518d21a0b9f22b42fecd26cc95cfc8e4b097592",
+                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f",
+                "reference": "57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f",
                 "shasum": ""
             },
             "require": {
@@ -395,7 +395,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2013-11-07 20:51:32"
+            "time": "2013-11-14 10:02:16"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1796,12 +1796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mrclay/minify.git",
-                "reference": "e778d4f71440a381307ce9b65b3ee9b556d5b085"
+                "reference": "f8b62b358b53eb4d30eeda1abc125097221d2193"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrclay/minify/zipball/e778d4f71440a381307ce9b65b3ee9b556d5b085",
-                "reference": "e778d4f71440a381307ce9b65b3ee9b556d5b085",
+                "url": "https://api.github.com/repos/mrclay/minify/zipball/f8b62b358b53eb4d30eeda1abc125097221d2193",
+                "reference": "f8b62b358b53eb4d30eeda1abc125097221d2193",
                 "shasum": ""
             },
             "require": {
@@ -1820,7 +1820,7 @@
             ],
             "authors": [
                 {
-                    "name": "Steve Clay",
+                    "name": "Stephen Clay",
                     "email": "steve@mrclay.org",
                     "homepage": "http://www.mrclay.org/",
                     "role": "Developer"
@@ -1828,7 +1828,7 @@
             ],
             "description": "Minify is a PHP5 app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
             "homepage": "http://code.google.com/p/minify/",
-            "time": "2013-11-09 01:00:44"
+            "time": "2013-11-14 01:37:44"
         },
         {
             "name": "natxet/CssMin",
@@ -2618,12 +2618,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "9795c9f67c72a96be0535f6987a94a07e5ff2432"
+                "reference": "9d45e71824fae3d02d0725c7eaeaebe019c54827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/9795c9f67c72a96be0535f6987a94a07e5ff2432",
-                "reference": "9795c9f67c72a96be0535f6987a94a07e5ff2432",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/9d45e71824fae3d02d0725c7eaeaebe019c54827",
+                "reference": "9d45e71824fae3d02d0725c7eaeaebe019c54827",
                 "shasum": ""
             },
             "require": {
@@ -2680,7 +2680,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-30 08:30:20"
+            "time": "2013-11-14 09:43:43"
         },
         {
             "name": "symfony/process",

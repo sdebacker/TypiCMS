@@ -617,12 +617,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/cartalyst/sentry.git",
-            "reference": "2518d21a0b9f22b42fecd26cc95cfc8e4b097592"
+            "reference": "57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/2518d21a0b9f22b42fecd26cc95cfc8e4b097592",
-            "reference": "2518d21a0b9f22b42fecd26cc95cfc8e4b097592",
+            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f",
+            "reference": "57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f",
             "shasum": ""
         },
         "require": {
@@ -640,7 +640,7 @@
             "illuminate/database": "Default sentry user, group and throttling implementations.",
             "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support."
         },
-        "time": "2013-11-07 20:51:32",
+        "time": "2013-11-14 10:02:16",
         "type": "library",
         "extra": {
             "component": "package",
@@ -1822,79 +1822,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "symfony/http-kernel",
-        "version": "2.3.x-dev",
-        "version_normalized": "2.3.9999999.9999999-dev",
-        "target-dir": "Symfony/Component/HttpKernel",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/HttpKernel.git",
-            "reference": "9795c9f67c72a96be0535f6987a94a07e5ff2432"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/9795c9f67c72a96be0535f6987a94a07e5ff2432",
-            "reference": "9795c9f67c72a96be0535f6987a94a07e5ff2432",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3",
-            "psr/log": "~1.0",
-            "symfony/debug": "~2.3",
-            "symfony/event-dispatcher": "~2.1",
-            "symfony/http-foundation": "~2.2"
-        },
-        "require-dev": {
-            "symfony/browser-kit": "~2.2",
-            "symfony/class-loader": "~2.1",
-            "symfony/config": "~2.0",
-            "symfony/console": "~2.2",
-            "symfony/dependency-injection": "~2.0",
-            "symfony/finder": "~2.0",
-            "symfony/process": "~2.0",
-            "symfony/routing": "~2.2",
-            "symfony/stopwatch": "~2.2",
-            "symfony/templating": "~2.2"
-        },
-        "suggest": {
-            "symfony/browser-kit": "",
-            "symfony/class-loader": "",
-            "symfony/config": "",
-            "symfony/console": "",
-            "symfony/dependency-injection": "",
-            "symfony/finder": ""
-        },
-        "time": "2013-10-30 08:30:20",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\HttpKernel\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony HttpKernel Component",
-        "homepage": "http://symfony.com"
-    },
-    {
         "name": "raveren/kint",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2337,48 +2264,6 @@
         ]
     },
     {
-        "name": "mrclay/minify",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mrclay/minify.git",
-            "reference": "e778d4f71440a381307ce9b65b3ee9b556d5b085"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/mrclay/minify/zipball/e778d4f71440a381307ce9b65b3ee9b556d5b085",
-            "reference": "e778d4f71440a381307ce9b65b3ee9b556d5b085",
-            "shasum": ""
-        },
-        "require": {
-            "ext-pcre": "*",
-            "php": ">=5.2.1"
-        },
-        "time": "2013-11-09 01:00:44",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "min/lib/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Steve Clay",
-                "email": "steve@mrclay.org",
-                "homepage": "http://www.mrclay.org/",
-                "role": "Developer"
-            }
-        ],
-        "description": "Minify is a PHP5 app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
-        "homepage": "http://code.google.com/p/minify/"
-    },
-    {
         "name": "ink/ink-translatable",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2805,74 +2690,6 @@
         ]
     },
     {
-        "name": "aws/aws-sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "5aab7dea0294b64d871b40f1e76a1efca174432a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5aab7dea0294b64d871b40f1e76a1efca174432a",
-            "reference": "5aab7dea0294b64d871b40f1e76a1efca174432a",
-            "shasum": ""
-        },
-        "require": {
-            "guzzle/guzzle": "~3.7.0",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "doctrine/cache": "~1.0",
-            "ext-openssl": "*",
-            "monolog/monolog": "1.4.*",
-            "phpunit/phpunit": "3.7.*",
-            "symfony/class-loader": "2.*",
-            "symfony/yaml": "2.*"
-        },
-        "suggest": {
-            "doctrine/cache": "Adds support for caching of credentials and responses",
-            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
-            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-            "monolog/monolog": "Adds support for logging HTTP requests and responses",
-            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
-        },
-        "time": "2013-11-13 09:51:41",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Aws": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Amazon Web Services",
-                "homepage": "http://aws.amazon.com"
-            }
-        ],
-        "description": "AWS SDK for PHP",
-        "homepage": "http://aws.amazon.com/sdkforphp2",
-        "keywords": [
-            "amazon",
-            "aws",
-            "dynamodb",
-            "ec2",
-            "s3",
-            "sdk"
-        ]
-    },
-    {
         "name": "symfony/console",
         "version": "2.3.x-dev",
         "version_normalized": "2.3.9999999.9999999-dev",
@@ -3104,6 +2921,189 @@
             "log",
             "logging",
             "psr-3"
+        ]
+    },
+    {
+        "name": "symfony/http-kernel",
+        "version": "2.3.x-dev",
+        "version_normalized": "2.3.9999999.9999999-dev",
+        "target-dir": "Symfony/Component/HttpKernel",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/HttpKernel.git",
+            "reference": "9d45e71824fae3d02d0725c7eaeaebe019c54827"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/9d45e71824fae3d02d0725c7eaeaebe019c54827",
+            "reference": "9d45e71824fae3d02d0725c7eaeaebe019c54827",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "psr/log": "~1.0",
+            "symfony/debug": "~2.3",
+            "symfony/event-dispatcher": "~2.1",
+            "symfony/http-foundation": "~2.2"
+        },
+        "require-dev": {
+            "symfony/browser-kit": "~2.2",
+            "symfony/class-loader": "~2.1",
+            "symfony/config": "~2.0",
+            "symfony/console": "~2.2",
+            "symfony/dependency-injection": "~2.0",
+            "symfony/finder": "~2.0",
+            "symfony/process": "~2.0",
+            "symfony/routing": "~2.2",
+            "symfony/stopwatch": "~2.2",
+            "symfony/templating": "~2.2"
+        },
+        "suggest": {
+            "symfony/browser-kit": "",
+            "symfony/class-loader": "",
+            "symfony/config": "",
+            "symfony/console": "",
+            "symfony/dependency-injection": "",
+            "symfony/finder": ""
+        },
+        "time": "2013-11-14 09:43:43",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\HttpKernel\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony HttpKernel Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "mrclay/minify",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mrclay/minify.git",
+            "reference": "f8b62b358b53eb4d30eeda1abc125097221d2193"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mrclay/minify/zipball/f8b62b358b53eb4d30eeda1abc125097221d2193",
+            "reference": "f8b62b358b53eb4d30eeda1abc125097221d2193",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pcre": "*",
+            "php": ">=5.2.1"
+        },
+        "time": "2013-11-14 01:37:44",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "min/lib/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Stephen Clay",
+                "email": "steve@mrclay.org",
+                "homepage": "http://www.mrclay.org/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Minify is a PHP5 app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
+        "homepage": "http://code.google.com/p/minify/"
+    },
+    {
+        "name": "aws/aws-sdk-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aws/aws-sdk-php.git",
+            "reference": "6c1438b1798f6d1757ddf852db0c4bf5220da3bb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6c1438b1798f6d1757ddf852db0c4bf5220da3bb",
+            "reference": "6c1438b1798f6d1757ddf852db0c4bf5220da3bb",
+            "shasum": ""
+        },
+        "require": {
+            "guzzle/guzzle": "~3.7.0",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "doctrine/cache": "~1.0",
+            "ext-openssl": "*",
+            "monolog/monolog": "1.4.*",
+            "phpunit/phpunit": "3.7.*",
+            "symfony/class-loader": "2.*",
+            "symfony/yaml": "2.*"
+        },
+        "suggest": {
+            "doctrine/cache": "Adds support for caching of credentials and responses",
+            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+            "monolog/monolog": "Adds support for logging HTTP requests and responses",
+            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+        },
+        "time": "2013-11-14 09:35:50",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Aws": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Amazon Web Services",
+                "homepage": "http://aws.amazon.com"
+            }
+        ],
+        "description": "AWS SDK for PHP",
+        "homepage": "http://aws.amazon.com/sdkforphp2",
+        "keywords": [
+            "amazon",
+            "aws",
+            "dynamodb",
+            "ec2",
+            "s3",
+            "sdk"
         ]
     }
 ]
