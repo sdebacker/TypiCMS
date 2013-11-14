@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Collection;
 use TypiCMS\NestedCollection;
 use Input;
+use Carbon\Carbon;
 
 class News extends EloquentTranslatable {
 
@@ -32,15 +33,6 @@ class News extends EloquentTranslatable {
 	 * @var string
 	 */
 	public $itemsPerPage = 25;
-
-
-	/**
-	 * Dates
-	 */
-	public function getDates()
-	{
-		return array('created_at', 'updated_at', 'date');
-	}
 
 
 	/**
@@ -83,6 +75,18 @@ class News extends EloquentTranslatable {
 
 
 	/**
+	 * Accessors
+	 *
+	 * @return string
+	 */
+	public function getDateAttribute($value)
+	{
+		if ($value == '0000-00-00 00:00') return;
+		return Carbon::parse($value)->format('d.m.Y H:i');
+	}
+
+
+	/**
 	 * Observers
 	 */
 	public static function boot()
@@ -93,7 +97,7 @@ class News extends EloquentTranslatable {
 		{
 			// transform dates to sql
 			if (Input::get('date')) {
-				$model->date = \DateTime::createFromFormat('d.m.Y', Input::get('date'))->format('Y-m-d');
+				$model->date = Carbon::createFromFormat('d.m.Y H:i', Input::get('date'))->toDateTimeString();
 			}
 		});
 

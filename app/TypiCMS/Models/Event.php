@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Collection;
 use TypiCMS\NestedCollection;
 use Input;
+use Carbon\Carbon;
 
 class Event extends EloquentTranslatable {
 
@@ -32,15 +33,6 @@ class Event extends EloquentTranslatable {
 	 * @var string
 	 */
 	public $itemsPerPage = 25;
-
-
-	/**
-	 * Dates
-	 */
-	public function getDates()
-	{
-		return array('created_at', 'updated_at', 'start_date', 'end_date');
-	}
 
 
 	/**
@@ -83,6 +75,24 @@ class Event extends EloquentTranslatable {
 
 
 	/**
+	 * Accessors
+	 *
+	 * @return string
+	 */
+	public function getStartDateAttribute($value)
+	{
+		if ($value == '0000-00-00') return;
+		return Carbon::createFromFormat('Y-m-d', $value)->format('d.m.Y');
+	}
+ 
+	public function getEndDateAttribute($value)
+	{
+		if ($value == '0000-00-00') return;
+		return Carbon::createFromFormat('Y-m-d', $value)->format('d.m.Y');
+	}
+
+
+	/**
 	 * Observers
 	 */
 	public static function boot()
@@ -93,10 +103,10 @@ class Event extends EloquentTranslatable {
 		{
 			// transform dates to sql
 			if (Input::get('start_date')) {
-				$model->start_date = \DateTime::createFromFormat('d.m.Y', Input::get('start_date'))->format('Y-m-d');
+				$model->start_date = Carbon::createFromFormat('d.m.Y', Input::get('start_date'))->toDateString();
 			}
 			if (Input::get('end_date')) {
-				$model->end_date = \DateTime::createFromFormat('d.m.Y', Input::get('end_date'))->format('Y-m-d');
+				$model->end_date = Carbon::createFromFormat('d.m.Y', Input::get('end_date'))->toDateString();
 			}
 		});
 

@@ -5,7 +5,7 @@
 	<ul>
 		@foreach($models as $model)
 		<li>
-			{{ $model->title }} {{ $model->date->format('d.m.Y') }} {{ $model->time }}
+			{{ $model->title }} {{ $model->date }}
 			<a href="{{ route($lang.'.'.'news'.'.slug', $model->slug) }}">More</a>
 		</li>
 		@endforeach
