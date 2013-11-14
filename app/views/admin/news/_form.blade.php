@@ -9,10 +9,7 @@
 
 		<div class="row">
 			<div class="col-xs-8">
-				{{ Former::text('date')->placeholder('DDMMYYYY')->class('form-control datepicker')->append('<span class="glyphicon glyphicon-calendar"></span>'); }}
-			</div>
-			<div class="col-xs-4">
-				{{ Former::text('time')->placeholder('HH:MM')->class('form-control hourpicker')->append('<span class="glyphicon glyphicon-time"></span>'); }}
+				{{ Former::text('date')->placeholder('DDMMYYYY')->class('form-control datetimepicker')->append('<span class="glyphicon glyphicon-calendar"></span>'); }}
 			</div>
 		</div>
 
