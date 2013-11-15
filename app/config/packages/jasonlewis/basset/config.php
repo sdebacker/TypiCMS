@@ -8,7 +8,7 @@ return array(
         {
             $directory = $collection->directory('less', function($collection)
             {
-                $collection->stylesheet('admin.less');        
+                $collection->stylesheet('admin.less');
             });
 
             $directory->apply('Less');
@@ -23,6 +23,7 @@ return array(
                 $collection->javascript('vendor/jquery-ui/ui/jquery.ui.widget.js');
                 $collection->javascript('vendor/jquery-ui/ui/jquery.ui.sortable.js');
                 $collection->javascript('jquery.mjs.nestedSortable.js');
+                $collection->javascript('jquery.nestedCookie.js');
                 $collection->javascript('vendor/alertify.js/lib/alertify.js');
                 $collection->javascript('jquery.listenhancer.js');
                 $collection->javascript('jquery.slug.js');

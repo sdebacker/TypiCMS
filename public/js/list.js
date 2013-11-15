@@ -202,6 +202,7 @@ function initListForm() {
 	$(function () {
 
 		enableSortable();
+		$('.list-main.nested').nestedCookie();
 		initListForm();
 
 		$('.list-form').listEnhancer({
