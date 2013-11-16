@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "6c1438b1798f6d1757ddf852db0c4bf5220da3bb"
+                "reference": "b494eb871d0aa3ba3b0a47a895fb18c6226edb88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6c1438b1798f6d1757ddf852db0c4bf5220da3bb",
-                "reference": "6c1438b1798f6d1757ddf852db0c4bf5220da3bb",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b494eb871d0aa3ba3b0a47a895fb18c6226edb88",
+                "reference": "b494eb871d0aa3ba3b0a47a895fb18c6226edb88",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-14 09:35:50"
+            "time": "2013-11-14 17:24:28"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1079,12 +1079,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "4363c95b584dcafc8ff386c27116283ad53d738d"
+                "reference": "d2e8ac50742672ca0947e3f5459a4163eb5f9cbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4363c95b584dcafc8ff386c27116283ad53d738d",
-                "reference": "4363c95b584dcafc8ff386c27116283ad53d738d",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d2e8ac50742672ca0947e3f5459a4163eb5f9cbc",
+                "reference": "d2e8ac50742672ca0947e3f5459a4163eb5f9cbc",
                 "shasum": ""
             },
             "require": {
@@ -1163,7 +1163,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-11-08 21:36:09"
+            "time": "2013-11-14 20:23:30"
         },
         {
             "name": "ink/ink-translatable",
@@ -1485,12 +1485,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ce13eaad2506bb913b7318b7d56477c04ac3b571"
+                "reference": "4fd85b295e3825a2fcdf4ab25a0d9a3b79a99870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ce13eaad2506bb913b7318b7d56477c04ac3b571",
-                "reference": "ce13eaad2506bb913b7318b7d56477c04ac3b571",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4fd85b295e3825a2fcdf4ab25a0d9a3b79a99870",
+                "reference": "4fd85b295e3825a2fcdf4ab25a0d9a3b79a99870",
                 "shasum": ""
             },
             "require": {
@@ -1499,7 +1499,7 @@
                 "filp/whoops": "1.0.7",
                 "ircmaxell/password-compat": "1.0.*",
                 "jeremeamia/superclosure": "1.0.*",
-                "monolog/monolog": "1.6.*",
+                "monolog/monolog": "1.*",
                 "nesbot/carbon": "1.*",
                 "patchwork/utf8": "1.1.*",
                 "php": ">=5.3.0",
@@ -1590,7 +1590,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-13 04:50:56"
+            "time": "2013-11-15 04:57:21"
         },
         {
             "name": "leafo/lessphp",
@@ -1730,16 +1730,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.6.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd"
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f72392d0e6eb855118f5a84e89ac2d257c704abd",
-                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6225b22de9dcf36546be3a0b2fa8e3d986153f57",
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57",
                 "shasum": ""
             },
             "require": {
@@ -1747,21 +1747,26 @@
                 "psr/log": "~1.0"
             },
             "require-dev": {
+                "aws/aws-sdk-php": "~2.4.8",
                 "doctrine/couchdb": "dev-master",
                 "mlehner/gelf-php": "1.0.*",
-                "raven/raven": "0.5.*"
+                "phpunit/phpunit": "~3.7.0",
+                "raven/raven": "0.5.*",
+                "ruflin/elastica": "0.90.*"
             },
             "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server"
+                "raven/raven": "Allow sending log messages to a Sentry server",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.7.x-dev"
                 }
             },
             "autoload": {
@@ -1788,7 +1793,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-07-28 22:38:30"
+            "time": "2013-11-14 19:48:31"
         },
         {
             "name": "mrclay/minify",
