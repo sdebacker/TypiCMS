@@ -34,7 +34,7 @@ abstract class BaseController extends Controller {
 
 		$this->applicationName = Config::get('settings.website_title');
 
-		// top bar
+		// Render top bar before getting current lang from url
 		$navBar = View::make('_navbar')->render();
 
 		// set locale if in URL
