@@ -18,14 +18,6 @@ abstract class BaseController extends Controller {
 	 */
 	protected $layout = 'public/master';
 
-	/**
-	 * Menus.
-	 */
-	public $navBar;
-	protected $menuBuilder;
-	protected $mainMenu;
-	protected $footerMenu;
-
 	// The cool kids’ way of handling page titles.
 	// https://gist.github.com/jonathanmarvens/6017139
 	public $applicationName;
@@ -38,8 +30,12 @@ abstract class BaseController extends Controller {
 
 	public function __construct($repository = null)
 	{
+		$this->repository = $repository;
+
+		$this->applicationName = Config::get('settings.website_title');
+
 		// top bar
-		$this->navBar = View::make('_navbar')->render();
+		$navBar = View::make('_navbar')->render();
 
 		// set locale if in URL
 		$firstSegment = Request::segment(1);
@@ -47,29 +43,27 @@ abstract class BaseController extends Controller {
 			App::setLocale($firstSegment);
 		}
 
-		$this->repository = $repository;
-		$this->menuBuilder = new MenuBuilder;
-		$this->applicationName = Config::get('settings.website_title');
+		$menuBuilder = new MenuBuilder;
 
 		// Main menu
 		$mainMenuItems = Menulink::getMenu('main');
 		$listBuilder = new ListBuilder($mainMenuItems);
-		$this->mainMenu = $listBuilder->buildPublic()->toHtml();
+		$mainMenu = $listBuilder->buildPublic()->toHtml();
 
 		// Footer menu
 		$footerMenuItems = Menulink::getMenu('footer');
 		$listBuilder = new ListBuilder($footerMenuItems);
-		$this->footerMenu = $listBuilder->buildPublic($footerMenuItems)->toHtml();
+		$footerMenu = $listBuilder->buildPublic($footerMenuItems)->toHtml();
 
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {
 			$view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));
-			$view->with('navBar', $instance->navBar);
 		});
 
-		View::share('mainMenu', $this->mainMenu);
-		View::share('footerMenu', $this->footerMenu);
-		View::share('languagesMenu', $this->menuBuilder->languagesMenu());
+		View::share('navBar', $navBar);
+		View::share('mainMenu', $mainMenu);
+		View::share('footerMenu', $footerMenu);
+		View::share('languagesMenu', $menuBuilder->languagesMenu());
 		View::share('lang', App::getLocale());
 
 	}
