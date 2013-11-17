@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1cc5fae9cf98797ee789366b61801fb2",
+    "hash": "683b05a0e6fcb473b114ce2d01ba7bd7",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -216,12 +216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "cfc8808295383419802204fc28677c52b8e7f87f"
+                "reference": "784c5f711eae961e7b7d599c08f45b0579fef5c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/cfc8808295383419802204fc28677c52b8e7f87f",
-                "reference": "cfc8808295383419802204fc28677c52b8e7f87f",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/784c5f711eae961e7b7d599c08f45b0579fef5c6",
+                "reference": "784c5f711eae961e7b7d599c08f45b0579fef5c6",
                 "shasum": ""
             },
             "require": {
@@ -253,7 +253,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2013-11-06 14:11:09"
+            "time": "2013-11-17 17:04:52"
         },
         {
             "name": "bkwld/croppa",
