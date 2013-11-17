@@ -27,7 +27,7 @@
 		"natxet/CssMin": "dev-master",
 		"mrclay/minify": "dev-master",
 		"bkwld/croppa": "3.*",
-        "thujohn/rss": "dev-master",
+		"thujohn/rss": "dev-master",
 		"barryvdh/laravel-debugbar": "dev-master",
 		"mccool/database-backup": "dev-master",
 		"eluceo/ical": "dev-master"
