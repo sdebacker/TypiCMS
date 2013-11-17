@@ -20,6 +20,9 @@ class MenuBuilder {
 	{
 
 		$routeArray = explode('.', Route::currentRouteName());
+		// Laravel 4.1 : 
+		// $routeArray = explode('.', Route::current()->getName());
+
 		$module = isset($routeArray[1]) ? $routeArray[1] : 'pages' ;
 		$segments = Request::segments();
 
