@@ -4,6 +4,7 @@ use Controller;
 use View;
 use Config;
 use App;
+use Sentry;
 use Request;
 
 use TypiCMS\Models\Menulink;
@@ -35,13 +36,15 @@ abstract class BaseController extends Controller {
 
 		$this->applicationName = Config::get('settings.website_title');
 
-		// Link to admin side
-		$adminurl = Helpers::getAdminUrl();
+		$navBar = null;
+		if (Sentry::getUser()) {
+			// Link to admin side
+			$url = array('url' => Helpers::getAdminUrl(), 'label' => 'edit page');
+			// Render top bar before getting current lang from url
+			$navBar = View::make('_navbar')->withUrl($url)->render();
+		}
 
-		// Render top bar before getting current lang from url
-		$navBar = View::make('_navbar')->withAdminurl($adminurl)->render();
-
-		// set locale if in URL
+		// Set locale (taken from URL)
 		$firstSegment = Request::segment(1);
 		if (in_array($firstSegment, Config::get('app.locales'))) {
 			App::setLocale($firstSegment);

@@ -24,7 +24,7 @@
 
 <body>
 
-@include('_navbar')
+{{ $navBar }}
 
 <div class="container-global col-xs-12">
 
