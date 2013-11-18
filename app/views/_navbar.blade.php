@@ -10,6 +10,9 @@
 		</div>
 		<div class="navbar-collapse collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
+				@if(isset($adminurl))
+				<li>{{ link_to($adminurl, ucfirst(trans('public.edit this page'))) }}</li>
+				@endif
 				<li>{{ HTML::linkRoute('admin.settings.index', ucfirst(trans('global.settings'))) }}</li>
 				<li>{{ HTML::linkRoute('admin.users.index', Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name ) }}</li>
 				<li>{{ HTML::linkRoute('logout', ucfirst(trans('users.log out')) ) }}</li>

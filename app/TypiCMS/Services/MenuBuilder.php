@@ -26,20 +26,11 @@ class MenuBuilder {
 		$module = isset($routeArray[1]) ? $routeArray[1] : 'pages' ;
 		$segments = Request::segments();
 
-		// dd($routeArray);
-
 		if (end($routeArray) == 'slug') {
 			// Last segment is a slug
 			$slug = end($segments);
-			$id = DB::table($module)
-				->join($module.'_translations', $module.'.id', '=', $module.'_translations.'.str_singular($module).'_id')
-				->where('slug', $slug)
-				->pluck($module.'.id');
-			$slugs = DB::table($module)
-				->join($module.'_translations', $module.'.id', '=', $module.'_translations.'.str_singular($module).'_id')
-				->where($module.'.id', $id)
-				->where($module.'_translations.status', 1)
-				->lists('slug', 'lang');
+			$id = Helpers::getIdFromSlug($module, $slug);
+			$slugs = Helpers::getSlugsFromId($module, $id);
 		}
 
 		if (isset($routeArray[2]) and $routeArray[2] == 'categories') {
@@ -49,10 +40,7 @@ class MenuBuilder {
 			}
 			$category = end($segments);
 
-			$id = DB::table('categories')
-				->join('categories_translations', 'categories.id', '=', 'categories_translations.category_id')
-				->where('slug', $category)
-				->pluck('categories.id');
+			$id = Helpers::getIdFromSlug('categories', $category);
 			$categories = DB::table($module)
 				->join('categories', 'projects.category_id', '=', 'categories.id')
 				->join('categories_translations', 'categories_translations.category_id', '=', 'categories.id')

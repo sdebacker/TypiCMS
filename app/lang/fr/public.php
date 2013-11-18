@@ -9,4 +9,11 @@ return array(
 	*/
 	'Skip to content' => 'Aller au contenu',
 	'More' => 'En savoir plus',
+
+	// Modules
+	'Projects' => 'Projets',
+	'News' => 'Actualités',
+	'Events' => 'Événements',
+
+	'edit this page' => 'modifier cette page',
 );

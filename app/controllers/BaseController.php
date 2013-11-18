@@ -7,6 +7,7 @@ use App;
 use Request;
 
 use TypiCMS\Models\Menulink;
+use TypiCMS\Services\Helpers;
 use TypiCMS\Services\MenuBuilder;
 use TypiCMS\Services\ListBuilder\ListBuilder;
 use Illuminate\Support\Collection;
@@ -34,8 +35,11 @@ abstract class BaseController extends Controller {
 
 		$this->applicationName = Config::get('settings.website_title');
 
+		// Link to admin side
+		$adminurl = Helpers::getAdminUrl();
+
 		// Render top bar before getting current lang from url
-		$navBar = View::make('_navbar')->render();
+		$navBar = View::make('_navbar')->withAdminurl($adminurl)->render();
 
 		// set locale if in URL
 		$firstSegment = Request::segment(1);
