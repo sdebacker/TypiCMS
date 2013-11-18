@@ -14,6 +14,4 @@ return array(
 	'Projects' => 'Projets',
 	'News' => 'Actualités',
 	'Events' => 'Événements',
-
-	'edit this page' => 'modifier cette page',
 );

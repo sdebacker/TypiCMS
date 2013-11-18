@@ -39,5 +39,7 @@ return array(
 		'Modules' => 'Modules',
 		'Menus' => 'Menus',
 	),
+	'edit page' => 'modifier cette page',
+	'view website' => 'voir le site',
 	'Drop files to upload (or click)' => 'Cliquer ou glisser des fichiers pour les envoyer.'
 );
