@@ -62,7 +62,7 @@ return array(
 		'News'      => array('menu' => true , 'dashboard' => true , 'module' => 'news'),
 		'Event'     => array('menu' => true , 'dashboard' => true , 'module' => 'events'),
 		'Category'  => array('menu' => true , 'dashboard' => true , 'module' => 'categories'),
-		// 'Project'   => array('menu' => true , 'dashboard' => true , 'module' => 'projects'),
+		'Project'   => array('menu' => true , 'dashboard' => true , 'module' => 'projects'),
 		'Menu'      => array('menu' => false, 'dashboard' => false, 'module' => 'menus'),
 		'Menulink'  => array('menu' => false, 'dashboard' => false, 'module' => 'menulinks'),
 	),
