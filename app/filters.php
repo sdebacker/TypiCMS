@@ -72,7 +72,7 @@ Route::filter('cache', function($route, $request, $response = null)
 {
 	// dd(Config::get('typicms.cachepublic'));
 	if ( ! Sentry::check() and Config::get('typicms.cachepublic')) { // no cache if connected
-		$key = 'route-'.Str::slug(Request::url());
+		$key = 'route-'.Str::slug(Request::fullUrl());
 		if (is_null($response) && Cache::section('public')->has($key)) {
 			return Cache::section('public')->get($key);
 		} else if ( ! is_null($response) && ! Cache::section('public')->has($key)) {
