@@ -51,11 +51,22 @@ class Helpers {
 
 
 	/**
-	 * I have id, give me slugs.
+	 * Give me the default page id.
 	 *
-	 * @param string $module
-	 * @param int    $id
-	 * @return Array
+	 * @return integer
+	 */
+	public static function getIdFromDefaultPage()
+	{
+		return DB::table('pages')
+				->where('is_home', 1)
+				->pluck('id');
+	}
+
+
+	/**
+	 * Get admin url from current page.
+	 *
+	 * @return String
 	 */
 	public static function getAdminUrl()
 	{
@@ -63,23 +74,36 @@ class Helpers {
 
 		$module = isset($routeArray[1]) ? $routeArray[1] : 'pages' ;
 
-		// dd($routeArray);
-
-		if (isset($routeArray[2])) {
-			$id = $routeArray[2];
-			if ($routeArray[2] == 'slug') {
-				$segments = Request::segments();
-				$slug = end($segments);
-				$id = Helpers::getIdFromSlug($module, $slug);
-			}
-			$route = route('admin.'.$module.'.edit', $id);
-		} else {
-			$route = route('admin.'.$module.'.index');
+		switch (count($routeArray)) {
+			case 1: // ex. root - en
+				$id = Helpers::getIdFromDefaultPage();
+				$route = ( ! $id or $routeArray[0] == 'root') ? route('dashboard') : route('admin.'.$module.'.edit', $id) ;
+				break;
+			
+			case 2: // ex. en.news
+				$route = route('admin.'.$module.'.index');
+				break;
+			
+			default: // ex. en.pages.1 - en.news.slug - en.projects.categories(.slug)
+				if (end($routeArray) == 'categories') {
+					$route = route('admin.'.$module.'.index');
+				} else {
+					$id = end($routeArray);
+					if (end($routeArray) == 'slug') {
+						$segments = Request::segments();
+						$slug = end($segments);
+						$id = Helpers::getIdFromSlug($module, $slug);
+					}
+					$route = route('admin.'.$module.'.edit', $id);
+				}
+				break;
+			
 		}
 
 		if (in_array($routeArray[0], Config::get('app.locales'))) {
 			$route .= '?locale='.$routeArray[0];
 		}
+
 		return $route;
 	}
 
