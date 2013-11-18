@@ -15,7 +15,7 @@ class Project extends EloquentTranslatable {
 	protected $table = 'projects';
 
 	public $view = 'projects';
-	public $route = 'categories.projects';
+	public $route = 'projects';
 
 
 	/**

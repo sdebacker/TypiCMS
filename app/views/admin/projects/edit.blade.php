@@ -7,7 +7,7 @@
 
 @section('main')
 
-	{{ Former::vertical_open()->method('PATCH')->action(route('admin.categories.projects.update', array($category->id, $model->id)))->role('form') }}
+	{{ Former::vertical_open()->method('PATCH')->action(route('admin.projects.update', $model->id))->role('form') }}
 
 		@include('admin.projects._form')
 

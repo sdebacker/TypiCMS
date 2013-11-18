@@ -7,14 +7,14 @@
 
 @section('header')
 
-	<h1><span id="nb_elements">{{ $models->getTotal() }}</span> {{ trans_choice('global.modules.projects', $models->getTotal()) }} {{ trans('global.in category') }} {{ $category->title }}</h1>
+	<h1><span id="nb_elements">{{ $models->getTotal() }}</span> {{ trans_choice('global.modules.projects', $models->getTotal()) }}</h1>
 
 @stop
 
 
 @section('buttons')
 
-	<a href="{{ route('admin.categories.projects.create', $category->id) }}" class="btn btn-primary">{{ ucfirst(trans('global.crud.new')) }}</a>
+	<a href="{{ route('admin.projects.create') }}" class="btn btn-primary">{{ ucfirst(trans('global.crud.new')) }}</a>
 
 @stop
 

@@ -20,12 +20,11 @@ class ProjectsController extends BaseController {
 	 * List models
 	 * GET /admin/model
 	 */
-	public function index($category)
+	public function index()
 	{
-		$models = $this->repository->getAll(true, $category->id);
+		$models = $this->repository->getAll(true);
 		$list = $this->repository->buildList($models->all());
 		$this->layout->content = View::make('admin.projects.index')
-			->with('category', $category)
 			->with('models', $models)
 			->with('list', $list);
 	}
@@ -35,12 +34,11 @@ class ProjectsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create($category)
+	public function create()
 	{
 		$model = $this->repository;
 		$this->title['child'] = trans('projects.New');
 		$this->layout->content = View::make('admin.projects.create')
-			->with('category', $category)
 			->with('model', $model);
 	}
 
@@ -51,13 +49,12 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($category, $model)
+	public function edit($model)
 	{
 		$this->title['child'] = trans('projects.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.projects.edit')
-			->with('category', $category)
 			->with('model', $model);
 	}
 
@@ -68,11 +65,10 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($category, $model)
+	public function show($model)
 	{
 		$this->title['child'] = trans('projects.Show');
 		$this->layout->content = View::make('admin.projects.show')
-			->with('category', $category)
 			->with('model', $model);
 	}
 
@@ -82,14 +78,14 @@ class ProjectsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store($category)
+	public function store()
 	{
 
 		if ( $this->form->save( Input::all() ) ) {
-			return Redirect::route('admin.categories.projects.index', $category->id);
+			return Redirect::route('admin.projects.index');
 		}
 
-		return Redirect::route('admin.categories.projects.create', $category->id)
+		return Redirect::route('admin.projects.create')
 			->withInput()
 			->withErrors($this->form->errors());
 
@@ -102,19 +98,19 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($category, $model)
+	public function update($model)
 	{
 
 		if ( ! Request::ajax()) {
 			if ( $this->form->update( Input::all() ) ) {
-				return Redirect::route('admin.categories.projects.index', $category->id);
+				return Redirect::route('admin.projects.index');
 			}
 		} else {
 			$this->repository->update( Input::all() );
 		}
 
 		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.categories.projects.edit', array($category->id, $model->id) )
+			return Redirect::route( 'admin.projects.edit', $model->id )
 				->withInput()
 				->withErrors($this->form->errors());
 		}
@@ -138,7 +134,7 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($category, $model)
+	public function destroy($model)
 	{
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {

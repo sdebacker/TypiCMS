@@ -38,8 +38,8 @@
 </div>
 
 <div>
-	{{ Former::hidden('category_id')->value($category->id); }}
+	{{ Former::text('category_id'); }}
 	{{ Former::hidden('id'); }}
 	{{ Former::primary_button()->type('submit')->value('Sauver') }}
-	{{ Former::link()->class('btn btn-default')->href(route('admin.categories.projects.index', $category->id))->value('Annuler') }}
+	{{ Former::link()->class('btn btn-default')->href(route('admin.projects.index'))->value('Annuler') }}
 </div>
