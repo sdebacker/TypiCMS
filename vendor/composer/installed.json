@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/doctrine/lexer.git",
-            "reference": "bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94"
+            "reference": "57d5a024b48709c56ce5bb93072948359220f36c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/lexer/zipball/bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94",
-            "reference": "bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94",
+            "url": "https://api.github.com/repos/doctrine/lexer/zipball/57d5a024b48709c56ce5bb93072948359220f36c",
+            "reference": "57d5a024b48709c56ce5bb93072948359220f36c",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.2"
         },
-        "time": "2013-03-07 12:15:25",
+        "time": "2013-11-19 06:15:26",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -617,12 +617,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/cartalyst/sentry.git",
-            "reference": "57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f"
+            "reference": "f4b2dcb4e931b8c20fd6f45497cc089284378341"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f",
-            "reference": "57e8bac9cf62089fa23bad3ec4d068f01fdf9b8f",
+            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/f4b2dcb4e931b8c20fd6f45497cc089284378341",
+            "reference": "f4b2dcb4e931b8c20fd6f45497cc089284378341",
             "shasum": ""
         },
         "require": {
@@ -640,7 +640,7 @@
             "illuminate/database": "Default sentry user, group and throttling implementations.",
             "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support."
         },
-        "time": "2013-11-14 10:02:16",
+        "time": "2013-11-18 23:23:18",
         "type": "library",
         "extra": {
             "component": "package",
@@ -1076,12 +1076,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "d2e8ac50742672ca0947e3f5459a4163eb5f9cbc"
+            "reference": "695a0d42e22751c79099b61e8acce79c8fa944db"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d2e8ac50742672ca0947e3f5459a4163eb5f9cbc",
-            "reference": "d2e8ac50742672ca0947e3f5459a4163eb5f9cbc",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/695a0d42e22751c79099b61e8acce79c8fa944db",
+            "reference": "695a0d42e22751c79099b61e8acce79c8fa944db",
             "shasum": ""
         },
         "require": {
@@ -1122,7 +1122,7 @@
             "zendframework/zend-cache": "2.0.*",
             "zendframework/zend-log": "2.0.*"
         },
-        "time": "2013-11-14 20:23:30",
+        "time": "2013-11-19 06:47:21",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3065,18 +3065,115 @@
         ]
     },
     {
+        "name": "emberlabs/gravatarlib",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "emberlabs/gravatarlib",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/emberlabs/gravatarlib.git",
+            "reference": "6bd70321aa59a8002d5fa08d9b592121683801df"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/emberlabs/gravatarlib/zipball/6bd70321aa59a8002d5fa08d9b592121683801df",
+            "reference": "6bd70321aa59a8002d5fa08d9b592121683801df",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "suggest": {
+            "twig/twig": ">=1.4.0"
+        },
+        "time": "2011-12-28 22:28:37",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "emberlabs\\gravatarlib\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sam Thompson",
+                "email": "sam@emberlabs.org"
+            },
+            {
+                "name": "Damian Bushong",
+                "email": "damian@emberlabs.org"
+            }
+        ],
+        "description": "A lightweight PHP 5.3 OOP library providing easy gravatar integration.",
+        "homepage": "http://emberlabs.org/",
+        "keywords": [
+            "gravatar",
+            "templating",
+            "twig"
+        ]
+    },
+    {
+        "name": "thomaswelton/laravel-gravatar",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thomaswelton/laravel-gravatar.git",
+            "reference": "a80389440bc4a0ed0d7025923844f87888c91371"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thomaswelton/laravel-gravatar/zipball/a80389440bc4a0ed0d7025923844f87888c91371",
+            "reference": "a80389440bc4a0ed0d7025923844f87888c91371",
+            "shasum": ""
+        },
+        "require": {
+            "emberlabs/gravatarlib": "dev-master",
+            "illuminate/support": "4.x",
+            "php": ">=5.3.0"
+        },
+        "time": "2013-11-03 13:51:32",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Thomaswelton\\LaravelGravatar": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "ThomasWelton",
+                "email": "thomaswelton@me.com",
+                "homepage": "https://github.com/thomaswelton",
+                "role": "Developer"
+            }
+        ],
+        "description": "Laravel 4 Gravatar helper",
+        "homepage": "https://github.com/thomaswelton/laravel-gravatar",
+        "keywords": [
+            "gravatar",
+            "laravel",
+            "laravel4"
+        ]
+    },
+    {
         "name": "barryvdh/laravel-debugbar",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "784c5f711eae961e7b7d599c08f45b0579fef5c6"
+            "reference": "f1c427f55e253ff727168e63cb9d7ef376dfc2d9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/784c5f711eae961e7b7d599c08f45b0579fef5c6",
-            "reference": "784c5f711eae961e7b7d599c08f45b0579fef5c6",
+            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/f1c427f55e253ff727168e63cb9d7ef376dfc2d9",
+            "reference": "f1c427f55e253ff727168e63cb9d7ef376dfc2d9",
             "shasum": ""
         },
         "require": {
@@ -3084,7 +3181,7 @@
             "maximebf/debugbar": "dev-master",
             "php": ">=5.3.0"
         },
-        "time": "2013-11-17 17:04:52",
+        "time": "2013-11-18 12:32:33",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

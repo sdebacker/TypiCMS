@@ -19,6 +19,9 @@ use DebugBar\Bridge\Twig\TwigCollector;
 use Barryvdh\Debugbar\DataCollector\LaravelCollector;
 use Barryvdh\Debugbar\DataCollector\ViewCollector;
 use Barryvdh\Debugbar\DataCollector\SymfonyRequestCollector;
+use Barryvdh\Debugbar\DataCollector\FilesCollector;
+use Barryvdh\Debugbar\DataCollector\LogsCollector;
+use Barryvdh\Debugbar\DataCollector\ConfigCollector;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -205,6 +208,17 @@ class LaravelDebugbar extends DebugBar
             }
         }
 
+        if($this->shouldCollect('config', false)){
+            $this->addCollector(new ConfigCollector());
+        }
+
+        if($this->shouldCollect('logs', false)){
+            $this->addCollector(new LogsCollector());
+        }
+        if($this->shouldCollect('files', false)){
+            $this->addCollector(new FilesCollector());
+        }
+
         $renderer = $this->getJavascriptRenderer();
         $renderer->setBaseUrl(asset('packages/barryvdh/laravel-debugbar'));
         $renderer->setIncludeVendors($this->app['config']->get('laravel-debugbar::config.include_vendors', true));
@@ -230,11 +244,17 @@ class LaravelDebugbar extends DebugBar
                 return;
             }
 
+            /** @var \Illuminate\Session\SessionManager $sessionManager */
             $sessionManager = $app['session'];
             $httpDriver = new SymfonyHttpDriver($sessionManager, $response);
             $debugbar->setHttpDriver($httpDriver);
 
             if($debugbar->shouldCollect('symfony_request', true) and !$debugbar->hasCollector('request')){
+                $sessionDriver = $sessionManager->driver();
+                if($sessionDriver && is_a($sessionDriver, 'Symfony\Component\HttpFoundation\Session\SessionInterface')){
+                    $request->setSession($sessionDriver);
+                }
+
                 $debugbar->addCollector(new SymfonyRequestCollector($request, $response, $app->make('Symfony\Component\HttpKernel\DataCollector\RequestDataCollector')));
             }
 

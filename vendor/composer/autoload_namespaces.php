@@ -6,10 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'emberlabs\\gravatarlib\\' => array($vendorDir . '/emberlabs/gravatarlib'),
     'Whoops' => array($vendorDir . '/filp/whoops/src'),
     'Underscore' => array($vendorDir . '/anahkiasen/underscore-php/src'),
     'TypiCMS' => array($baseDir . '/app'),
     'Thujohn\\Rss' => array($vendorDir . '/thujohn/rss/src'),
+    'Thomaswelton\\LaravelGravatar' => array($vendorDir . '/thomaswelton/laravel-gravatar/src'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Symfony\\Component\\Routing\\' => array($vendorDir . '/symfony/routing'),
     'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
