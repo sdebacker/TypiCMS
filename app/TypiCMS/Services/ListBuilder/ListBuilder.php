@@ -193,8 +193,14 @@ class ListBuilder {
 
 			foreach ($this->items as $item) {
 
-				$this->list[] = '<li id="item_'.$item->id.'" class="list-group-item">';
-				$this->list[] = '<a href="'.$item->page_uri.'">';
+				$liClass = array('list-group-item');
+
+				if (Request::path() == $item->uri) {
+					$liClass[] = 'active';
+				}
+
+				$this->list[] = '<li class="'.implode(' ', $liClass).'">';
+				$this->list[] = '<a href="/'.$item->uri.'">';
 				$this->list[] = $item->title;
 				$this->list[] = '</a>';
 

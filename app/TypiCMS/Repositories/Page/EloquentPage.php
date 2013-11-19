@@ -79,6 +79,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		}
 
 		// Item not cached, retrieve it
+		$rootUriArray = explode('/', $uri);
+		$uri = $rootUriArray[0].'/'.$rootUriArray[1];
+
 		$query = $this->model
 			->select($this->select)
 			->joinTranslations()
@@ -115,7 +118,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 	public function buildSideList($models)
 	{
 		$listObject = new ListBuilder($models);
-		return $listObject->buildPublic()->sideList();
+		return $listObject->sideList();
 	}
 
 
