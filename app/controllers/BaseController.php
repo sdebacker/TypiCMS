@@ -60,7 +60,7 @@ abstract class BaseController extends Controller {
 		// Footer menu
 		$footerMenuItems = Menulink::getMenu('footer');
 		$listBuilder = new ListBuilder($footerMenuItems);
-		$footerMenu = $listBuilder->buildPublic($footerMenuItems)->toHtml();
+		$footerMenu = $listBuilder->buildPublic()->toHtml();
 
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {
