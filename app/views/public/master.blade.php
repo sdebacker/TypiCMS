@@ -43,9 +43,9 @@
 		@section('languagesMenu')
 		<nav role="navigation" class="menu menu-languages pull-right">
 			{{-- $languagesMenuList --}}
-			<ul class="nav nav-pills">
+			<ul class="nav nav-pills" role="menu">
 				@foreach ($languagesMenu as $item)
-					<li class="{{ $item->class }}">
+					<li class="{{ $item->class }}" role="menuitem">
 						<a href="{{ $item->url }}">{{ $item->lang }}</a>
 					</li>
 				@endforeach

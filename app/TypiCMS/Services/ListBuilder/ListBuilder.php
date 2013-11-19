@@ -48,14 +48,14 @@ class ListBuilder {
 	public function build(array $items = array())
 	{
 		if ($items) {
-			$this->list[] = ($this->list) ? '<ul>' : '<ul id="'.$this->id.'" class="'.implode(' ', $this->class).'">' ;
+			$this->list[] = ($this->list) ? '<ul role="menu">' : '<ul id="'.$this->id.'" class="'.implode(' ', $this->class).'" role="menu">' ;
 
 			foreach ($items as $item) {
 				$liClass = array();
 				// online / offline class
 				$liClass[] = $item->status ? 'online' : 'offline' ;
 				// item
-				$this->list[] = '<li id="item_'.$item->id.'" class="'.implode(' ', $liClass).'">';
+				$this->list[] = '<li id="item_'.$item->id.'" class="'.implode(' ', $liClass).'" role="menuitem">';
 				$this->list[] = '<div>';
 				$this->checkboxes and $this->list[] = '<input type="checkbox" value="'.$item->id.'">';
 				$this->switch and $this->list[] = '<span class="switch">'.trans('global.En ligne/Hors ligne').'</span>';
@@ -143,7 +143,7 @@ class ListBuilder {
 	public function toHtml()
 	{
 		if (count($this->items)) {
-			$this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$this->id.'" class="nav nav-pills">' ;
+			$this->list[] = ($this->list) ? '<ul class="dropdown-menu" role="menu">' : '<ul id="'.$this->id.'" class="nav nav-pills" role="menu">' ;
 
 			foreach ($this->items as $item) {
 
@@ -162,7 +162,7 @@ class ListBuilder {
 				$aTarget = $item->target ? 'target="'.$item->target.'" ' : '' ;
 
 				// item
-				$this->list[] = '<li id="item_'.$item->id.'" class="'.$item->class.'">';
+				$this->list[] = '<li id="item_'.$item->id.'" class="'.$item->class.'" role="menuitem">';
 
 				$this->list[] = '<a href="'.$item->page_uri.'" '.$aTarget.$aClass.$aDataToggle.'>';
 
@@ -189,7 +189,7 @@ class ListBuilder {
 	public function sideList()
 	{
 		if (count($this->items)) {
-			$this->list[] = '<ul class="list-group">';
+			$this->list[] = '<ul class="list-group" role="menu">';
 
 			foreach ($this->items as $item) {
 
@@ -199,7 +199,7 @@ class ListBuilder {
 					$liClass[] = 'active';
 				}
 
-				$this->list[] = '<li class="'.implode(' ', $liClass).'">';
+				$this->list[] = '<li class="'.implode(' ', $liClass).'" role="menuitem">';
 				$this->list[] = '<a href="/'.$item->uri.'">';
 				$this->list[] = $item->title;
 				$this->list[] = '</a>';
