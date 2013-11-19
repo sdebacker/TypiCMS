@@ -16,9 +16,7 @@ class PagesController extends BaseController {
 	}
 
 	/**
-	 * Fonction appelée depuis routes.php.
-	 * Prends en DB la page ayant l’attribut is_home = 1
-	 * et lance la methode show($id)
+	 * Get homepage (is_home attr)
 	 *
 	 * @return void
 	 */
@@ -31,9 +29,7 @@ class PagesController extends BaseController {
 	}
 
 	/**
-	 * Fonction appelée depuis routes.php.
-	 * Extrait l’id de la page depuis le nom de la route
-	 * et lance la methode show($id)
+	 * We have uri, find id and show page
 	 *
 	 * @return void
 	 */
