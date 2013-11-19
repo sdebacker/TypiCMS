@@ -6,14 +6,6 @@ return array(
 
         'admin' => function($collection)
         {
-            $directory = $collection->directory('less', function($collection)
-            {
-                $collection->stylesheet('admin.less');
-            });
-
-            $directory->apply('Less');
-            $directory->apply('CssMin');
-            $directory->apply('UriRewriteFilter');
 
             $directory = $collection->directory('components', function($collection)
             {
@@ -40,6 +32,15 @@ return array(
             });
 
             $directory->apply('JsMin');
+
+            $directory = $collection->directory('less', function($collection)
+            {
+                $collection->stylesheet('admin.less');
+            });
+
+            $directory->apply('Less');
+            $directory->apply('CssMin');
+            $directory->apply('UriRewriteFilter');
         },
 
         'public' => function($collection)
