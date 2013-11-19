@@ -137,6 +137,7 @@ return array(
 		'Basset\BassetServiceProvider',
 		'Krucas\Notification\NotificationServiceProvider',
 		'Bkwld\Croppa\ServiceProvider',
+		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
 		'TypiCMS\Repositories\RepositoriesServiceProvider',
@@ -214,6 +215,7 @@ return array(
 		'Basset'          => 'Basset\Facade',
 		'Notification'    => 'Krucas\Notification\Facades\Notification',
 		'Croppa'          => 'Bkwld\Croppa\Facade',
+		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 		
 	),
 
