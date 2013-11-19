@@ -26,13 +26,7 @@ class PagesController extends BaseController {
 	{
 		$model = $this->repository->getHomePage();
 
-		$this->title['parent'] = $model->title;
-
-		$template = ($model->template) ? $model->template : 'page' ;
-
-		$this->layout->content = View::make('public.pages.'.$template)
-			->with('model', $model)
-			->nest('files', 'public.files._list', array('models' => $model->files));
+		return $this->show($model->id);
 
 	}
 
