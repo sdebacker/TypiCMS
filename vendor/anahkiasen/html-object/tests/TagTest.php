@@ -273,4 +273,25 @@ class TagTest extends HtmlObjectTests
 
     $this->assertEquals($tag, $tag->nestChildren('foo'));
   }
+
+  public function testCanAttemptToRemoveUnexistingClasses()
+  {
+    $tag = Element::div('foo')->removeClass('foobar');
+
+    $this->assertEquals('', $tag->class);
+  }
+
+  public function testCanRemoveClassIfOtherClassesMatch()
+  {
+    $tag = Element::div('foo')->class('btn btn-primary btn-large')->removeClass(array('btn', 'foobar'));
+
+    $this->assertEquals('btn-primary btn-large', $tag->class);
+  }
+
+  public function testCanRemoveMultipleClassesInStringNotation()
+  {
+    $tag = Element::div('foo')->class('btn btn-primary btn-large')->removeClass('btn btn-primary');
+
+    $this->assertEquals('btn-large', $tag->class);
+  }
 }

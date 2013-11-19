@@ -470,20 +470,23 @@ abstract class Tag extends TreeObject
   /**
    * Remove one or more classes to the current field
    *
-   * @param string $class The class(es) to remove
+   * @param string $classes The class(es) to remove
    */
-  public function removeClass($class)
+  public function removeClass($classes)
   {
-    if (is_array($class)) $class = implode(' ', $class);
+    if (!is_array($classes)) {
+      $classes = explode(' ', $classes);
+    }
 
-    // Cancel if there is no class to begin with
-    if (isset($this->attributes['class'])) {
-      $classes = explode(' ', $this->attributes['class']);
-      if (in_array($class, $classes)) {
-        $this->attributes['class'] = str_replace($class, '', $this->attributes['class']);
-        $this->attributes['class'] = trim($this->attributes['class']);
+    $thisClasses = explode(' ', Helpers::arrayGet($this->attributes, 'class'));
+    foreach ($classes as $class) {
+      $exists = array_search($class, $thisClasses);
+      if (!is_null($exists)) {
+        unset($thisClasses[$exists]);
       }
     }
+
+    $this->attributes['class'] = implode(' ', $thisClasses);
 
     return $this;
   }
