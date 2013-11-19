@@ -29,6 +29,7 @@ return array(
                 $collection->javascript('jquery.slug.js');
                 $collection->javascript('vendor/dropzone/downloads/dropzone.js');
                 $collection->javascript('vendor/bootstrap/js/tab.js');
+                $collection->javascript('vendor/bootstrap/js/dropdown.js');
                 $collection->javascript('vendor/moment/moment.js');
                 $collection->javascript('vendor/bootstrap3-datetimepicker/src/js/bootstrap-datetimepicker.js');
                 $collection->javascript('vendor/bootstrap3-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js');
