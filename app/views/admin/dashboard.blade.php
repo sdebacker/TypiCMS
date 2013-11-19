@@ -2,8 +2,6 @@
 
 <h1>{{ trans('global.dashboard.Dashboard') }}</h1>
 
-<a href="{{ route('backup') }}" class="btn btn-default"><span class="glyphicon glyphicon-download"></span> Backup DB</a>
-
 <div class="panel panel-default">
 
 	<div class="panel-heading">{{ trans('global.dashboard.Welcome, :name!', array('name' => Sentry::getUser()->first_name)) }}</div>
