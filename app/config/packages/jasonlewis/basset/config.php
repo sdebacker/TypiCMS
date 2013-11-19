@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    
+
     'collections' => array(
 
         'admin' => function($collection)
