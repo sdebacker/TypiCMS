@@ -5,6 +5,7 @@ use DB;
 
 use TypiCMS\Models\PageTranslation;
 use TypiCMS\Repositories\RepositoriesAbstract;
+use TypiCMS\Services\ListBuilder\ListBuilder;
 use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,7 +23,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 			'display' => array('%s', 'title')
 		);
 
-		$this->select = array('pages.id AS id', 'slug', 'title', 'status', 'position', 'parent');
+		$this->select = array('pages.id AS id', 'slug', 'uri', 'title', 'status', 'position', 'parent');
 
 	}
 
@@ -60,6 +61,63 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		return true;
 
 	}
+
+
+	/**
+	 * Retrieve children pages
+	 *
+	 * @param  int $id model ID
+	 * @return Collection
+	 */
+	public function getChildren($uri, $all = false)
+	{
+		// Build the cache key, unique per model slug
+		$key = md5($this->model->view.'childrenOfId.'.$uri);
+
+		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		// Item not cached, retrieve it
+		$query = $this->model
+			->select($this->select)
+			->joinTranslations()
+			->where('uri', '!=', $uri)
+			->where('uri', 'LIKE', $uri.'%');
+
+		// All posts or only published
+		if ( ! $all ) {
+			$query->where('status', 1);
+		}
+		$query->where('lang', Config::get('app.locale'));
+
+		if ($this->model->order and $this->model->direction) {
+			$query->orderBy($this->model->order, $this->model->direction);
+		}
+
+		$models = $query->get();
+
+		$models->nest();
+
+		// Store in cache for next request
+		$this->cache->put($key, $models);
+
+		return $models;
+	}
+
+
+	/**
+	 * Build html list
+	 *
+	 * @param array
+	 * @return string
+	 */
+	public function buildSideList($models)
+	{
+		$listObject = new ListBuilder($models);
+		return $listObject->buildPublic()->sideList();
+	}
+
 
 	/**
 	 * Sort models

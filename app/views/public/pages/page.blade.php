@@ -13,14 +13,26 @@
 
 @section('main')
 
-	<h2 class="sr-only">{{ $model->title }}</h2>
-	{{ $model->body }}
-	{{ trans('public.More') }}
+	<div class="row">
+		
+		@if($sideMenu)
+		<div class="col-sm-4">
+			{{ $sideMenu }}
+		</div>
+		@endif
+
+		<div class="col-sm-8">
+			{{ $model->body }}
+		</div>
+
+	</div>
 
 @stop
 
 @section('files')
+
 	<div>
 		{{ $files }}
 	</div>
+
 @stop

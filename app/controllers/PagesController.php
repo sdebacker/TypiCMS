@@ -59,10 +59,17 @@ class PagesController extends BaseController {
 
 		$this->title['parent'] = $model->title;
 
+		// get children pages
+		$childrenModels = $this->repository->getChildren($model->uri);
+
+		// build side menu
+		$sideMenu = $this->repository->buildSideList($childrenModels);
+
 		$template = ($model->template) ? $model->template : 'page' ;
 
 		$this->layout->content = View::make('public.pages.'.$template)
-			->with('model', $model)
+			->with('sideMenu', $sideMenu)
+			->withModel($model)
 			->nest('files', 'public.files._list', array('models' => $model->files));
 	}
 

@@ -23,24 +23,25 @@ class NestedCollection extends Collection {
 	{
 		// set keys to id
 		$tmpArray = array();
-		foreach ($this->items as $key => $item) {
-			$tmpArray[$item->id] = $item;
+		foreach ($this->items as $item1) {
+			$tmpArray[$item1->id] = $item1;
 		}
 		$this->items = $tmpArray;
 
+		$deleteArray = array();
 		// set children
-		foreach ($this->items as $id => $item) {
-			if ( $item->parent && isset($this->items[$item->parent]) ) {
-				$this->items[$item->parent]->children[] = $item;
+		foreach ($this->items as $item2) {
+			if ( $item2->parent && isset($this->items[$item2->parent]) ) {
+				$this->items[$item2->parent]->children[] = $item2;
+				$deleteArray[] = $item2->id;
 			}
 		}
 
 		// delete moved items
-		foreach ($this->items as $id => $item) {
-			if ($item->parent) {
-				unset($this->items[$id]);
-			}
+		foreach ($deleteArray as $id) {
+			unset($this->items[$id]);
 		}
+		
 		return $this;
 	}
 

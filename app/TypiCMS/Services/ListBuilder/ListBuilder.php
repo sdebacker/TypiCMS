@@ -142,7 +142,7 @@ class ListBuilder {
 
 	public function toHtml()
 	{
-		if ($this->items) {
+		if (count($this->items)) {
 			$this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$this->id.'" class="nav nav-pills">' ;
 
 			foreach ($this->items as $item) {
@@ -173,7 +173,10 @@ class ListBuilder {
 				$this->list[] = '</a>';
 
 				// sublists
-				$item->children and $this->toHtml($item->children);
+				if ($item->children) {
+					$this->items = $item->children;
+					$this->toHtml();
+				}
 
 				$this->list[] = '</li>';
 			}
@@ -181,4 +184,31 @@ class ListBuilder {
 		}
 		return implode("\r\n", $this->list);
 	}
+
+
+	public function sideList()
+	{
+		if (count($this->items)) {
+			$this->list[] = '<ul class="list-group">';
+
+			foreach ($this->items as $item) {
+
+				$this->list[] = '<li id="item_'.$item->id.'" class="list-group-item">';
+				$this->list[] = '<a href="'.$item->page_uri.'">';
+				$this->list[] = $item->title;
+				$this->list[] = '</a>';
+
+				// sublists
+				if ($item->children) {
+					$this->items = $item->children;
+					$this->sideList();
+				}
+
+				$this->list[] = '</li>';
+			}
+			$this->list[] = '</ul>';
+		}
+		return implode("\r\n", $this->list);
+	}
+
 }
