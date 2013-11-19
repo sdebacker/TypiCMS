@@ -10,17 +10,14 @@
 		<div class="navbar-collapse collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li>{{ link_to($url['url'], ucfirst(trans('global.'.$url['label']))) }}</li>
-				<li>{{ link_to_route('admin.settings.index', ucfirst(trans('global.settings'))) }}</li>
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-
 					@foreach (Config::get('app.modules') as $key => $module)
 						@if ($module['menu'])
 							<li><a href="{{ route('admin.'.$module['module'].'.index') }}">{{ Str::title(trans_choice('global.modules.'.$module['module'], 2)) }}</a></li>
 						@endif
 					@endforeach
-
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -36,6 +33,7 @@
 						</div>
 					</div>
 				</li>
+				<li><a href="{{ route('admin.settings.index') }}"><i class="glyphicon glyphicon-cog"></i> <span class="sr-only">{{ ucfirst(trans('global.settings')) }}</span></a></li>
 			</ul>
 		</div>
 	</nav>
