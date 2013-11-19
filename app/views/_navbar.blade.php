@@ -12,6 +12,18 @@
 				<li>{{ link_to($url['url'], ucfirst(trans('global.'.$url['label']))) }}</li>
 				<li>{{ link_to_route('admin.settings.index', ucfirst(trans('global.settings'))) }}</li>
 				<li class="dropdown">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+
+					@foreach (Config::get('app.modules') as $key => $module)
+						@if ($module['menu'])
+							<li><a href="{{ route('admin.'.$module['module'].'.index') }}">{{ Str::title(trans_choice('global.modules.'.$module['module'], 2)) }}</a></li>
+						@endif
+					@endforeach
+
+					</ul>
+				</li>
+				<li class="dropdown">
 					<a href="{{ route('admin.users.index') }}" class="dropdown-toggle" data-toggle="dropdown">{{ Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name }} <b class="caret"></b></a>
 					<div class="dropdown-menu dropdown-user">
 						<div class="img pull-left">

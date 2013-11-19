@@ -56,14 +56,14 @@ return array(
 	'locale' => 'fr',
 
 	'modules' => array(
-		'Page'      => array('menu' => false, 'dashboard' => true , 'module' => 'pages'),
-		'User'      => array('menu' => false, 'dashboard' => true , 'module' => 'users'),
-		'File'      => array('menu' => false, 'dashboard' => true , 'module' => 'files'),
+		'Page'      => array('menu' => true, 'dashboard' => true , 'module' => 'pages'),
+		'User'      => array('menu' => true, 'dashboard' => true , 'module' => 'users'),
+		'File'      => array('menu' => true, 'dashboard' => true , 'module' => 'files'),
 		'News'      => array('menu' => true , 'dashboard' => true , 'module' => 'news'),
 		'Event'     => array('menu' => true , 'dashboard' => true , 'module' => 'events'),
 		'Category'  => array('menu' => true , 'dashboard' => true , 'module' => 'categories'),
 		'Project'   => array('menu' => true , 'dashboard' => true , 'module' => 'projects'),
-		'Menu'      => array('menu' => false, 'dashboard' => false, 'module' => 'menus'),
+		'Menu'      => array('menu' => true, 'dashboard' => false, 'module' => 'menus'),
 		'Menulink'  => array('menu' => false, 'dashboard' => false, 'module' => 'menulinks'),
 	),
 
