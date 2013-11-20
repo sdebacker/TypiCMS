@@ -70,8 +70,10 @@ Route::filter('auth.admin', function()
 
 Route::filter('cache', function($route, $request, $response = null)
 {
-	// dd(Config::get('typicms.cachePublic'));
-	if ( ! Sentry::check() and Config::get('typicms.cachePublic')) { // no cache if connected
+	if (Sentry::check() or Request::path() == '/') { // no cache if connected or if root path
+		return;
+	}
+	if ( Config::get('app.cachePublic') ) {
 		$key = 'route-'.Str::slug(Request::fullUrl());
 		if (is_null($response) && Cache::section('public')->has($key)) {
 			return Cache::section('public')->get($key);

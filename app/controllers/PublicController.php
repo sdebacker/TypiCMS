@@ -2,6 +2,7 @@
 
 use View;
 use Config;
+use Redirect;
 
 class PublicController extends BaseController {
 
@@ -20,7 +21,7 @@ class PublicController extends BaseController {
 			$locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 			! in_array($locale, $locales) and $locale = Config::get('app.locale');
 
-			return Redirect::route($locale.'.projects');
+			return Redirect::route($locale);
 
 		}
 
