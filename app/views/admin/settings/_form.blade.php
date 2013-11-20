@@ -31,6 +31,6 @@
 
 
 <div>
-	{{ Former::primary_button()->type('submit')->value('Sauver') }}
+	{{ Former::primary_button()->type('submit')->value('save') }}
 	{{ Former::link()->class('btn btn-default')->href(route('admin.settings.index'))->value('Annuler') }}
 </div>

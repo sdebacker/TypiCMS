@@ -85,7 +85,7 @@
 
 <div>
 	{{ Former::hidden('id'); }}
-	{{ Former::primary_button()->type('submit')->value('Sauver') }}
+	{{ Former::primary_button()->type('submit')->value('save') }}
 	{{ Former::link()->class('btn btn-default')->href(route('admin.pages.index'))->value('Annuler') }}
 </div>
 
