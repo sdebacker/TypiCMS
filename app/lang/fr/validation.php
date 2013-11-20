@@ -146,7 +146,8 @@ return array(
 		// Settings
 		'webmasterEmail' => 'Email du webmaster',
 		'typekitCode' => 'Code Typekit',
-		'googleAnalyticsCode' => 'Code Google Analytics',
+		'googleAnalyticsUniversalCode' => 'Google Analytics Universal',
+		'googleAnalyticsCode' => 'Google Analytics Classic',
 		'langChooser' => 'Page de choix de langue',
 
 		'Submit' => 'Envoyer',

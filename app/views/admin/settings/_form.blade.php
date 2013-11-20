@@ -6,7 +6,14 @@
 
 	{{ Former::text('webmasterEmail'); }}
 	{{ Former::text('typekitCode'); }}
-	{{ Former::text('googleAnalyticsCode'); }}
+	<div class="row">
+		<div class="col-sm-6">
+		{{ Former::text('googleAnalyticsUniversalCode'); }}
+		</div>
+		<div class="col-sm-6">
+		{{ Former::text('googleAnalyticsCode'); }}
+		</div>
+	</div>
 	{{ Former::checkbox('langChooser')->label('')->text('langChooser'); }}
 
 		@if (count($locales) > 1)
