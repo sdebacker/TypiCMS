@@ -4,7 +4,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Password Reminder Language Lines
+	| FR Password Reminder Language Lines
 	|--------------------------------------------------------------------------
 	|
 	| The following language lines are the default lines which match reasons

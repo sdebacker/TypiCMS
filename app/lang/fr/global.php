@@ -4,7 +4,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Global TypiCMS Language Lines
+	| FR Global TypiCMS Language Lines
 	|--------------------------------------------------------------------------
 	*/
 	'modules' => array(

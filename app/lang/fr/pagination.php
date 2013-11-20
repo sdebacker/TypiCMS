@@ -4,7 +4,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Pagination Language Lines
+	| FR Pagination Language Lines
 	|--------------------------------------------------------------------------
 	|
 	| The following language lines are used by the paginator library to build

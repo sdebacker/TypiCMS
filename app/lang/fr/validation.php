@@ -4,7 +4,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Validation Language Lines
+	| FR Validation Language Lines
 	|--------------------------------------------------------------------------
 	|
 	| The following language lines contain the default error messages used by
@@ -142,6 +142,14 @@ return array(
 		'Change password (if not empty)' => 'Nouveau mot de passe',
 		'save' => 'enregistrer',
 		'log in' => 's’enregistrer',
+
+		// Settings
+		'webmasterEmail' => 'Email du webmaster',
+		'typekitCode' => 'Code Typekit',
+		'googleAnalyticsCode' => 'Code Google Analytics',
+		'skipLangChooser' => 'Désactiver la page de choix de langue',
+		'cachePublic' => 'Cache côté public',
+		'cacheAdmin' => 'Cache côté admin',
 
 		'Submit' => 'Envoyer',
 		'Reset' => 'Reinitialiser',

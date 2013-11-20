@@ -4,7 +4,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Users TypiCMS Language Lines
+	| FR Users TypiCMS Language Lines
 	|--------------------------------------------------------------------------
 	*/
 	'log out' => 'Déconnexion',
