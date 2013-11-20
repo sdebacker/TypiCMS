@@ -67,8 +67,13 @@ return array(
 		'Menulink'  => array('menu' => false, 'dashboard' => false, 'module' => 'menulinks'),
 	),
 
-	'typekitCode' => null,
-	'googleAnalyticsCode' => null,
+	/*
+	|--------------------------------------------------------------------------
+	| Cache
+	|--------------------------------------------------------------------------
+	*/
+	'cachePublic' => true,
+	'cacheAdmin' => false,
 
 	/*
 	|--------------------------------------------------------------------------

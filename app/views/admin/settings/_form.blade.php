@@ -8,8 +8,6 @@
 	{{ Former::text('typekitCode'); }}
 	{{ Former::text('googleAnalyticsCode'); }}
 	{{ Former::checkbox('skipLangChooser')->label('')->text('skipLangChooser'); }}
-	{{ Former::checkbox('cachePublic')->label('')->text('cachePublic'); }}
-	{{ Former::checkbox('cacheAdmin')->label('')->text('cacheAdmin'); }}
 
 		@if (count($locales) > 1)
 		<ul class="nav nav-pills">

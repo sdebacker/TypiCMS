@@ -35,7 +35,7 @@ class LaravelCache implements CacheInterface {
      */
     public function active($side)
     {
-		if (Config::get('typicms.cache'.$side)) {
+		if (Config::get('app.cache'.$side)) {
 			return true;
 		}
 		return false;

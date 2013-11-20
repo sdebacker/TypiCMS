@@ -148,8 +148,6 @@ return array(
 		'typekitCode' => 'Code Typekit',
 		'googleAnalyticsCode' => 'Code Google Analytics',
 		'skipLangChooser' => 'Désactiver la page de choix de langue',
-		'cachePublic' => 'Cache côté public',
-		'cacheAdmin' => 'Cache côté admin',
 
 		'Submit' => 'Envoyer',
 		'Reset' => 'Reinitialiser',

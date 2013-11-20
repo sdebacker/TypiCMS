@@ -96,7 +96,7 @@ Route::group(array('before' => 'cache', 'after' => 'cache'), function()
 			->where('status', '=', 1)
 			->orderBy('lang');
 
-		// if (Config::get('typicms.cachePublic')) {
+		// if (Config::get('app.cachePublic')) {
 		// 	$queryPages->remember(1440);
 		// }
 
@@ -115,7 +115,7 @@ Route::group(array('before' => 'cache', 'after' => 'cache'), function()
 			->where('status', '=', 1)
 			->orderBy('module_name');
 
-		// if (Config::get('typicms.cachePublic')) {
+		// if (Config::get('app.cachePublic')) {
 		// 	$queryMenulinks->remember(1440);
 		// }
 
