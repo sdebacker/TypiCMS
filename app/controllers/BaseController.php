@@ -34,8 +34,6 @@ abstract class BaseController extends Controller {
 	{
 		$this->repository = $repository;
 
-		$this->applicationName = Config::get('settings.website_title');
-
 		$navBar = null;
 		if (Sentry::getUser()) {
 			// Link to admin side
@@ -49,6 +47,8 @@ abstract class BaseController extends Controller {
 		if (in_array($firstSegment, Config::get('app.locales'))) {
 			App::setLocale($firstSegment);
 		}
+
+		$this->applicationName = Config::get('typicms.websiteTitle');
 
 		$menuBuilder = new MenuBuilder;
 
