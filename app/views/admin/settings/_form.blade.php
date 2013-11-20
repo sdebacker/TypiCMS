@@ -4,7 +4,12 @@
 
 @stop
 
-	{{ Former::text('webmaster_email'); }}
+	{{ Former::text('webmasterEmail'); }}
+	{{ Former::text('typekitCode'); }}
+	{{ Former::text('googleAnalyticsCode'); }}
+	{{ Former::checkbox('skipLangChooser')->label('')->text('skipLangChooser'); }}
+	{{ Former::checkbox('cachePublic')->label('')->text('cachePublic'); }}
+	{{ Former::checkbox('cacheAdmin')->label('')->text('cacheAdmin'); }}
 
 		@if (count($locales) > 1)
 		<ul class="nav nav-pills">
@@ -21,7 +26,7 @@
 			@foreach ($locales as $lang)
 
 			<div class="tab-pane @if ($locale == $lang)active@endif" id="{{ $lang }}">
-				{{ Former::lg_text($lang.'[website_title]')->label('title'); }}
+				{{ Former::lg_text($lang.'[websiteTitle]')->label('title'); }}
 				{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
 			</div>
 
