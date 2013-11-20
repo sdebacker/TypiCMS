@@ -7,7 +7,7 @@
 	{{ Former::text('webmasterEmail'); }}
 	{{ Former::text('typekitCode'); }}
 	{{ Former::text('googleAnalyticsCode'); }}
-	{{ Former::checkbox('skipLangChooser')->label('')->text('skipLangChooser'); }}
+	{{ Former::checkbox('langChooser')->label('')->text('langChooser'); }}
 
 		@if (count($locales) > 1)
 		<ul class="nav nav-pills">

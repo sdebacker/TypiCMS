@@ -147,7 +147,7 @@ return array(
 		'webmasterEmail' => 'Email du webmaster',
 		'typekitCode' => 'Code Typekit',
 		'googleAnalyticsCode' => 'Code Google Analytics',
-		'skipLangChooser' => 'Désactiver la page de choix de langue',
+		'langChooser' => 'Page de choix de langue',
 
 		'Submit' => 'Envoyer',
 		'Reset' => 'Reinitialiser',

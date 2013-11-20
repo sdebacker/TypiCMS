@@ -16,7 +16,7 @@ class PublicController extends BaseController {
 		$locales = Config::get('app.locales');
 
 
-		if (Config::get('typicms.skipLangChooser')) {
+		if ( ! Config::get('typicms.langChooser')) {
 
 			$locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 			! in_array($locale, $locales) and $locale = Config::get('app.locale');
