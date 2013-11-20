@@ -11,8 +11,8 @@
 
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 
-	@if(Config::get('app.typekitCode'))
-	<script type="text/javascript" src="//use.typekit.net/{{ Config::get('app.typekitCode') }}.js"></script>
+	@if(Config::get('typicms.typekitCode'))
+	<script type="text/javascript" src="//use.typekit.net/{{ Config::get('typicms.typekitCode') }}.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	@endif
 
@@ -36,7 +36,7 @@
 
 		@section('header')
 		<header>
-			<h1>{{ link_to_route($lang, Config::get('settings.website_title')) }}</h1>
+			<h1>{{ link_to_route($lang, Config::get('typicms.websiteTitle')) }}</h1>
 		</header>
 		@show
 
@@ -71,9 +71,9 @@
 
 	</div>
 	
-	@if(Config::get('app.googleAnalyticsCode'))
+	@if(Config::get('typicms.googleAnalyticsCode'))
 	<script>
-		var _gaq=[['_setAccount','{{ Config::get('app.googleAnalyticsCode') }}'],['_trackPageview']];
+		var _gaq=[['_setAccount','{{ Config::get('typicms.googleAnalyticsCode') }}'],['_trackPageview']];
 		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 		g.src='//www.google-analytics.com/ga.js';
 		s.parentNode.insertBefore(g,s)}(document,'script'));
