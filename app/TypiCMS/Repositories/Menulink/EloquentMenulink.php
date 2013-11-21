@@ -1,6 +1,8 @@
 <?php namespace TypiCMS\Repositories\Menulink;
 
 use Config;
+use App;
+use Request;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -34,9 +36,9 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
-		$key = md5($this->view().'all'.$allkey);
+		$key = md5(App::getLocale().$this->view().'all'.$allkey);
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 
@@ -57,6 +59,50 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 
 		return $models;
 	}
+
+
+	/**
+	 * Build a menu from its name
+	 *
+	 * @return Menulinks Collection
+	 */
+	public function getMenu($name)
+	{
+
+		// Build our cache item key, unique per model number,
+		$key = md5(App::getLocale().$this->view().'getMenu'.$name);
+
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		$models = $this->model->select('menus.name', 'menulinks.id', 'menulinks.menu_id', 'menulinks.target', 'menulinks.parent', 'menulinks.page_id', 'menulinks.class', 'menulinks_translations.title', 'menulinks_translations.status', 'menulinks_translations.url', 'pages.is_home', 'pages_translations.uri as page_uri', 'pages_translations.lang', 'module_name')
+			
+			->with('translations')
+			->join('menus', 'menulinks.menu_id', '=', 'menus.id')
+			->join('menulinks_translations', 'menulinks.id', '=', 'menulinks_translations.menulink_id')
+			->leftJoin('pages', 'pages.id', '=', 'menulinks.page_id')
+			->leftJoin('pages_translations', 'pages_translations.page_id', '=', 'menulinks.page_id')
+
+			->where('menulinks_translations.lang', Config::get('app.locale'))
+			->where(function($query){
+				$query->where('pages_translations.lang', Config::get('app.locale'));
+				$query->orWhere('pages_translations.lang', null);
+			})
+			->where('menus.name', $name)
+			->where('menulinks_translations.status', 1)
+
+			->orderBy('menulinks.position')
+			->remember(10000)
+			->get();
+
+		// Store in cache for next request
+		$this->cache->put($key, $models);
+
+		return $models;
+
+	}
+
 
 	public function getPagesForSelect()
 	{

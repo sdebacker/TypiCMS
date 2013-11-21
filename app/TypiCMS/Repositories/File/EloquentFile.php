@@ -1,6 +1,5 @@
 <?php namespace TypiCMS\Repositories\File;
 
-use Config;
 use Response;
 use Str;
 use Croppa;

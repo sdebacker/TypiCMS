@@ -2,6 +2,8 @@
 
 use Config;
 use DB;
+use App;
+use Request;
 
 use TypiCMS\Models\PageTranslation;
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -72,9 +74,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 	public function getChildren($uri, $all = false)
 	{
 		// Build the cache key, unique per model slug
-		$key = md5($this->model->view.'childrenOfId.'.$uri);
+		$key = md5(App::getLocale().$this->view().'childrenOfId.'.$uri);
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 

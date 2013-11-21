@@ -35,10 +35,7 @@ class LaravelCache implements CacheInterface {
      */
     public function active($side)
     {
-        if (Config::get('app.cache'.ucfirst($side))) {
-			return true;
-		}
-		return false;
+        return Config::get('app.cache'.ucfirst($side)) ? true : false ;
     }
 
     /**

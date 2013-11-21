@@ -1,10 +1,12 @@
 <?php namespace TypiCMS\Repositories;
 
 use Config;
+use App;
 use Str;
 use DB;
 use Cache;
 use Schema;
+use Request;
 use TypiCMS\Services\ListBuilder\ListBuilder;
 
 abstract class RepositoriesAbstract {
@@ -34,9 +36,9 @@ abstract class RepositoriesAbstract {
 	public function byId($id)
 	{
 		// Build the cache key, unique per model slug
-		$key = md5($this->model->view.'id.'.$id);
+		$key = md5(App::getLocale().$this->view().'id.'.$id);
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 
@@ -64,9 +66,9 @@ abstract class RepositoriesAbstract {
 		// Build our cache item key, unique per page number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
-		$key = md5($this->view().'paginationPage.'.$paginationPage.'.'.$limit.$allkey);
+		$key = md5(App::getLocale().$this->view().'paginationPage.'.$paginationPage.'.'.$limit.$allkey);
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 
@@ -110,9 +112,9 @@ abstract class RepositoriesAbstract {
 		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
-		$key = md5($this->view().'all'.$allkey);
+		$key = md5(App::getLocale().$this->view().'all'.$allkey);
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 
@@ -170,9 +172,9 @@ abstract class RepositoriesAbstract {
 	public function bySlug($slug)
 	{
 		// Build the cache key, unique per model slug
-		$key = md5($this->view().'slug.'.$slug);
+		$key = md5(App::getLocale().$this->view().'slug.'.$slug);
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 
@@ -329,7 +331,7 @@ abstract class RepositoriesAbstract {
 		// Build the cache key, unique per model slug
 		$key = md5('dashboardmodules');
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 

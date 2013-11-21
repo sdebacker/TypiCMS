@@ -1,8 +1,5 @@
 <?php namespace TypiCMS\Repositories\Dashboard;
 
-use Config;
-use DB;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
 

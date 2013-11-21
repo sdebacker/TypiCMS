@@ -1,6 +1,8 @@
 <?php namespace TypiCMS\Repositories\Project;
 
 use Config;
+use App;
+use Request;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -40,9 +42,9 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
-		$key = md5($this->view().'all'.$allkey);
+		$key = md5(App::getLocale().$this->view().'all'.$allkey);
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 

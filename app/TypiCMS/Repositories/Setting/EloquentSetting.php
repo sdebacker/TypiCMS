@@ -1,7 +1,5 @@
 <?php namespace TypiCMS\Repositories\Setting;
 
-use Config;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
@@ -24,10 +22,9 @@ class EloquentSetting implements SettingInterface {
 	public function getAll()
 	{
 		// Build our cache item key, unique per model number,
-		// limit and if we're showing all
 		$key = md5('Settingsall');
 
-		if ( $this->cache->active('admin') and $this->cache->has($key) ) {
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
 		}
 
