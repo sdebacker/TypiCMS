@@ -74,7 +74,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 	public function getChildren($uri, $all = false)
 	{
 		// Build the cache key, unique per model slug
-		$key = md5(App::getLocale().$this->view().'childrenOfId.'.$uri);
+		$key = md5(App::getLocale().'childrenOfId.'.$uri);
 
 		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);

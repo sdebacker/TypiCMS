@@ -36,7 +36,7 @@ abstract class RepositoriesAbstract {
 	public function byId($id)
 	{
 		// Build the cache key, unique per model slug
-		$key = md5(App::getLocale().$this->view().'id.'.$id);
+		$key = md5(App::getLocale().'id.'.$id);
 
 		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
@@ -66,7 +66,7 @@ abstract class RepositoriesAbstract {
 		// Build our cache item key, unique per page number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
-		$key = md5(App::getLocale().$this->view().'paginationPage.'.$paginationPage.'.'.$limit.$allkey);
+		$key = md5(App::getLocale().'paginationPage.'.$paginationPage.'.'.$limit.$allkey);
 
 		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
@@ -112,7 +112,7 @@ abstract class RepositoriesAbstract {
 		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
-		$key = md5(App::getLocale().$this->view().'all'.$allkey);
+		$key = md5(App::getLocale().'all'.$allkey);
 
 		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
@@ -172,7 +172,7 @@ abstract class RepositoriesAbstract {
 	public function bySlug($slug)
 	{
 		// Build the cache key, unique per model slug
-		$key = md5(App::getLocale().$this->view().'slug.'.$slug);
+		$key = md5(App::getLocale().'slug.'.$slug);
 
 		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);

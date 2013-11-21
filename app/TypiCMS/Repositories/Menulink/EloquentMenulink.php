@@ -36,7 +36,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
-		$key = md5(App::getLocale().$this->view().'all'.$allkey);
+		$key = md5(App::getLocale().'all'.$allkey);
 
 		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
@@ -70,7 +70,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 	{
 
 		// Build our cache item key, unique per model number,
-		$key = md5(App::getLocale().$this->view().'getMenu'.$name);
+		$key = md5(App::getLocale().'getMenu'.$name);
 
 		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
 			return $this->cache->get($key);
