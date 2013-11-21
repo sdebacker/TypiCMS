@@ -1132,12 +1132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "695a0d42e22751c79099b61e8acce79c8fa944db"
+                "reference": "0d41a57a310efb9d2e395b53510a4b00df16b6d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/695a0d42e22751c79099b61e8acce79c8fa944db",
-                "reference": "695a0d42e22751c79099b61e8acce79c8fa944db",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0d41a57a310efb9d2e395b53510a4b00df16b6d3",
+                "reference": "0d41a57a310efb9d2e395b53510a4b00df16b6d3",
                 "shasum": ""
             },
             "require": {
@@ -1216,7 +1216,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-11-19 06:47:21"
+            "time": "2013-11-21 21:14:45"
         },
         {
             "name": "ink/ink-translatable",
@@ -1538,12 +1538,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d4008b0ad4058f6d112b90732a4d2dc33c034b86"
+                "reference": "31fb3d8e18a02fd10877cfc16045f673d9e7cfc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d4008b0ad4058f6d112b90732a4d2dc33c034b86",
-                "reference": "d4008b0ad4058f6d112b90732a4d2dc33c034b86",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/31fb3d8e18a02fd10877cfc16045f673d9e7cfc3",
+                "reference": "31fb3d8e18a02fd10877cfc16045f673d9e7cfc3",
                 "shasum": ""
             },
             "require": {
@@ -1643,7 +1643,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-20 14:44:26"
+            "time": "2013-11-21 02:34:54"
         },
         {
             "name": "leafo/lessphp",
@@ -1932,20 +1932,23 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "06f0b8a99a90c5392ceccb09b75b74ff6c08ec07"
+                "reference": "64c0192173e78ad405411f16d3c1a699386d882c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/06f0b8a99a90c5392ceccb09b75b74ff6c08ec07",
-                "reference": "06f0b8a99a90c5392ceccb09b75b74ff6c08ec07",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/64c0192173e78ad405411f16d3c1a699386d882c",
+                "reference": "64c0192173e78ad405411f16d3c1a699386d882c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "autoload": {
@@ -1971,7 +1974,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2013-09-09 02:39:19"
+            "time": "2013-11-21 21:09:53"
         },
         {
             "name": "nikic/php-parser",
@@ -2537,12 +2540,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "e558fd5d593ebe083dca199f52aed5374ab7b57a"
+                "reference": "79acd777762e81d0f3414ca25a602deeeb48240d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/e558fd5d593ebe083dca199f52aed5374ab7b57a",
-                "reference": "e558fd5d593ebe083dca199f52aed5374ab7b57a",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/79acd777762e81d0f3414ca25a602deeeb48240d",
+                "reference": "79acd777762e81d0f3414ca25a602deeeb48240d",
                 "shasum": ""
             },
             "require": {
@@ -2575,7 +2578,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2013-09-27 14:57:51"
+            "time": "2013-11-16 15:13:54"
         },
         {
             "name": "symfony/finder",
