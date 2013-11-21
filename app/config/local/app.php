@@ -7,7 +7,7 @@ return array(
 
 	'url' => 'http://typicms.local',
 
-	'cachePublic' => false,
+	'cachePublic' => true,
 	'cacheAdmin' => false,
 
 );

@@ -97,9 +97,9 @@ Route::group(array('before' => 'cache', 'after' => 'cache'), function()
 			->where('status', '=', 1)
 			->orderBy('lang');
 
-		// if (Config::get('app.cachePublic')) {
-		// 	$queryPages->remember(1440);
-		// }
+		if (Config::get('app.cachePublic')) {
+			$queryPages->remember(1440);
+		}
 
 		$pages = $queryPages->get();
 
@@ -116,9 +116,9 @@ Route::group(array('before' => 'cache', 'after' => 'cache'), function()
 			->where('status', '=', 1)
 			->orderBy('module_name');
 
-		// if (Config::get('app.cachePublic')) {
-		// 	$queryMenulinks->remember(1440);
-		// }
+		if (Config::get('app.cachePublic')) {
+			$queryMenulinks->remember(1440);
+		}
 
 		$menulinks = $queryMenulinks->get();
 
