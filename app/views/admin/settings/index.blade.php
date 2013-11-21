@@ -34,7 +34,6 @@
 				<tr><td>{{ trans('settings.System locales') }}</td><td><div class="max-height"><b><?php system('locale -a'); ?></b></div></td></tr>
 				<tr><td>{{ trans('settings.App locales') }}</td><td><b>{{ implode(', ', Config::get('app.locales')); }}</b></td></tr>
 				<tr><td>{{ trans('settings.Active locale') }}</td><td><b>{{ Config::get('app.locale'); }}</b></td></tr>
-				<tr><td>{{ trans('settings.Cache admin') }}</td><td><b><?php echo Config::get('app.cacheAdmin') ? trans('settings.Yes') : trans('settings.No') ; ?></b></td></tr>
 				<tr><td>{{ trans('settings.Cache public') }}</td><td><b><?php echo Config::get('app.cachePublic') ? trans('settings.Yes') : trans('settings.No') ; ?></b></td></tr>
 			</tbody>
 		</table>
