@@ -29,6 +29,14 @@ interface MenulinkInterface
     public function getAll($all = false);
 
     /**
+     * Get menu's items
+     *
+     * @param string $name
+     * @return StdClass Object with $items
+     */
+    public function getMenu($name);
+
+    /**
      * Get single article by URL
      *
      * @param string  URL slug of article

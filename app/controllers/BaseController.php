@@ -53,14 +53,12 @@ abstract class BaseController extends Controller {
 		$menuBuilder = new MenuBuilder;
 
 		// Main menu
-		$mainMenuItems = Menulink::getMenu('main');
-		$listBuilder = new ListBuilder($mainMenuItems);
-		$mainMenu = $listBuilder->buildPublic()->toHtml();
+		$mainMenuItems = App::make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('main');
+		$mainMenu = with(new ListBuilder($mainMenuItems))->buildPublic()->toHtml();
 
 		// Footer menu
-		$footerMenuItems = Menulink::getMenu('footer');
-		$listBuilder = new ListBuilder($footerMenuItems);
-		$footerMenu = $listBuilder->buildPublic()->toHtml();
+		$footerMenuItems = App::make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('footer');
+		$footerMenu = with(new ListBuilder($footerMenuItems))->buildPublic()->toHtml();
 
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {
