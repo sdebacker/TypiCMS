@@ -47,7 +47,7 @@ class ListBuilder {
 	 */
 	public function build(array $items = array())
 	{
-		if ($items) {
+		if (count($items)) {
 			$this->list[] = ($this->list) ? '<ul role="menu">' : '<ul id="'.$this->id.'" class="'.implode(' ', $this->class).'" role="menu">' ;
 
 			foreach ($items as $item) {
@@ -125,9 +125,9 @@ class ListBuilder {
 			$activeUri = '/'.Request::path();
 
 			if ( $menulink->page_uri == $activeUri or ( strlen($menulink->page_uri) > 3 and preg_match('@^'.$menulink->page_uri.'@', $activeUri) ) ) {
-				// if item uri equals current uri OR
-				// current uri contain item uri (item uri must be bigger than 3 to avoid homepage link always active)
-				// Add active class.
+				// if item uri equals current uri
+				// or current uri contain item uri (item uri must be bigger than 3 to avoid homepage link always active)
+				// then add active class.
 				$classArray = preg_split('/ /', $menulink->class, NULL, PREG_SPLIT_NO_EMPTY);
 				$classArray[] = 'active';
 				$menulink->class = implode(' ', $classArray);
@@ -143,7 +143,7 @@ class ListBuilder {
 	public function toHtml()
 	{
 		if (count($this->items)) {
-			$this->list[] = ($this->list) ? '<ul class="dropdown-menu" role="menu">' : '<ul id="'.$this->id.'" class="nav nav-pills" role="menu">' ;
+			$this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$this->id.'" class="menu-main" role="menu">' ;
 
 			foreach ($this->items as $item) {
 
@@ -189,23 +189,18 @@ class ListBuilder {
 	public function sideList()
 	{
 		if (count($this->items)) {
-			$this->list[] = '<ul class="list-group" role="menu">';
+			$this->list[] = '<ul class="menu-aside" role="menu">';
 
 			foreach ($this->items as $item) {
 
-				$liClass = array('list-group-item');
-
-				if (Request::path() == $item->uri) {
-					$liClass[] = 'active';
-				}
-
-				$this->list[] = '<li class="'.implode(' ', $liClass).'" role="menuitem">';
+				$liClass = Request::is($item->uri) ? ' class="active"' : '' ;
+				$this->list[] = '<li'.$liClass.' role="menuitem">';
 				$this->list[] = '<a href="/'.$item->uri.'">';
 				$this->list[] = $item->title;
 				$this->list[] = '</a>';
 
 				// sublists
-				if ($item->children) {
+				if (count($item->children)) {
 					$this->items = $item->children;
 					$this->sideList();
 				}
@@ -216,5 +211,6 @@ class ListBuilder {
 		}
 		return implode("\r\n", $this->list);
 	}
+
 
 }
