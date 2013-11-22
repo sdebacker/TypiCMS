@@ -16,9 +16,10 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	@endif
 
-	<!--[if IE 8]>
-	<script type="text/javascript" src="{{ asset('components/vendor/respond/respond.min.js') }}"></script>
-	<![endif]-->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
 	{{ basset_javascripts('public') }}
 
