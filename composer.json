@@ -1,8 +1,8 @@
 {
-	"name": "sdebacker/typi-cms",
-	"description": "A simple multilingual CMS",
+	"name": "sdebacker/typicms",
+	"description": "Simple multilingual CMS",
 	"keywords": ["CMS", "multilingual", "laravel", "Typi"],
-	"license": "BSD-3-Clause",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Typi Design",
