@@ -20,8 +20,8 @@ class File extends EloquentTranslatable {
 	/**
 	 * lists
 	 */
-	public $order = 'id';
-	public $direction = 'desc';
+	public $order = 'position';
+	public $direction = 'asc';
 
 
 	/**

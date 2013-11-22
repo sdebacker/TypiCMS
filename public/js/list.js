@@ -2,25 +2,37 @@ function enableSortable() {
 	// Sorting avec imbrication
 	var sortableList = $('.sortable'),
 		maxLevels = 1,
-		isTree = false;
+		isTree = false,
+		handle = 'div',
+		placeholder = 'placeholder',
+		toleranceElement = '> div',
+		items = 'li',
+		url = document.URL.split('?')[0] + '/sort';
 	if (sortableList.hasClass('nested')) {
 		maxLevels = 3;
 		isTree = true;
 		sortableList.find('li div').prepend('<span class="disclose"></span>');
 	}
+	if (sortableList.hasClass('sortable-thumbnails')) {
+		handle = 'img';
+		items = 'a';
+		placeholder = false;
+		toleranceElement = false;
+		url = '/admin/files/sort';
+	}
 	var sortableOptions = {
 		forcePlaceholderSize: true,
-		handle: 'div',
+		handle: handle,
 		cancel: 'input, .label, .attachments a, .mjs-nestedSortable-branch .disclose',
 		helper: 'clone',
 		// distance: 2,
-		items: 'li',
+		items: items,
 		opacity: .6,
-		placeholder: 'placeholder',
+		placeholder: placeholder,
 		revert: 250,
 		tabSize: 25,
 		tolerance: 'pointer',
-		toleranceElement: '> div',
+		toleranceElement: toleranceElement,
 		maxLevels: maxLevels,
 		listType: 'ul',
 		isTree: isTree,
@@ -38,7 +50,7 @@ function enableSortable() {
 			// console.log(serializedDatas);
 			$.ajax({
 				type: 'POST',
-				url: document.URL.split('?')[0] + '/sort',
+				url: url,
 				data: serializedDatas
 			}).fail(function () {
 				alertify.error(translate('An error occurred'));

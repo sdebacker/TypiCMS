@@ -62,6 +62,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 	Route::resource('users', 'App\Controllers\Admin\UsersController');
 
 	Route::resource('files', 'App\Controllers\Admin\FilesController');
+	Route::post('files/sort', array('as' => 'admin.files.sort', 'uses' => 'App\Controllers\Admin\FilesController@sort'));
+
 	Route::resource('news.files', 'App\Controllers\Admin\FilesController');
 	Route::resource('pages.files', 'App\Controllers\Admin\FilesController');
 	Route::resource('events.files', 'App\Controllers\Admin\FilesController');
