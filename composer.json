@@ -26,6 +26,7 @@
 		"thujohn/rss": "dev-master",
 		"barryvdh/laravel-debugbar": "dev-master",
 		"mccool/database-backup": "dev-master",
+		"way/guard-laravel": "dev-master",
 		"thomaswelton/laravel-gravatar": "dev-master",
 		"eluceo/ical": "dev-master"
 	},

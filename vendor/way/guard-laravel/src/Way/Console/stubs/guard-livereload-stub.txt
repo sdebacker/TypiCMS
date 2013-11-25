@@ -1,0 +1,4 @@
+# Refresh the browser on save
+guard 'livereload' do
+  watch(%r{.+(?<!\.min)\.(css|html|js|blade\.php)$})
+end

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d773ccc2839fdd88683899f6364f66dc",
+    "hash": "32ff01aa6846f28201ff65bfac919607",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -2769,6 +2769,51 @@
             "time": "2013-08-19 21:18:20"
         },
         {
+            "name": "way/guard-laravel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JeffreyWay/Laravel-Guard.git",
+                "reference": "396a6d656ca072bc29b637601c79896c9bfaceeb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JeffreyWay/Laravel-Guard/zipball/396a6d656ca072bc29b637601c79896c9bfaceeb",
+                "reference": "396a6d656ca072bc29b637601c79896c9bfaceeb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "illuminate/config": "4.1.x",
+                "illuminate/console": "4.1.x",
+                "illuminate/support": "4.1.x",
+                "mockery/mockery": "dev-master",
+                "symfony/finder": "2.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Way": "src/"
+                },
+                "files": [
+                    "src/Way/globals.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@jeffrey-way.com",
+                    "homepage": "http://jeffrye-way.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy asset management in Laravel.",
+            "time": "2013-08-31 21:50:40"
+        },
+        {
             "name": "weotch/phpthumb",
             "version": "1.0.4",
             "source": {
@@ -2864,6 +2909,7 @@
         "thujohn/rss": 20,
         "barryvdh/laravel-debugbar": 20,
         "mccool/database-backup": 20,
+        "way/guard-laravel": 20,
         "thomaswelton/laravel-gravatar": 20,
         "eluceo/ical": 20,
         "raveren/kint": 20

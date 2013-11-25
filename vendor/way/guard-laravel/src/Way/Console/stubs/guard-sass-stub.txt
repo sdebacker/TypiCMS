@@ -1,0 +1,1 @@
+guard :sass, :input => '{{assetsPath}}/sass', :output => '{{cssPath}}'{{options}}

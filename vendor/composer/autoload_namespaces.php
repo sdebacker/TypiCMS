@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'emberlabs\\gravatarlib\\' => array($vendorDir . '/emberlabs/gravatarlib'),
     'Whoops' => array($vendorDir . '/filp/whoops/src'),
+    'Way' => array($vendorDir . '/way/guard-laravel/src'),
     'Underscore' => array($vendorDir . '/anahkiasen/underscore-php/src'),
     'TypiCMS' => array($baseDir . '/app'),
     'Thujohn\\Rss' => array($vendorDir . '/thujohn/rss/src'),

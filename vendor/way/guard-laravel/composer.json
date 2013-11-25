@@ -1,0 +1,29 @@
+{
+    "name": "way/guard-laravel",
+    "description": "Easy asset management in Laravel.",
+    "authors": [
+        {
+            "name": "Jeffrey Way",
+            "email": "jeffrey@jeffrey-way.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master",
+        "illuminate/support": "4.1.x",
+        "illuminate/config": "4.1.x",
+        "illuminate/console": "4.1.x",
+        "symfony/finder": "2.3.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Way": "src/"
+        },
+        "files": [
+            "src/Way/globals.php"
+        ]
+    },
+    "minimum-stability": "dev"
+}

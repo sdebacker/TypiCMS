@@ -1,0 +1,12 @@
+guard :phpunit, :all_on_start => false, :tests_path => 'app/tests/', :cli => '--colors -c phpunit.xml' do
+  # Run any test in app/tests upon save.
+  watch(%r{^.+Test\.php$})
+
+  # When a view file is updated, run tests.
+  # Tip: you probably only want to run your integration tests.
+  watch(%r{app/views/.+\.php}) { Dir.glob('app/tests/**/*.php') }
+
+  # When a file is edited, try to run its associated test.
+  # Save app/models/User.php, and it will run app/tests/models/UserTest.php
+  watch(%r{^app/(.+)/(.+)\.php$}) { |m| "app/tests/#{m[1]}/#{m[2]}Test.php"}
+end

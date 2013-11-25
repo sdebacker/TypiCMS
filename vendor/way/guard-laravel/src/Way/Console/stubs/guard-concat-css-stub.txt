@@ -1,0 +1,1 @@
+guard :concat, :type => "css", :files => %w[{{files}}], :input_dir => "{{compilePath}}/css", :output => "{{cssPath}}/styles.min"
