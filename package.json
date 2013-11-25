@@ -8,6 +8,8 @@
         "grunt" :                       "~0.4.0",
         "grunt-contrib-cssmin":         "*",
         "grunt-contrib-uglify":         "*",
+        "grunt-contrib-watch":          "*",
+        "grunt-contrib-concat":         "*",
         "grunt-contrib-less":           "*"
     } 
 }
