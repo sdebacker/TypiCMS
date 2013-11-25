@@ -1,5 +1,7 @@
 <?php namespace TypiCMS\Repositories\Setting;
 
+use Request;
+
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
