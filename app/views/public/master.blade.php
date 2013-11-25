@@ -9,7 +9,7 @@
 
 	{{ HTML::style(asset('css/public.css')) }}
 
-	{{ HTML::script(asset('components/vendor/jquery/jquery.js')) }}
+	{{ HTML::script(asset('components/vendor/jquery-legacy/jquery.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
 
 	@if(Config::get('typicms.typekitCode'))

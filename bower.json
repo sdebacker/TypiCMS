@@ -2,11 +2,14 @@
   "name": "TypiCMS",
   "dependencies": {
     "jquery": "~2.0.3",
+    "jquery-legacy": "jquery#1.10",
     "alertify.js": "~0.3.11",
     "bootstrap": "~3.0.2",
     "chosen": "~1.0.0",
     "dropzone": "~3.7.1",
     "jquery-ui": "~1.10.3",
-    "bootstrap3-datetimepicker": "~2.1.11"
+    "bootstrap3-datetimepicker": "~2.1.11",
+    "fancybox": "~2.1.5",
+    "flexslider": "*"
   }
 }
