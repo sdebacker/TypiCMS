@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "32ff01aa6846f28201ff65bfac919607",
+    "hash": "794de397198a1bd4a98824c1e4638370",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -2493,12 +2493,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "96e7ab8d6f645c2e95e0c8d0f05d1c80fff1b85b"
+                "reference": "b09d36ac19d221e2e457a1457e6eef9c215845a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/96e7ab8d6f645c2e95e0c8d0f05d1c80fff1b85b",
-                "reference": "96e7ab8d6f645c2e95e0c8d0f05d1c80fff1b85b",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/b09d36ac19d221e2e457a1457e6eef9c215845a7",
+                "reference": "b09d36ac19d221e2e457a1457e6eef9c215845a7",
                 "shasum": ""
             },
             "require": {
@@ -2531,7 +2531,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-23 21:11:41"
+            "time": "2013-11-25 14:52:16"
         },
         {
             "name": "symfony/routing",
@@ -2598,12 +2598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Translation.git",
-                "reference": "e0012648d7fc96d8f03bb7ca4d5e44f471a15417"
+                "reference": "809f030dbc3a3e7adfdaff0b52bf21ce07289195"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Translation/zipball/e0012648d7fc96d8f03bb7ca4d5e44f471a15417",
-                "reference": "e0012648d7fc96d8f03bb7ca4d5e44f471a15417",
+                "url": "https://api.github.com/repos/symfony/Translation/zipball/809f030dbc3a3e7adfdaff0b52bf21ce07289195",
+                "reference": "809f030dbc3a3e7adfdaff0b52bf21ce07289195",
                 "shasum": ""
             },
             "require": {
@@ -2644,7 +2644,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-13 21:27:40"
+            "time": "2013-11-25 14:49:41"
         },
         {
             "name": "thomaswelton/laravel-gravatar",
@@ -2730,43 +2730,6 @@
                 "rss"
             ],
             "time": "2013-10-27 14:02:28"
-        },
-        {
-            "name": "twbs/bootstrap",
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "e8a1df5f060bf7e6631554648e0abde150aedbe4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/e8a1df5f060bf7e6631554648e0abde150aedbe4",
-                "reference": "e8a1df5f060bf7e6631554648e0abde150aedbe4",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "sugeng tigefa",
-                    "email": "tigefa@gmail.com"
-                },
-                {
-                    "name": "Jacob Thornton",
-                    "email": "jacobthornton@gmail.com"
-                }
-            ],
-            "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
-            "homepage": "http://getbootstrap.com",
-            "keywords": [
-                "bootstrap",
-                "css"
-            ],
-            "time": "2013-08-19 21:18:20"
         },
         {
             "name": "way/guard-laravel",
