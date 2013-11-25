@@ -55,8 +55,6 @@ return array(
     'Cartalyst\\Sentry' => array($vendorDir . '/cartalyst/sentry/src'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
     'Bkwld\\Croppa' => array($vendorDir . '/bkwld/croppa/src'),
-    'Basset' => array($vendorDir . '/jasonlewis/basset/src'),
     'Barryvdh\\Debugbar' => array($vendorDir . '/barryvdh/laravel-debugbar/src'),
     'Aws' => array($vendorDir . '/aws/aws-sdk-php/src'),
-    'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );
