@@ -1,3 +1,0 @@
-guard :uglify, :destination_file => '{{jsPath}}/scripts.min.js'{{options}} do
-	watch('{{jsPath}}/scripts.min.js')
-end

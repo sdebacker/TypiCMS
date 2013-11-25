@@ -1,1 +1,0 @@
-guard :coffeescript, :input => "{{assetsPath}}/coffee", :output => "{{compilePath}}/js"{{options}}

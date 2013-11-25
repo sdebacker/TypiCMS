@@ -141,7 +141,6 @@ return array(
 		'Krucas\Notification\NotificationServiceProvider',
 		'Bkwld\Croppa\ServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
-		'Way\Console\GuardLaravelServiceProvider',
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
 		'TypiCMS\Repositories\RepositoriesServiceProvider',
