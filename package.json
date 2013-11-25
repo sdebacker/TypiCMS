@@ -1,27 +1,13 @@
 {
-  "name": "TypiCMS",
-  "version": "1.0.0",
-  "description": "JS/CSS",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "main": "index.js",
-  "dependencies": {
-    "less": "~1.4.2"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-less": "~0.7.0",
-    "grunt-contrib-cssmin": "~0.6.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-recess": "~0.4.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "BSD"
+    "name" : "TypiCMS",
+    "version" : "1.0.0",
+    "author" : "Samuel De Backer",
+    "private" : true,
+
+    "devDependencies" : {
+        "grunt" :                       "~0.4.0",
+        "grunt-contrib-cssmin":         "*",
+        "grunt-contrib-uglify":         "*",
+        "grunt-contrib-less":           "*"
+    } 
 }
