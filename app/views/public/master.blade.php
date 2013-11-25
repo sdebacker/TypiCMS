@@ -7,9 +7,10 @@
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>{{ $title }}</title>
 
-	{{ basset_stylesheets('public') }}
+	{{ HTML::style(asset('css/public.css')) }}
 
-	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	{{ HTML::script(asset('components/vendor/jquery/jquery.js')) }}
+	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
 
 	@if(Config::get('typicms.typekitCode'))
 	<script type="text/javascript" src="//use.typekit.net/{{ Config::get('typicms.typekitCode') }}.js"></script>
@@ -20,8 +21,6 @@
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
-
-	{{ basset_javascripts('public') }}
 
 	@yield('head')
 

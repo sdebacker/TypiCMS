@@ -7,13 +7,38 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>{{ $title }}</title>
 
-	{{ basset_stylesheets('admin') }}
+	{{-- CSS --}}
+
+	{{ HTML::style(asset('components/vendor/bootstrap3-datetimepicker/build/css/bootstrap-datetimepicker.min.css')) }}
+	{{ HTML::style(asset('components/vendor/alertify.js/themes/alertify.core.css')) }}
+	{{ HTML::style(asset('components/vendor/alertify.js/themes/alertify.bootstrap.css')) }}
 
 	@yield('css')
 
-	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	{{ HTML::style(asset('css/admin.css')) }}
 
-	{{ basset_javascripts('admin') }}
+
+	{{-- JS --}}
+
+	{{ HTML::script(asset('components/vendor/jquery/jquery.js')) }}
+	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery-ui.js')) }}
+	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery.ui.core.js')) }}
+	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery.ui.mouse.js')) }}
+	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery.ui.widget.js')) }}
+	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery.ui.sortable.js')) }}
+	{{ HTML::script(asset('components/jquery.mjs.nestedSortable.js')) }}
+	{{ HTML::script(asset('components/jquery.nestedCookie.js')) }}
+	{{ HTML::script(asset('components/vendor/alertify.js/lib/alertify.js')) }}
+	{{ HTML::script(asset('components/jquery.listenhancer.js')) }}
+	{{ HTML::script(asset('components/jquery.slug.js')) }}
+	{{ HTML::script(asset('components/vendor/dropzone/downloads/dropzone.js')) }}
+	{{ HTML::script(asset('components/vendor/bootstrap/js/tab.js')) }}
+	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
+	{{ HTML::script(asset('components/vendor/moment/moment.js')) }}
+	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/bootstrap-datetimepicker.js')) }}
+	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
+
+	{{ HTML::script(asset('//tinymce.cachefly.net/4/tinymce.min.js')) }}
 
 	{{ HTML::script(asset('js/general.js')) }}
 

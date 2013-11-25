@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>Error 404</title>
 	
-	{{ basset_stylesheets('public') }}
+	{{ HTML::style(asset('css/public.css')) }}
 
 </head>
 
