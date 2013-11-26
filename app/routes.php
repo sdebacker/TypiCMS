@@ -21,19 +21,21 @@ Route::post('users/changepassword/{userid}/{resetcode}', 'App\Controllers\Admin\
 /**
  * Model binding.
  */
-Route::model('pages', 'TypiCMS\Models\Page');
 Route::model('menus', 'TypiCMS\Models\Menu');
 Route::model('menulinks', 'TypiCMS\Models\Menulink');
-Route::model('news', 'TypiCMS\Models\News');
-Route::model('events', 'TypiCMS\Models\Event');
-Route::model('projects', 'TypiCMS\Models\Project');
 Route::model('categories', 'TypiCMS\Models\Category');
 Route::model('files', 'TypiCMS\Models\File');
 
 if (Request::segment(1) != 'admin') {
+
 	Route::bind('categories', function($value, $route){
-		return TypiCMS\Models\Category::select('categories.id AS id', 'slug', 'status')->where('slug', $value)->where('status', 1)->joinTranslations()->firstOrFail();
+		return TypiCMS\Models\Category::select('categories.id AS id', 'slug', 'status')
+			->where('slug', $value)
+			->where('status', 1)
+			->joinTranslations()
+			->firstOrFail();
 	});
+
 }
 
 /**

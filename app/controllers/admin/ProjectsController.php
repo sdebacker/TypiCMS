@@ -49,8 +49,10 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($model)
+	public function edit($id)
 	{
+		$model = $this->repository->byId($id);
+
 		$this->title['child'] = trans('projects.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
@@ -65,8 +67,10 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($model)
+	public function show($id)
 	{
+		$model = $this->repository->byId($id);
+
 		$this->title['child'] = trans('projects.Show');
 		$this->layout->content = View::make('admin.projects.show')
 			->with('model', $model);
@@ -98,8 +102,9 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($model)
+	public function update($id)
 	{
+		$model = $this->repository->byId($id);
 
 		if ( ! Request::ajax()) {
 			if ( $this->form->update( Input::all() ) ) {
@@ -134,8 +139,10 @@ class ProjectsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($model)
+	public function destroy($id)
 	{
+		$model = $this->repository->byId($id);
+
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {
 				return Redirect::back();

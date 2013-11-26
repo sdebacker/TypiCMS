@@ -49,8 +49,10 @@ class NewsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($model)
+	public function edit($id)
 	{
+		$model = $this->repository->byId($id);
+
 		$this->title['child'] = trans('news.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
@@ -65,8 +67,10 @@ class NewsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($model)
+	public function show($id)
 	{
+		$model = $this->repository->byId($id);
+
 		$this->title['child'] = trans('news.Show');
 		$this->layout->content = View::make('admin.news.show')
 			->with('model', $model);
@@ -98,8 +102,9 @@ class NewsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($model)
+	public function update($id)
 	{
+		$model = $this->repository->byId($id);
 
 		if ( ! Request::ajax()) {
 			if ( $this->form->update( Input::all() ) ) {
@@ -134,8 +139,10 @@ class NewsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($model)
+	public function destroy($id)
 	{
+		$model = $this->repository->byId($id);
+
 		if( $model->delete() ) {
 			if ( ! Request::ajax()) {
 				return Redirect::back();
