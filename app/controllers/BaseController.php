@@ -9,7 +9,6 @@ use Request;
 
 use TypiCMS\Models\Menulink;
 use TypiCMS\Services\Helpers;
-use TypiCMS\Services\MenuBuilder;
 use TypiCMS\Services\ListBuilder\ListBuilder;
 use Illuminate\Support\Collection;
 
@@ -50,26 +49,16 @@ abstract class BaseController extends Controller {
 
 		$this->applicationName = Config::get('typicms.websiteTitle');
 
-		$menuBuilder = new MenuBuilder;
-
-		// Main menu
-		$mainMenuItems = App::make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('main');
-		$mainMenu = with(new ListBuilder($mainMenuItems))->buildPublic()->toHtml(array('class' => 'menu-main nav nav-pills'));
-
-		// Footer menu
-		$footerMenuItems = App::make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('footer');
-		$footerMenu = with(new ListBuilder($footerMenuItems))->buildPublic()->toHtml();
-
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {
 			$view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));
 		});
 
 		View::share('navBar', $navBar);
-		View::share('mainMenu', $mainMenu);
-		View::share('footerMenu', $footerMenu);
-		View::share('languagesMenu', $menuBuilder->languagesMenu());
-		View::share('lang', App::getLocale());
+		View::share('mainMenu', App::make('MainMenu', array('class' => 'menu-main nav nav-pills')) );
+		View::share('footerMenu', App::make('FooterMenu', array('class' => 'menu-main nav nav-pills')) );
+		View::share('languagesMenu', App::make('LanguagesMenu') );
+		View::share('lang', App::getLocale() );
 
 	}
 

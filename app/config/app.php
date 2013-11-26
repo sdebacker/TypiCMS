@@ -145,6 +145,7 @@ return array(
 
 		'TypiCMS\Repositories\RepositoriesServiceProvider',
 		'TypiCMS\Services\Form\FormServiceProvider',
+		'TypiCMS\Services\ListBuilder\ListBuilderServiceProvider',
 
 	),
 
