@@ -54,7 +54,7 @@ abstract class BaseController extends Controller {
 
 		// Main menu
 		$mainMenuItems = App::make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('main');
-		$mainMenu = with(new ListBuilder($mainMenuItems))->buildPublic()->toHtml();
+		$mainMenu = with(new ListBuilder($mainMenuItems))->buildPublic()->toHtml(array('class' => 'menu-main nav nav-pills'));
 
 		// Footer menu
 		$footerMenuItems = App::make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('footer');

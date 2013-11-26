@@ -140,10 +140,12 @@ class ListBuilder {
 
 	}
 
-	public function toHtml()
+	public function toHtml($parameters = array())
 	{
+		$ulClass = isset($parameters['class']) ? $parameters['class'] : '' ;
+
 		if (count($this->items)) {
-			$this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$this->id.'" class="menu-main" role="menu">' ;
+			$this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$this->id.'" class="'.$ulClass.'" role="menu">' ;
 
 			foreach ($this->items as $item) {
 
