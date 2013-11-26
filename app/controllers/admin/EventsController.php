@@ -69,9 +69,7 @@ class EventsController extends BaseController {
 	 */
 	public function show($model)
 	{
-		$this->title['child'] = trans('events.Show');
-		$this->layout->content = View::make('admin.events.show')
-			->with('model', $model);
+		return Redirect::route('admin.events.edit', $model->id);
 	}
 
 

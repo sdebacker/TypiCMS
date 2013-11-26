@@ -68,9 +68,7 @@ class MenusController extends BaseController {
 	 */
 	public function show($model)
 	{
-		$this->title['child'] = trans('menus.Show');
-		$this->layout->content = View::make('admin.menus.show')
-			->with('model', $model);
+		return Redirect::route('admin.menus.edit', $model->id);
 	}
 
 

@@ -69,9 +69,7 @@ class ProjectsController extends BaseController {
 	 */
 	public function show($model)
 	{
-		$this->title['child'] = trans('projects.Show');
-		$this->layout->content = View::make('admin.projects.show')
-			->with('model', $model);
+		return Redirect::route('admin.projects.edit', $model->id);
 	}
 
 

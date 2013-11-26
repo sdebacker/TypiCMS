@@ -70,9 +70,7 @@ class PagesController extends BaseController {
 	 */
 	public function show($model)
 	{
-		$this->title['child'] = trans('pages.Show');
-		$this->layout->content = View::make('admin.pages.show')
-			->with('model', $model);
+		return Redirect::route('admin.pages.edit', $model->id);
 	}
 
 
@@ -83,11 +81,6 @@ class PagesController extends BaseController {
 	 */
 	public function store()
 	{
-		// Numeric values must be integer for checkboxes not to be checked.
-		// $post = array();
-		// foreach (Input::all() as $key => $value) {
-		// 	$post[$key] = is_numeric($value) ? (int) $value : $value ;
-		// }
 
 		if ( $this->form->save( Input::all() ) ) {
 			return Redirect::route('admin.pages.index');

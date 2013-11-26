@@ -88,10 +88,7 @@ class MenuLinksController extends BaseController {
 	 */
 	public function show($menu, $model)
 	{
-		$this->title['child'] = trans('menulinks.Show');
-		$this->layout->content = View::make('admin.menulinks.show')
-			->with('menu', $menu)
-			->with('model', $model);
+		return Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id));
 	}
 
 

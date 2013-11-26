@@ -70,6 +70,9 @@ class FilesController extends BaseController {
 	 */
 	public function edit($model)
 	{
+		// $relatedModel = with(new $model->fileable_type)->find($model->fileable_id);
+		// d($relatedModel);
+
 		$this->title['child'] = trans('files.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
@@ -86,9 +89,7 @@ class FilesController extends BaseController {
 	 */
 	public function show($model)
 	{
-		$this->title['child'] = trans('files.Show');
-		$this->layout->content = View::make('admin.files.show')
-			->with('model', $model);
+		return Redirect::route('admin.files.edit', $model->id);
 	}
 
 

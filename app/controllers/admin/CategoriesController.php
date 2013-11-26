@@ -67,9 +67,7 @@ class CategoriesController extends BaseController {
 	 */
 	public function show($model)
 	{
-		$this->title['child'] = trans('categories.Show');
-		$this->layout->content = View::make('admin.categories.show')
-			->with('model', $model);
+		return Redirect::route('admin.categories.edit', $model->id);
 	}
 
 

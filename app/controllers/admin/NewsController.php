@@ -69,9 +69,7 @@ class NewsController extends BaseController {
 	 */
 	public function show($model)
 	{
-		$this->title['child'] = trans('news.Show');
-		$this->layout->content = View::make('admin.news.show')
-			->with('model', $model);
+		return Redirect::route('admin.news.edit', $model->id);
 	}
 
 
