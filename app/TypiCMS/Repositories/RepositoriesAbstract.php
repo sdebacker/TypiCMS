@@ -43,7 +43,16 @@ abstract class RepositoriesAbstract {
 		}
 
 		// Item not cached, retrieve it
-		$model = $this->model->where('id', $id)
+		$model = $this->model
+			->where('id', $id)
+			->with(array('files' => function($query)
+				{
+					$query->joinTranslations();
+					$query->where('lang', Config::get('app.locale'));
+					$query->where('status', 1);
+					$query->orderBy('position', 'asc');
+				})
+			)
 			->firstOrFail();
 
 		// Store in cache for next request
