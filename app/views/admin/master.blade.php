@@ -38,8 +38,6 @@
 	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/bootstrap-datetimepicker.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
 
-	{{ HTML::script(asset('//tinymce.cachefly.net/4/tinymce.min.js')) }}
-
 	{{ HTML::script(asset('js/general.js')) }}
 
 	@yield('js')
