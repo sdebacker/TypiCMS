@@ -5,7 +5,7 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>{{-- $title --}}</title>
+	<title>{{ $title }}</title>
 
 	{{ HTML::style(asset('css/public.css')) }}
 	{{ HTML::style(asset('components/vendor/fancybox/source/jquery.fancybox.css')) }}
