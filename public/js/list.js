@@ -39,13 +39,10 @@ function enableSortable() {
 		expandOnHover: 700,
 		startCollapsed: false,
 		update: function(event, ui) {
-			var serializedDatas,
+			var serializedDatas = sortableList.sortable('serialize'),
 				elementId = ui.item.attr('id').split(/[_]+/).pop();
 			if (isTree) {
-				serializedDatas = sortableList.nestedSortable('serialize');
 				serializedDatas += '&nested=true&moved=' + elementId;
-			} else {
-				serializedDatas = sortableList.sortable('serialize');
 			}
 			// console.log(serializedDatas);
 			$.ajax({
