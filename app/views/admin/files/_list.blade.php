@@ -1,7 +1,8 @@
-@if(count($models))
-	<h1><span id="nb_elements">{{ $models->getTotal() }}</span> {{ trans_choice('global.modules.files', $models->getTotal()) }}</h1>
+@if(count($files))
+	<h1><span id="nb_elements">{{ $files->getTotal() }}</span> @choice('global.modules.files', $files->getTotal())</h1>
+
 	<div class="row">
-	@foreach($models as $file)
+	@foreach($files as $file)
 		<div class="col-md-3 col-xs-6">
 			<div class="thumbnail">
 				<img src="{{ Croppa::url('/'.$file->path.'/'.$file->filename, 135, 135) }}" alt="{{ $file->alt_attribute }}">
@@ -15,4 +16,5 @@
 		</div>
 	@endforeach
 	</div>
+	
 @endif

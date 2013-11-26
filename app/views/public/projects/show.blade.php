@@ -3,10 +3,6 @@
 
 	<h2>titre : {{ $model->title }}</h2>
 
-@stop
+	@include('public.files._list', array('files' => $model->files))
 
-@section('files')
-	<div>
-		{{ $files }}
-	</div>
 @stop

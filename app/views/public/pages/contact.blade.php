@@ -4,4 +4,6 @@
 	{{ $model->body }}
 	template contact
 
+	@include('public.files._list', array('files' => $model->files))
+
 @stop

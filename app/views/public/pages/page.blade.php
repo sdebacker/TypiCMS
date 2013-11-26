@@ -1,3 +1,4 @@
+
 @section('head')
 	@if($model->css)
 	<style type="text/css">
@@ -27,12 +28,6 @@
 
 	</div>
 
-@stop
-
-@section('files')
-
-	<div>
-		{{ $files }}
-	</div>
+	@include('public.files._list', array('files' => $model->files))
 
 @stop

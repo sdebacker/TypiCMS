@@ -4,7 +4,7 @@
 
 	<div id="register" class="container-login col-sm-4 col-sm-offset-4">
 
-		<h1>{{ trans('users.Register new account') }}</h1>
+		<h1>@lang('users.Register new account')</h1>
 
 		{{ Former::vertical_open()->role('form') }}
 

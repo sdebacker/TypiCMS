@@ -65,8 +65,7 @@ class PagesController extends BaseController {
 
 		$this->layout->content = View::make('public.pages.'.$template)
 			->with('sideMenu', $sideMenu)
-			->withModel($model)
-			->nest('files', 'public.files._list', array('models' => $model->files));
+			->withModel($model);
 	}
 
 }

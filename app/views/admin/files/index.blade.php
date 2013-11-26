@@ -12,7 +12,7 @@
 
 @section('header')
 
-	<h1><span id="nb_elements">{{ $models->getTotal() }}</span> {{ trans_choice('global.modules.files', $models->getTotal()) }}</h1>
+	<h1><span id="nb_elements">{{ $models->getTotal() }}</span> @choice('global.modules.files', $models->getTotal())</h1>
 
 @stop
 
@@ -32,7 +32,7 @@
 			{{ Former::hidden('fileable_id')->value($relatedModel->id); }}
 			{{ Former::hidden('fileable_type')->value(get_class($relatedModel)); }}
 			@endif
-			<div class="dz-message">{{ trans('global.Drop files to upload (or click)') }}</div>
+			<div class="dz-message">@lang('global.Drop files to upload (or click)')</div>
 			<div class="fallback">
 			{{ Former::file('file')->accept('image')->max(2, 'MB')->class('fileInput'); }}
 			{{ Former::actions()->primary_submit('Submit') }}

@@ -4,7 +4,7 @@
 
 	<div id="login" class="container-login col-sm-4 col-sm-offset-4">
 
-		<h1>{{ trans('users.New password') }}</h1>
+		<h1>@lang('users.New password')</h1>
 
 		{{ Former::vertical_open()->role('form'); }}
 

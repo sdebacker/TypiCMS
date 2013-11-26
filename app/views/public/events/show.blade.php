@@ -7,10 +7,6 @@
 	<p>Date fin : {{ $model->end_date }}</p>
 	<p>Heure fin : {{ $model->end_time }}</p>
 
-@stop
+	@include('public.files._list', array('files' => $model->files))
 
-@section('files')
-	<div>
-		{{ $files }}
-	</div>
 @stop
