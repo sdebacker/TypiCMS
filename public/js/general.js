@@ -54,6 +54,13 @@ function showMessage(responsetext, responsetype) {
 			}
 		}
 
+		$(".fancybox").fancybox({
+			prevEffect: 'fade',
+			nextEffect: 'fade',
+			openEffect: 'elastic',
+			closeEffect: 'elastic'
+		});
+
 		checkAndShowMessageDiv();
 
 		$('#uploader').dropzone({
