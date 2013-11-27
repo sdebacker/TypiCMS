@@ -69,10 +69,6 @@ class ListBuilder {
 				if (isset($item->menu_id) and $item->menu_id) {
 					$params = array($item->menu_id, $item->id);
 				}
-				// Pas propre :
-				// if (isset($item->category_id) and $item->category_id) {
-				// 	$params = array($item->category_id, $item->id);
-				// }
 
 				$this->list[] = '<a href="'.route('admin.'.$item->route.'.edit', $params).'">';
 
