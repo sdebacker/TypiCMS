@@ -15,20 +15,21 @@ class ListBuilderServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+		$app = $this->app;
 
-		$this->app->bind('MainMenu', function($app, $parameters)
+		$app->bind('MainMenu', function($app, $parameters)
 		{
-			$items = $this->app->make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('main');
+			$items = $app->make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('main');
 			return with(new ListBuilder($items))->buildPublic()->toHtml($parameters);
 		});
 
-		$this->app->bind('FooterMenu', function($app, $parameters)
+		$app->bind('FooterMenu', function($app, $parameters)
 		{
-			$items = $this->app->make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('footer');
+			$items = $app->make('TypiCMS\Repositories\Menulink\MenulinkInterface')->getMenu('footer');
 			return with(new ListBuilder($items))->buildPublic()->toHtml($parameters);
 		});
 
-		$this->app->bind('LanguagesMenu', function()
+		$app->bind('LanguagesMenu', function()
 		{
 			return with(new ListBuilder)->languagesMenu();
 		});
