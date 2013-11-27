@@ -33,8 +33,8 @@ class DashboardController extends BaseController {
 		
 		$this->layout->content = View::make('admin.dashboard')
 			->with('welcomeMessage', $this->getWelcomeMessage())
-			->with('modules', $modules)
-			->with('menus', $menus);
+			->withModules($modules)
+			->withMenus($menus);
 	}
 
 	public function backup()

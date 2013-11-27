@@ -11,7 +11,7 @@ abstract class BaseController extends Controller {
 
 	public $applicationName = 'Admin Typi CMS';
 
-	protected $model;
+	protected $repository;
 	protected $form;
 
 	// The cool kids’ way of handling page titles.

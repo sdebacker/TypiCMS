@@ -65,11 +65,8 @@ class UsersController extends BaseController {
 	 */
 	public function index()
 	{
-		$models = $this->repository->getAll(true);
-		$list = $this->repository->buildList($models->all());
-		$this->layout->content = View::make('admin.users.index')
-			->with('models', $models)
-			->with('list', $list);
+		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
+		$this->layout->content = View::make('admin.users.index')->withModels($models);
 	}
 
 

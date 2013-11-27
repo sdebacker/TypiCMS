@@ -19,6 +19,8 @@ abstract class BaseController extends Controller {
 	 */
 	protected $layout = 'public/master';
 
+	protected $repository;
+
 	// The cool kids’ way of handling page titles.
 	// https://gist.github.com/jonathanmarvens/6017139
 	public $applicationName;

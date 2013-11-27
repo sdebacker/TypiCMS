@@ -26,12 +26,8 @@ class MenuLinksController extends BaseController {
 	 */
 	public function index($menu)
 	{
-		$models = $this->repository->getAllFromMenu(true, $menu->id);
-		$list = $this->repository->buildList($models->all());
-		$this->layout->content = View::make('admin.menulinks.index')
-			->with('models', $models)
-			->with('menu', $menu)
-			->with('list', $list);
+		$models = $this->repository->getAllFromMenu(true, $menu->id)->buildList($this->repository->getListProperties());
+		$this->layout->content = View::make('admin.menulinks.index')->withModels($models)->withMenu($menu);
 	}
 
 

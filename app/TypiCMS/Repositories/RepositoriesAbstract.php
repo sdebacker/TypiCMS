@@ -160,17 +160,17 @@ abstract class RepositoriesAbstract {
 		return $models;
 	}
 
+
 	/**
-	 * Build html list
+	 * Return properties for lists
 	 *
-	 * @param array
-     * @return string
+     * @return array
 	 */
-	public function buildList(array $array = array())
+	public function getListProperties()
 	{
-		$listObject = new ListBuilder(null, $this->listProperties);
-		return $listObject->build($array);
+		return $this->listProperties;
 	}
+
 
 	/**
 	 * Get single model by URL

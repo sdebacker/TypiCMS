@@ -40,13 +40,10 @@ class FilesController extends BaseController {
 	 */
 	public function index($relatedModel = null)
 	{
-		$models = $this->repository->getAll(true, $relatedModel);
-		$list = $this->repository->buildList($models->all());
-		$this->layout->content = View::make('admin.files.index')
-			->with('relatedModel', $relatedModel)
-			->with('models', $models)
-			->with('list', $list);
+		$models = $this->repository->getAll(true, $relatedModel)->buildList($this->repository->getListProperties());
+		$this->layout->content = View::make('admin.files.index')->withModels($models)->with('relatedModel', $relatedModel);
 	}
+
 
 	/**
 	 * Show the form for creating a new resource.

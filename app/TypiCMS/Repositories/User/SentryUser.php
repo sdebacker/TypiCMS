@@ -67,6 +67,17 @@ class SentryUser implements UserInterface {
 
 
 	/**
+	 * Return properties for lists
+	 *
+     * @return array
+	 */
+	public function getListProperties()
+	{
+		return $this->listProperties;
+	}
+
+
+	/**
 	 * Build html list
 	 *
 	 * @param array
