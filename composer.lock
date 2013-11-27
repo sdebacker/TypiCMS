@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5158882edd79cde53f014d5b2202b129",
+    "hash": "a6649b7a781fe7b6d56e4a433056f85b",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ef368f11b11c6a18be908700a29662ad7da382bd"
+                "reference": "e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ef368f11b11c6a18be908700a29662ad7da382bd",
-                "reference": "ef368f11b11c6a18be908700a29662ad7da382bd",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d",
+                "reference": "e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d",
                 "shasum": ""
             },
             "require": {
@@ -210,7 +210,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-22 23:51:42"
+            "time": "2013-11-26 20:13:01"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -302,16 +302,16 @@
         },
         {
             "name": "cartalyst/sentry",
-            "version": "dev-master",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cartalyst/sentry.git",
-                "reference": "f4b2dcb4e931b8c20fd6f45497cc089284378341"
+                "reference": "6feaec1508526200dcfb17b30c70536c3c136b57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/f4b2dcb4e931b8c20fd6f45497cc089284378341",
-                "reference": "f4b2dcb4e931b8c20fd6f45497cc089284378341",
+                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/6feaec1508526200dcfb17b30c70536c3c136b57",
+                "reference": "6feaec1508526200dcfb17b30c70536c3c136b57",
                 "shasum": ""
             },
             "require": {
@@ -320,6 +320,7 @@
             "require-dev": {
                 "illuminate/cookie": "~4",
                 "illuminate/database": "~4",
+                "illuminate/http": "~4",
                 "illuminate/session": "~4",
                 "ircmaxell/password-compat": "1.0.*",
                 "mockery/mockery": "0.7.2"
@@ -397,7 +398,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2013-11-18 23:23:18"
+            "time": "2013-11-27 04:12:55"
         },
         {
             "name": "classpreloader/classpreloader",

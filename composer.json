@@ -16,7 +16,7 @@
 	],
 	"require": {
 		"laravel/framework": "4.0.x-dev",
-		"cartalyst/sentry": "2.0.*",
+		"cartalyst/sentry": "2.1.*",
 		"edvinaskrucas/notification": "1.*",
 		"anahkiasen/former": "dev-master",
 		"ink/ink-translatable": "dev-master",

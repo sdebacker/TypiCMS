@@ -24,6 +24,8 @@ use PHPUnit_Framework_TestCase;
 
 class IlluminateCookieTest extends PHPUnit_Framework_TestCase {
 
+	protected $request;
+
 	protected $jar;
 
 	protected $cookie;
@@ -35,9 +37,10 @@ class IlluminateCookieTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function setUp()
 	{
+		$this->request = m::mock('Illuminate\Http\Request');
 		$this->jar = m::mock('Illuminate\Cookie\CookieJar');
 
-		$this->cookie = new IlluminateCookie($this->jar, 'cookie_name_here');
+		$this->cookie = new IlluminateCookie($this->request, $this->jar, 'cookie_name_here');
 	}
 
 	/**
@@ -64,7 +67,7 @@ class IlluminateCookieTest extends PHPUnit_Framework_TestCase {
 
 	public function testGet()
 	{
-		$this->jar->shouldReceive('get')->with('cookie_name_here')->once()->andReturn('bar');
+		$this->request->shouldReceive('cookie')->with('cookie_name_here')->once()->andReturn('bar');
 
 		// Ensure default param is "null"
 		$this->assertEquals('bar', $this->cookie->get());

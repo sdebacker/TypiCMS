@@ -528,107 +528,6 @@
         ]
     },
     {
-        "name": "cartalyst/sentry",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/cartalyst/sentry.git",
-            "reference": "f4b2dcb4e931b8c20fd6f45497cc089284378341"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/f4b2dcb4e931b8c20fd6f45497cc089284378341",
-            "reference": "f4b2dcb4e931b8c20fd6f45497cc089284378341",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "illuminate/cookie": "~4",
-            "illuminate/database": "~4",
-            "illuminate/session": "~4",
-            "ircmaxell/password-compat": "1.0.*",
-            "mockery/mockery": "0.7.2"
-        },
-        "suggest": {
-            "happydemon/txt": "Required Text helpers when using the Kohana implementation",
-            "illuminate/database": "Default sentry user, group and throttling implementations.",
-            "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support."
-        },
-        "time": "2013-11-18 23:23:18",
-        "type": "library",
-        "extra": {
-            "component": "package",
-            "frameworks": [
-                "Laravel 3",
-                "Laravel 4",
-                "CodeIgniter 3",
-                "FuelPHP 1",
-                "Kohana"
-            ],
-            "versions": {
-                "1": "1.1/master",
-                "2": "master"
-            },
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/Cartalyst/Sentry/Groups/Exceptions.php",
-                "src/Cartalyst/Sentry/Throttling/Exceptions.php",
-                "src/Cartalyst/Sentry/Users/Exceptions.php",
-                "src/migrations"
-            ],
-            "psr-0": {
-                "Cartalyst\\Sentry": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Ben Corlett",
-                "email": "ben.corlett@cartalyst.com",
-                "role": "Developer"
-            },
-            {
-                "name": "Cartalyst LLC",
-                "email": "help@cartalyst.com"
-            },
-            {
-                "name": "Bruno Gaspar",
-                "email": "bruno.gaspar@cartalyst.com",
-                "role": "Developer"
-            },
-            {
-                "name": "Dan Syme",
-                "email": "dan.syme@cartalyst.com",
-                "role": "Creator & Designer"
-            },
-            {
-                "name": "Daniel Petrie",
-                "email": "dan.petrie@cartalyst.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "PHP 5.3+ Fully-featured Authentication & Authorization System",
-        "keywords": [
-            "auth",
-            "codeigniter",
-            "fuelphp",
-            "kohana",
-            "laravel",
-            "security"
-        ]
-    },
-    {
         "name": "swiftmailer/swiftmailer",
         "version": "v5.0.2",
         "version_normalized": "5.0.2.0",
@@ -2282,76 +2181,6 @@
         ]
     },
     {
-        "name": "aws/aws-sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "ef368f11b11c6a18be908700a29662ad7da382bd"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ef368f11b11c6a18be908700a29662ad7da382bd",
-            "reference": "ef368f11b11c6a18be908700a29662ad7da382bd",
-            "shasum": ""
-        },
-        "require": {
-            "guzzle/guzzle": "~3.7.0",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "doctrine/cache": "~1.0",
-            "ext-openssl": "*",
-            "monolog/monolog": "1.4.*",
-            "phpunit/phpunit": "3.7.*",
-            "symfony/class-loader": "2.*",
-            "symfony/yaml": "2.*"
-        },
-        "suggest": {
-            "doctrine/cache": "Adds support for caching of credentials and responses",
-            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
-            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-            "monolog/monolog": "Adds support for logging HTTP requests and responses",
-            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
-        },
-        "time": "2013-11-22 23:51:42",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Aws": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Amazon Web Services",
-                "homepage": "http://aws.amazon.com"
-            }
-        ],
-        "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
-        "homepage": "http://aws.amazon.com/sdkforphp",
-        "keywords": [
-            "amazon",
-            "aws",
-            "cloud",
-            "dynamodb",
-            "ec2",
-            "glacier",
-            "s3",
-            "sdk"
-        ]
-    },
-    {
         "name": "symfony/filesystem",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2907,5 +2736,177 @@
         ],
         "description": "Symfony Process Component",
         "homepage": "http://symfony.com"
+    },
+    {
+        "name": "cartalyst/sentry",
+        "version": "v2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cartalyst/sentry.git",
+            "reference": "6feaec1508526200dcfb17b30c70536c3c136b57"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/6feaec1508526200dcfb17b30c70536c3c136b57",
+            "reference": "6feaec1508526200dcfb17b30c70536c3c136b57",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "illuminate/cookie": "~4",
+            "illuminate/database": "~4",
+            "illuminate/http": "~4",
+            "illuminate/session": "~4",
+            "ircmaxell/password-compat": "1.0.*",
+            "mockery/mockery": "0.7.2"
+        },
+        "suggest": {
+            "happydemon/txt": "Required Text helpers when using the Kohana implementation",
+            "illuminate/database": "Default sentry user, group and throttling implementations.",
+            "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support."
+        },
+        "time": "2013-11-27 04:12:55",
+        "type": "library",
+        "extra": {
+            "component": "package",
+            "frameworks": [
+                "Laravel 3",
+                "Laravel 4",
+                "CodeIgniter 3",
+                "FuelPHP 1",
+                "Kohana"
+            ],
+            "versions": {
+                "1": "1.1/master",
+                "2": "master"
+            },
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/Cartalyst/Sentry/Groups/Exceptions.php",
+                "src/Cartalyst/Sentry/Throttling/Exceptions.php",
+                "src/Cartalyst/Sentry/Users/Exceptions.php",
+                "src/migrations"
+            ],
+            "psr-0": {
+                "Cartalyst\\Sentry": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ben Corlett",
+                "email": "ben.corlett@cartalyst.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Cartalyst LLC",
+                "email": "help@cartalyst.com"
+            },
+            {
+                "name": "Bruno Gaspar",
+                "email": "bruno.gaspar@cartalyst.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Dan Syme",
+                "email": "dan.syme@cartalyst.com",
+                "role": "Creator & Designer"
+            },
+            {
+                "name": "Daniel Petrie",
+                "email": "dan.petrie@cartalyst.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP 5.3+ Fully-featured Authentication & Authorization System",
+        "keywords": [
+            "auth",
+            "codeigniter",
+            "fuelphp",
+            "kohana",
+            "laravel",
+            "security"
+        ]
+    },
+    {
+        "name": "aws/aws-sdk-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aws/aws-sdk-php.git",
+            "reference": "e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d",
+            "reference": "e8421b7a9da3f0a6fddcc6ffb10e21b86348ba0d",
+            "shasum": ""
+        },
+        "require": {
+            "guzzle/guzzle": "~3.7.0",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "doctrine/cache": "~1.0",
+            "ext-openssl": "*",
+            "monolog/monolog": "1.4.*",
+            "phpunit/phpunit": "3.7.*",
+            "symfony/class-loader": "2.*",
+            "symfony/yaml": "2.*"
+        },
+        "suggest": {
+            "doctrine/cache": "Adds support for caching of credentials and responses",
+            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+            "monolog/monolog": "Adds support for logging HTTP requests and responses",
+            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+        },
+        "time": "2013-11-26 20:13:01",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Aws": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Amazon Web Services",
+                "homepage": "http://aws.amazon.com"
+            }
+        ],
+        "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
+        "homepage": "http://aws.amazon.com/sdkforphp",
+        "keywords": [
+            "amazon",
+            "aws",
+            "cloud",
+            "dynamodb",
+            "ec2",
+            "glacier",
+            "s3",
+            "sdk"
+        ]
     }
 ]

@@ -20,6 +20,7 @@
 
 use Illuminate\Container\Container;
 use Illuminate\Cookie\CookieJar;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Cookie;
 
 class IlluminateCookie implements CookieInterface {
@@ -30,6 +31,13 @@ class IlluminateCookie implements CookieInterface {
 	 * @var string
 	 */
 	protected $key = 'cartalyst_sentry';
+
+	/**
+	 * The current request.
+	 *
+	 * @var \Illuminate\Http\Request
+	 */
+	protected $request;
 
 	/**
 	 * The cookie object.
@@ -48,12 +56,14 @@ class IlluminateCookie implements CookieInterface {
 	/**
 	 * Creates a new cookie instance.
 	 *
+	 * @param  \Illuminate\Http\Request  $request
 	 * @param  \Illuminate\Cookie\CookieJar  $jar
 	 * @param  string  $key
 	 * @return void
 	 */
-	public function __construct(CookieJar $jar, $key = null)
+	public function __construct(Request $request, CookieJar $jar, $key = null)
 	{
+		$this->request = $request;
 		$this->jar = $jar;
 
 		if (isset($key))
@@ -102,7 +112,7 @@ class IlluminateCookie implements CookieInterface {
 	 */
 	public function get()
 	{
-		return $this->jar->get($this->getKey());
+		return $this->request->cookie($this->getKey());
 	}
 
 	/**
