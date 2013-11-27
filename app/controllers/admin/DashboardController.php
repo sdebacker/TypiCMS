@@ -32,7 +32,7 @@ class DashboardController extends BaseController {
 		$modules = $this->repository->getDashboardModules();
 		
 		$this->layout->content = View::make('admin.dashboard')
-			->with('welcomeMessage', $this->getWelcomeMessage())
+			->with('welcomeMessage', $this->repository->getWelcomeMessage())
 			->withModules($modules)
 			->withMenus($menus);
 	}
@@ -56,18 +56,6 @@ class DashboardController extends BaseController {
 
 		// DL File
 		return Response::download($file);
-	}
-
-	public function getWelcomeMessage()
-	{
-		$ch = curl_init('http://www.typi.be/welcomeMessage_fr.html');
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		$welcomeMessage = curl_exec($ch);
-		if (curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
-			return '';
-		}
-		curl_close($ch);
-		return $welcomeMessage;
 	}
 
 }
