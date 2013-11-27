@@ -25,7 +25,7 @@
 
 		<div class="btn-toolbar"></div>
 
-		{{ $list }}
+		{{ $models->getList() }}
 
 	</div>
 
