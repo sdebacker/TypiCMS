@@ -33,13 +33,6 @@ class IlluminateCookie implements CookieInterface {
 	protected $key = 'cartalyst_sentry';
 
 	/**
-	 * The current request.
-	 *
-	 * @var \Illuminate\Http\Request
-	 */
-	protected $request;
-
-	/**
 	 * The cookie object.
 	 *
 	 * @var \Illuminate\Cookie\CookieJar
@@ -91,7 +84,8 @@ class IlluminateCookie implements CookieInterface {
 	 */
 	public function put($value, $minutes)
 	{
-		$this->cookie = $this->jar->make($this->getKey(), $value, $minutes);
+		$cookie = $this->jar->make($this->getKey(), $value, $minutes);
+		$this->jar->queue($cookie);
 	}
 
 	/**
@@ -102,7 +96,8 @@ class IlluminateCookie implements CookieInterface {
 	 */
 	public function forever($value)
 	{
-		$this->cookie = $this->jar->forever($this->getKey(), $value);
+		$cookie = $this->jar->forever($this->getKey(), $value);
+		$this->jar->queue($cookie);
 	}
 
 	/**
@@ -112,7 +107,15 @@ class IlluminateCookie implements CookieInterface {
 	 */
 	public function get()
 	{
-		return $this->request->cookie($this->getKey());
+		$key = $this->getKey();
+		$queued = $this->jar->getQueuedCookies();
+
+		if (isset($queued[$key]))
+		{
+			return $queued[$key];
+		}
+
+		return $this->request->cookie($key);
 	}
 
 	/**
@@ -122,18 +125,8 @@ class IlluminateCookie implements CookieInterface {
 	 */
 	public function forget()
 	{
-		$this->cookie = $this->jar->forget($this->getKey());
-	}
-
-	/**
-	 * Returns the Symfony cookie object associated
-	 * with the Illuminate cookie.
-	 *
-	 * @return \Symfony\Component\HttpFoundation\Cookie
-	 */
-	public function getCookie()
-	{
-		return $this->cookie;
+		$cookie = $this->jar->forget($this->getKey());
+		$this->jar->queue($cookie);
 	}
 
 }

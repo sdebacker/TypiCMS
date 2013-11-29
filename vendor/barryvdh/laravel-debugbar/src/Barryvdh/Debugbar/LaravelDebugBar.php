@@ -128,15 +128,21 @@ class LaravelDebugbar extends DebugBar
 
         if($this->shouldCollect('events', false) and isset($this->app['events'])){
             $this->addCollector(new MessagesCollector('events'));
-            $this->app['events']->listen('*', function() use($debugbar){
-                $args = func_get_args();
-                $event = end($args);
+            $dispatcher = $this->app['events'];
+            $dispatcher->listen('*', function() use($debugbar, $dispatcher){
+                if(method_exists($dispatcher, 'firing')){
+                    $event = $dispatcher->firing();
+                }else{
+                    $args = func_get_args();
+                    $event = end($args);
+                }
                 $debugbar['events']->info("Received event: ". $event);
             });
         }
 
         if($this->shouldCollect('views', true) and isset($this->app['events'])){
-            $this->addCollector(new ViewCollector());
+            $collectData = $this->app['config']->get('laravel-debugbar::config.options.views.data', true);
+            $this->addCollector(new ViewCollector($collectData));
             $this->app['events']->listen('composing:*', function($view) use($debugbar){
                 $debugbar['views']->addView($view);
             });

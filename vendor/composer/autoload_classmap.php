@@ -2600,6 +2600,7 @@ return array(
     'Symfony\\Component\\Debug\\ErrorHandler' => $vendorDir . '/symfony/debug/Symfony/Component/Debug/ErrorHandler.php',
     'Symfony\\Component\\Debug\\ExceptionHandler' => $vendorDir . '/symfony/debug/Symfony/Component/Debug/ExceptionHandler.php',
     'Symfony\\Component\\Debug\\Exception\\ContextErrorException' => $vendorDir . '/symfony/debug/Symfony/Component/Debug/Exception/ContextErrorException.php',
+    'Symfony\\Component\\Debug\\Exception\\DummyException' => $vendorDir . '/symfony/debug/Symfony/Component/Debug/Exception/DummyException.php',
     'Symfony\\Component\\Debug\\Exception\\FatalErrorException' => $vendorDir . '/symfony/debug/Symfony/Component/Debug/Exception/FatalErrorException.php',
     'Symfony\\Component\\Debug\\Exception\\FlattenException' => $vendorDir . '/symfony/debug/Symfony/Component/Debug/Exception/FlattenException.php',
     'Symfony\\Component\\DomCrawler\\Crawler' => $vendorDir . '/symfony/dom-crawler/Symfony/Component/DomCrawler/Crawler.php',
