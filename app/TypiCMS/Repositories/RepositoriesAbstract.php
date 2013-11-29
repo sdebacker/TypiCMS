@@ -140,7 +140,9 @@ abstract class RepositoriesAbstract {
 		}
 
 		$query->where('lang', Config::get('app.locale'));
-		$query->with('files');
+
+		// files
+		$this->model->files and $query->with('files');
 
 		if ($this->model->order and $this->model->direction) {
 			$query->orderBy($this->model->order, $this->model->direction);

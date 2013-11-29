@@ -19,7 +19,6 @@ class ListBuilder {
 	private $sortable = false;
 	private $gallery = false;
 	private $checkboxes = true;
-	private $nbAttachments = true;
 	private $display = array('%s', 'title');
 	private $bootstrap = false;
 	private $public = false;
@@ -88,7 +87,7 @@ class ListBuilder {
 	 */
 	public function getAttachmentsBtn($item)
 	{
-		if ($this->nbAttachments) {
+		if ($item->files) {
 			$this->list[] = '<div class="attachments">';
 			$nb = count($item->files);
 			$attachmentClass = $nb ? '' : 'text-muted' ;

@@ -18,7 +18,6 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 		$this->cache = $cache;
 
 		$this->listProperties = array(
-			'nbAttachments' => false,
 			'display' => array('%s %s', 'filename', 'alt_attribute'),
 		);
 
