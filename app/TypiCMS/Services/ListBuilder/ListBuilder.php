@@ -64,36 +64,11 @@ class ListBuilder {
 				$this->checkboxes and $this->list[] = '<input type="checkbox" value="'.$item->id.'">';
 				$this->switch and $this->list[] = '<span class="switch">'.trans('global.En ligne/Hors ligne').'</span>';
 
-				$params = $item->id;
-				// Pas propre :
-				if (isset($item->menu_id) and $item->menu_id) {
-					$params = array($item->menu_id, $item->id);
-				}
-
-				$this->list[] = '<a href="'.route('admin.'.$item->route.'.edit', $params).'">';
-
-				$fieldsToDisplay = array();
-				foreach ($this->fieldsForDisplay as $fieldForDisplay) {
-					if (method_exists($item, $fieldForDisplay)) {
-						$fieldsToDisplay[] = $item->$fieldForDisplay();
-					} else if (is_object($item->$fieldForDisplay) and get_class($item->$fieldForDisplay) == 'Carbon\Carbon') {
-						$fieldsToDisplay[] = $item->$fieldForDisplay->format('d.m.Y');
-					} else {
-						$fieldsToDisplay[] = $item->$fieldForDisplay;
-					}
-				}
-				$this->list[] = vsprintf($this->formatForDisplay, $fieldsToDisplay);
-
-				$this->list[] = '</a>';
+				// Anchor
+				$this->getAnchor($item);
 
 				// Attachments
-				$this->list[] = '<div class="attachments">';
-				if ($this->nbImages) {
-					$nb = count($item->files);
-					$attachmentClass = $nb ? '' : 'text-muted' ;
-					$this->list[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $params).'">'.$nb.' '.trans_choice('global.modules.files', $nb).'</a>';
-				}
-				$this->list[] = '</div>';
+				$this->getAttachmentsBtn($item);
 
 				$this->list[] = '</div>';
 				// sublists
@@ -103,6 +78,57 @@ class ListBuilder {
 			$this->list[] = '</ul>';
 		}
 		return implode("\r\n", $this->list);
+	}
+
+	/**
+	 * Attachments indications
+	 *
+	 * @param  $item
+	 * @return $this
+	 */
+	public function getAttachmentsBtn($item)
+	{
+		$this->list[] = '<div class="attachments">';
+		if ($this->nbImages) {
+			$nb = count($item->files);
+			$attachmentClass = $nb ? '' : 'text-muted' ;
+			$this->list[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $item->id).'">'.$nb.' '.trans_choice('global.modules.files', $nb).'</a>';
+		}
+		$this->list[] = '</div>';
+		return $this;
+	}
+
+	/**
+	 * Main anchor
+	 *
+	 * @param  $item
+	 * @return $this
+	 */
+	public function getAnchor($item)
+	{
+		$params = $item->id;
+		// Pas propre :
+		if (isset($item->menu_id) and $item->menu_id) {
+			$params = array($item->menu_id, $item->id);
+		}
+
+		$this->list[] = '<a href="'.route('admin.'.$item->route.'.edit', $params).'">';
+
+		$fieldsToDisplay = array();
+		foreach ($this->fieldsForDisplay as $fieldForDisplay) {
+			if (method_exists($item, $fieldForDisplay)) {
+				$fieldsToDisplay[] = $item->$fieldForDisplay();
+			} else if (is_object($item->$fieldForDisplay) and get_class($item->$fieldForDisplay) == 'Carbon\Carbon') {
+				$fieldsToDisplay[] = $item->$fieldForDisplay->format('d.m.Y');
+			} else {
+				$fieldsToDisplay[] = $item->$fieldForDisplay;
+			}
+		}
+		$this->list[] = vsprintf($this->formatForDisplay, $fieldsToDisplay);
+
+		$this->list[] = '</a>';
+
+		return $this;
 	}
 
 	/**
