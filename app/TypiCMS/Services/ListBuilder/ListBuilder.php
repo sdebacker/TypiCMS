@@ -19,7 +19,7 @@ class ListBuilder {
 	private $sortable = false;
 	private $gallery = false;
 	private $checkboxes = true;
-	private $nbImages = false;
+	private $nbAttachments = true;
 	private $display = array('%s', 'title');
 	private $bootstrap = false;
 	private $public = false;
@@ -88,13 +88,13 @@ class ListBuilder {
 	 */
 	public function getAttachmentsBtn($item)
 	{
-		$this->list[] = '<div class="attachments">';
-		if ($this->nbImages) {
+		if ($this->nbAttachments) {
+			$this->list[] = '<div class="attachments">';
 			$nb = count($item->files);
 			$attachmentClass = $nb ? '' : 'text-muted' ;
 			$this->list[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $item->id).'">'.$nb.' '.trans_choice('global.modules.files', $nb).'</a>';
+			$this->list[] = '</div>';
 		}
-		$this->list[] = '</div>';
 		return $this;
 	}
 
