@@ -10,6 +10,7 @@ body { padding-top: 60px; padding-bottom: 60px; }
 
 	li { line-height: 26px; position: relative;
 		.title { color: #333; line-height: 26px; position: absolute; left: 45px; padding-left: 3px; top: 0; display: block; max-width: 500px; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; text-overflow: ellipsis; }
+		.attachments { float: right; margin: 0 5px; font-size: 11px; }
 	}
 	form { display: inline-block; }
 	.switch { display: inline-block; width: 22px; text-indent: -9999px; background: no-repeat 0 2px url(../../../img/switch-xs.png); margin-left: 5px; }
@@ -21,7 +22,7 @@ body { padding-top: 60px; padding-bottom: 60px; }
 	.disclose { position: absolute; left: -15px; top: 9px; width: 10px; height: 10px; display: inline-block; background-repeat: no-repeat; }
 	.mjs-nestedSortable-branch .disclose { cursor: pointer; }
 	li { position: relative;
-		div { cursor: move; display: inline-block; }
+		div { cursor: move; display: block; }
 	}
 	li.mjs-nestedSortable-collapsed > ul { display: none; }
 	li.mjs-nestedSortable-collapsed > div > .disclose { background-image: url(../../../img/directoryCollapsed.png); }

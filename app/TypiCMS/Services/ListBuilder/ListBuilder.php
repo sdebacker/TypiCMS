@@ -86,10 +86,15 @@ class ListBuilder {
 
 				$this->list[] = '</a>';
 
-				// Nb files
+				// Attachments
+				$this->list[] = '<div class="attachments">';
 				if ($this->nbImages) {
-					$this->list[] = '<a href="'.route('admin.'.$item->route.'.files.index', $params).'">'.count($item->files).' files</a>';
+					$nb = count($item->files);
+					$attachmentClass = $nb ? '' : 'text-muted' ;
+					$this->list[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $params).'">'.$nb.' '.trans_choice('global.modules.files', $nb).'</a>';
 				}
+				$this->list[] = '</div>';
+
 				$this->list[] = '</div>';
 				// sublists
 				$item->children and $this->build($item->children);
