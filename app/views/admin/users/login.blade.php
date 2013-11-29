@@ -6,7 +6,7 @@
 
 		{{ Former::open_vertical()->role('form') }}
 
-			{{ Former::lg_text('email')->label('')->placeholder('email') }}
+			{{ Former::lg_text('email')->label('')->placeholder('email')->autofocus() }}
 
 			{{ Former::lg_password('password')->label('')->placeholder('password')->help(link_to_route('resetpassword', trans('users.Forgot your password?'))) }}
 
