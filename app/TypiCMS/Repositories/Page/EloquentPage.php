@@ -20,6 +20,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		$this->cache = $cache;
 
 		$this->listProperties = array(
+			'nbImages' => true,
 			'sortable' => true,
 			'nested' => true,
 			'display' => array('%s', 'title')

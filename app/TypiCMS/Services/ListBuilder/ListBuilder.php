@@ -85,6 +85,11 @@ class ListBuilder {
 				$this->list[] = vsprintf($this->formatForDisplay, $fieldsToDisplay);
 
 				$this->list[] = '</a>';
+
+				// Nb files
+				if ($this->nbImages) {
+					$this->list[] = '<a href="'.route('admin.'.$item->route.'.files.index', $params).'">'.count($item->files).' files</a>';
+				}
 				$this->list[] = '</div>';
 				// sublists
 				$item->children and $this->build($item->children);
