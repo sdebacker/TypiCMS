@@ -1226,12 +1226,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orkhan/InkTranslatable.git",
-                "reference": "c29e92ed8dab6799289a4c1f4cf8eba3f8c1da7e"
+                "reference": "58a2ba368ea3f946d84f5c48f78e7bca750f7e27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/c29e92ed8dab6799289a4c1f4cf8eba3f8c1da7e",
-                "reference": "c29e92ed8dab6799289a4c1f4cf8eba3f8c1da7e",
+                "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/58a2ba368ea3f946d84f5c48f78e7bca750f7e27",
+                "reference": "58a2ba368ea3f946d84f5c48f78e7bca750f7e27",
                 "shasum": ""
             },
             "require": {
@@ -1262,7 +1262,7 @@
                 "laravel",
                 "translatable"
             ],
-            "time": "2013-11-09 18:41:23"
+            "time": "2013-11-29 21:52:42"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1817,12 +1817,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "aac811f8976d574ded6fd59033ba1c1f47ef1c74"
+                "reference": "5192005862523f31891a1b0f384dffbeece42d9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/aac811f8976d574ded6fd59033ba1c1f47ef1c74",
-                "reference": "aac811f8976d574ded6fd59033ba1c1f47ef1c74",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/5192005862523f31891a1b0f384dffbeece42d9a",
+                "reference": "5192005862523f31891a1b0f384dffbeece42d9a",
                 "shasum": ""
             },
             "require": {
@@ -1856,7 +1856,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2013-11-29 10:14:14"
+            "time": "2013-11-29 22:41:05"
         },
         {
             "name": "psr/log",

@@ -11,20 +11,20 @@
 
 namespace Predis\Command;
 
-use \PHPUnit_Framework_TestCase as StandardTestCase;
+use PHPUnit_Framework_TestCase as StandardTestCase;
 
 /**
  * @group commands
- * @group realm-set
+ * @group realm-string
  */
-class SetRandomMemberTest extends CommandTestCase
+class StringSetPreserveTest extends CommandTestCase
 {
     /**
      * {@inheritdoc}
      */
     protected function getExpectedCommand()
     {
-        return 'Predis\Command\SetRandomMember';
+        return 'Predis\Command\StringSetPreserve';
     }
 
     /**
@@ -32,7 +32,7 @@ class SetRandomMemberTest extends CommandTestCase
      */
     protected function getExpectedId()
     {
-        return 'SRANDMEMBER';
+        return 'SETNX';
     }
 
     /**
@@ -40,8 +40,8 @@ class SetRandomMemberTest extends CommandTestCase
      */
     public function testFilterArguments()
     {
-        $arguments = array('key', 1);
-        $expected = array('key', 1);
+        $arguments = array('foo', 'bar');
+        $expected = array('foo', 'bar');
 
         $command = $this->getCommand();
         $command->setArguments($arguments);
@@ -54,7 +54,7 @@ class SetRandomMemberTest extends CommandTestCase
      */
     public function testParseResponse()
     {
-        $this->assertSame('member', $this->getCommand()->parseResponse('member'));
+        $this->assertTrue($this->getCommand()->parseResponse(1));
     }
 
     /**
@@ -62,8 +62,8 @@ class SetRandomMemberTest extends CommandTestCase
      */
     public function testPrefixKeys()
     {
-        $arguments = array('key');
-        $expected = array('prefix:key');
+        $arguments = array('key', 'value');
+        $expected = array('prefix:key', 'value');
 
         $command = $this->getCommandWithArgumentsArray($arguments);
         $command->prefixKeys('prefix:');
@@ -85,36 +85,12 @@ class SetRandomMemberTest extends CommandTestCase
     /**
      * @group connected
      */
-    public function testReturnsRandomMemberFromSet()
+    public function testSetStringValue()
     {
         $redis = $this->getClient();
 
-        $redis->sadd('letters', 'a', 'b');
-
-        $this->assertContains($redis->srandmember('letters'), array('a', 'b'));
-        $this->assertContains($redis->srandmember('letters'), array('a', 'b'));
-
-        $this->assertSame(2, $redis->scard('letters'));
-    }
-
-    /**
-     * @group connected
-     */
-    public function testReturnsNullOnNonExistingSet()
-    {
-        $this->assertNull($this->getClient()->srandmember('letters'));
-    }
-
-    /**
-     * @group connected
-     * @expectedException Predis\ServerException
-     * @expectedExceptionMessage Operation against a key holding the wrong kind of value
-     */
-    public function testThrowsExceptionOnWrongType()
-    {
-        $redis = $this->getClient();
-
-        $redis->set('foo', 'bar');
-        $redis->srandmember('foo');
+        $this->assertTrue($redis->setnx('foo', 'bar'));
+        $this->assertFalse($redis->setnx('foo', 'barbar'));
+        $this->assertEquals('bar', $redis->get('foo'));
     }
 }

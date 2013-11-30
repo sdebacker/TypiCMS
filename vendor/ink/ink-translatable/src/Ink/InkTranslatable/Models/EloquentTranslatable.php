@@ -44,7 +44,7 @@ abstract class EloquentTranslatable extends \Eloquent {
 			return $this->translations($key)->first();
 		}
 		
-		if ( in_array($key, static::$translatable['translatables']) )
+		if ( in_array($key, static::$translatable['translatables']) and $this->translations->first() )
 		{
 			return $this->translations->first()->{$key};
 		}
