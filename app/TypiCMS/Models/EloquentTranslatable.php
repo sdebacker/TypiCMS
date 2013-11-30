@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Config;
 
 abstract class EloquentTranslatable extends Base {
 
-
     /**
      * Translations by $locale
      *
