@@ -16,7 +16,7 @@ abstract class EloquentTranslatable extends Base {
     {
 		if ( !$locale ) $locale = Config::get('app.locale');
 		
-        return $this->_translations()->where(static::$translatable['localeField'], '=', $locale);
+        return $this->_translations()->where($this->getLocaleField(), '=', $locale);
     }
 
     /**
@@ -26,7 +26,7 @@ abstract class EloquentTranslatable extends Base {
      */
 	public function _translations()
 	{
-		return $this->hasMany(static::$translatable['translationModel'], static::$translatable['relationshipField']);
+		return $this->hasMany($this->getTranslationModel(), $this->getRelationshipField());
 	}
 	
     /**
@@ -45,7 +45,7 @@ abstract class EloquentTranslatable extends Base {
 			return $this->translations($key)->first();
 		}
 		
-		if ( in_array($key, static::$translatable['translatables']) and $this->translations->first() )
+        if ( in_array($key, $this->getTranslatableFields()) and $this->translations->first())
 		{
 			return $this->translations->first()->{$key};
 		}
@@ -65,12 +65,52 @@ abstract class EloquentTranslatable extends Base {
 	}
 
 
+    /**
+     * @return string
+     */
+    private function getLocaleField()
+    {
+        return isset(static::$translatable['localeField'])
+            ? static::$translatable['localeField']
+            : 'lang';
+    }
+
+    /**
+     * @return string
+     */
+    private function getTranslationModel()
+    {
+        return isset(static::$translatable['translationModel'])
+            ? static::$translatable['translationModel']
+            : get_called_class().'Translation';
+    }
+
+    /**
+     * @return string
+     */
+    private function getRelationshipField()
+    {
+        return isset(static::$translatable['relationshipField'])
+            ? static::$translatable['relationshipField']
+            : snake_case(get_called_class()).'_id';
+    }
+
+    /**
+     * @return array
+     */
+    private function getTranslatableFields()
+    {
+        return isset(static::$translatable['translatables'])
+            ? (array) static::$translatable['translatables']
+            : (array) static::$translatables;
+    }
+
 	// joindre toutes les traductions sans where lang
 	public function scopeJoinTranslations($query)
 	{
 		return $query->with('translations')->join(
 			$this->table.'_translations',
-			$this->table.'.id', '=', $this->table.'_translations.'.static::$translatable['relationshipField']
+			$this->table.'.id', '=', $this->table.'_translations.'.$this->getRelationshipField()
 		);
 	}
 
@@ -84,7 +124,7 @@ abstract class EloquentTranslatable extends Base {
 		foreach ($locales as $lang) {
 			$translation = $this->$lang;
 			$fields = array();
-			foreach (static::$translatable['translatables'] as $field) {
+			foreach ($this->getTranslatableFields() as $field) {
 				if (isset($translation->$field)) {
 					$fields[$field] = $translation->$field;
 				} else {
