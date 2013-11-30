@@ -8,7 +8,6 @@ class NewsControllerTest extends TestCase {
 		$this->registerNestedView($view);
 		$this->client->request('GET', 'admin/news');
 		$this->assertNestedViewHas($view, 'models');
-		$this->assertNestedViewHas($view, 'list');
 	}
 
 }
