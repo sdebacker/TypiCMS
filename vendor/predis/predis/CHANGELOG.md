@@ -1,8 +1,8 @@
 v0.8.5 (2013-xx-xx)
 ===============================================================================
 
-- Added `2.8` in the server profiles aliases list for the upcoming Redis 2.8.
-  `2.6` is still the default server profile. `dev` now targets Redis 3.0.
+- Added `2.8` in the server profiles aliases list for Redis 2.8. `2.6` is still
+  the default server profile and `dev` now targets Redis 3.0.
 
 - Added `SCAN`, `SSCAN`, `ZSCAN`, `HSCAN` to the server profile for Redis 2.8.
 
@@ -13,6 +13,11 @@ v0.8.5 (2013-xx-xx)
     - sorted sets (cursor-based iterator using `ZSCAN`)
     - hashes (cursor-based iterator using `HSCAN`)
     - lists (plain iterator using `LRANGE`)
+
+- It is now possible to execute "raw commands" using `Predis\Command\RawCommand`
+  and a variable list of command arguments. Input arguments are not filtered and
+  responses are not parsed, which means arguments must follow the signature of
+  the command as defined by Redis and complex responses are left untouched.
 
 - List of deprecated methods:
 

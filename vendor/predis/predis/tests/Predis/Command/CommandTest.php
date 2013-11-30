@@ -107,8 +107,14 @@ class CommandTest extends StandardTestCase
 
         $command->setHash($hash);
         $this->assertSame($hash, $command->getHash());
-    }
 
+        $command->setArguments(array('key'));
+        $this->assertNull($command->getHash());
+
+        $command->setHash($hash);
+        $command->setRawArguments(array('key'));
+        $this->assertNull($command->getHash());
+    }
     /**
      * @group disconnected
      */

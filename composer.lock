@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "7395e77a73cb3b79ba4a57a6c09b9df33781398f"
+                "reference": "03d9bd6bf7edb7752fb2ee2f773e289ee1549308"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7395e77a73cb3b79ba4a57a6c09b9df33781398f",
-                "reference": "7395e77a73cb3b79ba4a57a6c09b9df33781398f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/03d9bd6bf7edb7752fb2ee2f773e289ee1549308",
+                "reference": "03d9bd6bf7edb7752fb2ee2f773e289ee1549308",
                 "shasum": ""
             },
             "require": {
@@ -210,7 +210,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-29 08:02:15"
+            "time": "2013-11-30 08:27:15"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1226,12 +1226,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orkhan/InkTranslatable.git",
-                "reference": "58a2ba368ea3f946d84f5c48f78e7bca750f7e27"
+                "reference": "66a2b90345bb55fba53f4b7c9b7a198b301c3858"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/58a2ba368ea3f946d84f5c48f78e7bca750f7e27",
-                "reference": "58a2ba368ea3f946d84f5c48f78e7bca750f7e27",
+                "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/66a2b90345bb55fba53f4b7c9b7a198b301c3858",
+                "reference": "66a2b90345bb55fba53f4b7c9b7a198b301c3858",
                 "shasum": ""
             },
             "require": {
@@ -1262,7 +1262,7 @@
                 "laravel",
                 "translatable"
             ],
-            "time": "2013-11-29 21:52:42"
+            "time": "2013-11-30 17:50:51"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1817,12 +1817,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "5192005862523f31891a1b0f384dffbeece42d9a"
+                "reference": "32aff28ef5721763e8a6988d3e3f17d0570c0f1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/5192005862523f31891a1b0f384dffbeece42d9a",
-                "reference": "5192005862523f31891a1b0f384dffbeece42d9a",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/32aff28ef5721763e8a6988d3e3f17d0570c0f1c",
+                "reference": "32aff28ef5721763e8a6988d3e3f17d0570c0f1c",
                 "shasum": ""
             },
             "require": {
@@ -1856,7 +1856,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2013-11-29 22:41:05"
+            "time": "2013-11-30 13:58:00"
         },
         {
             "name": "psr/log",

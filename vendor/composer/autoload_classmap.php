@@ -2314,6 +2314,7 @@ return array(
     'Predis\\Command\\PubSubSubscribeByPattern' => $vendorDir . '/predis/predis/lib/Predis/Command/PubSubSubscribeByPattern.php',
     'Predis\\Command\\PubSubUnsubscribe' => $vendorDir . '/predis/predis/lib/Predis/Command/PubSubUnsubscribe.php',
     'Predis\\Command\\PubSubUnsubscribeByPattern' => $vendorDir . '/predis/predis/lib/Predis/Command/PubSubUnsubscribeByPattern.php',
+    'Predis\\Command\\RawCommand' => $vendorDir . '/predis/predis/lib/Predis/Command/RawCommand.php',
     'Predis\\Command\\ScriptedCommand' => $vendorDir . '/predis/predis/lib/Predis/Command/ScriptedCommand.php',
     'Predis\\Command\\ServerBackgroundRewriteAOF' => $vendorDir . '/predis/predis/lib/Predis/Command/ServerBackgroundRewriteAOF.php',
     'Predis\\Command\\ServerBackgroundSave' => $vendorDir . '/predis/predis/lib/Predis/Command/ServerBackgroundSave.php',

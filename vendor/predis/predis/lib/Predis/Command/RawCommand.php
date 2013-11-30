@@ -11,43 +11,71 @@
 
 namespace Predis\Command;
 
+use InvalidArgumentException;
+
 /**
- * Base class for Redis commands.
+ * Class for generic "anonymous" Redis commands.
+ *
+ * This command class does not filter input arguments or parse responses, but
+ * can be used to leverage the standard Predis API to execute any command simply
+ * by providing the needed arguments following the command signature as defined
+ * by Redis in its documentation.
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>
  */
-abstract class AbstractCommand implements CommandInterface
+class RawCommand implements CommandInterface
 {
     private $hash;
-    private $arguments = array();
+    private $commandID;
+    private $arguments;
+
+    public function __construct(array $arguments)
+    {
+        if (!$arguments) {
+            throw new InvalidArgumentException("Arguments array is missing the command ID");
+        }
+
+        $this->commandID = array_shift($arguments);
+        $this->arguments = $arguments;
+    }
 
     /**
-     * Returns a filtered array of the arguments.
+     * Creates a new raw command using a variadic method.
      *
-     * @param array $arguments List of arguments.
-     * @return array
+     * @param string $commandID Redis command ID.
+     * @param string ... Arguments list for the command.
      */
-    protected function filterArguments(Array $arguments)
+    public static function create($commandID /* [ $arg, ... */)
     {
-        return $arguments;
+        $arguments = func_get_args();
+        $command = new self($arguments);
+
+        return $command;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setArguments(Array $arguments)
+    public function getId()
     {
-        $this->arguments = $this->filterArguments($arguments);
-        unset($this->hash);
+        return $this->commandID;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setRawArguments(Array $arguments)
+    public function setArguments(array $arguments)
     {
         $this->arguments = $arguments;
         unset($this->hash);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setRawArguments(array $arguments)
+    {
+        $this->setArguments($arguments);
     }
 
     /**
@@ -126,35 +154,5 @@ abstract class AbstractCommand implements CommandInterface
             array($this, 'toStringArgumentReducer'),
             $this->getId()
         );
-    }
-
-    /**
-     * Normalizes the arguments array passed to a Redis command.
-     *
-     * @param array $arguments Arguments for a command.
-     * @return array
-     */
-    public static function normalizeArguments(Array $arguments)
-    {
-        if (count($arguments) === 1 && is_array($arguments[0])) {
-            return $arguments[0];
-        }
-
-        return $arguments;
-    }
-
-    /**
-     * Normalizes the arguments array passed to a variadic Redis command.
-     *
-     * @param array $arguments Arguments for a command.
-     * @return array
-     */
-    public static function normalizeVariadic(Array $arguments)
-    {
-        if (count($arguments) === 2 && is_array($arguments[1])) {
-            return array_merge(array($arguments[0]), $arguments[1]);
-        }
-
-        return $arguments;
     }
 }

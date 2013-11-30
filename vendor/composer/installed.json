@@ -2698,76 +2698,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "aws/aws-sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "7395e77a73cb3b79ba4a57a6c09b9df33781398f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7395e77a73cb3b79ba4a57a6c09b9df33781398f",
-            "reference": "7395e77a73cb3b79ba4a57a6c09b9df33781398f",
-            "shasum": ""
-        },
-        "require": {
-            "guzzle/guzzle": "~3.7.0",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "doctrine/cache": "~1.0",
-            "ext-openssl": "*",
-            "monolog/monolog": "1.4.*",
-            "phpunit/phpunit": "3.7.*",
-            "symfony/class-loader": "2.*",
-            "symfony/yaml": "2.*"
-        },
-        "suggest": {
-            "doctrine/cache": "Adds support for caching of credentials and responses",
-            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
-            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-            "monolog/monolog": "Adds support for logging HTTP requests and responses",
-            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
-        },
-        "time": "2013-11-29 08:02:15",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Aws": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Amazon Web Services",
-                "homepage": "http://aws.amazon.com"
-            }
-        ],
-        "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
-        "homepage": "http://aws.amazon.com/sdkforphp",
-        "keywords": [
-            "amazon",
-            "aws",
-            "cloud",
-            "dynamodb",
-            "ec2",
-            "glacier",
-            "s3",
-            "sdk"
-        ]
-    },
-    {
         "name": "barryvdh/laravel-debugbar",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2815,18 +2745,88 @@
         ]
     },
     {
+        "name": "aws/aws-sdk-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aws/aws-sdk-php.git",
+            "reference": "03d9bd6bf7edb7752fb2ee2f773e289ee1549308"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/03d9bd6bf7edb7752fb2ee2f773e289ee1549308",
+            "reference": "03d9bd6bf7edb7752fb2ee2f773e289ee1549308",
+            "shasum": ""
+        },
+        "require": {
+            "guzzle/guzzle": "~3.7.0",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "doctrine/cache": "~1.0",
+            "ext-openssl": "*",
+            "monolog/monolog": "1.4.*",
+            "phpunit/phpunit": "3.7.*",
+            "symfony/class-loader": "2.*",
+            "symfony/yaml": "2.*"
+        },
+        "suggest": {
+            "doctrine/cache": "Adds support for caching of credentials and responses",
+            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+            "monolog/monolog": "Adds support for logging HTTP requests and responses",
+            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+        },
+        "time": "2013-11-30 08:27:15",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Aws": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Amazon Web Services",
+                "homepage": "http://aws.amazon.com"
+            }
+        ],
+        "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
+        "homepage": "http://aws.amazon.com/sdkforphp",
+        "keywords": [
+            "amazon",
+            "aws",
+            "cloud",
+            "dynamodb",
+            "ec2",
+            "glacier",
+            "s3",
+            "sdk"
+        ]
+    },
+    {
         "name": "ink/ink-translatable",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/orkhan/InkTranslatable.git",
-            "reference": "58a2ba368ea3f946d84f5c48f78e7bca750f7e27"
+            "reference": "66a2b90345bb55fba53f4b7c9b7a198b301c3858"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/58a2ba368ea3f946d84f5c48f78e7bca750f7e27",
-            "reference": "58a2ba368ea3f946d84f5c48f78e7bca750f7e27",
+            "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/66a2b90345bb55fba53f4b7c9b7a198b301c3858",
+            "reference": "66a2b90345bb55fba53f4b7c9b7a198b301c3858",
             "shasum": ""
         },
         "require": {
@@ -2834,7 +2834,7 @@
             "illuminate/support": "~4",
             "php": ">=5.3.0"
         },
-        "time": "2013-11-29 21:52:42",
+        "time": "2013-11-30 17:50:51",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -2867,12 +2867,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/nrk/predis.git",
-            "reference": "5192005862523f31891a1b0f384dffbeece42d9a"
+            "reference": "32aff28ef5721763e8a6988d3e3f17d0570c0f1c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/nrk/predis/zipball/5192005862523f31891a1b0f384dffbeece42d9a",
-            "reference": "5192005862523f31891a1b0f384dffbeece42d9a",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/32aff28ef5721763e8a6988d3e3f17d0570c0f1c",
+            "reference": "32aff28ef5721763e8a6988d3e3f17d0570c0f1c",
             "shasum": ""
         },
         "require": {
@@ -2882,7 +2882,7 @@
             "ext-curl": "Allows access to Webdis when paired with phpiredis",
             "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
         },
-        "time": "2013-11-29 22:41:05",
+        "time": "2013-11-30 13:58:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

@@ -73,7 +73,31 @@ Route::get('/posts/{id}/delete', 'PostController@destroy');
 
 Change `Eloquent` to `EloquentTranslatable`
 
-Define a public static property `$translatable` with the definitions (see [#Configuration] below for details):
+Define a public static property `$translatables` with the translatable fields of the model:
+
+```php
+use Ink\InkTranslatable\Models\EloquentTranslatable;
+
+class Post extends EloquentTranslatable
+{
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'posts';
+        	
+	/**
+	 * Translatable model fields.
+	 *
+	 * @var array
+	 */
+	public static $translatables = array('title');
+
+}
+```
+
+If you wish to have a more customized configuration and override the defaults, use the static property `$translatable` as follows. In this case the property `$translatables` will be omitted:
 
 ```php
 use Ink\InkTranslatable\Models\EloquentTranslatable;
