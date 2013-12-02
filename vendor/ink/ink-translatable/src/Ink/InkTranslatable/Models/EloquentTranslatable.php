@@ -68,7 +68,7 @@ abstract class EloquentTranslatable extends \Eloquent {
      */
     private function getLocaleField()
     {
-        return isset(static::$translatable['localeField'])
+        return isset(static::$translatable) && isset(static::$translatable['localeField'])
             ? static::$translatable['localeField']
             : 'lang';
     }
@@ -78,7 +78,7 @@ abstract class EloquentTranslatable extends \Eloquent {
      */
     private function getTranslationModel()
     {
-        return isset(static::$translatable['translationModel'])
+        return isset(static::$translatable) && isset(static::$translatable['translationModel'])
             ? static::$translatable['translationModel']
             : get_called_class().'Translation';
     }
@@ -88,7 +88,7 @@ abstract class EloquentTranslatable extends \Eloquent {
      */
     private function getRelationshipField()
     {
-        return isset(static::$translatable['relationshipField'])
+        return isset(static::$translatable) && isset(static::$translatable['relationshipField'])
             ? static::$translatable['relationshipField']
             : snake_case(get_called_class()).'_id';
     }
@@ -98,7 +98,7 @@ abstract class EloquentTranslatable extends \Eloquent {
      */
     private function getTranslatableFields()
     {
-        return isset(static::$translatable['translatables'])
+        return isset(static::$translatable) && isset(static::$translatable['translatables'])
             ? (array) static::$translatable['translatables']
             : (array) static::$translatables;
     }

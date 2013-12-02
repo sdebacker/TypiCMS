@@ -692,12 +692,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "b0d91a5aca51fbad219f0bc33f0500745fcf8cd6"
+            "reference": "16445d5ff8bbd633a9d5c13464e2cc34fe083aa7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b0d91a5aca51fbad219f0bc33f0500745fcf8cd6",
-            "reference": "b0d91a5aca51fbad219f0bc33f0500745fcf8cd6",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/16445d5ff8bbd633a9d5c13464e2cc34fe083aa7",
+            "reference": "16445d5ff8bbd633a9d5c13464e2cc34fe083aa7",
             "shasum": ""
         },
         "require": {
@@ -738,7 +738,7 @@
             "zendframework/zend-cache": "2.0.*",
             "zendframework/zend-log": "2.0.*"
         },
-        "time": "2013-11-28 21:02:44",
+        "time": "2013-12-02 20:52:32",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1392,12 +1392,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "6f5b3d2a9c63a857d40d200f1bb9f62991c07bf8"
+            "reference": "5ad421d6a1d5d7066a45b617e5164d309c4e2852"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6f5b3d2a9c63a857d40d200f1bb9f62991c07bf8",
-            "reference": "6f5b3d2a9c63a857d40d200f1bb9f62991c07bf8",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5ad421d6a1d5d7066a45b617e5164d309c4e2852",
+            "reference": "5ad421d6a1d5d7066a45b617e5164d309c4e2852",
             "shasum": ""
         },
         "require": {
@@ -1421,7 +1421,7 @@
             "raven/raven": "Allow sending log messages to a Sentry server",
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
         },
-        "time": "2013-11-25 13:58:14",
+        "time": "2013-12-02 09:38:32",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2698,53 +2698,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "barryvdh/laravel-debugbar",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "2c9522a1dcf6e2a5fe8649b093f29ba0e01b2406"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/2c9522a1dcf6e2a5fe8649b093f29ba0e01b2406",
-            "reference": "2c9522a1dcf6e2a5fe8649b093f29ba0e01b2406",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "~4.0",
-            "maximebf/debugbar": "dev-master",
-            "php": ">=5.3.0"
-        },
-        "time": "2013-11-29 09:07:35",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Barryvdh\\Debugbar": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Barry vd. Heuvel",
-                "email": "barryvdh@gmail.com"
-            }
-        ],
-        "description": "PHP Debugbar integration for Laravel",
-        "keywords": [
-            "debug",
-            "debugbar",
-            "laravel",
-            "profiler",
-            "webprofiler"
-        ]
-    },
-    {
         "name": "aws/aws-sdk-php",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2815,18 +2768,65 @@
         ]
     },
     {
+        "name": "barryvdh/laravel-debugbar",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/barryvdh/laravel-debugbar.git",
+            "reference": "710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd",
+            "reference": "710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~4.0",
+            "maximebf/debugbar": "dev-master",
+            "php": ">=5.3.0"
+        },
+        "time": "2013-12-02 13:48:03",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Barryvdh\\Debugbar": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Barry vd. Heuvel",
+                "email": "barryvdh@gmail.com"
+            }
+        ],
+        "description": "PHP Debugbar integration for Laravel",
+        "keywords": [
+            "debug",
+            "debugbar",
+            "laravel",
+            "profiler",
+            "webprofiler"
+        ]
+    },
+    {
         "name": "ink/ink-translatable",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/orkhan/InkTranslatable.git",
-            "reference": "66a2b90345bb55fba53f4b7c9b7a198b301c3858"
+            "reference": "1a0c835280081f516a802b09f5212d59cade5b78"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/66a2b90345bb55fba53f4b7c9b7a198b301c3858",
-            "reference": "66a2b90345bb55fba53f4b7c9b7a198b301c3858",
+            "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/1a0c835280081f516a802b09f5212d59cade5b78",
+            "reference": "1a0c835280081f516a802b09f5212d59cade5b78",
             "shasum": ""
         },
         "require": {
@@ -2834,7 +2834,7 @@
             "illuminate/support": "~4",
             "php": ">=5.3.0"
         },
-        "time": "2013-11-30 17:50:51",
+        "time": "2013-11-30 18:13:16",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -2867,12 +2867,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/nrk/predis.git",
-            "reference": "32aff28ef5721763e8a6988d3e3f17d0570c0f1c"
+            "reference": "381023ad8f019eb4859550538e4affdb5bb9a68b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/nrk/predis/zipball/32aff28ef5721763e8a6988d3e3f17d0570c0f1c",
-            "reference": "32aff28ef5721763e8a6988d3e3f17d0570c0f1c",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/381023ad8f019eb4859550538e4affdb5bb9a68b",
+            "reference": "381023ad8f019eb4859550538e4affdb5bb9a68b",
             "shasum": ""
         },
         "require": {
@@ -2882,7 +2882,7 @@
             "ext-curl": "Allows access to Webdis when paired with phpiredis",
             "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
         },
-        "time": "2013-11-30 13:58:00",
+        "time": "2013-12-02 10:44:40",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

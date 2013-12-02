@@ -11,12 +11,12 @@
 
 namespace Predis\Command;
 
-use PHPUnit_Framework_TestCase as StandardTestCase;
+use PredisTestCase;
 
 /**
  *
  */
-class RawCommandTest extends StandardTestCase
+class RawCommandTest extends PredisTestCase
 {
     /**
      * @group disconnected
@@ -124,6 +124,16 @@ class RawCommandTest extends StandardTestCase
 
         $command->setArguments(array('hoge', 'piyo'));
         $this->assertNull($command->getHash());
+    }
+
+    /**
+     * @group disconnected
+     */
+    public function testNormalizesCommandIdentifiersToUppercase()
+    {
+        $command = new RawCommand(array('set', 'key', 'value'));
+
+        $this->assertSame('SET', $command->getId());
     }
 
     /**
