@@ -1226,12 +1226,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orkhan/InkTranslatable.git",
-                "reference": "1a0c835280081f516a802b09f5212d59cade5b78"
+                "reference": "d711e5dc3ecb0bd8184ce43ca112e38c65d967fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/1a0c835280081f516a802b09f5212d59cade5b78",
-                "reference": "1a0c835280081f516a802b09f5212d59cade5b78",
+                "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/d711e5dc3ecb0bd8184ce43ca112e38c65d967fc",
+                "reference": "d711e5dc3ecb0bd8184ce43ca112e38c65d967fc",
                 "shasum": ""
             },
             "require": {
@@ -1262,7 +1262,7 @@
                 "laravel",
                 "translatable"
             ],
-            "time": "2013-11-30 18:13:16"
+            "time": "2013-12-02 22:31:16"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1400,12 +1400,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "733cf07800756a3d57a2c912c4d44f5ddf0457b6"
+                "reference": "1973197d53c9daaf65c54c4c872669e787a408d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/733cf07800756a3d57a2c912c4d44f5ddf0457b6",
-                "reference": "733cf07800756a3d57a2c912c4d44f5ddf0457b6",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1973197d53c9daaf65c54c4c872669e787a408d3",
+                "reference": "1973197d53c9daaf65c54c4c872669e787a408d3",
                 "shasum": ""
             },
             "require": {
@@ -1505,7 +1505,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-27 15:45:20"
+            "time": "2013-12-03 02:09:00"
         },
         {
             "name": "maximebf/debugbar",

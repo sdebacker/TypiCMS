@@ -2526,121 +2526,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "laravel/framework",
-        "version": "4.0.x-dev",
-        "version_normalized": "4.0.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/laravel/framework.git",
-            "reference": "733cf07800756a3d57a2c912c4d44f5ddf0457b6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/733cf07800756a3d57a2c912c4d44f5ddf0457b6",
-            "reference": "733cf07800756a3d57a2c912c4d44f5ddf0457b6",
-            "shasum": ""
-        },
-        "require": {
-            "classpreloader/classpreloader": "1.0.*",
-            "doctrine/dbal": "2.4.*",
-            "filp/whoops": "1.0.7",
-            "ircmaxell/password-compat": "1.0.*",
-            "jeremeamia/superclosure": "1.0.*",
-            "monolog/monolog": "1.*",
-            "nesbot/carbon": "1.*",
-            "patchwork/utf8": "1.1.*",
-            "php": ">=5.3.0",
-            "predis/predis": "0.8.*",
-            "swiftmailer/swiftmailer": "5.0.*",
-            "symfony/browser-kit": "2.3.*",
-            "symfony/console": "2.3.*",
-            "symfony/css-selector": "2.3.*",
-            "symfony/debug": "2.3.*",
-            "symfony/dom-crawler": "2.3.*",
-            "symfony/event-dispatcher": "2.3.*",
-            "symfony/finder": "2.3.*",
-            "symfony/http-foundation": "2.3.*",
-            "symfony/http-kernel": "2.3.*",
-            "symfony/process": "2.3.*",
-            "symfony/routing": "2.3.*",
-            "symfony/translation": "2.3.*"
-        },
-        "replace": {
-            "illuminate/auth": "self.version",
-            "illuminate/cache": "self.version",
-            "illuminate/config": "self.version",
-            "illuminate/console": "self.version",
-            "illuminate/container": "self.version",
-            "illuminate/cookie": "self.version",
-            "illuminate/database": "self.version",
-            "illuminate/encryption": "self.version",
-            "illuminate/events": "self.version",
-            "illuminate/exception": "self.version",
-            "illuminate/filesystem": "self.version",
-            "illuminate/foundation": "self.version",
-            "illuminate/hashing": "self.version",
-            "illuminate/html": "self.version",
-            "illuminate/http": "self.version",
-            "illuminate/log": "self.version",
-            "illuminate/mail": "self.version",
-            "illuminate/pagination": "self.version",
-            "illuminate/queue": "self.version",
-            "illuminate/redis": "self.version",
-            "illuminate/routing": "self.version",
-            "illuminate/session": "self.version",
-            "illuminate/support": "self.version",
-            "illuminate/translation": "self.version",
-            "illuminate/validation": "self.version",
-            "illuminate/view": "self.version",
-            "illuminate/workbench": "self.version"
-        },
-        "require-dev": {
-            "aws/aws-sdk-php": "2.4.*",
-            "iron-io/iron_mq": "1.4.*",
-            "mockery/mockery": "0.8.0",
-            "pda/pheanstalk": "2.1.*",
-            "phpunit/phpunit": "3.7.*"
-        },
-        "time": "2013-11-27 15:45:20",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                [
-                    "src/Illuminate/Queue/IlluminateQueueClosure.php"
-                ]
-            ],
-            "files": [
-                "src/Illuminate/Support/helpers.php"
-            ],
-            "psr-0": {
-                "Illuminate": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com",
-                "homepage": "https://github.com/taylorotwell",
-                "role": "Developer"
-            }
-        ],
-        "description": "The Laravel Framework.",
-        "keywords": [
-            "framework",
-            "laravel"
-        ]
-    },
-    {
         "name": "symfony/translation",
         "version": "2.3.x-dev",
         "version_normalized": "2.3.9999999.9999999-dev",
@@ -2815,52 +2700,6 @@
         ]
     },
     {
-        "name": "ink/ink-translatable",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/orkhan/InkTranslatable.git",
-            "reference": "1a0c835280081f516a802b09f5212d59cade5b78"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/1a0c835280081f516a802b09f5212d59cade5b78",
-            "reference": "1a0c835280081f516a802b09f5212d59cade5b78",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/config": "~4",
-            "illuminate/support": "~4",
-            "php": ">=5.3.0"
-        },
-        "time": "2013-11-30 18:13:16",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Ink\\InkTranslatable": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Orkhan",
-                "email": "o@inkster.az"
-            }
-        ],
-        "description": "Easy translation manipulation of your Eloquent models in Laravel 4.",
-        "homepage": "https://github.com/orkhan/InkTranslatable",
-        "keywords": [
-            "eloquent",
-            "laravel",
-            "translatable"
-        ]
-    },
-    {
         "name": "predis/predis",
         "version": "0.8.x-dev",
         "version_normalized": "0.8.9999999.9999999-dev",
@@ -2907,6 +2746,167 @@
             "nosql",
             "predis",
             "redis"
+        ]
+    },
+    {
+        "name": "laravel/framework",
+        "version": "4.0.x-dev",
+        "version_normalized": "4.0.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/framework.git",
+            "reference": "1973197d53c9daaf65c54c4c872669e787a408d3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/1973197d53c9daaf65c54c4c872669e787a408d3",
+            "reference": "1973197d53c9daaf65c54c4c872669e787a408d3",
+            "shasum": ""
+        },
+        "require": {
+            "classpreloader/classpreloader": "1.0.*",
+            "doctrine/dbal": "2.4.*",
+            "filp/whoops": "1.0.7",
+            "ircmaxell/password-compat": "1.0.*",
+            "jeremeamia/superclosure": "1.0.*",
+            "monolog/monolog": "1.*",
+            "nesbot/carbon": "1.*",
+            "patchwork/utf8": "1.1.*",
+            "php": ">=5.3.0",
+            "predis/predis": "0.8.*",
+            "swiftmailer/swiftmailer": "5.0.*",
+            "symfony/browser-kit": "2.3.*",
+            "symfony/console": "2.3.*",
+            "symfony/css-selector": "2.3.*",
+            "symfony/debug": "2.3.*",
+            "symfony/dom-crawler": "2.3.*",
+            "symfony/event-dispatcher": "2.3.*",
+            "symfony/finder": "2.3.*",
+            "symfony/http-foundation": "2.3.*",
+            "symfony/http-kernel": "2.3.*",
+            "symfony/process": "2.3.*",
+            "symfony/routing": "2.3.*",
+            "symfony/translation": "2.3.*"
+        },
+        "replace": {
+            "illuminate/auth": "self.version",
+            "illuminate/cache": "self.version",
+            "illuminate/config": "self.version",
+            "illuminate/console": "self.version",
+            "illuminate/container": "self.version",
+            "illuminate/cookie": "self.version",
+            "illuminate/database": "self.version",
+            "illuminate/encryption": "self.version",
+            "illuminate/events": "self.version",
+            "illuminate/exception": "self.version",
+            "illuminate/filesystem": "self.version",
+            "illuminate/foundation": "self.version",
+            "illuminate/hashing": "self.version",
+            "illuminate/html": "self.version",
+            "illuminate/http": "self.version",
+            "illuminate/log": "self.version",
+            "illuminate/mail": "self.version",
+            "illuminate/pagination": "self.version",
+            "illuminate/queue": "self.version",
+            "illuminate/redis": "self.version",
+            "illuminate/routing": "self.version",
+            "illuminate/session": "self.version",
+            "illuminate/support": "self.version",
+            "illuminate/translation": "self.version",
+            "illuminate/validation": "self.version",
+            "illuminate/view": "self.version",
+            "illuminate/workbench": "self.version"
+        },
+        "require-dev": {
+            "aws/aws-sdk-php": "2.4.*",
+            "iron-io/iron_mq": "1.4.*",
+            "mockery/mockery": "0.8.0",
+            "pda/pheanstalk": "2.1.*",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2013-12-03 02:09:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                [
+                    "src/Illuminate/Queue/IlluminateQueueClosure.php"
+                ]
+            ],
+            "files": [
+                "src/Illuminate/Support/helpers.php"
+            ],
+            "psr-0": {
+                "Illuminate": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com",
+                "homepage": "https://github.com/taylorotwell",
+                "role": "Developer"
+            }
+        ],
+        "description": "The Laravel Framework.",
+        "keywords": [
+            "framework",
+            "laravel"
+        ]
+    },
+    {
+        "name": "ink/ink-translatable",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/orkhan/InkTranslatable.git",
+            "reference": "d711e5dc3ecb0bd8184ce43ca112e38c65d967fc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/d711e5dc3ecb0bd8184ce43ca112e38c65d967fc",
+            "reference": "d711e5dc3ecb0bd8184ce43ca112e38c65d967fc",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "~4",
+            "illuminate/support": "~4",
+            "php": ">=5.3.0"
+        },
+        "time": "2013-12-02 22:31:16",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Ink\\InkTranslatable": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Orkhan",
+                "email": "o@inkster.az"
+            }
+        ],
+        "description": "Easy translation manipulation of your Eloquent models in Laravel 4.",
+        "homepage": "https://github.com/orkhan/InkTranslatable",
+        "keywords": [
+            "eloquent",
+            "laravel",
+            "translatable"
         ]
     }
 ]

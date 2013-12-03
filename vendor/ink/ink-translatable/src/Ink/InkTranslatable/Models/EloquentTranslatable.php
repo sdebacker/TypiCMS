@@ -88,9 +88,11 @@ abstract class EloquentTranslatable extends \Eloquent {
      */
     private function getRelationshipField()
     {
+        $called_class = explode('\\', get_called_class());
+        $called_class = end($called_class);
         return isset(static::$translatable) && isset(static::$translatable['relationshipField'])
             ? static::$translatable['relationshipField']
-            : snake_case(get_called_class()).'_id';
+            : snake_case($called_class).'_id';
     }
 
     /**
