@@ -9,6 +9,6 @@
     "commit": "b34a5d871d31cd47c62708c81d749695aa7d97ad"
   },
   "_source": "git://github.com/harvesthq/chosen.git",
-  "_target": "~1.0.0",
+  "_target": "~1.0.*",
   "_originalSource": "chosen"
 }

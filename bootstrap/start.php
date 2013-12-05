@@ -28,7 +28,7 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('typicms.local', 'Ordi-de-Samuel.local'),
+	'local' => array('Ordi-de-Samuel.local'),
 
 ));
 
