@@ -5,11 +5,11 @@
     "jquery-legacy": "jquery#1.10",
     "alertify.js": "~0.3.*",
     "bootstrap": "~3.0.*",
-    "chosen": "~1.0.*",
     "dropzone": "~3.7.*",
     "jquery-ui": "~1.10.*",
     "bootstrap3-datetimepicker": "~2.1.*",
     "fancybox": "~2.1.*",
-    "flexslider": "*"
+    "flexslider": "*",
+    "select2": "~3.4.5"
   }
 }

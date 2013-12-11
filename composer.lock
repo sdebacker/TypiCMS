@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "03d9bd6bf7edb7752fb2ee2f773e289ee1549308"
+                "reference": "ce47ce5fecd49cc9ca529d2697d730fe8de8e9bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/03d9bd6bf7edb7752fb2ee2f773e289ee1549308",
-                "reference": "03d9bd6bf7edb7752fb2ee2f773e289ee1549308",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ce47ce5fecd49cc9ca529d2697d730fe8de8e9bb",
+                "reference": "ce47ce5fecd49cc9ca529d2697d730fe8de8e9bb",
                 "shasum": ""
             },
             "require": {
@@ -210,7 +210,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-11-30 08:27:15"
+            "time": "2013-12-05 18:20:12"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -665,12 +665,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "ad26be7787690d50d572d39a8d2ba5f1542a6d8f"
+                "reference": "ba2ad8a7db24adb37a33ff52ee64b02d59ccfee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/ad26be7787690d50d572d39a8d2ba5f1542a6d8f",
-                "reference": "ad26be7787690d50d572d39a8d2ba5f1542a6d8f",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/ba2ad8a7db24adb37a33ff52ee64b02d59ccfee0",
+                "reference": "ba2ad8a7db24adb37a33ff52ee64b02d59ccfee0",
                 "shasum": ""
             },
             "require": {
@@ -732,7 +732,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2013-11-19 22:17:03"
+            "time": "2013-12-03 21:02:18"
         },
         {
             "name": "doctrine/dbal",
@@ -1134,12 +1134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "16445d5ff8bbd633a9d5c13464e2cc34fe083aa7"
+                "reference": "d8f91a7fb9e31b576da7eef0d342d450cb290477"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/16445d5ff8bbd633a9d5c13464e2cc34fe083aa7",
-                "reference": "16445d5ff8bbd633a9d5c13464e2cc34fe083aa7",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d8f91a7fb9e31b576da7eef0d342d450cb290477",
+                "reference": "d8f91a7fb9e31b576da7eef0d342d450cb290477",
                 "shasum": ""
             },
             "require": {
@@ -1218,7 +1218,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-12-02 20:52:32"
+            "time": "2013-12-05 18:30:05"
         },
         {
             "name": "ink/ink-translatable",
@@ -1671,16 +1671,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "b0450b539d1567b2acee6467b6b323a8547b5559"
+                "reference": "03ede52a1f360441b5826cb8a798e0d0a919731f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/b0450b539d1567b2acee6467b6b323a8547b5559",
-                "reference": "b0450b539d1567b2acee6467b6b323a8547b5559",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/03ede52a1f360441b5826cb8a798e0d0a919731f",
+                "reference": "03ede52a1f360441b5826cb8a798e0d0a919731f",
                 "shasum": ""
             },
             "require": {
@@ -1713,7 +1713,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2013-11-23 15:22:05"
+            "time": "2013-12-05 04:13:29"
         },
         {
             "name": "nikic/php-parser",
@@ -1864,12 +1864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "134145e8d08ddcb9bb8f49a2feb9aa1f2393650c"
+                "reference": "5144da9525d24346bf009ff28f10cbaa1f0f166e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/134145e8d08ddcb9bb8f49a2feb9aa1f2393650c",
-                "reference": "134145e8d08ddcb9bb8f49a2feb9aa1f2393650c",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5144da9525d24346bf009ff28f10cbaa1f0f166e",
+                "reference": "5144da9525d24346bf009ff28f10cbaa1f0f166e",
                 "shasum": ""
             },
             "type": "library",
@@ -1899,20 +1899,20 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2013-11-19 10:21:35"
+            "time": "2013-12-05 15:25:07"
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.0.2",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "f3917ecef35a4e4d98b303eb9fee463bc983f379"
+                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/f3917ecef35a4e4d98b303eb9fee463bc983f379",
-                "reference": "f3917ecef35a4e4d98b303eb9fee463bc983f379",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
+                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
                 "shasum": ""
             },
             "require": {
@@ -1948,7 +1948,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-08-30 12:35:21"
+            "time": "2013-12-03 13:33:24"
         },
         {
             "name": "symfony/browser-kit",
@@ -2172,12 +2172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
-                "reference": "4dc2c596b28884892da24729d9b32d01d89c1a59"
+                "reference": "7a7239828861dfbe883da4b834ac4dd07a8b056f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/4dc2c596b28884892da24729d9b32d01d89c1a59",
-                "reference": "4dc2c596b28884892da24729d9b32d01d89c1a59",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/7a7239828861dfbe883da4b834ac4dd07a8b056f",
+                "reference": "7a7239828861dfbe883da4b834ac4dd07a8b056f",
                 "shasum": ""
             },
             "require": {
@@ -2216,7 +2216,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-30 08:30:20"
+            "time": "2013-12-03 14:51:26"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2225,12 +2225,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "d24a5afe3e711757d87ce9e64d5f6cbc9c4af797"
+                "reference": "30b2f954258361a10301189ddad8522462321924"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/d24a5afe3e711757d87ce9e64d5f6cbc9c4af797",
-                "reference": "d24a5afe3e711757d87ce9e64d5f6cbc9c4af797",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/30b2f954258361a10301189ddad8522462321924",
+                "reference": "30b2f954258361a10301189ddad8522462321924",
                 "shasum": ""
             },
             "require": {
@@ -2270,7 +2270,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-28 10:26:47"
+            "time": "2013-12-03 14:51:26"
         },
         {
             "name": "symfony/filesystem",
@@ -2423,12 +2423,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "46aa5b516dded0a8b1994b0a19e916bb6bea4f50"
+                "reference": "36578f3ad3dac980c841bf7921b2a1df6b156f8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/46aa5b516dded0a8b1994b0a19e916bb6bea4f50",
-                "reference": "46aa5b516dded0a8b1994b0a19e916bb6bea4f50",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/36578f3ad3dac980c841bf7921b2a1df6b156f8e",
+                "reference": "36578f3ad3dac980c841bf7921b2a1df6b156f8e",
                 "shasum": ""
             },
             "require": {
@@ -2485,7 +2485,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-25 14:49:41"
+            "time": "2013-12-05 07:46:04"
         },
         {
             "name": "symfony/process",
