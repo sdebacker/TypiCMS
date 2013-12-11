@@ -150,16 +150,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ce47ce5fecd49cc9ca529d2697d730fe8de8e9bb"
+                "reference": "c3b11f7b4284ac69d1918251f7948e11eef48266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ce47ce5fecd49cc9ca529d2697d730fe8de8e9bb",
-                "reference": "ce47ce5fecd49cc9ca529d2697d730fe8de8e9bb",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c3b11f7b4284ac69d1918251f7948e11eef48266",
+                "reference": "c3b11f7b4284ac69d1918251f7948e11eef48266",
                 "shasum": ""
             },
             "require": {
-                "guzzle/guzzle": "~3.7.0",
+                "guzzle/guzzle": ">=3.7.0,<3.9.0",
                 "php": ">=5.3.3"
             },
             "require-dev": {
@@ -210,7 +210,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-12-05 18:20:12"
+            "time": "2013-12-11 00:26:51"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -259,20 +259,20 @@
         },
         {
             "name": "bkwld/croppa",
-            "version": "3.0.7",
+            "version": "3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BKWLD/croppa.git",
-                "reference": "c606f509c6dfc28c7823b95372c7173afbf1064c"
+                "reference": "5bc8f9c69956fe3fddeec6f5ddb02a870bf62322"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/c606f509c6dfc28c7823b95372c7173afbf1064c",
-                "reference": "c606f509c6dfc28c7823b95372c7173afbf1064c",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/5bc8f9c69956fe3fddeec6f5ddb02a870bf62322",
+                "reference": "5bc8f9c69956fe3fddeec6f5ddb02a870bf62322",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "4.0.x",
+                "illuminate/support": "<4.2,>=4.0",
                 "php": ">=5.3.0",
                 "weotch/phpthumb": "~1.0"
             },
@@ -298,7 +298,7 @@
                 }
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
-            "time": "2013-11-13 22:05:57"
+            "time": "2013-12-10 22:43:05"
         },
         {
             "name": "cartalyst/sentry",
@@ -927,16 +927,16 @@
         },
         {
             "name": "edvinaskrucas/notification",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/edvinaskrucas/notification.git",
-                "reference": "5018c96afea9b3f82008073afd9bd238c45aaef3"
+                "reference": "27d0f8d3d9e0a52789335e56cf96b8851476fe9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edvinaskrucas/notification/zipball/5018c96afea9b3f82008073afd9bd238c45aaef3",
-                "reference": "5018c96afea9b3f82008073afd9bd238c45aaef3",
+                "url": "https://api.github.com/repos/edvinaskrucas/notification/zipball/27d0f8d3d9e0a52789335e56cf96b8851476fe9f",
+                "reference": "27d0f8d3d9e0a52789335e56cf96b8851476fe9f",
                 "shasum": ""
             },
             "require": {
@@ -972,7 +972,7 @@
                 "messages",
                 "notifications"
             ],
-            "time": "2013-11-06 20:48:29"
+            "time": "2013-12-07 20:38:37"
         },
         {
             "name": "eluceo/ical",
@@ -1134,12 +1134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d8f91a7fb9e31b576da7eef0d342d450cb290477"
+                "reference": "50c5393062bc9035d0a872b9b2af8221f264ea19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d8f91a7fb9e31b576da7eef0d342d450cb290477",
-                "reference": "d8f91a7fb9e31b576da7eef0d342d450cb290477",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/50c5393062bc9035d0a872b9b2af8221f264ea19",
+                "reference": "50c5393062bc9035d0a872b9b2af8221f264ea19",
                 "shasum": ""
             },
             "require": {
@@ -1183,13 +1183,13 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.7-dev"
+                    "dev-master": "3.8-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Guzzle\\Tests": "tests/",
-                    "Guzzle": "src/"
+                    "Guzzle": "src/",
+                    "Guzzle\\Tests": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1218,7 +1218,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-12-05 18:30:05"
+            "time": "2013-12-09 04:01:52"
         },
         {
             "name": "ink/ink-translatable",
@@ -1400,12 +1400,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1973197d53c9daaf65c54c4c872669e787a408d3"
+                "reference": "426c9e0e39915eedd2861b147ba6701443136e3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1973197d53c9daaf65c54c4c872669e787a408d3",
-                "reference": "1973197d53c9daaf65c54c4c872669e787a408d3",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/426c9e0e39915eedd2861b147ba6701443136e3d",
+                "reference": "426c9e0e39915eedd2861b147ba6701443136e3d",
                 "shasum": ""
             },
             "require": {
@@ -1505,7 +1505,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-12-03 02:09:00"
+            "time": "2013-12-06 01:42:26"
         },
         {
             "name": "maximebf/debugbar",
@@ -1762,16 +1762,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.15",
+            "version": "v1.1.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "2b13126f572501ce9806846349344f1c6b20b545"
+                "reference": "bc719e850b57791c1024d06f9fe7d474348e7ba6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/2b13126f572501ce9806846349344f1c6b20b545",
-                "reference": "2b13126f572501ce9806846349344f1c6b20b545",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/bc719e850b57791c1024d06f9fe7d474348e7ba6",
+                "reference": "bc719e850b57791c1024d06f9fe7d474348e7ba6",
                 "shasum": ""
             },
             "require": {
@@ -1809,7 +1809,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2013-11-23 12:47:40"
+            "time": "2013-12-07 12:20:20"
         },
         {
             "name": "predis/predis",
@@ -1817,12 +1817,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "381023ad8f019eb4859550538e4affdb5bb9a68b"
+                "reference": "09cb6677e241feecb165f417e1b3ea9709e1b173"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/381023ad8f019eb4859550538e4affdb5bb9a68b",
-                "reference": "381023ad8f019eb4859550538e4affdb5bb9a68b",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/09cb6677e241feecb165f417e1b3ea9709e1b173",
+                "reference": "09cb6677e241feecb165f417e1b3ea9709e1b173",
                 "shasum": ""
             },
             "require": {
@@ -1856,7 +1856,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2013-12-02 10:44:40"
+            "time": "2013-12-11 12:10:05"
         },
         {
             "name": "psr/log",
