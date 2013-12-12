@@ -118,7 +118,7 @@ class Helpers {
 		$segments = Request::segments();
 		array_shift($segments);
 		$lang = Config::get('app.locale');
-
+		
 		switch (count($segments)) {
 			case 0:
 				return '';
@@ -127,7 +127,7 @@ class Helpers {
 			case 1:
 				try {
 					return route($lang.'.'.$segments[0]);
-				} catch (\Symfony\Component\Routing\Exception\RouteNotFoundException $e) {
+				} catch (\InvalidArgumentException $e) {
 					return route($lang);
 				}
 				break;
@@ -135,10 +135,10 @@ class Helpers {
 			default:
 				try {
 					return route($lang.'.'.$segments[0].'.'.$segments[1]);
-				} catch (\Symfony\Component\Routing\Exception\RouteNotFoundException $e) {
+				} catch (\InvalidArgumentException $e) {
 					try {
 						return route($lang.'.'.$segments[0]);
-					} catch (\Symfony\Component\Routing\Exception\RouteNotFoundException $e) {
+					} catch (\InvalidArgumentException $e) {
 						return route($lang);
 					}
 				}

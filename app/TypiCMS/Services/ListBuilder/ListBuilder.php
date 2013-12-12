@@ -258,9 +258,7 @@ class ListBuilder {
 	public function languagesMenu()
 	{
 
-		$routeArray = explode('.', Route::currentRouteName());
-		// Laravel 4.1 : 
-		// $routeArray = explode('.', Route::current()->getName());
+		$routeArray = explode('.', Route::current()->getName());
 
 		$module = isset($routeArray[1]) ? $routeArray[1] : 'pages' ;
 		$segments = Request::segments();
@@ -318,7 +316,7 @@ class ListBuilder {
 				$translatedRouteName = implode('.', $translatedRouteArray);
 
 				// single page or module index
-				$route = Route::getRoutes()->get($translatedRouteName);
+				$route = Route::getRoutes()->hasNamedRoute($translatedRouteName);
 				// if route in this lang doesn't exist, redirect to homepage
 				! $route and $translatedRouteName = $lg;
 
