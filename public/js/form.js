@@ -7,6 +7,7 @@ function initTinymce(selector) {
 		menubar: false,
 		entity_encoding : 'raw',
 		plugins: 'paste,table,nonbreaking,link,code,image',
+		paste_as_text: true,
 		// statusbar: false,
 		style_formats : [
 			{title : 'File (link)', selector : 'a', classes : 'file'},
