@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "9e650b5401819df309fbb2bb766a61c60c94ab02"
+                "reference": "61eaf675b7de9ce8b2c6b44317b01e6818ea16c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9e650b5401819df309fbb2bb766a61c60c94ab02",
-                "reference": "9e650b5401819df309fbb2bb766a61c60c94ab02",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/61eaf675b7de9ce8b2c6b44317b01e6818ea16c3",
+                "reference": "61eaf675b7de9ce8b2c6b44317b01e6818ea16c3",
                 "shasum": ""
             },
             "require": {
@@ -210,7 +210,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-12-11 19:22:05"
+            "time": "2013-12-12 19:35:51"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -956,12 +956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7b7df5a18c38bd2bc24b1721d06e21dff11a418e"
+                "reference": "5bb5cede49d17aaf4f5e45fbe24719c1a42a909a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7b7df5a18c38bd2bc24b1721d06e21dff11a418e",
-                "reference": "7b7df5a18c38bd2bc24b1721d06e21dff11a418e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5bb5cede49d17aaf4f5e45fbe24719c1a42a909a",
+                "reference": "5bb5cede49d17aaf4f5e45fbe24719c1a42a909a",
                 "shasum": ""
             },
             "require": {
@@ -1064,7 +1064,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-12-12 13:21:25"
+            "time": "2013-12-12 16:50:30"
         },
         {
             "name": "maximebf/debugbar",
@@ -1819,12 +1819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Debug.git",
-                "reference": "848565cb83d985eb77dac3f9e4486f3bce92b4a2"
+                "reference": "7e8a027bfdfbbc814733749367e701c23a5fd215"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/848565cb83d985eb77dac3f9e4486f3bce92b4a2",
-                "reference": "848565cb83d985eb77dac3f9e4486f3bce92b4a2",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/7e8a027bfdfbbc814733749367e701c23a5fd215",
+                "reference": "7e8a027bfdfbbc814733749367e701c23a5fd215",
                 "shasum": ""
             },
             "require": {
@@ -1865,7 +1865,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "http://symfony.com",
-            "time": "2013-12-03 14:52:22"
+            "time": "2013-12-12 16:10:42"
         },
         {
             "name": "symfony/dom-crawler",
@@ -2125,12 +2125,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "92411c7af99293ba8b3af27654855fbdbec4114b"
+                "reference": "59472b6815cd11ea7e467e6e34700a1fba5d79d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/92411c7af99293ba8b3af27654855fbdbec4114b",
-                "reference": "92411c7af99293ba8b3af27654855fbdbec4114b",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/59472b6815cd11ea7e467e6e34700a1fba5d79d5",
+                "reference": "59472b6815cd11ea7e467e6e34700a1fba5d79d5",
                 "shasum": ""
             },
             "require": {
@@ -2187,7 +2187,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-12-03 17:55:46"
+            "time": "2013-12-12 16:06:47"
         },
         {
             "name": "symfony/process",
