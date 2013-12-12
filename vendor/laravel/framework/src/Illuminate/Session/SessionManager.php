@@ -1,10 +1,8 @@
 <?php namespace Illuminate\Session;
 
 use Illuminate\Support\Manager;
-use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
-use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler;
-use Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler;
+use Symfony\Component\HttpFoundation\Session\Storage\Handler\NullSessionHandler;
 
 class SessionManager extends Manager {
 
@@ -26,7 +24,7 @@ class SessionManager extends Manager {
 	 */
 	protected function createArrayDriver()
 	{
-		return new Store(new MockArraySessionStorage);
+		return new Store($this->app['config']['session.cookie'], new NullSessionHandler);
 	}
 
 	/**
@@ -42,7 +40,17 @@ class SessionManager extends Manager {
 	}
 
 	/**
-	 * Create an instance of the native session driver.
+	 * Create an instance of the file session driver.
+	 *
+	 * @return \Illuminate\Session\Store
+	 */
+	protected function createFileDriver()
+	{
+		return $this->createNativeDriver();
+	}
+
+	/**
+	 * Create an instance of the file session driver.
 	 *
 	 * @return \Illuminate\Session\Store
 	 */
@@ -50,7 +58,7 @@ class SessionManager extends Manager {
 	{
 		$path = $this->app['config']['session.files'];
 
-		return $this->buildSession(new NativeFileSessionHandler($path));
+		return $this->buildSession(new FileSessionHandler($this->app['files'], $path));
 	}
 
 	/**
@@ -168,23 +176,17 @@ class SessionManager extends Manager {
 	 */
 	protected function buildSession($handler)
 	{
-		return new Store(new NativeSessionStorage($this->getOptions(), $handler));
+		return new Store($this->app['config']['session.cookie'], $handler);
 	}
 
 	/**
-	 * Get the session options.
+	 * Get the session configuration.
 	 *
 	 * @return array
 	 */
-	protected function getOptions()
+	public function getSessionConfig()
 	{
-		$config = $this->app['config']['session'];
-
-		return array(
-			'cookie_domain' => $config['domain'], 'cookie_lifetime' => $config['lifetime'] * 60,
-			'cookie_path' => $config['path'], 'cookie_httponly' => '1', 'name' => $config['cookie'],
-			'gc_divisor' => $config['lottery'][1], 'gc_probability' => $config['lottery'][0],
-		);
+		return $this->app['config']['session'];
 	}
 
 	/**

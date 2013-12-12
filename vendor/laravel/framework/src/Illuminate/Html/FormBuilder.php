@@ -1,7 +1,6 @@
 <?php namespace Illuminate\Html;
 
 use Illuminate\Routing\UrlGenerator;
-use Illuminate\Html\HtmlBuilder as Html;
 use Illuminate\Session\Store as Session;
 
 class FormBuilder {
@@ -115,7 +114,7 @@ class FormBuilder {
 		// different method than it actually is, for convenience from the forms.
 		$append = $this->getAppendage($method);
 
-		if (isset($options['files']) and $options['files'])
+		if (isset($options['files']) && $options['files'])
 		{
 			$options['enctype'] = 'multipart/form-data';
 		}
@@ -629,7 +628,7 @@ class FormBuilder {
 	 */
 	protected function getCheckboxCheckedState($name, $value, $checked)
 	{
-		if ( ! $this->oldInputIsEmpty() and is_null($this->old($name))) return false;
+		if ( ! $this->oldInputIsEmpty() && is_null($this->old($name))) return false;
 
 		if ($this->missingOldAndModel($name)) return $checked;
 
@@ -661,7 +660,7 @@ class FormBuilder {
 	 */
 	protected function missingOldAndModel($name)
 	{
-		return (is_null($this->old($name)) and is_null($this->getModelValueAttribute($name)));
+		return (is_null($this->old($name)) && is_null($this->getModelValueAttribute($name)));
 	}
 
 	/**
@@ -937,7 +936,7 @@ class FormBuilder {
 	 */
 	public function oldInputIsEmpty()
 	{
-		return (isset($this->session) and count($this->session->getOldInput()) == 0);
+		return (isset($this->session) && count($this->session->getOldInput()) == 0);
 	}
 
 	/**
@@ -980,6 +979,8 @@ class FormBuilder {
 	 * @param  string  $method
 	 * @param  array   $parameters
 	 * @return mixed
+	 *
+	 * @throws \BadMethodCallException
 	 */
 	public function __call($method, $parameters)
 	{

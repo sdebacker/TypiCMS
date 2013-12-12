@@ -10,14 +10,14 @@ abstract class Queue {
 	/**
 	 * The IoC container instance.
 	 *
-	 * @var \Illuminate\Container
+	 * @var \Illuminate\Container\Container
 	 */
 	protected $container;
 
 	/**
 	 * Marshal a push queue request and fire the job.
 	 *
-	 * @return Illuminate\Http\Response
+	 * @throws \RuntimeException
 	 */
 	public function marshal()
 	{
@@ -45,9 +45,10 @@ abstract class Queue {
 	 *
 	 * @param  string  $job
 	 * @param  mixed   $data
+	 * @param  string  $queue
 	 * @return string
 	 */
-	protected function createPayload($job, $data = '')
+	protected function createPayload($job, $data = '', $queue = null)
 	{
 		if ($job instanceof Closure)
 		{
@@ -71,6 +72,21 @@ abstract class Queue {
 		$closure = serialize(new SerializableClosure($job));
 
 		return array('job' => 'IlluminateQueueClosure', 'data' => compact('closure'));
+	}
+
+	/**
+	 * Set additional meta on a payload string.
+	 *
+	 * @param  string  $payload
+	 * @param  string  $key
+	 * @param  string  $value
+	 * @return string
+	 */
+	protected function setMeta($payload, $key, $value)
+	{
+		$payload = json_decode($payload, true);
+
+		return json_encode(array_set($payload, $key, $value));
 	}
 
 	/**
@@ -104,7 +120,7 @@ abstract class Queue {
 	/**
 	 * Set the IoC container instance.
 	 *
-	 * @param  \Illuminate\Container  $container
+	 * @param  \Illuminate\Container\Container  $container
 	 * @return void
 	 */
 	public function setContainer(Container $container)

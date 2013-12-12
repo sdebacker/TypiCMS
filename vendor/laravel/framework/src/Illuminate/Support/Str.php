@@ -123,7 +123,7 @@ class Str {
 	{
 		if (mb_strlen($value) <= $limit) return $value;
 
-		return mb_substr($value, 0, $limit, 'UTF-8').$end;
+		return rtrim(mb_substr($value, 0, $limit, 'UTF-8')).$end;
 	}
 
 	/**
@@ -185,6 +185,8 @@ class Str {
 	 *
 	 * @param  int     $length
 	 * @return string
+	 *
+	 * @throws \RuntimeException
 	 */
 	public static function random($length = 16)
 	{
@@ -262,13 +264,13 @@ class Str {
 	{
 		$title = static::ascii($title);
 
-		// Remove all characters that are not the separator, letters, numbers, or whitespace.
-		$title = preg_replace('![^'.preg_quote($separator).'\pL\pN\s]+!u', '', mb_strtolower($title));
-
 		// Convert all dashes/undescores into separator
 		$flip = $separator == '-' ? '_' : '-';
 
 		$title = preg_replace('!['.preg_quote($flip).']+!u', $separator, $title);
+
+		// Remove all characters that are not the separator, letters, numbers, or whitespace.
+		$title = preg_replace('![^'.preg_quote($separator).'\pL\pN\s]+!u', '', mb_strtolower($title));
 
 		// Replace all separator characters and whitespace by a single separator
 		$title = preg_replace('!['.preg_quote($separator).'\s]+!u', $separator, $title);
@@ -338,6 +340,8 @@ class Str {
 	 * @param  string  $method
 	 * @param  array   $parameters
 	 * @return mixed
+	 *
+	 * @throws \BadMethodCallException
 	 */
 	public static function __callStatic($method, $parameters)
 	{

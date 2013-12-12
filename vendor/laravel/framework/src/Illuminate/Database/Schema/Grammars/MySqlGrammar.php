@@ -28,13 +28,24 @@ class MySqlGrammar extends Grammar {
 	protected $serials = array('bigInteger', 'integer');
 
 	/**
-	 * Compile the query to determine if a table exists.
+	 * Compile the query to determine the list of tables.
 	 *
 	 * @return string
 	 */
 	public function compileTableExists()
 	{
 		return 'select * from information_schema.tables where table_schema = ? and table_name = ?';
+	}
+
+	/**
+	 * Compile the query to determine the list of columns.
+	 *
+	 * @param  string  $table
+	 * @return string
+	 */
+	public function compileColumnExists()
+	{
+		return "select column_name from information_schema.columns where table_schema = ? and table_name = ?";
 	}
 
 	/**
@@ -350,7 +361,7 @@ class MySqlGrammar extends Grammar {
 	 */
 	protected function typeTinyInteger(Fluent $column)
 	{
-		return 'tinyint(1)';
+		return 'tinyint';
 	}
 
 	/**
@@ -383,7 +394,7 @@ class MySqlGrammar extends Grammar {
 	 */
 	protected function typeDouble(Fluent $column)
 	{
-		if ($column->total and $column->places)
+		if ($column->total && $column->places)
 		{
 			return "double({$column->total}, {$column->places})";
 		}
@@ -531,7 +542,7 @@ class MySqlGrammar extends Grammar {
 	 */
 	protected function modifyIncrement(Blueprint $blueprint, Fluent $column)
 	{
-		if (in_array($column->type, $this->serials) and $column->autoIncrement)
+		if (in_array($column->type, $this->serials) && $column->autoIncrement)
 		{
 			return ' auto_increment primary key';
 		}

@@ -2,7 +2,6 @@
 
 use Illuminate\Console\Command;
 use Illuminate\Container\Container;
-use Illuminate\Filesystem\Filesystem;
 
 class Seeder {
 
@@ -37,10 +36,7 @@ class Seeder {
 	{
 		$this->resolve($class)->run();
 
-		if ($this->command)
-		{
-			$this->command->getOutput()->writeln("<info>Seeded:</info> $class");
-		}
+		$this->command->getOutput()->writeln("<info>Seeded:</info> $class");
 	}
 
 	/**

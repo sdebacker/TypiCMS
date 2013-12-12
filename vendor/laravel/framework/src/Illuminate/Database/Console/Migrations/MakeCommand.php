@@ -1,6 +1,5 @@
 <?php namespace Illuminate\Database\Console\Migrations;
 
-use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Illuminate\Database\Migrations\MigrationCreator;
@@ -65,6 +64,12 @@ class MakeCommand extends BaseCommand {
 		$table = $this->input->getOption('table');
 
 		$create = $this->input->getOption('create');
+		
+		if ( ! $table && is_string($create))
+		{
+			$table = $create;
+		}
+
 
 		// Now we are ready to write the migration out to disk. Once we've written
 		// the migration out, we will dump-autoload for the entire framework to
@@ -113,7 +118,7 @@ class MakeCommand extends BaseCommand {
 		return array(
 			array('bench', null, InputOption::VALUE_OPTIONAL, 'The workbench the migration belongs to.', null),
 
-			array('create', null, InputOption::VALUE_NONE, 'The table needs to be created.'),
+			array('create', null, InputOption::VALUE_OPTIONAL, 'The table to be created.'),
 
 			array('package', null, InputOption::VALUE_OPTIONAL, 'The package the migration belongs to.', null),
 

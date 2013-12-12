@@ -30,6 +30,28 @@ class QueueManager {
 	}
 
 	/**
+	 * Register an event listener for the failed job event.
+	 *
+	 * @param  mixed  $callback
+	 * @return void
+	 */
+	public function failing($callback)
+	{
+		$this->app['events']->listen('illuminate.queue.failed', $callback);
+	}
+
+	/**
+	 * Determine if the driver is connected.
+	 *
+	 * @param  string  $name
+	 * @return bool
+	 */
+	public function connected($name = null)
+	{
+		return isset($this->connections[$name ?: $this->getDefault()]);
+	}
+
+	/**
 	 * Resolve a queue connection instance.
 	 *
 	 * @param  string  $name
@@ -70,6 +92,8 @@ class QueueManager {
 	 *
 	 * @param  string  $driver
 	 * @return \Illuminate\Queue\Connectors\ConnectorInterface
+	 *
+	 * @throws \InvalidArgumentException
 	 */
 	protected function getConnector($driver)
 	{
@@ -124,6 +148,17 @@ class QueueManager {
 	protected function getDefault()
 	{
 		return $this->app['config']['queue.default'];
+	}
+
+	/**
+	 * Get the full name for the given connection.
+	 *
+	 * @param  string  $connection
+	 * @return string
+	 */
+	public function getName($connection = null)
+	{
+		return $connection ?: $this->getDefault();
 	}
 
 	/**

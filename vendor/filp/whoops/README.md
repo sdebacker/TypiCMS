@@ -1,7 +1,8 @@
-# whoops
+# whoops 
 php errors for cool kids
 
-[![Build Status](https://travis-ci.org/filp/whoops.png?branch=master)](https://travis-ci.org/filp/whoops)
+[![Build Status](https://travis-ci.org/filp/whoops.png?branch=master)](https://travis-ci.org/filp/whoops) [![Total Downloads](https://poser.pugx.org/filp/whoops/downloads.png)](https://packagist.org/packages/filp/whoops)  [![Latest Stable Version](https://poser.pugx.org/filp/whoops/v/stable.png)](https://packagist.org/packages/filp/whoops)
+
 
 -----
 
@@ -29,7 +30,7 @@ powerful stacked error handling system.
 - Install [Composer](http://getcomposer.org) and place the executable somewhere in your `$PATH` (for the rest of this README,
 I'll reference it as just `composer`)
 
-- Add `filp/whoops` to your project's `composer.json:
+- Add `filp/whoops` to your project's `composer.json` file:
 
 ```json
 {
@@ -108,9 +109,9 @@ If you're using Laravel 4, as of [this commit to laravel/framework](https://gith
 
 ### Integrating with Laravel 3
 
-User [@hdias](https://github.com/hdias) contributed a simple guide/example to help you integrate **whoops** with Laravel 3's IoC container, available at:
+User [@hugomrdias](https://github.com/hugomrdias) contributed a simple guide/example to help you integrate **whoops** with Laravel 3's IoC container, available at:
 
-https://gist.github.com/hdias/5169713#file-start-php
+https://gist.github.com/hugomrdias/5169713#file-start-php
 
 ### Integrating with Zend Framework 2
 
@@ -182,6 +183,24 @@ $handler->setEditor(function($file, $line) {
 
 ```
 
+You can add PhpStorm support with [PhpStormOpener](https://github.com/pinepain/PhpStormOpener#phpstormopener) (Mac OS X only):
+```php
+
+$handler->setEditor(
+    function ($file, $line) {
+        // if your development server is not local it's good to map remote files to local
+        $translations = array('^' . __DIR__ => '~/Development/PhpStormOpener'); // change to your path
+        
+        foreach ($translations as $from => $to) {
+            $file = preg_replace('#' . $from . '#', $to, $file, 1);
+        }
+
+        return "pstorm://$file:$line";
+    }
+);
+
+```
+
 ### Available Handlers
 
 **whoops** currently ships with the following built-in handlers, available in the `Whoops\Handler` namespace:
@@ -223,3 +242,7 @@ let me know, and/or **open a new issue report** so that I or others may take car
 This library was primarily developed by [Filipe Dobreira](https://github.com/filp).
 
 A lot of awesome fixes and enhancements were also sent in by contributors, which you can find **[in this page right here](https://github.com/filp/whoops/contributors)**.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/filp/whoops/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

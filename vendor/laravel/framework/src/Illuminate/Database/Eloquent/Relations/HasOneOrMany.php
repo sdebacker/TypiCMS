@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Eloquent\Collection;
 
 abstract class HasOneOrMany extends Relation {
@@ -15,6 +14,13 @@ abstract class HasOneOrMany extends Relation {
 	protected $foreignKey;
 
 	/**
+	 * The local key of the parent model.
+	 *
+	 * @var string
+	 */
+	protected $localKey;
+
+	/**
 	 * Create a new has many relationship instance.
 	 *
 	 * @param  \Illuminate\Database\Eloquent\Builder  $query
@@ -22,8 +28,9 @@ abstract class HasOneOrMany extends Relation {
 	 * @param  string  $foreignKey
 	 * @return void
 	 */
-	public function __construct(Builder $query, Model $parent, $foreignKey)
+	public function __construct(Builder $query, Model $parent, $foreignKey, $localKey)
 	{
+		$this->localKey = $localKey;
 		$this->foreignKey = $foreignKey;
 
 		parent::__construct($query, $parent);
@@ -38,9 +45,7 @@ abstract class HasOneOrMany extends Relation {
 	{
 		if (static::$constraints)
 		{
-			$key = $this->parent->getKey();
-
-			$this->query->where($this->foreignKey, '=', $key);
+			$this->query->where($this->foreignKey, '=', $this->getParentKey());
 		}
 	}
 
@@ -99,7 +104,7 @@ abstract class HasOneOrMany extends Relation {
 		// matching very convenient and easy work. Then we'll just return them.
 		foreach ($models as $model)
 		{
-			$key = $model->getKey();
+			$key = $model->getAttribute($this->localKey);
 
 			if (isset($dictionary[$key]))
 			{
@@ -158,7 +163,7 @@ abstract class HasOneOrMany extends Relation {
 	 */
 	public function save(Model $model)
 	{
-		$model->setAttribute($this->getPlainForeignKey(), $this->parent->getKey());
+		$model->setAttribute($this->getPlainForeignKey(), $this->getParentKey());
 
 		return $model->save() ? $model : false;
 	}
@@ -185,7 +190,7 @@ abstract class HasOneOrMany extends Relation {
 	public function create(array $attributes)
 	{
 		$foreign = array(
-			$this->getPlainForeignKey() => $this->parent->getKey()
+			$this->getPlainForeignKey() => $this->getParentKey(),
 		);
 
 		// Here we will set the raw attributes to avoid hitting the "fill" method so
@@ -235,6 +240,16 @@ abstract class HasOneOrMany extends Relation {
 	}
 
 	/**
+	 * Get the key for comparing against the pareny key in "has" query.
+	 *
+	 * @return string
+	 */
+	public function getHasCompareKey()
+	{
+		return $this->getForeignKey();
+	}
+
+	/**
 	 * Get the foreign key for the relationship.
 	 *
 	 * @return string
@@ -254,6 +269,26 @@ abstract class HasOneOrMany extends Relation {
 		$segments = explode('.', $this->getForeignKey());
 
 		return $segments[count($segments) - 1];
+	}
+
+	/**
+	 * Get the key value of the paren's local key.
+	 *
+	 * @return mixed
+	 */
+	protected function getParentKey()
+	{
+		return $this->parent->getAttribute($this->localKey);
+	}
+
+	/**
+	 * Get the fully qualified parent key naem.
+	 *
+	 * @return string
+	 */
+	protected function getQualifiedParentKeyName()
+	{
+		return $this->parent->getTable().'.'.$this->localKey;
 	}
 
 }

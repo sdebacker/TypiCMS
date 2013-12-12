@@ -123,7 +123,7 @@ class HtmlBuilder {
 	{
 		$url = $this->url->to($url, array(), $secure);
 
-		if (is_null($title) or $title === false) $title = $url;
+		if (is_null($title) || $title === false) $title = $url;
 
 		return '<a href="'.$url.'"'.$this->attributes($attributes).'>'.$this->entities($title).'</a>';
 	}
@@ -395,6 +395,8 @@ class HtmlBuilder {
 	 * @param  string  $method
 	 * @param  array   $parameters
 	 * @return mixed
+	 *
+	 * @throws \BadMethodCallException
 	 */
 	public function __call($method, $parameters)
 	{

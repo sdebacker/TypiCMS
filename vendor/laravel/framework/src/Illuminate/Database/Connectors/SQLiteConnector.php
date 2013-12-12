@@ -5,8 +5,10 @@ class SQLiteConnector extends Connector implements ConnectorInterface {
 	/**
 	 * Establish a database connection.
 	 *
-	 * @param  array  $options
+	 * @param  array  $config
 	 * @return PDO
+	 *
+	 * @throws \InvalidArgumentException
 	 */
 	public function connect(array $config)
 	{

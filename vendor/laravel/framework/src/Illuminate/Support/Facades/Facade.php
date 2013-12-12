@@ -93,7 +93,7 @@ abstract class Facade {
 	{
 		$name = static::getFacadeAccessor();
 
-		return isset(static::$resolvedInstance[$name]) and static::$resolvedInstance[$name] instanceof MockInterface;
+		return isset(static::$resolvedInstance[$name]) && static::$resolvedInstance[$name] instanceof MockInterface;
 	}
 
 	/**
@@ -120,6 +120,8 @@ abstract class Facade {
 	 * Get the registered name of the component.
 	 *
 	 * @return string
+	 *
+	 * @throws \RuntimeException
 	 */
 	protected static function getFacadeAccessor()
 	{

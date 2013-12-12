@@ -36,9 +36,9 @@ class ViewServiceProvider extends ServiceProvider {
 	 */
 	public function registerEngineResolver()
 	{
-		list($me, $app) = array($this, $this->app);
+		$me = $this;
 
-		$app['view.engine.resolver'] = $app->share(function($app) use ($me)
+		$this->app->bindShared('view.engine.resolver', function($app) use ($me)
 		{
 			$resolver = new EngineResolver;
 
@@ -75,16 +75,19 @@ class ViewServiceProvider extends ServiceProvider {
 	{
 		$app = $this->app;
 
-		$resolver->register('blade', function() use ($app)
+		// The Compiler engine requires an instance of the CompilerInterface, which in
+		// this case will be the Blade compiler, so we'll first create the compiler
+		// instance to pass into the engine so it can compile the views properly.
+		$app->bindShared('blade.compiler', function($app)
 		{
 			$cache = $app['path.storage'].'/views';
 
-			// The Compiler engine requires an instance of the CompilerInterface, which in
-			// this case will be the Blade compiler, so we'll first create the compiler
-			// instance to pass into the engine so it can compile the views properly.
-			$compiler = new BladeCompiler($app['files'], $cache);
+			return new BladeCompiler($app['files'], $cache);
+		});
 
-			return new CompilerEngine($compiler, $app['files']);
+		$resolver->register('blade', function() use ($app)
+		{
+			return new CompilerEngine($app['blade.compiler'], $app['files']);
 		});
 	}
 
@@ -95,7 +98,7 @@ class ViewServiceProvider extends ServiceProvider {
 	 */
 	public function registerViewFinder()
 	{
-		$this->app['view.finder'] = $this->app->share(function($app)
+		$this->app->bindShared('view.finder', function($app)
 		{
 			$paths = $app['config']['view.paths'];
 
@@ -110,7 +113,7 @@ class ViewServiceProvider extends ServiceProvider {
 	 */
 	public function registerEnvironment()
 	{
-		$this->app['view'] = $this->app->share(function($app)
+		$this->app->bindShared('view', function($app)
 		{
 			// Next we need to grab the engine resolver instance that will be used by the
 			// environment. The resolver will be used by an environment to get each of
@@ -173,7 +176,7 @@ class ViewServiceProvider extends ServiceProvider {
 	{
 		$config = $app['config']['session'];
 
-		if (isset($app['session.store']) and ! is_null($config['driver']))
+		if (isset($app['session.store']) && ! is_null($config['driver']))
 		{
 			return $app['session.store']->has('errors');
 		}

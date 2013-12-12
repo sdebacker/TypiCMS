@@ -12,27 +12,27 @@
     "require": {
         "php": ">=5.3.0",
         "classpreloader/classpreloader": "1.0.*",
-        "doctrine/dbal": "2.4.*",
+        "d11wtq/boris": "1.0.*",
         "ircmaxell/password-compat": "1.0.*",
-        "filp/whoops": "1.0.7",
+        "filp/whoops": "1.0.9",
         "jeremeamia/superclosure": "1.0.*",
         "monolog/monolog": "1.*",
         "nesbot/carbon": "1.*",
         "patchwork/utf8": "1.1.*",
+        "phpseclib/phpseclib": "0.3.*",
         "predis/predis": "0.8.*",
+        "stack/builder": "1.0.*",
         "swiftmailer/swiftmailer": "5.0.*",
-        "symfony/browser-kit": "2.3.*",
-        "symfony/console": "2.3.*",
-        "symfony/css-selector": "2.3.*",
-        "symfony/debug": "2.3.*",
-        "symfony/dom-crawler": "2.3.*",
-        "symfony/event-dispatcher": "2.3.*",
-        "symfony/finder": "2.3.*",
-        "symfony/http-foundation": "2.3.*",
-        "symfony/http-kernel": "2.3.*",
-        "symfony/process": "2.3.*",
-        "symfony/routing": "2.3.*",
-        "symfony/translation": "2.3.*"
+        "symfony/browser-kit": "2.4.*",
+        "symfony/console": "2.4.*",
+        "symfony/css-selector": "2.4.*",
+        "symfony/debug": "2.4.*",
+        "symfony/dom-crawler": "2.4.*",
+        "symfony/finder": "2.4.*",
+        "symfony/http-foundation": "2.4.*",
+        "symfony/http-kernel": "2.4.*",
+        "symfony/process": "2.4.*",
+        "symfony/translation": "2.4.*"
     },
     "replace": {
         "illuminate/auth": "self.version",
@@ -74,17 +74,20 @@
         "classmap": [
             ["src/Illuminate/Queue/IlluminateQueueClosure.php"]
         ],
-    	"files": [
+        "files": [
             "src/Illuminate/Support/helpers.php"
-    	],
+        ],
         "psr-0": {
             "Illuminate": "src/"
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.0-dev"
+            "dev-master": "4.1-dev"
         }
+    },
+    "suggest": {
+        "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
     },
     "minimum-stability": "dev"
 }

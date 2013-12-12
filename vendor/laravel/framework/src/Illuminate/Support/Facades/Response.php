@@ -114,12 +114,14 @@ class Response {
 	 * @param  string  $method
 	 * @param  array  $parameters
 	 * @return mixed
+	 *
+	 * @throws \BadMethodCallException
 	 */
 	public static function __callStatic($method, $parameters)
 	{
 		if (isset(static::$macros[$method]))
 		{
-			return call_user_func_array(static::$macros[$method], func_get_args());
+			return call_user_func_array(static::$macros[$method], $parameters);
 		}
 
 		throw new \BadMethodCallException("Call to undefined method $method");

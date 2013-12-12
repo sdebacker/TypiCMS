@@ -56,6 +56,23 @@ class Writer {
 	}
 
 	/**
+	 * Call Monolog with the given method and parameters.
+	 *
+	 * @param  string  $method
+	 * @param  array  $parameters
+	 * @return mixed
+	 */
+	protected function callMonolog($method, $parameters)
+	{
+		if (is_array($parameters[0]))
+		{
+			$parameters[0] = json_encode($parameters[0]);
+		}
+
+		return call_user_func_array(array($this->monolog, $method), $parameters);
+	}
+
+	/**
 	 * Register a file log handler.
 	 *
 	 * @param  string  $path
@@ -89,6 +106,8 @@ class Writer {
 	 *
 	 * @param  string  $level
 	 * @return int
+	 *
+	 * @throws \InvalidArgumentException
 	 */
 	protected function parseLevel($level)
 	{
@@ -124,21 +143,13 @@ class Writer {
 	}
 
 	/**
-	 * Get the underlying Monolog instance.
-	 *
-	 * @return \Monolog\Logger
-	 */
-	public function getMonolog()
-	{
-		return $this->monolog;
-	}
-
-	/**
 	 * Register a new callback handler for when
 	 * a log event is triggered.
 	 *
 	 * @param  Closure  $callback
 	 * @return void
+	 *
+	 * @throws \RuntimeException
 	 */
 	public function listen(Closure $callback)
 	{
@@ -148,6 +159,16 @@ class Writer {
 		}
 
 		$this->dispatcher->listen('illuminate.log', $callback);
+	}
+
+	/**
+	 * Get the underlying Monolog instance.
+	 *
+	 * @return \Monolog\Logger
+	 */
+	public function getMonolog()
+	{
+		return $this->monolog;
 	}
 
 	/**
@@ -195,6 +216,8 @@ class Writer {
 	 * @param  string  $method
 	 * @param  array   $parameters
 	 * @return mixed
+	 *
+	 * @throws \BadMethodCallException
 	 */
 	public function __call($method, $parameters)
 	{
@@ -204,7 +227,7 @@ class Writer {
 
 			$method = 'add'.ucfirst($method);
 
-			return call_user_func_array(array($this->monolog, $method), $parameters);
+			return $this->callMonolog($method, $parameters);
 		}
 
 		throw new \BadMethodCallException("Method [$method] does not exist.");

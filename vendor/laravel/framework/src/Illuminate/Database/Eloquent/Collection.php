@@ -13,6 +13,11 @@ class Collection extends BaseCollection {
 	 */
 	public function find($key, $default = null)
 	{
+		if ($key instanceof Model)
+		{
+			$key = $key->getKey();
+		}
+
 		return array_first($this->items, function($itemKey, $model) use ($key)
 		{
 			return $model->getKey() == $key;
@@ -85,7 +90,7 @@ class Collection extends BaseCollection {
 	{
 		return $this->reduce(function($result, $item) use ($key)
 		{
-			return (is_null($result) or $item->{$key} > $result) ? $item->{$key} : $result;
+			return (is_null($result) || $item->{$key} > $result) ? $item->{$key} : $result;
 		});
 	}
 
@@ -99,7 +104,7 @@ class Collection extends BaseCollection {
 	{
 		return $this->reduce(function($result, $item) use ($key)
 		{
-			return (is_null($result) or $item->{$key} < $result) ? $item->{$key} : $result;
+			return (is_null($result) || $item->{$key} < $result) ? $item->{$key} : $result;
 		});
 	}
 
@@ -111,6 +116,100 @@ class Collection extends BaseCollection {
 	public function modelKeys()
 	{
 		return array_map(function($m) { return $m->getKey(); }, $this->items);
+	}
+
+	/**
+	 * Merge the collection with the given items.
+	 *
+	 * @param  \Illuminate\Support\Collection|\Illuminate\Support\Contracts\ArrayableInterface|array  $items
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function merge($collection)
+	{
+		$dictionary = $this->getDictionary($this);
+
+		foreach ($collection as $item)
+		{
+			$dictionary[$item->getKey()] = $item;
+		}
+
+		return new static(array_values($dictionary));
+	}
+
+	/**
+	 * Diff the collection with the given items.
+	 *
+	 * @param  \Illuminate\Support\Collection|\Illuminate\Support\Contracts\ArrayableInterface|array  $items
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function diff($collection)
+	{
+		$diff = new static;
+
+		$dictionary = $this->getDictionary($collection);
+
+		foreach ($this->items as $item)
+		{
+			if ( ! isset($dictionary[$item->getKey()]))
+			{
+				$diff->add($item);
+			}
+		}
+
+		return $diff;
+	}
+
+	/**
+	 * Intersect the collection with the given items.
+	 *
+ 	 * @param  \Illuminate\Support\Collection|\Illuminate\Support\Contracts\ArrayableInterface|array  $items
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function intersect($collection)
+	{
+		$intersect = new static;
+
+		$dictionary = $this->getDictionary($collection);
+
+		foreach ($this->items as $item)
+		{
+			if (isset($dictionary[$item->getKey()]))
+			{
+				$intersect->add($item);
+			}
+		}
+
+		return $intersect;
+	}
+
+	/**
+	 * Return only unique items from the collection.
+	 *
+	 * @return \Illuminate\Support\Collection
+	 */
+	public function unique()
+	{
+		$dictionary = $this->getDictionary($this);
+
+		return new static(array_values($dictionary));
+	}
+
+	/*
+	 * Get a dictionary keyed by primary keys.
+	 *
+	 * @param  \Illuminate\Support\Collection  $collection
+	 * @return array
+	 */
+	protected function getDictionary($collection)
+	{
+		$dictionary = array();
+
+		foreach ($collection as $value)
+		{
+			$dictionary[$value->getKey()] = $value;
+		}
+
+		return $dictionary;
 	}
 
 }

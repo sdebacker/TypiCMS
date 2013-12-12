@@ -26,7 +26,7 @@ error_reporting(-1);
 
 if ( ! extension_loaded('mcrypt'))
 {
-	die('Laravel requires the Mcrypt PHP extension.'.PHP_EOL);
+	echo 'Mcrypt PHP extension required.'.PHP_EOL;
 
 	exit(1);
 }
@@ -103,9 +103,11 @@ Facade::setFacadeApplication($app);
 |
 */
 
-$config = new Config($app->getConfigLoader(), $env);
+$app->instance('config', $config = new Config(
 
-$app->instance('config', $config);
+	$app->getConfigLoader(), $env
+
+));
 
 /*
 |--------------------------------------------------------------------------
@@ -121,22 +123,6 @@ $app->instance('config', $config);
 $app->startExceptionHandling();
 
 if ($env != 'testing') ini_set('display_errors', 'Off');
-
-/*
-|--------------------------------------------------------------------------
-| Set The Console Request If Necessary
-|--------------------------------------------------------------------------
-|
-| If we're running in a console context, we won't have a host on this
-| request so we'll need to re-bind a new request with a URL from a
-| configuration file. This will help the URL generator generate.
-|
-*/
-
-if ($app->runningInConsole())
-{
-	$app->setRequestForConsoleEnvironment();
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -164,7 +150,9 @@ date_default_timezone_set($config['timezone']);
 |
 */
 
-AliasLoader::getInstance($config['aliases'])->register();
+$aliases = $config['aliases'];
+
+AliasLoader::getInstance($aliases)->register();
 
 /*
 |--------------------------------------------------------------------------
@@ -196,16 +184,17 @@ $app->getProviderRepository()->load($app, $providers);
 
 /*
 |--------------------------------------------------------------------------
-| Boot The Application
+| Register Booted Start Files
 |--------------------------------------------------------------------------
 |
-| Before we handle the requests we need to make sure the application has
-| been booted up. The boot process will call the "boot" method on all
-| service provider giving all a chance to register their overrides.
+| Once the application has been booted there are several "start" files
+| we will want to include. We'll register our "booted" handler here
+| so the files are included after the application gets booted up.
 |
 */
 
-$app->boot();
+$app->booted(function() use ($app, $env)
+{
 
 /*
 |--------------------------------------------------------------------------
@@ -248,7 +237,8 @@ if (file_exists($path)) require $path;
 |
 */
 
-if (file_exists($path = $app['path'].'/routes.php'))
-{
-	require $path;
-}
+$routes = $app['path'].'/routes.php';
+
+if (file_exists($routes)) require $routes;
+
+});

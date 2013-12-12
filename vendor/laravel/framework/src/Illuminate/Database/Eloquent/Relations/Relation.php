@@ -1,8 +1,6 @@
 <?php namespace Illuminate\Database\Eloquent\Relations;
 
 use Closure;
-use DateTime;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\Expression;
@@ -138,9 +136,9 @@ abstract class Relation {
 	{
 		$query->select(new Expression('count(*)'));
 
-		$key = $this->wrap($this->parent->getQualifiedKeyName());
+		$key = $this->wrap($this->getQualifiedParentKeyName());
 
-		return $query->where($this->getForeignKey(), '=', new Expression($key));
+		return $query->where($this->getHasCompareKey(), '=', new Expression($key));
 	}
 
 	/**
@@ -206,6 +204,16 @@ abstract class Relation {
 	public function getParent()
 	{
 		return $this->parent;
+	}
+
+	/**
+	 * Get the fully qualified parent key naem.
+	 *
+	 * @return string
+	 */
+	protected function getQualifiedParentKeyName()
+	{
+		return $this->parent->getQualifiedKeyName();
 	}
 
 	/**

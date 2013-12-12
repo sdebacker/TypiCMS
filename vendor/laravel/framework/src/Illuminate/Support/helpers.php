@@ -6,13 +6,12 @@ if ( ! function_exists('action'))
 	 * Generate a URL to a controller action.
 	 *
 	 * @param  string  $name
-	 * @param  string  $parameters
-	 * @param  bool    $absolute
+	 * @param  array   $parameters
 	 * @return string
 	 */
-	function action($name, $parameters = array(), $absolute = true)
+	function action($name, $parameters = array())
 	{
-		return app('url')->action($name, $parameters, $absolute);
+		return app('url')->action($name, $parameters);
 	}
 }
 
@@ -199,6 +198,22 @@ if ( ! function_exists('array_first'))
 	}
 }
 
+if ( ! function_exists('array_last'))
+{
+	/**
+	 * Return the last element in an array passing a given truth test.
+	 *
+	 * @param  array    $array
+	 * @param  Closure  $callback
+	 * @param  mixed    $default
+	 * @return mixed
+	 */
+	function array_last($array, $callback, $default = null)
+	{
+		return array_first(array_reverse($array), $callback, $default);
+	}
+}
+
 if ( ! function_exists('array_flatten'))
 {
 	/**
@@ -234,7 +249,7 @@ if ( ! function_exists('array_forget'))
 		{
 			$key = array_shift($keys);
 
-			if ( ! isset($array[$key]) or ! is_array($array[$key]))
+			if ( ! isset($array[$key]) || ! is_array($array[$key]))
 			{
 				return;
 			}
@@ -264,7 +279,7 @@ if ( ! function_exists('array_get'))
 
 		foreach (explode('.', $key) as $segment)
 		{
-			if ( ! is_array($array) or ! array_key_exists($segment, $array))
+			if ( ! is_array($array) || ! array_key_exists($segment, $array))
 			{
 				return value($default);
 			}
@@ -372,7 +387,7 @@ if ( ! function_exists('array_set'))
 			// If the key doesn't exist at this depth, we will just create an empty array
 			// to hold the next value, allowing us to create the arrays to hold final
 			// values at the correct depth. Then we'll keep digging into the array.
-			if ( ! isset($array[$key]) or ! is_array($array[$key]))
+			if ( ! isset($array[$key]) || ! is_array($array[$key]))
 			{
 				$array[$key] = array();
 			}
@@ -398,6 +413,28 @@ if ( ! function_exists('array_sort'))
 	function array_sort($array, Closure $callback)
 	{
 		return Illuminate\Support\Collection::make($array)->sortBy($callback)->all();
+	}
+}
+
+if ( ! function_exists('array_where'))
+{
+	/**
+	 * Filter the array using the given Closure.
+	 *
+	 * @param  array  $array
+	 * @param  \Closure  $callback
+	 * @return array
+	 */
+	function array_where($array, Closure $callback)
+	{
+		$filtered = array();
+
+		foreach ($array as $key => $value)
+		{
+			if (call_user_func($callback, $key, $value)) $filtered[$key] = $value;
+		}
+
+		return $filtered;
 	}
 }
 
@@ -465,6 +502,8 @@ if ( ! function_exists('csrf_token'))
 	 * Get the CSRF token value.
 	 *
 	 * @return string
+	 *
+	 * @throws RuntimeException
 	 */
 	function csrf_token()
 	{
@@ -636,7 +675,7 @@ if ( ! function_exists('object_get'))
 
 		foreach (explode('.', $key) as $segment)
 		{
-			if ( ! is_object($object) or ! isset($object->{$segment}))
+			if ( ! is_object($object) || ! isset($object->{$segment}))
 			{
 				return value($default);
 			}
@@ -688,12 +727,11 @@ if ( ! function_exists('route'))
 	 *
 	 * @param  string  $route
 	 * @param  string  $parameters
-	 * @param  bool    $absolute
 	 * @return string
 	 */
-	function route($route, $parameters = array(), $absolute = true)
+	function route($route, $parameters = array())
 	{
-		return app('url')->route($route, $parameters, $absolute);
+		return app('url')->route($route, $parameters);
 	}
 }
 
@@ -842,6 +880,27 @@ if ( ! function_exists('str_random'))
 	function str_random($length = 16)
 	{
 		return Illuminate\Support\Str::random($length);
+	}
+}
+
+if ( ! function_exists('str_replace_array'))
+{
+	/**
+	 * Replace a given value in the string sequentially with an array.
+	 *
+	 * @param  string  $search
+	 * @param  array  $replace
+	 * @param  string  $subject
+	 * @return string
+	 */
+	function str_replace_array($search, array $replace, $subject)
+	{
+		foreach ($replace as $value)
+		{
+			$subject = preg_replace('/'.$search.'/', $value, $subject, 1);
+		}
+
+		return $subject;
 	}
 }
 

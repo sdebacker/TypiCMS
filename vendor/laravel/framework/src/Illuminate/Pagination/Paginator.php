@@ -74,6 +74,13 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	protected $query = array();
 
 	/**
+	 * The fragment to be appended to all URLs.
+	 *
+	 * @var string
+	 */
+	protected $fragment;
+
+	/**
 	 * Create a new Paginator instance.
 	 *
 	 * @param  \Illuminate\Pagination\Environment  $env
@@ -141,7 +148,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 		// The page number will get validated and adjusted if it either less than one
 		// or greater than the last page available based on the count of the given
 		// items array. If it's greater than the last, we'll give back the last.
-		if (is_numeric($page) and $page > $lastPage)
+		if (is_numeric($page) && $page > $lastPage)
 		{
 			return $lastPage > 0 ? $lastPage : 1;
 		}
@@ -157,17 +164,18 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	 */
 	protected function isValidPageNumber($page)
 	{
-		return $page >= 1 and filter_var($page, FILTER_VALIDATE_INT) !== false;
+		return $page >= 1 && filter_var($page, FILTER_VALIDATE_INT) !== false;
 	}
 
 	/**
 	 * Get the pagination links view.
 	 *
+	 * @param  string  $view
 	 * @return \Illuminate\View\View
 	 */
-	public function links()
+	public function links($view = null)
 	{
-		return $this->env->getPaginationView($this);
+		return $this->env->getPaginationView($this, $view);
 	}
 
 	/**
@@ -190,7 +198,32 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 			$parameters = array_merge($parameters, $this->query);
 		}
 
-		return $this->env->getCurrentUrl().'?'.http_build_query($parameters, null, '&');
+		$fragment = $this->buildFragment();
+
+		return $this->env->getCurrentUrl().'?'.http_build_query($parameters, null, '&').$fragment;
+	}
+
+	/**
+	 * Get / set the URL fragment to be appended to URLs.
+	 *
+	 * @param  string|null  $fragment
+	 * @return \Illuminate\Pagination\Paginator|string
+	 */
+	public function fragment($fragment = null)
+	{
+		if (is_null($fragment)) return $this->fragment;
+
+		$this->fragment = $fragment; return $this;
+	}
+
+	/**
+	 * Build the full fragment portion of a URL.
+	 *
+	 * @return string
+	 */
+	protected function buildFragment()
+	{
+		return $this->fragment ? '#'.$this->fragment : '';
 	}
 
 	/**
@@ -440,7 +473,7 @@ class Paginator implements ArrayableInterface, ArrayAccess, Countable, IteratorA
 	public function toArray()
 	{
 		return array(
-			'total' => $this->total, 'per_page' => $this->perPage, 
+			'total' => $this->total, 'per_page' => $this->perPage,
 			'current_page' => $this->currentPage, 'last_page' => $this->lastPage,
 			'from' => $this->from, 'to' => $this->to, 'data' => $this->getCollection()->toArray(),
 		);
