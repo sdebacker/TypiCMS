@@ -70,7 +70,7 @@ class Helpers {
 	 */
 	public static function getAdminUrl()
 	{
-		$routeArray = explode('.', Route::currentRouteName());
+		$routeArray = explode('.', Route::current()->getName());
 
 		$module = isset($routeArray[1]) ? $routeArray[1] : 'pages' ;
 

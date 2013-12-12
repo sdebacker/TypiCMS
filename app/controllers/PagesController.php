@@ -35,9 +35,7 @@ class PagesController extends BaseController {
 	 */
 	public function uri()
 	{
-		$pathArray = explode('.', Route::currentRouteName());
-		// Laravel 4.1 : 
-		// $pathArray = explode('.', Route::current()->getName());
+		$pathArray = explode('.', Route::current()->getName());
 		
 		$pageId = array_pop($pathArray);
 		$this->show($pageId);
