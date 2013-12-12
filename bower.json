@@ -10,6 +10,6 @@
     "bootstrap3-datetimepicker": "~2.1.*",
     "fancybox": "~2.1.*",
     "flexslider": "*",
-    "select2": "~3.4.5"
+    "select2": "~3.4.*"
   }
 }
