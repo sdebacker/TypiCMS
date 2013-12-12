@@ -23,7 +23,7 @@
 
 		<div class="btn-toolbar"></div>
 
-		{{ Former::vertical_open_for_files()->route('admin.files.upload')->class('thumbnail thumbnail-dropzone')->id('uploader') }}
+		{{ Former::vertical_open_for_files()->action(route('admin.files.upload'))->class('thumbnail thumbnail-dropzone')->id('uploader') }}
 			@foreach (Config::get('app.locales') as $locale)
 				{{ Former::hidden($locale.'[alt_attribute]')->value(''); }}
 				{{ Former::hidden($locale.'[status]')->value(1); }}
