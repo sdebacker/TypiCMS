@@ -90,51 +90,6 @@
         ]
     },
     {
-        "name": "anahkiasen/underscore-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Anahkiasen/underscore-php.git",
-            "reference": "049a491701a2ee1c15f82f4c502bbe87671d1619"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/049a491701a2ee1c15f82f4c502bbe87671d1619",
-            "reference": "049a491701a2ee1c15f82f4c502bbe87671d1619",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "~4",
-            "patchwork/utf8": "1.1.*",
-            "php": ">=5.3.0"
-        },
-        "time": "2013-07-15 09:18:39",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Underscore": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Fabre",
-                "email": "ehtnam6@gmail.com"
-            }
-        ],
-        "description": "A redacted port of Underscore.js for PHP",
-        "keywords": [
-            "internals",
-            "laravel",
-            "toolkit"
-        ]
-    },
-    {
         "name": "jwage/easy-csv",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -608,12 +563,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "5ad421d6a1d5d7066a45b617e5164d309c4e2852"
+            "reference": "c9db00f8821b2cc7238732529f8d4007296a630c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5ad421d6a1d5d7066a45b617e5164d309c4e2852",
-            "reference": "5ad421d6a1d5d7066a45b617e5164d309c4e2852",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c9db00f8821b2cc7238732529f8d4007296a630c",
+            "reference": "c9db00f8821b2cc7238732529f8d4007296a630c",
             "shasum": ""
         },
         "require": {
@@ -637,7 +592,7 @@
             "raven/raven": "Allow sending log messages to a Sentry server",
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
         },
-        "time": "2013-12-02 09:38:32",
+        "time": "2013-12-14 13:52:08",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1116,53 +1071,6 @@
         ]
     },
     {
-        "name": "barryvdh/laravel-debugbar",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd",
-            "reference": "710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "~4.0",
-            "maximebf/debugbar": "dev-master",
-            "php": ">=5.3.0"
-        },
-        "time": "2013-12-02 13:48:03",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Barryvdh\\Debugbar": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Barry vd. Heuvel",
-                "email": "barryvdh@gmail.com"
-            }
-        ],
-        "description": "PHP Debugbar integration for Laravel",
-        "keywords": [
-            "debug",
-            "debugbar",
-            "laravel",
-            "profiler",
-            "webprofiler"
-        ]
-    },
-    {
         "name": "ink/ink-translatable",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -1455,55 +1363,6 @@
             }
         ],
         "description": "Image thumbnail creation through specially formatted URLs for Laravel"
-    },
-    {
-        "name": "predis/predis",
-        "version": "0.8.x-dev",
-        "version_normalized": "0.8.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nrk/predis.git",
-            "reference": "09cb6677e241feecb165f417e1b3ea9709e1b173"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nrk/predis/zipball/09cb6677e241feecb165f417e1b3ea9709e1b173",
-            "reference": "09cb6677e241feecb165f417e1b3ea9709e1b173",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "suggest": {
-            "ext-curl": "Allows access to Webdis when paired with phpiredis",
-            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
-        },
-        "time": "2013-12-11 12:10:05",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Predis": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Daniele Alessandri",
-                "email": "suppakilla@gmail.com",
-                "homepage": "http://clorophilla.net"
-            }
-        ],
-        "description": "Flexible and feature-complete PHP client library for Redis",
-        "homepage": "http://github.com/nrk/predis",
-        "keywords": [
-            "nosql",
-            "predis",
-            "redis"
-        ]
     },
     {
         "name": "symfony/translation",
@@ -2494,18 +2353,63 @@
         ]
     },
     {
+        "name": "anahkiasen/underscore-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Anahkiasen/underscore-php.git",
+            "reference": "735759486fa1128420d601065dc6f7af07d6b8cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/735759486fa1128420d601065dc6f7af07d6b8cb",
+            "reference": "735759486fa1128420d601065dc6f7af07d6b8cb",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~4",
+            "patchwork/utf8": "1.1.*",
+            "php": ">=5.3.0"
+        },
+        "time": "2013-12-14 14:27:47",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Underscore": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Fabre",
+                "email": "ehtnam6@gmail.com"
+            }
+        ],
+        "description": "A redacted port of Underscore.js for PHP",
+        "keywords": [
+            "internals",
+            "laravel",
+            "toolkit"
+        ]
+    },
+    {
         "name": "laravel/framework",
         "version": "4.1.x-dev",
         "version_normalized": "4.1.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "3fd582baec0ae8b7f208923e03a2b18ca6ee58ed"
+            "reference": "4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/3fd582baec0ae8b7f208923e03a2b18ca6ee58ed",
-            "reference": "3fd582baec0ae8b7f208923e03a2b18ca6ee58ed",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e",
+            "reference": "4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e",
             "shasum": ""
         },
         "require": {
@@ -2573,7 +2477,7 @@
         "suggest": {
             "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
         },
-        "time": "2013-12-13 17:15:07",
+        "time": "2013-12-13 18:42:36",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2610,6 +2514,102 @@
         "keywords": [
             "framework",
             "laravel"
+        ]
+    },
+    {
+        "name": "barryvdh/laravel-debugbar",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/barryvdh/laravel-debugbar.git",
+            "reference": "03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97",
+            "reference": "03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~4.0",
+            "maximebf/debugbar": "dev-master",
+            "php": ">=5.3.0"
+        },
+        "time": "2013-12-15 19:55:07",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Barryvdh\\Debugbar": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Barry vd. Heuvel",
+                "email": "barryvdh@gmail.com"
+            }
+        ],
+        "description": "PHP Debugbar integration for Laravel",
+        "keywords": [
+            "debug",
+            "debugbar",
+            "laravel",
+            "profiler",
+            "webprofiler"
+        ]
+    },
+    {
+        "name": "predis/predis",
+        "version": "0.8.x-dev",
+        "version_normalized": "0.8.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nrk/predis.git",
+            "reference": "87ca5a1a49737e15c1b4b429f7a21a5682bb62f7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/87ca5a1a49737e15c1b4b429f7a21a5682bb62f7",
+            "reference": "87ca5a1a49737e15c1b4b429f7a21a5682bb62f7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "suggest": {
+            "ext-curl": "Allows access to Webdis when paired with phpiredis",
+            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+        },
+        "time": "2013-12-16 10:45:50",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Predis": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniele Alessandri",
+                "email": "suppakilla@gmail.com",
+                "homepage": "http://clorophilla.net"
+            }
+        ],
+        "description": "Flexible and feature-complete PHP client library for Redis",
+        "homepage": "http://github.com/nrk/predis",
+        "keywords": [
+            "nosql",
+            "predis",
+            "redis"
         ]
     }
 ]

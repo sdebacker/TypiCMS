@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/underscore-php.git",
-                "reference": "049a491701a2ee1c15f82f4c502bbe87671d1619"
+                "reference": "735759486fa1128420d601065dc6f7af07d6b8cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/049a491701a2ee1c15f82f4c502bbe87671d1619",
-                "reference": "049a491701a2ee1c15f82f4c502bbe87671d1619",
+                "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/735759486fa1128420d601065dc6f7af07d6b8cb",
+                "reference": "735759486fa1128420d601065dc6f7af07d6b8cb",
                 "shasum": ""
             },
             "require": {
@@ -142,7 +142,7 @@
                 "laravel",
                 "toolkit"
             ],
-            "time": "2013-07-15 09:18:39"
+            "time": "2013-12-14 14:27:47"
         },
         {
             "name": "aws/aws-sdk-php",
@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd"
+                "reference": "03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd",
-                "reference": "710ba0b11b05d6c8fbeb3780c480ba178bbd8fcd",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97",
+                "reference": "03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97",
                 "shasum": ""
             },
             "require": {
@@ -255,7 +255,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2013-12-02 13:48:03"
+            "time": "2013-12-15 19:55:07"
         },
         {
             "name": "bkwld/croppa",
@@ -956,12 +956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3fd582baec0ae8b7f208923e03a2b18ca6ee58ed"
+                "reference": "4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3fd582baec0ae8b7f208923e03a2b18ca6ee58ed",
-                "reference": "3fd582baec0ae8b7f208923e03a2b18ca6ee58ed",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e",
+                "reference": "4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e",
                 "shasum": ""
             },
             "require": {
@@ -1065,7 +1065,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-12-13 17:15:07"
+            "time": "2013-12-13 18:42:36"
         },
         {
             "name": "maximebf/debugbar",
@@ -1168,12 +1168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "5ad421d6a1d5d7066a45b617e5164d309c4e2852"
+                "reference": "c9db00f8821b2cc7238732529f8d4007296a630c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5ad421d6a1d5d7066a45b617e5164d309c4e2852",
-                "reference": "5ad421d6a1d5d7066a45b617e5164d309c4e2852",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c9db00f8821b2cc7238732529f8d4007296a630c",
+                "reference": "c9db00f8821b2cc7238732529f8d4007296a630c",
                 "shasum": ""
             },
             "require": {
@@ -1227,7 +1227,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-12-02 09:38:32"
+            "time": "2013-12-14 13:52:08"
         },
         {
             "name": "nesbot/carbon",
@@ -1471,12 +1471,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "09cb6677e241feecb165f417e1b3ea9709e1b173"
+                "reference": "87ca5a1a49737e15c1b4b429f7a21a5682bb62f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/09cb6677e241feecb165f417e1b3ea9709e1b173",
-                "reference": "09cb6677e241feecb165f417e1b3ea9709e1b173",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/87ca5a1a49737e15c1b4b429f7a21a5682bb62f7",
+                "reference": "87ca5a1a49737e15c1b4b429f7a21a5682bb62f7",
                 "shasum": ""
             },
             "require": {
@@ -1510,7 +1510,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2013-12-11 12:10:05"
+            "time": "2013-12-16 10:45:50"
         },
         {
             "name": "psr/log",

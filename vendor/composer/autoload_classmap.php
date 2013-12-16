@@ -943,6 +943,7 @@ return array(
     'Barryvdh\\Debugbar\\DataCollector\\ViewCollector' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/DataCollector/ViewCollector.php',
     'Barryvdh\\Debugbar\\Facade' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/Facade.php',
     'Barryvdh\\Debugbar\\LaravelDebugbar' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/LaravelDebugBar.php',
+    'Barryvdh\\Debugbar\\Middleware' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/Middleware.php',
     'Barryvdh\\Debugbar\\ServiceProvider' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/ServiceProvider.php',
     'Barryvdh\\Debugbar\\SymfonyHttpDriver' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/SymfonyHttpDriver.php',
     'Bkwld\\Croppa\\Croppa' => $vendorDir . '/bkwld/croppa/src/Bkwld/Croppa/Croppa.php',
