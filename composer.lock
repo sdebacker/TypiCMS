@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "61eaf675b7de9ce8b2c6b44317b01e6818ea16c3"
+                "reference": "d66ffcf06d5f7a5d602798c75fab050b829dee14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/61eaf675b7de9ce8b2c6b44317b01e6818ea16c3",
-                "reference": "61eaf675b7de9ce8b2c6b44317b01e6818ea16c3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d66ffcf06d5f7a5d602798c75fab050b829dee14",
+                "reference": "d66ffcf06d5f7a5d602798c75fab050b829dee14",
                 "shasum": ""
             },
             "require": {
@@ -210,7 +210,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2013-12-12 19:35:51"
+            "time": "2013-12-20 01:44:45"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -218,17 +218,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97"
+                "reference": "076343bebcfa22831b61f542dfba6c867dc14264"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97",
-                "reference": "03f5e38bc6b4fd2a08eb535b5f57c67b1baf2c97",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/076343bebcfa22831b61f542dfba6c867dc14264",
+                "reference": "076343bebcfa22831b61f542dfba6c867dc14264",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "~4.0",
-                "maximebf/debugbar": "dev-master",
+                "maximebf/debugbar": "*",
                 "php": ">=5.3.0"
             },
             "type": "library",
@@ -255,7 +255,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2013-12-15 19:55:07"
+            "time": "2013-12-20 12:40:56"
         },
         {
             "name": "bkwld/croppa",
@@ -956,12 +956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e"
+                "reference": "4884222dc15c49719df476fb8070b4fff180b231"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e",
-                "reference": "4c7dd3c0eddc471b20bf57f7ea7789c2ecab248e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4884222dc15c49719df476fb8070b4fff180b231",
+                "reference": "4884222dc15c49719df476fb8070b4fff180b231",
                 "shasum": ""
             },
             "require": {
@@ -1065,7 +1065,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-12-13 18:42:36"
+            "time": "2013-12-19 02:01:12"
         },
         {
             "name": "maximebf/debugbar",
@@ -1073,12 +1073,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "2cdf83124f99e3e004e21243be2ceb3475f88597"
+                "reference": "f1dd126ec13ad912a9c3a1b9b4d27e16da182d38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/2cdf83124f99e3e004e21243be2ceb3475f88597",
-                "reference": "2cdf83124f99e3e004e21243be2ceb3475f88597",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/f1dd126ec13ad912a9c3a1b9b4d27e16da182d38",
+                "reference": "f1dd126ec13ad912a9c3a1b9b4d27e16da182d38",
                 "shasum": ""
             },
             "require": {
@@ -1115,7 +1115,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2013-11-20 16:53:21"
+            "time": "2013-12-19 22:23:19"
         },
         {
             "name": "mccool/database-backup",
@@ -1123,12 +1123,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ShawnMcCool/database-backup.git",
-                "reference": "d46caa756ba1dfa7fe51e01d5ee1691df93bf110"
+                "reference": "6e3994fecf8ba299870b9911ec70771110fddc0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ShawnMcCool/database-backup/zipball/d46caa756ba1dfa7fe51e01d5ee1691df93bf110",
-                "reference": "d46caa756ba1dfa7fe51e01d5ee1691df93bf110",
+                "url": "https://api.github.com/repos/ShawnMcCool/database-backup/zipball/6e3994fecf8ba299870b9911ec70771110fddc0c",
+                "reference": "6e3994fecf8ba299870b9911ec70771110fddc0c",
                 "shasum": ""
             },
             "require": {
@@ -1160,7 +1160,7 @@
                 }
             ],
             "description": "A framework-agnostic driver-based database backup package with a Laravel add-on.",
-            "time": "2013-11-10 14:21:13"
+            "time": "2013-12-18 14:58:42"
         },
         {
             "name": "monolog/monolog",
@@ -1377,12 +1377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "df8c3723aa0e575a3fccaf91acb79091d46bb2f3"
+                "reference": "0dc8b27a6a47c22a20efd7172fd71d88234869ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/df8c3723aa0e575a3fccaf91acb79091d46bb2f3",
-                "reference": "df8c3723aa0e575a3fccaf91acb79091d46bb2f3",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/0dc8b27a6a47c22a20efd7172fd71d88234869ca",
+                "reference": "0dc8b27a6a47c22a20efd7172fd71d88234869ca",
                 "shasum": ""
             },
             "require": {
@@ -1463,7 +1463,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2013-12-11 22:30:13"
+            "time": "2013-12-17 19:55:56"
         },
         {
             "name": "predis/predis",
@@ -1471,12 +1471,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "87ca5a1a49737e15c1b4b429f7a21a5682bb62f7"
+                "reference": "b45f87caf2aac0c9d84b35d60ccf4e8cc74c8dc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/87ca5a1a49737e15c1b4b429f7a21a5682bb62f7",
-                "reference": "87ca5a1a49737e15c1b4b429f7a21a5682bb62f7",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/b45f87caf2aac0c9d84b35d60ccf4e8cc74c8dc1",
+                "reference": "b45f87caf2aac0c9d84b35d60ccf4e8cc74c8dc1",
                 "shasum": ""
             },
             "require": {
@@ -1510,7 +1510,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2013-12-16 10:45:50"
+            "time": "2013-12-19 10:51:45"
         },
         {
             "name": "psr/log",
@@ -1875,12 +1875,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
-                "reference": "809495cca56a45e0df92b8d68764cf7d454b88c5"
+                "reference": "34ae881791b5efd8fd44fdc2b0e2ad1da20aa86b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/809495cca56a45e0df92b8d68764cf7d454b88c5",
-                "reference": "809495cca56a45e0df92b8d68764cf7d454b88c5",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/34ae881791b5efd8fd44fdc2b0e2ad1da20aa86b",
+                "reference": "34ae881791b5efd8fd44fdc2b0e2ad1da20aa86b",
                 "shasum": ""
             },
             "require": {
@@ -1919,7 +1919,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "http://symfony.com",
-            "time": "2013-12-03 14:52:22"
+            "time": "2013-12-17 13:01:50"
         },
         {
             "name": "symfony/event-dispatcher",
