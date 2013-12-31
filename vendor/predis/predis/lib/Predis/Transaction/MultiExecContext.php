@@ -101,8 +101,8 @@ class MultiExecContext implements BasicClientInterface, ExecutableContextInterfa
     /**
      * Checks is a flag is set.
      *
-     * @param  int     $flags Flag
-     * @return Boolean
+     * @param  int  $flags Flag
+     * @return bool
      */
     protected function checkState($flags)
     {
@@ -200,8 +200,8 @@ class MultiExecContext implements BasicClientInterface, ExecutableContextInterfa
     /**
      * Executes the specified Redis command.
      *
-     * @param  CommandInterface $command A Redis command.
-     * @return mixed
+     * @param CommandInterface $command Command instance.
+     * @return $this|mixed
      */
     public function executeCommand(CommandInterface $command)
     {
@@ -352,7 +352,7 @@ class MultiExecContext implements BasicClientInterface, ExecutableContextInterfa
                     $this->discard();
                 }
 
-                return;
+                return null;
             }
 
             $reply = $this->client->exec();

@@ -43,8 +43,8 @@ abstract class AbstractPubSubContext implements \Iterator
     /**
      * Checks if the specified flag is valid in the state of the context.
      *
-     * @param  int     $value Flag.
-     * @return Boolean
+     * @param  int  $value Flag.
+     * @return bool
      */
     protected function isFlagSet($value)
     {
@@ -54,9 +54,9 @@ abstract class AbstractPubSubContext implements \Iterator
     /**
      * Subscribes to the specified channels.
      *
-     * @param mixed $arg,... One or more channel names.
+     * @param mixed $channel,... One or more channel names.
      */
-    public function subscribe(/* arguments */)
+    public function subscribe($channel /*, ... */)
     {
         $this->writeCommand(self::SUBSCRIBE, func_get_args());
         $this->statusFlags |= self::STATUS_SUBSCRIBED;
@@ -65,9 +65,9 @@ abstract class AbstractPubSubContext implements \Iterator
     /**
      * Unsubscribes from the specified channels.
      *
-     * @param mixed $arg,... One or more channel names.
+     * @param string ... One or more channel names.
      */
-    public function unsubscribe(/* arguments */)
+    public function unsubscribe(/* ... */)
     {
         $this->writeCommand(self::UNSUBSCRIBE, func_get_args());
     }
@@ -75,9 +75,9 @@ abstract class AbstractPubSubContext implements \Iterator
     /**
      * Subscribes to the specified channels using a pattern.
      *
-     * @param mixed $arg,... One or more channel name patterns.
+     * @param mixed $pattern,... One or more channel name patterns.
      */
-    public function psubscribe(/* arguments */)
+    public function psubscribe($pattern /* ... */)
     {
         $this->writeCommand(self::PSUBSCRIBE, func_get_args());
         $this->statusFlags |= self::STATUS_PSUBSCRIBED;
@@ -86,9 +86,9 @@ abstract class AbstractPubSubContext implements \Iterator
     /**
      * Unsubscribes from the specified channels using a pattern.
      *
-     * @param mixed $arg,... One or more channel name patterns.
+     * @param string ... One or more channel name patterns.
      */
-    public function punsubscribe(/* arguments */)
+    public function punsubscribe(/* ... */)
     {
         $this->writeCommand(self::PUNSUBSCRIBE, func_get_args());
     }
@@ -98,8 +98,8 @@ abstract class AbstractPubSubContext implements \Iterator
      * Optionally, the context can be forcefully closed by dropping the
      * underlying connection.
      *
-     * @param  Boolean $force Forcefully close the context by closing the connection.
-     * @return Boolean Returns false if there are no pending messages.
+     * @param  bool $force Forcefully close the context by closing the connection.
+     * @return bool Returns false if there are no pending messages.
      */
     public function closeContext($force = false)
     {
@@ -177,7 +177,7 @@ abstract class AbstractPubSubContext implements \Iterator
     /**
      * Checks if the the context is still in a valid state to continue.
      *
-     * @return Boolean
+     * @return bool
      */
     public function valid()
     {

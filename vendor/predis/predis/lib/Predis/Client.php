@@ -20,7 +20,6 @@ use Predis\Monitor\MonitorContext;
 use Predis\Option\ClientOptions;
 use Predis\Option\ClientOptionsInterface;
 use Predis\Pipeline\PipelineContext;
-use Predis\Profile\ServerProfile;
 use Predis\PubSub\PubSubContext;
 use Predis\Transaction\MultiExecContext;
 
@@ -143,6 +142,7 @@ class Client implements ClientInterface
      * client is connected to a cluster. The new instance will use the same
      * options of the original client.
      *
+     * @param  string $connectionID Identifier for the connection.
      * @return Client
      */
     public function getClientFor($connectionID)
@@ -183,8 +183,8 @@ class Client implements ClientInterface
     /**
      * Checks if the underlying connection is connected to Redis.
      *
-     * @return Boolean True means that the connection is open.
-     *                 False means that the connection is closed.
+     * @return bool True means that the connection is open.
+     *              False means that the connection is closed.
      */
     public function isConnected()
     {
@@ -202,7 +202,7 @@ class Client implements ClientInterface
     /**
      * Retrieves a single connection out of an aggregated connections instance.
      *
-     * @param  string                               $connectionId Index or alias of the connection.
+     * @param  string                               $connectionId Index or alias of the single connection.
      * @return Connection\SingleConnectionInterface
      */
     public function getConnectionById($connectionId)
@@ -319,7 +319,7 @@ class Client implements ClientInterface
      * Creates a new pipeline context and returns it, or returns the results of
      * a pipeline executed inside the optionally provided callable object.
      *
-     * @param  mixed                 $arg,... Options for the context, a callable object, or both.
+     * @param  mixed                 ... Options for the context, a callable object, or both.
      * @return PipelineContext|array
      */
     public function pipeline(/* arguments */)
@@ -351,7 +351,7 @@ class Client implements ClientInterface
     /**
      * Executes a pipeline context when a callable object is passed.
      *
-     * @param  array                 $options  Options of the context initialization.
+     * @param  PipelineContext       $pipeline Pipeline context instance.
      * @param  mixed                 $callable Optional callable object used to execute the context.
      * @return PipelineContext|array
      */
@@ -368,7 +368,7 @@ class Client implements ClientInterface
      *             as it will replace Client::multiExec() in the next major
      *             version of the library.
      *
-     * @param  mixed                  $arg,... Options for the context, a callable object, or both.
+     * @param  mixed                  ... Options for the context, a callable object, or both.
      * @return MultiExecContext|array
      */
     public function multiExec(/* arguments */)
@@ -380,7 +380,7 @@ class Client implements ClientInterface
      * Creates a new transaction context and returns it, or returns the results of
      * a transaction executed inside the optionally provided callable object.
      *
-     * @param  mixed                  $arg,... Options for the context, a callable object, or both.
+     * @param  mixed                  ... Options for the context, a callable object, or both.
      * @return MultiExecContext|array
      */
     public function transaction(/* arguments */)
@@ -411,8 +411,8 @@ class Client implements ClientInterface
      *             Client::pubSubLoop() to create Predis\PubSub\PubSubContext
      *             instances from now on.
      *
-     * @param  mixed                   $arg,... Options for the context, a callable object, or both.
-     * @return PubSubExecContext|array
+     * @param  mixed               ... Options for the context, a callable object, or both.
+     * @return PubSubContext|array
      */
     public function pubSub(/* arguments */)
     {
@@ -423,8 +423,8 @@ class Client implements ClientInterface
      * Creates a new Publish / Subscribe context and returns it, or executes it
      * inside the optionally provided callable object.
      *
-     * @param  mixed                   $arg,... Options for the context, a callable object, or both.
-     * @return PubSubExecContext|array
+     * @param  mixed               ... Options for the context, a callable object, or both.
+     * @return PubSubContext|array
      */
     public function pubSubLoop(/* arguments */)
     {

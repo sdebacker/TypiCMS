@@ -13,14 +13,13 @@ abstract class AbstractBase
         if ( ! file_exists($path)) {
             touch($path);
         }
-        $this->handle = fopen($path, $mode);
+        $this->handle = new \SplFileObject($path, $mode);
+        $this->handle->setFlags(\SplFileObject::SKIP_EMPTY | \SplFileObject::DROP_NEW_LINE | \SplFileObject::READ_AHEAD);
     }
 
     public function __destruct()
     {
-        if (is_resource($this->handle)) {
-            fclose($this->handle);
-        }
+        $this->handle = null;
     }
 
     public function setDelimiter($delimiter)

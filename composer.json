@@ -23,7 +23,7 @@
 		"bkwld/croppa": "3.*",
 		"jwage/easy-csv": "dev-master",
 		"thujohn/rss": "dev-master",
-		"barryvdh/laravel-debugbar": "dev-master",
+		"barryvdh/laravel-debugbar": "1.*",
 		"mccool/database-backup": "dev-master",
 		"thomaswelton/laravel-gravatar": "dev-master",
 		"eluceo/ical": "dev-master"

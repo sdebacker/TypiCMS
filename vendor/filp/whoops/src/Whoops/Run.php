@@ -35,7 +35,7 @@ class Run
      * Pushes a handler to the end of the stack
      *
      * @throws InvalidArgumentException If argument is not callable or instance of HandlerInterface
-     * @param  HandlerInterface $handler
+     * @param  Callable|HandlerInterface $handler
      * @return Run
      */
     public function pushHandler($handler)
@@ -326,7 +326,13 @@ class Run
                     return true;
                 }
             }
-            throw new ErrorException($message, $level, 0, $file, $line);
+
+            $exception = new ErrorException($message, $level, 0, $file, $line);
+            if ($this->canThrowExceptions) {
+                throw $exception;
+            } else {
+                $this->handleException($exception);
+            }
         }
     }
 
@@ -335,13 +341,42 @@ class Run
      */
     public function handleShutdown()
     {
-        if($error = error_get_last()) {
+        // If we reached this step, we are in shutdown handler.
+        // An exception thrown in a shutdown handler will not be propagated
+        // to the exception handler. Pass that information along.
+        $this->canThrowExceptions = false;
+
+        $error = error_get_last();
+        if ($error && $this->isLevelFatal($error['type'])) {
+            // If there was a fatal error,
+            // it was not handled in handleError yet.
             $this->handleError(
-                $error["type"],
-                $error["message"],
-                $error["file"],
-                $error["line"]
+                $error['type'],
+                $error['message'],
+                $error['file'],
+                $error['line']
             );
         }
+    }
+
+    /**
+     * In certain scenarios, like in shutdown handler, we can not throw exceptions
+     * @var boolean
+     */
+    private $canThrowExceptions = true;
+
+    private static function isLevelFatal($level)
+    {
+        return in_array(
+            $level,
+            array(
+                E_ERROR,
+                E_PARSE,
+                E_CORE_ERROR,
+                E_CORE_WARNING,
+                E_COMPILE_ERROR,
+                E_COMPILE_WARNING
+            )
+        );
     }
 }

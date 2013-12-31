@@ -48,7 +48,7 @@ abstract class PredisCommandTestCase extends PredisTestCase
     /**
      * Returns a new client instance.
      *
-     * @param  bool   $connect Flush selected database before returning the client.
+     * @param  bool   $flushdb Flush selected database before returning the client.
      * @return Client
      */
     public function getClient($flushdb = true)
@@ -69,7 +69,7 @@ abstract class PredisCommandTestCase extends PredisTestCase
     /**
      * Returns wether the command is prefixable or not.
      *
-     * @return Boolean
+     * @return bool
      */
     protected function isPrefixable()
     {

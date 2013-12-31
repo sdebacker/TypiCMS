@@ -25,7 +25,11 @@ class Reader extends AbstractBase
     public function getRow()
     {
         $this->init();
-        if (($row = fgetcsv($this->handle, 1000, $this->delimiter, $this->enclosure)) !== false) {
+        if ($this->handle->eof()) {
+            return false;
+        }
+
+        if (($row = $this->handle->fgetcsv($this->delimiter, $this->enclosure)) !== false && $row != null) {
             $this->line++;
             return $this->headers ? array_combine($this->headers, $row) : $row;
         } else {

@@ -17,11 +17,14 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
      */
     public function boot()
     {
+        $this->package('barryvdh/laravel-debugbar');
         if($this->app['config']->get('laravel-debugbar::config.enabled')){
             /** @var LaravelDebugbar $debugbar */
             $debugbar = $this->app['debugbar'];
             $debugbar->boot();
         }
+
+        $this->commands('command.debugbar.publish');
     }
 
 
@@ -32,10 +35,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
      */
     public function register()
     {
-
-        $this->package('barryvdh/laravel-debugbar');
-
         $self = $this;
+        $app = $this->app;
         $this->app['debugbar'] = $this->app->share(function ($app) use($self) {
                 $debugbar = new LaravelDebugBar($app);
 
@@ -50,16 +51,13 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
             {
                 return new Console\PublishCommand($app['asset.publisher']);
             });
-        $this->commands('command.debugbar.publish');
-
-        $debugbar = $this->app['debugbar'];
-        $app = $this->app;
 
         if(version_compare($app::VERSION, '4.1', '>=')){
-            $this->app->middleware('Barryvdh\Debugbar\Middleware', array($debugbar));
+            $app->middleware('Barryvdh\Debugbar\Middleware', array($app));
         }else{
-            $this->app->after(function ($request, $response) use($debugbar)
+            $app->after(function ($request, $response) use($app)
             {
+                $debugbar = $app['debugbar'];
                 $debugbar->modifyResponse($request, $response);
             });
         }
@@ -75,9 +73,5 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
     {
         return array('debugbar', 'command.debugbar.publish');
     }
-
-
-
-
 
 }
