@@ -1,4 +1,5 @@
 <?php
+use Underscore\Methods\ArraysMethods as Arrays;
 
 class InputTest extends FormerTests
 {
@@ -12,10 +13,10 @@ class InputTest extends FormerTests
 
   public function testCanCreateTextWithoutLabel()
   {
-    $this->mockConfig(array('automatic_label' => false));
+    $this->config = $this->mockConfig(true, '', false, false);
 
     $input = $this->former->text('foo')->__toString();
-    $matchField = array_except($this->matchField(), 'id');
+    $matchField = Arrays::remove($this->matchField(), 'id');
 
     $this->assertHTML($this->matchControlGroup(), $input);
     $this->assertHTML($matchField, $input);
@@ -24,7 +25,7 @@ class InputTest extends FormerTests
   public function testCanCreateSingleTextWithoutLabelOnStart()
   {
     $input = $this->former->text('foo', '')->__toString();
-    $matchField = array_except($this->matchField(), 'id');
+    $matchField = Arrays::remove($this->matchField(), 'id');
 
     $this->assertHTML($this->matchControlGroup(), $input);
     $this->assertHTML($matchField, $input);
@@ -33,7 +34,7 @@ class InputTest extends FormerTests
   public function testCanCreateSingleTextWithoutLabel()
   {
     $input = $this->former->text('foo')->label(null)->__toString();
-    $matchField = array_except($this->matchField(), 'id');
+    $matchField = Arrays::remove($this->matchField(), 'id');
 
     $this->assertHTML($this->matchControlGroup(), $input);
     $this->assertHTML($matchField, $input);
@@ -42,8 +43,7 @@ class InputTest extends FormerTests
   public function testCanCreateSearchField()
   {
     $input = $this->former->search('foo')->__toString();
-    $matchField = $this->matchField();
-    array_set($matchField, 'attributes.class', 'search-query');
+    $matchField = Arrays::set($this->matchField(), 'attributes.class', 'search-query');
 
     $this->assertControlGroup($input);
     $this->assertHTML($matchField, $input);
@@ -54,8 +54,7 @@ class InputTest extends FormerTests
     $this->former->framework('Nude');
 
     $input = $this->former->text('foo')->data('foo')->class('bar')->__toString();
-    $label = $this->matchLabel('Foo');
-    array_forget($label, 'attributes.class');
+    $label = Arrays::remove($this->matchLabel(), 'attributes.class');
 
     $this->assertHTML($label, $input);
     $this->assertHTML($this->matchField(), $input);
@@ -84,8 +83,7 @@ class InputTest extends FormerTests
     $this->assertHTML($this->matchField(), $static);
     $this->assertHTML($this->matchControlGroup(), $static);
 
-    $this->resetLabels();
-    $input = $this->former->text('foo', 'bar')->__toString();
+    $input   = $this->former->text('foo', 'bar')->__toString();
     $this->assertHTML($this->matchLabel('Bar', 'foo'), $input);
     $this->assertHTML($this->matchField(), $input);
     $this->assertHTML($this->matchControlGroup(), $input);
@@ -128,7 +126,7 @@ class InputTest extends FormerTests
 
   public function testCanDisableErrors()
   {
-    $this->mockConfig(array('error_messages' => false));
+    $this->config = $this->mockConfig(true, '', false, true, false);
     $this->former->withErrors($this->validator);
 
     $required = $this->former->text('required')->__toString();
@@ -262,13 +260,6 @@ class InputTest extends FormerTests
 
     $static  = $this->former->checkbox('foo')->label($object)->__toString();
     $label = $this->matchLabel('Bar', 'foo');
-    $this->assertHTML($label, $static);
-  }
-
-  public function testUnderscoresInLabelsAreConverted()
-  {
-    $static  = $this->former->text('foo')->label('customer_name')->__toString();
-    $label = $this->matchLabel('Customer name', 'foo');
     $this->assertHTML($label, $static);
   }
 }

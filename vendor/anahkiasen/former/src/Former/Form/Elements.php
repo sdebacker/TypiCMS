@@ -59,14 +59,7 @@ class Elements
    */
   public function label($label, $for = null, $attributes = array())
   {
-    $oldLabel = (string) $label;
-    $label    = Helpers::translate($oldLabel);
-
-    // If there was no change to the label,
-    // then a Laravel translation did not occur
-    if (lcfirst($label) == $oldLabel) {
-      $label = str_replace('_', ' ', $label);
-    }
+    $label = Helpers::translate((string) $label);
 
     $attributes['for'] = $for;
     $this->app['former']->labels[] = $for;

@@ -17,6 +17,7 @@
   ],
   "require": {
     "anahkiasen/html-object": "dev-master",
+    "anahkiasen/underscore-php": "dev-master",
     "illuminate/config": "~4",
     "illuminate/container": "~4",
     "illuminate/http": "~4",
@@ -32,8 +33,11 @@
     "psr-0": {
       "Former": "src",
       "Laravel": "src"
-    },
-    "classmap": ["tests"]
+    }
   },
-  "minimum-stability": "stable"
+  "extra": {
+    "branch-alias": {
+      "dev-agnostic": "3.x.x-dev"
+    }
+  }
 }

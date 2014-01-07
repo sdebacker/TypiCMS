@@ -3,6 +3,7 @@ use Illuminate\Support\Str;
 
 class GroupTest extends FormerTests
 {
+
   public function createButton($text)
   {
     return new DummyButton($text);
@@ -192,12 +193,11 @@ class GroupTest extends FormerTests
 
   public function testPrependButton()
   {
-    $matcher = $this->createPrependAppendMatcher(array('<button type="button" class="btn">Submit</button>'));
     $control1 = $this->former->text('foo')->prepend($this->createButton('Submit'))->__toString();
-    $this->assertEquals($matcher, $control1);
-
-    $this->resetLabels();
     $control2 = $this->former->text('foo')->prepend('<button type="button" class="btn">Submit</button>')->__toString();
+    $matcher = $this->createPrependAppendMatcher(array('<button type="button" class="btn">Submit</button>'));
+
+    $this->assertEquals($matcher, $control1);
     $this->assertEquals($matcher, $control2);
   }
 
@@ -286,7 +286,7 @@ class GroupTest extends FormerTests
 
   public function testCanRecognizeGroupValidationErrors()
   {
-    $this->mockSession(array('foo' => 'bar', 'bar' => 'baz'));
+    $this->session = $this->mockSession(array('foo' => 'bar', 'bar' => 'baz'));
     $this->former->withErrors();
 
     $matcher = '<div class="control-group error"><label for="Foo" class="control-label">Foo</label>';
@@ -301,17 +301,9 @@ class GroupTest extends FormerTests
     $this->assertEquals($matcher, $group);
   }
 
-  public function testUnderscoresInHelpTextAreKept()
-  {
-    $control = $this->former->text('foo')->help('/path_to_foo.jpg')->__toString();
-    $matcher = $this->createMatcher(null, '/path_to_foo.jpg');
-
-    $this->assertEquals($matcher, $control);
-  }
-
   public function testCanIgnoreGroupValidationErrors()
   {
-    $this->mockSession(array('foo' => 'bar', 'bar' => 'baz'));
+    $this->session = $this->mockSession(array('foo' => 'bar', 'bar' => 'baz'));
     $this->former->withErrors();
 
     $matcher = '<div class="control-group"><label for="Foo" class="control-label">Foo</label>';

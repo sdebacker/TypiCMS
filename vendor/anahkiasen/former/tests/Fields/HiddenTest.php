@@ -1,13 +1,13 @@
 <?php
+use Underscore\Methods\ArraysMethods as Arrays;
 
 class HiddenTest extends FormerTests
 {
 
   public function testCanCreateHiddenField()
   {
-    $input   = $this->former->hidden('foo')->value('bar')->__toString();
-    $matcher = $this->matchField(array(), 'hidden');
-    $field   = array_except($matcher, 'id');
+    $input = $this->former->hidden('foo')->value('bar')->__toString();
+    $field = Arrays::remove($this->matchField(array(), 'hidden'), 'id');
 
     $this->assertHTML($field, $input);
   }
@@ -15,10 +15,9 @@ class HiddenTest extends FormerTests
   public function testCanPopulateHiddenFields()
   {
     $this->former->populate(array('foo' => 'bar'));
+    $input = $this->former->hidden('foo')->value('bis')->__toString();
 
-    $input   = $this->former->hidden('foo')->value('bis')->__toString();
-    $matcher = $this->matchField(array(), 'hidden');
-    $field   = array_except($matcher, 'id');
+    $field = Arrays::remove($this->matchField(array(), 'hidden'), 'id');
     $field['attributes']['value'] = 'bar';
 
     $this->assertHTML($field, $input);
