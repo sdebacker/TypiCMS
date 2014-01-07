@@ -534,9 +534,6 @@ class Carbon extends DateTime
             break;
 
          case 'timezone':
-            $this->setTimezone($value);
-            break;
-
          case 'tz':
             $this->setTimezone($value);
             break;
@@ -783,6 +780,11 @@ class Carbon extends DateTime
     * @return boolean true if there is a keyword, otherwise false
     */
    public static function hasRelativeKeywords($time) {
+      // skip common format with a '-' in it
+      if (preg_match('/[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}/', $time) === 1) {
+         return false;
+      }
+
       foreach(self::$relativeKeywords as $keyword) {
          if (stripos($time, $keyword) !== false) {
             return true;
@@ -1102,6 +1104,34 @@ class Carbon extends DateTime
       } else {
          return $this->gt($dt1) && $this->lt($dt2);
       }
+   }
+
+   /**
+    * Get the minimum instance between a given instance (default now) and the current instance.
+    *
+    * @param  Carbon $dt
+    *
+    * @return Carbon
+    */
+   public function min(Carbon $dt = null)
+   {
+      $dt = ($dt === null) ? static::now($this->tz) : $dt;
+
+      return $this->lt($dt) ? $this : $dt;
+   }
+
+   /**
+    * Get the maximum instance between a given instance (default now) and the current instance.
+    *
+    * @param  Carbon $dt
+    *
+    * @return Carbon
+    */
+   public function max(Carbon $dt = null)
+   {
+      $dt = ($dt === null) ? static::now($this->tz) : $dt;
+
+      return $this->gt($dt) ? $this : $dt;
    }
 
    /**
@@ -1834,7 +1864,9 @@ class Carbon extends DateTime
     */
     public function startOfWeek()
     {
-        return $this->setISODate($this->year, $this->weekOfYear, 1)->startOfDay();
+        if ($this->dayOfWeek != self::MONDAY) $this->previous(self::MONDAY);
+
+        return $this->startOfDay();
     }
 
     /**
@@ -1844,7 +1876,9 @@ class Carbon extends DateTime
      */
     public function endOfWeek()
     {
-        return $this->setISODate($this->year, $this->weekOfYear, 7)->endOfDay();
+        if ($this->dayOfWeek != self::SUNDAY) $this->next(self::SUNDAY);
+
+        return $this->endOfDay();
     }
 
    /**

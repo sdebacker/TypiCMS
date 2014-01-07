@@ -9,12 +9,18 @@ AWS SDK for PHP
     requirements
     installation
     quick-start
-    configuration
-    performance
-    faq
-
     migration-guide
     side-by-side
+
+    credentials
+    configuration
+    feature-commands
+    feature-waiters
+    feature-iterators
+    feature-models
+    feature-facades
+    performance
+    faq
 
     service-autoscaling
     service-cloudformation
@@ -49,13 +55,8 @@ AWS SDK for PHP
     service-sts
     service-support
     service-swf
-
     feature-dynamodb-session-handler
     feature-s3-stream-wrapper
-    feature-waiters
-    feature-iterators
-    feature-models
-    feature-facades
 
 The **AWS SDK for PHP** enables PHP developers to use `Amazon Web Services <http://aws.amazon.com/>`_ in their PHP code,
 and build robust applications and software using services like Amazon S3, Amazon DynamoDB, Amazon Glacier, etc. You can
@@ -66,36 +67,44 @@ downloading the standalone `aws.zip <http://pear.amazonwebservices.com/get/aws.z
 Getting Started
 ---------------
 
-* :doc:`awssignup`
-* :doc:`Requirements for Using the SDK <requirements>`
-* :doc:`Installing the SDK <installation>`
-* :doc:`Quick Start Guide <quick-start>`
-* `Getting Started Sample Project <http://aws.amazon.com/developers/getting-started/php/>`_
-* :doc:`faq`
+* Before you use the SDK
 
-Migrating from Version 1 of the SDK?
+  * :doc:`awssignup`
+  * :doc:`Requirements for Using the SDK <requirements>`
+  * :doc:`Installing the SDK <installation>`
 
-* :doc:`migration-guide` - Migrating from Version 1 of the SDK to Version 2
-* :doc:`side-by-side` - Using Version 1 and Version 2 of the SDK side-by-side in the same project
+* Using the SDK
 
-Using the SDK
--------------
+  * :doc:`quick-start` – Everything you need to know to use the AWS SDK for PHP
+  * `Sample Project <http://aws.amazon.com/developers/getting-started/php/>`_
 
-* :doc:`Configuring the SDK <configuration>`
+* Migrating from Version 1 of the SDK?
+
+  * :doc:`migration-guide` – Migrating from Version 1 of the SDK to Version 2
+  * :doc:`side-by-side` – Using Version 1 and Version 2 of the SDK side-by-side in the same project
+
+In-Depth Guides
+---------------
+
+* :doc:`credentials`
+* :doc:`configuration`
 * SDK Features
 
   * :doc:`feature-iterators`
   * :doc:`feature-waiters`
-  * :doc:`Modeled Responses <feature-models>`
+  * :doc:`feature-models`
+  * :doc:`feature-commands`
   * :doc:`feature-facades`
 
+* :doc:`faq`
 * :doc:`performance`
 * `Contributing to the SDK <https://github.com/aws/aws-sdk-php/blob/master/CONTRIBUTING.md>`_
+* `Guzzle Documentation <http://docs.guzzlephp.org/en/latest/docs.html>`_
 
 .. _supported-services:
 
-Service Documentation
----------------------
+Service-Specific Guides
+-----------------------
 
 * Amazon CloudFront
 
@@ -229,3 +238,38 @@ Service Documentation
 * Elastic Load Balancing
 
   .. indexlinks:: ElasticLoadBalancing
+
+Articles from the Blog
+----------------------
+
+* `Syncing Data with Amazon S3 <http://blogs.aws.amazon.com/php/post/Tx2W9JAA7RXVOXA/Syncing-Data-with-Amazon-S3>`_
+* `Amazon S3 PHP Stream Wrapper <http://blogs.aws.amazon.com/php/post/TxKV69TBGSONBU/Amazon-S3-PHP-Stream-Wrapper>`_
+* `Transferring Files To and From Amazon S3 <http://blogs.aws.amazon.com/php/post/Tx9BDFNDYYU4VF/Transferring-Files-To-and-From-Amazon-S3>`_
+* `Provision an Amazon EC2 Instance with PHP <http://blogs.aws.amazon.com/php/post/TxMLFLE50WUAMR/Provision-an-Amazon-EC2-Instance-with-PHP>`_
+* `Uploading Archives to Amazon Glacier from PHP <http://blogs.aws.amazon.com/php/post/Tx7PFHT4OJRJ42/Uploading-Archives-to-Amazon-Glacier-from-PHP>`_
+* `Using AWS CloudTrail in PHP - Part 1 <http://blogs.aws.amazon.com/php/post/Tx3HGFCVGT92TS8/Using-AWS-CloudTrail-in-PHP-Part-1>`_
+* `Using AWS CloudTrail in PHP - Part 2 <http://blogs.aws.amazon.com/php/post/Tx31JYLN2SC3GHB/Using-AWS-CloudTrail-in-PHP-Part-2>`_
+* `Providing credentials to the AWS SDK for PHP <http://blogs.aws.amazon.com/php/post/Tx1F82CR0ANO3ZI/Providing-credentials-to-the-AWS-SDK-for-PHP>`_
+* `Using Credentials from AWS Security Token Service <http://blogs.aws.amazon.com/php/post/Tx25ITJRCL1IWT4/Using-Credentials-from-AWS-Security-Token-Service>`_
+* `Iterating through Amazon DynamoDB Results <http://blogs.aws.amazon.com/php/post/TxJGHHKBUJO1AL/Iterating-through-Amazon-DynamoDB-Results>`_
+* `Sending requests through a proxy <http://blogs.aws.amazon.com/php/post/Tx9FZ2MY1XP7X6/Sending-requests-through-a-proxy>`_
+* `Wire Logging in the AWS SDK for PHP <http://blogs.aws.amazon.com/php/post/Tx1W2JMJBQHBNRS/Wire-Logging-in-the-AWS-SDK-for-PHP>`_
+* `Streaming Amazon S3 Objects From a Web Server <http://blogs.aws.amazon.com/php/post/Tx2C4WJBMSMW68A/Streaming-Amazon-S3-Objects-From-a-Web-Server>`_
+* `Static Service Client Facades <http://blogs.aws.amazon.com/php/post/Tx21B65ULGUTGBP/Static-Service-Client-Facades>`_
+
+Presentations
+-------------
+
+Slides
+~~~~~~
+
+* `Mastering the AWS SDK for PHP <http://www.slideshare.net/AmazonWebServices/mastering-the-aws-sdk-for-php-tls306-aws-reinvent-2013>`_
+* `Getting Good with the AWS SDK for PHP <https://speakerdeck.com/jeremeamia/getting-good-with-the-aws-sdk-for-php>`_
+* `Using DynamoDB with the AWS SDK for PHP <http://www.slideshare.net/AmazonWebServices/using-dynamod-bwith-aws-sdk-for-php-tls305>`_
+* `Controlling the AWS Cloud with PHP <https://speakerdeck.com/jeremeamia/controlling-the-aws-cloud-with-php>`_
+
+Videos
+~~~~~~
+
+* `Mastering the AWS SDK for PHP <http://youtu.be/_zaW2VZB1ok>`_ (AWS re:Invent 2013)
+* `Using DynamoDB with the AWS SDK for PHP <http://www.youtube.com/watch?v=h_u3Ig5Cpv0>`_ (AWS re:Invent 2012)

@@ -24,7 +24,6 @@ use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 use Symfony\Component\DependencyInjection\Loader\ClosureLoader;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\MergeExtensionConfigurationPass;
@@ -60,11 +59,11 @@ abstract class Kernel implements KernelInterface, TerminableInterface
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION         = '2.4.1-DEV';
-    const VERSION_ID      = '20401';
+    const VERSION         = '2.4.2-DEV';
+    const VERSION_ID      = '20402';
     const MAJOR_VERSION   = '2';
     const MINOR_VERSION   = '4';
-    const RELEASE_VERSION = '1';
+    const RELEASE_VERSION = '2';
     const EXTRA_VERSION   = 'DEV';
 
     /**

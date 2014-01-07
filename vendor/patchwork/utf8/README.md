@@ -1,6 +1,11 @@
 Patchwork UTF-8 for PHP
 =======================
 
+[![Latest Stable Version](https://poser.pugx.org/patchwork/utf8/v/stable.png)](https://packagist.org/packages/patchwork/utf8)
+[![Total Downloads](https://poser.pugx.org/patchwork/utf8/downloads.png)](https://packagist.org/packages/patchwork/utf8)
+[![Build Status](https://secure.travis-ci.org/nicolas-grekas/Patchwork-UTF8.png)](http://travis-ci.org/nicolas-grekas/Patchwork-UTF8)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/666c8ae7-0997-4d27-883a-6089ce3cc76b/mini.png)](https://insight.sensiolabs.com/projects/666c8ae7-0997-4d27-883a-6089ce3cc76b)
+
 Patchwork UTF-8 gives PHP developpers extensive, portable and performant
 handling of UTF-8 and [grapheme clusters](http://unicode.org/reports/tr29/).
 
@@ -28,11 +33,12 @@ The following set of portability-fallbacks allows an application to run on a
 server even if one or more of those extensions are not enabled:
 
 - *utf8_encode, utf8_decode*,
-- `mbstring`: *mb_convert_encoding, mb_decode_mimeheader, mb_encode_mimeheader,
-  mb_convert_case, mb_internal_encoding, mb_list_encodings, mb_strlen,
-  mb_strpos, mb_strrpos, mb_strtolower, mb_strtoupper, mb_substitute_character,
-  mb_substr, mb_stripos, mb_stristr, mb_strrchr, mb_strrichr, mb_strripos,
-  mb_strstr*,
+- `mbstring`: *mb_check_encoding, mb_convert_case, mb_convert_encoding,
+  mb_decode_mimeheader, mb_detect_encoding, mb_detect_order,
+  mb_encode_mimeheader, mb_encoding_aliases, mb_internal_encoding, mb_language,
+  mb_list_encodings, mb_strlen, mb_strpos, mb_strrpos, mb_strtolower,
+  mb_strtoupper, mb_stripos, mb_stristr, mb_strrchr, mb_strrichr, mb_strripos,
+  mb_strstr, mb_substitute_character, mb_substr*,
 - `iconv`: *iconv, iconv_mime_decode, iconv_mime_decode_headers,
   iconv_get_encoding, iconv_set_encoding, iconv_mime_encode, ob_iconv_handler,
   iconv_strlen, iconv_strpos, iconv_strrpos, iconv_substr*,
@@ -97,7 +103,7 @@ Then, early in your bootstrap sequence, you have to configure your environment:
 \Patchwork\Utf8\Bootup::filterRequestInputs(); // Normalizes HTTP inputs to UTF-8 NFC
 ```
 
-Run `phpunit` in the `tests/` directory to see the code in action.
+Run `phpunit` to see the code in action.
 
 Make sure that you are confident about using UTF-8 by reading
 [Character Sets / Character Encoding Issues](http://www.phpwact.org/php/i18n/charsets)

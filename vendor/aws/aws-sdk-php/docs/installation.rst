@@ -19,7 +19,7 @@ your project. In order to use the SDK with Composer, you must do the following:
            }
        }
 
-   Consider tightening your dependencies to a known version (e.g., ``2.3.*``).
+   Consider tightening your dependencies to a known version (e.g., ``2.5.*``).
 
 #. Download and install Composer.
 
@@ -55,6 +55,11 @@ requirement for the SDK to ``dev-master``.
          "aws/aws-sdk-php": "dev-master"
       }
    }
+
+If you are deploying your application to `AWS Elastic Beanstalk
+<http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_PHP_eb.html>`_, and you have a ``composer.json``
+file in the root of your package, then Elastic Beanstalk will automatically perform a Composer ``install`` when you
+deploy your application.
 
 Installing via Phar
 -------------------
@@ -135,9 +140,11 @@ Alternatively, you can combine all three of the preceding statements into one by
 
     pear -D auto_discover=1 install pear.amazonwebservices.com/sdk
 
-Once the SDK has been installed via PEAR, you can include the `phar <http://php.net/manual/en/book.phar.php>`_ into
-your project with:
+Once the SDK has been installed via PEAR, you can include the ``aws.phar`` into your project with:
 
 .. code-block:: php
 
     require 'AWSSDKforPHP/aws.phar';
+
+This assumes that the PEAR directory is in your PHP include path, which it probably is, if PEAR is working correctly.
+If needed, you can determine your PEAR directory by running ``pear config-get php_dir``.

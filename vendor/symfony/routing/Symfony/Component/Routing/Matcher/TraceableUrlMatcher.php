@@ -14,7 +14,6 @@ namespace Symfony\Component\Routing\Matcher;
 use Symfony\Component\Routing\Exception\ExceptionInterface;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
 
 /**
  * TraceableUrlMatcher helps debug path info matching by tracing the match.
@@ -104,11 +103,9 @@ class TraceableUrlMatcher extends UrlMatcher
             }
 
             // check HTTP scheme requirement
-            if ($requiredSchemes = $route->getSchemes()) {
-                $scheme = $this->context->getScheme();
-
-                if (!$route->hasScheme($scheme)) {
-                    $this->addTrace(sprintf('Scheme "%s" does not match any of the required schemes ("%s"); the user will be redirected to first required scheme', $scheme, implode(', ', $requiredSchemes)), self::ROUTE_ALMOST_MATCHES, $name, $route);
+            if ($scheme = $route->getRequirement('_scheme')) {
+                if ($this->context->getScheme() !== $scheme) {
+                    $this->addTrace(sprintf('Scheme "%s" does not match the requirement ("%s"); the user will be redirected', $this->context->getScheme(), $scheme), self::ROUTE_ALMOST_MATCHES, $name, $route);
 
                     return true;
                 }
