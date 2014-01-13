@@ -27,11 +27,9 @@ function initTinymce(selector) {
 
 		for (var i = 0; i < langues.length; i++) {
 			var titleField = $('#' + langues[i] + '\\[title\\]');
-			if ( ! titleField.val()) {
-				titleField.slug({
-					slugField: '#' + langues[i] + '\\[slug\\]',
-				});
-			};
+			titleField.slug({
+				slugField: '#' + langues[i] + '\\[slug\\]'
+			});
 		};
 
 		initTinymce('.editor');

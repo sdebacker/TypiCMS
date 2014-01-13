@@ -1,5 +1,5 @@
 /*
- * Slug 1.0, jQuery plugin
+ * Slug 1.1, jQuery plugin
  * 
  * Copyright(c) 2013, Samuel De Backer
  * http://www.typi.be
@@ -23,13 +23,31 @@
 
 				this.slugField = settings.slugField;
 
-				$(this).keyup(methods.convertToSlug);
+				this.slugGenerateButton = '<span class="input-group-btn"><button class="btn btn-default btn-slug" type="button">Générer</button></span>';
+				$(this.slugField).wrap('<div class="input-group"></div>').before(this.slugGenerateButton);
+
+				if ( ! $(this).val()) {
+					$(this).keyup( function(){
+						slug = methods.convertToSlug( $(this).val() );
+						$(this.slugField).val(slug);
+					});
+				};
+
+				$('.btn-slug').click(function(){
+					var string = $(this).closest('.form-group').prev().find('input').val(),
+						slugField = $(this).parent().next();
+
+					slug = methods.convertToSlug( string );
+					slugField.val(slug);
+
+					return false;
+				});
 
 			});
 		},
-		convertToSlug: function () {
+		convertToSlug: function (string) {
 
-			var slugcontent = $(this).val()
+			var slug = string
 				.replace('œ','oe')
 				.replace('?','')
 				.replace('æ','ae');
@@ -38,16 +56,15 @@
 			var from = "ÃÀÁÄÂẼÈÉËÊÌÍÏÎÕÒÓÖÔÙÚÜÛÑÇãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;-'’!";
 			var to   = "AAAAAEEEEEIIIIOOOOOUUUUNCaaaaaeeeeeiiiiooooouuuunc          ";
 			for (var i=0, l=from.length ; i<l ; i++) {
-				slugcontent = slugcontent.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+				slug = slug.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
 			}
-			slugcontent = $.trim(slugcontent);
-			slugcontent = slugcontent
+			slug = $.trim(slug);
+			slug = slug
 				.toLowerCase()
 				.replace(/[^\w ]+/g,'')
 				.replace(/ +/g,'-');
 
-			$(this.slugField).val(slugcontent);
-
+			return slug;
 		},
 
 	};
