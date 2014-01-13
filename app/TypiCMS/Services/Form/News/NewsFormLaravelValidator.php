@@ -11,9 +11,9 @@ class NewsFormLaravelValidator extends AbstractLaravelValidator {
      */
 	protected $rules = array(
 		'date' => 'required|date|date_format:d.m.Y H:i',
-		'fr.slug' => 'required_with:fr.title',
-		'nl.slug' => 'required_with:nl.title',
-		'en.slug' => 'required_with:en.title',
+		'fr.slug' => 'required_with:fr.title|alpha_dash',
+		'nl.slug' => 'required_with:nl.title|alpha_dash',
+		'en.slug' => 'required_with:en.title|alpha_dash',
 	);
 
 }
