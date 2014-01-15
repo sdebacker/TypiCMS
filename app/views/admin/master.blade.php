@@ -32,6 +32,7 @@
 	{{ HTML::script(asset('components/jquery.listenhancer.js')) }}
 	{{ HTML::script(asset('components/jquery.slug.js')) }}
 	{{ HTML::script(asset('components/vendor/dropzone/downloads/dropzone.js')) }}
+	{{ HTML::script(asset('components/vendor/bootstrap/js/transition.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap/js/tab.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
 	{{ HTML::script(asset('components/vendor/moment/moment.js')) }}
