@@ -1,4 +1,5 @@
 @import "../../../public/components/vendor/bootstrap/less/bootstrap.less";
+@import "mixins";
 @import "navbar";
 
 body { padding-top: 60px; padding-bottom: 60px; }
@@ -60,4 +61,6 @@ body { padding-top: 60px; padding-bottom: 60px; }
 .max-height { max-height: 150px; overflow: scroll; }
 
 // Alertify
-.alertify-logs { top: 50px; z-index: 500; }
+.alertify-logs { top: 50px; z-index: 500; bottom: auto; }
+
+.tab-content { padding-top: 15px; }
