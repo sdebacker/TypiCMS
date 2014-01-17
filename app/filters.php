@@ -54,6 +54,28 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+// Route::filter('auth_basic_fly', function()
+// {
+// 	if( isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
+// 		$username = 'test';
+// 		$password = 'test';
+// 		if( $_SERVER['PHP_AUTH_USER'] == $username && $_SERVER['PHP_AUTH_PW'] == $password ) {
+// 			return;
+// 		}
+// 	}
+// 	$headers['WWW-Authenticate'] = 'Basic realm="REST API"';
+// 	return Response::make('Authenticate required', 401, $headers);
+// });
+
+Route::filter('auth.public', function()
+{
+	if ( ! Config::get('typicms.authPublic')) return;
+
+	if ( ! Sentry::check()) {
+		return Redirect::guest(route('login'));
+	}
+});
+
 Route::filter('auth.admin', function()
 {
 	if ( ! Sentry::check()) {

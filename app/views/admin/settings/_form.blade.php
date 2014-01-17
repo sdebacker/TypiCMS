@@ -15,6 +15,7 @@
 		</div>
 	</div>
 	{{ Former::checkbox('langChooser')->label('')->text('langChooser'); }}
+	{{ Former::checkbox('authPublic')->label('')->text('authPublic'); }}
 
 		@if (count($locales) > 1)
 		<ul class="nav nav-pills">

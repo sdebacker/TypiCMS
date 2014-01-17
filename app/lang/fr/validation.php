@@ -149,6 +149,7 @@ return array(
 		'googleAnalyticsUniversalCode' => 'Google Analytics Universal',
 		'googleAnalyticsCode' => 'Google Analytics Classic',
 		'langChooser' => 'Page de choix de langue',
+		'authPublic' => 'Se connecter pour voir le site',
 
 		'Submit' => 'Envoyer',
 		'Reset' => 'Reinitialiser',

@@ -88,11 +88,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
  * Public routes.
  */
 
-// Lang chooser
-Route::get('/', array('as' => 'root', 'uses' => 'App\Controllers\PublicController@root'));
-
-Route::group(array('before' => 'cache', 'after' => 'cache'), function()
+Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function()
 {
+
+	// Lang chooser
+	Route::get('/', array('as' => 'root', 'uses' => 'App\Controllers\PublicController@root'));
 
 	if ( ! App::runningInConsole()) {
 		
