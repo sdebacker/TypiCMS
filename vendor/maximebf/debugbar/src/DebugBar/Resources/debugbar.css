@@ -12,8 +12,14 @@ div.phpdebugbar {
   text-align: left;
 }
 
+div.phpdebugbar-closed {
+    width: auto;
+}
+
 div.phpdebugbar * {
-	box-sizing: content-box;
+    
+    -moz-box-sizing: content-box;
+         box-sizing: content-box;
 }
 
 /* -------------------------------------- */
@@ -39,7 +45,8 @@ a.phpdebugbar-tab,
 span.phpdebugbar-indicator,
 a.phpdebugbar-indicator,
 a.phpdebugbar-open-btn,
-a.phpdebugbar-minimize-btn {
+a.phpdebugbar-restore-btn,
+a.phpdebugbar-close-btn {
   float: left;
   padding: 5px 8px;
   font-size: 14px;
@@ -48,8 +55,8 @@ a.phpdebugbar-minimize-btn {
 }
 span.phpdebugbar-indicator,
 a.phpdebugbar-indicator,
-a.phpdebugbar-open-btn,
-a.phpdebugbar-minimize-btn {
+a.phpdebugbar-restore-btn,
+a.phpdebugbar-close-btn {
   float: right;
   border-right: 1px solid #ddd;
 }
@@ -74,14 +81,18 @@ a.phpdebugbar-tab.phpdebugbar-active {
     color: #555;
     font-weight: normal;
     text-shadow: none;
+    vertical-align: middle;
+  }
+  a.phpdebugbar-tab i {
+    display: none;
+    vertical-align: middle;
   }
   a.phpdebugbar-tab span.phpdebugbar-badge.phpdebugbar-important {
     background: #ed6868;
     color: white;
   }
 
-a.phpdebugbar-minimize-btn {
-  display: none;
+a.phpdebugbar-close-btn {
   background: url(icons.png) no-repeat 10px 7px;
   width: 16px;
   height: 16px;
@@ -93,8 +104,15 @@ a.phpdebugbar-open-btn {
   height: 16px;
 }
 
+a.phpdebugbar-restore-btn {
+  background: #efefef url(php-icon.png) no-repeat 5px 4px;
+  width: 16px;
+  height: 16px;
+}
+
 .phpdebugbar-indicator {
   position: relative;
+  cursor: pointer;
 }
   .phpdebugbar-indicator span.phpdebugbar-text {
     margin-left: 5px;
@@ -110,6 +128,9 @@ a.phpdebugbar-open-btn {
     font-size: 11px;
     padding: 2px 3px;
     z-index: 1000;
+    text-align: center;
+    width: 200%;
+    right: 0;
   }
   .phpdebugbar-indicator:hover span.phpdebugbar-tooltip:not(.phpdebugbar-disabled) {
     display: block;
@@ -138,7 +159,7 @@ div.phpdebugbar-body {
     width: 100%;
     background: #fff;
     border-top: 1px solid #ccc;
-    cursor: move;
+    cursor: n-resize;
     position: absolute;
     top: -33px;
   }
@@ -154,3 +175,29 @@ div.phpdebugbar-panel {
 div.phpdebugbar-panel.phpdebugbar-active {
   display: block;
 }
+
+/* -------------------------------------- */
+div.phpdebugbar-mini-design a.phpdebugbar-tab {
+  position: relative;
+  border-right: 1px solid #ddd;
+}
+  div.phpdebugbar-mini-design a.phpdebugbar-tab span.phpdebugbar-text {
+    display: none;
+  }
+  div.phpdebugbar-mini-design a.phpdebugbar-tab:hover span.phpdebugbar-text {
+    display: block;
+    position: absolute;
+    top: -30px;
+    background: #efefef;
+    opacity: .7;
+    border: 1px solid #ccc;
+    color: #555;
+    font-size: 11px;
+    padding: 2px 3px;
+    z-index: 1000;
+    text-align: center;
+    right: 0;
+  }
+  div.phpdebugbar-mini-design a.phpdebugbar-tab i {
+    display:inline-block;
+  }

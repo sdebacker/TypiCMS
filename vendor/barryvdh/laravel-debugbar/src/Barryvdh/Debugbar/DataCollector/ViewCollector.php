@@ -51,7 +51,7 @@ class ViewCollector extends DataCollector  implements Renderable
     public function collect()
     {
         $views = $this->views;
-        
+
         $messages = array();
         foreach($views as $data){
             $messages[] = array(
@@ -81,6 +81,7 @@ class ViewCollector extends DataCollector  implements Renderable
         $name=$this->getName();
         return array(
             "$name" => array(
+                "icon" => "columns",
                 "widget" => "PhpDebugBar.Widgets.MessagesWidget",
                 "map" => "$name.messages",
                 "default" => "{}"

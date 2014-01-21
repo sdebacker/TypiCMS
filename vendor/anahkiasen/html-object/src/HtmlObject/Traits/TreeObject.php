@@ -116,6 +116,10 @@ abstract class TreeObject
     // Recursive fetching
     $subject = $this;
     foreach ($children as $child) {
+      if (!$subject) {
+        return;
+      }
+
       $subject = $subject->getChild($child);
     }
 

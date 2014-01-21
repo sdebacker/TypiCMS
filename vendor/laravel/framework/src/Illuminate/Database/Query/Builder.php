@@ -403,7 +403,7 @@ class Builder {
 	 * Determine if the given operator and value combination is legal.
 	 *
 	 * @param  string  $operator
-	 * @param  mxied  $value
+	 * @param  mixed  $value
 	 * @return bool
 	 */
 	protected function invalidOperatorAndValue($operator, $value)
@@ -928,7 +928,7 @@ class Builder {
 		return $this->orderBy($column, 'asc');
 	}
 
-	/*
+	/**
 	 * Add a raw "order by" clause to the query.
 	 *
 	 * @param  string  $sql
@@ -1214,7 +1214,7 @@ class Builder {
 	{
 		if (is_null($this->columns)) $this->columns = $columns;
 
-		// If the query is requested ot be cached, we will cache it using a unique key
+		// If the query is requested to be cached, we will cache it using a unique key
 		// for this database connection and query statement, including the bindings
 		// that are used on this query, providing great convenience when caching.
 		list($key, $minutes) = $this->getCacheInfo();

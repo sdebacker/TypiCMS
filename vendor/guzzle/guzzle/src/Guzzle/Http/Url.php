@@ -3,7 +3,6 @@
 namespace Guzzle\Http;
 
 use Guzzle\Common\Exception\InvalidArgumentException;
-use Guzzle\Parser\ParserRegistry;
 
 /**
  * Parses and generates URLs based on URL parts. In favor of performance, URL parts are not validated.
@@ -161,6 +160,8 @@ class Url
      */
     public function getParts()
     {
+        $query = (string) $this->query;
+
         return array(
             'scheme' => $this->scheme,
             'user' => $this->username,
@@ -168,7 +169,7 @@ class Url
             'host' => $this->host,
             'port' => $this->port,
             'path' => $this->getPath(),
-            'query' => (string) $this->query ?: null,
+            'query' => $query !== '' ? $query : null,
             'fragment' => $this->fragment,
         );
     }

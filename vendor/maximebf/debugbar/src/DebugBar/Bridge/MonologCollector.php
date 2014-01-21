@@ -104,6 +104,7 @@ class MonologCollector extends AbstractProcessingHandler implements DataCollecto
         $name = $this->getName();
         return array(
             $name => array(
+                "icon" => "suitcase",
                 "widget" => "PhpDebugBar.Widgets.MessagesWidget",
                 "map" => "$name.records",
                 "default" => "[]"

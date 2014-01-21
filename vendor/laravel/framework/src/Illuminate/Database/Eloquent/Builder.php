@@ -34,8 +34,8 @@ class Builder {
 	 * @var array
 	 */
 	protected $passthru = array(
-		'toSql', 'lists', 'insert', 'insertGetId', 'pluck',
-		'count', 'min', 'max', 'avg', 'sum', 'exists',
+		'toSql', 'lists', 'insert', 'insertGetId', 'pluck', 'count',
+		'min', 'max', 'avg', 'sum', 'exists', 'getBindings',
 	);
 
 	/**
@@ -594,7 +594,7 @@ class Builder {
 	{
 		$relation = $this->getHasRelationQuery($relation);
 
-		$query = $relation->getRelationCountQuery($relation->getRelated()->newQuery());
+		$query = $relation->getRelationCountQuery($relation->getRelated()->newQuery(), $this);
 
 		if ($callback) call_user_func($callback, $query);
 

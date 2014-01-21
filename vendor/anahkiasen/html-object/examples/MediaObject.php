@@ -22,6 +22,11 @@ use HtmlObject\Traits\Tag;
  */
 class MediaObject extends Tag
 {
+  /**
+   * The Media Object's tag
+   *
+   * @var string
+   */
   protected $element = 'article';
 
   /**

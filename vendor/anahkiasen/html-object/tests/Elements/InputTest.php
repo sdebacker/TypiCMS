@@ -1,7 +1,7 @@
 <?php
 use HtmlObject\Input;
 
-class InputTest extends HtmlObjectTests
+class InputTest extends HtmlObjectTestCase
 {
   public function testCanCreateBasicInput()
   {

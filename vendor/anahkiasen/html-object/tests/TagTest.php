@@ -20,7 +20,7 @@ class Icon extends HtmlObject\Traits\Tag
   }
 }
 
-class TagTest extends HtmlObjectTests
+class TagTest extends HtmlObjectTestCase
 {
   public function setUp()
   {

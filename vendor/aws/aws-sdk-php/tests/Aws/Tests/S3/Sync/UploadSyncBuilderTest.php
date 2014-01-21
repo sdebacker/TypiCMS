@@ -86,7 +86,7 @@ class UploadSyncBuilderTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertNotNull($put->getHeader('Content-MD5'));
 
         rewind($out);
-        $this->assertContains('Uploading ' . __FILE__ . ' -> UploadSyncBuilderTest.php (', stream_get_contents($out));
+        $this->assertContains('Uploading ' . __FILE__ . ' -> /UploadSyncBuilderTest.php (', stream_get_contents($out));
     }
 
     public function testCanSetAcpOnMultipartUploadsAndEmitsDebug()
@@ -107,6 +107,7 @@ class UploadSyncBuilderTest extends \Guzzle\Tests\GuzzleTestCase
             ->setBaseDir(__DIR__)
             ->enableDebugOutput($out)
             ->setSourceIterator(new \ArrayIterator(array(new \SplFileInfo(__FILE__))))
+            ->setOperationParams(array('Metadata' => array('foo' => 'bar')))
             ->setMultipartUploadSize(filesize(__FILE__) - 1)
             ->setAcp(AcpBuilder::newInstance()->setOwner('123')->addGrantForEmail('READ_ACP', 'foo@baz.com')->build())
             ->build()
@@ -117,6 +118,7 @@ class UploadSyncBuilderTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertEquals('POST', $requests[1]->getMethod());
         $this->assertContains('?uploads', $requests[1]->getResource());
         $this->assertNotNull($requests[1]->getHeader('x-amz-grant-read-acp'));
+        $this->assertEquals('bar', (string) $requests[1]->getHeader('x-amz-meta-foo'));
         $this->assertEquals('PUT', $requests[2]->getMethod());
         $this->assertEquals('POST', $requests[3]->getMethod());
         $this->assertContains('uploadId=', $requests[3]->getResource());
@@ -124,7 +126,7 @@ class UploadSyncBuilderTest extends \Guzzle\Tests\GuzzleTestCase
         rewind($out);
         $contents = stream_get_contents($out);
         $this->assertContains(
-            'Beginning multipart upload: ' . __FILE__ . ' -> UploadSyncBuilderTest.php (',
+            'Beginning multipart upload: ' . __FILE__ . ' -> /UploadSyncBuilderTest.php (',
             $contents
         );
         $this->assertContains('- Part 1 (', $contents);

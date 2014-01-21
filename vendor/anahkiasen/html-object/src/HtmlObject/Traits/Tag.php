@@ -178,7 +178,12 @@ abstract class Tag extends TreeObject
    */
   public function getContent()
   {
-    return $this->value.$this->renderChildren();
+    $value = $this->value;
+    if ($value instanceof Tag) {
+      $value = $value->render();
+    }
+
+    return $value.$this->renderChildren();
   }
 
   /**
@@ -193,7 +198,7 @@ abstract class Tag extends TreeObject
     $element        = null;
 
     foreach ($this->children as $childName => $child) {
-      if ($child->isOpened) {
+      if ($child->isOpened and !$child->isSelfClosing) {
         $openedOn = $childName;
         $element .= $child->close();
       } elseif ($openedOn and $child->isAfter($openedOn)) {
@@ -216,7 +221,11 @@ abstract class Tag extends TreeObject
    */
   public function render()
   {
-    if ($this->isSelfClosing) return $this->open();
+    // If it's a self closing tag
+    if ($this->isSelfClosing) {
+      return $this->open();
+    }
+
     return $this->open().$this->getContent().$this->close();
   }
 
@@ -428,6 +437,22 @@ abstract class Tag extends TreeObject
   public function getAttribute($attribute)
   {
     return Helpers::arrayGet($this->attributes, $attribute);
+  }
+
+  /**
+   * Remove an attribute
+   *
+   * @param string $attribute
+   *
+   * @return self
+   */
+  public function removeAttribute($attribute)
+  {
+    if (array_key_exists($attribute, $this->attributes)) {
+      unset($this->attributes[$attribute]);
+    }
+
+    return $this;
   }
 
   /**

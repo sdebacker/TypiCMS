@@ -7,7 +7,6 @@ use Guzzle\Common\Exception\InvalidArgumentException;
 use Guzzle\Http\RedirectPlugin;
 use Guzzle\Http\Url;
 use Guzzle\Parser\ParserRegistry;
-use Guzzle\Plugin\Log\LogPlugin;
 
 /**
  * Default HTTP request factory used to create the default {@see Request} and {@see EntityEnclosingRequest} objects.
@@ -139,7 +138,7 @@ class RequestFactory implements RequestFactoryInterface
     public function cloneRequestWithMethod(RequestInterface $request, $method)
     {
         // Create the request with the same client if possible
-        if ($client = $request->getClient()) {
+        if ($request->getClient()) {
             $cloned = $request->getClient()->createRequest($method, $request->getUrl(), $request->getHeaders());
         } else {
             $cloned = $this->create($method, $request->getUrl(), $request->getHeaders());

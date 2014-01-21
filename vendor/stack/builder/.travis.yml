@@ -5,9 +5,15 @@ php:
   - 5.3
   - 5.4
   - 5.5
+  - hhvm
 
 before_script:
   - composer self-update
-  - composer install --prefer-source
+  - composer install --no-interaction --prefer-source
 
 script: phpunit --coverage-text
+
+matrix:
+  allow_failures:
+    - php: hhvm
+  fast_finish: true

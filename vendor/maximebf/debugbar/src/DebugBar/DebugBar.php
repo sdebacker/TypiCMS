@@ -205,6 +205,7 @@ class DebugBar implements ArrayAccess
                 'id' => $this->getCurrentRequestId(),
                 'datetime' => date('Y-m-d H:i:s'),
                 'utime' => microtime(true),
+                'method' => isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null,
                 'uri' => isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null,
                 'ip' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null
             )
@@ -243,12 +244,19 @@ class DebugBar implements ArrayAccess
      * @param integer $maxHeaderLength
      * @return array
      */
-    public function getDataAsHeaders($headerName = 'phpdebugbar', $maxHeaderLength = 4096)
+    public function getDataAsHeaders($headerName = 'phpdebugbar', $maxHeaderLength = 4096, $maxTotalHeaderLength = 250000)
     {
         $data = rawurlencode(json_encode(array(
             'id' => $this->getCurrentRequestId(),
             'data' => $this->getData()
         )));
+        
+        if (strlen($data) > $maxTotalHeaderLength){
+            $data = rawurlencode(json_encode(array(
+                'error' => 'Maximum header size exceeded'
+            )));
+        }
+        
         $chunks = array();
 
         while (strlen($data) > $maxHeaderLength) {
@@ -416,12 +424,14 @@ class DebugBar implements ArrayAccess
     /**
      * Returns a JavascriptRenderer for this instance
      * 
+     * @param stri $baseUrl
+     * @param string $basePathng
      * @return JavascriptRenderer
      */
-    public function getJavascriptRenderer()
+    public function getJavascriptRenderer($baseUrl = null, $basePath = null)
     {
         if ($this->jsRenderer === null) {
-            $this->jsRenderer = new JavascriptRenderer($this);
+            $this->jsRenderer = new JavascriptRenderer($this, $baseUrl, $basePath);
         }
         return $this->jsRenderer;
     }

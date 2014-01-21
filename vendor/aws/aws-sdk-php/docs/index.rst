@@ -25,6 +25,7 @@ AWS SDK for PHP
     service-autoscaling
     service-cloudformation
     service-cloudfront
+    service-cloudfront-20120505
     service-cloudsearch
     service-cloudtrail
     service-cloudwatch
@@ -58,10 +59,10 @@ AWS SDK for PHP
     feature-dynamodb-session-handler
     feature-s3-stream-wrapper
 
-The **AWS SDK for PHP** enables PHP developers to use `Amazon Web Services <http://aws.amazon.com/>`_ in their PHP code,
-and build robust applications and software using services like Amazon S3, Amazon DynamoDB, Amazon Glacier, etc. You can
-get started in minutes by installing the SDK through Composer — by requiring the ``aws/aws-sdk-php`` package — or by
-downloading the standalone `aws.zip <http://pear.amazonwebservices.com/get/aws.zip>`_ or
+The **AWS SDK for PHP** enables PHP developers to use `Amazon Web Services <http://aws.amazon.com/>`_ from their PHP
+code, and build robust applications and software using services like Amazon S3, Amazon DynamoDB, Amazon Glacier, etc.
+You can get started in minutes by installing the SDK through Composer — by requiring the ``aws/aws-sdk-php`` package —
+or by downloading the standalone `aws.zip <http://pear.amazonwebservices.com/get/aws.zip>`_ or
 `aws.phar <http://pear.amazonwebservices.com/get/aws.phar>`_ files.
 
 Getting Started
@@ -69,9 +70,9 @@ Getting Started
 
 * Before you use the SDK
 
-  * :doc:`awssignup`
-  * :doc:`Requirements for Using the SDK <requirements>`
-  * :doc:`Installing the SDK <installation>`
+  * `Sign up for AWS and get your AWS access keys <http://aws.amazon.com/developers/access-keys/>`_
+  * :doc:`Verify that your system meets the minimum requirements for the SDK <requirements>`
+  * :doc:`Install the AWS SDK for PHP <installation>`
 
 * Using the SDK
 
@@ -92,8 +93,9 @@ In-Depth Guides
 
   * :doc:`feature-iterators`
   * :doc:`feature-waiters`
-  * :doc:`feature-models`
   * :doc:`feature-commands`
+  * :ref:`Parallel Commands <parallel_commands>`
+  * :doc:`feature-models`
   * :doc:`feature-facades`
 
 * :doc:`faq`
@@ -109,6 +111,8 @@ Service-Specific Guides
 * Amazon CloudFront
 
   .. indexlinks:: CloudFront
+
+  * :doc:`Using the older 2012-05-05 API version <service-cloudfront-20120505>`
 
 * Amazon CloudSearch
 

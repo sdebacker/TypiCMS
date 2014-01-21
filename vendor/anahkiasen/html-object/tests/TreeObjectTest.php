@@ -1,10 +1,13 @@
 <?php
 use HtmlObject\Element;
+use HtmlObject\Input;
 
-class TreeObjectTest extends HtmlObjectTests
+class TreeObjectTest extends HtmlObjectTestCase
 {
   public function setUp()
   {
+    parent::setUp();
+
     $this->object = new Element('p', 'foo');
   }
 
@@ -176,6 +179,15 @@ class TreeObjectTest extends HtmlObjectTests
 
     $this->object->nest(Element::div());
     $this->assertTrue($this->object->hasChildren());
+  }
+
+  public function testCanHaveSelfClosingChildren()
+  {
+    $tag = Element::div('foo')->nest(array(
+      'foo' => Input::create('text'),
+    ));
+
+    $this->assertEquals('<div>foo<input type="text"></div>', $tag->render());
   }
 
   public function testCanCheckIfChildrenIsAfterSibling()
