@@ -12,6 +12,8 @@
 	{{ HTML::style(asset('components/vendor/bootstrap3-datetimepicker/build/css/bootstrap-datetimepicker.min.css')) }}
 	{{ HTML::style(asset('components/vendor/alertify.js/themes/alertify.core.css')) }}
 	{{ HTML::style(asset('components/vendor/alertify.js/themes/alertify.bootstrap.css')) }}
+	{{ HTML::style(asset('components/vendor/select2/select2.css')) }}
+	{{ HTML::style(asset('components/vendor/select2/select2-bootstrap.css')) }}
 
 	@yield('css')
 
@@ -31,6 +33,10 @@
 	{{ HTML::script(asset('components/vendor/alertify.js/lib/alertify.js')) }}
 	{{ HTML::script(asset('components/jquery.listenhancer.js')) }}
 	{{ HTML::script(asset('components/jquery.slug.js')) }}
+	{{ HTML::script(asset('components/vendor/select2/select2.min.js')) }}
+	@if(Config::get('app.locale') != 'en')
+	{{ HTML::script(asset('components/vendor/select2/select2_locale_'.Config::get('app.locale').'.js')) }}
+	@endif
 	{{ HTML::script(asset('components/vendor/dropzone/downloads/dropzone.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap/js/transition.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap/js/tab.js')) }}
