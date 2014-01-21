@@ -9,4 +9,10 @@ return array(
 	*/
 	'Skip to content' => 'Naar inhoud',
 	'More' => 'Meer',
+
+	'languages' => array(
+		'fr' => 'Français',
+		'nl' => 'Nederlands',
+		'en' => 'English',
+	),
 );
