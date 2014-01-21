@@ -43,8 +43,9 @@
 	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
 	{{ HTML::script(asset('components/vendor/moment/moment.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/bootstrap-datetimepicker.js')) }}
+	@if(Config::get('app.locale') != 'en')
 	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
-
+	@endif
 	{{ HTML::script(asset('js/general.js')) }}
 
 	@yield('js')
