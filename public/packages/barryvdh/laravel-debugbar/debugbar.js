@@ -244,6 +244,16 @@ if (typeof(PhpDebugBar) == 'undefined') {
 
         render: function() {
             this.$tab = $('<a href="javascript:" />').addClass(csscls('tab'));
+
+            this.$icon = $('<i />').appendTo(this.$tab);
+            this.bindAttr('icon', function(icon) {
+                if (icon) {
+                    this.$icon.attr('class', 'fa fa-' + icon);
+                } else {
+                    this.$icon.attr('class', '');
+                }
+            });
+
             this.bindAttr('title', $('<span />').addClass(csscls('text')).appendTo(this.$tab));
 
             this.$badge = $('<span />').addClass(csscls('badge')).appendTo(this.$tab);
@@ -390,6 +400,41 @@ if (typeof(PhpDebugBar) == 'undefined') {
             this.firstTabName = null;
             this.activePanelName = null;
             this.datesetTitleFormater = new DatasetTitleFormater(this);
+            this.registerResizeHandler();
+        },
+
+        /**
+         * Register resize event, for resize debugbar with reponsive css.
+         *
+         * @this {DebugBar}
+         */
+        registerResizeHandler: function() {
+            var self = this, f = null;
+            self.respCSSSize = 0;
+            $(window).resize(f = function () {
+                var $ = PhpDebugBar.$;
+                var header = $(".phpdebugbar-header");
+
+                var contentSize = self.respCSSSize;
+                if (self.respCSSSize == 0) {
+                    $(header).find("> *:visible").each(function () {
+                        contentSize += $(this).outerWidth();
+                    });
+                }
+
+                var currentSize = $(header).width();
+
+                var cssClass = "phpdebugbar-mini-design", bool = $(header).hasClass(cssClass);
+                if (currentSize <= contentSize && !bool) {
+                    self.respCSSSize = contentSize;
+
+                    $(header).addClass(cssClass);
+                } else if (contentSize < currentSize && bool) {
+                    self.respCSSSize = 0;
+                    $(".phpdebugbar-header").removeClass(cssClass);
+                }
+            });
+            setTimeout(f, 20);
         },
 
         /**
@@ -426,9 +471,15 @@ if (typeof(PhpDebugBar) == 'undefined') {
             });
             
             // minimize button
-            this.$minimizebtn = $('<a href="javascript:" />').addClass(csscls('minimize-btn')).appendTo(this.$header);
-            this.$minimizebtn.click(function() {
-                self.minimize();
+            this.$closebtn = $('<a href="javascript:" />').addClass(csscls('close-btn')).appendTo(this.$header);
+            this.$closebtn.click(function() {
+                self.close();
+            });
+
+            // minimize button
+            this.$restorebtn = $('<a href="javascript:" />').addClass(csscls('restore-btn')).hide().appendTo(this.$el);
+            this.$restorebtn.click(function() {
+                self.restore();
             });
 
             // open button
@@ -464,12 +515,17 @@ if (typeof(PhpDebugBar) == 'undefined') {
                 localStorage.setItem('phpdebugbar-height', this.$body.height());
             }
 
-            // bar visibility
-            var visible = localStorage.getItem('phpdebugbar-visible');
-            if (visible && visible == '1') {
-                var tab = localStorage.getItem('phpdebugbar-tab');
-                if (this.isTab(tab)) {
-                    this.showTab(tab);
+			// bar visibility
+            var open = localStorage.getItem('phpdebugbar-open');
+            if(open && open == '0'){
+                this.close();
+            }else{
+                var visible = localStorage.getItem('phpdebugbar-visible');
+                if (visible && visible == '1') {
+                    var tab = localStorage.getItem('phpdebugbar-tab');
+                    if (this.isTab(tab)) {
+                        this.showTab(tab);
+                    }
                 }
             }
         },
@@ -646,7 +702,6 @@ if (typeof(PhpDebugBar) == 'undefined') {
 
             this.$resizehdle.show();
             this.$body.show();
-            this.$minimizebtn.show();
             this.recomputeBottomOffset();
 
             $(this.$header).find('> .' + csscls('active')).removeClass(csscls('active'));
@@ -662,14 +717,13 @@ if (typeof(PhpDebugBar) == 'undefined') {
         },
 
         /**
-         * Hide panels and "close" the debug bar
+         * Hide panels and minimize the debug bar
          *
          * @this {DebugBar}
          */
         minimize: function() {
             this.$header.find('> .' + csscls('active')).removeClass(csscls('active'));
             this.$body.hide();
-            this.$minimizebtn.hide();
             this.$resizehdle.hide();
             this.recomputeBottomOffset();
             localStorage.setItem('phpdebugbar-visible', '0');
@@ -683,6 +737,32 @@ if (typeof(PhpDebugBar) == 'undefined') {
          */
         isMinimized: function() {
             return this.$el.hasClass(csscls('minimized'));
+        },
+		
+        /**
+         * Close the debug bar
+         *
+         * @this {DebugBar}
+         */
+        close: function() {
+            this.$header.hide();
+            this.$body.hide();
+            this.$restorebtn.show();
+            localStorage.setItem('phpdebugbar-open', '0');
+            this.$el.addClass(csscls('closed'));
+        },
+
+        /**
+         * Restore the debug bar
+         *
+         * @this {DebugBar}
+         */
+        restore: function() {
+            this.$header.show();
+            this.$restorebtn.hide();
+            localStorage.setItem('phpdebugbar-open', '1');
+            this.restoreState();
+            this.$el.removeClass(csscls('closed'));
         },
 
         /**
@@ -922,7 +1002,11 @@ if (typeof(PhpDebugBar) == 'undefined') {
             }
 
             var data = this.parseHeaders(raw);
-            this.debugbar.addDataSet(data.data, data.id, "(ajax)");
+            if(data.error){
+                throw new Error('Error loading debugbar data: '+data.error);
+            }else if(data.data){
+                this.debugbar.addDataSet(data.data, data.id, "(ajax)");
+            }
             return true;
         },
 
