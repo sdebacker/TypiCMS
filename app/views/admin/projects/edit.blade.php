@@ -2,7 +2,7 @@
 
 	<div class="row">
 
-		{{ Former::vertical_open()->method('PATCH')->action(route('admin.projects.update', $model->id))->role('form') }}
+		{{ Former::vertical_open()->method('PATCH')->action(route('admin.projects.update', $model->id))->role('form')->class('col-sm-6') }}
 			@include('admin.projects._form')
 		{{ Former::close() }}
 

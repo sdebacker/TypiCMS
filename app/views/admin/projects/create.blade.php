@@ -1,7 +1,11 @@
 @section('main')
 
-	{{ Former::vertical_open()->method('POST')->action(route('admin.projects.index'))->role('form') }}
-		@include('admin.projects._form')
-	{{ Former::close() }}
+	<div class="row">
+
+		{{ Former::vertical_open()->method('POST')->action(route('admin.projects.index'))->role('form')->class('col-sm-6') }}
+			@include('admin.projects._form')
+		{{ Former::close() }}
+
+	</div>
 
 @stop
