@@ -18,10 +18,24 @@ abstract class BaseController extends Controller {
 	// https://gisglobal.github.com/jonathanmarvens/6017139
 	public $title  = array(
 		'parent'	=> '',
-		'separator' => ':',
 		'child'	 => '',
+		'h1'	 => '',
 	);
 
+	private function getTitle()
+	{
+		$title = ucfirst($this->title['parent']);
+		if ($this->title['child']) {
+			$title .= ' – ' . ucfirst($this->title['child']);
+		}
+		$title .= ' – ' . $this->applicationName;
+		return $title;
+	}
+
+	private function getH1()
+	{
+		return ($this->title['h1']) ? $this->title['h1'] : $this->title['child'] ;
+	}
 
 	/**
 	 * The layout that should be used for responses.
@@ -44,7 +58,8 @@ abstract class BaseController extends Controller {
 
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {
-			$view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));
+			$view->with('title', $instance->getTitle());
+			$view->with('h1', $instance->getH1());
 		});
 
 		View::share('navBar', $navBar);

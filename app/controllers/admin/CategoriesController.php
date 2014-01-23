@@ -13,7 +13,7 @@ class CategoriesController extends BaseController {
 	public function __construct(CategoryInterface $category, CategoryForm $categoryform)
 	{
 		parent::__construct($category, $categoryform);
-		$this->title['parent'] = trans_choice('global.modules.categories', 2);
+		$this->title['parent'] = trans_choice('modules.categories.categories', 2);
 	}
 
 	/**
@@ -23,6 +23,7 @@ class CategoriesController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.categories.categories', $models->getTotal());
 		$this->layout->content = View::make('admin.categories.index')->withModels($models);
 	}
 
@@ -34,7 +35,7 @@ class CategoriesController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository;
-		$this->title['child'] = trans('categories.New');
+		$this->title['child'] = trans('modules.categories.New');
 		$this->layout->content = View::make('admin.categories.create')
 			->with('model', $model);
 	}
@@ -48,7 +49,7 @@ class CategoriesController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$this->title['child'] = trans('categories.Edit');
+		$this->title['child'] = trans('modules.categories.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.categories.edit')

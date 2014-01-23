@@ -13,7 +13,7 @@ class EventsController extends BaseController {
 	public function __construct(EventInterface $event, EventForm $eventform)
 	{
 		parent::__construct($event, $eventform);
-		$this->title['parent'] = trans_choice('global.modules.events', 2);
+		$this->title['parent'] = trans_choice('modules.events.events', 2);
 	}
 
 	/**
@@ -23,6 +23,7 @@ class EventsController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.events.events', $models->getTotal());
 		$this->layout->content = View::make('admin.events.index')->withModels($models);
 	}
 
@@ -33,7 +34,7 @@ class EventsController extends BaseController {
 	 */
 	public function create()
 	{
-		$this->title['child'] = trans('events.New');
+		$this->title['child'] = trans('modules.events.New');
 		$model = $this->repository;
 		$this->layout->content = View::make('admin.events.create')
 			->with('model', $model);
@@ -50,7 +51,7 @@ class EventsController extends BaseController {
 	{
 		$model = $this->repository->byId($model->id);
 
-		$this->title['child'] = trans('events.Edit');
+		$this->title['child'] = trans('modules.events.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.events.edit')

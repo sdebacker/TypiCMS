@@ -1,5 +1,3 @@
-@extends('admin/master')
-
 @section('main')
 
 <div class="row">

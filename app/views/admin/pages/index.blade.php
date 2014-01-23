@@ -12,13 +12,6 @@
 @stop
 
 
-@section('header')
-
-	<h1><span id="nb_elements">{{ $models->getTotal() }}</span> @choice('global.modules.pages', $models->getTotal())</h1>
-
-@stop
-
-
 @section('main')
 
 	<div class="list-form" lang="{{ Config::get('app.locale') }}">

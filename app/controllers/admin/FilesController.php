@@ -14,7 +14,7 @@ class FilesController extends BaseController {
 	public function __construct(FileInterface $file, FileForm $fileform)
 	{
 		parent::__construct($file, $fileform);
-		$this->title['parent'] = trans_choice('global.modules.files', 2);
+		$this->title['parent'] = trans_choice('modules.files.files', 2);
 	}
 
 
@@ -41,6 +41,7 @@ class FilesController extends BaseController {
 	public function index($relatedModel = null)
 	{
 		$models = $this->repository->getAll(true, $relatedModel)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.files.files', $models->getTotal());
 		$this->layout->content = View::make('admin.files.index')->withModels($models)->with('relatedModel', $relatedModel);
 	}
 
@@ -53,7 +54,7 @@ class FilesController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository;
-		$this->title['child'] = trans('files.New');
+		$this->title['child'] = trans('modules.files.New');
 		$this->layout->content = View::make('admin.files.create')
 			->with('model', $model);
 	}
@@ -70,7 +71,7 @@ class FilesController extends BaseController {
 		// $relatedModel = with(new $model->fileable_type)->find($model->fileable_id);
 		// d($relatedModel);
 
-		$this->title['child'] = trans('files.Edit');
+		$this->title['child'] = trans('modules.files.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.files.edit')

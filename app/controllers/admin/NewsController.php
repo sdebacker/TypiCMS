@@ -13,7 +13,7 @@ class NewsController extends BaseController {
 	public function __construct(NewsInterface $news, NewsForm $newsform)
 	{
 		parent::__construct($news, $newsform);
-		$this->title['parent'] = trans_choice('global.modules.news', 2);
+		$this->title['parent'] = trans_choice('modules.news.news', 2);
 	}
 
 	/**
@@ -23,6 +23,7 @@ class NewsController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.news.news', $models->getTotal());
 		$this->layout->content = View::make('admin.news.index')->withModels($models);
 	}
 
@@ -33,7 +34,7 @@ class NewsController extends BaseController {
 	 */
 	public function create()
 	{
-		$this->title['child'] = trans('news.New');
+		$this->title['child'] = trans('modules.news.New');
 		$model = $this->repository;
 		$this->layout->content = View::make('admin.news.create')
 			->with('model', $model);
@@ -50,7 +51,7 @@ class NewsController extends BaseController {
 	{
 		$model = $this->repository->byId($model->id);
 
-		$this->title['child'] = trans('news.Edit');
+		$this->title['child'] = trans('modules.news.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.news.edit')

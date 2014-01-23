@@ -69,7 +69,7 @@
 
 	<div class="header clearfix">
 
-		@yield('header')
+		<h1>{{ $h1 }}</h1>
 
 		<div class="btn-group pull-right">
 			@foreach (Config::get('app.locales') as $locale)

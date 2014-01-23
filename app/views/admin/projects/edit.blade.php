@@ -1,10 +1,3 @@
-@section('header')
-
-	<h1>Edit @choice('global.modules.projects', 1)</h1>
-
-@stop
-
-
 @section('main')
 
 	<div class="row">

@@ -13,7 +13,7 @@ class MenusController extends BaseController {
 	public function __construct(MenuInterface $menu, MenuForm $menuform)
 	{
 		parent::__construct($menu, $menuform);
-		$this->title['parent'] = trans_choice('global.modules.menus', 2);
+		$this->title['parent'] = trans_choice('modules.menus.menus', 2);
 	}
 
 
@@ -24,6 +24,7 @@ class MenusController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.menus.menus', $models->getTotal());
 		$this->layout->content = View::make('admin.menus.index')->withModels($models);
 	}
 
@@ -35,7 +36,7 @@ class MenusController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository;
-		$this->title['child'] = trans('menus.New');
+		$this->title['child'] = trans('modules.menus.New');
 		$this->layout->content = View::make('admin.menus.create')
 			->with('model', $model);
 	}
@@ -49,7 +50,7 @@ class MenusController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$this->title['child'] = trans('menus.Edit');
+		$this->title['child'] = trans('modules.menus.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.menus.edit')

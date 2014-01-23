@@ -16,7 +16,7 @@ class MenuLinksController extends BaseController {
 	public function __construct(MenulinkInterface $menulink, MenulinkForm $menulinkform)
 	{
 		parent::__construct($menulink, $menulinkform);
-		$this->title['parent'] = Lang::choice('global.modules.menulinks', 2);
+		$this->title['parent'] = Lang::choice('modules.menulinks.menulinks', 2);
 		// $this->model = $menulink;
 	}
 
@@ -27,6 +27,7 @@ class MenuLinksController extends BaseController {
 	public function index($menu)
 	{
 		$models = $this->repository->getAllFromMenu(true, $menu->id)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.menulinks.menulinks', $models->getTotal());
 		$this->layout->content = View::make('admin.menulinks.index')->withModels($models)->withMenu($menu);
 	}
 
@@ -39,7 +40,7 @@ class MenuLinksController extends BaseController {
 	public function create($menu)
 	{
 		$model = $this->repository;
-		$this->title['child'] = trans('menulinks.New');
+		$this->title['child'] = trans('modules.menulinks.New');
 
 		$selectPages = $this->repository->getPagesForSelect();
 		$selectModules = $this->repository->getModulesForSelect();
@@ -60,7 +61,7 @@ class MenuLinksController extends BaseController {
 	 */
 	public function edit($menu, $model)
 	{
-		$this->title['child'] = trans('menulinks.Edit');
+		$this->title['child'] = trans('modules.menulinks.Edit');
 		$model->setTranslatedFields();
 
 		$selectPages = $this->repository->getPagesForSelect();

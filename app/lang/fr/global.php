@@ -7,19 +7,6 @@ return array(
 	| FR Global TypiCMS Language Lines
 	|--------------------------------------------------------------------------
 	*/
-	'modules' => array(
-		'settings'      => 'configuration',
-		'pages'         => 'page|pages',
-		'files'         => 'fichier|fichiers',
-		'events'        => 'événement|événements',
-		'users'         => 'utilisateur|utilisateurs',
-		'news'          => 'actualité|actualités',
-		'projects'      => 'projet|projets',
-		'categories'    => 'catégorie|catégories',
-		'addresses'     => 'adresse|adresses',
-		'menus'         => 'menu|menus',
-		'menulinks'     => 'entrée de menu|entrées de menus',
-	),
 	'crud' => array(
 		'create' => 'créer',
 		'edit' => 'Modifier',

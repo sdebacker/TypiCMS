@@ -1,10 +1,3 @@
-@section('header')
-
-	<h1>{{ ucfirst(trans('global.modules.settings')) }}</h1>
-
-@stop
-
-
 @section('main')
 
 <div class="row">

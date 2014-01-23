@@ -21,7 +21,7 @@ class UsersController extends BaseController {
 	public function __construct(UserInterface $user, UserForm $userform)
 	{
 		parent::__construct($user, $userform);
-		$this->title['parent'] = trans_choice('global.modules.users', 2);
+		$this->title['parent'] = trans_choice('modules.users.users', 2);
 	}
 
 
@@ -66,6 +66,7 @@ class UsersController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.users.users', $models->getTotal());
 		$this->layout->content = View::make('admin.users.index')->withModels($models);
 	}
 
@@ -77,7 +78,7 @@ class UsersController extends BaseController {
 	 */
 	public function create()
 	{
-		$this->title['child'] = trans('users.New');
+		$this->title['child'] = trans('modules.users.New');
 
 		$this->layout->content = View::make('admin.users.create')
 			->with('selectedGroups', array())
@@ -93,7 +94,7 @@ class UsersController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$this->title['child'] = trans('users.Edit');
+		$this->title['child'] = trans('modules.users.Edit');
 
 		$user = $this->repository->byId($id);
 

@@ -23,6 +23,11 @@ abstract class RepositoriesAbstract {
 		return $this->model->route;
 	}
 
+	public function getModel()
+	{
+		return $this->model;
+	}
+
 	/**
 	 * Retrieve model by id
 	 * regardless of status

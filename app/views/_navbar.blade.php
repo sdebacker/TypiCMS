@@ -15,7 +15,7 @@
 					<ul class="dropdown-menu">
 					@foreach (Config::get('app.modules') as $key => $module)
 						@if ($module['menu'])
-							<li><a href="{{ route('admin.'.$module['module'].'.index') }}">{{ Str::title(trans_choice('global.modules.'.$module['module'], 2)) }}</a></li>
+							<li><a href="{{ route('admin.'.$module['module'].'.index') }}">{{ Str::title(trans_choice('modules.'.$module['module'].'.'.$module['module'], 2)) }}</a></li>
 						@endif
 					@endforeach
 					</ul>

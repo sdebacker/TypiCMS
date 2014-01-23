@@ -13,7 +13,7 @@ class ProjectsController extends BaseController {
 	public function __construct(ProjectInterface $project, ProjectForm $projectform)
 	{
 		parent::__construct($project, $projectform);
-		$this->title['parent'] = trans_choice('global.modules.projects', 2);
+		$this->title['parent'] = trans_choice('modules.projects.projects', 2);
 	}
 
 	/**
@@ -23,6 +23,7 @@ class ProjectsController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.projects.projects', $models->getTotal());
 		$this->layout->content = View::make('admin.projects.index')->withModels($models);
 	}
 
@@ -34,7 +35,7 @@ class ProjectsController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository;
-		$this->title['child'] = trans('projects.New');
+		$this->title['child'] = trans('modules.projects.New');
 		$this->layout->content = View::make('admin.projects.create')
 			->with('model', $model);
 	}
@@ -50,7 +51,7 @@ class ProjectsController extends BaseController {
 	{
 		$model = $this->repository->byId($model->id);
 
-		$this->title['child'] = trans('projects.Edit');
+		$this->title['child'] = trans('modules.projects.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.projects.edit')

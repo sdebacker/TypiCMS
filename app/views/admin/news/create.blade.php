@@ -1,10 +1,3 @@
-@section('header')
-
-	<h1>New @choice('global.modules.news', 1)</h1>
-
-@stop
-
-
 @section('main')
 
 	<div class="row">

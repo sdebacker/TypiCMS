@@ -12,7 +12,7 @@ class SettingsController extends BaseController {
 	public function __construct(SettingInterface $setting)
 	{
 		parent::__construct($setting);
-		$this->title['parent'] = trans_choice('global.modules.settings', 2);
+		$this->title['parent'] = trans('global.settings');
 	}
 
 
@@ -24,6 +24,7 @@ class SettingsController extends BaseController {
 	{
 		$datas = $this->repository->getAll(true);
 		Former::populate($datas);
+		$this->title['h1'] = ucfirst(trans('global.settings'));
 		$this->layout->content = View::make('admin.settings.index');
 	}
 

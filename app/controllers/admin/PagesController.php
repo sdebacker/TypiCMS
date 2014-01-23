@@ -13,7 +13,7 @@ class PagesController extends BaseController {
 	public function __construct(PageInterface $page, PageForm $pageform)
 	{
 		parent::__construct($page, $pageform);
-		$this->title['parent'] = trans_choice('global.modules.pages', 2);
+		$this->title['parent'] = trans_choice('modules.pages.pages', 2);
 	}
 
 
@@ -24,6 +24,7 @@ class PagesController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
+		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.pages.pages', $models->getTotal());
 		$this->layout->content = View::make('admin.pages.index')->withModels($models);
 	}
 
@@ -35,7 +36,7 @@ class PagesController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository;
-		$this->title['child'] = trans('pages.New');
+		$this->title['child'] = trans('modules.pages.New');
 		$this->layout->content = View::make('admin.pages.create')
 			->with('model', $model);
 	}
@@ -51,7 +52,7 @@ class PagesController extends BaseController {
 	{
 		$model = $this->repository->byId($model->id);
 
-		$this->title['child'] = trans('pages.Edit');
+		$this->title['child'] = trans('modules.pages.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.pages.edit')
