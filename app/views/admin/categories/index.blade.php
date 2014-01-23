@@ -5,10 +5,8 @@
 @stop
 
 
-@section('buttons')
-
-	<a href="{{ route('admin.categories.create') }}" class="btn btn-primary">{{ ucfirst(trans('global.crud.new')) }}</a>
-
+@section('addButton')
+	<a href="{{ route('admin.categories.create') }}" class=""><span class="glyphicon glyphicon glyphicon-plus-sign"></span><span class="sr-only">{{ ucfirst(trans('modules.categories.New')) }}</span></a>&nbsp;
 @stop
 
 
@@ -16,7 +14,7 @@
 
 	<div class="list-form" lang="{{ Config::get('app.locale') }}">
 
-		<div class="btn-toolbar"></div>
+		@include('admin._toolbar')
 
 		{{ $models->getList() }}
 

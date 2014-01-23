@@ -67,15 +67,9 @@
 		{{ Notification::showSuccess('alertify.success(":message");') }}
 	</script>
 
-	<div class="header clearfix">
+	<div class="page-header">
 
-		<h1>{{ $h1 }}</h1>
-
-		<div class="btn-group pull-right">
-			@foreach (Config::get('app.locales') as $locale)
-				<a class="btn btn-default btn-sm @if($locale == Session::get('locale')) active @endif" href="?locale={{ $locale }}">{{ $locale }}</a>
-			@endforeach
-		</div>
+		<h1>@yield('addButton'){{ $h1 }}</h1>
 
 	</div>
 

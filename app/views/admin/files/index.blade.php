@@ -9,7 +9,7 @@
 
 	<div class="list-form" lang="{{ Config::get('app.locale') }}">
 
-		<div class="btn-toolbar"></div>
+		@include('admin._toolbar')
 
 		{{ Former::vertical_open_for_files()->action(route('admin.files.upload'))->class('thumbnail thumbnail-dropzone')->id('uploader') }}
 			@foreach (Config::get('app.locales') as $locale)

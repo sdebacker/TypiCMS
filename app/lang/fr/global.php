@@ -7,6 +7,11 @@ return array(
 	| FR Global TypiCMS Language Lines
 	|--------------------------------------------------------------------------
 	*/
+	'languages' => array(
+		'fr' => 'Français',
+		'nl' => 'Néerlandais',
+		'en' => 'Anglais',
+	),
 	'crud' => array(
 		'create' => 'créer',
 		'edit' => 'Modifier',
