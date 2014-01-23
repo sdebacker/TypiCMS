@@ -60,4 +60,10 @@ return array(
 		'New'  => 'Nouvel élément de menu',
 		'Edit' => 'Modifier l’élément de menu',
 	),
+	'dashboard' => array(
+		'Dashboard' => 'Tableau de bord',
+		'Welcome, :name!' => 'Bienvenue :name !',
+		'Modules' => 'Modules',
+		'Menus' => 'Menus',
+	),
 );

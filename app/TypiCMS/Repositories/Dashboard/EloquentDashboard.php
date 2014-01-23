@@ -46,7 +46,7 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 				$table = $model->getTable();
 				$modules[$table]['name'] = $table;
 				$modules[$table]['route'] = $model->route;
-				$modules[$table]['title'] = Str::title(trans_choice('global.modules.'.$table, 2));
+				$modules[$table]['title'] = Str::title(trans_choice('modules.'.$table.'.'.$table, 2));
 				$modules[$table]['count'] = $model->count();
 			}
 		}

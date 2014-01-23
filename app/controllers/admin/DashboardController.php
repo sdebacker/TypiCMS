@@ -20,14 +20,14 @@ class DashboardController extends BaseController {
 	public function __construct(DashboardInterface $dashboard)
 	{
 		parent::__construct($dashboard);
-		$this->title['parent'] = trans('global.Dashboard');
+		$this->title['parent'] = trans('modules.dashboard.Dashboard');
 	}
 
 	public function index($relid = null)
 	{
 		$menus = Menu::orderBy('id')->translations()->get();
 
-		$this->title['child'] = trans('global.Dashboard');
+		$this->title['child'] = trans('modules.dashboard.Dashboard');
 
 		$modules = $this->repository->getDashboardModules();
 		

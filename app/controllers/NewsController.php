@@ -8,7 +8,7 @@ class NewsController extends BaseController {
 	public function __construct(NewsInterface $news)
 	{
 		parent::__construct($news);
-		$this->title['parent'] = trans_choice('global.modules.news', 2);
+		$this->title['parent'] = trans_choice('modules.news.news', 2);
 	}
 
 	/**

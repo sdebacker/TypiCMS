@@ -91,7 +91,7 @@ class ListBuilder {
 			$this->list[] = '<div class="attachments">';
 			$nb = count($item->files);
 			$attachmentClass = $nb ? '' : 'text-muted' ;
-			$this->list[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $item->id).'">'.$nb.' '.trans_choice('global.modules.files', $nb).'</a>';
+			$this->list[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $item->id).'">'.$nb.' '.trans_choice('modules.files.files', $nb).'</a>';
 			$this->list[] = '</div>';
 		}
 		return $this;

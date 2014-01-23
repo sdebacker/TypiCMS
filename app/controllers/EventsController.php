@@ -8,7 +8,7 @@ class EventsController extends BaseController {
 	public function __construct(EventInterface $event)
 	{
 		parent::__construct($event);
-		$this->title['parent'] = trans_choice('global.modules.events', 2);
+		$this->title['parent'] = trans_choice('modules.events.events', 2);
 	}
 
 	/**

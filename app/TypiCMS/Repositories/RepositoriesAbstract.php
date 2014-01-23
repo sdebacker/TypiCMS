@@ -336,7 +336,7 @@ abstract class RepositoriesAbstract {
 		$selectModules = array('' => '');
 		foreach ($modulesArray as $model => $property) {
 			if ($property['menu']) {
-				$selectModules[$property['module']] = Str::title(trans_choice('global.modules.'.$property['module'], 2));
+				$selectModules[$property['module']] = Str::title(trans_choice('modules.'.$property['module'].'.'.$property['module'], 2));
 			}
 		}
 		return $selectModules;

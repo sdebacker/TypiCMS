@@ -1,10 +1,8 @@
 @section('main')
 
-<h1>@lang('global.dashboard.Dashboard')</h1>
-
 <div class="panel panel-default">
 
-	<div class="panel-heading">@lang('global.dashboard.Welcome, :name!', array('name' => Sentry::getUser()->first_name))</div>
+	<div class="panel-heading">@lang('modules.dashboard.Welcome, :name!', array('name' => Sentry::getUser()->first_name))</div>
 
 	<div class="panel-body">
 		{{ $welcomeMessage }}
@@ -19,7 +17,7 @@
 
 		<div class="panel panel-default">
 
-			<div class="panel-heading">@lang('global.dashboard.Modules')</div>
+			<div class="panel-heading">@lang('modules.dashboard.Modules')</div>
 
 			<div class="list-group">
 				@foreach ($modules as $module)
@@ -36,7 +34,7 @@
 
 		<div class="panel panel-default">
 
-			<div class="panel-heading">@lang('global.dashboard.Menus')</div>
+			<div class="panel-heading">@lang('modules.dashboard.Menus')</div>
 
 			<div class="list-group">
 				@foreach ($menus as $menu)

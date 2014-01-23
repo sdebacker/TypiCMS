@@ -12,7 +12,7 @@ class PagesController extends BaseController {
 	public function __construct(PageInterface $page)
 	{
 		parent::__construct($page);
-		$this->title['parent'] = trans_choice('global.modules.pages', 2);
+		$this->title['parent'] = trans_choice('modules.pages.pages', 2);
 	}
 
 	/**
