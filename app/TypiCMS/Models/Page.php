@@ -103,11 +103,13 @@ class Page extends EloquentTranslatable {
 	{
 		parent::boot();
 
-		static::saving(function($model)
+		$self = __CLASS__;
+
+		static::saving(function($model) use ($self)
 		{
 			// change homepage
 			if (Input::get('is_home')) {
-				self::where('is_home', 1)->update(array('is_home' => 0));
+				$self::where('is_home', 1)->update(array('is_home' => 0));
 			}
 		});
 

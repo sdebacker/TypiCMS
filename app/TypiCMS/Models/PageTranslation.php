@@ -19,7 +19,9 @@ class PageTranslation extends Eloquent {
 	{
 		parent::boot();
 
-		static::creating(function($model)
+		$self = __CLASS__;
+
+		static::creating(function($model) use ($self)
 		{
 			// Build page's URI
 			$model->uri = null;
@@ -29,17 +31,16 @@ class PageTranslation extends Eloquent {
 
 				$i = 0;
 				// Check uri is unique
-				while (self::where('uri', $model->uri)->first()) {
+				while ($self::where('uri', $model->uri)->first()) {
 					$i++;
 					// increment uri if exists
 					$model->uri = $model->lang.'/'.$model->slug.'-'.$i;
-					// $model->slug = $slug.'-'.$i;
 				}
 
 			}
 		});
 
-		static::updating(function($model)
+		static::updating(function($model) use ($self)
 		{
 			$original = $model->getOriginal();
 
@@ -49,7 +50,7 @@ class PageTranslation extends Eloquent {
 			if ($model->slug != $original['slug']) {
 
 				// Update page URI
-				$slug = $model->slug;
+				// $slug = $model->slug;
 				$array = explode('/', $model->uri);
 				array_pop($array);
 				$array[] = $model->slug;
@@ -59,7 +60,7 @@ class PageTranslation extends Eloquent {
 
 				$i = 0;
 				// Check uri is unique
-				while (self::where('uri', $model->uri)->first()) {
+				while ($self::where('uri', $model->uri)->first()) {
 					$i++;
 					// increment uri if exists
 					$model->uri = $uri.'-'.$i;
