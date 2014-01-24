@@ -32,7 +32,7 @@
 			<div class="tab-pane @if ($locale == $lang)active@endif" id="{{ $lang }}">
 				{{ Former::lg_text($lang.'[title]')->label('title')->autofocus(); }}
 				{{ Former::text($lang.'[slug]')->label('slug'); }}
-				{{ Former::text($lang.'[uri]')->label('uri'); }}
+				{{ Former::hidden($lang.'[uri]'); }}
 				{{ Former::textarea($lang.'[body]')->label('body')->class('form-control editor'); }}
 				{{ Former::checkbox($lang.'[status]')->label('status')->text('Online')->label(''); }}
 			</div>

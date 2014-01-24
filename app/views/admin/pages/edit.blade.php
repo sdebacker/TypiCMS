@@ -1,3 +1,7 @@
+@section('titleSmall')
+	<small>{{ $model->uri }}</small>
+@stop
+
 @section('main')
 
 	<div class="row">
