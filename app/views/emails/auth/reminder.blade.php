@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>Password Reset</h2>
+		<h2>@lang('modules.users.Reset password')</h2>
 
 		<div>
-			To reset your password, complete this form: {{ URL::route('resetpassword', array($token)) }}.
+			@lang('To reset your password, complete this form:') {{ URL::route('resetpassword', array($token)) }}.
 		</div>
 	</body>
 </html>

@@ -3,6 +3,7 @@
 use TypiCMS\Repositories\User\UserInterface;
 use TypiCMS\Services\Form\User\UserForm;
 use View;
+use Config;
 use Former;
 use Input;
 use Redirect;
@@ -41,7 +42,7 @@ class UsersController extends BaseController {
 
 		try {
 			$this->repository->authenticate($credentials, false);
-			Notification::success('Welcome');
+			Notification::success(trans('modules.users.Welcome'));
 			return Redirect::intended(route('dashboard'));
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
@@ -53,7 +54,7 @@ class UsersController extends BaseController {
 	public function getLogout()
 	{
 		$this->repository->logout();
-		Notification::success('You are logged out.');
+		Notification::success(trans('modules.users.You are logged out.'));
 		return Redirect::back();
 	}
 
@@ -201,9 +202,9 @@ class UsersController extends BaseController {
 
 			$input = Input::except('password_confirmation');
 			$user = $this->repository->register( $input, $noConfirmation );
-			$message = 'Your account has been created. ';
-			$message .= $noConfirmation ? 'You can now log in.' : 'Check your email for the confirmation link.' ;
-			Notification::success($message);
+			$message = 'Your account has been created, ';
+			$message .= $noConfirmation ? 'You can now log in' : 'Check your email for the confirmation link' ;
+			Notification::success(trans('modules.users.'.$message));
 			return Redirect::route('login');
 
 		} catch (Exception $e) {
@@ -222,7 +223,7 @@ class UsersController extends BaseController {
 
 		try {
 			$this->repository->activate($userId, $activationCode);
-			Notification::success('Your account has been activated. You can now log in.');
+			Notification::success(trans('modules.users.Your account has been activated, you can now log in'));
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
 		}
@@ -258,17 +259,16 @@ class UsersController extends BaseController {
 			// Email the reset code to the user
 			\Mail::send('emails.auth.reset', $data, function($m) use($data)
 			{
-				$m->to($data['email'])->subject('[Typi CMS] Password Reset Confirmation');
+				$m->to($data['email'])->subject('[' . Config::get('typicms.websiteTitle') . '] ' . trans('modules.users.Password Reset Confirmation'));
 			});
 
-			Notification::success('An email was sent with password reset information.');
+			Notification::success(trans('modules.users.An email was sent with password reset information'));
 			return Redirect::route('login');
 
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
 			return Redirect::route('resetpassword')->withInput();
 		}
-
 
 	}
 
@@ -284,7 +284,7 @@ class UsersController extends BaseController {
 			// Find the user
 			$user = $this->repository->byId($userId);
 			if ( ! $this->repository->checkResetPasswordCode($user, $resetCode) ) {
-				Notification::error('This password reset token is invalid.');
+				Notification::error(trans('modules.users.This password reset token is invalid'));
 				return Redirect::route('login');
 			}
 			$data['id'] = $userId;
@@ -294,7 +294,7 @@ class UsersController extends BaseController {
 				->with($data);
 
 		} catch (Exception $e) {
-			exit('User does not exist.');
+			exit('modules.users.User does not exist');
 		}
 
 	}
@@ -323,7 +323,7 @@ class UsersController extends BaseController {
 				// Attempt to reset the user password
 				if ($this->repository->attemptResetPassword($user, $input['resetCode'], $input['password'])) {
 
-					Notification::success('Your password has been changed.');
+					Notification::success(trans('modules.users.Your password has been changed'));
 
 					try {
 						$credentials = array(
@@ -339,10 +339,10 @@ class UsersController extends BaseController {
 
 				} else {
 					// Password reset failed
-					Notification::success('There was a problem. Please contact the system administrator.');
+					Notification::success(trans('modules.users.There was a problem, please contact the system administrator'));
 				}
 			} else {
-				Notification::error('This password reset token is invalid.');
+				Notification::error(trans('modules.users.This password reset token is invalid'));
 			}
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
