@@ -24,7 +24,7 @@ class PagesController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
-		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.pages.pages', $models->getTotal());
+		$this->title['h1'] = '<span id="nb_elements">'.$models->getTotal().'</span> '.trans_choice('modules.pages.pages', $models->getTotal());
 		$this->layout->content = View::make('admin.pages.index')->withModels($models);
 	}
 

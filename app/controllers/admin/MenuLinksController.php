@@ -27,7 +27,7 @@ class MenuLinksController extends BaseController {
 	public function index($menu)
 	{
 		$models = $this->repository->getAllFromMenu(true, $menu->id)->buildList($this->repository->getListProperties());
-		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.menulinks.menulinks', $models->getTotal());
+		$this->title['h1'] = '<span id="nb_elements">'.$models->getTotal().'</span> '.trans_choice('modules.menulinks.menulinks', $models->getTotal());
 		$this->layout->content = View::make('admin.menulinks.index')->withModels($models)->withMenu($menu);
 	}
 

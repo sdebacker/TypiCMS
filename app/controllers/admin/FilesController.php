@@ -41,7 +41,7 @@ class FilesController extends BaseController {
 	public function index($relatedModel = null)
 	{
 		$models = $this->repository->getAll(true, $relatedModel)->buildList($this->repository->getListProperties());
-		$this->title['h1'] = $models->getTotal().' '.trans_choice('modules.files.files', $models->getTotal());
+		$this->title['h1'] = '<span id="nb_elements">'.$models->getTotal().'</span> '.trans_choice('modules.files.files', $models->getTotal());
 		$this->layout->content = View::make('admin.files.index')->withModels($models)->with('relatedModel', $relatedModel);
 	}
 
