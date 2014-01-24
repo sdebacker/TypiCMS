@@ -157,7 +157,7 @@ class FilesController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($relatedModel, $model)
+	public function destroy($model)
 	{
 		if( $this->repository->delete($model) ) {
 			if ( ! Request::ajax()) {
