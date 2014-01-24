@@ -41,6 +41,7 @@
 </div>
 {{ Former::checkbox('langChooser')->label('')->text('langChooser'); }}
 {{ Former::checkbox('authPublic')->label('')->text('authPublic'); }}
+{{ Former::checkbox('register')->label('')->text('registration allowed'); }}
 
 <div>
 	{{ Former::primary_button()->type('submit')->value('save') }}

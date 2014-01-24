@@ -7,8 +7,11 @@ Route::post('users/login', 'App\Controllers\Admin\UsersController@postLogin');
 
 Route::get('users/logout', array('as' => 'logout', 'uses' => 'App\Controllers\Admin\UsersController@getLogout'));
 
-Route::get('users/register', array('as' => 'register', 'uses' => 'App\Controllers\Admin\UsersController@getRegister'));
-Route::post('users/register', 'App\Controllers\Admin\UsersController@postRegister');
+Route::group(array('before' => 'users.register'), function()
+{
+	Route::get('users/register', array('as' => 'register', 'uses' => 'App\Controllers\Admin\UsersController@getRegister'));
+	Route::post('users/register', 'App\Controllers\Admin\UsersController@postRegister');
+});
 
 Route::get('users/activate/{userid}/{activationCode}', array('as' => 'activate', 'uses' => 'App\Controllers\Admin\UsersController@getActivate'));
 

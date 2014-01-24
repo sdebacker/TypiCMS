@@ -83,6 +83,13 @@ Route::filter('auth.admin', function()
 	}
 });
 
+Route::filter('users.register', function()
+{
+	if ( ! Config::get('typicms.register')) {
+		App::abort(404);
+	}
+});
+
 
 /*
 |--------------------------------------------------------------------------

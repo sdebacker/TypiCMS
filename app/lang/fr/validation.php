@@ -178,6 +178,7 @@ return array(
 		'googleAnalyticsCode' => 'Google Analytics Classic',
 		'langChooser' => 'Page de choix de langue',
 		'authPublic' => 'Se connecter pour voir le site',
+		'registration allowed' => 'permettre la création de comptes utilisateurs',
 
 		'Submit' => 'Envoyer',
 		'Reset' => 'Reinitialiser',
