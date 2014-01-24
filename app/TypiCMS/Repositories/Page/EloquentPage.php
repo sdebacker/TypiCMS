@@ -25,7 +25,15 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 			'display' => array('%s', 'title')
 		);
 
-		$this->select = array('pages.id AS id', 'slug', 'uri', 'title', 'status', 'position', 'parent');
+		$this->select = array(
+			'pages.id AS id',
+			'slug',
+			'uri',
+			'title',
+			'status',
+			'position',
+			'parent'
+		);
 
 	}
 
@@ -152,7 +160,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 	public function updateUris($model)
 	{
-		// chercher le parent
+		// take the parent
 		$parentModel = $this->model->find($model->parent);
 
 		// transform URI
@@ -162,6 +170,17 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 				$uri = ($parentModel) ? $parentModel->$locale->uri.'/'.$model->$locale->slug : $locale.'/'.$model->$locale->slug ;
 
+				// Check uri is unique
+				$tmpUri = $uri;
+				$i = 0;
+				while (DB::table('pages_translations')->where('uri', $tmpUri)->where('page_id', '!=', $model->id)->first()) {
+					$i++;
+					// increment uri if exists
+					$tmpUri = $uri.'-'.$i;
+				}
+				$uri = $tmpUri;
+
+				// update uri
 				DB::table('pages_translations')->where('page_id', '=', $model->id)->where('lang', '=', $locale)->update(array('uri' => $uri));
 
 			}
