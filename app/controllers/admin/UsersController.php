@@ -27,7 +27,7 @@ class UsersController extends BaseController {
 
 	public function getLogin()
 	{
-		$this->title['child'] = trans('global.Login');
+		$this->title['child'] = trans('modules.users.Log in');
 		$this->layout->content = View::make('admin.users.login');
 	}
 
@@ -175,6 +175,7 @@ class UsersController extends BaseController {
 	public function getRegister()
 	{
 		// Show the register form
+		$this->title['child'] = trans('modules.users.Register');
 		$this->layout->content = View::make('admin.users.register');
 	}
 
@@ -235,6 +236,7 @@ class UsersController extends BaseController {
 	 */
 	public function getResetpassword() {
 		// Show the reset password form
+		$this->title['child'] = trans('modules.users.Reset password');
 		$this->layout->content = View::make('admin.users.reset');
 	}
 
@@ -276,7 +278,7 @@ class UsersController extends BaseController {
 	 */
 	public function getChangepassword($userId = null, $resetCode = null) {
 
-		$this->title['child'] = trans('global.Login');
+		$this->title['child'] = trans('modules.users.New password');
 
 		try {
 			// Find the user

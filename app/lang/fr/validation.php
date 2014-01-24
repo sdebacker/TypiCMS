@@ -165,10 +165,11 @@ return array(
 		'password' => 'mot de passe',
 		'password_confirmation' => 'Confirmer le mot de passe',
 		'reset password' => 'réinitialiser le mot de passe',
-		'register' => 's’enregistrer',
+		'register' => 'Créer le compte',
 		'Change password (if not empty)' => 'Nouveau mot de passe',
 		'save' => 'enregistrer',
-		'log in' => 's’enregistrer',
+		'log in' => 'connexion',
+		'modify' => 'modifier',
 
 		// Settings
 		'webmasterEmail' => 'Email du webmaster',

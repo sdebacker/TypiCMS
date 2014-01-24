@@ -67,11 +67,11 @@
 		{{ Notification::showSuccess('alertify.success(":message");') }}
 	</script>
 
+	@section('page-header')
 	<div class="page-header">
-
 		<h1>@yield('addButton'){{ $h1 }}</h1>
-
 	</div>
+	@show
 
 	@yield('buttons')
 

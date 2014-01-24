@@ -1,10 +1,14 @@
+@section('page-header')
+<div class="col-sm-4 col-sm-offset-4">
+	@parent
+</div>
+@stop
+
 @section('main')
 
 <div class="row">
 
 	<div id="register" class="container-login col-sm-4 col-sm-offset-4">
-
-		<h1>@lang('users.Register new account')</h1>
 
 		{{ Former::vertical_open()->role('form') }}
 

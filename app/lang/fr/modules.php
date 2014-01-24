@@ -54,6 +54,16 @@ return array(
 		'users' => 'utilisateur|utilisateurs',
 		'New'  => 'Nouvel utilisateur',
 		'Edit' => 'Modifier l’utilisateur',
+		'Register' => 'Créer un compte',
+		'Reset password' => 'Réinitialiser <br>le mot de passe',
+		'Log in' => 'Connexion',
+		'log out' => 'Déconnexion',
+		'profile' => 'Profil',
+		'Change password' => 'Modifier le mot de passe',
+		'Forgot your password?' => 'Mot de passe oublié ?',
+		'Register new account' => 'Nouveau compte',
+		'New password' => 'Nouveau mot de passe',
+
 	),
 	'menulinks' => array(
 		'menulinks' => 'élément de menu|éléments de menu',
