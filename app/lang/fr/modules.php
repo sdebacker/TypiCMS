@@ -66,7 +66,7 @@ return array(
 		'Welcome' => 'Bienvenue',
 		'You are logged out' => 'Vous êtes déconnecté',
 		'Your account has been created, you can now log in' => 'Votre compte a été créé, vous pouvez vous connecter.',
-		'Your account has been created, check your email for the confirmation link' => 'Votre compte a été créé, un email avec un lien de confirmmation vous a été envoyé.',
+		'Your account has been created, check your email for the confirmation link' => 'Votre compte a été créé, un lien de confirmmation vous a été envoyé.',
 		'Your account has been activated, you can now log in' => 'Votre compte a été activé, vous pouvez vous connecter.',
 		'An email was sent with password reset information' => 'Les instructions de changement de mot de passe vous ont été envoyées par email.',
 		'Your password has been changed' => 'Votre mot de passe a été changé.',
@@ -80,6 +80,7 @@ return array(
 		'To reset your password, complete this form:' => 'Pour réinitialiser votre mot de passe, complétez ce formulaire&nbsp;:',
 		'To activate your account' => 'Pour activer votre compte',
 		'Password Reset Confirmation' => 'Confirmation pour la réinitialisation de votre mot de passe.',
+		'Account:' => 'Compte&nbsp;:',
 	),
 	'menulinks' => array(
 		'menulinks' => 'élément de menu|éléments de menu',

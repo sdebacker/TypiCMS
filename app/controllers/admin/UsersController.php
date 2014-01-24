@@ -203,7 +203,7 @@ class UsersController extends BaseController {
 			$input = Input::except('password_confirmation');
 			$user = $this->repository->register( $input, $noConfirmation );
 			$message = 'Your account has been created, ';
-			$message .= $noConfirmation ? 'You can now log in' : 'Check your email for the confirmation link' ;
+			$message .= $noConfirmation ? 'you can now log in' : 'check your email for the confirmation link' ;
 			Notification::success(trans('modules.users.'.$message));
 			return Redirect::route('login');
 
