@@ -54,7 +54,7 @@ class UsersController extends BaseController {
 	public function getLogout()
 	{
 		$this->repository->logout();
-		Notification::success(trans('modules.users.You are logged out.'));
+		Notification::success(trans('modules.users.You are logged out'));
 		return Redirect::back();
 	}
 
