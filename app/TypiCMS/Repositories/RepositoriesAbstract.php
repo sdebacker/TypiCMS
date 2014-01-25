@@ -133,8 +133,10 @@ abstract class RepositoriesAbstract {
 
 		// Item not cached, retrieve it
 		$query = $this->model
-			->select($this->select)
-			->joinTranslations();
+			->with('translations');
+			// ->select($this->select); // <- if order is in translations table
+			// ->joinTranslations(); // <- if order is in translations table
+		// $query->where('lang', Config::get('app.locale')); // <- if order is in translations table
 
 		if ($relatedModel) {
 			$query->where('fileable_id', $relatedModel->id);
@@ -145,8 +147,6 @@ abstract class RepositoriesAbstract {
 		if ( ! $all ) {
 			$query->where('status', 1);
 		}
-
-		$query->where('lang', Config::get('app.locale'));
 
 		// files
 		$this->model->files and $query->with('files');
