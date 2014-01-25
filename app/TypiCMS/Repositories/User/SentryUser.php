@@ -53,8 +53,7 @@ class SentryUser implements UserInterface {
 	 */
 	public function getAll($all = false)
 	{
-		$query = $this->model
-			->select($this->select);
+		$query = $this->model;
 
 		if ($this->model->order and $this->model->direction) {
 			$query->orderBy($this->model->order, $this->model->direction);
