@@ -58,9 +58,8 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		}
 
 		$query = $this->model->with($translations);
-		
-		$query->with('category')
-			->with('category.translations');
+
+		$query->with('category')->with('category.translations');
 
 		$relid and $query->where('category_id', $relid);
 
