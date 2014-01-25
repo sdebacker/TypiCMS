@@ -132,20 +132,21 @@ abstract class RepositoriesAbstract {
 		}
 
 		// Item not cached, retrieve it
-		$query = $this->model
-			->with('translations');
-			// ->select($this->select); // <- if order is in translations table
-			// ->joinTranslations(); // <- if order is in translations table
-		// $query->where('lang', Config::get('app.locale')); // <- if order is in translations table
+
+		// All posts or only published
+		$translations = 'translations';
+		if ( ! $all ) {
+			$translations = array('translations' => function($query)
+			{
+				$query->where('status', 1);
+			});
+		}
+
+		$query = $this->model->with($translations);
 
 		if ($relatedModel) {
 			$query->where('fileable_id', $relatedModel->id);
 			$query->where('fileable_type', get_class($relatedModel));
-		}
-
-		// All posts or only published
-		if ( ! $all ) {
-			$query->where('status', 1);
 		}
 
 		// files
@@ -156,6 +157,16 @@ abstract class RepositoriesAbstract {
 		}
 
 		$models = $query->get();
+
+		// Filter : Delete models without translations (translation is offline for example)
+		if ( ! $all ) {
+			$models = $models->filter(function($model)
+			{
+				if (count($model->translations)) {
+					return $model;
+				}
+			});
+		}
 
 		if (property_exists($this->model, 'children')) {
 			$models->nest();

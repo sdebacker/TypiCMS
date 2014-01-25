@@ -49,26 +49,36 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		}
 
 		// Item not cached, retrieve it
-		$query = $this->model
-			->with('translations')
-			->with('category')
-			->with('category.translations');
-			// ->select($this->select);
-		$relid and $query->where('category_id', $relid);
-		// $query->joinTranslations();
-		// $query->where('lang', Config::get('app.locale'));
-
-		// All posts or only published
+		$translations = 'translations';
 		if ( ! $all ) {
-			$query->where('status', 1);
+			$translations = array('translations' => function($query)
+			{
+				$query->where('status', 1);
+			});
 		}
 
+		$query = $this->model->with($translations);
+		
+		$query->with('category')
+			->with('category.translations');
+
+		$relid and $query->where('category_id', $relid);
 
 		if ($this->model->order and $this->model->direction) {
 			$query->orderBy($this->model->order, $this->model->direction);
 		}
 
 		$models = $query->get();
+
+		// Filter : Delete models without translations (translation is offline for example)
+		if ( ! $all ) {
+			$models = $models->filter(function($model)
+			{
+				if (count($model->translations)) {
+					return $model;
+				}
+			});
+		}
 
 		// Store in cache for next request
 		$this->cache->put($key, $models);
