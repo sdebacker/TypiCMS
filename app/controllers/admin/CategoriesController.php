@@ -34,7 +34,7 @@ class CategoriesController extends BaseController {
 	 */
 	public function create()
 	{
-		$model = $this->repository;
+		$model = $this->repository->getModel();
 		$this->title['child'] = trans('modules.categories.New');
 		$this->layout->content = View::make('admin.categories.create')
 			->with('model', $model);
@@ -77,8 +77,8 @@ class CategoriesController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->form->save( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.categories.index');
+		if ( $model = $this->form->save( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.categories.index') : Redirect::route('admin.categories.edit', $model->id) ;
 		}
 
 		return Redirect::route('admin.categories.create')
@@ -97,19 +97,15 @@ class CategoriesController extends BaseController {
 	public function update($model)
 	{
 
-		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-				return Redirect::route('admin.categories.index');
-			}
-		} else {
-			$this->repository->update( Input::all() );
+		Request::ajax() and exit($this->repository->update( Input::all() ));
+
+		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
+			return Redirect::route('admin.categories.index');
 		}
 
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.categories.edit', $model->id )
-				->withInput()
-				->withErrors($this->form->errors());
-		}
+		return Redirect::route( 'admin.categories.edit', $model->id )
+			->withInput()
+			->withErrors($this->form->errors());
 	}
 
 	/**

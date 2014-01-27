@@ -4,30 +4,21 @@
 
 @stop
 
-<div class="well">
-	@if (count($locales) > 1)
-	<ul class="nav nav-tabs">
-		@foreach ($locales as $lang)
-		<li class="@if ($locale == $lang)active@endif">
-			<a href="#{{ $lang }}" data-target="#{{ $lang }}" data-toggle="tab">@lang('global.languages.'.$lang)</a>
-		</li>
-		@endforeach
-	</ul>
-	@endif
-
-	<div class="tab-content">
-
-		@foreach ($locales as $lang)
-
-		<div class="tab-pane @if ($locale == $lang)active@endif" id="{{ $lang }}">
-			{{ Former::lg_text($lang.'[websiteTitle]')->label('title'); }}
-			{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
-		</div>
-
-		@endforeach
-
+<div class="row">
+	<div class="form-group col-sm-12">
+		{{ Former::primary_button()->type('submit')->value('save') }}
 	</div>
 </div>
+
+<label>@lang('validation.attributes.websiteTitle')</label>
+@foreach ($locales as $lang)
+	{{ Former::text($lang.'[websiteTitle]')->prepend(strtoupper($lang))->label(''); }}
+@endforeach
+
+<label>@lang('Online')</label>
+@foreach ($locales as $lang)
+	{{ Former::checkbox($lang.'[status]')->inline()->class('inline')->text($lang)->label(''); }}
+@endforeach
 
 {{ Former::text('webmasterEmail'); }}
 {{ Former::text('typekitCode'); }}
@@ -42,8 +33,3 @@
 {{ Former::checkbox('langChooser')->label('')->text('langChooser'); }}
 {{ Former::checkbox('authPublic')->label('')->text('authPublic'); }}
 {{ Former::checkbox('register')->label('')->text('registration allowed'); }}
-
-<div>
-	{{ Former::primary_button()->type('submit')->value('save') }}
-	{{ Former::link()->class('btn btn-default')->href(route('admin.settings.index'))->value('Annuler') }}
-</div>

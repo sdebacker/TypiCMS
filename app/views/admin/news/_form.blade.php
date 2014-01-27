@@ -4,9 +4,15 @@
 @stop
 
 <div class="row">
+
+	@include('admin._buttons')
+	
+	{{ Former::hidden('id'); }}
+
 	<div class="col-xs-8">
 		{{ Former::text('date')->placeholder('DDMMYYYY')->class('form-control datetimepicker')->append('<span class="glyphicon glyphicon-calendar"></span>'); }}
 	</div>
+
 </div>
 
 @if (count($locales) > 1)
@@ -33,10 +39,4 @@
 
 	@endforeach
 
-</div>
-
-<div>
-	{{ Former::hidden('id'); }}
-	{{ Former::primary_button()->type('submit')->value('save') }}
-	{{ Former::link()->class('btn btn-default')->href(route('admin.news.index'))->value('Annuler') }}
 </div>

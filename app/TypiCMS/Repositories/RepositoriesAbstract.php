@@ -239,6 +239,7 @@ abstract class RepositoriesAbstract {
 	public function create(array $data)
 	{
 		$data = array_except($data, Config::get('app.locales'));
+		$data = array_except($data, array('exit'));
 
 		// Create the model
 		$model = $this->model->create($data);
@@ -247,7 +248,7 @@ abstract class RepositoriesAbstract {
 			return false;
 		}
 
-		return true;
+		return $model;
 	}
 
 

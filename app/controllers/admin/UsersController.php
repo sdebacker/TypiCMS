@@ -137,19 +137,15 @@ class UsersController extends BaseController {
 	public function update($id)
 	{
 
-		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) ) {
-				return Redirect::route('admin.users.index');
-			}
-		} else {
-			$this->repository->update( Input::all() );
+		Request::ajax() and exit($this->repository->update( Input::all() ));
+
+		if ( $this->form->update( Input::all() ) ) {
+			return Redirect::route('admin.users.index');
 		}
 
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.users.edit', $id )
-				->withInput()
-				->withErrors($this->form->errors());
-		}
+		return Redirect::route( 'admin.users.edit', $id )
+			->withInput()
+			->withErrors($this->form->errors());
 	}
 
 	/**

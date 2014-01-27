@@ -53,7 +53,7 @@ class FilesController extends BaseController {
 	 */
 	public function create()
 	{
-		$model = $this->repository;
+		$model = $this->repository->getModel();
 		$this->title['child'] = trans('modules.files.New');
 		$this->layout->content = View::make('admin.files.create')
 			->with('model', $model);
@@ -124,19 +124,15 @@ class FilesController extends BaseController {
 	public function update($model)
 	{
 
-		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) ) {
-				return Redirect::route('admin.files.index');
-			}
-		} else {
-			$this->repository->update( Input::all() );
-		}
+		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.files.edit', $model->id )
-				->withInput()
-				->withErrors($this->form->errors());
+		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
+			return Redirect::route('admin.files.index');
 		}
+		
+		return Redirect::route( 'admin.files.edit', $model->id )
+			->withInput()
+			->withErrors($this->form->errors());
 	}
 
 	/**

@@ -8,7 +8,7 @@ return array(
 	|--------------------------------------------------------------------------
 	*/
 	'System info' => 'Informations système',
-	'Backup DB' => 'Sauvegarde de la base de données',
+	'Backup DB' => 'Sauvegarder la base de données',
 	'Environment' => 'Environnement',
 	'System locales' => 'Locales du système',
 	'App locales' => 'Langues de l’application',

@@ -6,6 +6,10 @@
 
 <div class="row">
 
+	@include('admin._buttons')
+
+	{{ Former::hidden('id'); }}
+
 	<div class="col-sm-12">
 
 		<div class="row">
@@ -54,10 +58,4 @@
 
 	</div>
 
-</div>
-
-<div>
-	{{ Former::hidden('id'); }}
-	{{ Former::primary_button()->type('submit')->value('save') }}
-	{{ Former::link()->class('btn btn-default')->href(route('admin.events.index'))->value('Annuler') }}
 </div>

@@ -35,7 +35,7 @@ class NewsController extends BaseController {
 	public function create()
 	{
 		$this->title['child'] = trans('modules.news.New');
-		$model = $this->repository;
+		$model = $this->repository->getModel();
 		$this->layout->content = View::make('admin.news.create')
 			->with('model', $model);
 	}
@@ -79,8 +79,8 @@ class NewsController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->form->save( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.news.index');
+		if ( $model = $this->form->save( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.news.index') : Redirect::route('admin.news.edit', $model->id) ;
 		}
 
 		return Redirect::route('admin.news.create')
@@ -99,19 +99,15 @@ class NewsController extends BaseController {
 	public function update($model)
 	{
 
-		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-				return Redirect::route('admin.news.index');
-			}
-		} else {
-			$this->repository->update( Input::all() );
-		}
+		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.news.edit', $model->id )
-				->withInput()
-				->withErrors($this->form->errors());
+		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
+			return Redirect::route('admin.news.index');
 		}
+		
+		return Redirect::route( 'admin.news.edit', $model->id )
+			->withInput()
+			->withErrors($this->form->errors());
 	}
 
 	/**

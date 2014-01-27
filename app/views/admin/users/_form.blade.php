@@ -1,5 +1,14 @@
 <div class="row">
 
+	<div class="form-group col-sm-12">
+		{{-- Former::primary_button()->type('submit')->value('save') --}}
+		{{ Former::primary_button()->type('submit')->name('exit')->setAttribute('value', 'true')->value('save and exit') }}
+		{{ Former::link()->class('btn btn-default')->href(route('admin.users.index'))->value('Annuler') }}
+	</div>
+
+	{{ Former::hidden('activated', 1); }}
+	{{ Former::hidden('id'); }}
+
 	<div class="col-sm-3">
 
 		{{ Former::text('email')->required()->autofocus()->autocomplete('off'); }}
@@ -41,11 +50,4 @@
 
 	</div>
 
-</div>
-
-<div>
-	{{ Former::hidden('activated', 1); }}
-	{{ Former::hidden('id'); }}
-	{{ Former::primary_button()->type('submit')->value('save') }}
-	{{ Former::link()->class('btn btn-default')->href(route('admin.users.index'))->value('Annuler') }}
 </div>

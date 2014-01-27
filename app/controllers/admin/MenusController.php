@@ -35,7 +35,7 @@ class MenusController extends BaseController {
 	 */
 	public function create()
 	{
-		$model = $this->repository;
+		$model = $this->repository->getModel();
 		$this->title['child'] = trans('modules.menus.New');
 		$this->layout->content = View::make('admin.menus.create')
 			->with('model', $model);
@@ -78,8 +78,8 @@ class MenusController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->form->save( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.menus.index');
+		if ( $model = $this->form->save( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.menus.index') : Redirect::route('admin.menus.edit', $model->id) ;
 		}
 
 		return Redirect::route('admin.menus.create')
@@ -98,19 +98,15 @@ class MenusController extends BaseController {
 	public function update($model)
 	{
 
-		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-				return Redirect::route('admin.menus.index');
-			}
-		} else {
-			$this->repository->update( Input::all() );
-		}
+		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.menus.edit', $model->id )
-				->withInput()
-				->withErrors($this->form->errors());
+		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
+			return Redirect::route('admin.menus.index');
 		}
+		
+		return Redirect::route( 'admin.menus.edit', $model->id )
+			->withInput()
+			->withErrors($this->form->errors());
 	}
 
 	/**

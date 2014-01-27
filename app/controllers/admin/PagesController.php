@@ -35,7 +35,7 @@ class PagesController extends BaseController {
 	 */
 	public function create()
 	{
-		$model = $this->repository;
+		$model = $this->repository->getModel();
 		$this->title['child'] = trans('modules.pages.New');
 		$this->layout->content = View::make('admin.pages.create')
 			->with('model', $model);
@@ -80,8 +80,8 @@ class PagesController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->form->save( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.pages.index');
+		if ( $model = $this->form->save( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.pages.index') : Redirect::route('admin.pages.edit', $model->id) ;
 		}
 
 		return Redirect::route('admin.pages.create')
@@ -99,20 +99,15 @@ class PagesController extends BaseController {
 	 */
 	public function update($model)
 	{
+		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-				return Redirect::route('admin.pages.index');
-			}
-		} else {
-			$this->repository->update( Input::all() );
+		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
+			return Redirect::route('admin.pages.index');
 		}
-
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.pages.edit', $model->id )
-				->withInput()
-				->withErrors($this->form->errors());
-		}
+		
+		return Redirect::route( 'admin.pages.edit', $model->id )
+			->withInput()
+			->withErrors($this->form->errors());
 	}
 
 	/**
@@ -135,7 +130,7 @@ class PagesController extends BaseController {
 	 */
 	public function destroy($model)
 	{
-		if( $model->delete() ) {
+		if ( $model->delete() ) {
 			if ( ! Request::ajax()) {
 				return Redirect::back();
 			}

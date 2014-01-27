@@ -39,7 +39,7 @@ class MenuLinksController extends BaseController {
 	 */
 	public function create($menu)
 	{
-		$model = $this->repository;
+		$model = $this->repository->getModel();
 		$this->title['child'] = trans('modules.menulinks.New');
 
 		$selectPages = $this->repository->getPagesForSelect();
@@ -97,8 +97,8 @@ class MenuLinksController extends BaseController {
 	public function store($menu)
 	{
 
-		if ( $this->form->save( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.menus.menulinks.index', $menu->id);
+		if ( $model = $this->form->save( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.menus.menulinks.index', $menu->id) : Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
 		}
 
 		return Redirect::route('admin.menus.menulinks.create', $menu->id)
@@ -117,19 +117,16 @@ class MenuLinksController extends BaseController {
 	public function update($menu, $model)
 	{
 
-		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-				return Redirect::route('admin.menus.menulinks.index', $menu->id);
-			}
-		} else {
-			$this->repository->update( Input::all() );
-		}
+		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.menus.menulinks.edit', array($menu->id, $model->id) )
-				->withInput()
-				->withErrors($this->form->errors());
+		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
+			return Redirect::route('admin.menus.menulinks.index', $menu->id);
 		}
+		
+		return Redirect::route( 'admin.menus.menulinks.edit', array($menu->id, $model->id) )
+			->withInput()
+			->withErrors($this->form->errors());
+
 	}
 
 	/**

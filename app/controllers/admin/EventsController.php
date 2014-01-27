@@ -35,7 +35,7 @@ class EventsController extends BaseController {
 	public function create()
 	{
 		$this->title['child'] = trans('modules.events.New');
-		$model = $this->repository;
+		$model = $this->repository->getModel();
 		$this->layout->content = View::make('admin.events.create')
 			->with('model', $model);
 	}
@@ -79,8 +79,8 @@ class EventsController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->form->save( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.events.index');
+		if ( $model = $this->form->save( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.events.index') : Redirect::route('admin.events.edit', $model->id) ;
 		}
 
 		return Redirect::route('admin.events.create')
@@ -99,19 +99,16 @@ class EventsController extends BaseController {
 	public function update($model)
 	{
 
-		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-				return Redirect::route('admin.events.index');
-			}
-		} else {
-			$this->repository->update( Input::all() );
-		}
+		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( ! Request::ajax()) {
-			return Redirect::route( 'admin.events.edit', $model->id )
-				->withInput()
-				->withErrors($this->form->errors());
+		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
+			return Redirect::route('admin.events.index');
 		}
+		
+		return Redirect::route( 'admin.events.edit', $model->id )
+			->withInput()
+			->withErrors($this->form->errors());
+
 	}
 
 	/**
