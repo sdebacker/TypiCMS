@@ -12,21 +12,13 @@
 
 	<div class="col-sm-6">
 
-		@if (count($locales) > 1)
-		<ul class="nav nav-pills">
-			@foreach ($locales as $lang)
-			<li class="@if ($locale == $lang)active@endif">
-				<a href="#{{ $lang }}" data-target="#{{ $lang }}" data-toggle="tab">{{ $lang }}</a>
-			</li>
-			@endforeach
-		</ul>
-		@endif
+		@include('admin._langTabs')
 
 		<div class="tab-content">
 
 			@foreach ($locales as $lang)
 
-			<div class="tab-pane @if ($locale == $lang)active@endif" id="{{ $lang }}">
+			<div class="tab-pane fade @if ($locale == $lang)in active@endif" id="{{ $lang }}">
 				{{ Former::text($lang.'[alt_attribute]')->label('alt_attribute'); }}
 				{{ Former::textarea($lang.'[description]')->label('description'); }}
 				{{ Former::text($lang.'[keywords]')->label('keywords'); }}
