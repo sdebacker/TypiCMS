@@ -53,8 +53,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		$model = $this->model->find($data['id']);
 
 		$data = array_except($data, Config::get('app.locales'));
-		$data = array_except($data, '_method');
-		$data = array_except($data, '_token');
+		$data = array_except($data, array('_method', '_token', 'exit'));
 
 		foreach ($data as $key => $value) {
 			$model->$key = $value;

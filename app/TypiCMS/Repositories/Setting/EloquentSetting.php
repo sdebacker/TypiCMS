@@ -58,8 +58,7 @@ class EloquentSetting implements SettingInterface {
 	public function store(array $data)
 	{
 
-		$data = array_except($data, '_method');
-		$data = array_except($data, '_token');
+		$data = array_except($data, array('_method', '_token', 'exit'));
 
 		foreach ($data as $group_name => $array) {
 			if ( ! is_array($array)) {

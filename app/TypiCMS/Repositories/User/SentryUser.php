@@ -219,7 +219,7 @@ class SentryUser implements UserInterface {
 		$errors = array();
 		try {
 			// Create the user
-			$userData = array_except($data, array('_method', '_token', 'groups', 'password_confirmation'));
+			$userData = array_except($data, array('_method','_token', 'exit', 'groups', 'password_confirmation'));
 			$user = Sentry::createUser($userData);
 
 			$allGroups = Sentry::findAllGroups();
@@ -272,7 +272,7 @@ class SentryUser implements UserInterface {
 			}
 		}
 
-		$data = array_except($data, array('_method', '_token', 'groups'));
+		$data = array_except($data, array('_method', '_token', 'exit', 'groups'));
 
 		if ( ! $data['password']) {
 			$data = array_except($data, 'password');
