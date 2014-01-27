@@ -65,6 +65,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 
 	Route::resource('projects', 'App\Controllers\Admin\ProjectsController');
 	Route::resource('news', 'App\Controllers\Admin\NewsController');
+	// Route::get('news{format}', 'App\Controllers\Admin\NewsController@index');
 	Route::resource('addresses', 'App\Controllers\Admin\AddressesController');
 	Route::resource('partners', 'App\Controllers\Admin\PartnersController');
 	
