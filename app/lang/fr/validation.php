@@ -168,6 +168,7 @@ return array(
 		'register' => 'Créer le compte',
 		'Change password (if not empty)' => 'Nouveau mot de passe',
 		'save' => 'enregistrer',
+		'save and exit' => 'enregistrer et sortir',
 		'log in' => 'connexion',
 		'modify' => 'modifier',
 

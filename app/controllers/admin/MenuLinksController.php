@@ -97,7 +97,7 @@ class MenuLinksController extends BaseController {
 	public function store($menu)
 	{
 
-		if ( $this->form->save( Input::all() ) ) {
+		if ( $this->form->save( Input::all() ) and Input::get('exit') ) {
 			return Redirect::route('admin.menus.menulinks.index', $menu->id);
 		}
 
@@ -118,7 +118,7 @@ class MenuLinksController extends BaseController {
 	{
 
 		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) ) {
+			if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
 				return Redirect::route('admin.menus.menulinks.index', $menu->id);
 			}
 		} else {

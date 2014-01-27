@@ -79,7 +79,7 @@ class ProjectsController extends BaseController {
 	public function store()
 	{
 
-		if ( $this->form->save( Input::all() ) ) {
+		if ( $this->form->save( Input::all() ) and Input::get('exit') ) {
 			return Redirect::route('admin.projects.index');
 		}
 
@@ -100,7 +100,7 @@ class ProjectsController extends BaseController {
 	{
 
 		if ( ! Request::ajax()) {
-			if ( $this->form->update( Input::all() ) ) {
+			if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
 				return Redirect::route('admin.projects.index');
 			}
 		} else {
