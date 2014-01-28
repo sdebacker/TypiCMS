@@ -26,12 +26,14 @@ class NewsTranslation extends Eloquent {
 			$slug = ($model->slug) ? $model->slug : null ;
 			$model->slug = $slug;
 
-			$i = 0;
-			// Check uri is unique
-			while ($self::where('slug', $model->slug)->where('lang', $model->lang)->first()) {
-				$i++;
-				// increment uri if exists
-				$model->slug = $slug.'-'.$i;
+			if ($slug) {
+				$i = 0;
+				// Check uri is unique
+				while ($self::where('slug', $model->slug)->where('lang', $model->lang)->first()) {
+					$i++;
+					// increment uri if exists
+					$model->slug = $slug.'-'.$i;
+				}
 			}
 
 		});
@@ -42,12 +44,14 @@ class NewsTranslation extends Eloquent {
 			$slug = ($model->slug) ? $model->slug : null ;
 			$model->slug = $slug;
 
-			$i = 0;
-			// Check uri is unique
-			while ($self::where('slug', $model->slug)->where('id', '!=', $model->id)->where('lang', $model->lang)->first()) {
-				$i++;
-				// increment uri if exists
-				$model->slug = $slug.'-'.$i;
+			if ($slug) {
+				$i = 0;
+				// Check uri is unique
+				while ($self::where('slug', $model->slug)->where('id', '!=', $model->id)->where('lang', $model->lang)->first()) {
+					$i++;
+					// increment uri if exists
+					$model->slug = $slug.'-'.$i;
+				}
 			}
 
 		});

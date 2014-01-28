@@ -26,13 +26,6 @@ class User extends Base {
 	public static $direction = 'asc';
 
 
-	// public function scopeOrder($query)
-	// {
-	// 	$order = Input::get('firstname', 'id');
-	// 	$direction = Input::get('dir', 'desc');
-	// 	return $query->orderBy($order, $direction)->orderBy('id', $direction);
-	// }
-
 	/**
 	 * Custom collection
 	 *
