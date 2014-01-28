@@ -6,7 +6,7 @@
 
 <div class="row">
 
-	@include('admin._buttons')
+	@include('admin._buttons-form')
 
 	{{ Former::hidden('id'); }}
 

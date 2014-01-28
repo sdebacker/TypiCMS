@@ -14,7 +14,7 @@
 
 	<div class="list-form" lang="{{ Config::get('app.locale') }}">
 
-		@include('admin._toolbar')
+		@include('admin._buttons-list')
 
 		{{ $models->getList() }}
 
