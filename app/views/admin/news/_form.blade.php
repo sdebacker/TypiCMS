@@ -15,7 +15,7 @@
 
 </div>
 
-		@include('admin._langTabs')
+		@include('admin._tabs-lang')
 
 <div class="tab-content">
 
