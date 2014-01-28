@@ -29,10 +29,23 @@ gulp.task('public-css', function () {
       lessDir + '/public.less'
     ])
     .pipe(less())
-    .pipe(csso())
-    .pipe(concat('public.css'))
+    // .pipe(csso())
+    // .pipe(concat('public.css'))
     .pipe(gulp.dest('public/css'))
-    .pipe(notify('CSS minified'));
+    .pipe(notify('Public CSS minified'));
+
+});
+
+gulp.task('admin-css', function () {
+
+  return gulp.src([
+      lessDir + '/admin.less'
+    ])
+    .pipe(less())
+    // .pipe(csso())
+    // .pipe(concat('admin.css'))
+    .pipe(gulp.dest('public/css'))
+    .pipe(notify('Admin CSS minified'));
 
 });
 
@@ -56,10 +69,10 @@ gulp.task('phpunit', function() {
 
 // Keep an eye on Less and PHP files for changes…
 gulp.task('watch', function () {
-    gulp.watch(lessDir + '/*.less', ['public-css']);
+    gulp.watch(lessDir + '/*.less', ['public-css', 'admin-css']);
     gulp.watch(publicJsFiles, ['public-js']);
     gulp.watch('app/**/*.php', ['phpunit']);
 });
 
 // What tasks does running gulp trigger?
-gulp.task('default', ['public-css', 'public-js', 'phpunit', 'watch']);
+gulp.task('default', ['public-css', 'admin-css', 'public-js', 'phpunit', 'watch']);
