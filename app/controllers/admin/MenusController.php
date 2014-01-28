@@ -100,8 +100,8 @@ class MenusController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.menus.index');
+		if ( $this->form->update( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.menus.index') : Redirect::route('admin.menus.edit', $model->id) ;
 		}
 		
 		return Redirect::route( 'admin.menus.edit', $model->id )

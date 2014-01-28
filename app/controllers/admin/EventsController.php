@@ -101,8 +101,8 @@ class EventsController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.events.index');
+		if ( $this->form->update( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.events.index') : Redirect::route('admin.events.edit', $model->id) ;
 		}
 		
 		return Redirect::route( 'admin.events.edit', $model->id )

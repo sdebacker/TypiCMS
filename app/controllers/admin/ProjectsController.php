@@ -101,8 +101,8 @@ class ProjectsController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.projects.index');
+		if ( $this->form->update( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.projects.index') : Redirect::route('admin.projects.edit', $model->id) ;
 		}
 		
 		return Redirect::route( 'admin.projects.edit', $model->id )

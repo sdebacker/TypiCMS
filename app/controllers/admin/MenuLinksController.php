@@ -119,8 +119,8 @@ class MenuLinksController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( Input::all() ) and Input::get('exit') ) {
-			return Redirect::route('admin.menus.menulinks.index', $menu->id);
+		if ( $this->form->update( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.menus.menulinks.index', $menu->id) : Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
 		}
 		
 		return Redirect::route( 'admin.menus.menulinks.edit', array($menu->id, $model->id) )
