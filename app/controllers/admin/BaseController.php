@@ -14,13 +14,19 @@ abstract class BaseController extends Controller {
 	protected $repository;
 	protected $form;
 
+	/**
+	 * The layout that should be used for responses.
+	 */
+	protected $layout = 'admin/master';
+
 	// The cool kids’ way of handling page titles.
 	// https://gisglobal.github.com/jonathanmarvens/6017139
 	public $title  = array(
-		'parent'	=> '',
-		'child'	 => '',
-		'h1'	 => '',
+		'parent'   => '',
+		'child'    => '',
+		'h1'       => '',
 	);
+
 
 	private function getTitle()
 	{
@@ -32,15 +38,11 @@ abstract class BaseController extends Controller {
 		return $title;
 	}
 
+
 	private function getH1()
 	{
 		return ($this->title['h1']) ? $this->title['h1'] : $this->title['child'] ;
 	}
-
-	/**
-	 * The layout that should be used for responses.
-	 */
-	protected $layout = 'admin/master';
 
 
 	public function __construct($repository = null, $form = null)
