@@ -2,7 +2,7 @@ function initTinymce(selector) {
 	tinymce.init({
 		selector: selector,
 		fix_list_elements : true,
-		relative_urls: false,
+		// relative_urls: false,
 		height : 400,
 		menubar: false,
 		entity_encoding : 'raw',
