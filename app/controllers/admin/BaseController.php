@@ -4,6 +4,7 @@ use Controller;
 use View;
 use Config;
 use Sentry;
+use Request;
 use TypiCMS\Services\Helpers;
 
 
@@ -28,7 +29,7 @@ abstract class BaseController extends Controller {
 	);
 
 
-	private function getTitle()
+	public function getTitle()
 	{
 		$title = ucfirst($this->title['parent']);
 		if ($this->title['child']) {
@@ -39,7 +40,7 @@ abstract class BaseController extends Controller {
 	}
 
 
-	private function getH1()
+	public function getH1()
 	{
 		return ($this->title['h1']) ? $this->title['h1'] : $this->title['child'] ;
 	}
@@ -79,7 +80,8 @@ abstract class BaseController extends Controller {
 	{
 		if ( ! is_null($this->layout))
 		{
-			$this->layout = View::make($this->layout);
+			$layout = Request::ajax() ? 'admin/ajax' : $this->layout;
+			$this->layout = View::make($layout);
 		}
 	}
 
