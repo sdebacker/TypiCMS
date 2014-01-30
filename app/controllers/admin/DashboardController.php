@@ -25,7 +25,7 @@ class DashboardController extends BaseController {
 
 	public function index($relid = null)
 	{
-		$menus = Menu::orderBy('id')->translations()->get();
+		$menus = Menu::with('translations')->get();
 
 		$this->title['child'] = trans('modules.dashboard.Dashboard');
 
