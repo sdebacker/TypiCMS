@@ -24,7 +24,7 @@
 		"jwage/easy-csv": "dev-master",
 		"thujohn/rss": "dev-master",
 		"barryvdh/laravel-debugbar": "1.*",
-		"mccool/database-backup": "dev-master",
+		"mccool/database-backup": "1.0.0",
 		"thomaswelton/laravel-gravatar": "dev-master",
 		"eluceo/ical": "dev-master"
 	},

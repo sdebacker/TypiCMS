@@ -24,6 +24,11 @@ class Menu extends EloquentTranslatable {
 	public $direction = 'asc';
 
 
+	public function  __callStatic($name, $arguments)
+	{
+		return $name.' '.$arguments;
+	}
+
 	/**
 	 * Relations
 	 */
