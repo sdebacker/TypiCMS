@@ -21,7 +21,10 @@
 
 			<div class="tab-pane fade @if ($locale == $lang)in active@endif" id="{{ $lang }}">
 				{{ Former::lg_text($lang.'[title]')->label('title')->autofocus(); }}
-				{{ Former::text($lang.'[slug]')->label('slug')->help(trans('validation.attributes.address') . ': ' . $model->$lang->uri); }}
+				{{ Former::text($lang.'[slug]')->label('slug'); }}
+				@if(isset($model->$lang->uri))
+					<span class="text-muted">@lang('validation.attributes.address'): {{ $model->$lang->uri }}</span>
+				@endif
 				{{ Former::checkbox($lang.'[status]')->label('status')->text('Online')->label(''); }}
 				{{ Former::hidden($lang.'[uri]'); }}
 				{{ Former::textarea($lang.'[body]')->label('body')->class('form-control editor'); }}
