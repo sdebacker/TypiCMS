@@ -1,13 +1,10 @@
 <?php
 use HtmlObject\Element;
-use HtmlObject\Input;
 
-class TreeObjectTest extends HtmlObjectTestCase
+class TreeObjectTest extends HtmlObjectTests
 {
   public function setUp()
   {
-    parent::setUp();
-
     $this->object = new Element('p', 'foo');
   }
 
@@ -72,64 +69,12 @@ class TreeObjectTest extends HtmlObjectTestCase
     $this->assertEquals($object, $this->object->getChild('11:30 a.m.'));
   }
 
-  public function testCanAppendElementToAll()
-  {
-    $object = Element::create('p', 'foo')->nest(array(
-      'foo' => Element::strong('foo'),
-      'baz' => Element::strong('foo'),
-    ));
-    $object->appendChild(Element::strong('foo'), 'append');
-
-    $this->assertEquals(array('foo', 'baz', 'append'), array_keys($object->getChildren()));
-  }
-
-  public function testCanPrependElementToAll()
-  {
-    $object = Element::create('p', 'foo')->nest(array(
-      'foo' => Element::strong('foo'),
-      'baz' => Element::strong('foo'),
-    ));
-    $object->prependChild(Element::strong('foo'), 'prepend');
-
-    $this->assertEquals(array('prepend', 'foo', 'baz'), array_keys($object->getChildren()));
-  }
-
-  public function testCanPrependToChild()
-  {
-    $object = Element::create('p', 'foo')->nest(array(
-      'foo' => Element::strong('foo'),
-      'baz' => Element::strong('foo'),
-    ));
-    $object->prependChild(Element::strong('foo'), 'prepend', 'baz');
-
-    $this->assertEquals(array('foo', 'prepend', 'baz'), array_keys($object->getChildren()));
-  }
-
-  public function testCanAppendToChild()
-  {
-    $object = Element::create('p', 'foo')->nest(array(
-      'foo' => Element::strong('foo'),
-      'baz' => Element::strong('foo'),
-    ));
-    $object->appendChild(Element::strong('foo'), 'append', 'foo');
-
-    $this->assertEquals(array('foo', 'append', 'baz'), array_keys($object->getChildren()));
-  }
-
   public function testCanNestMultipleValues()
   {
     $object = Element::strong('foo');
     $this->object->nestChildren(array('strong' => 'foo', 'em' => 'bar'));
 
     $this->assertEquals('<p>foo<strong>foo</strong><em>bar</em></p>', $this->object->render());
-  }
-
-  public function testWontNestIfTagDoesntExist()
-  {
-    $object = Element::strong('foo');
-    $this->object->nest(array('strong' => 'foo', 'foobar' => 'bar'));
-
-    $this->assertEquals('<p>foo<strong>foo</strong>bar</p>', $this->object->render());
   }
 
   public function testCanNestMultipleValuesUsingNest()
@@ -231,15 +176,6 @@ class TreeObjectTest extends HtmlObjectTestCase
 
     $this->object->nest(Element::div());
     $this->assertTrue($this->object->hasChildren());
-  }
-
-  public function testCanHaveSelfClosingChildren()
-  {
-    $tag = Element::div('foo')->nest(array(
-      'foo' => Input::create('text'),
-    ));
-
-    $this->assertEquals('<div>foo<input type="text"></div>', $tag->render());
   }
 
   public function testCanCheckIfChildrenIsAfterSibling()

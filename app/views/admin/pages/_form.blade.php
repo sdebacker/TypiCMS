@@ -27,7 +27,7 @@
 				@endif
 				{{ Former::checkbox($lang.'[status]')->label('status')->text('Online')->label(''); }}
 				{{ Former::hidden($lang.'[uri]'); }}
-				{{ Former::textarea($lang.'[body]')->label('body')->class('form-control editor'); }}
+				{{ Former::textarea($lang.'[body]')->label('body')->class('form-control editor')->value(''); }}
 
 				{{-- Metadata --}}
 				{{ Former::text($lang.'[meta_title]')->label('meta_title'); }}

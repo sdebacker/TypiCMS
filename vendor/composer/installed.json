@@ -1590,68 +1590,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "anahkiasen/former",
-        "version": "3.3.0",
-        "version_normalized": "3.3.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Anahkiasen/former.git",
-            "reference": "02db81b871aff32443a9a1903c7df98af51c69a4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Anahkiasen/former/zipball/02db81b871aff32443a9a1903c7df98af51c69a4",
-            "reference": "02db81b871aff32443a9a1903c7df98af51c69a4",
-            "shasum": ""
-        },
-        "require": {
-            "anahkiasen/html-object": "dev-master",
-            "anahkiasen/underscore-php": "dev-master",
-            "illuminate/config": "~4",
-            "illuminate/container": "~4",
-            "illuminate/http": "~4",
-            "illuminate/routing": "~4",
-            "illuminate/session": "~4",
-            "illuminate/translation": "~4"
-        },
-        "require-dev": {
-            "illuminate/database": "~4",
-            "mockery/mockery": "dev-master"
-        },
-        "time": "2013-11-05 18:43:17",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-agnostic": "3.x.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Former": "src",
-                "Laravel": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Fabre",
-                "email": "ehtnam6@gmail.com"
-            }
-        ],
-        "description": "A powerful form builder",
-        "homepage": "http://anahkiasen.github.com/former/",
-        "keywords": [
-            "bootstrap",
-            "form",
-            "foundation",
-            "laravel"
-        ]
-    },
-    {
         "name": "d11wtq/boris",
         "version": "v1.0.8",
         "version_normalized": "1.0.8.0",
@@ -1835,51 +1773,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "anahkiasen/underscore-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Anahkiasen/underscore-php.git",
-            "reference": "94642af9495274ce2ff2e130f9ef92f502a0c622"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/94642af9495274ce2ff2e130f9ef92f502a0c622",
-            "reference": "94642af9495274ce2ff2e130f9ef92f502a0c622",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "4.1.*",
-            "patchwork/utf8": "1.1.*",
-            "php": ">=5.3.0"
-        },
-        "time": "2014-01-14 12:42:38",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Underscore": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Maxime Fabre",
-                "email": "ehtnam6@gmail.com"
-            }
-        ],
-        "description": "A redacted port of Underscore.js for PHP",
-        "keywords": [
-            "internals",
-            "laravel",
-            "toolkit"
-        ]
-    },
-    {
         "name": "mccool/database-backup",
         "version": "1.0.0",
         "version_normalized": "1.0.0.0",
@@ -1976,76 +1869,6 @@
         "homepage": "https://github.com/maximebf/php-debugbar",
         "keywords": [
             "debug"
-        ]
-    },
-    {
-        "name": "aws/aws-sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "f720d799ea385f86ef33966908a1217dda5e49ce"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f720d799ea385f86ef33966908a1217dda5e49ce",
-            "reference": "f720d799ea385f86ef33966908a1217dda5e49ce",
-            "shasum": ""
-        },
-        "require": {
-            "guzzle/guzzle": ">=3.7.0,<3.9.0",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "doctrine/cache": "~1.0",
-            "ext-openssl": "*",
-            "monolog/monolog": "1.4.*",
-            "phpunit/phpunit": "3.7.*",
-            "symfony/class-loader": "2.*",
-            "symfony/yaml": "2.*"
-        },
-        "suggest": {
-            "doctrine/cache": "Adds support for caching of credentials and responses",
-            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
-            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-            "monolog/monolog": "Adds support for logging HTTP requests and responses",
-            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
-        },
-        "time": "2014-01-30 00:45:15",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.5.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Aws": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Amazon Web Services",
-                "homepage": "http://aws.amazon.com"
-            }
-        ],
-        "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
-        "homepage": "http://aws.amazon.com/sdkforphp",
-        "keywords": [
-            "amazon",
-            "aws",
-            "cloud",
-            "dynamodb",
-            "ec2",
-            "glacier",
-            "s3",
-            "sdk"
         ]
     },
     {
@@ -2157,47 +1980,6 @@
         ],
         "description": "Symfony BrowserKit Component",
         "homepage": "http://symfony.com"
-    },
-    {
-        "name": "anahkiasen/html-object",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Anahkiasen/html-object.git",
-            "reference": "776aff25a4db27964d95b2332e2f379b0aac9ff0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/776aff25a4db27964d95b2332e2f379b0aac9ff0",
-            "reference": "776aff25a4db27964d95b2332e2f379b0aac9ff0",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2014-01-27 22:41:20",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "HtmlObject": "src"
-            },
-            "classmap": [
-                "tests"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Anahkiasen",
-                "email": "ehtnam6@gmail.com"
-            }
-        ],
-        "description": "A set of classes to create and manipulate HTML objects abstractions"
     },
     {
         "name": "symfony/translation",
@@ -2502,18 +2284,185 @@
         ]
     },
     {
+        "name": "anahkiasen/html-object",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Anahkiasen/html-object.git",
+            "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
+            "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2014-01-14 11:42:36",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "HtmlObject": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Anahkiasen",
+                "email": "ehtnam6@gmail.com"
+            }
+        ],
+        "description": "A set of classes to create and manipulate HTML objects abstractions"
+    },
+    {
+        "name": "anahkiasen/former",
+        "version": "3.4.1",
+        "version_normalized": "3.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Anahkiasen/former.git",
+            "reference": "e399cd88d4ee4f8f656fd27cf3c8a07d58e02840"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Anahkiasen/former/zipball/e399cd88d4ee4f8f656fd27cf3c8a07d58e02840",
+            "reference": "e399cd88d4ee4f8f656fd27cf3c8a07d58e02840",
+            "shasum": ""
+        },
+        "require": {
+            "anahkiasen/html-object": "~1.2.0",
+            "illuminate/config": "~4",
+            "illuminate/container": "~4",
+            "illuminate/http": "~4",
+            "illuminate/routing": "~4",
+            "illuminate/session": "~4",
+            "illuminate/translation": "~4"
+        },
+        "require-dev": {
+            "illuminate/database": "~4",
+            "mockery/mockery": "dev-master"
+        },
+        "time": "2014-01-14 11:49:56",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Former": "src",
+                "Laravel": "src"
+            },
+            "classmap": [
+                "tests"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Fabre",
+                "email": "ehtnam6@gmail.Com"
+            }
+        ],
+        "description": "A powerful form builder",
+        "homepage": "http://anahkiasen.github.com/former/",
+        "keywords": [
+            "bootstrap",
+            "form",
+            "foundation",
+            "laravel"
+        ]
+    },
+    {
+        "name": "aws/aws-sdk-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/aws/aws-sdk-php.git",
+            "reference": "e2e48beff6697674054db6623c04784efe027475"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e2e48beff6697674054db6623c04784efe027475",
+            "reference": "e2e48beff6697674054db6623c04784efe027475",
+            "shasum": ""
+        },
+        "require": {
+            "guzzle/guzzle": ">=3.7.0,<3.9.0",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "doctrine/cache": "~1.0",
+            "ext-openssl": "*",
+            "monolog/monolog": "1.4.*",
+            "phpunit/phpunit": "3.7.*",
+            "symfony/class-loader": "2.*",
+            "symfony/yaml": "2.*"
+        },
+        "suggest": {
+            "doctrine/cache": "Adds support for caching of credentials and responses",
+            "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+            "monolog/monolog": "Adds support for logging HTTP requests and responses",
+            "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+        },
+        "time": "2014-01-30 18:59:46",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.5.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Aws": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Amazon Web Services",
+                "homepage": "http://aws.amazon.com"
+            }
+        ],
+        "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
+        "homepage": "http://aws.amazon.com/sdkforphp",
+        "keywords": [
+            "amazon",
+            "aws",
+            "cloud",
+            "dynamodb",
+            "ec2",
+            "glacier",
+            "s3",
+            "sdk"
+        ]
+    },
+    {
         "name": "laravel/framework",
         "version": "4.1.x-dev",
         "version_normalized": "4.1.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "1fdc578e0bdfbe2f58e47e5eceddbd23277948b1"
+            "reference": "b03f49da0f466643c6403b7afa584d5db7ca7aef"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/1fdc578e0bdfbe2f58e47e5eceddbd23277948b1",
-            "reference": "1fdc578e0bdfbe2f58e47e5eceddbd23277948b1",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/b03f49da0f466643c6403b7afa584d5db7ca7aef",
+            "reference": "b03f49da0f466643c6403b7afa584d5db7ca7aef",
             "shasum": ""
         },
         "require": {
@@ -2581,7 +2530,7 @@
         "suggest": {
             "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
         },
-        "time": "2014-01-30 16:00:10",
+        "time": "2014-01-30 20:43:19",
         "type": "library",
         "extra": {
             "branch-alias": {

@@ -110,12 +110,7 @@ class ZurbFoundation4 extends Framework implements FrameworkInterface
       $classes = $this->filterFieldClasses($classes);
     }
 
-    // If we found any class, add them
-    if ($classes) {
-      $field->class(implode(' ', $classes));
-    }
-
-    return $field;
+    return $this->addClassesToField($field, $classes);
   }
 
   public function getGroupClasses()
@@ -254,7 +249,7 @@ class ZurbFoundation4 extends Framework implements FrameworkInterface
     } else {
       return $field;
     }
-  }  
+  }
 
   /**
    * Wrap actions block with potential additional tags

@@ -1,7 +1,7 @@
 <?php
 use HtmlObject\Element;
 
-class ElementTest extends HtmlObjectTestCase
+class ElementTest extends HtmlObjectTests
 {
   public function testCanDynamicallyCreateObjects()
   {

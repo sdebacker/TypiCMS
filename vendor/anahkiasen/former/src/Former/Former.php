@@ -4,6 +4,7 @@ namespace Former;
 use Closure;
 use Illuminate\Container\Container;
 use Illuminate\Validation\Validator;
+use Illuminate\Support\MessageBag;
 
 /**
  * Helps the user interact with the various Former components
@@ -57,6 +58,13 @@ class Former
    * @var array
    */
   public $labels = array();
+
+  /**
+   * The IDs created so far
+   *
+   * @var array
+   */
+  public $ids = array();
 
   // Namespaces
   ////////////////////////////////////////////////////////////////////
@@ -129,8 +137,9 @@ class Former
     $method  = array_pop($classes);
 
     // Dispatch to the different Form\Fields
-    $field = $this->dispatch->toFields($method, $parameters);
-    $field = $this->app['former.framework']->getFieldClasses($field, $classes);
+    $framework = isset($this->app['former.form.framework']) ? $this->app['former.form.framework'] : $this->app['former.framework'];
+    $field     = $this->dispatch->toFields($method, $parameters);
+    $field     = $framework->getFieldClasses($field, $classes);
 
     // Else bind field
     $this->app->instance('former.field', $field);
@@ -225,6 +234,7 @@ class Former
   public function getPost($name, $fallback = null)
   {
     $name = str_replace(array('[', ']'), array('.', ''), $name);
+    $name = trim($name, '.');
     $oldValue = $this->app['request']->old($name, $fallback);
 
     return $this->app['request']->get($name, $oldValue, true);
@@ -251,6 +261,9 @@ class Former
     // If we're given a raw Validator, go fetch the errors in it
     if ($validator instanceof Validator) {
       $this->errors = $validator->getMessageBag();
+
+    } else if ($validator instanceof MessagBag) {
+      $this->errors = $validator;
     }
 
     return $this->errors;
@@ -306,10 +319,26 @@ class Former
     }
 
     $this->setOption('framework', $framework);
-    $class = __NAMESPACE__.'\Framework\\'.$framework;
-    $this->app->bind('former.framework', function ($app) use ($class) {
-      return new $class($app);
+
+    $framework = $this->getFrameworkInstance($framework);
+    $this->app->bind('former.framework', function ($app) use ($framework) {
+      return $framework;
     });
+  }
+
+  /**
+   * Get a new framework instance
+   *
+   * @param string $framework
+   *
+   * @return Framework
+   */
+  public function getFrameworkInstance($framework)
+  {
+    // Get the fully qualified name
+    $class = __NAMESPACE__.'\Framework\\'.$framework;
+
+    return new $class($this->app);
   }
 
   /**
@@ -352,8 +381,13 @@ class Former
     }
 
     // Destroy instances
-    $this->app['former.form'] = null;
-    unset($this->app['former.form']);
+    $instances = array('former.form', 'former.form.framework');
+    foreach ($instances as $instance) {
+      $this->app[$instance] = null;
+      unset($this->app[$instance]);
+    }
+
+    // Reset populator
     $this->app['former.populator']->reset();
 
     // Reset all values
@@ -382,6 +416,7 @@ class Former
 
     if ($this->errors and $name) {
       $name = str_replace(array('[', ']'), array('.', ''), $name);
+      $name = trim($name, '.');
 
       return $this->errors->first($name);
     }

@@ -20,7 +20,7 @@
 
 			<div class="tab-pane fade @if ($locale == $lang)in active@endif" id="{{ $lang }}">
 				{{ Former::text($lang.'[alt_attribute]')->label('alt_attribute'); }}
-				{{ Former::textarea($lang.'[description]')->label('description'); }}
+				{{ Former::textarea($lang.'[description]')->label('description')->value(''); }}
 				{{ Former::text($lang.'[keywords]')->label('keywords'); }}
 				{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
 			</div>

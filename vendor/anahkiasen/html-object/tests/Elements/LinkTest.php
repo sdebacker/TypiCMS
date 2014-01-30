@@ -2,7 +2,7 @@
 use HtmlObject\Element;
 use HtmlObject\Link;
 
-class LinkTest extends HtmlObjectTestCase
+class LinkTest extends HtmlObjectTests
 {
   public function testCanCreateList()
   {

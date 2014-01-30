@@ -78,6 +78,11 @@ class FormerServiceProvider extends ServiceProvider
    */
   public function bindCoreClasses(Container $app)
   {
+    // Cancel if in the scope of a Laravel application
+    if ($app->bound('events')) {
+      return $app;
+    }
+
     // Core classes
     //////////////////////////////////////////////////////////////////
 
@@ -111,9 +116,6 @@ class FormerServiceProvider extends ServiceProvider
       return new Repository($fileloader, 'config');
     }, true);
 
-    // Add config namespace
-    $app['config']->package('anahkiasen/former', __DIR__.'/../config');
-
     // Localization
     //////////////////////////////////////////////////////////////////
 
@@ -139,6 +141,9 @@ class FormerServiceProvider extends ServiceProvider
    */
   public function bindFormer(Container $app)
   {
+    // Add config namespace
+    $app['config']->package('anahkiasen/former', __DIR__.'/../config');
+
     // Get framework to use
     $framework = $app['config']->get('former::framework');
 
@@ -152,7 +157,7 @@ class FormerServiceProvider extends ServiceProvider
     });
 
     $app->singleton('former', function ($app) {
-      return new Former($app, new MethodDispatcher($app));
+      return new Former($app, new MethodDispatcher($app, Former::FIELDSPACE));
     });
 
     Helpers::setApp($app);

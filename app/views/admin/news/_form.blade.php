@@ -25,8 +25,8 @@
 		{{ Former::lg_text($lang.'[title]')->label('title'); }}
 		{{ Former::text($lang.'[slug]')->label('slug'); }}
 		{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
-		{{ Former::textarea($lang.'[summary]')->label('summary'); }}
-		{{ Former::textarea($lang.'[body]')->label('body')->class('form-control editor'); }}
+		{{ Former::textarea($lang.'[summary]')->label('summary')->value(''); }}
+		{{ Former::textarea($lang.'[body]')->label('body')->class('form-control editor')->value(''); }}
 	</div>
 
 	@endforeach

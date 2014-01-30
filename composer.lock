@@ -3,25 +3,24 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ec2799cc202c59ad8aa75d95f4c4b7b0",
+    "hash": "6ea17eaf66fee944c332f4d95ed3159f",
     "packages": [
         {
             "name": "anahkiasen/former",
-            "version": "3.3.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "02db81b871aff32443a9a1903c7df98af51c69a4"
+                "reference": "e399cd88d4ee4f8f656fd27cf3c8a07d58e02840"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/02db81b871aff32443a9a1903c7df98af51c69a4",
-                "reference": "02db81b871aff32443a9a1903c7df98af51c69a4",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/e399cd88d4ee4f8f656fd27cf3c8a07d58e02840",
+                "reference": "e399cd88d4ee4f8f656fd27cf3c8a07d58e02840",
                 "shasum": ""
             },
             "require": {
-                "anahkiasen/html-object": "dev-master",
-                "anahkiasen/underscore-php": "dev-master",
+                "anahkiasen/html-object": "~1.2.0",
                 "illuminate/config": "~4",
                 "illuminate/container": "~4",
                 "illuminate/http": "~4",
@@ -34,16 +33,14 @@
                 "mockery/mockery": "dev-master"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-agnostic": "3.x.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Former": "src",
                     "Laravel": "src"
-                }
+                },
+                "classmap": [
+                    "tests"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -52,7 +49,7 @@
             "authors": [
                 {
                     "name": "Maxime Fabre",
-                    "email": "ehtnam6@gmail.com"
+                    "email": "ehtnam6@gmail.Com"
                 }
             ],
             "description": "A powerful form builder",
@@ -63,20 +60,20 @@
                 "foundation",
                 "laravel"
             ],
-            "time": "2013-11-05 18:43:17"
+            "time": "2014-01-14 11:49:56"
         },
         {
             "name": "anahkiasen/html-object",
-            "version": "dev-master",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/html-object.git",
-                "reference": "776aff25a4db27964d95b2332e2f379b0aac9ff0"
+                "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/776aff25a4db27964d95b2332e2f379b0aac9ff0",
-                "reference": "776aff25a4db27964d95b2332e2f379b0aac9ff0",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
+                "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
                 "shasum": ""
             },
             "require": {
@@ -86,10 +83,7 @@
             "autoload": {
                 "psr-0": {
                     "HtmlObject": "src"
-                },
-                "classmap": [
-                    "tests"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -102,50 +96,7 @@
                 }
             ],
             "description": "A set of classes to create and manipulate HTML objects abstractions",
-            "time": "2014-01-27 22:41:20"
-        },
-        {
-            "name": "anahkiasen/underscore-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Anahkiasen/underscore-php.git",
-                "reference": "94642af9495274ce2ff2e130f9ef92f502a0c622"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/94642af9495274ce2ff2e130f9ef92f502a0c622",
-                "reference": "94642af9495274ce2ff2e130f9ef92f502a0c622",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.1.*",
-                "patchwork/utf8": "1.1.*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Underscore": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxime Fabre",
-                    "email": "ehtnam6@gmail.com"
-                }
-            ],
-            "description": "A redacted port of Underscore.js for PHP",
-            "keywords": [
-                "internals",
-                "laravel",
-                "toolkit"
-            ],
-            "time": "2014-01-14 12:42:38"
+            "time": "2014-01-14 11:42:36"
         },
         {
             "name": "aws/aws-sdk-php",
@@ -153,12 +104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "f720d799ea385f86ef33966908a1217dda5e49ce"
+                "reference": "e2e48beff6697674054db6623c04784efe027475"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f720d799ea385f86ef33966908a1217dda5e49ce",
-                "reference": "f720d799ea385f86ef33966908a1217dda5e49ce",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e2e48beff6697674054db6623c04784efe027475",
+                "reference": "e2e48beff6697674054db6623c04784efe027475",
                 "shasum": ""
             },
             "require": {
@@ -213,7 +164,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-01-30 00:45:15"
+            "time": "2014-01-30 18:59:46"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -962,12 +913,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1fdc578e0bdfbe2f58e47e5eceddbd23277948b1"
+                "reference": "b03f49da0f466643c6403b7afa584d5db7ca7aef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1fdc578e0bdfbe2f58e47e5eceddbd23277948b1",
-                "reference": "1fdc578e0bdfbe2f58e47e5eceddbd23277948b1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b03f49da0f466643c6403b7afa584d5db7ca7aef",
+                "reference": "b03f49da0f466643c6403b7afa584d5db7ca7aef",
                 "shasum": ""
             },
             "require": {
@@ -1071,7 +1022,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-01-30 16:00:10"
+            "time": "2014-01-30 20:43:19"
         },
         {
             "name": "maximebf/debugbar",

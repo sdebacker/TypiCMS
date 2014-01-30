@@ -1,7 +1,7 @@
 <?php
 use HtmlObject\Image;
 
-class ImageTest extends HtmlObjectTestCase
+class ImageTest extends HtmlObjectTests
 {
   public function testCanCreateList()
   {

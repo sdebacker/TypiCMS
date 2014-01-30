@@ -8,8 +8,7 @@ use Former\Helpers;
 use Former\Interfaces\FieldInterface;
 use Former\LiveValidation;
 use Illuminate\Container\Container;
-use Underscore\Methods\ArraysMethods as Arrays;
-use Underscore\Methods\StringMethods as String;
+use Illuminate\Support\Str;
 
 /**
  * Abstracts general fields parameters (type, value, name) and
@@ -59,6 +58,20 @@ abstract class Field extends FormerObject implements FieldInterface
    */
   protected $isSelfClosing = true;
 
+  /**
+   * Get the current framework instance
+   *
+   * @return Framework
+   */
+  protected function currentFramework()
+  {
+    if ($this->app->bound('former.form.framework')) {
+      return $this->app['former.form.framework'];
+    }
+
+    return $this->app['former.framework'];
+  }
+
   ////////////////////////////////////////////////////////////////////
   ///////////////////////////// INTERFACE ////////////////////////////
   ////////////////////////////////////////////////////////////////////
@@ -71,11 +84,11 @@ abstract class Field extends FormerObject implements FieldInterface
   public function __construct(Container $app, $type, $name, $label, $value, $attributes)
   {
     // Set base parameters
-    $this->app        = $app;
-    $this->attributes = (array) $attributes;
-    $this->type       = $type;
-    $this->value      = $value;
-    $this->form       = $this->app->bound('former.form') ? $this->app['former.form'] : null;
+    $this->app   = $app;
+    $this->type  = $type;
+    $this->value = $value;
+    $this->setAttributes($attributes);
+    $this->form  = $this->app->bound('former.form') ? $this->app['former.form'] : null;
 
     // Compute and translate label
     $this->automaticLabels($name, $label);
@@ -110,8 +123,8 @@ abstract class Field extends FormerObject implements FieldInterface
     }
 
     // Redirect calls to the Control Group
-    if (method_exists($this->group, $method) or String::startsWith($method, 'onGroup')) {
-      $method = String::remove($method, 'onGroup');
+    if (method_exists($this->group, $method) or Str::startsWith($method, 'onGroup')) {
+      $method = str_replace('onGroup', '', $method);
       $method = lcfirst($method);
 
       call_user_func_array(array($this->group, $method), $parameters);
@@ -139,7 +152,7 @@ abstract class Field extends FormerObject implements FieldInterface
 
     // Classic syntax
     } else {
-      $html  = $this->app['former.framework']->createLabelOf($this);
+      $html  = $this->currentFramework()->createLabelOf($this);
       $html .= $this->render();
     }
 
@@ -178,7 +191,8 @@ abstract class Field extends FormerObject implements FieldInterface
   public function isUnwrappable()
   {
     return
-      $this->form and $this->isOfType('inline') or
+      ($this->form and $this->currentFramework()->is('Nude')) or
+      ($this->form and $this->isOfType('inline')) or
       $this->isButton() or
       $this->isOfType('hidden') or
       \Former\Form\Group::$opened or
@@ -227,7 +241,8 @@ abstract class Field extends FormerObject implements FieldInterface
    */
   public function rule($rule)
   {
-    $parameters = Arrays::removeFirst(func_get_args());
+    $parameters = func_get_args();
+    array_shift($parameters);
 
     $live = new LiveValidation($this);
     $live->apply(array(
@@ -358,7 +373,7 @@ abstract class Field extends FormerObject implements FieldInterface
 
     // Check for the two possibilities
     if ($label and is_null($name)) {
-      $name = String::slug($label);
+      $name = Str::slug($label);
     } elseif (is_null($label) and $name) {
       $label = preg_replace('/\[\]$/', '', $name);
     }

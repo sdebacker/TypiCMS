@@ -1,7 +1,7 @@
 <?php
 use HtmlObject\Traits\Helpers;
 
-class HelpersTest extends HtmlObjectTestCase
+class HelpersTest extends HtmlObjectTests
 {
 	public function testCanParseAttributes()
 	{

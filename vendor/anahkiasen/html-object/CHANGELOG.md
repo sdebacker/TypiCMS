@@ -1,15 +1,5 @@
 # HTMLObject
 
-## 1.4.0
-
-- Added `TreeObject::prepend` and `TreeObject::append` to set childs before/after other children
-- Fixed case where `nest` would create invalid tags from strings
-
-## 1.3.0
-
-- Added `Table` element
-- Fixed a bug in the rendering of children
-
 ## 1.2.0
 
 - Children are now rendered via their `render` method instead of toString
