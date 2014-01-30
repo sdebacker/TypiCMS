@@ -25,9 +25,9 @@ abstract class BaseController extends Controller {
 	// https://gist.github.com/jonathanmarvens/6017139
 	public $applicationName;
 	public $title  = array(
-		'parent'	=> '',
+		'parent'    => '',
 		'separator' => '',
-		'child'	 => '',
+		'child'     => '',
 	);
 
 
@@ -57,9 +57,6 @@ abstract class BaseController extends Controller {
 		});
 
 		View::share('navBar', $navBar);
-		View::share('mainMenu', App::make('MainMenu', array('class' => 'menu-main nav nav-pills')) );
-		View::share('footerMenu', App::make('FooterMenu', array('class' => 'menu-main nav nav-pills')) );
-		View::share('languagesMenu', App::make('LanguagesMenu') );
 		View::share('lang', App::getLocale() );
 
 	}

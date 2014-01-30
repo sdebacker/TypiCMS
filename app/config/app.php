@@ -138,7 +138,6 @@ return array(
 
 		'TypiCMS\Repositories\RepositoriesServiceProvider',
 		'TypiCMS\Services\Form\FormServiceProvider',
-		'TypiCMS\Services\ListBuilder\ListBuilderServiceProvider',
 
 	),
 
@@ -213,6 +212,9 @@ return array(
 		'Notification'    => 'Krucas\Notification\Facades\Notification',
 		'Croppa'          => 'Bkwld\Croppa\Facade',
 		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
+
+		'Menu'            => 'TypiCMS\Models\Menu',
+
 		
 	),
 

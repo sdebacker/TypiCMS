@@ -1,7 +1,7 @@
 @section('languagesMenu') @stop
 @section('header')        @stop
 @section('mainMenu')      @stop
-@section('footerMenu')    @stop
+@section('footer')    @stop
 
 @section('main')
 
@@ -27,5 +27,3 @@
 	</div>
 
 @stop
-
-@section('footerMenu')@stop

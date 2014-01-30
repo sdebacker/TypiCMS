@@ -255,7 +255,18 @@ class ListBuilder {
 	 *
 	 * @return Collection
 	 */
-	public function languagesMenu()
+	public function languagesMenuHtml($parameters)
+	{
+		return $this->languagesMenu($parameters, true);
+	}
+
+
+	/**
+	 * Build languages Menu.
+	 *
+	 * @return Collection
+	 */
+	public function languagesMenu($parameters, $html = false)
 	{
 
 		$routeArray = explode('.', Route::current()->getName());
@@ -328,6 +339,18 @@ class ListBuilder {
 
 			}
 
+		}
+
+		if ($html) {
+			// dd($parameters);
+			$html = '<ul class="' . $parameters['class'] . '" role="menu">';
+			foreach ($languagesMenu as $item):
+				$html .= '<li class="' . $item->class . '" role="menuitem">';
+				$html .= '<a href="' . $item->url . '">' . $item->lang . '</a>';
+				$html .= '</li>';
+			endforeach;
+			$html .= '</ul>';
+			return $html;
 		}
 
 		return $languagesMenu;
