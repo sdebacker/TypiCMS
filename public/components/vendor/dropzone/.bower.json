@@ -1,7 +1,7 @@
 {
   "name": "dropzone",
   "location": "enyo/dropzone",
-  "version": "3.7.3",
+  "version": "3.7.4",
   "description": "Dropzone is an easy to use drag'n'drop library. It supports image previews and shows nice progress bars.",
   "homepage": "http://www.dropzonejs.com",
   "main": [
@@ -12,11 +12,11 @@
     "/*",
     "!downloads/*"
   ],
-  "_release": "3.7.3",
+  "_release": "3.7.4",
   "_resolution": {
     "type": "version",
-    "tag": "v3.7.3",
-    "commit": "a854ab123ebba2040dc2494fef0f31b4d9ecf558"
+    "tag": "v3.7.4",
+    "commit": "558978dcb830a38f2767e194e264105b9dab77d3"
   },
   "_source": "git://github.com/enyo/dropzone.git",
   "_target": "~3.7.*",

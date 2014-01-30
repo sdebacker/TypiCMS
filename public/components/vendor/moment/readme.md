@@ -28,8 +28,58 @@ Develop [![Build Status](https://travis-ci.org/moment/moment.png?branch=develop)
 
 Master [![Build Status](https://travis-ci.org/moment/moment.png?branch=master)](https://travis-ci.org/moment/moment)
 
+For developers
+==============
+
+You need [node](http://nodejs.org/), use [nvm](https://github.com/creationix/nvm) or [nenv](https://github.com/ryuone/nenv) to install it.
+
+Then, in your shell
+
+```bash
+git clone https://github.com/moment/moment.git
+cd moment
+npm install -g grunt-cli
+npm install
+git checkout develop  # all patches against develop branch, please!
+grunt                 # this runs tests and jshint
+```
+
 Changelog
 =========
+
+### 2.5.1
+
+* languages
+  * [#1392](https://github.com/moment/moment/issues/1392) Armenian (hy-am)
+
+* bugfixes
+  * [#1429](https://github.com/moment/moment/issues/1429) fixes [#1423](https://github.com/moment/moment/issues/1423) weird chrome-32 bug with js object creation
+  * [#1421](https://github.com/moment/moment/issues/1421) remove html entities from Welsh
+  * [#1418](https://github.com/moment/moment/issues/1418) fixes [#1401](https://github.com/moment/moment/issues/1401) improved non-padded tokens in strict matching
+  * [#1417](https://github.com/moment/moment/issues/1417) fixes [#1404](https://github.com/moment/moment/issues/1404) handle buggy moment object created by property cloning
+  * [#1398](https://github.com/moment/moment/issues/1398) fixes [#1397](https://github.com/moment/moment/issues/1397) fix Arabic-like week number parsing
+  * [#1396](https://github.com/moment/moment/issues/1396) add leftZeroFill(4) to GGGG and gggg formats
+  * [#1373](https://github.com/moment/moment/issues/1373) use lowercase for months and days in Catalan
+
+* testing
+  * [#1374](https://github.com/moment/moment/issues/1374) run tests on multiple browser/os combos via SauceLabs and Travis
+
+### 2.5.0 [See changelog](https://gist.github.com/ichernev/8104451)
+
+* New languages
+  * Luxemburish (lb) [1247](https://github.com/moment/moment/issues/1247)
+  * Serbian (rs) [1319](https://github.com/moment/moment/issues/1319)
+  * Tamil (ta) [1324](https://github.com/moment/moment/issues/1324)
+  * Macedonian (mk) [1337](https://github.com/moment/moment/issues/1337)
+
+* Features
+  * [1311](https://github.com/moment/moment/issues/1311) Add quarter getter and format token `Q`
+  * [1303](https://github.com/moment/moment/issues/1303) strict parsing now respects number of digits per token (fix [1196](https://github.com/moment/moment/issues/1196))
+  * 0d30bb7 add jspm support
+  * [1347](https://github.com/moment/moment/issues/1347) improve zone parsing
+  * [1362](https://github.com/moment/moment/issues/1362) support merideam parsing in Korean
+
+* 22 bugfixes
 
 ### 2.4.0
 
@@ -37,19 +87,19 @@ Changelog
 * New languages
   * Farose (fo) [#1206](https://github.com/moment/moment/issues/1206)
   * Tagalog/Filipino (tl-ph) [#1197](https://github.com/moment/moment/issues/1197)
-  * Welsh (cy) [#1214](https://github.com/moment/moment/issues/1214)
+  * Welsh (cy) [#1215](https://github.com/moment/moment/issues/1215)
 * Bugfixes
   * properly handle Z at the end of iso RegExp [#1187](https://github.com/moment/moment/issues/1187)
   * chinese meridian time improvements [#1076](https://github.com/moment/moment/issues/1076)
   * fix language tests [#1177](https://github.com/moment/moment/issues/1177)
   * remove some failing tests (that should have never existed :))
-    [#1185](https://github.com/moment/moment/issues/#1185)
+    [#1185](https://github.com/moment/moment/issues/1185)
     [#1183](https://github.com/moment/moment/issues/1183)
-  * handle russian noun cases in weird cases [#1195](https://github.com/moment/moment/issues/1195]
+  * handle russian noun cases in weird cases [#1195](https://github.com/moment/moment/issues/1195)
 
 ### 2.3.1
 
-Removed a trailing comma [1169] and fixed a bug with `months`, `weekdays` getters [1171].
+Removed a trailing comma [1169] and fixed a bug with `months`, `weekdays` getters [#1171](https://github.com/moment/moment/issues/1171).
 
 ### 2.3.0 [See changelog](https://gist.github.com/ichernev/6864354)
 
