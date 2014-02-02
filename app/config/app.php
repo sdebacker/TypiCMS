@@ -138,6 +138,7 @@ return array(
 
 		'TypiCMS\Repositories\RepositoriesServiceProvider',
 		'TypiCMS\Services\Form\FormServiceProvider',
+		'TypiCMS\Providers\StartProvider',
 
 	),
 

@@ -76,9 +76,12 @@ abstract class RepositoriesAbstract {
 	 */
 	public function byPage($paginationPage = 1, $limit = 10, $all = false)
 	{
-		// Build our cache item key, unique per page number,
+		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
+		if (Request::wantsJson()) { // pour affichage sur la carte
+			$allkey .= 'Json';
+		}
 		$key = md5(App::getLocale().'paginationPage.'.$paginationPage.'.'.$limit.$allkey);
 
 		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
@@ -86,10 +89,13 @@ abstract class RepositoriesAbstract {
 		}
 
 		// Item not cached, retrieve it
-		$query = $this->model->with('translations');
+		$query = $this->model
+			->select($this->select)
+			->joinTranslations();
 
-		if ($this->model->order and $this->model->direction) {
-			$query->orderBy($this->model->order, $this->model->direction);
+		if (Request::wantsJson()) { // pour affichage sur la carte
+			$query->where('latitude', '!=', '');
+			$query->where('longitude', '!=', '');
 		}
 
 		// All posts or only published
@@ -97,20 +103,31 @@ abstract class RepositoriesAbstract {
 			$query->where('status', 1);
 		}
 
-		$models = $query->skip( $limit * ($paginationPage-1) )
-						->take($limit)
-						->get();
+		$query->where('lang', Config::get('app.locale'));
+
+		if ($this->model->order and $this->model->direction) {
+			$query->orderBy($this->model->order, $this->model->direction);
+		}
+
+		$models = $query->paginate($limit);
+
+		if (property_exists($this->model, 'children')) {
+			$models->nest();
+		}
 
 		// Store in cache for next request
-		$cached = $this->cache->putPaginated(
-			$paginationPage,
-			$limit,
-			$this->totalPages($all),
-			$models->all(),
-			$key
-		);
+		// $this->cache->put($key, $models);
 
-		return $cached;
+		// $cached = $this->cache->putPaginated(
+		// 	$paginationPage,
+		// 	$limit,
+		// 	$this->totalModels($all),
+		// 	$models->getCollection()->all(),
+		// 	$key
+		// );
+
+
+		return $models;
 	}
 
 

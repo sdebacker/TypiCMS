@@ -31,6 +31,10 @@ function initTinymce(selector) {
 				slugField: '#' + langues[i] + '\\[slug\\]'
 			});
 		};
+		var titleField = $('#title');
+		titleField.slug({
+			slugField: '#slug'
+		});
 
 		initTinymce('.editor');
 
