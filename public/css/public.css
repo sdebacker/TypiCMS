@@ -5850,3 +5850,9 @@ body {
   padding-top: 60px;
   padding-bottom: 60px;
 }
+.btn-group-justified > .btn:not(:first-child) {
+  border-left: 0;
+}
+.page-header {
+  border-bottom: 0;
+}
