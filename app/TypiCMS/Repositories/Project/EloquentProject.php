@@ -62,6 +62,9 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		$query->with('category')->with('category.translations');
 
 		$relid and $query->where('category_id', $relid);
+		
+		// files
+		$this->model->files and $query->with('files');
 
 		if ($this->model->order and $this->model->direction) {
 			$query->orderBy($this->model->order, $this->model->direction);
