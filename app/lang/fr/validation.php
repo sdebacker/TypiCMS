@@ -116,7 +116,7 @@ return array(
 		"minute" => "Minute",
 		"second" => "Seconde",
 		"title" => "Titre",
-		"websiteTitle" => 'Titre du site',
+		"websiteTitle" => "Titre du site",
 		"content" => "Contenu",
 		"description" => "Description",
 		"excerpt" => "Extrait",
