@@ -31,10 +31,17 @@ interface FileInterface
     /**
      * Update an existing File
      *
-     * @param array  Data to update an File
+     * @param array  Data to update a File
      * @return boolean
      */
     public function update(array $data);
+
+    /**
+     * Upload a file
+     *
+     * @param array input to upload a file
+     */
+    public function upload(array $input);
 
 
 }
