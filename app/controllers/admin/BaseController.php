@@ -63,7 +63,7 @@ abstract class BaseController extends Controller {
 			// Render top bar before getting current lang from url
 			$navBar = View::make('_navbar')
 				->withUrl($url)
-				->withTitle($this->applicationName.' : Administration')
+				->withTitle($this->applicationName)
 				->render();
 		}
 
