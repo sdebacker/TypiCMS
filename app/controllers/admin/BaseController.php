@@ -10,7 +10,7 @@ use TypiCMS\Services\Helpers;
 
 abstract class BaseController extends Controller {
 
-	public $applicationName = 'Admin Typi CMS';
+	public $applicationName;
 
 	protected $repository;
 	protected $form;
@@ -51,6 +51,8 @@ abstract class BaseController extends Controller {
 		$this->repository = $repository;
 		$this->form = $form;
 
+		$this->applicationName = Config::get('typicms.websiteTitle');
+
 		$navBar = null;
 		if (Sentry::getUser()) {
 			// Link to public side
@@ -58,7 +60,7 @@ abstract class BaseController extends Controller {
 			// Render top bar before getting current lang from url
 			$navBar = View::make('_navbar')
 				->withUrl($url)
-				->withTitle($this->applicationName)
+				->withTitle($this->applicationName.' : Administration')
 				->render();
 		}
 

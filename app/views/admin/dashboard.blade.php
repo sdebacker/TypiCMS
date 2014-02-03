@@ -1,3 +1,5 @@
+@section('breadcrumbs') @stop
+
 @section('main')
 
 <div class="panel panel-default">

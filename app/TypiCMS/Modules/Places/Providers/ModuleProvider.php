@@ -20,6 +20,9 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
+		// Require breadcrumbs
+		// require __DIR__ . '/../breadcrumbs.php';
+
 		// Add view dir
 		View::addLocation(__DIR__ . '/../Views');
 	}
@@ -31,6 +34,7 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\Places\Repositories\PlaceInterface', function($app)
 		{
+			require __DIR__ . '/../breadcrumbs.php';
 			return new EloquentPlace(
 				new Place,
 				new LaravelCache($app['cache'], 'places', 10)

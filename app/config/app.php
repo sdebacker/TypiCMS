@@ -134,6 +134,7 @@ return array(
 		'Krucas\Notification\NotificationServiceProvider',
 		'Bkwld\Croppa\ServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
+		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
 		'TypiCMS\Repositories\RepositoriesServiceProvider',
@@ -213,6 +214,7 @@ return array(
 		'Notification'    => 'Krucas\Notification\Facades\Notification',
 		'Croppa'          => 'Bkwld\Croppa\Facade',
 		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
+		'Breadcrumbs'     => 'DaveJamesMiller\Breadcrumbs\Facade',
 
 		'Menu'            => 'TypiCMS\Models\Menu',
 

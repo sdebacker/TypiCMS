@@ -24,6 +24,7 @@ return array(
 		'meta data' => 'méta données',
 		'options' => 'options',
 	),
+	'Home' => 'Accueil',
 	'settings'  => 'configuration',
 	'edit page' => 'modifier cette page',
 	'view website' => 'voir le site',

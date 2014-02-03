@@ -67,6 +67,11 @@
 		{{ Notification::showSuccess('alertify.success(":message");') }}
 	</script>
 
+	
+	@section('breadcrumbs')
+	{{ Breadcrumbs::renderIfExists() }}
+	@show
+
 	@section('page-header')
 	<div class="page-header">
 		<h1>
