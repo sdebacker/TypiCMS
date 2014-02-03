@@ -5,6 +5,7 @@ use View;
 use Config;
 use Sentry;
 use Request;
+use Lang;
 use TypiCMS\Services\Helpers;
 
 
@@ -42,7 +43,7 @@ abstract class BaseController extends Controller {
 
 	public function getH1()
 	{
-		return ($this->title['h1']) ? $this->title['h1'] : $this->title['child'] ;
+		return $this->title['h1'] ? : $this->title['child'] ;
 	}
 
 
@@ -50,8 +51,10 @@ abstract class BaseController extends Controller {
 	{
 		$this->repository = $repository;
 		$this->form = $form;
-
-		$this->applicationName = Config::get('typicms.websiteTitle');
+		
+		// App::getLocale() and Config::get('app.locale') is set by Input::get('locale') (cf. global.php)
+		// Lang::getLocale() is default value for admin interface
+		$this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
 
 		$navBar = null;
 		if (Sentry::getUser()) {

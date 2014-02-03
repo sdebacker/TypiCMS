@@ -35,8 +35,7 @@ abstract class BaseController extends Controller {
 	{
 		$this->repository = $repository;
 
-		$this->applicationName = Config::get('typicms.websiteTitle');
-
+		$navBarTitle = Config::get('typicms.' . App::getLocale() . '.websiteTitle');
 		$navBar = null;
 		if (Sentry::getUser()) {
 			// Link to admin side
@@ -44,7 +43,7 @@ abstract class BaseController extends Controller {
 			// Render top bar before getting current lang from url
 			$navBar = View::make('_navbar')
 				->withUrl($url)
-				->withTitle($this->applicationName.' : Administration')
+				->withTitle($navBarTitle.' : Administration')
 				->render();
 		}
 
@@ -53,6 +52,8 @@ abstract class BaseController extends Controller {
 		if (in_array($firstSegment, Config::get('app.locales'))) {
 			App::setLocale($firstSegment);
 		}
+
+		$this->applicationName = Config::get('typicms.' . App::getLocale() . '.websiteTitle');
 
 		$instance = $this;
 		View::composer($this->layout, function ($view) use ($instance) {
