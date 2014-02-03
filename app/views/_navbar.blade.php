@@ -5,7 +5,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="{{ route('dashboard') }}" class="navbar-brand">TypiCMS <span class="version">1.0.0-alpha1</span></a>
+			<a href="{{ route('dashboard') }}" class="navbar-brand">{{ $title }}</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">

@@ -56,7 +56,10 @@ abstract class BaseController extends Controller {
 			// Link to public side
 			$url = array('url' => Helpers::getPublicUrl(), 'label' => 'view website');
 			// Render top bar before getting current lang from url
-			$navBar = View::make('_navbar')->withUrl($url)->render();
+			$navBar = View::make('_navbar')
+				->withUrl($url)
+				->withTitle($this->applicationName)
+				->render();
 		}
 
 		$instance = $this;
