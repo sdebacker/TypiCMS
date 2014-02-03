@@ -1,3 +1,8 @@
+## v1.1.18 (2014-02-02)
+
+- require PCRE>=7.3, the first that correctly checks UTF-8 validity
+- enable HHVM on Travis CI
+
 ## v1.1.17 (2014-01-02)
 
 - enable Travis CI and SensioLabsInsight
