@@ -2,28 +2,35 @@
 
 @section('main')
 
-<div class="panel panel-default">
-
-	<div class="panel-heading">@lang('modules.dashboard.Welcome, :name!', array('name' => Sentry::getUser()->first_name))</div>
-
-	<div class="panel-body">
-		{{ $welcomeMessage }}
-	</div>
-
-</div>
-
 <div class="row">
 
+	<div class="col-sm-4">
 
-	<div class="col-sm-6">
+		<div class="panel panel-info">
 
-		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">@lang('modules.dashboard.Welcome, :name!', array('name' => Sentry::getUser()->first_name))</h2>
+			</div>
 
-			<div class="panel-heading">@lang('modules.dashboard.Modules')</div>
+			<div class="panel-body">
+				{{ $welcomeMessage }}
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="col-sm-4">
+
+		<div class="panel panel-info">
+
+			<div class="panel-heading">
+				<h2 class="panel-title">@lang('modules.dashboard.Modules')</h2>
+			</div>
 
 			<div class="list-group">
 				@foreach ($modules as $module)
-				<a href="{{ URL::route('admin.'.$module['route'].'.index') }}" class="list-group-item">{{ $module['title'] }} <span class="badge">{{ $module['count'] }}</span></a>
+				<a href="{{ URL::route('admin.'.$module['route'].'.index') }}" class="list-group-item"><span class="badge">{{ $module['count'] }}</span> {{ $module['title'] }}</a>
 				@endforeach
 			</div>
 
@@ -32,11 +39,13 @@
 	</div>
 
 
-	<div class="col-sm-6">
+	<div class="col-sm-4">
 
-		<div class="panel panel-default">
+		<div class="panel panel-info">
 
-			<div class="panel-heading">@lang('modules.dashboard.Menus')</div>
+			<div class="panel-heading">
+				<h2 class="panel-title">@lang('modules.dashboard.Menus')</h2>
+			</div>
 
 			<div class="list-group">
 				@foreach ($menus as $menu)
