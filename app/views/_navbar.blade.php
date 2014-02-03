@@ -13,9 +13,9 @@
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-					@foreach (Config::get('app.modules') as $key => $module)
-						@if ($module['menu'])
-							<li><a href="{{ route('admin.'.$module['module'].'.index') }}">{{ Str::title(trans_choice('modules.'.$module['module'].'.'.$module['module'], 2)) }}</a></li>
+					@foreach (Config::get('app.modules') as $module => $property)
+						@if ($property['menu'])
+							<li><a href="{{ route('admin.'.strtolower($module).'.index') }}">{{ Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2)) }}</a></li>
 						@endif
 					@endforeach
 					</ul>

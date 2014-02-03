@@ -56,15 +56,16 @@ return array(
 	'locale' => 'fr',
 
 	'modules' => array(
-		'Page'      => array('menu' => true, 'dashboard' => true , 'module' => 'pages'),
-		'User'      => array('menu' => true, 'dashboard' => true , 'module' => 'users'),
-		'File'      => array('menu' => true, 'dashboard' => true , 'module' => 'files'),
-		'News'      => array('menu' => true , 'dashboard' => true , 'module' => 'news'),
-		'Event'     => array('menu' => true , 'dashboard' => true , 'module' => 'events'),
-		'Category'  => array('menu' => true , 'dashboard' => true , 'module' => 'categories'),
-		'Project'   => array('menu' => true , 'dashboard' => true , 'module' => 'projects'),
-		'Menu'      => array('menu' => true, 'dashboard' => false, 'module' => 'menus'),
-		'Menulink'  => array('menu' => false, 'dashboard' => false, 'module' => 'menulinks'),
+		'Pages'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Page'),
+		'Users'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\User'),
+		'Files'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\File'),
+		'News'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\News'),
+		'Events'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Event'),
+		'Categories' => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Category'),
+		'Projects'   => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Project'),
+		'Places'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Places\Models\Place'),
+		'Menus'      => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Models\Menu'),
+		'Menulinks'  => array('menu' => false, 'dashboard' => false, 'model' => 'TypiCMS\Models\Menulink'),
 	),
 
 	/*

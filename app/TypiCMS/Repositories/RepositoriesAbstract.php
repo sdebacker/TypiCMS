@@ -362,9 +362,9 @@ abstract class RepositoriesAbstract {
 	{
 		$modulesArray = Config::get('app.modules');
 		$selectModules = array('' => '');
-		foreach ($modulesArray as $model => $property) {
+		foreach ($modulesArray as $module => $property) {
 			if ($property['menu']) {
-				$selectModules[$property['module']] = Str::title(trans_choice('modules.'.$property['module'].'.'.$property['module'], 2));
+				$selectModules[strtolower($module)] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
 			}
 		}
 		return $selectModules;

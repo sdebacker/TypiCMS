@@ -41,12 +41,11 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 		$modules = array();
 		foreach ($modulesArray as $module => $property) {
 			if ($property['dashboard']) {
-				$model = '\\TypiCMS\\Models\\'.$module;
-				$model = new $model;
+				$model = new $property['model'];
 				$table = $model->getTable();
 				$modules[$table]['name'] = $table;
 				$modules[$table]['route'] = $model->route;
-				$modules[$table]['title'] = Str::title(trans_choice('modules.'.$table.'.'.$table, 2));
+				$modules[$table]['title'] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
 				$modules[$table]['count'] = $model->count();
 			}
 		}
