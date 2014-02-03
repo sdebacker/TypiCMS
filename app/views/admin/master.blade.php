@@ -19,7 +19,6 @@
 
 	{{ HTML::style(asset('css/admin.css')) }}
 
-
 	{{-- JS --}}
 
 	{{ HTML::script(asset('components/vendor/jquery/jquery.js')) }}
@@ -38,9 +37,7 @@
 	{{ HTML::script(asset('components/vendor/select2/select2_locale_'.Config::get('app.locale').'.js')) }}
 	@endif
 	{{ HTML::script(asset('components/vendor/dropzone/downloads/dropzone.js')) }}
-	{{ HTML::script(asset('components/vendor/bootstrap/js/transition.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap/js/tab.js')) }}
-	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
 	{{ HTML::script(asset('components/vendor/moment/moment.js')) }}
 	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/bootstrap-datetimepicker.js')) }}
 	@if(Config::get('app.locale') != 'en')

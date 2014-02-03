@@ -6,7 +6,7 @@
 
 	<div class="col-sm-4">
 
-		<div class="panel panel-info">
+		<div class="panel panel-default">
 
 			<div class="panel-heading">
 				<h2 class="panel-title">@lang('modules.dashboard.Welcome, :name!', array('name' => Sentry::getUser()->first_name))</h2>
@@ -22,7 +22,7 @@
 
 	<div class="col-sm-4">
 
-		<div class="panel panel-info">
+		<div class="panel panel-default">
 
 			<div class="panel-heading">
 				<h2 class="panel-title">@lang('modules.dashboard.Modules')</h2>
@@ -41,7 +41,7 @@
 
 	<div class="col-sm-4">
 
-		<div class="panel panel-info">
+		<div class="panel panel-default">
 
 			<div class="panel-heading">
 				<h2 class="panel-title">@lang('modules.dashboard.Menus')</h2>

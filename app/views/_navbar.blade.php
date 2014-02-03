@@ -1,13 +1,22 @@
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+@section('js')
+
+	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
+	{{ HTML::script(asset('components/vendor/bootstrap/js/collapse.js')) }}
+	{{ HTML::script(asset('components/vendor/bootstrap/js/transition.js')) }}
+
+@show
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="{{ route('dashboard') }}" class="navbar-brand">{{ $title }}</a>
+			<a class="navbar-brand" href="{{ route('dashboard') }}">{{ $title }}</a>
 		</div>
-		<div class="navbar-collapse collapse" id="navbar-collapse-1">
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li>{{ link_to($url['url'], ucfirst(trans('global.'.$url['label']))) }}</li>
 				<li class="dropdown">

@@ -5838,16 +5838,24 @@ td.visible-print {
   margin-left: 110px;
   overflow: hidden;
 }
+.navbar-default {
+  background-color: #FFF;
+}
 @media (min-width: 768px) {
   .navbar-nav.navbar-right:last-child {
     margin-right: 0px;
   }
 }
 body {
-  padding-top: 60px;
+  padding-top: 70px;
 }
 .container-global {
   padding-bottom: 80px;
+}
+.page-header {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-bottom: 0;
 }
 .list-main {
   margin: 0;

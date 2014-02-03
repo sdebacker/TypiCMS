@@ -11,9 +11,12 @@
 	{{ HTML::style(asset('css/public.css')) }}
 	{{ HTML::style(asset('components/vendor/fancybox/source/jquery.fancybox.css')) }}
 
+	@yield('css')
+
 	{{ HTML::script(asset('components/vendor/jquery-legacy/jquery.js')) }}
-	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
 	{{ HTML::script(asset('components/vendor/fancybox/source/jquery.fancybox.js')) }}
+
+	@yield('js')
 
 	@if(Config::get('typicms.typekitCode'))
 	<script type="text/javascript" src="//use.typekit.net/{{ Config::get('typicms.typekitCode') }}.js"></script>
