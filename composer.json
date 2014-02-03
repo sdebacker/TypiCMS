@@ -26,7 +26,8 @@
 		"barryvdh/laravel-debugbar": "1.*",
 		"mccool/database-backup": "1.0.0",
 		"thomaswelton/laravel-gravatar": "dev-master",
-		"eluceo/ical": "dev-master"
+		"eluceo/ical": "dev-master",
+		"davejamesmiller/laravel-breadcrumbs": "~2.2.0"
 	},
 	"require-dev": {
 		"raveren/kint": "dev-master"

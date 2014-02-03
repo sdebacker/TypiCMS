@@ -47,6 +47,7 @@ return array(
     'Eluceo\\iCal' => array($vendorDir . '/eluceo/ical/src'),
     'EasyCSV' => array($vendorDir . '/jwage/easy-csv/lib'),
     'DebugBar' => array($vendorDir . '/maximebf/debugbar/src'),
+    'DaveJamesMiller\\Breadcrumbs' => array($vendorDir . '/davejamesmiller/laravel-breadcrumbs/src'),
     'Crypt' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'ClassPreloader' => array($vendorDir . '/classpreloader/classpreloader/src'),
     'Cartalyst\\Sentry' => array($vendorDir . '/cartalyst/sentry/src'),
