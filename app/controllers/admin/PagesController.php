@@ -58,7 +58,7 @@ class PagesController extends BaseController {
 		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.pages.edit')
-			->with('model', $model);
+			->withModel($model);
 	}
 
 
