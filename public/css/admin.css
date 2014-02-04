@@ -5894,7 +5894,9 @@ body {
   text-overflow: ellipsis;
 }
 .list-main li .attachments {
-  float: right;
+  position: absolute;
+  right: 20px;
+  top: 0;
   margin: 0 5px;
   font-size: 11px;
 }
