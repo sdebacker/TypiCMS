@@ -60,10 +60,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 		}
 		$key = md5(App::getLocale().'all'.$allkey);
 
-		if ( ! Request::wantsJson() and Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
 		// Item not cached, retrieve it
 		$query = $this->model
 			->select($this->select)
