@@ -76,56 +76,26 @@ abstract class RepositoriesAbstract {
 	 */
 	public function byPage($paginationPage = 1, $limit = 10, $all = false)
 	{
-		// Build our cache item key, unique per model number,
-		// limit and if we're showing all
-		$allkey = ($all) ? '.all' : '';
-		if (Request::wantsJson()) { // pour affichage sur la carte
-			$allkey .= 'Json';
-		}
-		$key = md5(App::getLocale().'paginationPage.'.$paginationPage.'.'.$limit.$allkey);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
-		$query = $this->model
-			->select($this->select)
-			->joinTranslations();
-
-		if (Request::wantsJson()) { // pour affichage sur la carte
-			$query->where('latitude', '!=', '');
-			$query->where('longitude', '!=', '');
-		}
-
 		// All posts or only published
+		$translations = 'translations';
 		if ( ! $all ) {
-			$query->where('status', 1);
+			$translations = array('translations' => function($query)
+			{
+				$query->where('status', 1);
+			});
 		}
 
-		$query->where('lang', Config::get('app.locale'));
+		$query = $this->model->with($translations);
 
-		if ($this->model->order and $this->model->direction) {
-			$query->orderBy($this->model->order, $this->model->direction);
-		}
+		// files
+		$this->model->files and $query->with('files');
+
+		// order
+		$order = $this->model->order ? : 'id' ;
+		$direction = $this->model->direction ? : 'ASC' ;
+		$query->orderBy($order, $direction);
 
 		$models = $query->paginate($limit);
-
-		if (property_exists($this->model, 'children')) {
-			$models->nest();
-		}
-
-		// Store in cache for next request
-		// $this->cache->put($key, $models);
-
-		// $cached = $this->cache->putPaginated(
-		// 	$paginationPage,
-		// 	$limit,
-		// 	$this->totalModels($all),
-		// 	$models->getCollection()->all(),
-		// 	$key
-		// );
-
 
 		return $models;
 	}
@@ -169,9 +139,10 @@ abstract class RepositoriesAbstract {
 		// files
 		$this->model->files and $query->with('files');
 
-		if ($this->model->order and $this->model->direction) {
-			$query->orderBy($this->model->order, $this->model->direction);
-		}
+		// order
+		$order = $this->model->order ? : 'id' ;
+		$direction = $this->model->direction ? : 'ASC' ;
+		$query->orderBy($order, $direction);
 
 		$models = $query->get();
 

@@ -22,24 +22,34 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 			'display' => array('%s', 'title'),
 		);
 
-		$this->select = array(
-			'places.id AS id',
-			'slug',
-			'title',
-			'address',
-			'email',
-			'phone',
-			'fax',
-			'website',
-			'info',
-			'logo',
-			'image',
-			'status',
-			'latitude',
-			'longitude',
-			'position',
-		);
+	}
 
+
+	/**
+	 * Get paginated pages
+	 *
+	 * @param int $paginationPage Number of pages per page
+	 * @param int $limit Results per page
+	 * @param boolean $all Show published or all
+	 * @return StdClass Object with $items and $totalItems for pagination
+	 */
+	public function byPage($paginationPage = 1, $limit = 10, $all = false)
+	{
+		$query = $this->model->with('translations');
+
+		! $all and $query->where('status', 1);
+
+		// files
+		$this->model->files and $query->with('files');
+
+		// order
+		$order = $this->model->order ? : 'id' ;
+		$direction = $this->model->direction ? : 'ASC' ;
+		$query->orderBy($order, $direction);
+
+		$models = $query->paginate($limit);
+
+		return $models;
 	}
 
 
@@ -52,23 +62,10 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	public function getAll($all = false, $category_id = null)
 	{
 		$string = Input::get('string');
-		// Build our cache item key, unique per model number,
-		// limit and if we're showing all
-		$allkey = ($all) ? '.all' : '';
-		$allkey .= $string;
-		if (Request::wantsJson()) { // pour affichage sur la carte
-			$allkey .= 'Json';
-		}
-		$key = md5(App::getLocale().'all'.$allkey);
 
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
+		$query = $this->model->with('translations');
 
-		// Item not cached, retrieve it
-		$query = $this->model
-			->select($this->select)
-			->joinTranslations();
+		$query->where('status', 1);
 
 		if (Request::wantsJson()) { // pour affichage sur la carte
 			$query->where('latitude', '!=', '');
@@ -80,15 +77,13 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 			$query->where('status', 1);
 		}
 
-		$query->where('lang', Config::get('app.locale'));
 		$string and $query->where('title', 'LIKE', '%'.$string.'%');
 
-		$query->orderBy($this->model->order);
+		$order = $this->model->order ? : 'id' ;
+		$direction = $this->model->direction ? : 'ASC' ;
+		$query->orderBy($order, $direction);
 
 		$models = $query->get();
-
-		// Store in cache for next request
-		$this->cache->put($key, $models);
 
 		return $models;
 	}
@@ -110,12 +105,9 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 		}
 
 		// Item not cached, retrieve it
-		$model = $this->model
-			->select($this->select)
-			->joinTranslations()
+		$model = $this->model->with('translations')
 			->where('slug', $slug)
 			->where('status', 1)
-			->where('lang', Config::get('app.locale'))
 			->firstOrFail();
 
 		// Store in cache for next request
