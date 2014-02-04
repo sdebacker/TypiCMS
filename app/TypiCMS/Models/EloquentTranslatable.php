@@ -107,11 +107,16 @@ abstract class EloquentTranslatable extends Base {
     }
 
     // joindre toutes les traductions sans where lang
-    public function scopeJoinTranslations($query)
+    public function scopeJoinTranslations($query, $lang = null)
     {
-        return $query->with('translations')->join(
-            $this->table.'_translations',
-            $this->table.'.id', '=', $this->table.'_translations.'.$this->getRelationshipField()
+        return $query->leftJoin(
+            $this->table.'_translations', function($join) use ($lang)
+            {
+                $join->on($this->table.'.id', '=', $this->table.'_translations.'.$this->getRelationshipField());
+                if ($lang) {
+                    $join->where($this->table.'_translations.lang', '=', $lang);
+                }
+            }
         );
     }
 
