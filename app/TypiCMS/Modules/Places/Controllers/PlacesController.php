@@ -5,6 +5,7 @@ use Request;
 use App;
 use Config;
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
+use App\Controllers\BaseController;
 
 class PlacesController extends BaseController {
 
@@ -19,27 +20,18 @@ class PlacesController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index($chapter = null, $category = null, $subcategory = null)
+	public function index()
 	{
-
-		$chapter->id    != $category->parent         and App::abort(404);
-		$chapter->lang  != Config::get('app.locale') and App::abort(404);
-		$category->lang != Config::get('app.locale') and App::abort(404);
-
-		// d($subcategory);
 
 		$this->title['child'] = '';
 
-		$places = $this->repository->getAll(false, $category->id);
+		$places = $this->repository->getAll();
 		
 		if (Request::wantsJson()) {
 			return $places;
 		}
 
-		$this->layout->content = View::make('public.places.index')
-			->withChapter($chapter)
-			->withCategory($category)
-			->withSubcategories($this->repository->getSubcategories($category->id))
+		$this->layout->content = View::make('public.index')
 			->withPlaces($places);
 	}
 
@@ -57,7 +49,7 @@ class PlacesController extends BaseController {
 			return $models;
 		}
 
-		$this->layout->content = View::make('public.places.results')
+		$this->layout->content = View::make('public.results')
 			->with('models', $models);
 	}
 
@@ -78,7 +70,7 @@ class PlacesController extends BaseController {
 
 		$this->title['parent'] = $model->title;
 		
-		return View::make('public.places.show')
+		return View::make('public.show')
 			->with('model', $model);
 	}
 

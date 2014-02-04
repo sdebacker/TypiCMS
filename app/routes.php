@@ -166,6 +166,15 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 			}
 		}
 
+		// places routes (in module directory)
+		if (isset($menulinksArray['places'])) {
+			foreach ($menulinksArray['places'] as $lang => $uri) {
+				Route::get($uri, array('as' => $lang.'.places', 'uses' => 'TypiCMS\Modules\Places\Controllers\PlacesController@index'));
+				Route::get($uri.'/{slug}', array('as' => $lang.'.places.slug', 'uses' => 'TypiCMS\Modules\Places\Controllers\PlacesController@show'));
+			}
+			unset($menulinksArray['paces']);
+		}
+
 	}
 
 	// Homepages (for each language)
