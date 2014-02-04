@@ -16,7 +16,12 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface {
 			'display' => array('%s (%s)', 'title', 'name'),
 		);
 
-		$this->select = array('menus.id AS id', 'title', 'status', 'name');
+		$this->select = array(
+			'menus.id AS id',
+			'title',
+			'status',
+			'name'
+		);
 
 	}
 

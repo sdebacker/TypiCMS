@@ -32,7 +32,7 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 
 
 	/**
-	 * Get all models
+	 * Get all models with categories
 	 *
 	 * @param boolean $all Show published or all
      * @return StdClass Object with $items
