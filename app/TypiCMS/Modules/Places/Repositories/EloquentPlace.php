@@ -51,10 +51,11 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	 */
 	public function getAll($all = false, $category_id = null)
 	{
+		$string = Input::get('string');
 		// Build our cache item key, unique per model number,
 		// limit and if we're showing all
 		$allkey = ($all) ? '.all' : '';
-		$allkey .= $category_id;
+		$allkey .= $string;
 		if (Request::wantsJson()) { // pour affichage sur la carte
 			$allkey .= 'Json';
 		}
@@ -69,11 +70,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 			->select($this->select)
 			->joinTranslations();
 
-		if ($category_id) {
-			$this->listProperties['sortable'] = true;
-			$query->where('category_id', $category_id);
-		}
-
 		if (Request::wantsJson()) { // pour affichage sur la carte
 			$query->where('latitude', '!=', '');
 			$query->where('longitude', '!=', '');
@@ -85,18 +81,11 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 		}
 
 		$query->where('lang', Config::get('app.locale'));
+		$string and $query->where('title', 'LIKE', '%'.$string.'%');
 
-		if ($category_id) {
-			$query->orderBy('position');
-		} else {
-			$query->orderBy('title');
-		}
+		$query->orderBy($this->model->order);
 
 		$models = $query->get();
-
-		if (property_exists($this->model, 'children')) {
-			$models->nest();
-		}
 
 		// Store in cache for next request
 		$this->cache->put($key, $models);

@@ -23,7 +23,7 @@ class Place extends \TypiCMS\Models\EloquentTranslatable {
 	/**
 	 * lists
 	 */
-	public $order = 'position';
+	public $order = 'title';
 	public $direction = 'asc';
 
 
