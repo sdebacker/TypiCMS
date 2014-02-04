@@ -6,6 +6,7 @@
 	<meta charset="utf-8">
 	<title>{{ $model->title }}</title>
 
+	{{ HTML::style(asset('css/gmaps.css')) }}
 	{{ HTML::style(asset('css/public.css')) }}
 	{{ HTML::style(asset('components/vendor/fancybox/source/jquery.fancybox.css')) }}
 

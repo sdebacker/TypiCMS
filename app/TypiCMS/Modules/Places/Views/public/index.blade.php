@@ -1,48 +1,57 @@
+@section('css')
+	{{ HTML::style(asset('css/gmaps.css')) }}
+@stop
+
+@section('js')
+	{{ HTML::script(asset('//maps.googleapis.com/maps/api/js?sensor=false&amp;language='.Config::get('app.locale'))) }}
+	{{ HTML::script(asset('js/gmaps.js')) }}
+@stop
+
 @section('main')
 
-	<div class="place-page">
+	<h1>Places</h1>
+	<div class="row">
 
-		@if (count($places))
+		<div class="col-sm-4">
+			
+			<form method="get" role="form">
+				<label for="string" class="sr-only">Search</label>
+				<div class="input-group">
+					<input id="string" type="text" placeholder="search" name="string" class="form-control input-sm">
+					<span class="input-group-btn">
+						<button type="submit" value="search" class="btn btn-sm btn-primary">Search</button>
+					</span>
+				</div>
+			</form>
+
+			<h2>
+			{{ count($places) }} @choice('places', count($places))
+			@if(Input::get('string')) @lang('for')
+				“{{ Input::get('string') }}”
+			@endif
+			</h2>
 
 			<ul class="list-unstyled addresses">
 				@foreach($places as $place)
 				<li id="item-{{ $place->id }}">
 					<div class="row">
 						<div class="col-xs-9">
-							<a class="fancybox" data-fancybox-type="iframe" href="{{ route($lang.'.places.slug', array($place->slug)) }}">
-								<strong>{{ $place->title }}</strong>
-							</a>
-							<p>
-								<small>
-								@if ($place->address)
-									{{ $place->address }}<br>
-								@endif
-								@if ($place->phone)
-									T {{ $place->phone }}<br>
-								@endif
-								@if ($place->fax)
-									F {{ $place->fax }}<br>
-								@endif
-								@if ($place->email)
-									<a href="mailto:{{ $place->email }}">{{ $place->email }}</a><br>
-								@endif
-								@if ($place->website)
-									<a href="{{ $place->website }}" target="_blank">{{ $place->website }}</a><br>
-								@endif
-								</small>
-							</p>
+							<strong>{{ $place->title }}</strong>
 						</div>
 						<div class="col-xs-3 btns">
-							<a class="fancybox" data-fancybox-type="iframe" href="{{ route($lang.'.places.slug', array($place->slug)) }}">
-								<span class="glyphicon glyphicon-plus"></span><span class="sr-only">{{ trans('public.More') }}</span>
-							</a>
+						@if ($place->latitude and $place->longitude)
+							<a class="btn-map" href="" title="{{ trans('public.Show on map') }}"><span class="glyphicon glyphicon-map-marker"></span><span class="sr-only">{{ trans('public.Show on map') }}</span></a>					
+						@endif
+						<a href="{{ route($lang.'.places.slug', array($place->slug)) }}" title="{{ trans('public.More') }}" class="fancybox" data-fancybox-type="iframe"><span class="glyphicon glyphicon-plus"></span><span class="sr-only">{{ trans('public.More') }}</span></a>
 						</div>
 					</div>
 				</li>
 				@endforeach
 			</ul>
 
-		@endif
+		</div>
+
+		<div id="map" class="map col-sm-8"></div>
 
 	</div>
 
