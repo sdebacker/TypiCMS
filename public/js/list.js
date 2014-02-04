@@ -11,7 +11,7 @@ function enableSortable() {
 	if (sortableList.hasClass('nested')) {
 		maxLevels = 3;
 		isTree = true;
-		sortableList.find('li div').prepend('<span class="disclose"></span>');
+		sortableList.find('li > div').prepend('<span class="disclose"></span>');
 	}
 	if (sortableList.hasClass('sortable-thumbnails')) {
 		handle = 'img';
