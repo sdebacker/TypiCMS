@@ -5839,7 +5839,20 @@ td.visible-print {
   overflow: hidden;
 }
 .navbar-default {
-  background-color: #FFF;
+  background-color: #BBB;
+  border-color: #999;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #555;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #222;
+}
+.navbar-default .navbar-brand {
+  color: #555;
+}
+.navbar-default .navbar-brand:hover {
+  color: #222;
 }
 @media (min-width: 768px) {
   .navbar-nav.navbar-right:last-child {
