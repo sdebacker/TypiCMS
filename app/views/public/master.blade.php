@@ -61,9 +61,14 @@
 		@yield('main')
 
 		@section('footer')
-		<nav role="navigation">
-			{{ Menu::footer() }}
-		</nav>
+		<div class="row">
+			<div class="col-sm-4">
+				{{ Menu::social() }}
+			</div>
+			<nav class="col-sm-8" role="navigation">
+				{{ Menu::footer(array('class' => 'nav nav-pills pull-right')) }}
+			</nav>
+		</div>
 		@show
 
 	</div>

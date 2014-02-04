@@ -10,7 +10,7 @@ class MenuFormLaravelValidator extends AbstractLaravelValidator {
      * @var Array
      */
 	protected $rules = array(
-		'name' => 'required|regex:/^[a-z0-9]+$/',
+		'name' => 'required|regex:/^[a-zA-Z0-9]+$/',
 	);
 
 }
