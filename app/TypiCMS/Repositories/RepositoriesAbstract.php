@@ -3,6 +3,7 @@
 use Config;
 use App;
 use Str;
+use DB;
 use Request;
 use TypiCMS\Services\ListBuilder\ListBuilder;
 
@@ -298,17 +299,22 @@ abstract class RepositoriesAbstract {
 	 */
 	public function sort(array $data)
 	{
-		$i = 0;
+
+		$table = $this->model->getTable();
 
 		if (isset($data['nested']) and $data['nested']) {
 
+			$position = 0;
+
 			foreach ($data['item'] as $id => $parent) {
 				
-				$i++;
-				$model = $this->model->find($id);
-				$model->position = $i;
-				$model->parent = $parent ? $parent : 0 ;
-				$model->save();
+				$position ++;
+
+				$parent = $parent ? : 0 ;
+
+				DB::table($table)
+					->where('id', $id)
+					->update(array('position' => $position, 'parent' => $parent));
 
 			}
 
@@ -316,10 +322,12 @@ abstract class RepositoriesAbstract {
 
 			foreach ($data['item'] as $key => $id) {
 				
-				$model = $this->model->find($id);
-				$model->position = $key+1;
-				$model->save();
+				$position = $key + 1;
 
+				DB::table($table)
+					->where('id', $id)
+					->update(array('position' => $position));
+				
 			}
 
 		}
