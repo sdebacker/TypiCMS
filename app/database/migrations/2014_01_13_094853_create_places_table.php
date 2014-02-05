@@ -33,20 +33,24 @@ class CreatePlacesTable extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::create('places_translations', function(Blueprint $table)
+		Schema::create('place_translations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
 			$table->increments('id')->unsigned();
 			$table->integer('place_id')->unsigned();
 
-			$table->string('lang');
+			$table->string('locale')->index();
 
 			$table->text('info')->nullable();
 
 			$table->timestamps();
+
+			$table->unique(array('place_id', 'locale'));
+			$table->foreign('place_id')->references('id')->on('places');
 			
 		});
+
 
 	}
 
@@ -57,8 +61,14 @@ class CreatePlacesTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('place_translations', function($table)
+		{
+			$table->dropForeign('place_translations_place_id_foreign');
+		});
+
 		Schema::drop('places');
 		Schema::drop('places_translations');
+		Schema::drop('place_translations');
 	}
 
 }

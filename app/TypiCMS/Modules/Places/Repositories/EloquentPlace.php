@@ -129,12 +129,9 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 		// Create the model
 		$model = $this->model;
 
-		$data = array_except($data, Config::get('app.locales'));
-		$data = array_except($data, array('_method', '_token', 'exit'));
+		$data = array_except($data, array('exit'));
 
-		foreach ($data as $key => $value) {
-			$model->$key = $value;
-		}
+		$model->fill($data);
 
 		if (Input::hasFile('logo')) {
 			$model->logo = $this->upload(Input::file('logo'));
@@ -165,12 +162,8 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 
 		$model = $this->model->find($data['id']);
 
-		$data = array_except($data, Config::get('app.locales'));
-		$data = array_except($data, array('_method', '_token', 'exit'));
-
-		foreach ($data as $key => $value) {
-			$model->$key = $value;
-		}
+		$data = array_except($data, array('exit'));
+		$model->fill($data);
 
 		if (Input::hasFile('logo')) {
 			// delete prev logo

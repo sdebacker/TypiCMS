@@ -1,11 +1,14 @@
 <?php namespace TypiCMS\Modules\Places\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+
+use Dimsav\Translatable\Translatable;
+
 use TypiCMS\NestedCollection;
 use Input;
 use Carbon\Carbon;
 
-class Place extends \TypiCMS\Models\EloquentTranslatable {
+class Place extends Translatable {
 
 	protected $guarded = array();
 	
@@ -40,14 +43,7 @@ class Place extends \TypiCMS\Models\EloquentTranslatable {
 	 *
 	 * @var array
 	 */
-	public static $translatable = array(
-		'translationModel' => 'TypiCMS\Modules\Places\Models\PlaceTranslation',
-		'relationshipField' => 'place_id',
-		'localeField' => 'lang',
-		'translatables' => array(
-			'info',
-		)
-	);
+	public $translatedAttributes = array('info');
 
 
 	/**
@@ -58,6 +54,15 @@ class Place extends \TypiCMS\Models\EloquentTranslatable {
 	public function newCollection(array $models = array())
 	{
 		return new NestedCollection($models);
+	}
+
+
+	/**
+	 * Relations
+	 */
+	public function translations()
+	{
+		return $this->hasMany('TypiCMS\Modules\Places\Models\PlaceTranslation');
 	}
 
 

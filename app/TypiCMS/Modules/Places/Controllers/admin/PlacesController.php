@@ -66,10 +66,7 @@ class PlacesController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$model = $this->repository->byId($model->id);
-
 		$this->title['child'] = trans('modules.places.Edit');
-		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.edit')
 			->withModel($model);
@@ -119,7 +116,7 @@ class PlacesController extends BaseController {
 		if ( $this->form->update( Input::all() ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.places.index') : Redirect::route('admin.places.edit', $model->id) ;
 		}
-		
+
 		return Redirect::route( 'admin.places.edit', $model->id )
 			->withInput()
 			->withErrors($this->form->errors());

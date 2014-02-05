@@ -20,6 +20,7 @@
 		"edvinaskrucas/notification": "1.*",
 		"anahkiasen/former": "3.4.*",
 		"ink/ink-translatable": "dev-master",
+		"dimsav/laravel-translatable": "1.*@beta",
 		"bkwld/croppa": "3.*",
 		"jwage/easy-csv": "dev-master",
 		"thujohn/rss": "dev-master",
