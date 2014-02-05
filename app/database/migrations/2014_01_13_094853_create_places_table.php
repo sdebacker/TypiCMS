@@ -67,7 +67,6 @@ class CreatePlacesTable extends Migration {
 		});
 
 		Schema::drop('places');
-		Schema::drop('places_translations');
 		Schema::drop('place_translations');
 	}
 
