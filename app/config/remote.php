@@ -29,12 +29,12 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => '',
-			'username'  => '',
-			'password'  => '',
+			'host'      => 'samsfactory.com',
+			'username'  => 'samsfactory',
+			'password'  => 'samu2356',
 			'key'       => '',
 			'keyphrase' => '',
-			'root'      => '/var/www',
+			'root'      => '/var/www/typicms.samsfactory.com',
 		),
 
 	),
