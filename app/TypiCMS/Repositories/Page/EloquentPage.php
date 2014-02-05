@@ -13,11 +13,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
+	protected $uris = array();
+
 	// Class expects an Eloquent model and a cache interface
 	public function __construct(Model $model, CacheInterface $cache)
 	{
 		$this->model = $model;
 		$this->cache = $cache;
+
+		// Build uris array of all pages (needed for uris updating after sorting)
+		$pages = DB::table('pages_translations')->select('page_id', 'lang', 'uri')->get();
+		foreach ($pages as $page) {
+			$this->uris[$page->page_id][$page->lang] = $page->uri;
+		}
 
 		$this->listProperties = array(
 			'sortable' => true,
@@ -66,7 +74,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		// update URI in all pages
 		$pages = $this->model->orderBy($this->model->order, $this->model->direction)->get();
 		foreach ($pages as $key => $page) {
-			$this->updateUris($page);
+			$this->updateUris($page->id, $page->parent);
 		}
 
 		return true;
@@ -141,6 +149,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 	 */
 	public function sort(array $data)
 	{
+
 		$position = 0;
 
 		foreach ($data['item'] as $id => $parent) {
@@ -153,7 +162,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 				->where('id', $id)
 				->update(array('position' => $position, 'parent' => $parent));
 
-			$this->updateUris($model);
+			$this->updateUris($id, $parent);
 
 		}
 
@@ -161,30 +170,39 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 	}
 
-	public function updateUris($model)
+	public function updateUris($id, $parent = null)
 	{
-		// take the parent
-		$parentModel = $this->model->find($model->parent);
+
+		// model slugs
+		$modelSlugs = DB::table('pages_translations')->where('page_id', $id)->lists('slug', 'lang');
+
+		// parent uris
+		$parentUris = DB::table('pages_translations')->where('page_id', $parent)->lists('uri', 'lang');
 
 		// transform URI
 		foreach (Config::get('app.locales') as $locale) {
 			
-			if (isset($model->$locale->slug) and $model->$locale->slug) {
+			if (isset($modelSlugs[$locale])) {
 
-				$uri = ($parentModel) ? $parentModel->$locale->uri.'/'.$model->$locale->slug : $locale.'/'.$model->$locale->slug ;
+				$uri = isset($parentUris[$locale]) ? $parentUris[$locale].'/'.$modelSlugs[$locale] : $locale.'/'.$modelSlugs[$locale] ;
 
 				// Check uri is unique
 				$tmpUri = $uri;
 				$i = 0;
-				while (DB::table('pages_translations')->where('uri', $tmpUri)->where('page_id', '!=', $model->id)->first()) {
-					$i++;
+				while (DB::table('pages_translations')->where('uri', $tmpUri)->where('page_id', '!=', $id)->first()) {
+					$i ++;
 					// increment uri if exists
 					$tmpUri = $uri.'-'.$i;
 				}
 				$uri = $tmpUri;
 
-				// update uri
-				DB::table('pages_translations')->where('page_id', '=', $model->id)->where('lang', '=', $locale)->update(array('uri' => $uri));
+				// update uri if needed
+				if ($uri != $this->uris[$id][$locale]) {
+					DB::table('pages_translations')
+						->where('page_id', '=', $id)
+						->where('lang', '=', $locale)
+						->update(array('uri' => $uri));
+				}
 
 			}
 
