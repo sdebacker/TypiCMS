@@ -24,7 +24,7 @@
 				var folderStateFromCookie, folderState, date, listLi, li, cookieExists = false;
 				folderState = {};
 				date = new Date();
-				date.setDate(date.getDate() + 1);
+				date.setDate(date.getDate() + 365);
 				folderStateFromCookie = methods.readCookie('folderState');
 				if (folderStateFromCookie !== null) {
 					folderState = methods.objectFromCookie(folderStateFromCookie);
@@ -71,7 +71,7 @@
 							});
 						}
 					}
-					document.cookie = 'folderState=' + methods.toSource(folderState) + '; expires=' + date;
+					document.cookie = 'folderState=' + methods.toSource(folderState) + '; expires=' + date.toUTCString();
 				});
 
 			});
