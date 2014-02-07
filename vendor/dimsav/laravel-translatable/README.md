@@ -1,11 +1,16 @@
 Laravel-Translatable
 ====================
 
-A Laravel package for translatable models.
-This package offers easy management of models containing attributes in many languages.
+[![Latest Stable Version](https://poser.pugx.org/dimsav/laravel-translatable/v/stable.png)](https://packagist.org/packages/dimsav/laravel-translatable)
+[![Build Status](https://travis-ci.org/dimsav/laravel-translatable.png?branch=master)](https://travis-ci.org/dimsav/laravel-translatable)
+[![License](https://poser.pugx.org/dimsav/laravel-translatable/license.png)](https://packagist.org/packages/dimsav/laravel-translatable)
+
+This is a Laravel package for translatable models. Its goal is to remove the complexity in retrieving and storing multilingual model instances. With this package you write less code, as the translations are being managed automatically behind the scenes.
+
+If you want to store translations of your models into the database, this package is for you.
 
 * [Demo](#what-is-this-package-doing)
-* [Installation](#installation)
+* [Installation](#installation-in-4-steps)
 * [Laravel versions](#laravel-versions)
 * [Support](#support)
 
@@ -43,8 +48,8 @@ Filling multiple translations
 ```php
   $data = array(
     'iso' => 'gr',
-    'en'  => array('name'=>'Greece'),
-    'fr'  => array('name'=>'Grèce'),
+    'en'  => array('name' => 'Greece'),
+    'fr'  => array('name' => 'Grèce'),
   );
 
   $country = Country::create($data);
@@ -54,18 +59,93 @@ Filling multiple translations
 
 Please note that deleting an instance will delete the translations, while soft-deleting the instance will not delete the translations.
 
-## Installation
+## Installation in 4 steps
 
-Add the package in your composer.json file
+### Step 1
+
+Add the package in your composer.json file and run `composer update`.
 
 ```json
 {
     "require": {
         "dimsav/laravel-translatable": "1.*"
-    },
+    }
+}
+```
+
+### Step 2
+
+Let's say you have a model `Country`. To save the translations of countries you need in total two model classes and two tables.
+
+Create your migrations:
+
+```php
+Schema::create('countries', function(Blueprint $table)
+{
+    $table->increments('id');
+    $table->string('iso');
+    $table->timestamps();
+});
+
+Schema::create('country_translations', function(Blueprint $table)
+{
+    $table->increments('id');
+    $table->integer('country_id')->unsigned();
+    $table->string('name');
+    $table->string('locale')->index();
+
+    $table->unique(['country_id','locale']);
+    $table->foreign('country_id')->references('id')->on('countries');
+});
+```
+
+### Step 3
+
+The models:
+
+The translatable model `Country` should extend `Dimsav\Translatable\Translatable`. The convention for the translation model is `CountryTranslation`.
+
+
+```php
+// models/Country.php
+class Country extends \Dimsav\Translatable\Translatable {
+    
+    public $translatedAttributes = array('name');
+    protected $fillable = ['iso', 'name'];
+
 }
 
+// models/CountryTranslation.php
+class CountryTranslation extends Eloquent {
+
+    public $timestamps = false;
+    protected $fillable = ['name'];
+
+}
 ```
+
+The array `$translatedAttributes` contains the names of the fields being translated in the "Translation" model.
+
+### Step 4
+
+Finally, you have to inform the package about the languages you plan to use for translation. This allows us to use the syntax `$country->es->name`. 
+
+```php
+// app/config/app.php
+
+return array(
+
+  // Just enter this array somewhere near your default locale
+  'locales' => array('en', 'fr', 'es'),
+  
+  // The default locale
+  'locale' => 'en',
+  
+);
+```
+
+*Note: There isn't any restriction for the format of the locales. Feel free to use whatever suits you better, like "eng" instead of "en", or "el" instead of "gr".  The important is to define your locales and stick to them till the end.*
+
 
 ## Laravel versions
 

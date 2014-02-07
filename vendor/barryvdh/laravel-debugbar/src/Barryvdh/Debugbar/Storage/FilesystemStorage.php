@@ -13,6 +13,8 @@ class FilesystemStorage implements StorageInterface
 {
     protected $dirname;
     protected $files;
+    protected $gc_lifetime = 24;     // Hours to keep collected data;
+    protected $gc_probability = 5;   // Probability of GC being run on a save request. (5/100)
 
     /**
      * @param \Illuminate\Filesystem\Filesystem $files The filesystem
@@ -37,6 +39,12 @@ class FilesystemStorage implements StorageInterface
             }
         }
         $this->files->put($this->makeFilename($id), json_encode($data));
+
+        // Randomly check if we should collect old files
+        if(rand(1, 100) <= $this->gc_probability){
+            $this->garbageCollect();
+        }
+
     }
 
     /**
@@ -79,6 +87,13 @@ class FilesystemStorage implements StorageInterface
         return array_slice($results, $offset, $max);
     }
 
+    /**
+     * Filter the metadata for matches.
+     * 
+     * @param $meta
+     * @param $filters
+     * @return bool
+     */
     protected function filter($meta, $filters){
         foreach($filters as $key => $value){
             if(!isset($meta[$key]) || fnmatch ($value, $meta[$key]) === false){
@@ -98,6 +113,22 @@ class FilesystemStorage implements StorageInterface
         }
     }
 
+    /**
+     * Delete files older then a certain age (gc_lifetime)
+     */
+    protected function garbageCollect()
+    {
+        foreach(Finder::create()->files()->name('*.json')->date('< '.$this->gc_lifetime.' hour ago')->in($this->dirname) as $file){
+            $this->files->delete($file->getRealPath());
+        }
+    }
+
+    /**
+     * Create the filename for the data, based on the id.
+     *
+     * @param $id
+     * @return string
+     */
     public function makeFilename($id)
     {
         return $this->dirname . basename($id). ".json";

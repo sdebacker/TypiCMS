@@ -48,7 +48,7 @@ use Guzzle\Service\Resource\ResourceIteratorInterface;
  */
 class Route53Client extends AbstractClient
 {
-    const LATEST_API_VERSION = '2012-12-12';
+    const LATEST_API_VERSION = '2013-04-01';
 
     /**
      * Factory method to create a new Amazon Glacier client using an array of configuration options.
@@ -56,7 +56,7 @@ class Route53Client extends AbstractClient
      * @param array|Collection $config Client configuration data
      *
      * @return self
-     * @see \Aws\Common\Client\DefaultClient for a list of available configuration options
+     * @link http://docs.aws.amazon.com/aws-sdk-php/guide/latest/configuration.html#client-configuration-options
      */
     public static function factory($config = array())
     {

@@ -15,7 +15,7 @@
  */
 
 return array (
-    'apiVersion' => '2012-12-12',
+    'apiVersion' => '2013-04-01',
     'endpointPrefix' => 'route53',
     'serviceFullName' => 'Amazon Route 53',
     'serviceAbbreviation' => 'Route 53',
@@ -68,7 +68,7 @@ return array (
     'operations' => array(
         'ChangeResourceRecordSets' => array(
             'httpMethod' => 'POST',
-            'uri' => '/2012-12-12/hostedzone/{HostedZoneId}/rrset/',
+            'uri' => '/2013-04-01/hostedzone/{HostedZoneId}/rrset/',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'ChangeResourceRecordSetsResponse',
             'responseType' => 'model',
@@ -76,7 +76,7 @@ return array (
                 'xmlRoot' => array(
                     'name' => 'ChangeResourceRecordSetsRequest',
                     'namespaces' => array(
-                        'https://route53.amazonaws.com/doc/2012-12-12/',
+                        'https://route53.amazonaws.com/doc/2013-04-01/',
                     ),
                 ),
             ),
@@ -220,7 +220,7 @@ return array (
         ),
         'CreateHealthCheck' => array(
             'httpMethod' => 'POST',
-            'uri' => '/2012-12-12/healthcheck',
+            'uri' => '/2013-04-01/healthcheck',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'CreateHealthCheckResponse',
             'responseType' => 'model',
@@ -228,7 +228,7 @@ return array (
                 'xmlRoot' => array(
                     'name' => 'CreateHealthCheckRequest',
                     'namespaces' => array(
-                        'https://route53.amazonaws.com/doc/2012-12-12/',
+                        'https://route53.amazonaws.com/doc/2013-04-01/',
                     ),
                 ),
             ),
@@ -267,6 +267,10 @@ return array (
                             'type' => 'string',
                             'maxLength' => 255,
                         ),
+                        'SearchString' => array(
+                            'type' => 'string',
+                            'maxLength' => 255,
+                        ),
                     ),
                 ),
                 'command.expects' => array(
@@ -290,7 +294,7 @@ return array (
         ),
         'CreateHostedZone' => array(
             'httpMethod' => 'POST',
-            'uri' => '/2012-12-12/hostedzone',
+            'uri' => '/2013-04-01/hostedzone',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'CreateHostedZoneResponse',
             'responseType' => 'model',
@@ -298,7 +302,7 @@ return array (
                 'xmlRoot' => array(
                     'name' => 'CreateHostedZoneRequest',
                     'namespaces' => array(
-                        'https://route53.amazonaws.com/doc/2012-12-12/',
+                        'https://route53.amazonaws.com/doc/2013-04-01/',
                     ),
                 ),
             ),
@@ -356,7 +360,7 @@ return array (
         ),
         'DeleteHealthCheck' => array(
             'httpMethod' => 'DELETE',
-            'uri' => '/2012-12-12/healthcheck/{HealthCheckId}',
+            'uri' => '/2013-04-01/healthcheck/{HealthCheckId}',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'DeleteHealthCheckResponse',
             'responseType' => 'model',
@@ -385,7 +389,7 @@ return array (
         ),
         'DeleteHostedZone' => array(
             'httpMethod' => 'DELETE',
-            'uri' => '/2012-12-12/hostedzone/{Id}',
+            'uri' => '/2013-04-01/hostedzone/{Id}',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'DeleteHostedZoneResponse',
             'responseType' => 'model',
@@ -424,7 +428,7 @@ return array (
         ),
         'GetChange' => array(
             'httpMethod' => 'GET',
-            'uri' => '/2012-12-12/change/{Id}',
+            'uri' => '/2013-04-01/change/{Id}',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'GetChangeResponse',
             'responseType' => 'model',
@@ -455,7 +459,7 @@ return array (
         ),
         'GetHealthCheck' => array(
             'httpMethod' => 'GET',
-            'uri' => '/2012-12-12/healthcheck/{HealthCheckId}',
+            'uri' => '/2013-04-01/healthcheck/{HealthCheckId}',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'GetHealthCheckResponse',
             'responseType' => 'model',
@@ -480,11 +484,15 @@ return array (
                     'reason' => 'Some value specified in the request is invalid or the XML document is malformed.',
                     'class' => 'InvalidInputException',
                 ),
+                array(
+                    'reason' => 'The resource you are trying to access is unsupported on this Route 53 endpoint. Please consider using a newer endpoint or a tool that does so.',
+                    'class' => 'IncompatibleVersionException',
+                ),
             ),
         ),
         'GetHostedZone' => array(
             'httpMethod' => 'GET',
-            'uri' => '/2012-12-12/hostedzone/{Id}',
+            'uri' => '/2013-04-01/hostedzone/{Id}',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'GetHostedZoneResponse',
             'responseType' => 'model',
@@ -515,7 +523,7 @@ return array (
         ),
         'ListHealthChecks' => array(
             'httpMethod' => 'GET',
-            'uri' => '/2012-12-12/healthcheck',
+            'uri' => '/2013-04-01/healthcheck',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'ListHealthChecksResponse',
             'responseType' => 'model',
@@ -541,11 +549,15 @@ return array (
                     'reason' => 'Some value specified in the request is invalid or the XML document is malformed.',
                     'class' => 'InvalidInputException',
                 ),
+                array(
+                    'reason' => 'The resource you are trying to access is unsupported on this Route 53 endpoint. Please consider using a newer endpoint or a tool that does so.',
+                    'class' => 'IncompatibleVersionException',
+                ),
             ),
         ),
         'ListHostedZones' => array(
             'httpMethod' => 'GET',
-            'uri' => '/2012-12-12/hostedzone',
+            'uri' => '/2013-04-01/hostedzone',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'ListHostedZonesResponse',
             'responseType' => 'model',
@@ -575,7 +587,7 @@ return array (
         ),
         'ListResourceRecordSets' => array(
             'httpMethod' => 'GET',
-            'uri' => '/2012-12-12/hostedzone/{HostedZoneId}/rrset',
+            'uri' => '/2013-04-01/hostedzone/{HostedZoneId}/rrset',
             'class' => 'Guzzle\\Service\\Command\\OperationCommand',
             'responseClass' => 'ListResourceRecordSetsResponse',
             'responseType' => 'model',
@@ -687,6 +699,9 @@ return array (
                                     'type' => 'string',
                                 ),
                                 'FullyQualifiedDomainName' => array(
+                                    'type' => 'string',
+                                ),
+                                'SearchString' => array(
                                     'type' => 'string',
                                 ),
                             ),
@@ -873,6 +888,9 @@ return array (
                                 'FullyQualifiedDomainName' => array(
                                     'type' => 'string',
                                 ),
+                                'SearchString' => array(
+                                    'type' => 'string',
+                                ),
                             ),
                         ),
                     ),
@@ -967,6 +985,9 @@ return array (
                                         'type' => 'string',
                                     ),
                                     'FullyQualifiedDomainName' => array(
+                                        'type' => 'string',
+                                    ),
+                                    'SearchString' => array(
                                         'type' => 'string',
                                     ),
                                 ),
@@ -1147,35 +1168,33 @@ return array (
         ),
     ),
     'iterators' => array(
-        'operations' => array(
-            'ListHealthChecks' => array(
-                'token_param' => 'Marker',
-                'token_key' => 'Marker',
-                'more_key' => 'IsTruncated',
-                'limit_key' => 'MaxItems',
-                'result_key' => 'HealthChecks',
+        'ListHealthChecks' => array(
+            'input_token' => 'Marker',
+            'output_token' => 'NextMarker',
+            'more_results' => 'IsTruncated',
+            'limit_key' => 'MaxItems',
+            'result_key' => 'HealthChecks',
+        ),
+        'ListHostedZones' => array(
+            'input_token' => 'Marker',
+            'output_token' => 'NextMarker',
+            'more_results' => 'IsTruncated',
+            'limit_key' => 'MaxItems',
+            'result_key' => 'HostedZones',
+        ),
+        'ListResourceRecordSets' => array(
+            'more_results' => 'IsTruncated',
+            'limit_key' => 'MaxItems',
+            'result_key' => 'ResourceRecordSets',
+            'input_token' => array(
+                'StartRecordName',
+                'StartRecordType',
+                'StartRecordIdentifier',
             ),
-            'ListHostedZones' => array(
-                'token_param' => 'Marker',
-                'token_key' => 'Marker',
-                'more_key' => 'IsTruncated',
-                'limit_key' => 'MaxItems',
-                'result_key' => 'HostedZones',
-            ),
-            'ListResourceRecordSets' => array(
-                'more_key' => 'IsTruncated',
-                'limit_key' => 'MaxItems',
-                'result_key' => 'ResourceRecordSets',
-                'token_param' => array(
-                    'StartRecordName',
-                    'StartRecordType',
-                    'StartRecordIdentifier',
-                ),
-                'token_key' => array(
-                    'NextRecordName',
-                    'NextRecordType',
-                    'NextRecordIdentifier',
-                ),
+            'output_token' => array(
+                'NextRecordName',
+                'NextRecordType',
+                'NextRecordIdentifier',
             ),
         ),
     ),

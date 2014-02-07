@@ -13,10 +13,12 @@ class Gravatar extends \emberlabs\gravatarlib\Gravatar
 
         $this->setDefaultImage(Config::get('laravel-gravatar::default'));
         $this->default_size = Config::get('laravel-gravatar::size');
+
+        $this->setMaxRating(Config::get('laravel-gravatar::maxRating', 'g'));
         $this->enableSecureImages();
     }
 
-    public function src($email, $size = null)
+    public function src($email, $size = null, $rating = null)
     {
         if (is_null($size)) {
             $size = $this->default_size;
@@ -26,10 +28,12 @@ class Gravatar extends \emberlabs\gravatarlib\Gravatar
 
         $this->setAvatarSize($size);
 
+        if(!is_null($rating)) $this->setMaxRating($rating);
+
         return $this->buildGravatarURL($email);
     }
 
-    public function image($email, $alt = null, $attributes = array())
+    public function image($email, $alt = null, $attributes = array(), $rating = null)
     {
         $dimensions = array();
 
@@ -38,7 +42,7 @@ class Gravatar extends \emberlabs\gravatarlib\Gravatar
 
         $max_dimension = (count($dimensions)) ? min(512, max($dimensions)) : $this->default_size;
 
-        $src = $this->src($email, $max_dimension);
+        $src = $this->src($email, $max_dimension, $rating);
 
         if (!array_key_exists('width', $attributes) && !array_key_exists('height', $attributes)) {
             $attributes['width'] = $this->size;

@@ -30,6 +30,8 @@ Copy the config file into your project by running
 php artisan config:publish thomaswelton/laravel-gravatar
 ```
 
+### Default Image
+
 Update the config file to specify the default avatar size to use.
 And a default image to be return if no Gravatar is found allowed defaults
 - (bool)   false
@@ -40,9 +42,20 @@ And a default image to be return if no Gravatar is found allowed defaults
 - (string) wavatar
 - (string) retro
 
+### Content Ratings
+
+By default only "G" rated images will be shown. You can change this system wide in the config file by editing `'maxRating' => 'g'` allowed values are
+- g
+- pg
+- r
+- x
+
+Or the content rating can be changed by changing the `$rating` argument when calling `Gravatar::src` or `Gravatar::image`
+
+
 ## Usage
 
-### Gravatar::src($email, $size = null)
+### Gravatar::src($email, $size = null, $rating = null)
 
 Returns the https URL for the Gravatar of the email address specified.
 Can optionally pass in the size required as an integer. The size will be contained within a range between 1 - 512 as gravatar will no return sizes greater than 512 of less than 1
@@ -58,7 +71,7 @@ Can optionally pass in the size required as an integer. The size will be contain
 <img src="<?= Gravatar::src('thomaswelton@me.com', 1024) ?>" width=1024>
 ```
 
-### Gravatar::image($email, $alt = null, $attributes = array())
+### Gravatar::image($email, $alt = null, $attributes = array(), $rating = null)
 
 Returns the HTML for an `<img>` tag
 

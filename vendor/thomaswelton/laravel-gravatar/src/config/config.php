@@ -2,5 +2,6 @@
 
 return array(
     'size' => 80,
-    'default' => 'identicon'
+    'default' => 'identicon',
+    'maxRating' => 'g'
 );
