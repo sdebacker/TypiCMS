@@ -45,10 +45,13 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 	}
 
+
 	public function getHomePage()
 	{
 		return $this->model->where('is_home', 1)->firstOrFail();
 	}
+
+
 	/**
 	 * Update an existing model
 	 *
@@ -59,16 +62,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 	{
 
 		$model = $this->model->find($data['id']);
-
-		$data = array_except($data, Config::get('app.locales'));
-		$data = array_except($data, array('_method', '_token', 'exit'));
-
-		// dd($data);
-
-		foreach ($data as $key => $value) {
-			$model->$key = $value;
-		}		
-
+		$model->fill($data);
 		$model->save();
 
 		// update URI in all pages

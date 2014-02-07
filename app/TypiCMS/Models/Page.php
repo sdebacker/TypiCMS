@@ -6,8 +6,19 @@ use TypiCMS\NestedCollection;
 
 class Page extends EloquentTranslatable {
 
-	protected $guarded = array();
-	
+	protected $fillable = array(
+		'meta_robots_no_index',
+		'meta_robots_no_follow',
+		'position',
+		'parent',
+		'rss_enabled',
+		'comments_enabled',
+		'is_home',
+		'css',
+		'js',
+		'template',
+	);
+
 	/**
 	 * The database table used by the model.
 	 *

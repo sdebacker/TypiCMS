@@ -21,6 +21,13 @@ interface PageInterface
     public function byPage($page = 1, $limit = 10);
 
     /**
+     * Get Home page
+     *
+     * @return model
+     */
+    public function getHomePage();
+
+    /**
      * Get all pages
      *
      * @param boolean $all Show published or all
