@@ -227,17 +227,10 @@ abstract class RepositoriesAbstract {
 	 */
 	public function create(array $data)
 	{
-		$data = array_except($data, Config::get('app.locales'));
-		$data = array_except($data, array('exit'));
-
-		// Create the model
-		$model = $this->model->create($data);
-
-		if ( ! $model ) {
-			return false;
+		if ( $model = $this->model->create($data) ) {
+			return $model;
 		}
-
-		return $model;
+		return false;
 	}
 
 
@@ -249,20 +242,10 @@ abstract class RepositoriesAbstract {
 	 */
 	public function update(array $data)
 	{
-
 		$model = $this->model->find($data['id']);
-
-		$data = array_except($data, Config::get('app.locales'));
-		$data = array_except($data, array('_method', '_token', 'exit'));
-
-		foreach ($data as $key => $value) {
-			$model->$key = $value;
-		}
-
+		$model->fill($data);
 		$model->save();
-
 		return true;
-		
 	}
 
     /**
