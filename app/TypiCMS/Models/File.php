@@ -4,7 +4,23 @@ use TypiCMS\NestedCollection;
 
 class File extends EloquentTranslatable {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'fileable_id',
+		'fileable_type',
+		'folder_id',
+		'user_id',
+		'type',
+		'name',
+		'filename',
+		'path',
+		'extension',
+		'mimetype',
+		'width',
+		'height',
+		'filesize',
+		'download_count',
+		'position',
+	);
 	
 	/**
 	 * The database table used by the model.

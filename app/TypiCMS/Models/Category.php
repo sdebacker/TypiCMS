@@ -5,7 +5,9 @@ use TypiCMS\NestedCollection;
 
 class Category extends EloquentTranslatable {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'position',
+	);
 	
 	/**
 	 * The database table used by the model.

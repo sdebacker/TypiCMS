@@ -7,7 +7,9 @@ use App;
 
 class Menu extends EloquentTranslatable {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'name',
+	);
 	
 	/**
 	 * The database table used by the model.

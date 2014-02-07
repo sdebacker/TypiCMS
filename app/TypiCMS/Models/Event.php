@@ -7,7 +7,12 @@ use Carbon\Carbon;
 
 class Event extends EloquentTranslatable {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'start_date',
+		'end_date',
+		'start_time',
+		'end_time',
+	);
 	
 	/**
 	 * The database table used by the model.

@@ -5,7 +5,9 @@ use TypiCMS\NestedCollection;
 
 class Project extends EloquentTranslatable {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'category_id',
+	);
 	
 	/**
 	 * The database table used by the model.

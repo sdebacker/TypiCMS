@@ -6,7 +6,17 @@ use TypiCMS\NestedCollection;
 
 class Menulink extends EloquentTranslatable {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'menu_id',
+		'page_id',
+		'parent',
+		'position',
+		'target',
+		'module_name',
+		'restricted_to',
+		'class',
+		'link_type',
+	);
 	
 	/**
 	 * The database table used by the model.

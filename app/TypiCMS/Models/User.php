@@ -5,7 +5,15 @@ use TypiCMS\NestedCollection;
 
 class User extends Base {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'email',
+		'permissions',
+		'activated',
+		'activated_at',
+		'last_login',
+		'first_name',
+		'last_name',
+	);
 
 	
 	/**

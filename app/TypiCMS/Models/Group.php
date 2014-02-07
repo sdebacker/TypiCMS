@@ -4,7 +4,10 @@ use TypiCMS\NestedCollection;
 
 class Group extends Base {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'name',
+		'permissions',
+	);
 
 	
 	/**

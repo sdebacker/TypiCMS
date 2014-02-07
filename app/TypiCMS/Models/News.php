@@ -7,7 +7,9 @@ use Carbon\Carbon;
 
 class News extends EloquentTranslatable {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'date',
+	);
 	
 	/**
 	 * The database table used by the model.

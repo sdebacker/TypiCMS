@@ -4,7 +4,14 @@ use TypiCMS\NestedCollection;
 
 class Setting extends \Eloquent {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'package',
+		'group_name',
+		'key_name',
+		'value',
+		'type',
+		'environment',
+	);
 	
 	/**
 	 * The database table used by the model.
