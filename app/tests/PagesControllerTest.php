@@ -1,25 +1,53 @@
 <?php
+use TypiCMS\Models\Page;
 
 class PagesControllerTest extends TestCase {
 
-	public function testRoot()
-	{
-		$this->client->request('GET', '/');
-	}
+	// public function testRoot()
+	// {
+	// 	$this->get('/');
+	// }
 
-	public function testHomepages()
+	// public function testHomepages()
+	// {
+	// 	foreach (Config::get('app.locales') as $locale) {
+	// 		$this->get($locale);
+	// 	}
+	// }
+	public function tearDown()
 	{
-		foreach (Config::get('app.locales') as $locale) {
-			$this->client->request('GET', $locale);
-		}
+		Mockery::close();
 	}
 
 	public function testAdminIndex()
 	{
+		Page::shouldReceive('buildList')->once();
+
 		$view = 'admin.pages.index';
 		$this->registerNestedView($view);
-		$this->client->request('GET', 'admin/pages');
+		$this->get('admin/pages');
 		$this->assertNestedViewHas($view, 'models');
 	}
+
+	// public function testStoreFails()
+	// {
+	// 	Input::replace($input = ['template' => 'ss']);
+
+	// 	$this->call('POST', 'admin/pages');
+
+	// 	$this->assertRedirectedToRoute('admin.pages.create');
+	// 	$this->assertSessionHasErrors(['template']);
+	// }
+
+	// public function testStoreSuccess()
+	// {
+	// 	Input::replace($input = ['template' => '']);
+
+	// 	// \TypiCMS\Models\Page::shouldReceive('create')->once();
+
+	// 	$this->call('POST', 'admin/pages');
+
+	// 	$this->assertRedirectedToRoute('admin.pages.edit', [], 'flash');
+	// }
 
 }
