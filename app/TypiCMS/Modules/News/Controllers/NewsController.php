@@ -1,7 +1,9 @@
-<?php namespace App\Controllers;
+<?php namespace TypiCMS\Modules\News\Controllers;
 
 use View;
-use TypiCMS\Repositories\News\NewsInterface;
+use TypiCMS\Modules\News\Repositories\NewsInterface;
+
+use App\Controllers\BaseController;
 
 class NewsController extends BaseController {
 
@@ -22,7 +24,7 @@ class NewsController extends BaseController {
 
 		$models = $this->repository->getAll();
 
-		$this->layout->content = View::make('public.news.index')
+		$this->layout->content = View::make('news.public.index')
 			->with('models', $models);
 	}
 
@@ -38,7 +40,7 @@ class NewsController extends BaseController {
 
 		$this->title['parent'] = $model->title;
 		
-		$this->layout->content = View::make('public.news.show')
+		$this->layout->content = View::make('news.public.show')
 			->with('model', $model);
 	}
 

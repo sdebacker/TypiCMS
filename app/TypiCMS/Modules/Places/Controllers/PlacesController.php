@@ -31,7 +31,7 @@ class PlacesController extends BaseController {
 			return $places;
 		}
 
-		$this->layout->content = View::make('public.index')
+		$this->layout->content = View::make('places.public.index')
 			->withPlaces($places);
 	}
 
@@ -49,7 +49,7 @@ class PlacesController extends BaseController {
 			return $models;
 		}
 
-		$this->layout->content = View::make('public.results')
+		$this->layout->content = View::make('places.public.results')
 			->with('models', $models);
 	}
 
@@ -70,7 +70,7 @@ class PlacesController extends BaseController {
 
 		$this->title['parent'] = $model->title;
 		
-		return View::make('public.show')
+		return View::make('places.public.show')
 			->with('model', $model);
 	}
 

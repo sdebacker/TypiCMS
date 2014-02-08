@@ -2,6 +2,7 @@
 
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 use TypiCMS\Modules\Places\Services\Form\PlaceForm;
+
 use App\Controllers\Admin\BaseController;
 
 use View;
@@ -36,7 +37,7 @@ class PlacesController extends BaseController {
 
 		$modelse = $models->buildList($this->repository->getListProperties());
 
-		$this->layout->content = View::make('admin.index')
+		$this->layout->content = View::make('places.admin.index')
 			->withCollection($collection)
 			->withModels($modelse);
 
@@ -53,7 +54,7 @@ class PlacesController extends BaseController {
 	{
 		$this->title['child'] = trans('modules.places.New');
 		$model = $this->repository->getModel();
-		$this->layout->content = View::make('admin.create')
+		$this->layout->content = View::make('places.admin.create')
 			->withModel($model);
 	}
 
@@ -68,7 +69,7 @@ class PlacesController extends BaseController {
 	{
 		$this->title['child'] = trans('modules.places.Edit');
 		Former::populate($model);
-		$this->layout->content = View::make('admin.edit')
+		$this->layout->content = View::make('places.admin.edit')
 			->withModel($model);
 	}
 

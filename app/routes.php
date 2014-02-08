@@ -27,7 +27,6 @@ Route::post('users/changepassword/{userid}/{resetcode}', 'App\Controllers\Admin\
 Route::model('pages', 'TypiCMS\Models\Page');
 Route::model('menus', 'TypiCMS\Models\Menu');
 Route::model('menulinks', 'TypiCMS\Models\Menulink');
-Route::model('news', 'TypiCMS\Models\News');
 Route::model('events', 'TypiCMS\Models\Event');
 Route::model('projects', 'TypiCMS\Models\Project');
 Route::model('categories', 'TypiCMS\Models\Category');
@@ -64,8 +63,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 	Route::post('categories/sort', array('as' => 'admin.categories.sort', 'uses' => 'App\Controllers\Admin\CategoriesController@sort'));
 
 	Route::resource('projects', 'App\Controllers\Admin\ProjectsController');
-	Route::resource('news', 'App\Controllers\Admin\NewsController');
-	// Route::get('news{format}', 'App\Controllers\Admin\NewsController@index');
 	Route::resource('addresses', 'App\Controllers\Admin\AddressesController');
 	Route::resource('partners', 'App\Controllers\Admin\PartnersController');
 	
@@ -164,6 +161,15 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 				Route::get($uri, array('as' => $lang.'.'.$module, 'uses' => 'App\Controllers\\'.ucfirst($module).'Controller@index'));
 				Route::get($uri.'/{slug}', array('as' => $lang.'.'.$module.'.slug', 'uses' => 'App\Controllers\\'.ucfirst($module).'Controller@show'));
 			}
+		}
+
+		// news routes (in module directory)
+		if (isset($menulinksArray['news'])) {
+			foreach ($menulinksArray['news'] as $lang => $uri) {
+				Route::get($uri, array('as' => $lang.'.news', 'uses' => 'TypiCMS\Modules\News\Controllers\NewsController@index'));
+				Route::get($uri.'/{slug}', array('as' => $lang.'.news.slug', 'uses' => 'TypiCMS\Modules\News\Controllers\NewsController@show'));
+			}
+			unset($menulinksArray['paces']);
 		}
 
 		// places routes (in module directory)

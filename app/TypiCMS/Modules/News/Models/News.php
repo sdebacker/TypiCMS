@@ -1,9 +1,9 @@
-<?php namespace TypiCMS\Models;
+<?php namespace TypiCMS\Modules\News\Models;
 
 use Illuminate\Database\Eloquent\Collection;
-use TypiCMS\NestedCollection;
 use Input;
 use Carbon\Carbon;
+use \TypiCMS\Models\EloquentTranslatable;
 
 class News extends EloquentTranslatable {
 

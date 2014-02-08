@@ -11,7 +11,7 @@ class NewsControllerTest extends TestCase {
 	public function testAdminIndex()
 	{
 		// News::shouldReceive('getAll')->once()->andReturn(true);
-		$view = 'admin.news.index';
+		$view = 'news.admin.index';
 		$this->registerNestedView($view);
 
 		$response = $this->get('admin/news');

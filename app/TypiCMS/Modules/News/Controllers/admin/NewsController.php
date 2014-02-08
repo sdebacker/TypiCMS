@@ -1,7 +1,10 @@
-<?php namespace App\Controllers\Admin;
+<?php namespace TypiCMS\Modules\News\Controllers\Admin;
 
-use TypiCMS\Repositories\News\NewsInterface;
-use TypiCMS\Services\Form\News\NewsForm;
+use TypiCMS\Modules\News\Repositories\NewsInterface;
+use TypiCMS\Modules\News\Services\Form\NewsForm;
+
+use App\Controllers\Admin\BaseController;
+
 use View;
 use Former;
 use Input;
@@ -23,7 +26,7 @@ class NewsController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true);
-		$this->layout->content = View::make('admin.news.index')->withModels($models);
+		$this->layout->content = View::make('news.admin.index')->withModels($models);
 	}
 
 	/**
@@ -35,7 +38,7 @@ class NewsController extends BaseController {
 	{
 		$this->title['child'] = trans('modules.news.New');
 		$model = $this->repository->getModel();
-		$this->layout->content = View::make('admin.news.create')
+		$this->layout->content = View::make('news.admin.create')
 			->with('model', $model);
 	}
 
@@ -53,7 +56,7 @@ class NewsController extends BaseController {
 		$this->title['child'] = trans('modules.news.Edit');
 		$model->setTranslatedFields();
 		Former::populate($model);
-		$this->layout->content = View::make('admin.news.edit')
+		$this->layout->content = View::make('news.admin.edit')
 			->with('model', $model);
 	}
 

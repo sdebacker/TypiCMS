@@ -1,7 +1,7 @@
-<?php namespace TypiCMS\Services\Form\News;
+<?php namespace TypiCMS\Modules\News\Services\Form;
 
 use TypiCMS\Services\Validation\ValidableInterface;
-use TypiCMS\Repositories\News\NewsInterface;
+use TypiCMS\Modules\News\Repositories\NewsInterface;
 
 class NewsForm {
 

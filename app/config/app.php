@@ -59,7 +59,7 @@ return array(
 		'Pages'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Page'),
 		'Users'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\User'),
 		'Files'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\File'),
-		'News'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\News'),
+		'News'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\News\Models\News'),
 		'Events'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Event'),
 		'Categories' => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Category'),
 		'Projects'   => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Project'),

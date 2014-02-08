@@ -195,12 +195,18 @@ abstract class RepositoriesAbstract {
 		}
 
 		// Item not cached, retrieve it
+
+		// Find id
+		$translationTable = $this->model->getTable().'_translations';
+		$id = DB::table($translationTable)->where('slug', $slug)->pluck(Str::singular($this->model->getTable()).'_id');
+
 		$model = $this->model
-			->select($this->select)
-			->joinTranslations()
-			->where('slug', $slug)
-			->where('status', 1)
-			->where('lang', Config::get('app.locale'))
+			->with(array('translations' => function($query)
+				{
+					$query->where('status', 1);
+					$query->where('lang', Config::get('app.locale'));
+				})
+			)
 			->with(array('files' => function($query)
 				{
 					$query->joinTranslations();
@@ -209,7 +215,11 @@ abstract class RepositoriesAbstract {
 					$query->orderBy('position', 'asc');
 				})
 			)
-			->firstOrFail();
+			->findOrFail($id);
+
+		if ( ! count($model->translations)) {
+			App::abort('404');
+		}
 
 		// Store in cache for next request
 		$this->cache->put($key, $model);
