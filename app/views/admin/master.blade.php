@@ -73,7 +73,9 @@
 	<div class="page-header">
 		<h1>
 		@yield('addButton')
-		{{ $h1 }}
+			@section('h1')
+			{{ $h1 }}
+			@show
 		@yield('titleSmall')
 		</h1>
 	</div>
