@@ -22,8 +22,7 @@ class NewsController extends BaseController {
 	 */
 	public function index()
 	{
-		$models = $this->repository->getAll(true)->buildList($this->repository->getListProperties());
-		$this->title['h1'] = '<span id="nb_elements">'.$models->getTotal().'</span> '.trans_choice('modules.news.news', $models->getTotal());
+		$models = $this->repository->getAll(true);
 		$this->layout->content = View::make('admin.news.index')->withModels($models);
 	}
 

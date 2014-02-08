@@ -66,17 +66,6 @@ class News extends EloquentTranslatable {
 
 
 	/**
-	 * Custom collection
-	 *
-	 * @return InvoiceCollection object
-	 */
-	public function newCollection(array $models = array())
-	{
-		return new NestedCollection($models);
-	}
-
-
-	/**
 	 * Accessors
 	 *
 	 * @return string
