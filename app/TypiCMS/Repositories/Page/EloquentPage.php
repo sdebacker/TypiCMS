@@ -97,7 +97,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 		$query = $this->model
 			->select($this->select)
-			->joinTranslations()
+			->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
 			->where('uri', '!=', $uri)
 			->where('uri', 'LIKE', $uri.'%');
 

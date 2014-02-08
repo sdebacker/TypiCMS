@@ -6,6 +6,7 @@ use Str;
 use DB;
 use Request;
 use TypiCMS\Services\ListBuilder\ListBuilder;
+use TypiCMS\Services\Helpers;
 
 abstract class RepositoriesAbstract {
 
@@ -51,7 +52,7 @@ abstract class RepositoriesAbstract {
 		// files
 		$this->model->files and $query->with(array('files' => function($query)
 			{
-				$query->joinTranslations();
+				$query->join('file_translations', 'files.id', '=', 'file_translations.file_id');
 				$query->where('locale', Config::get('app.locale'));
 				$query->where('status', 1);
 				$query->orderBy('position', 'asc');
@@ -197,8 +198,7 @@ abstract class RepositoriesAbstract {
 		// Item not cached, retrieve it
 
 		// Find id
-		$translationTable = $this->model->getTable().'_translations';
-		$id = DB::table($translationTable)->where('slug', $slug)->pluck(Str::singular($this->model->getTable()).'_id');
+		$id = Helpers::getIdFromSlug($this->model->getTable(), $slug);
 
 		$model = $this->model
 			->with(array('translations' => function($query)
@@ -209,7 +209,7 @@ abstract class RepositoriesAbstract {
 			)
 			->with(array('files' => function($query)
 				{
-					$query->joinTranslations();
+					$query->join('file_translations', 'files.id', '=', 'file_translations.file_id');
 					$query->where('locale', Config::get('app.locale'));
 					$query->where('status', 1);
 					$query->orderBy('position', 'asc');

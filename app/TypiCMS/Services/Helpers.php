@@ -22,8 +22,10 @@ class Helpers {
 	{
 		if ( ! $module or ! $slug) return false;
 
+		$moduleSingular = str_singular($module);
+
 		return DB::table($module)
-				->join($module.'_translations', $module.'.id', '=', $module.'_translations.'.str_singular($module).'_id')
+				->join($moduleSingular.'_translations', $module.'.id', '=', $moduleSingular.'_translations.'.$moduleSingular.'_id')
 				->where('slug', $slug)
 				->remember(10)
 				->pluck($module.'.id');
@@ -41,12 +43,14 @@ class Helpers {
 	{
 		if ( ! $module or ! $id) return false;
 
+		$moduleSingular = str_singular($module);
+
 		return DB::table($module)
-				->join($module.'_translations', $module.'.id', '=', $module.'_translations.'.str_singular($module).'_id')
+				->join($moduleSingular.'_translations', $module.'.id', '=', $moduleSingular.'_translations.'.$moduleSingular.'_id')
 				->where($module.'.id', $id)
-				->where($module.'_translations.status', 1)
+				->where($moduleSingular.'_translations.status', 1)
 				->remember(10)
-				->lists('slug', 'lang');
+				->lists('slug', 'locale');
 	}
 
 

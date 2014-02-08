@@ -291,9 +291,9 @@ class ListBuilder {
 			$id = Helpers::getIdFromSlug('categories', $category);
 			$categories = DB::table($module)
 				->join('categories', 'projects.category_id', '=', 'categories.id')
-				->join('categories_translations', 'categories_translations.category_id', '=', 'categories.id')
+				->join('category_translations', 'category_translations.category_id', '=', 'categories.id')
 				->where('categories.id', $id)
-				->where('categories_translations.status', 1)
+				->where('category_translations.status', 1)
 				->lists('slug', 'locale');
 		}
 
