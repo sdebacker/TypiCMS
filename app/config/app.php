@@ -129,7 +129,6 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Cartalyst\Sentry\SentryServiceProvider',
-		'Ink\InkTranslatable\InkTranslatableServiceProvider',
 		'Former\FormerServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
 		'Krucas\Notification\NotificationServiceProvider',
@@ -209,7 +208,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-		'Translatable'    => 'Ink\InkTranslatable\Facades\Translatable',
+		'Translatable'    => 'Dimsav\Translatable\Translatable',
 		'Former'          => 'Former\Facades\Former',
 		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 		'Notification'    => 'Krucas\Notification\Facades\Notification',

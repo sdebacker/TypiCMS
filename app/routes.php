@@ -99,12 +99,12 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 		
 		// Build routes from Table Pages
 		$queryPages = DB::table('pages')
-			->select('pages.id', 'page_id', 'uri', 'lang')
-			->join('pages_translations', 'pages.id', '=', 'pages_translations.page_id')
+			->select('pages.id', 'page_id', 'uri', 'locale')
+			->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
 			->where('uri', '!=', '')
 			->where('is_home', '!=', 1)
 			->where('status', '=', 1)
-			->orderBy('lang');
+			->orderBy('locale');
 
 		if (Config::get('app.cachePublic')) {
 			$queryPages->remember(1440);
@@ -113,13 +113,13 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 		$pages = $queryPages->get();
 
 		foreach ($pages as $page) {
-			Route::get($page->uri, array('as' => $page->lang.'.pages.'.$page->id, 'uses' => 'App\Controllers\PagesController@uri'));
+			Route::get($page->uri, array('as' => $page->locale.'.pages.'.$page->id, 'uses' => 'App\Controllers\PagesController@uri'));
 		}
 
 		// Build routes from menulinks (modules)
 		$queryMenulinks = DB::table('menulinks')
-			->select('menulinks.id', 'menulink_id', 'uri', 'lang', 'module_name')
-			->join('menulinks_translations', 'menulinks.id', '=', 'menulinks_translations.menulink_id')
+			->select('menulinks.id', 'menulink_id', 'uri', 'locale', 'module_name')
+			->join('menulink_translations', 'menulinks.id', '=', 'menulink_translations.menulink_id')
 			->where('uri', '!=', '')
 			->where('module_name', '!=', '')
 			->where('status', '=', 1)
@@ -133,7 +133,7 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 
 		$menulinksArray = array();
 		foreach ($menulinks as $menulink) {
-			$menulinksArray[$menulink->module_name][$menulink->lang] = $menulink->uri;
+			$menulinksArray[$menulink->module_name][$menulink->locale] = $menulink->uri;
 		}
 
 		// events routes

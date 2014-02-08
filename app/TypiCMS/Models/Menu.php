@@ -1,11 +1,14 @@
 <?php namespace TypiCMS\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+
+use Dimsav\Translatable\Translatable;
+
 use TypiCMS\NestedCollection;
 use TypiCMS\Services\ListBuilder\ListBuilder;
 use App;
 
-class Menu extends EloquentTranslatable {
+class Menu extends Translatable {
 
 	protected $fillable = array(
 		'name',
@@ -69,14 +72,9 @@ class Menu extends EloquentTranslatable {
 	 *
 	 * @var array
 	 */
-	public static $translatable = array(
-		'translationModel' => 'TypiCMS\Models\MenuTranslation',
-		'relationshipField' => 'menu_id',
-		'localeField' => 'lang',
-		'translatables' => array(
-			'title',
-			'status',
-		)
+	public $translatedAttributes = array(
+		'title',
+		'status',
 	);
 
 

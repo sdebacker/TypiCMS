@@ -38,7 +38,6 @@ return array(
     'Laravel' => array($vendorDir . '/anahkiasen/former/src'),
     'Krucas\\Notification' => array($vendorDir . '/edvinaskrucas/notification/src'),
     'Jeremeamia\\SuperClosure' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
-    'Ink\\InkTranslatable' => array($vendorDir . '/ink/ink-translatable/src'),
     'Illuminate' => array($vendorDir . '/laravel/framework/src'),
     'HtmlObject' => array($vendorDir . '/anahkiasen/html-object/src'),
     'Guzzle\\Tests' => array($vendorDir . '/guzzle/guzzle/tests'),

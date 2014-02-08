@@ -38,14 +38,14 @@ class CreatePagesTable extends Migration {
 
 		});
 
-		Schema::create('pages_translations', function(Blueprint $table)
+		Schema::create('page_translations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
 			$table->increments('id')->unsigned();
 			$table->integer('page_id')->unsigned();
 
-			$table->string('lang')->index();
+			$table->string('locale')->index();
 
 			$table->string('slug');
 			$table->string('uri')->unique()->nullable();
@@ -60,6 +60,9 @@ class CreatePagesTable extends Migration {
 			$table->string('meta_description');
 
 			$table->timestamps();
+
+			$table->unique(array('page_id', 'locale'));
+			$table->foreign('page_id')->references('id')->on('pages');
 			
 		});
 
@@ -72,8 +75,12 @@ class CreatePagesTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('page_translations', function($table)
+		{
+			$table->dropForeign('page_translations_page_id_foreign');
+		});
 		Schema::drop('pages');
-		Schema::drop('pages_translations');
+		Schema::drop('page_translations');
 	}
 
 }

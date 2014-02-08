@@ -21,14 +21,14 @@ class CreateProjectsTable extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::create('projects_translations', function(Blueprint $table)
+		Schema::create('project_translations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
 			$table->increments('id')->unsigned();
 			$table->integer('project_id')->unsigned();
 
-			$table->string('lang')->index();
+			$table->string('locale')->index();
 
 			$table->tinyInteger('status');
 
@@ -40,7 +40,8 @@ class CreateProjectsTable extends Migration {
 
 			$table->timestamps();
 
-			$table->unique(array('lang', 'slug'));
+			$table->unique(array('project_id', 'locale'));
+			$table->foreign('project_id')->references('id')->on('projects');
 			
 		});
 	}
@@ -52,8 +53,12 @@ class CreateProjectsTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('project_translations', function($table)
+		{
+			$table->dropForeign('project_translations_project_id_foreign');
+		});
 		Schema::drop('projects');
-		Schema::drop('projects_translations');
+		Schema::drop('project_translations');
 	}
 
 }

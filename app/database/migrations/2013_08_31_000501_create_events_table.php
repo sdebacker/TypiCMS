@@ -26,14 +26,14 @@ class CreateEventsTable extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::create('events_translations', function(Blueprint $table)
+		Schema::create('event_translations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
 			$table->increments('id')->unsigned();
 			$table->integer('event_id')->unsigned();
 
-			$table->string('lang');
+			$table->string('locale');
 
 			$table->tinyInteger('status');
 
@@ -45,7 +45,8 @@ class CreateEventsTable extends Migration {
 
 			$table->timestamps();
 
-			$table->unique(array('lang', 'slug'));
+			$table->unique(array('event_id', 'locale'));
+			$table->foreign('event_id')->references('id')->on('events');
 			
 		});
 	}
@@ -57,8 +58,12 @@ class CreateEventsTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('event_translations', function($table)
+		{
+			$table->dropForeign('event_translations_event_id_foreign');
+		});
 		Schema::drop('events');
-		Schema::drop('events_translations');
+		Schema::drop('event_translations');
 	}
 
 }

@@ -23,14 +23,14 @@ class CreateCategoriesTable extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::create('categories_translations', function(Blueprint $table)
+		Schema::create('category_translations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
 			$table->increments('id')->unsigned();
 			$table->integer('category_id')->unsigned();
 			
-			$table->string('lang')->index();
+			$table->string('locale')->index();
 
 			$table->tinyInteger('status');
 
@@ -39,7 +39,8 @@ class CreateCategoriesTable extends Migration {
 
 			$table->timestamps();
 
-			$table->unique(array('lang', 'slug'));
+			$table->unique(array('category_id', 'locale'));
+			$table->foreign('category_id')->references('id')->on('categories');
 			
 		});
 	}
@@ -51,8 +52,12 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('category_translations', function($table)
+		{
+			$table->dropForeign('category_translations_category_id_foreign');
+		});
 		Schema::drop('categories');
-		Schema::drop('categories_translations');
+		Schema::drop('category_translations');
 	}
 
 }

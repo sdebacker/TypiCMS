@@ -2,7 +2,9 @@
 
 use TypiCMS\NestedCollection;
 
-class File extends EloquentTranslatable {
+use Dimsav\Translatable\Translatable;
+
+class File extends Translatable {
 
 	protected $fillable = array(
 		'fileable_id',
@@ -45,16 +47,11 @@ class File extends EloquentTranslatable {
 	 *
 	 * @var array
 	 */
-	public static $translatable = array(
-		'translationModel' => 'TypiCMS\Models\FileTranslation',
-		'relationshipField' => 'file_id',
-		'localeField' => 'lang',
-		'translatables' => array(
-			'keywords',
-			'description',
-			'alt_attribute',
-			'status',
-		)
+	public $translatedAttributes = array(
+		'keywords',
+		'description',
+		'alt_attribute',
+		'status',
 	);
 
  	/**

@@ -42,14 +42,14 @@ class CreateFilesTable extends Migration {
 
 		});
 
-		Schema::create('files_translations', function(Blueprint $table)
+		Schema::create('file_translations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
 			$table->increments('id')->unsigned();
 			$table->integer('file_id')->unsigned();
 
-			$table->string('lang')->index();
+			$table->string('locale')->index();
 
 			$table->tinyInteger('status');
 
@@ -58,6 +58,9 @@ class CreateFilesTable extends Migration {
 			$table->string('keywords');
 
 			$table->timestamps();
+
+			$table->unique(array('file_id', 'locale'));
+			$table->foreign('file_id')->references('id')->on('files');
 			
 		});
 	}
@@ -69,8 +72,12 @@ class CreateFilesTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('project_translations', function($table)
+		{
+			$table->dropForeign('project_translations_project_id_foreign');
+		});
 		Schema::drop('files');
-		Schema::drop('files_translations');
+		Schema::drop('file_translations');
 	}
 
 }

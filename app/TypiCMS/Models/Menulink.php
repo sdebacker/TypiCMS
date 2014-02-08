@@ -1,10 +1,12 @@
 <?php namespace TypiCMS\Models;
 
+use Dimsav\Translatable\Translatable;
+
 use Request;
 use Config;
 use TypiCMS\NestedCollection;
 
-class Menulink extends EloquentTranslatable {
+class Menulink extends Translatable {
 
 	protected $fillable = array(
 		'menu_id',
@@ -76,16 +78,11 @@ class Menulink extends EloquentTranslatable {
 	 *
 	 * @var array
 	 */
-	public static $translatable = array(
-		'translationModel' => 'TypiCMS\Models\MenulinkTranslation',
-		'relationshipField' => 'menulink_id',
-		'localeField' => 'lang',
-		'translatables' => array(
-			'title',
-			'uri',
-			'url',
-			'status',
-		)
+	public $translatedAttributes = array(
+		'title',
+		'uri',
+		'url',
+		'status',
 	);
 
 

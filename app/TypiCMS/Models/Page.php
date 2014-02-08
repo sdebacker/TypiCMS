@@ -1,10 +1,12 @@
 <?php namespace TypiCMS\Models;
 
+use Dimsav\Translatable\Translatable;
+
 use Input;
 
 use TypiCMS\NestedCollection;
 
-class Page extends EloquentTranslatable {
+class Page extends Translatable {
 
 	protected $fillable = array(
 		'meta_robots_no_index',
@@ -81,20 +83,15 @@ class Page extends EloquentTranslatable {
 	 *
 	 * @var array
 	 */
-	public static $translatable = array(
-		'translationModel' => 'TypiCMS\Models\PageTranslation',
-		'relationshipField' => 'page_id',
-		'localeField' => 'lang',
-		'translatables' => array(
-			'title',
-			'slug',
-			'uri',
-			'status',
-			'body',
-			'meta_title',
-			'meta_keywords',
-			'meta_description',
-		)
+	public $translatedAttributes = array(
+		'title',
+		'slug',
+		'uri',
+		'status',
+		'body',
+		'meta_title',
+		'meta_keywords',
+		'meta_description',
 	);
 
 	/**

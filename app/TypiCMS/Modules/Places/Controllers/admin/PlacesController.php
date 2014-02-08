@@ -113,7 +113,6 @@ class PlacesController extends BaseController {
 	 */
 	public function update($model)
 	{
-
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
 		if ( $this->form->update( Input::all() ) ) {

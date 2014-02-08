@@ -22,19 +22,23 @@ class CreateMenusTables extends Migration {
 			$table->timestamps();
 
 		});
-		Schema::create('menus_translations', function(Blueprint $table)
+		Schema::create('menu_translations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
 			$table->increments('id')->unsigned();
 			$table->integer('menu_id')->unsigned();
 
-			$table->string('lang')->index();
+			$table->string('locale')->index();
 			$table->tinyInteger('status');
 
 			$table->string('title');
 
 			$table->timestamps();
+
+			$table->unique(array('menu_id', 'locale'));
+			$table->foreign('menu_id')->references('id')->on('menus');
+
 		});
 		Schema::create('menulinks', function(Blueprint $table)
 		{
@@ -54,14 +58,14 @@ class CreateMenusTables extends Migration {
 			$table->timestamps();
 
 		});
-		Schema::create('menulinks_translations', function(Blueprint $table)
+		Schema::create('menulink_translations', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
 			$table->increments('id')->unsigned();
 			$table->integer('menulink_id')->unsigned();
 
-			$table->string('lang')->index();
+			$table->string('locale')->index();
 
 			$table->tinyInteger('status');
 
@@ -70,6 +74,9 @@ class CreateMenusTables extends Migration {
 			$table->string('uri');
 
 			$table->timestamps();
+
+			$table->unique(array('menulink_id', 'locale'));
+			$table->foreign('menulink_id')->references('id')->on('menulinks');
 
 		});
 	}
@@ -81,10 +88,18 @@ class CreateMenusTables extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('menu_translations', function($table)
+		{
+			$table->dropForeign('menu_translations_menu_id_foreign');
+		});
+		Schema::table('menulink_translations', function($table)
+		{
+			$table->dropForeign('menulink_translations_menulink_id_foreign');
+		});
 		Schema::drop('menus');
-		Schema::drop('menus_translations');
+		Schema::drop('menu_translations');
 		Schema::drop('menulinks');
-		Schema::drop('menulinks_translations');
+		Schema::drop('menulink_translations');
 	}
 
 }

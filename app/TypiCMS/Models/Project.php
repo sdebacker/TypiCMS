@@ -1,9 +1,12 @@
 <?php namespace TypiCMS\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+
+use Dimsav\Translatable\Translatable;
+
 use TypiCMS\NestedCollection;
 
-class Project extends EloquentTranslatable {
+class Project extends Translatable {
 
 	protected $fillable = array(
 		'category_id',
@@ -58,17 +61,12 @@ class Project extends EloquentTranslatable {
 	 *
 	 * @var array
 	 */
-	public static $translatable = array(
-		'translationModel' => 'TypiCMS\Models\ProjectTranslation',
-		'relationshipField' => 'project_id',
-		'localeField' => 'lang',
-		'translatables' => array(
-			'title',
-			'slug',
-			'status',
-			'summary',
-			'body',
-		)
+	public $translatedAttributes = array(
+		'title',
+		'slug',
+		'status',
+		'summary',
+		'body',
 	);
 
 	/**

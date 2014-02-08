@@ -22,9 +22,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		$this->cache = $cache;
 
 		// Build uris array of all pages (needed for uris updating after sorting)
-		$pages = DB::table('pages_translations')->select('page_id', 'lang', 'uri')->get();
+		$pages = DB::table('page_translations')->select('page_id', 'locale', 'uri')->get();
 		foreach ($pages as $page) {
-			$this->uris[$page->page_id][$page->lang] = $page->uri;
+			$this->uris[$page->page_id][$page->locale] = $page->uri;
 		}
 
 		$this->listProperties = array(
@@ -105,7 +105,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		if ( ! $all ) {
 			$query->where('status', 1);
 		}
-		$query->where('lang', Config::get('app.locale'));
+		$query->where('locale', Config::get('app.locale'));
 
 		if ($this->model->order and $this->model->direction) {
 			$query->orderBy($this->model->order, $this->model->direction);
@@ -168,10 +168,10 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 	{
 
 		// model slugs
-		$modelSlugs = DB::table('pages_translations')->where('page_id', $id)->lists('slug', 'lang');
+		$modelSlugs = DB::table('page_translations')->where('page_id', $id)->lists('slug', 'locale');
 
 		// parent uris
-		$parentUris = DB::table('pages_translations')->where('page_id', $parent)->lists('uri', 'lang');
+		$parentUris = DB::table('page_translations')->where('page_id', $parent)->lists('uri', 'locale');
 
 		// transform URI
 		foreach (Config::get('app.locales') as $locale) {
@@ -183,7 +183,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 				// Check uri is unique
 				$tmpUri = $uri;
 				$i = 0;
-				while (DB::table('pages_translations')->where('uri', $tmpUri)->where('page_id', '!=', $id)->first()) {
+				while (DB::table('page_translations')->where('uri', $tmpUri)->where('page_id', '!=', $id)->first()) {
 					$i ++;
 					// increment uri if exists
 					$tmpUri = $uri.'-'.$i;
@@ -192,9 +192,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 				// update uri if needed
 				if ($uri != $this->uris[$id][$locale]) {
-					DB::table('pages_translations')
+					DB::table('page_translations')
 						->where('page_id', '=', $id)
-						->where('lang', '=', $locale)
+						->where('locale', '=', $locale)
 						->update(array('uri' => $uri));
 				}
 

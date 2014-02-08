@@ -24,6 +24,8 @@ class Place extends Translatable {
 		'logo',
 		'latitude',
 		'longitude',
+		// Translatable fields
+		'info',
 	);
 	
 	/**

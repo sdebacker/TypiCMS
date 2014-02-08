@@ -1,11 +1,14 @@
 <?php namespace TypiCMS\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+
+use Dimsav\Translatable\Translatable;
+
 use TypiCMS\NestedCollection;
 use Input;
 use Carbon\Carbon;
 
-class Event extends EloquentTranslatable {
+class Event extends Translatable {
 
 	protected $fillable = array(
 		'start_date',
@@ -54,17 +57,12 @@ class Event extends EloquentTranslatable {
 	 *
 	 * @var array
 	 */
-	public static $translatable = array(
-		'translationModel' => 'TypiCMS\Models\EventTranslation',
-		'relationshipField' => 'event_id',
-		'localeField' => 'lang',
-		'translatables' => array(
-			'title',
-			'slug',
-			'status',
-			'summary',
-			'body',
-		)
+	public $translatedAttributes = array(
+		'title',
+		'slug',
+		'status',
+		'summary',
+		'body',
 	);
 
 

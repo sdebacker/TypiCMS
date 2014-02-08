@@ -1,1 +1,0 @@
-<p>{{ $record->title }}</p>

@@ -22,7 +22,7 @@ class NewsTranslation extends Eloquent {
 			if ($slug) {
 				$i = 0;
 				// Check uri is unique
-				while ($self::where('slug', $model->slug)->where('lang', $model->lang)->first()) {
+				while ($self::where('slug', $model->slug)->where('locale', $model->locale)->first()) {
 					$i++;
 					// increment uri if exists
 					$model->slug = $slug.'-'.$i;
@@ -40,7 +40,7 @@ class NewsTranslation extends Eloquent {
 			if ($slug) {
 				$i = 0;
 				// Check uri is unique
-				while ($self::where('slug', $model->slug)->where('id', '!=', $model->id)->where('lang', $model->lang)->first()) {
+				while ($self::where('slug', $model->slug)->where('id', '!=', $model->id)->where('locale', $model->locale)->first()) {
 					$i++;
 					// increment uri if exists
 					$model->slug = $slug.'-'.$i;

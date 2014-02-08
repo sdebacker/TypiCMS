@@ -52,7 +52,7 @@ abstract class RepositoriesAbstract {
 		$this->model->files and $query->with(array('files' => function($query)
 			{
 				$query->joinTranslations();
-				$query->where('lang', Config::get('app.locale'));
+				$query->where('locale', Config::get('app.locale'));
 				$query->where('status', 1);
 				$query->orderBy('position', 'asc');
 			})
@@ -204,13 +204,13 @@ abstract class RepositoriesAbstract {
 			->with(array('translations' => function($query)
 				{
 					$query->where('status', 1);
-					$query->where('lang', Config::get('app.locale'));
+					$query->where('locale', Config::get('app.locale'));
 				})
 			)
 			->with(array('files' => function($query)
 				{
 					$query->joinTranslations();
-					$query->where('lang', Config::get('app.locale'));
+					$query->where('locale', Config::get('app.locale'));
 					$query->where('status', 1);
 					$query->orderBy('position', 'asc');
 				})

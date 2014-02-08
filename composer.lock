@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fe0400e7615057a081d3173f31141e37",
+    "hash": "d9f88110323cfe8c940df3a85dce04c3",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -830,50 +830,6 @@
                 "web service"
             ],
             "time": "2014-02-07 19:57:56"
-        },
-        {
-            "name": "ink/ink-translatable",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/orkhan/InkTranslatable.git",
-                "reference": "7956458cf2cc32a2fa5f8066c2459569c9b3fbc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/orkhan/InkTranslatable/zipball/7956458cf2cc32a2fa5f8066c2459569c9b3fbc1",
-                "reference": "7956458cf2cc32a2fa5f8066c2459569c9b3fbc1",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "~4",
-                "illuminate/support": "~4",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Ink\\InkTranslatable": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Orkhan",
-                    "email": "o@inkster.az"
-                }
-            ],
-            "description": "Easy translation manipulation of your Eloquent models in Laravel 4.",
-            "homepage": "https://github.com/orkhan/InkTranslatable",
-            "keywords": [
-                "eloquent",
-                "laravel",
-                "translatable"
-            ],
-            "time": "2014-02-04 22:21:44"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -2655,7 +2611,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ink/ink-translatable": 20,
         "jwage/easy-csv": 20,
         "thujohn/rss": 20,
         "thomaswelton/laravel-gravatar": 20,

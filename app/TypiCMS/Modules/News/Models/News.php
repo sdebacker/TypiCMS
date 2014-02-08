@@ -11,6 +11,12 @@ class News extends Translatable {
 
 	protected $fillable = array(
 		'date',
+		// Translatable fields
+		'title',
+		'slug',
+		'status',
+		'summary',
+		'body',
 	);
 	
 	/**
