@@ -10,8 +10,25 @@ class Category extends Translatable {
 
 	protected $fillable = array(
 		'position',
+		// Translatable fields
+		'title',
+		'slug',
+		'status',
 	);
 	
+
+	/**
+	 * Translatable model configs.
+	 *
+	 * @var array
+	 */
+	public $translatedAttributes = array(
+		'title',
+		'slug',
+		'status',
+	);
+
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -38,17 +55,6 @@ class Category extends Translatable {
 		return $this->hasMany('TypiCMS\Models\Project');
 	}
 
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'title',
-		'slug',
-		'status',
-	);
 
 	/**
 	 * Custom collection

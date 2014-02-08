@@ -28,6 +28,15 @@ class Place extends Translatable {
 		'info',
 	);
 	
+
+	/**
+	 * Translatable model configs.
+	 *
+	 * @var array
+	 */
+	public $translatedAttributes = array('info');
+
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -52,14 +61,6 @@ class Place extends Translatable {
 	 * @var string
 	 */
 	public $itemsPerPage = 10;
-
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array('info');
 
 
 	/**

@@ -294,7 +294,7 @@ class ListBuilder {
 				->join('categories_translations', 'categories_translations.category_id', '=', 'categories.id')
 				->where('categories.id', $id)
 				->where('categories_translations.status', 1)
-				->lists('slug', 'lang');
+				->lists('slug', 'locale');
 		}
 
 		$languagesMenu = array();

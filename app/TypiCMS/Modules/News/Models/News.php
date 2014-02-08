@@ -19,6 +19,21 @@ class News extends Translatable {
 		'body',
 	);
 	
+
+	/**
+	 * Translatable model configs.
+	 *
+	 * @var array
+	 */
+	public $translatedAttributes = array(
+		'title',
+		'slug',
+		'status',
+		'summary',
+		'body',
+	);
+
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -52,20 +67,6 @@ class News extends Translatable {
 	{
 		return $this->morphMany('TypiCMS\Models\File', 'fileable');
 	}
-
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'title',
-		'slug',
-		'status',
-		'summary',
-		'body',
-	);
 
 
 	/**

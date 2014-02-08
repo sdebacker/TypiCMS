@@ -72,7 +72,6 @@ class FilesController extends BaseController {
 		// d($relatedModel);
 
 		$this->title['child'] = trans('modules.files.Edit');
-		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.files.edit')
 			->with('model', $model);

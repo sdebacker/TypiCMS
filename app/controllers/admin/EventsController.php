@@ -49,10 +49,8 @@ class EventsController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$model = $this->repository->byId($model->id);
 
 		$this->title['child'] = trans('modules.events.Edit');
-		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.events.edit')
 			->with('model', $model);

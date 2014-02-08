@@ -19,7 +19,34 @@ class Page extends Translatable {
 		'css',
 		'js',
 		'template',
+		// Translatable fields
+		'title',
+		'slug',
+		'uri',
+		'status',
+		'body',
+		'meta_title',
+		'meta_keywords',
+		'meta_description',
 	);
+
+
+	/**
+	 * Translatable model configs.
+	 *
+	 * @var array
+	 */
+	public $translatedAttributes = array(
+		'title',
+		'slug',
+		'uri',
+		'status',
+		'body',
+		'meta_title',
+		'meta_keywords',
+		'meta_description',
+	);
+
 
 	/**
 	 * The database table used by the model.
@@ -77,22 +104,6 @@ class Page extends Translatable {
 		return $query;
 	}
 
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'title',
-		'slug',
-		'uri',
-		'status',
-		'body',
-		'meta_title',
-		'meta_keywords',
-		'meta_description',
-	);
 
 	/**
 	 * Custom collection

@@ -18,8 +18,27 @@ class Menulink extends Translatable {
 		'restricted_to',
 		'class',
 		'link_type',
+		// Translatable fields
+		'title',
+		'uri',
+		'url',
+		'status',
 	);
 	
+
+	/**
+	 * Translatable model configs.
+	 *
+	 * @var array
+	 */
+	public $translatedAttributes = array(
+		'title',
+		'uri',
+		'url',
+		'status',
+	);
+
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -71,19 +90,6 @@ class Menulink extends Translatable {
 	{
 		return $this->belongsTo('TypiCMS\Models\Menu');
 	}
-
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'title',
-		'uri',
-		'url',
-		'status',
-	);
 
 
 	/**

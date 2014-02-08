@@ -22,8 +22,27 @@ class File extends Translatable {
 		'filesize',
 		'download_count',
 		'position',
+		// Translatable fields
+		'keywords',
+		'description',
+		'alt_attribute',
+		'status',
 	);
 	
+
+	/**
+	 * Translatable model configs.
+	 *
+	 * @var array
+	 */
+	public $translatedAttributes = array(
+		'keywords',
+		'description',
+		'alt_attribute',
+		'status',
+	);
+
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -41,18 +60,6 @@ class File extends Translatable {
 	public $order = 'position';
 	public $direction = 'asc';
 
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'keywords',
-		'description',
-		'alt_attribute',
-		'status',
-	);
 
  	/**
 	 * Polymorphic relation.

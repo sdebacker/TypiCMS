@@ -62,7 +62,6 @@ class MenuLinksController extends BaseController {
 	public function edit($menu, $model)
 	{
 		$this->title['child'] = trans('modules.menulinks.Edit');
-		$model->setTranslatedFields();
 
 		$selectPages = $this->repository->getPagesForSelect();
 		$selectModules = $this->repository->getModulesForSelect();

@@ -49,10 +49,8 @@ class ProjectsController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$model = $this->repository->byId($model->id);
 
 		$this->title['child'] = trans('modules.projects.Edit');
-		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.projects.edit')
 			->with('model', $model);

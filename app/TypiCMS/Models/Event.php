@@ -15,8 +15,29 @@ class Event extends Translatable {
 		'end_date',
 		'start_time',
 		'end_time',
+		// Translatable fields
+		'title',
+		'slug',
+		'status',
+		'summary',
+		'body',
 	);
 	
+
+	/**
+	 * Translatable model configs.
+	 *
+	 * @var array
+	 */
+	public $translatedAttributes = array(
+		'title',
+		'slug',
+		'status',
+		'summary',
+		'body',
+	);
+
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -50,20 +71,6 @@ class Event extends Translatable {
 	{
 		return $this->morphMany('TypiCMS\Models\File', 'fileable');
 	}
-
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'title',
-		'slug',
-		'status',
-		'summary',
-		'body',
-	);
 
 
 	/**

@@ -55,7 +55,6 @@ class PagesController extends BaseController {
 		$model->load('files', 'files.translations');
 
 		$this->title['child'] = trans('modules.pages.Edit');
-		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('admin.pages.edit')
 			->withModel($model);

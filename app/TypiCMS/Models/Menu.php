@@ -12,7 +12,22 @@ class Menu extends Translatable {
 
 	protected $fillable = array(
 		'name',
+		// Translatable fields
+		'title',
+		'status',
 	);
+
+
+	/**
+	 * Translatable model configs.
+	 *
+	 * @var array
+	 */
+	public $translatedAttributes = array(
+		'title',
+		'status',
+	);
+
 	
 	/**
 	 * The database table used by the model.
@@ -64,17 +79,6 @@ class Menu extends Translatable {
 	 */
 	public static $rules = array(
 		'name' => 'required',
-	);
-
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'title',
-		'status',
 	);
 
 

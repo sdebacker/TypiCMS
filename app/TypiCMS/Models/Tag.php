@@ -1,7 +1,6 @@
 <?php namespace TypiCMS\Models;
 
 use Illuminate\Database\Eloquent\Collection;
-use TypiCMS\NestedCollection;
 
 class Tag extends Eloquent {
 
@@ -23,16 +22,5 @@ class Tag extends Eloquent {
 	 */
 	public $order = 'id';
 	public $direction = 'desc';
-
-
-	/**
-	 * Custom collection
-	 *
-	 * @return InvoiceCollection object
-	 */
-	public function newCollection(array $models = array())
-	{
-		return new NestedCollection($models);
-	}
 
 }

@@ -4,7 +4,6 @@ use Eloquent;
 
 class PageTranslation extends Eloquent {
 
-
 	/**
 	 * Observers
 	 */
@@ -20,14 +19,14 @@ class PageTranslation extends Eloquent {
 			$model->uri = null;
 			if ($model->slug) {
 				$slug = $model->slug;
-				$model->uri = $model->lang.'/'.$slug;
+				$model->uri = $model->locale.'/'.$slug;
 
 				$i = 0;
 				// Check uri is unique
 				while ($self::where('uri', $model->uri)->first()) {
 					$i++;
 					// increment uri if exists
-					$model->uri = $model->lang.'/'.$model->slug.'-'.$i;
+					$model->uri = $model->locale.'/'.$model->slug.'-'.$i;
 				}
 
 			}
