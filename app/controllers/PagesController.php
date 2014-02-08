@@ -24,7 +24,7 @@ class PagesController extends BaseController {
 	{
 		$model = $this->repository->getHomePage();
 
-		return $this->show($model->id);
+		return $model ? $this->show($model->id) : trans('global.No default page found') ;
 
 	}
 

@@ -48,7 +48,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 	public function getHomePage()
 	{
-		return $this->model->where('is_home', 1)->firstOrFail();
+		return $this->model->where('is_home', 1)->first();
 	}
 
 
