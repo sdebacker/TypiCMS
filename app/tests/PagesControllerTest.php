@@ -3,25 +3,26 @@ use TypiCMS\Models\Page;
 
 class PagesControllerTest extends TestCase {
 
-	// public function testRoot()
-	// {
-	// 	$this->get('/');
-	// }
-
-	// public function testHomepages()
-	// {
-	// 	foreach (Config::get('app.locales') as $locale) {
-	// 		$this->get($locale);
-	// 	}
-	// }
 	public function tearDown()
 	{
 		Mockery::close();
 	}
 
+	public function testRoot()
+	{
+		$this->get('/');
+	}
+
+	public function testHomepages()
+	{
+		foreach (Config::get('app.locales') as $locale) {
+			$this->get($locale);
+		}
+	}
+
 	public function testAdminIndex()
 	{
-		Page::shouldReceive('buildList')->once();
+		// Page::shouldReceive('getAll')->once();
 
 		$view = 'admin.pages.index';
 		$this->registerNestedView($view);
