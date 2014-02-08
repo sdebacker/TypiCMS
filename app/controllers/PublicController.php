@@ -18,7 +18,7 @@ class PublicController extends BaseController {
 
 		if ( ! Config::get('typicms.langChooser')) {
 
-			$locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+			$locale = substr(getenv('HTTP_ACCEPT_LANGUAGE'), 0, 2);
 			! in_array($locale, $locales) and $locale = Config::get('app.locale');
 
 			return Redirect::route($locale);
