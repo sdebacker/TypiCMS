@@ -10,7 +10,21 @@ use Carbon\Carbon;
 
 class Place extends Translatable {
 
-	protected $guarded = array();
+	protected $fillable = array(
+		'status',
+		'position',
+		'title',
+		'slug',
+		'address',
+		'email',
+		'phone',
+		'fax',
+		'website',
+		'image',
+		'logo',
+		'latitude',
+		'longitude',
+	);
 	
 	/**
 	 * The database table used by the model.

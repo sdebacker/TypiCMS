@@ -30,7 +30,7 @@ class CreateNewsTable extends Migration {
 			$table->increments('id')->unsigned();
 			$table->integer('news_id')->unsigned();
 
-			$table->string('lang');
+			$table->string('locale')->index();
 
 			$table->tinyInteger('status');
 
@@ -42,7 +42,8 @@ class CreateNewsTable extends Migration {
 
 			$table->timestamps();
 
-			$table->unique(array('lang', 'slug'));
+			$table->unique(array('news_id', 'locale'));
+			$table->foreign('news_id')->references('id')->on('news');
 			
 		});
 	}
@@ -54,6 +55,11 @@ class CreateNewsTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('news_translations', function($table)
+		{
+			$table->dropForeign('news_translations_news_id_foreign');
+		});
+
 		Schema::drop('news');
 		Schema::drop('news_translations');
 	}

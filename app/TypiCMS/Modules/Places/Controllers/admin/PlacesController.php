@@ -93,6 +93,7 @@ class PlacesController extends BaseController {
 	 */
 	public function store()
 	{
+
 		if ( $model = $this->form->save( Input::all() ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.places.index') : Redirect::route('admin.places.edit', $model->id) ;
 		}
@@ -112,6 +113,7 @@ class PlacesController extends BaseController {
 	 */
 	public function update($model)
 	{
+
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
 		if ( $this->form->update( Input::all() ) ) {
@@ -122,6 +124,7 @@ class PlacesController extends BaseController {
 			->withInput()
 			->withErrors($this->form->errors());
 	}
+
 
 	/**
 	 * Update the specified resource in storage.

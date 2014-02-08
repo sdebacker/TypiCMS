@@ -1,15 +1,8 @@
-<?php namespace TypiCMS\Models;
+<?php namespace TypiCMS\Modules\News\Models;
 
 use Eloquent;
 
 class NewsTranslation extends Eloquent {
-	
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'news_translations';
 
 	/**
 	 * Observers

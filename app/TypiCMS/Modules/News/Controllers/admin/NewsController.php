@@ -39,7 +39,7 @@ class NewsController extends BaseController {
 		$this->title['child'] = trans('modules.news.New');
 		$model = $this->repository->getModel();
 		$this->layout->content = View::make('news.admin.create')
-			->with('model', $model);
+			->withModel($model);
 	}
 
 
@@ -51,13 +51,10 @@ class NewsController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$model = $this->repository->byId($model->id);
-
 		$this->title['child'] = trans('modules.news.Edit');
-		$model->setTranslatedFields();
 		Former::populate($model);
 		$this->layout->content = View::make('news.admin.edit')
-			->with('model', $model);
+			->withModel($model);
 	}
 
 
@@ -110,17 +107,6 @@ class NewsController extends BaseController {
 		return Redirect::route( 'admin.news.edit', $model->id )
 			->withInput()
 			->withErrors($this->form->errors());
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function sort()
-	{
-		$sort = $this->repository->sort( Input::all() );
 	}
 
 

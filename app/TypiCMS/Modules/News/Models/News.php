@@ -1,11 +1,13 @@
 <?php namespace TypiCMS\Modules\News\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+
+use Dimsav\Translatable\Translatable;
+
 use Input;
 use Carbon\Carbon;
-use \TypiCMS\Models\EloquentTranslatable;
 
-class News extends EloquentTranslatable {
+class News extends Translatable {
 
 	protected $fillable = array(
 		'date',
@@ -34,7 +36,7 @@ class News extends EloquentTranslatable {
 	 *
 	 * @var string
 	 */
-	public $itemsPerPage = 25;
+	public $itemsPerPage = 10;
 
 
 	/**
@@ -51,18 +53,22 @@ class News extends EloquentTranslatable {
 	 *
 	 * @var array
 	 */
-	public static $translatable = array(
-		'translationModel' => 'TypiCMS\Models\NewsTranslation',
-		'relationshipField' => 'news_id',
-		'localeField' => 'lang',
-		'translatables' => array(
-			'title',
-			'slug',
-			'status',
-			'summary',
-			'body',
-		)
+	public $translatedAttributes = array(
+		'title',
+		'slug',
+		'status',
+		'summary',
+		'body',
 	);
+
+
+	/**
+	 * Relations
+	 */
+	public function translations()
+	{
+		return $this->hasMany('TypiCMS\Modules\News\Models\NewsTranslation');
+	}
 
 
 	/**
