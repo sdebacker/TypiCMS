@@ -90,65 +90,18 @@
         ]
     },
     {
-        "name": "nikic/php-parser",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nikic/PHP-Parser.git",
-            "reference": "6f36a88993a07d0ccd52d813ceff27de022429c3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/6f36a88993a07d0ccd52d813ceff27de022429c3",
-            "reference": "6f36a88993a07d0ccd52d813ceff27de022429c3",
-            "shasum": ""
-        },
-        "require": {
-            "ext-tokenizer": "*",
-            "php": ">=5.2"
-        },
-        "time": "2014-01-24 19:27:42",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "0.9-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "PHPParser": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Nikita Popov"
-            }
-        ],
-        "description": "A PHP parser written in PHP",
-        "keywords": [
-            "parser",
-            "php"
-        ]
-    },
-    {
         "name": "guzzle/guzzle",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "d25d49f2edb9336c3f25af7264cfe013e8d61b3e"
+            "reference": "246cd09118283dce6d2974ace71d666d8a9f26f6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d25d49f2edb9336c3f25af7264cfe013e8d61b3e",
-            "reference": "d25d49f2edb9336c3f25af7264cfe013e8d61b3e",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/246cd09118283dce6d2974ace71d666d8a9f26f6",
+            "reference": "246cd09118283dce6d2974ace71d666d8a9f26f6",
             "shasum": ""
         },
         "require": {
@@ -189,7 +142,7 @@
             "zendframework/zend-cache": "<2.3",
             "zendframework/zend-log": "<2.3"
         },
-        "time": "2014-02-05 20:56:26",
+        "time": "2014-02-07 19:57:56",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -372,12 +325,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "4814e79f3f8187824cd5332f0b67730514c041fc"
+            "reference": "6cabe95f23322735f446b00ca8582b6c875dcbfe"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/4814e79f3f8187824cd5332f0b67730514c041fc",
-            "reference": "4814e79f3f8187824cd5332f0b67730514c041fc",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6cabe95f23322735f446b00ca8582b6c875dcbfe",
+            "reference": "6cabe95f23322735f446b00ca8582b6c875dcbfe",
             "shasum": ""
         },
         "require": {
@@ -401,7 +354,7 @@
             "raven/raven": "Allow sending log messages to a Sentry server",
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
         },
-        "time": "2014-02-06 12:42:34",
+        "time": "2014-02-06 20:35:10",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2560,12 +2513,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "37f092595bcc8de1c94570b5dbf3b0718f0e569a"
+            "reference": "c4f5e7d5c654a9f8277b1814a7b18a33374eb9e6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/37f092595bcc8de1c94570b5dbf3b0718f0e569a",
-            "reference": "37f092595bcc8de1c94570b5dbf3b0718f0e569a",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/c4f5e7d5c654a9f8277b1814a7b18a33374eb9e6",
+            "reference": "c4f5e7d5c654a9f8277b1814a7b18a33374eb9e6",
             "shasum": ""
         },
         "require": {
@@ -2633,7 +2586,7 @@
         "suggest": {
             "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
         },
-        "time": "2014-02-05 22:36:20",
+        "time": "2014-02-07 15:03:01",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2679,12 +2632,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/padraic/mockery.git",
-            "reference": "0fd49fd3f6c984409802004b1dd7b55d0f35ce4a"
+            "reference": "a060e069b4f46159906296d25ae80c6b0fec8daf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/padraic/mockery/zipball/0fd49fd3f6c984409802004b1dd7b55d0f35ce4a",
-            "reference": "0fd49fd3f6c984409802004b1dd7b55d0f35ce4a",
+            "url": "https://api.github.com/repos/padraic/mockery/zipball/a060e069b4f46159906296d25ae80c6b0fec8daf",
+            "reference": "a060e069b4f46159906296d25ae80c6b0fec8daf",
             "shasum": ""
         },
         "require": {
@@ -2695,7 +2648,7 @@
             "hamcrest/hamcrest-php": "~1.1",
             "satooshi/php-coveralls": "dev-master"
         },
-        "time": "2014-02-05 21:30:08",
+        "time": "2014-02-08 11:17:53",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2737,6 +2690,53 @@
             "test",
             "test double",
             "testing"
+        ]
+    },
+    {
+        "name": "nikic/php-parser",
+        "version": "0.9.x-dev",
+        "version_normalized": "0.9.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nikic/PHP-Parser.git",
+            "reference": "6f36a88993a07d0ccd52d813ceff27de022429c3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/6f36a88993a07d0ccd52d813ceff27de022429c3",
+            "reference": "6f36a88993a07d0ccd52d813ceff27de022429c3",
+            "shasum": ""
+        },
+        "require": {
+            "ext-tokenizer": "*",
+            "php": ">=5.2"
+        },
+        "time": "2014-01-24 19:27:42",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.9-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PHPParser": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Nikita Popov"
+            }
+        ],
+        "description": "A PHP parser written in PHP",
+        "keywords": [
+            "parser",
+            "php"
         ]
     }
 ]

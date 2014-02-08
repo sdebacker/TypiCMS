@@ -32,7 +32,7 @@
 	},
 	"require-dev": {
 		"raveren/kint": "dev-master",
-		"mockery/mockery": "dev-master@dev"
+		"mockery/mockery": "0.9.*@dev"
 	},
 	"autoload": {
 		"classmap": [
