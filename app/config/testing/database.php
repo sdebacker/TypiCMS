@@ -2,20 +2,13 @@
 
 return array(
 
-
+	'default' => 'sqlite',
 	'connections' => array(
-
-		'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'typicms',
-			'username'  => 'root',
-			'password'  => '',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => 'typi_',
+		'sqlite' => array(
+			'driver'   => 'sqlite',
+			'database' => ':memory:',
+			'prefix'   => ''
 		),
-
 	),
 
 );
