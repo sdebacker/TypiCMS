@@ -72,9 +72,9 @@ class CreateFilesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('project_translations', function($table)
+		Schema::table('file_translations', function($table)
 		{
-			$table->dropForeign('project_translations_project_id_foreign');
+			$table->dropForeign('file_translations_file_id_foreign');
 		});
 		Schema::drop('files');
 		Schema::drop('file_translations');

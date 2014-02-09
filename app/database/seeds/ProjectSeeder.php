@@ -6,7 +6,6 @@ class ProjectSeeder extends Seeder {
 
 	public function run()
 	{
-		// `typicms`.`typi_pages`
 		$typi_projects = array(
 		  array('id' => '4','category_id' => '0','created_at' => '2013-10-28 09:05:08','updated_at' => '2013-10-28 09:05:08'),
 		  array('id' => '5','category_id' => '0','created_at' => '2013-10-28 09:05:14','updated_at' => '2013-10-28 09:05:14'),
@@ -26,7 +25,6 @@ class ProjectSeeder extends Seeder {
 		  array('id' => '20','category_id' => '4','created_at' => '2013-10-28 09:38:52','updated_at' => '2013-10-28 09:38:55')
 		);
 
-		// `typicms`.`typi_project_translations`
 		$typi_project_translations = array(
 		  array('id' => '19','project_id' => '7','locale' => 'fr','status' => '1','title' => 'Sandales','slug' => 'sandales','summary' => '','body' => '','created_at' => '2013-10-28 09:36:25','updated_at' => '2013-10-28 09:36:25'),
 		  array('id' => '20','project_id' => '7','locale' => 'nl','status' => '0','title' => '','slug' => NULL,'summary' => '','body' => '','created_at' => '2013-10-28 09:36:25','updated_at' => '2013-10-28 09:36:25'),

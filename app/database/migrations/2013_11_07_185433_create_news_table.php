@@ -17,9 +17,7 @@ class CreateNewsTable extends Migration {
 			$table->engine = 'InnoDB';
 
 			$table->increments('id');
-
 			$table->timestamp('date');
-
 			$table->timestamps();
 		});
 

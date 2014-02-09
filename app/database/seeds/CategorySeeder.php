@@ -7,7 +7,6 @@ class CategorySeeder extends Seeder {
 	public function run()
 	{
 
-		// `typicms`.`typi_pages`
 		$typi_categories = array(
 		  array('id' => '1','created_at' => '2013-10-27 21:57:44','updated_at' => '2013-10-27 20:26:35'),
 		  array('id' => '2','created_at' => '2013-10-27 21:58:30','updated_at' => '2013-10-27 20:59:15'),
@@ -15,7 +14,6 @@ class CategorySeeder extends Seeder {
 		  array('id' => '4','created_at' => '2013-10-27 21:52:13','updated_at' => '2013-10-27 21:08:14')
 		);
 
-		// `typicms`.`typi_category_translations`
 		$typi_category_translations = array(
 		  array('id' => '1','category_id' => '1','locale' => 'fr','slug' => 'ete', 'title' => 'Été', 'status' => '1', 'created_at' => '0000-00-00 00:00:00','updated_at' => '0000-00-00 00:00:00'),
 		  array('id' => '2','category_id' => '1','locale' => 'nl','slug' => 'zomer', 'title' => 'Zomer', 'status' => '1', 'created_at' => '0000-00-00 00:00:00','updated_at' => '0000-00-00 00:00:00'),

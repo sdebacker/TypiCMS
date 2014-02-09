@@ -7,7 +7,6 @@ class MenuSeeder extends Seeder {
 	public function run()
 	{
 		
-		// `typicms`.`typi_menulinks`
 		$typi_menulinks = array(
 			array('id' => '1','menu_id' => '1','page_id' => '1','parent' => '0','position' => '1','target' => '','module_name' => '','restricted_to' => '','class' => '','link_type' => '','created_at' => '2013-09-03 22:08:05','updated_at' => '2014-02-04 18:58:25'),
 			array('id' => '2','menu_id' => '1','page_id' => '2','parent' => '0','position' => '7','target' => '','module_name' => '','restricted_to' => '','class' => 'menu-contact','link_type' => '','created_at' => '2013-09-03 22:08:35','updated_at' => '2014-02-04 18:58:25'),
@@ -22,7 +21,6 @@ class MenuSeeder extends Seeder {
 			array('id' => '24','menu_id' => '1','page_id' => '0','parent' => '0','position' => '6','target' => '','module_name' => 'places','restricted_to' => '','class' => '','link_type' => '','created_at' => '2014-02-04 18:58:20','updated_at' => '2014-02-04 18:59:32')
 		);
 
-		// `typicms`.`typi_menulink_translations`
 		$typi_menulink_translations = array(
 			array('id' => '1','menulink_id' => '1','locale' => 'fr','status' => '1','title' => 'Accueil','url' => '','uri' => '','created_at' => '0000-00-00 00:00:00','updated_at' => '0000-00-00 00:00:00'),
 			array('id' => '2','menulink_id' => '1','locale' => 'nl','status' => '1','title' => 'Home','url' => '','uri' => '','created_at' => '0000-00-00 00:00:00','updated_at' => '0000-00-00 00:00:00'),
