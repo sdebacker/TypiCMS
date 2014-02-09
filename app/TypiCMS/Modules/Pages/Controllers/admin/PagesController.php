@@ -8,6 +8,7 @@ use App\Controllers\Admin\BaseController;
 use View;
 use Former;
 use Input;
+use Config;
 use Redirect;
 use Request;
 
@@ -105,7 +106,17 @@ class PagesController extends BaseController {
 	{
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( Input::all() ) ) {
+		$data = Input::all();
+
+		// add checkboxes data
+		$data['rss_enabled']      = Input::get('rss_enabled');
+		$data['comments_enabled'] = Input::get('comments_enabled');
+		$data['is_home']          = Input::get('is_home');
+		foreach (Config::get('app.locales') as $locale) {
+			$data[$locale]['status'] = Input::get($locale.'.status');
+		}
+
+		if ( $this->form->update( $data ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.pages.index') : Redirect::route('admin.pages.edit', $model->id) ;
 		}
 		
