@@ -1,7 +1,7 @@
 @section('main')
 
-	{{ Former::vertical_open()->method('POST')->action(route('admin.pages.index'))->role('form') }}
+	{{ Form::open( array( 'route' => array('admin.pages.index'), 'method' => 'post' ) ) }}
 		@include('pages.admin._form')
-	{{ Former::close() }}
+	{{ Form::close() }}
 
 @stop

@@ -20,19 +20,48 @@
 			@foreach ($locales as $lang)
 
 			<div class="tab-pane fade @if ($locale == $lang)in active@endif" id="{{ $lang }}">
-				{{ Former::lg_text($lang.'[title]')->label('title')->autofocus(); }}
-				{{ Former::text($lang.'[slug]')->label('slug'); }}
+				<div class="form-group">
+					{{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
+					{{ Form::text($lang.'[title]', $model->$lang->title, array('autofocus' => 'autofocus', 'class' => 'input-lg form-control')) }}
+				</div>
+				<div class="form-group @if($errors->has($lang.'.slug'))has-error@endif">
+					{{ Form::label($lang.'[slug]', trans('validation.attributes.slug')) }}
+					{{ Form::text($lang.'[slug]', $model->$lang->title, array('class' => 'form-control')) }}
+					@if($errors->has($lang.'.slug'))
+					<span class="help-block">{{ $errors->first($lang.'.slug') }}</span>
+					@endif
+				</div>
+
+				@if($model->$lang->uri)
 				<span class="text-muted">
-					{{ trans('validation.attributes.address') }}: {{ Former::populator($lang.'[uri]')->getContent() }}
+					{{ trans('validation.attributes.address') }}: {{ $model->$lang->uri }}
 				</span>
-				{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
-				{{ Former::hidden($lang.'[uri]'); }}
-				{{ Former::textarea($lang.'[body]')->label('body')->class('form-control editor')->value(''); }}
+				@endif
+				{{ Form::hidden($lang.'[uri]') }}
+
+				<div class="form-group">
+					<label class="checkbox">
+						{{ Form::checkbox($lang.'[status]', 1, $model->$lang->status) }} @lang('validation.attributes.online')
+					</label>
+				</div>
+				<div class="form-group">
+					{{ Form::label($lang.'[body]', trans('validation.attributes.body')) }}
+					{{ Form::textarea($lang.'[body]', $model->$lang->body, array('class' => 'editor form-control')) }}
+				</div>
 
 				{{-- Metadata --}}
-				{{ Former::text($lang.'[meta_title]')->label('meta_title'); }}
-				{{ Former::text($lang.'[meta_keywords]')->label('meta_keywords'); }}
-				{{ Former::text($lang.'[meta_description]')->label('meta_description'); }}
+				<div class="form-group">
+					{{ Form::label($lang.'[meta_title]', trans('validation.attributes.meta_title')) }}
+					{{ Form::text($lang.'[meta_title]', $model->$lang->meta_title, array('class' => 'form-control')) }}
+				</div>
+				<div class="form-group">
+					{{ Form::label($lang.'[meta_keywords]', trans('validation.attributes.meta_keywords')) }}
+					{{ Form::text($lang.'[meta_keywords]', $model->$lang->meta_keywords, array('class' => 'form-control')) }}
+				</div>
+				<div class="form-group">
+					{{ Form::label($lang.'[meta_description]', trans('validation.attributes.meta_description')) }}
+					{{ Form::text($lang.'[meta_description]', $model->$lang->meta_description, array('class' => 'form-control')) }}
+				</div>
 			</div>
 
 			@endforeach
@@ -57,12 +86,33 @@
 		<div class="tab-content">
 			
 			<div class="tab-pane fade in active" id="options">
-				{{ Former::checkbox('rss_enabled')->text('rss_enabled')->label(''); }}
-				{{ Former::checkbox('comments_enabled')->text('comments_enabled')->label(''); }}
-				{{ Former::checkbox('is_home')->text('is_home')->label(''); }}
-				{{ Former::text('template'); }}
-				{{ Former::textarea('css')->rows(10); }}
-				{{ Former::textarea('js')->rows(10); }}
+				<div class="form-group">
+					<label class="checkbox">
+						{{ Form::checkbox('rss_enabled') }} @lang('validation.attributes.rss_enabled')
+					</label>
+				</div>
+				<div class="form-group">
+					<label class="checkbox">
+						{{ Form::checkbox('comments_enabled') }} @lang('validation.attributes.comments_enabled')
+					</label>
+				</div>
+				<div class="form-group">
+					<label class="checkbox">
+						{{ Form::checkbox('is_home') }} @lang('validation.attributes.is_home')
+					</label>
+				</div>
+				<div class="form-group">
+					{{ Form::label('template', trans('validation.attributes.template')) }}
+					{{ Form::text('template', null, array('class' => 'form-control')) }}
+				</div>
+				<div class="form-group">
+					{{ Form::label('css', trans('validation.attributes.css')) }}
+					{{ Form::textarea('css', null, array('class' => 'form-control')) }}
+				</div>
+				<div class="form-group">
+					{{ Form::label('js', trans('validation.attributes.js')) }}
+					{{ Form::textarea('js', null, array('class' => 'form-control')) }}
+				</div>
 			</div>
 
 			@if(isset($model->files))

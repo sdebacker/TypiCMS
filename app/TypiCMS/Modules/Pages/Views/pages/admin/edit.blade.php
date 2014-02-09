@@ -1,7 +1,7 @@
 @section('main')
 
-		{{ Former::vertical_open()->method('PATCH')->action(route('admin.pages.update', $model->id))->role('form') }}
-			@include('pages.admin._form')
-		{{ Former::close() }}
+	{{ Form::model( $model, array( 'route' => array('admin.pages.update', $model->id), 'method' => 'patch' ) ) }}
+		@include('pages.admin._form')
+	{{ Form::close() }}
 
 @stop
