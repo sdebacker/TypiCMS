@@ -5,6 +5,6 @@
 	<p>Date début : {{ $model->date }}</p>
 	<p>Heure début : {{ $model->time }}</p>
 
-	@include('public.files._list', array('files' => $model->files))
+	@include('files.public._list', array('files' => $model->files))
 
 @stop

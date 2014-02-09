@@ -1,5 +1,5 @@
 <?php
-use TypiCMS\Models\News;
+use TypiCMS\Modules\News\Models\News;
 
 class NewsControllerTest extends TestCase {
 

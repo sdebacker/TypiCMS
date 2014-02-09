@@ -8,6 +8,13 @@ class StartProvider extends ServiceProvider {
 
         $this->app->register('TypiCMS\Modules\News\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Places\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Events\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Projects\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Pages\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Menus\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Menulinks\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Files\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Categories\Providers\ModuleProvider');
 
     }
 

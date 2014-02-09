@@ -21,21 +21,10 @@ Route::post('users/resetpassword', 'App\Controllers\Admin\UsersController@postRe
 Route::get('users/changepassword/{userid}/{resetcode}', array('as' => 'changepassword', 'uses' => 'App\Controllers\Admin\UsersController@getChangepassword'));
 Route::post('users/changepassword/{userid}/{resetcode}', 'App\Controllers\Admin\UsersController@postChangepassword');
 
-/**
- * Model binding.
- */
-Route::model('pages', 'TypiCMS\Models\Page');
-Route::model('menus', 'TypiCMS\Models\Menu');
-Route::model('menulinks', 'TypiCMS\Models\Menulink');
-Route::model('events', 'TypiCMS\Models\Event');
-Route::model('projects', 'TypiCMS\Models\Project');
-Route::model('categories', 'TypiCMS\Models\Category');
-Route::model('files', 'TypiCMS\Models\File');
-
 if (Request::segment(1) != 'admin') {
 	
 	Route::bind('categories', function($value, $route){
-		return TypiCMS\Models\Category::select('categories.id AS id', 'slug', 'status')
+		return TypiCMS\Modules\Categories\Models\Category::select('categories.id AS id', 'slug', 'status')
 			->join('category_translations', 'categories.id', '=', 'category_translations.category_id')
 			->where('slug', $value)
 			->where('status', 1)
@@ -53,34 +42,14 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 	Route::get('backup', array('as' => 'backup', 'uses' => 'App\Controllers\Admin\DashboardController@backup'));
 
 	Route::resource('settings', 'App\Controllers\Admin\SettingsController');
-
-	Route::resource('pages', 'App\Controllers\Admin\PagesController');
-	Route::post('pages/sort', array('as' => 'admin.pages.sort', 'uses' => 'App\Controllers\Admin\PagesController@sort'));
-
-	Route::resource('events', 'App\Controllers\Admin\EventsController');
-
-	Route::resource('categories', 'App\Controllers\Admin\CategoriesController');
-	Route::post('categories/sort', array('as' => 'admin.categories.sort', 'uses' => 'App\Controllers\Admin\CategoriesController@sort'));
-
-	Route::resource('projects', 'App\Controllers\Admin\ProjectsController');
-	Route::resource('addresses', 'App\Controllers\Admin\AddressesController');
-	Route::resource('partners', 'App\Controllers\Admin\PartnersController');
 	
 	Route::resource('users', 'App\Controllers\Admin\UsersController');
 
-	Route::resource('files', 'App\Controllers\Admin\FilesController');
-	Route::post('files/sort', array('as' => 'admin.files.sort', 'uses' => 'App\Controllers\Admin\FilesController@sort'));
-
-	Route::resource('news.files', 'App\Controllers\Admin\FilesController');
-	Route::resource('pages.files', 'App\Controllers\Admin\FilesController');
-	Route::resource('events.files', 'App\Controllers\Admin\FilesController');
-	Route::resource('partners.files', 'App\Controllers\Admin\FilesController');
-	Route::resource('projects.files', 'App\Controllers\Admin\FilesController');
-	Route::post('files/upload', array('as' => 'admin.files.upload', 'uses' => 'App\Controllers\Admin\FilesController@upload'));
-
-	Route::resource('menus', 'App\Controllers\Admin\MenusController');
-	Route::resource('menus.menulinks', 'App\Controllers\Admin\MenuLinksController');
-	Route::post('menus/{menus}/menulinks/sort', array('as' => 'admin.menus.menulinks.sort', 'uses' => 'App\Controllers\Admin\MenuLinksController@sort'));
+	Route::resource('news.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
+	Route::resource('pages.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
+	Route::resource('events.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
+	Route::resource('partners.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
+	Route::resource('projects.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
 
 });
 
@@ -113,7 +82,7 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 		$pages = $queryPages->get();
 
 		foreach ($pages as $page) {
-			Route::get($page->uri, array('as' => $page->locale.'.pages.'.$page->id, 'uses' => 'App\Controllers\PagesController@uri'));
+			Route::get($page->uri, array('as' => $page->locale.'.pages.'.$page->id, 'uses' => 'TypiCMS\Modules\Pages\Controllers\PagesController@uri'));
 		}
 
 		// Build routes from menulinks (modules)
@@ -148,9 +117,9 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 		// projects routes
 		if (isset($menulinksArray['projects'])) {
 			foreach ($menulinksArray['projects'] as $lang => $uri) {
-				Route::get($uri, array('as' => $lang.'.projects', 'uses' => 'App\Controllers\ProjectsController@index'));
-				Route::get($uri.'/{categories}', array('as' => $lang.'.projects.categories', 'uses' => 'App\Controllers\ProjectsController@index'));
-				Route::get($uri.'/{categories}/{slug}', array('as' => $lang.'.projects.categories.slug', 'uses' => 'App\Controllers\ProjectsController@show'));
+				Route::get($uri, array('as' => $lang.'.projects', 'uses' => 'TypiCMS\Modules\Projects\Controllers\ProjectsController@index'));
+				Route::get($uri.'/{categories}', array('as' => $lang.'.projects.categories', 'uses' => 'TypiCMS\Modules\Projects\Controllers\ProjectsController@index'));
+				Route::get($uri.'/{categories}/{slug}', array('as' => $lang.'.projects.categories.slug', 'uses' => 'TypiCMS\Modules\Projects\Controllers\ProjectsController@show'));
 			}
 			unset($menulinksArray['projects']);
 		}
@@ -158,8 +127,8 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 		// modules routes
 		foreach ($menulinksArray as $module => $moduleArray) {
 			foreach ($moduleArray as $lang => $uri) {
-				Route::get($uri, array('as' => $lang.'.'.$module, 'uses' => 'App\Controllers\\'.ucfirst($module).'Controller@index'));
-				Route::get($uri.'/{slug}', array('as' => $lang.'.'.$module.'.slug', 'uses' => 'App\Controllers\\'.ucfirst($module).'Controller@show'));
+				Route::get($uri, array('as' => $lang.'.'.$module, 'uses' => 'TypiCMS\Modules\\'.ucfirst($module).'\Controllers\\'.ucfirst($module).'Controller@index'));
+				Route::get($uri.'/{slug}', array('as' => $lang.'.'.$module.'.slug', 'uses' => 'TypiCMS\Modules\\'.ucfirst($module).'\Controllers\\'.ucfirst($module).'Controller@show'));
 			}
 		}
 
@@ -185,7 +154,7 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 
 	// Homepages (for each language)
 	foreach (Config::get('app.locales') as $locale) {
-		Route::get($locale, array('as' => $locale, 'uses' => 'App\Controllers\PagesController@homepage'));
+		Route::get($locale, array('as' => $locale, 'uses' => 'TypiCMS\Modules\Pages\Controllers\PagesController@homepage'));
 	}
 
 });

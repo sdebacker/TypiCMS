@@ -7,7 +7,7 @@ use App;
 use Sentry;
 use Request;
 
-use TypiCMS\Models\Menulink;
+use TypiCMS\Modules\Menulinks\Models\Menulink;
 use TypiCMS\Services\Helpers;
 use TypiCMS\Services\ListBuilder\ListBuilder;
 use Illuminate\Support\Collection;

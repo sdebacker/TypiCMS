@@ -65,7 +65,7 @@ class News extends Translatable {
 	 */
 	public function files()
 	{
-		return $this->morphMany('TypiCMS\Models\File', 'fileable');
+		return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
 	}
 
 

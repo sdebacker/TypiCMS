@@ -1,5 +1,5 @@
 <?php
-use TypiCMS\Models\Page;
+use TypiCMS\Modules\Pages\Models\Page;
 
 class PagesControllerTest extends TestCase {
 
@@ -24,7 +24,7 @@ class PagesControllerTest extends TestCase {
 	{
 		// Page::shouldReceive('getAll')->once();
 
-		$view = 'admin.pages.index';
+		$view = 'pages.admin.index';
 		$this->registerNestedView($view);
 		$this->get('admin/pages');
 		$this->assertNestedViewHas($view, 'models');

@@ -1,5 +1,5 @@
 <?php
-use TypiCMS\Models\Place;
+use TypiCMS\Modules\Places\Models\Place;
 
 class PlacesControllerTest extends TestCase {
 

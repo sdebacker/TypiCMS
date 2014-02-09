@@ -36,7 +36,7 @@ class FormServiceProvider extends ServiceProvider {
 		{
 			return new PageForm(
 				new PageFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Repositories\Page\PageInterface')
+				$app->make('TypiCMS\Modules\Pages\Repositories\PageInterface')
 			);
 		});
 
@@ -44,7 +44,7 @@ class FormServiceProvider extends ServiceProvider {
 		{
 			return new FileForm(
 				new FileFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Repositories\File\FileInterface')
+				$app->make('TypiCMS\Modules\Files\Repositories\FileInterface')
 			);
 		});
 		
@@ -52,7 +52,7 @@ class FormServiceProvider extends ServiceProvider {
 		{
 			return new MenuForm(
 				new MenuFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Repositories\Menu\MenuInterface')
+				$app->make('TypiCMS\Modules\Menus\Repositories\MenuInterface')
 			);
 		});
 		
@@ -60,7 +60,7 @@ class FormServiceProvider extends ServiceProvider {
 		{
 			return new MenulinkForm(
 				new MenulinkFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Repositories\Menulink\MenulinkInterface')
+				$app->make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')
 			);
 		});
 
@@ -68,7 +68,7 @@ class FormServiceProvider extends ServiceProvider {
 		{
 			return new EventForm(
 				new EventFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Repositories\Event\EventInterface')
+				$app->make('TypiCMS\Modules\Events\Repositories\EventInterface')
 			);
 		});
 
@@ -84,7 +84,7 @@ class FormServiceProvider extends ServiceProvider {
 		{
 			return new ProjectForm(
 				new ProjectFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Repositories\Project\ProjectInterface')
+				$app->make('TypiCMS\Modules\Projects\Repositories\ProjectInterface')
 			);
 		});
 
@@ -92,7 +92,7 @@ class FormServiceProvider extends ServiceProvider {
 		{
 			return new CategoryForm(
 				new CategoryFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Repositories\Category\CategoryInterface')
+				$app->make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')
 			);
 		});
 

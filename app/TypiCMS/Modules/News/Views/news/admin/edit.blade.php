@@ -7,7 +7,7 @@
 		{{ Former::close() }}
 
 		<div class="col-sm-6">
-		@include('admin.files._list', array('files' => $model->files))
+		@include('files.admin._list', array('files' => $model->files))
 		</div>
 
 	</div>

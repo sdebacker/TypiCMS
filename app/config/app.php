@@ -56,16 +56,16 @@ return array(
 	'locale' => 'fr',
 
 	'modules' => array(
-		'Pages'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Page'),
+		'Pages'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Pages\Models\Page'),
 		'Users'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\User'),
-		'Files'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\File'),
+		'Files'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Files\Models\File'),
 		'News'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\News\Models\News'),
-		'Events'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Event'),
-		'Categories' => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Category'),
-		'Projects'   => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\Project'),
+		'Events'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Events\Models\Event'),
+		'Categories' => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Categories\Models\Category'),
+		'Projects'   => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Projects\Models\Project'),
 		'Places'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Places\Models\Place'),
-		'Menus'      => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Models\Menu'),
-		'Menulinks'  => array('menu' => false, 'dashboard' => false, 'model' => 'TypiCMS\Models\Menulink'),
+		'Menus'      => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menus\Models\Menu'),
+		'Menulinks'  => array('menu' => false, 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menulinks\Models\Menulink'),
 	),
 
 	/*
@@ -216,7 +216,7 @@ return array(
 		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 		'Breadcrumbs'     => 'DaveJamesMiller\Breadcrumbs\Facade',
 
-		'Menu'            => 'TypiCMS\Models\Menu',
+		'Menu'            => 'TypiCMS\Modules\Menus\Models\Menu',
 
 		
 	),

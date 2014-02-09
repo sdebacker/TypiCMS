@@ -4,7 +4,7 @@ use View;
 use Config;
 use Response;
 
-use TypiCMS\Models\Menu;
+use TypiCMS\Modules\Menus\Models\Menu;
 use TypiCMS\Repositories\Dashboard\DashboardInterface;
 
 use McCool\DatabaseBackup\Processors\ShellProcessor;

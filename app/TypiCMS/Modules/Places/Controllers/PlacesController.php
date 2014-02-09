@@ -4,7 +4,9 @@ use View;
 use Request;
 use App;
 use Config;
+
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
+
 use App\Controllers\BaseController;
 
 class PlacesController extends BaseController {
