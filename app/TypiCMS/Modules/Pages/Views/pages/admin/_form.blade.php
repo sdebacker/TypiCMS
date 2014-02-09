@@ -25,7 +25,7 @@
 				<span class="text-muted">
 					{{ trans('validation.attributes.address') }}: {{ Former::populator($lang.'[uri]')->getContent() }}
 				</span>
-				{{ Former::checkbox($lang.'[status]')->label('status')->text('Online')->label(''); }}
+				{{ Former::checkbox($lang.'[status]')->text('Online')->label(''); }}
 				{{ Former::hidden($lang.'[uri]'); }}
 				{{ Former::textarea($lang.'[body]')->label('body')->class('form-control editor')->value(''); }}
 
