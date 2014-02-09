@@ -30,16 +30,10 @@ class PlacesController extends BaseController {
 
 		$itemsPerPages = $this->repository->getModel()->itemsPerPage;
 
-		$collection = $this->repository->byPage($page, $itemsPerPages, true);
-		$array = $collection->getCollection()->all();
-
-		$models = new \TypiCMS\NestedCollection($array);
-
-		$modelse = $models->buildList($this->repository->getListProperties());
+		$models = $this->repository->byPage($page, $itemsPerPages, true);
 
 		$this->layout->content = View::make('places.admin.index')
-			->withCollection($collection)
-			->withModels($modelse);
+			->withModels($models);
 
 
 	}

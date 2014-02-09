@@ -17,11 +17,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	{
 		$this->model = $model;
 		$this->cache = $cache;
-
-		$this->listProperties = array(
-			'display' => array('%s', 'title'),
-		);
-
 	}
 
 

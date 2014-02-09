@@ -64,17 +64,6 @@ class Place extends Translatable {
 
 
 	/**
-	 * Custom collection
-	 *
-	 * @return InvoiceCollection object
-	 */
-	public function newCollection(array $models = array())
-	{
-		return new NestedCollection($models);
-	}
-
-
-	/**
 	 * Relations
 	 */
 	public function translations()
