@@ -1136,16 +1136,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "1.9.2",
+            "version": "1.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "0412fe76f798948c7f31bd8ecb648d39287a28c2"
+                "reference": "d68b8aded0f1b79a77845e926bd993cd470be2e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/0412fe76f798948c7f31bd8ecb648d39287a28c2",
-                "reference": "0412fe76f798948c7f31bd8ecb648d39287a28c2",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/d68b8aded0f1b79a77845e926bd993cd470be2e1",
+                "reference": "d68b8aded0f1b79a77845e926bd993cd470be2e1",
                 "shasum": ""
             },
             "require": {
@@ -1182,7 +1182,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2014-01-29 18:10:09"
+            "time": "2014-02-09 13:36:32"
         },
         {
             "name": "mccool/database-backup",
