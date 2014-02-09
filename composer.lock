@@ -3,24 +3,25 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d9f88110323cfe8c940df3a85dce04c3",
+    "hash": "e4cc3b39568d4601f0d2da71cc0a935f",
     "packages": [
         {
             "name": "anahkiasen/former",
-            "version": "3.4.1",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "e399cd88d4ee4f8f656fd27cf3c8a07d58e02840"
+                "reference": "02db81b871aff32443a9a1903c7df98af51c69a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/e399cd88d4ee4f8f656fd27cf3c8a07d58e02840",
-                "reference": "e399cd88d4ee4f8f656fd27cf3c8a07d58e02840",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/02db81b871aff32443a9a1903c7df98af51c69a4",
+                "reference": "02db81b871aff32443a9a1903c7df98af51c69a4",
                 "shasum": ""
             },
             "require": {
-                "anahkiasen/html-object": "~1.2.0",
+                "anahkiasen/html-object": "dev-master",
+                "anahkiasen/underscore-php": "dev-master",
                 "illuminate/config": "~4",
                 "illuminate/container": "~4",
                 "illuminate/http": "~4",
@@ -33,10 +34,58 @@
                 "mockery/mockery": "dev-master"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-agnostic": "3.x.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Former": "src",
                     "Laravel": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A powerful form builder",
+            "homepage": "http://anahkiasen.github.com/former/",
+            "keywords": [
+                "bootstrap",
+                "form",
+                "foundation",
+                "laravel"
+            ],
+            "time": "2013-11-05 18:43:17"
+        },
+        {
+            "name": "anahkiasen/html-object",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anahkiasen/html-object.git",
+                "reference": "776aff25a4db27964d95b2332e2f379b0aac9ff0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/776aff25a4db27964d95b2332e2f379b0aac9ff0",
+                "reference": "776aff25a4db27964d95b2332e2f379b0aac9ff0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HtmlObject": "src"
                 },
                 "classmap": [
                     "tests"
@@ -49,41 +98,42 @@
             "authors": [
                 {
                     "name": "Maxime Fabre",
-                    "email": "ehtnam6@gmail.Com"
+                    "email": "ehtnam6@gmail.com"
                 }
             ],
-            "description": "A powerful form builder",
-            "homepage": "http://anahkiasen.github.com/former/",
-            "keywords": [
-                "bootstrap",
-                "form",
-                "foundation",
-                "laravel"
-            ],
-            "time": "2014-01-14 11:49:56"
+            "description": "A set of classes to create and manipulate HTML objects abstractions",
+            "time": "2014-01-27 22:41:20"
         },
         {
-            "name": "anahkiasen/html-object",
-            "version": "1.2.0",
+            "name": "anahkiasen/underscore-php",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Anahkiasen/html-object.git",
-                "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde"
+                "url": "https://github.com/Anahkiasen/underscore-php.git",
+                "reference": "15be68c7c03791a6b25a1312e448f16aad0273f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
-                "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
+                "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/15be68c7c03791a6b25a1312e448f16aad0273f6",
+                "reference": "15be68c7c03791a6b25a1312e448f16aad0273f6",
                 "shasum": ""
             },
             "require": {
+                "illuminate/support": "~4",
+                "patchwork/utf8": "1.1.*",
                 "php": ">=5.3.0"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "HtmlObject": "src"
-                }
+                "psr-4": {
+                    "Underscore\\": [
+                        "src",
+                        "tests"
+                    ]
+                },
+                "files": [
+                    "helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -91,12 +141,17 @@
             ],
             "authors": [
                 {
-                    "name": "Anahkiasen",
+                    "name": "Maxime Fabre",
                     "email": "ehtnam6@gmail.com"
                 }
             ],
-            "description": "A set of classes to create and manipulate HTML objects abstractions",
-            "time": "2014-01-14 11:42:36"
+            "description": "A redacted port of Underscore.js for PHP",
+            "keywords": [
+                "internals",
+                "laravel",
+                "toolkit"
+            ],
+            "time": "2014-02-09 00:46:40"
         },
         {
             "name": "aws/aws-sdk-php",
@@ -745,12 +800,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "246cd09118283dce6d2974ace71d666d8a9f26f6"
+                "reference": "63c8b10b98ca42ff5779b3fd76f33e51b153d206"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/246cd09118283dce6d2974ace71d666d8a9f26f6",
-                "reference": "246cd09118283dce6d2974ace71d666d8a9f26f6",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/63c8b10b98ca42ff5779b3fd76f33e51b153d206",
+                "reference": "63c8b10b98ca42ff5779b3fd76f33e51b153d206",
                 "shasum": ""
             },
             "require": {
@@ -829,7 +884,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-02-07 19:57:56"
+            "time": "2014-02-08 21:41:59"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -2500,12 +2555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "a060e069b4f46159906296d25ae80c6b0fec8daf"
+                "reference": "5414561da33f0541af447a76cda47424e82f971d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/a060e069b4f46159906296d25ae80c6b0fec8daf",
-                "reference": "a060e069b4f46159906296d25ae80c6b0fec8daf",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/5414561da33f0541af447a76cda47424e82f971d",
+                "reference": "5414561da33f0541af447a76cda47424e82f971d",
                 "shasum": ""
             },
             "require": {
@@ -2557,7 +2612,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-02-08 11:17:53"
+            "time": "2014-02-09 11:17:20"
         },
         {
             "name": "raveren/kint",

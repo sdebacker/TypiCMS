@@ -1,7 +1,7 @@
 <?php
 use HtmlObject\Text;
 
-class TextTest extends HtmlObjectTests
+class TextTest extends HtmlObjectTestCase
 {
   public function testCanCreateTextNodes()
   {

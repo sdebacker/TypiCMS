@@ -1,13 +1,14 @@
 <?php
 namespace Former\Framework;
 
-use Former\Form\Form;
 use Former\Interfaces\FrameworkInterface;
 use Former\Traits\Field;
 use Former\Traits\Framework;
+use Former\Form\Form;
 use HtmlObject\Element;
 use Illuminate\Container\Container;
-use Illuminate\Support\Str;
+use Underscore\Methods\ArraysMethods as Arrays;
+use Underscore\Methods\StringMethods as String;
 
 /**
  * The Twitter Bootstrap form framework
@@ -126,9 +127,9 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
     $classes = array_intersect($classes, $this->fields);
 
     // Prepend field type
-    $classes = array_map(function ($class) {
-      return Str::startsWith($class, 'col') ? $class : 'input-'.$class;
-    }, $classes);
+    $classes = Arrays::each($classes, function($class) {
+      return String::startsWith($class, 'col') ? $class : 'input-'.$class;
+    });
 
     return $classes;
   }
@@ -147,26 +148,22 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
     return 'has-error';
   }
 
-  /**
-   * Set the fields width from a label width
-   *
-   * @param array $labelWidths
-   */
   protected function setFieldWidths($labelWidths)
   {
     $labelWidthClass = $fieldWidthClass = $fieldOffsetClass = '';
 
     $viewports = $this->getFrameworkOption('viewports');
+
     foreach ($labelWidths as $viewport => $columns) {
       if ($viewport) {
-        $labelWidthClass  .= " col-$viewports[$viewport]-$columns";
-        $fieldWidthClass  .= " col-$viewports[$viewport]-".(12-$columns);
+        $labelWidthClass .= " col-$viewports[$viewport]-$columns";
+        $fieldWidthClass .= " col-$viewports[$viewport]-".(12-$columns);
         $fieldOffsetClass .= " col-$viewports[$viewport]-offset-$columns";
       }
     }
 
-    $this->labelWidth  = ltrim($labelWidthClass);
-    $this->fieldWidth  = ltrim($fieldWidthClass);
+    $this->labelWidth = ltrim($labelWidthClass);
+    $this->fieldWidth = ltrim($fieldWidthClass);
     $this->fieldOffset = ltrim($fieldOffsetClass);
   }
 
@@ -202,7 +199,12 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
       $classes[] = 'form-control';
     }
 
-    return $this->addClassesToField($field, $classes);
+    // If we found any class, add them
+    if ($classes) {
+      $field->class(implode(' ', $classes));
+    }
+
+    return $field;
   }
 
   /**
@@ -265,9 +267,9 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
   {
     if ($this->app['former.form']->isOfType('horizontal') || $this->app['former.form']->isOfType('inline')) {
       return 'form-group';
+    } else {
+      return null;
     }
-
-    return null;
   }
 
   ////////////////////////////////////////////////////////////////////
@@ -345,9 +347,9 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
   {
     if ($this->app['former.form']->isOfType('horizontal')) {
       return Element::create('div', $field)->addClass($this->fieldWidth);
+    } else {
+      return $field;
     }
-
-    return $field;
   }
 
   /**
@@ -358,11 +360,11 @@ class TwitterBootstrap3 extends Framework implements FrameworkInterface
    */
   public function wrapActions($actions)
   {
-    // For horizontal forms, we wrap the actions in a div
     if ($this->app['former.form']->isOfType('horizontal')) {
-      return Element::create('div', $actions)->addClass(array($this->fieldOffset, $this->fieldWidth));
+      return Element::create('div', $actions)->addClass(array($this->fieldOffset,$this->fieldWidth));
+    } else {
+      return $actions;
     }
-
-    return $actions;
   }
+
 }

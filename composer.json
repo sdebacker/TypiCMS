@@ -18,7 +18,7 @@
 		"laravel/framework": "4.1.*",
 		"cartalyst/sentry": "2.1.*",
 		"edvinaskrucas/notification": "1.*",
-		"anahkiasen/former": "3.4.*",
+		"anahkiasen/former": "3.3.0",
 		"dimsav/laravel-translatable": "1.*",
 		"bkwld/croppa": "3.*",
 		"jwage/easy-csv": "dev-master",

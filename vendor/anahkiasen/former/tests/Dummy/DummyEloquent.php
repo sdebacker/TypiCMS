@@ -12,7 +12,7 @@ class DummyEloquent extends Model
 
   public function roles()
   {
-    return Mockery::mock('Illuminate\Database\Eloquent\Relations\HasMany')
+    return Mockery::mock('HasMany')
       ->shouldReceive('getResults')->andReturn(array(
         new DummyEloquent(array('id' => 1, 'name' => 'foo')),
         new DummyEloquent(array('id' => 3, 'name' => 'bar')),

@@ -198,7 +198,7 @@ abstract class Tag extends TreeObject
     $element        = null;
 
     foreach ($this->children as $childName => $child) {
-      if ($child->isOpened) {
+      if ($child->isOpened and !$child->isSelfClosing) {
         $openedOn = $childName;
         $element .= $child->close();
       } elseif ($openedOn and $child->isAfter($openedOn)) {

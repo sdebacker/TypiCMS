@@ -1,6 +1,7 @@
 <?php
 class FrameworkTest extends FormerTests
 {
+
   public function testCanChangeFramework()
   {
     $this->former->framework('ZurbFoundation');
@@ -16,13 +17,4 @@ class FrameworkTest extends FormerTests
     $this->assertTrue($isCurrent);
   }
 
-  public function testCanCreateFieldOutsideOfForm()
-  {
-    $this->former->closeGroup();
-    $this->former->close();
-
-    $text = $this->former->text('foobar')->__toString();
-
-    $this->assertEquals('<label for="foobar">Foobar</label><input id="foobar" type="text" name="foobar">', $text);
-  }
 }

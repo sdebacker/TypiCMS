@@ -1,6 +1,7 @@
 <?php
 namespace HtmlObject\Traits;
 
+use Closure;
 use HtmlObject\Element;
 use HtmlObject\Text;
 
@@ -30,7 +31,8 @@ abstract class TreeObject
    */
   protected $children = array();
 
-  // Defaults ------------------------------------------------------ /
+  // Defaults
+  ////////////////////////////////////////////////////////////////////
 
   /**
    * Default element for nested children
@@ -90,7 +92,8 @@ abstract class TreeObject
   ////////////////////////////// CHILDREN ////////////////////////////
   ////////////////////////////////////////////////////////////////////
 
-  // Get ----------------------------------------------------------- /
+  // Get
+  ////////////////////////////////////////////////////////////////////
 
   /**
    * Get a specific child of the element
@@ -116,6 +119,10 @@ abstract class TreeObject
     // Recursive fetching
     $subject = $this;
     foreach ($children as $child) {
+      if (!$subject) {
+        return;
+      }
+
       $subject = $subject->getChild($child);
     }
 
@@ -170,7 +177,8 @@ abstract class TreeObject
     return $child > $sibling;
   }
 
-  // Set ----------------------------------------------------------- /
+  // Set
+  ////////////////////////////////////////////////////////////////////
 
   /**
    * Nests an object withing the current object
@@ -250,6 +258,57 @@ abstract class TreeObject
       $subject = $this;
     }
 
+    return $this->insertChildAtPosition($child, $name, $subject);
+  }
+
+  // Prepend or append
+  ////////////////////////////////////////////////////////////////////
+
+  /**
+   * Append to an element
+   *
+   * @param Element $child
+   * @param string  $name
+   * @param string  $to
+   *
+   * @return self
+   */
+  public function appendChild($child, $name = null, $to = null)
+  {
+    return $this->insertChildAtPosition($child, $name, null, $to);
+  }
+
+  /**
+   * Prepend to an element
+   *
+   * @param Element $child
+   * @param string  $name
+   * @param string  $to
+   *
+   * @return self
+   */
+  public function prependChild($child, $name = null, $to = 0)
+  {
+    return $this->insertChildAtPosition($child, $name, null, $to, true);
+  }
+
+  /**
+   * Prepend or append to self/child
+   *
+   * @param Closure  $onSubject
+   * @param Element  $child
+   * @param string   $name
+   * @param string   $to
+   * @param boolean  $before
+   *
+   * @return self
+   */
+  protected function insertChildAtPosition($child, $name = null, $subject = null, $position = null, $before = false)
+  {
+    // Get default child name
+    $subject = $subject ?: $this;
+    $name    = $name ?: sizeof($this->children);
+
     // Bind parent to child
     if ($child instanceof TreeObject) {
       $child->setParent($subject);
@@ -257,7 +316,19 @@ abstract class TreeObject
 
     // Add object to children
     $child->parentIndex = $name;
-    $subject->children[$name] = $child;
+
+    // If the position is a child name, get its index
+    $before   = $before ? 0 : 1;
+    $position = is_null($position) ? sizeof($subject->children) : $position;
+    if (is_string($position)) {
+      $position = array_search($position, array_keys($subject->children));
+    }
+
+    // Slice and recompose children
+    $subject->children =
+      array_slice($subject->children, 0, $position + $before, true) +
+      array($name => $child) +
+      array_slice($subject->children, $position, sizeof($subject->children), true);
 
     return $this;
   }
@@ -278,10 +349,15 @@ abstract class TreeObject
   protected function createTagFromString($element, $value = null, $attributes = array())
   {
     // If it's an element/value, create the element
-    if (strpos($element, '<') === false and !$this->hasChild($value)) {
+    if (strpos($element, '<') === false and !$this->hasChild($value) and Helpers::isKnownTag($element)) {
       return new Element($element, $value, $attributes);
     }
 
-    return new Text($element);
+    // Else create a text element
+    if ($this->hasChild($value) or !$value) {
+      return new Text($element);
+    }
+
+    return new Text($value);
   }
 }

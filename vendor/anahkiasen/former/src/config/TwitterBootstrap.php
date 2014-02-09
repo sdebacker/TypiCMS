@@ -1,13 +1,14 @@
-<?php return array(
+<?php
 
-	// Twitter Bootstrap framework markup
-	////////////////////////////////////////////////////////////////////
+return array(
 
 	// HTML markup and classes used by Bootstrap for icons
 	'icon' => array(
-		'tag'    => 'i',
-		'set'    => null,
+
+		'tag' => 'i',
+		'set' => null,
 		'prefix' => 'icon',
+
 	),
 
 );

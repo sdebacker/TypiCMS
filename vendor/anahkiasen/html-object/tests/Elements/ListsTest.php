@@ -1,7 +1,7 @@
 <?php
 use HtmlObject\Lists;
 
-class ListsTest extends HtmlObjectTests
+class ListsTest extends HtmlObjectTestCase
 {
   public function testCanCreateList()
   {

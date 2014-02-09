@@ -3,7 +3,7 @@ namespace Former;
 
 use Closure;
 use Illuminate\Container\Container;
-use Illuminate\Support\Str;
+use Underscore\Methods\StringMethods as String;
 
 /**
  * Dispatch calls from Former to the different
@@ -19,42 +19,14 @@ class MethodDispatcher
   protected $app;
 
   /**
-   * An array of fields repositories
-   *
-   * @var array
-   */
-  protected $repositories = array();
-
-  /**
    * Build a new Dispatcher
    *
    * @param Container $app
    */
-  public function __construct(Container $app, $repositories)
+  public function __construct(Container $app)
   {
-    $this->app          = $app;
-    $this->repositories = (array) $repositories;
+    $this->app = $app;
   }
-
-  ////////////////////////////////////////////////////////////////////
-  ///////////////////////////// REPOSITORIES /////////////////////////
-  ////////////////////////////////////////////////////////////////////
-
-  /**
-   * Add a fields repository
-   *
-   * @param string $repository
-   */
-  public function addRepository($repository)
-  {
-    array_unshift($repository, $this->repositories);
-
-    return $this;
-  }
-
-  ////////////////////////////////////////////////////////////////////
-  ///////////////////////////// DISPATCHERS //////////////////////////
-  ////////////////////////////////////////////////////////////////////
 
   /**
    * Dispatch a call to a registered macro
@@ -117,7 +89,7 @@ class MethodDispatcher
   public function toForm($method, $parameters)
   {
     // Disregards if the method doesn't contain 'open'
-    if (!Str::contains($method, 'open') and !Str::contains($method, 'Open')) {
+    if (!String::contains($method, 'open')) {
       return false;
     }
 
@@ -182,7 +154,7 @@ class MethodDispatcher
   public function toFields($method, $parameters)
   {
     // Listing parameters
-    $class = $this->getClassFromMethod($method);
+    $class = Former::FIELDSPACE.static::getClassFromMethod($method);
     $field = new $class(
       $this->app,
       $method,
@@ -208,14 +180,12 @@ class MethodDispatcher
    *
    * @return string The correct class
    */
-  protected function getClassFromMethod($method)
+  protected static function getClassFromMethod($method)
   {
     // If the field's name directly match a class, call it
-    $class = Str::singular(Str::title($method));
-    foreach ($this->repositories as $repository) {
-      if (class_exists($repository.$class)) {
-        return $repository.$class;
-      }
+    $class = String::singular(String::title($method));
+    if (class_exists(Former::FIELDSPACE.$class)) {
+      return $class;
     }
 
     // Else convert known fields to their classes
@@ -223,18 +193,13 @@ class MethodDispatcher
       case 'submit':
       case 'link':
       case 'reset':
-        $class = 'Button';
-        break;
+        return 'Button';
 
       case 'multiselect':
-        $class = 'Select';
-        break;
+        return 'Select';
 
       default:
-        $class = 'Input';
-        break;
+        return 'Input';
     }
-
-    return $this->repositories[0].$class;
   }
 }

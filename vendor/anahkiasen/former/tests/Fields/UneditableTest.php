@@ -66,7 +66,6 @@ class UneditableTest extends FormerTests
     $this->assertHTML($this->matchPlainLabel(), $nude);
     $this->assertHTML($this->matchUneditableInput(), $nude);
 
-    $this->resetLabels();
     $this->former->framework('ZurbFoundation');
     $zurb = $this->former->uneditable('foo')->value('bar')->__toString();
 
