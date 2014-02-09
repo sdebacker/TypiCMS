@@ -26,7 +26,7 @@
 				</div>
 				<div class="form-group @if($errors->has($lang.'.slug'))has-error@endif">
 					{{ Form::label($lang.'[slug]', trans('validation.attributes.slug')) }}
-					{{ Form::text($lang.'[slug]', $model->$lang->title, array('class' => 'form-control')) }}
+					{{ Form::text($lang.'[slug]', $model->$lang->slug, array('class' => 'form-control')) }}
 					@if($errors->has($lang.'.slug'))
 					<span class="help-block">{{ $errors->first($lang.'.slug') }}</span>
 					@endif
