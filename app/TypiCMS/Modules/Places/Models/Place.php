@@ -12,7 +12,6 @@ class Place extends Translatable {
 
 	protected $fillable = array(
 		'status',
-		'position',
 		'title',
 		'slug',
 		'address',
