@@ -30,24 +30,6 @@ abstract class Base extends Eloquent {
 
 
 	/**
-	 * Désactiver scopeTranslations
-	 */
-	public function scopeTranslations($query)
-	{
-		return $query;
-	}
-
-
-	/**
-	 * Désactiver setTranslatedFields
-	 */
-	public function setTranslatedFields()
-	{
-		return;
-	}
-
-
-	/**
 	 * Renvoie la direction du modèle ou sa direction inverse
 	 *
 	 * @param string $sens : '' ou 'inverse'
