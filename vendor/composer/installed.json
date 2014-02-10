@@ -2749,5 +2749,47 @@
         "keywords": [
             "debug"
         ]
+    },
+    {
+        "name": "way/form",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sdebacker/Laravel-FormField.git",
+            "reference": "a737995771f391bfd52042217908ccdc8a2b6f3b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sdebacker/Laravel-FormField/zipball/a737995771f391bfd52042217908ccdc8a2b6f3b",
+            "reference": "a737995771f391bfd52042217908ccdc8a2b6f3b",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~4",
+            "php": ">=5.4.0"
+        },
+        "time": "2014-02-10 10:49:35",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Way\\Form": "src/"
+            }
+        },
+        "authors": [
+            {
+                "name": "Jeffrey Way",
+                "email": "jeffrey@laracasts.com"
+            }
+        ],
+        "description": "Make form handling in Laravel simpler.",
+        "keywords": [
+            "forms",
+            "laravel"
+        ],
+        "support": {
+            "source": "https://github.com/sdebacker/Laravel-FormField/tree/master"
+        }
     }
 ]

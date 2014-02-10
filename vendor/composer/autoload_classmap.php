@@ -2990,6 +2990,8 @@ return array(
     'TypiCMS\\Services\\ListBuilder\\ListBuilder' => $baseDir . '/app/TypiCMS/Services/ListBuilder/ListBuilder.php',
     'TypiCMS\\Services\\Validation\\AbstractLaravelValidator' => $baseDir . '/app/TypiCMS/Services/Validation/AbstractLaravelValidator.php',
     'TypiCMS\\Services\\Validation\\ValidableInterface' => $baseDir . '/app/TypiCMS/Services/Validation/ValidableInterface.php',
+    'Way\\Form\\FormField' => $vendorDir . '/way/form/src/Way/Form/FormField.php',
+    'Way\\Form\\FormServiceProvider' => $vendorDir . '/way/form/src/Way/Form/FormServiceProvider.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Frame' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Frame.php',
     'Whoops\\Exception\\FrameCollection' => $vendorDir . '/filp/whoops/src/Whoops/Exception/FrameCollection.php',
