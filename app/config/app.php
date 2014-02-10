@@ -129,7 +129,6 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Cartalyst\Sentry\SentryServiceProvider',
-		'Former\FormerServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
 		'Krucas\Notification\NotificationServiceProvider',
 		'Bkwld\Croppa\ServiceProvider',
@@ -210,7 +209,6 @@ return array(
 
 		'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Translatable'    => 'Dimsav\Translatable\Translatable',
-		'Former'          => 'Former\Facades\Former',
 		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 		'Notification'    => 'Krucas\Notification\Facades\Notification',
 		'Croppa'          => 'Bkwld\Croppa\Facade',
