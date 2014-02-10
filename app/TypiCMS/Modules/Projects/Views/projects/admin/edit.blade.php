@@ -2,9 +2,9 @@
 
 	<div class="row">
 
-		{{ Former::vertical_open()->method('PATCH')->action(route('admin.projects.update', $model->id))->role('form')->class('col-sm-6') }}
+		{{ Form::model( $model, array( 'route' => array('admin.projects.update', $model->id), 'method' => 'patch', 'role' => 'form' ) ) }}
 			@include('projects.admin._form')
-		{{ Former::close() }}
+		{{ Form::close() }}
 
 		<div class="col-sm-6">
 		@include('files.admin._list', array('files' => $model->files))

@@ -1,7 +1,7 @@
 @section('main')
 
-	{{ Former::vertical_open()->method('POST')->action('admin/categories/')->role('form') }}
+	{{ Form::open( array( 'route' => array('admin.categories.index'), 'method' => 'post', 'role' => 'form' ) ) }}
 		@include('categories.admin._form')
-	{{ Former::close() }}
+	{{ Form::close() }}
 
 @stop

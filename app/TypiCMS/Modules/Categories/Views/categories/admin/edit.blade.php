@@ -1,7 +1,7 @@
 @section('main')
 
-	{{ Former::vertical_open()->method('PATCH')->action('admin/categories/'.$model->id)->role('form') }}
+	{{ Form::model( $model, array( 'route' => array('admin.categories.update', $model->id), 'method' => 'patch', 'role' => 'form' ) ) }}
 		@include('categories.admin._form')
-	{{ Former::close() }}
+	{{ Form::close() }}
 
 @stop

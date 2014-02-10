@@ -2,9 +2,9 @@
 
 	<div class="row">
 
-		{{ Former::vertical_open()->method('POST')->action(route('admin.projects.index'))->role('form')->class('col-sm-6') }}
+		{{ Form::open( array( 'route' => array('admin.projects.index'), 'method' => 'post', 'role' => 'form', 'class' => 'col-sm-6' ) ) }}
 			@include('projects.admin._form')
-		{{ Former::close() }}
+		{{ Form::close() }}
 
 	</div>
 

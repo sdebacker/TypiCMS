@@ -1,7 +1,7 @@
 @section('main')
 
-	{{ Former::vertical_open_for_files()->method('PATCH')->action('admin/'.$model->view.'/'.$model->id)->role('form') }}
+	{{ Form::model( $model, array( 'route' => array('admin.places.update', $model->id), 'method' => 'patch', 'role' => 'form' ) ) }}
 		@include('places.admin._form')
-	{{ Former::close() }}
+	{{ Form::close() }}
 
 @stop
