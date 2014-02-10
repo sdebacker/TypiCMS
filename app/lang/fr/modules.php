@@ -12,7 +12,7 @@ return array(
 	),
 	'pages' => array(
 		'pages' => 'page|pages',
-		'New'  => 'Nouvelle page',
+		'New'  => 'Nouvelle page',
 		'Edit' => 'Modifier la page',
 	),
 	'events' => array(
