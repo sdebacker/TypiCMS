@@ -1,7 +1,7 @@
 @section('main')
 
-	{{ Former::vertical_open()->method('PATCH')->action('admin/menus/'.$model->id)->role('form') }}
+	{{ Form::model( $model, array( 'route' => array('admin.menus.update', $model->id), 'method' => 'patch', 'role' => 'form') ) }}
 		@include('menus.admin._form')
-	{{ Former::close() }}
+	{{ Form::close() }}
 
 @stop

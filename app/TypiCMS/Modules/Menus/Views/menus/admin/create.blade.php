@@ -1,7 +1,7 @@
 @section('main')
 
-	{{ Former::vertical_open()->method('POST')->action('admin/menus/')->role('form') }}
+	{{ Form::open( array( 'route' => array('admin.menus.index'), 'method' => 'post', 'role' => 'form' ) ) }}
 		@include('menus.admin._form')
-	{{ Former::close() }}
+	{{ Form::close() }}
 
 @stop
