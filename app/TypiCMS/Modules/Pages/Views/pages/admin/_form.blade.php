@@ -9,7 +9,7 @@
 
 	@include('admin._buttons-form')
 
-	{{ Former::hidden('id'); }}
+	{{ Form::hidden('id'); }}
 
 	<div class="col-sm-6">
 		
@@ -25,7 +25,7 @@
 					{{ Form::text($lang.'[title]', $model->$lang->title, array('autofocus' => 'autofocus', 'class' => 'input-lg form-control')) }}
 				</div>
 				<div class="form-group @if($errors->has($lang.'.slug'))has-error@endif">
-					{{ Form::label($lang.'[slug]', trans('validation.attributes.slug')) }}
+					{{ Form::label($lang.'[slug]', trans('validation.attributes.slug'), array('class' => 'control-label')) }}
 					{{ Form::text($lang.'[slug]', $model->$lang->slug, array('class' => 'form-control')) }}
 					@if($errors->has($lang.'.slug'))
 					<span class="help-block">{{ $errors->first($lang.'.slug') }}</span>
