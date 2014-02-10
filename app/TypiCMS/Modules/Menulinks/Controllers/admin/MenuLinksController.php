@@ -1,4 +1,4 @@
-<?php namespace TypiCMS\Modules\Menus\Controllers\Admin;
+<?php namespace TypiCMS\Modules\Menulinks\Controllers\Admin;
 
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
