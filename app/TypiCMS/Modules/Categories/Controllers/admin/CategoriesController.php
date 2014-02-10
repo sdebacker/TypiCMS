@@ -53,7 +53,6 @@ class CategoriesController extends BaseController {
 	public function edit($model)
 	{
 		$this->title['child'] = trans('modules.categories.Edit');
-		Former::populate($model);
 		$this->layout->content = View::make('categories.admin.edit')
 			->with('model', $model);
 	}

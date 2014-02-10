@@ -54,7 +54,6 @@ class MenusController extends BaseController {
 	public function edit($model)
 	{
 		$this->title['child'] = trans('modules.menus.Edit');
-		Former::populate($model);
 		$this->layout->content = View::make('menus.admin.edit')
 			->with('model', $model);
 	}

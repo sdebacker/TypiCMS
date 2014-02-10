@@ -52,7 +52,6 @@ class NewsController extends BaseController {
 	public function edit($model)
 	{
 		$this->title['child'] = trans('modules.news.Edit');
-		Former::populate($model);
 		$this->layout->content = View::make('news.admin.edit')
 			->withModel($model);
 	}

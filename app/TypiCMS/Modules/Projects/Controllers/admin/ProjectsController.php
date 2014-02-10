@@ -54,7 +54,6 @@ class ProjectsController extends BaseController {
 	{
 
 		$this->title['child'] = trans('modules.projects.Edit');
-		Former::populate($model);
 		$this->layout->content = View::make('projects.admin.edit')
 			->with('model', $model);
 	}

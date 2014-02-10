@@ -62,7 +62,6 @@ class PlacesController extends BaseController {
 	public function edit($model)
 	{
 		$this->title['child'] = trans('modules.places.Edit');
-		Former::populate($model);
 		$this->layout->content = View::make('places.admin.edit')
 			->withModel($model);
 	}

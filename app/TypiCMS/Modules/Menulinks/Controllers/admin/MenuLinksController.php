@@ -69,7 +69,6 @@ class MenuLinksController extends BaseController {
 		$selectPages = $this->repository->getPagesForSelect();
 		$selectModules = $this->repository->getModulesForSelect();
 
-		Former::populate($model);
 
 		$this->layout->content = View::make('menulinks.admin.edit', array($menu->id, $model->id))
 			->with('menu', $menu)
