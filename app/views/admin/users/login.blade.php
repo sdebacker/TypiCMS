@@ -10,15 +10,22 @@
 
 	<div id="login" class="container-login col-sm-4 col-sm-offset-4">
 
-		{{ Former::open_vertical()->role('form') }}
+		{{ Form::open(array('role' => 'form')) }}
 
-			{{ Former::lg_text('email')->label('')->placeholder('email')->autofocus() }}
+		<div class="form-group">
+			{{ Form::label('email', trans('validation.attributes.email'), array('class' => 'sr-only')) }}
+			{{ Form::text('email', null, array('class' => 'form-control input-lg', 'placeholder' => 'email', 'autofocus' => 'autofocus')) }}
+		</div>
+		<div class="form-group">
+			{{ Form::label('password', trans('validation.attributes.password'), array('class' => 'sr-only')) }}
+			{{ Form::password('password', array('class' => 'form-control input-lg', 'placeholder' => 'password')) }}
+			<span class="help-block">{{ link_to_route('resetpassword', trans('modules.users.Forgot your password?')) }}</span>
+		</div>
+		<div class="form-group">
+			{{ Form::button(trans('validation.attributes.log in'), array('class' => 'btn btn-lg btn-primary btn-block', 'type' => 'submit')) }}
+		</div>
 
-			{{ Former::lg_password('password')->label('')->placeholder('password')->help(link_to_route('resetpassword', trans('modules.users.Forgot your password?'))) }}
-
-			{{ Former::lg_primary_block_button()->type('submit')->value('log in'); }}
-
-		{{ Former::close() }}
+		{{ Form::close() }}
 		
 	</div>
 

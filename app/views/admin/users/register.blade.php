@@ -10,31 +10,40 @@
 
 	<div id="register" class="container-login col-sm-4 col-sm-offset-4">
 
-		{{ Former::vertical_open()->role('form') }}
+		{{ Form::open(array('role' => 'form')) }}
 
-			{{ Former::lg_email('email')->label('email')->required() }}
+			<div class="form-group">
+				{{ Form::label('email', trans('validation.attributes.email')) }}
+				{{ Form::text('email', null, array('class' => 'form-control input-lg', 'required' => 'required', 'placeholder' => 'email', 'autofocus' => 'autofocus')) }}
+			</div>
 
-			<div class="row">
+			<div class="row form-group">
 				<div class="col-lg-6">
-				{{ Former::lg_text('first_name')->required() }}
+					{{ Form::label('first_name', trans('validation.attributes.first_name'), array('class' => 'control-label')) }}
+					{{ Form::text('first_name', null, array('class' => 'form-control input-lg', 'required' => 'required')) }}
 				</div>
 				<div class="col-lg-6">
-				{{ Former::lg_text('last_name')->required() }}
+					{{ Form::label('last_name', trans('validation.attributes.last_name'), array('class' => 'control-label')) }}
+					{{ Form::text('last_name', null, array('class' => 'form-control input-lg', 'required' => 'required')) }}
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row form-group">
 				<div class="col-lg-6">
-				{{ Former::lg_password('password')->required()->autocomplete('off') }}
+					{{ Form::label('password', trans('validation.attributes.password')) }}
+					{{ Form::password('password', array('class' => 'form-control input-lg', 'autocomplete' => 'off', 'required' => 'required')) }}
 				</div>
 				<div class="col-lg-6">
-				{{ Former::lg_password('password_confirmation')->required()->autocomplete('off') }}
+					{{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation')) }}
+					{{ Form::password('password_confirmation', array('class' => 'form-control input-lg', 'autocomplete' => 'off', 'required' => 'required')) }}
 				</div>
 			</div>
 
-			{{ Former::lg_primary_block_button()->type('submit')->value('register'); }}
+			<div class="form-group">
+				{{ Form::button(trans('validation.attributes.register'), array('class' => 'btn btn-lg btn-primary btn-block', 'type' => 'submit')) }}
+			</div>
 
-		{{ Former::close() }}
+		{{ Form::close() }}
 
 	</div>
 
