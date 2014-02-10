@@ -6,7 +6,6 @@ use TypiCMS\Modules\Files\Services\Form\FileForm;
 use App\Controllers\Admin\BaseController;
 
 use View;
-use Former;
 use Input;
 use Redirect;
 use Request;

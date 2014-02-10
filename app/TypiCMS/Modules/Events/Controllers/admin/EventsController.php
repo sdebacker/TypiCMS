@@ -6,7 +6,6 @@ use TypiCMS\Modules\Events\Services\Form\EventForm;
 use App\Controllers\Admin\BaseController;
 
 use View;
-use Former;
 use Input;
 use Redirect;
 use Request;

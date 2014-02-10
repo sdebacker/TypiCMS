@@ -6,7 +6,6 @@ use TypiCMS\Modules\Places\Services\Form\PlaceForm;
 use App\Controllers\Admin\BaseController;
 
 use View;
-use Former;
 use Input;
 use Redirect;
 use Request;

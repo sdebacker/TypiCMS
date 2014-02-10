@@ -4,7 +4,6 @@ use TypiCMS\Repositories\User\UserInterface;
 use TypiCMS\Services\Form\User\UserForm;
 use View;
 use Config;
-use Former;
 use Input;
 use Redirect;
 use Request;

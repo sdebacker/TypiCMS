@@ -7,7 +7,6 @@ use App\Controllers\Admin\BaseController;
 
 use Lang;
 use View;
-use Former;
 use Validator;
 use Input;
 use Redirect;

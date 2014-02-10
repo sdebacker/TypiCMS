@@ -2,7 +2,6 @@
 
 use TypiCMS\Repositories\Setting\SettingInterface;
 use View;
-use Former;
 use Input;
 use Redirect;
 use Request;

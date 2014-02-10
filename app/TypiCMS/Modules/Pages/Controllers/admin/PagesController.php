@@ -6,7 +6,6 @@ use TypiCMS\Modules\Pages\Services\Form\PageForm;
 use App\Controllers\Admin\BaseController;
 
 use View;
-use Former;
 use Input;
 use Config;
 use Redirect;

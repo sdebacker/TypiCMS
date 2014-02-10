@@ -6,7 +6,7 @@ use TypiCMS\Modules\Categories\Services\Form\CategoryForm;
 use App\Controllers\Admin\BaseController;
 
 use View;
-use Former;
+use Config;
 use Input;
 use Redirect;
 use Request;
@@ -100,7 +100,14 @@ class CategoriesController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( Input::all() ) ) {
+		$data = Input::all();
+
+		// add checkboxes data
+		foreach (Config::get('app.locales') as $locale) {
+			$data[$locale]['status'] = Input::get($locale.'.status');
+		}
+
+		if ( $this->form->update( $data ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.categories.index') : Redirect::route('admin.categories.edit', $model->id) ;
 		}
 
