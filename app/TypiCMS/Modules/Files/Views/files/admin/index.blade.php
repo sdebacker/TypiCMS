@@ -11,21 +11,21 @@
 
 		@include('admin._buttons-list')
 
-		{{ Former::vertical_open_for_files()->action(route('admin.files.upload'))->class('thumbnail thumbnail-dropzone')->id('uploader') }}
+		{{ Form::open(array('route' => array('admin.files.upload'), 'files' => true, 'class' => 'thumbnail thumbnail-dropzone', 'id' => 'uploader')) }}
 			@foreach (Config::get('app.locales') as $locale)
-				{{ Former::hidden($locale.'[alt_attribute]')->value(''); }}
-				{{ Former::hidden($locale.'[status]')->value(1); }}
+				{{ Form::hidden($locale.'[alt_attribute]', '') }}
+				{{ Form::hidden($locale.'[status]', 1) }}
 			@endforeach
 			@if($relatedModel)
-			{{ Former::hidden('fileable_id')->value($relatedModel->id); }}
-			{{ Former::hidden('fileable_type')->value(get_class($relatedModel)); }}
+			{{ Form::hidden('fileable_id', $relatedModel->id); }}
+			{{ Form::hidden('fileable_type', get_class($relatedModel)); }}
 			@endif
 			<div class="dz-message">@lang('global.Drop files to upload (or click)')</div>
 			<div class="fallback">
-			{{ Former::file('file')->accept('image')->max(2, 'MB')->class('fileInput'); }}
-			{{ Former::actions()->primary_submit('Submit') }}
+			{{ Form::file('file', null, array('class' => 'fileInput', 'accept' => 'image/*')); }}
+			{{ Form::button('send', array('type' => 'submit')) }}
 			</div>
-		{{ Former::close() }}
+		{{ Form::close() }}
 
 		<div class="dropzone-previews"></div>
 

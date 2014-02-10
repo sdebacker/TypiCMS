@@ -1,7 +1,7 @@
 @section('main')
 
-	{{ Former::vertical_open()->method('POST')->action('admin/files/')->role('form') }}
+	{{ Form::open( array( 'route' => array('admin.files.index'), 'method' => 'post', 'role' => 'form' ) ) }}
 		@include('files.admin._form')
-	{{ Former::close() }}
+	{{ Form::close() }}
 
 @stop

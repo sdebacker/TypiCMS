@@ -185,6 +185,22 @@ return array(
 		'authPublic' => 'Se connecter pour voir le site',
 		'registration allowed' => 'Permettre la création de comptes utilisateurs',
 
+		// Files
+		'alt_attribute' => 'Texte alternatif',
+		'keywords' => 'Mots-clés',
+		'folder_id' => 'ID Dossier',
+		'user_id' => 'ID Utilisateur',
+		'type' => 'Type',
+		'position' => 'Position',
+		'name' => 'Nom',
+		'path' => 'Chemin',
+		'filename' => 'Nom du fichier',
+		'extension' => 'Extension',
+		'mimetype' => 'Type Mime',
+		'width' => 'Largeur',
+		'height' => 'Hauteur',
+		'download_count' => 'download_count',
+
 		'Submit' => 'Envoyer',
 		'Reset' => 'Reinitialiser',
 		'Cancel' => 'Annuler',
