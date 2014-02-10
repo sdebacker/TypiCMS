@@ -141,6 +141,8 @@ class FormField {
      */
     protected function hasError($name)
     {
+        // replace opening brackets by dots and remove ending brackets
+        $name = str_replace(array('[', ']'), array('.',''), $name);
         if ( Session::has('errors') ) {
             $errors = Session::get('errors');
 
