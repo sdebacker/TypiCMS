@@ -1,9 +1,8 @@
 <div class="row">
 
 	<div class="form-group col-sm-12">
-		{{-- Former::primary_button()->type('submit')->value('save') --}}
-		{{ Former::primary_button()->type('submit')->name('exit')->setAttribute('value', 'true')->value('save and exit') }}
-		{{ Former::link()->class('btn btn-default')->href(route('admin.users.index'))->value('Annuler') }}
+		<button class="btn-primary btn" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
+		<a href="{{ route('admin.users.index') }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
 	</div>
 
 	{{ Form::hidden('activated', 1); }}
@@ -30,13 +29,13 @@
 
 	<div class="col-sm-3">
 
-		{{ Former::text('first_name'); }}
+		{{ Form::text('first_name'); }}
 
 	</div>
 
 	<div class="col-sm-3">
 
-		{{ Former::text('last_name'); }}
+		{{ Form::text('last_name'); }}
 
 	</div>
 
