@@ -143,6 +143,16 @@ return array(
 		'css' => 'Code CSS',
 		'js' => 'Code JavaScript',
 
+		// Places
+		'latitude' => 'Latitude',
+		'longitude' => 'Longitude',
+		'fax' => 'Fax',
+		'info' => 'Info',
+		'logo' => 'Logo',
+		'replace logo' => 'Remplacer le logo',
+		'image' => 'Image',
+		'replace image' => 'Remplacer l’image',
+
 		// Events
 		'start_date' => 'Date de début',
 		'end_date' => 'Date de fin',

@@ -15,11 +15,22 @@
 
 	<div class="col-sm-6">
 
-		{{ Former::lg_text('title')->label('title')->autofocus(); }}
-
-		{{ Former::text('slug')->label('slug'); }}
-
-		{{ Former::checkbox('status')->text('Online')->label('')->check(); }}
+		<div class="form-group">
+			{{ Form::label('title', trans('validation.attributes.title')) }}
+			{{ Form::text('title', null, array('autofocus' => 'autofocus', 'class' => 'input-lg form-control')) }}
+		</div>
+		<div class="form-group @if($errors->has('slug'))has-error@endif">
+			{{ Form::label('slug', trans('validation.attributes.slug'), array('class' => 'control-label')) }}
+			{{ Form::text('slug', null, array('class' => 'form-control')) }}
+			@if($errors->has('slug'))
+			<span class="help-block">{{ $errors->first('slug') }}</span>
+			@endif
+		</div>
+		<div class="form-group">
+			<label class="checkbox">
+				{{ Form::checkbox('status', 1) }} @lang('validation.attributes.online')
+			</label>
+		</div>
 
 		<div class="row">
 
@@ -27,7 +38,10 @@
 
 			<fieldset class="col-sm-6" id="{{ $lang }}">
 				<legend>{{ trans('global.languages.'.$lang) }}</legend>
-				{{ Former::textarea($lang.'[info]')->label('info')->rows(10)->value(''); }}
+				<div class="form-group">
+					{{ Form::label($lang.'[info]', trans('validation.attributes.info')) }}
+					{{ Form::textarea($lang.'[info]', $model->$lang->info, array('class' => 'form-control', 'rows' => 10)) }}
+				</div>
 			</fieldset>
 
 			@endforeach
@@ -39,32 +53,41 @@
 
 	<div class="col-sm-6">
 
-		{{ Former::text('address')->label('address'); }}
+		<div class="form-group">
+			{{ Form::label('address', trans('validation.attributes.address'), array('class' => 'control-label')) }}
+			{{ Form::text('address', null, array('class' => 'form-control')) }}
+		</div>
 
-		<div class="row">
+		<div class="row form-group">
 			<div class="col-sm-6">
-				{{ Former::text('email'); }}
+				{{ Form::label('email', trans('validation.attributes.email'), array('class' => 'control-label')) }}
+				{{ Form::text('email', null, array('class' => 'form-control')) }}
 			</div>
 			<div class="col-sm-6">
-				{{ Former::text('website', null, 'http://'); }}
+				{{ Form::label('website', trans('validation.attributes.website'), array('class' => 'control-label')) }}
+				{{ Form::text('website', ($model->website or 'http://'), array('class' => 'form-control')) }}
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row form-group">
 			<div class="col-sm-6">
-				{{ Former::text('phone'); }}
+				{{ Form::label('phone', trans('validation.attributes.phone'), array('class' => 'control-label')) }}
+				{{ Form::text('phone', null, array('class' => 'form-control')) }}
 			</div>
 			<div class="col-sm-6">
-				{{ Former::text('fax'); }}
+				{{ Form::label('fax', trans('validation.attributes.fax'), array('class' => 'control-label')) }}
+				{{ Form::text('fax', null, array('class' => 'form-control')) }}
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row form-group">
 			<div class="col-sm-6">
-				{{ Former::text('latitude'); }}
+				{{ Form::label('latitude', trans('validation.attributes.latitude'), array('class' => 'control-label')) }}
+				{{ Form::text('latitude', null, array('class' => 'form-control')) }}
 			</div>
 			<div class="col-sm-6">
-				{{ Former::text('longitude'); }}
+				{{ Form::label('longitude', trans('validation.attributes.longitude'), array('class' => 'control-label')) }}
+				{{ Form::text('longitude', null, array('class' => 'form-control')) }}
 			</div>
 		</div>
 
@@ -74,10 +97,14 @@
 				<img src="/uploads/{{ $model->getTable() }}/{{ $model->logo }}" alt="">
 			</div>
 			<div class="pull-left">
-				{{ Former::file('logo')->label('replace logo')->help('max 500 Ko'); }}
+				{{ Form::label('logo', trans('validation.attributes.replace logo'), array('class' => 'control-label')) }}
+				{{ Form::file('logo') }}
+				<span class="help-block">@lang('validation.attributes.max 500 Ko')</span>
 			</div>
 			@else
-			{{ Former::file('logo')->help('max 500 Ko'); }}
+			{{ Form::label('logo', trans('validation.attributes.logo'), array('class' => 'control-label')) }}
+			{{ Form::file('logo') }}
+			<span class="help-block">@lang('validation.attributes.max 500 Ko')</span>
 			@endif
 		</div>
 
@@ -87,10 +114,14 @@
 				<img src="/uploads/{{ $model->getTable() }}/{{ $model->image }}" alt="">
 			</div>
 			<div class="pull-left">
-				{{ Former::file('image')->label('replace image')->help('max 2000 Ko'); }}
+				{{ Form::label('image', trans('validation.attributes.replace image'), array('class' => 'control-label')) }}
+				{{ Form::file('image') }}
+				<span class="help-block">@lang('validation.attributes.max 2000 Ko')</span>
 			</div>
 			@else
-			{{ Former::file('image')->help('max 2000 Ko'); }}
+			{{ Form::label('image', trans('validation.attributes.image'), array('class' => 'control-label')) }}
+			{{ Form::file('image') }}
+			<span class="help-block">@lang('validation.attributes.max 2000 Ko')</span>
 			@endif
 		</div>
 
