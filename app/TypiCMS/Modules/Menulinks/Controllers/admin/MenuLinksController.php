@@ -13,7 +13,7 @@ use Redirect;
 use Request;
 use Config;
 
-class MenuLinksController extends BaseController {
+class MenulinksController extends BaseController {
 
 	public function __construct(MenulinkInterface $menulink, MenulinkForm $menulinkform)
 	{
