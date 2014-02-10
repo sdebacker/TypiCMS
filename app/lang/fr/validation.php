@@ -152,6 +152,9 @@ return array(
 		'DDMMYYYY' => 'JJ.MM.AAAA',
 		'DDMMYYYY HHMM' => 'JJ.MM.AAAA HH:MM',
 
+		// Projects
+		'category_id' => 'Catégorie',
+
 		// Menulinks
 		'page_id' => 'Page',
 		'menu_id' => 'Menu',
