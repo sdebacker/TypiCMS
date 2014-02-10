@@ -6,6 +6,7 @@ use TypiCMS\Modules\Events\Services\Form\EventForm;
 use App\Controllers\Admin\BaseController;
 
 use View;
+use Config;
 use Input;
 use Redirect;
 use Request;
@@ -100,7 +101,14 @@ class EventsController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( Input::all() ) ) {
+		$data = Input::all();
+
+		// add checkboxes data
+		foreach (Config::get('app.locales') as $locale) {
+			$data[$locale]['status'] = Input::get($locale.'.status');
+		}
+
+		if ( $this->form->update( $data ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.events.index') : Redirect::route('admin.events.edit', $model->id) ;
 		}
 		
