@@ -133,6 +133,7 @@ return array(
 		'uri' => 'URI',
 		'website' => 'Site externe',
 		'online' => 'En ligne',
+		'exit' => 'Sortir',
 
 		// Pages
 		'rss_enabled' => 'Activer un flux RSS',
@@ -149,6 +150,7 @@ return array(
 		'end_time' => 'Heure de fin',
 		'HH:MM' => 'HH:MM',
 		'DDMMYYYY' => 'JJ.MM.AAAA',
+		'DDMMYYYY HHMM' => 'JJ.MM.AAAA HH:MM',
 
 		// Menulinks
 		'page_id' => 'Page',
