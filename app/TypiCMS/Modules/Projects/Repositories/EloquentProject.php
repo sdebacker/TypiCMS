@@ -49,15 +49,18 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		}
 
 		// Item not cached, retrieve it
-		$translations = 'translations';
-		if ( ! $all ) {
-			$translations = array('translations' => function($query)
-			{
-				$query->where('status', 1);
-			});
-		}
+		$query = $this->model->with('translations');
 
-		$query = $this->model->with($translations);
+		if ( ! $all ) {
+			// take only translated items that are online
+			$query->whereHas('translations', function($query)
+				{
+					$query->where('status', 1);
+					$query->where('locale', '=', App::getLocale());
+					$query->where('slug', '!=', '');
+				}
+			);
+		}
 
 		$query->with('category')->with('category.translations');
 
@@ -71,16 +74,6 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		}
 
 		$models = $query->get();
-
-		// Filter : Delete models without translations (translation is offline for example)
-		if ( ! $all ) {
-			$models = $models->filter(function($model)
-			{
-				if (count($model->translations)) {
-					return $model;
-				}
-			});
-		}
 
 		// Store in cache for next request
 		$this->cache->put($key, $models);

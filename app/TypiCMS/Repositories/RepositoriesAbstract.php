@@ -53,7 +53,7 @@ abstract class RepositoriesAbstract {
 		$this->model->files and $query->with(array('files' => function($query)
 			{
 				$query->join('file_translations', 'files.id', '=', 'file_translations.file_id');
-				$query->where('locale', Config::get('app.locale'));
+				$query->where('locale', App::getLocale());
 				$query->where('status', 1);
 				$query->orderBy('position', 'asc');
 			})
@@ -122,16 +122,18 @@ abstract class RepositoriesAbstract {
 
 		// Item not cached, retrieve it
 
-		// All posts or only published
-		$translations = 'translations';
-		if ( ! $all ) {
-			$translations = array('translations' => function($query)
-			{
-				$query->where('status', 1);
-			});
-		}
+		$query = $this->model->with('translations');
 
-		$query = $this->model->with($translations);
+		if ( ! $all ) {
+			// take only translated items that are online
+			$query->whereHas('translations', function($query)
+				{
+					$query->where('status', 1);
+					$query->where('locale', '=', App::getLocale());
+					$query->where('slug', '!=', '');
+				}
+			);
+		}
 
 		if ($relatedModel) {
 			$query->where('fileable_id', $relatedModel->id);
@@ -147,16 +149,6 @@ abstract class RepositoriesAbstract {
 		$query->orderBy($order, $direction);
 
 		$models = $query->get();
-
-		// Filter : Delete models without translations (translation is offline for example)
-		if ( ! $all ) {
-			$models = $models->filter(function($model)
-			{
-				if (count($model->translations)) {
-					return $model;
-				}
-			});
-		}
 
 		if (property_exists($this->model, 'children')) {
 			$models->nest();
@@ -201,16 +193,18 @@ abstract class RepositoriesAbstract {
 		$id = Helpers::getIdFromSlug($this->model->getTable(), $slug);
 
 		$model = $this->model
-			->with(array('translations' => function($query)
+			->with('translations')
+			->whereHas('translations', function($query)
 				{
 					$query->where('status', 1);
-					$query->where('locale', Config::get('app.locale'));
-				})
+					$query->where('locale', '=', App::getLocale());
+					$query->where('slug', '!=', '');
+				}
 			)
 			->with(array('files' => function($query)
 				{
 					$query->join('file_translations', 'files.id', '=', 'file_translations.file_id');
-					$query->where('locale', Config::get('app.locale'));
+					$query->where('locale', App::getLocale());
 					$query->where('status', 1);
 					$query->orderBy('position', 'asc');
 				})
