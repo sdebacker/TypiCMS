@@ -8,7 +8,7 @@
 
 	@include('admin._buttons-form')
 
-	{{ Former::hidden('id'); }}
+	{{ Form::hidden('id'); }}
 
 	<div class="col-sm-12">
 

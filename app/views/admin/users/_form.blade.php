@@ -6,8 +6,8 @@
 		{{ Former::link()->class('btn btn-default')->href(route('admin.users.index'))->value('Annuler') }}
 	</div>
 
-	{{ Former::hidden('activated', 1); }}
-	{{ Former::hidden('id'); }}
+	{{ Form::hidden('activated', 1); }}
+	{{ Form::hidden('id'); }}
 
 	<div class="col-sm-3">
 
