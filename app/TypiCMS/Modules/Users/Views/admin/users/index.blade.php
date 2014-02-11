@@ -15,6 +15,8 @@
 
 	<div class="list-form" lang="{{ Config::get('app.locale') }}">
 
+		@section('btn-locales') @stop
+		
 		@include('admin._buttons-list')
 
 		{{ HTML::adminList($models, array('display' => array('%s %s (%s)', 'fullName', 'last_name', 'email'), 'switch' => false)) }}
