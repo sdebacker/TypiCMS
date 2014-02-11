@@ -10,14 +10,14 @@
 
 <label>@lang('validation.attributes.websiteTitle')</label>
 @foreach ($locales as $lang)
-	<div class="row form-group">
-		<div class="col-sm-9">
+	<div class="row">
+		<div class="col-sm-9 form-group">
 			<div class="input-group">
 				<span class="input-group-addon">{{ strtoupper($lang) }}</span>
 				{{ Form::text($lang.'[websiteTitle]', null, array('class' => 'form-control')) }}
 			</div>
 		</div>
-		<div class="col-sm-3">
+		<div class="col-sm-3 form-group">
 			<label class="checkbox">
 				{{ Form::checkbox($lang.'[status]', 1) }} @lang('validation.attributes.online')
 			</label>
@@ -39,12 +39,12 @@
 	<span class="help-block">{{ $errors->first('typekitCode') }}</span>
 	@endif
 </div>
-<div class="row form-group">
-	<div class="col-sm-6">
+<div class="row">
+	<div class="col-sm-6 form-group">
 	{{ Form::label('googleAnalyticsUniversalCode', trans('validation.attributes.googleAnalyticsUniversalCode'), array('class' => 'control-label')) }}
 	{{ Form::text('googleAnalyticsUniversalCode', null, array('class' => 'form-control')) }}
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-6 form-group">
 	{{ Form::label('googleAnalyticsCode', trans('validation.attributes.googleAnalyticsCode'), array('class' => 'control-label')) }}
 	{{ Form::text('googleAnalyticsCode', null, array('class' => 'form-control')) }}
 	</div>

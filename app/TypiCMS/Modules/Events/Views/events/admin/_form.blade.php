@@ -12,15 +12,15 @@
 
 	<div class="col-sm-6">
 
-		<div class="row form-group">
-			<div class="col-xs-8">
+		<div class="row">
+			<div class="col-xs-8 form-group">
 				{{ Form::label('start_date', trans('validation.attributes.start_date'), array('class' => 'control-label', 'placeholder' => 'DDMMYYYY')) }}
 				<div class="input-group">
 					{{ Form::text('start_date', null, array('class' => 'form-control datepicker datepicker-start')) }}
 					<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-4 form-group">
 				{{ Form::label('start_time', trans('validation.attributes.start_time'), array('class' => 'control-label', 'placeholder' => 'HH:MM')) }}
 				<div class="input-group">
 					{{ Form::text('start_time', null, array('class' => 'form-control timepicker')) }}

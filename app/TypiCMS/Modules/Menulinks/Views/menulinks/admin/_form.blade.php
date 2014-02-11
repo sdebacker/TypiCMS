@@ -44,19 +44,19 @@
 
 	<div class="col-sm-6">
 
-		<div class="row form-group">
-			<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('page_id', trans('validation.attributes.page_id')) }}
 				{{ Form::select('page_id', $selectPages, null, array('class' => 'form-control')) }}
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('module_name', trans('validation.attributes.module_name')) }}
 				{{ Form::select('module_name', $selectModules, null, array('class' => 'form-control')) }}
 			</div>
 		</div>
 
-		<div class="row form-group">
-			<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('target', trans('validation.attributes.target')) }}
 				{{ Form::select('target', array('' => trans('validation.values.Active tab'), '_blank' => trans('validation.values.New tab')), null, array('class' => 'form-control')) }}
 			</div>
@@ -66,12 +66,12 @@
 			</div>
 		</div>
 		
-		<div class="row form-group">
-			<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('restricted_to', trans('validation.attributes.restricted_to')) }}
 				{{ Form::text('restricted_to', $model->$lang->restricted_to, array('class' => 'form-control')) }}
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('link_type', trans('validation.attributes.link_type')) }}
 				{{ Form::text('link_type', $model->$lang->link_type, array('class' => 'form-control')) }}
 			</div>

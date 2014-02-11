@@ -58,34 +58,34 @@
 			{{ Form::text('address', null, array('class' => 'form-control')) }}
 		</div>
 
-		<div class="row form-group">
-			<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('email', trans('validation.attributes.email'), array('class' => 'control-label')) }}
 				{{ Form::text('email', null, array('class' => 'form-control')) }}
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('website', trans('validation.attributes.website'), array('class' => 'control-label')) }}
 				{{ Form::text('website', ($model->website or 'http://'), array('class' => 'form-control')) }}
 			</div>
 		</div>
 
-		<div class="row form-group">
-			<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('phone', trans('validation.attributes.phone'), array('class' => 'control-label')) }}
 				{{ Form::text('phone', null, array('class' => 'form-control')) }}
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('fax', trans('validation.attributes.fax'), array('class' => 'control-label')) }}
 				{{ Form::text('fax', null, array('class' => 'form-control')) }}
 			</div>
 		</div>
 
-		<div class="row form-group">
-			<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('latitude', trans('validation.attributes.latitude'), array('class' => 'control-label')) }}
 				{{ Form::text('latitude', null, array('class' => 'form-control')) }}
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6 form-group">
 				{{ Form::label('longitude', trans('validation.attributes.longitude'), array('class' => 'control-label')) }}
 				{{ Form::text('longitude', null, array('class' => 'form-control')) }}
 			</div>
