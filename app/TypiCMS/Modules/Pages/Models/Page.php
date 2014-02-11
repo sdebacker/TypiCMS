@@ -115,6 +115,7 @@ class Page extends Translatable {
 		return new NestedCollection($models);
 	}
 
+
 	/**
 	 * Observers
 	 */

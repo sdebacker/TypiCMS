@@ -16,13 +16,6 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 	{
 		$this->model = $model;
 		$this->cache = $cache;
-
-		$this->listProperties = array(
-			'sortable' => true,
-			'nested' => true,
-			'display' => array('%s', 'title')
-		);
-
 	}
 
 	/**

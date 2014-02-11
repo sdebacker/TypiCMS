@@ -12,8 +12,6 @@ abstract class RepositoriesAbstract {
 
 	protected $model;
 	protected $cache;
-	protected $listProperties = array();
-
 
 	public function view()
 	{
@@ -158,17 +156,6 @@ abstract class RepositoriesAbstract {
 		$this->cache->put($key, $models);
 
 		return $models;
-	}
-
-
-	/**
-	 * Return properties for lists
-	 *
-     * @return array
-	 */
-	public function getListProperties()
-	{
-		return $this->listProperties;
 	}
 
 

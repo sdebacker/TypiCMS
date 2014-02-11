@@ -27,12 +27,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 			$this->uris[$page->page_id][$page->locale] = $page->uri;
 		}
 
-		$this->listProperties = array(
-			'sortable' => true,
-			'nested' => true,
-			'display' => array('%s', 'title')
-		);
-
 		$this->select = array(
 			'pages.id AS id',
 			'slug',

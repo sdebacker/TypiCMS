@@ -31,11 +31,6 @@ class SentryUser implements UserInterface {
 	{
 		$this->model = $model;
 
-		$this->listProperties = array(
-			'display' => array('%s %s (%s)', 'first_name', 'last_name', 'email'),
-			'switch' => false,
-		);
-
 		$this->select = array(
 			'users.id AS id',
 			'first_name',
@@ -62,17 +57,6 @@ class SentryUser implements UserInterface {
 		$models = $query->get();
 
 		return $models;
-	}
-
-
-	/**
-	 * Return properties for lists
-	 *
-     * @return array
-	 */
-	public function getListProperties()
-	{
-		return $this->listProperties;
 	}
 
 

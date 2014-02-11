@@ -28,9 +28,10 @@ class MenulinksController extends BaseController {
 	 */
 	public function index($menu)
 	{
-		$models = $this->repository->getAllFromMenu(true, $menu->id)->buildList($this->repository->getListProperties());
-		$this->title['h1'] = '<span id="nb_elements">'.$models->getTotal().'</span> '.trans_choice('modules.menulinks.menulinks', $models->getTotal());
-		$this->layout->content = View::make('menulinks.admin.index')->withModels($models)->withMenu($menu);
+		$models = $this->repository->getAllFromMenu(true, $menu->id);
+		$this->layout->content = View::make('menulinks.admin.index')
+			->withModels($models)
+			->withMenu($menu);
 	}
 
 
@@ -48,10 +49,10 @@ class MenulinksController extends BaseController {
 		$selectModules = $this->repository->getModulesForSelect();
 
 		$this->layout->content = View::make('menulinks.admin.create')
-			->with('menu', $menu)
+			->withMenu($menu)
 			->with('selectPages', $selectPages)
 			->with('selectModules', $selectModules)
-			->with('model', $model);
+			->withModel($model);
 	}
 
 
@@ -70,10 +71,10 @@ class MenulinksController extends BaseController {
 
 
 		$this->layout->content = View::make('menulinks.admin.edit', array($menu->id, $model->id))
-			->with('menu', $menu)
+			->withMenu($menu)
 			->with('selectPages', $selectPages)
 			->with('selectModules', $selectModules)
-			->with('model', $model);
+			->withModel($model);
 	}
 
 

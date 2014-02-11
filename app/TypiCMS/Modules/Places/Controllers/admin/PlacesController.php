@@ -28,7 +28,7 @@ class PlacesController extends BaseController {
 
 		$page = Input::get('page');
 
-		$itemsPerPages = $this->repository->getModel()->itemsPerPage;
+		$itemsPerPages = $this->repository->getModel()->itemsPerPage; // Create per module config
 
 		$models = $this->repository->byPage($page, $itemsPerPages, true);
 

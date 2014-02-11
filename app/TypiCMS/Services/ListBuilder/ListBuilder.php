@@ -29,7 +29,7 @@ class ListBuilder {
 	private $formatForDisplay;
 	private $fieldsForDisplay;
 
-	public function __construct($items = array(), array $properties = array())
+	public function __construct($items, array $properties = array())
 	{
 		$this->items = $items;
 		foreach ($properties as $property => $value) {
@@ -48,7 +48,7 @@ class ListBuilder {
 	 * @param  array
 	 * @return string
 	 */
-	public function build(array $items = array())
+	public function build($items)
 	{
 		if (count($items)) {
 			$this->list[] = ($this->list) ? '<ul role="menu">' : '<ul id="'.$this->id.'" class="'.implode(' ', $this->class).'" role="menu">' ;

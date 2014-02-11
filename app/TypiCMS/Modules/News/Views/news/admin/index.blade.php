@@ -17,22 +17,7 @@
 
 		@include('admin._buttons-list')
 
-		@if(count($models))
-			<ul class="list-main">
-			@foreach ($models as $model)
-				<li id="item_{{ $model->id }}" class="@if($model->status) online @else offline @endif">
-					<div>
-						<input type="checkbox" value="{{ $model->id }}">
-						<span class="switch" style="cursor: pointer;">@lang('global.En ligne/Hors ligne')</span>
-						<a href="{{ route('admin.news.edit', $model->id) }}">{{ $model->date }} {{ $model->title }}</a>
-					</div>
-					<div class="attachments">
-						<a class="@if( ! count($model->files))text-muted@endif" href="{{ route('admin.news.files.index', $model->id) }}">{{ count($model->files) }} @choice('modules.files.files', count($model->files))</a>
-					</div>
-				</li>
-			@endforeach
-			</ul>
-		@endif
+		{{ HTML::adminList($models, array('display' => array('%s — %s', 'date', 'title'))) }}
 		
 	</div>
 

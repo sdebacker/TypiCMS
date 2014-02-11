@@ -33,15 +33,4 @@ class User extends Base {
 	public static $order = 'id';
 	public static $direction = 'asc';
 
-
-	/**
-	 * Custom collection
-	 *
-	 * @return InvoiceCollection object
-	 */
-	public function newCollection(array $models = array())
-	{
-		return new NestedCollection($models);
-	}
-
 }

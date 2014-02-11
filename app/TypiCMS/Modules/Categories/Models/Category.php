@@ -56,14 +56,4 @@ class Category extends Translatable {
 	}
 
 
-	/**
-	 * Custom collection
-	 *
-	 * @return InvoiceCollection object
-	 */
-	public function newCollection(array $models = array())
-	{
-		return new NestedCollection($models);
-	}
-
 }

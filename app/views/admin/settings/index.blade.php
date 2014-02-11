@@ -1,3 +1,7 @@
+@section('h1')
+	{{ ucfirst(trans('global.settings')) }}
+@stop
+
 @section('main')
 
 <div class="row">

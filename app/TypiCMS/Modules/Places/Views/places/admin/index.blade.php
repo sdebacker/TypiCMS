@@ -3,7 +3,7 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('modules.places.places', $models->getTotal())
+	<span id="nb_elements">{{ count($models) }}</span> @choice('modules.places.places', count($models))
 @stop
 
 @section('addButton')
@@ -17,19 +17,7 @@
 
 		@include('admin._buttons-list')
 
-		@if(count($models))
-			<ul class="list-main">
-			@foreach ($models as $model)
-				<li id="item_{{ $model->id }}" class="@if($model->status) online @else offline @endif">
-					<div>
-						<input type="checkbox" value="{{ $model->id }}">
-						<span class="switch" style="cursor: pointer;">@lang('global.En ligne/Hors ligne')</span>
-						<a href="{{ route('admin.places.edit', $model->id) }}">{{ $model->title }}</a>
-					</div>
-				</li>
-			@endforeach
-			</ul>
-		@endif
+		{{ HTML::adminList($models) }}
 
 	</div>
 

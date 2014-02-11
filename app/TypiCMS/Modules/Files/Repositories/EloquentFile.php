@@ -17,10 +17,6 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 		$this->model = $model;
 		$this->cache = $cache;
 
-		$this->listProperties = array(
-			'display' => array('%s %s', 'filename', 'alt_attribute'),
-		);
-
 		$this->select = array(
 			'files.id AS id',
 			'path',

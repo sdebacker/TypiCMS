@@ -1,9 +1,10 @@
 @section('head')
-
 	{{ HTML::script(asset('js/list.js')) }}
-
 @stop
 
+@section('h1')
+	<span id="nb_elements">{{ count($models) }}</span> @choice('modules.files.files', count($models))
+@stop
 
 @section('main')
 

@@ -24,7 +24,6 @@ class SettingsController extends BaseController {
 	public function index()
 	{
 		$data = $this->repository->getAll(true);
-		$this->title['h1'] = ucfirst(trans('global.settings'));
 		$this->layout->content = View::make('admin.settings.index')
 			->withData($data);
 	}
