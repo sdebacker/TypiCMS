@@ -83,7 +83,7 @@
 		<label>@lang('validation.attributes.groups')</label>
 		@foreach($groups as $groupName => $groupValue)
 			<label class="checkbox">
-				{{ Form::checkbox($groupValue, 1, $selectedGroups[$groupValue]) }} {{ $groupName }}
+				{{ Form::checkbox($groupValue, 1, isset($selectedGroups[$groupValue])) }} {{ $groupName }}
 			</label>
 		@endforeach
 		</div>
