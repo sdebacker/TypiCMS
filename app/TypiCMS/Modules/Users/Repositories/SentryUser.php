@@ -1,11 +1,13 @@
 <?php namespace TypiCMS\Modules\Users\Repositories;
 
+// Part of the code is from https://github.com/brunogaspar/laravel4-starter-kit
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Exception;
 
-use Sentry;
+use Cartalyst\Sentry\Sentry;
 
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use Cartalyst\Sentry\Users\UserAlreadyActivatedException;
@@ -22,10 +24,18 @@ use Cartalyst\Sentry\Throttling\UserBannedException;
 
 class SentryUser implements UserInterface {
 
-	// Class expects an Eloquent model
-	public function __construct(Model $model)
+	/**
+	 * Construct a new SentryUser Object
+	 */
+	public function __construct(Sentry $sentry)
 	{
-		$this->model = $model;
+		$this->sentry = $sentry;
+
+		// Get the Throttle Provider
+		$this->throttleProvider = $this->sentry->getThrottleProvider();
+
+		// Enable the Throttling Feature
+		$this->throttleProvider->enable();
 	}
 
 	/**
@@ -36,15 +46,32 @@ class SentryUser implements UserInterface {
 	 */
 	public function getAll($all = false)
 	{
-		$query = $this->model;
+		$users = $this->sentry->findAllUsers();
 
-		if ($this->model->order and $this->model->direction) {
-			$query->orderBy($this->model->order, $this->model->direction);
+		foreach ($users as $user) {
+			if ($user->isActivated()) {
+				$user->status = 'Active';
+			} else {
+				$user->status = 'Not Active';
+			}
+
+			// Pull Suspension & Ban info for this user
+			$throttle = $this->throttleProvider->findByUserId($user->id);
+
+			// Check for suspension
+			if ($throttle->isSuspended()) {
+				// User is Suspended
+				$user->status = 'Suspended';
+			}
+
+			// Check for ban
+			if ($throttle->isBanned()) {
+				// User is Banned
+				$user->status = 'Banned';
+			}
 		}
 
-		$models = $query->get();
-
-		return $models;
+		return $users;
 	}
 
 
@@ -58,7 +85,7 @@ class SentryUser implements UserInterface {
 	public function byId($id)
 	{
 		try {
-			return Sentry::findUserById($id);
+			return $this->sentry->findUserById($id);
 		} catch (UserNotFoundException $e) {
 			$error = 'User not found.';
 		}
@@ -76,7 +103,7 @@ class SentryUser implements UserInterface {
 	public function findUserByLogin($login)
 	{
 		try {
-			return Sentry::findUserByLogin($login);
+			return $this->sentry->findUserByLogin($login);
 		} catch (UserNotFoundException $e) {
 			$error = 'User not found.';
 		}
@@ -92,7 +119,7 @@ class SentryUser implements UserInterface {
 	 */
 	public function getGroups($user = null)
 	{
-		$groups = Sentry::findAllGroups();
+		$groups = $this->sentry->findAllGroups();
 
 		if ($user) {
 
@@ -179,9 +206,9 @@ class SentryUser implements UserInterface {
 		try {
 			// Create the user
 			$userData = array_except($data, array('_method','_token', 'exit', 'groups', 'password_confirmation'));
-			$user = Sentry::createUser($userData);
+			$user = $this->sentry->createUser($userData);
 
-			$allGroups = Sentry::findAllGroups();
+			$allGroups = $this->sentry->findAllGroups();
 			
 			foreach ($allGroups as $group) {
 				if ($data['groups'][$group->id]) {
@@ -219,9 +246,9 @@ class SentryUser implements UserInterface {
 	public function update(array $data)
 	{
 
-		$user = Sentry::findUserById($data['id']);
+		$user = $this->sentry->findUserById($data['id']);
 
-		$allGroups = Sentry::findAllGroups();
+		$allGroups = $this->sentry->findAllGroups();
 		
 		foreach ($allGroups as $group) {
 			if ($data['groups'][$group->id]) {
@@ -257,7 +284,7 @@ class SentryUser implements UserInterface {
 	public function authenticate($credentials, $remember = false)
 	{
 		try {
-			return Sentry::authenticate($credentials, $remember);
+			return $this->sentry->authenticate($credentials, $remember);
 		} catch (LoginRequiredException $e) {
 			$error = 'Login field is required.';
 		} catch (PasswordRequiredException $e) {
@@ -288,12 +315,12 @@ class SentryUser implements UserInterface {
 
 		try {
 			// Let's register a user.
-			$user = Sentry::register($input, $noConfirmation);
+			$user = $this->sentry->register($input, $noConfirmation);
 
 			if ($noConfirmation) {
 
 				// Add this person to the user group. 
-				$userGroup = Sentry::getGroupProvider()->findById(1);
+				$userGroup = $this->sentry->getGroupProvider()->findById(1);
 				$user->addGroup($userGroup);
 
 			} else {
@@ -336,11 +363,11 @@ class SentryUser implements UserInterface {
 	public function activate($userId = null, $activationCode = null)
 	{
 		try {
-			$user = Sentry::getUserProvider()->findById($userId);
+			$user = $this->sentry->getUserProvider()->findById($userId);
 
 			if ($user->attemptActivation($activationCode)) {
 				
-				$userGroup = Sentry::getGroupProvider()->findById(1);
+				$userGroup = $this->sentry->getGroupProvider()->findById(1);
 				$user->addGroup($userGroup);
 
 				return true;
@@ -365,7 +392,7 @@ class SentryUser implements UserInterface {
 	 */
 	public function logout()
 	{
-		return Sentry::logout();
+		return $this->sentry->logout();
 	}
 
 
@@ -378,7 +405,7 @@ class SentryUser implements UserInterface {
 	public function destroy($id)
 	{
 
-		$user = Sentry::findUserById($id);
+		$user = $this->sentry->findUserById($id);
 		return $user->delete() ? true : false ;
 
 	}

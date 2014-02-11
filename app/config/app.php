@@ -66,7 +66,7 @@ return array(
 		'Menus'      => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menus\Models\Menu'),
 		'Menulinks'  => array('menu' => false, 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menulinks\Models\Menulink'),
 		'Users'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Users\Models\User'),
-		// 'Groups'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Groups\Models\Group'),
+		'Groups'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Groups\Models\Group'),
 	),
 
 	/*

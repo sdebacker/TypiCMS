@@ -5,7 +5,7 @@
 		<a href="{{ route('admin.users.index') }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
 	</div>
 
-	{{ Form::hidden('activated', 1) }}
+	{{ Form::hidden('activated') }}
 	{{ Form::hidden('id') }}
 
 	<div class="col-sm-3">

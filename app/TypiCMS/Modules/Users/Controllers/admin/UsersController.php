@@ -5,19 +5,13 @@ use TypiCMS\Modules\Users\Services\Form\UserForm;
 
 use App\Controllers\Admin\BaseController;
 
-use Cartalyst\Sentry\Users\LoginRequiredException;
-use Cartalyst\Sentry\Users\PasswordRequiredException;
-use Cartalyst\Sentry\Users\UserExistsException;
-use Cartalyst\Sentry\Users\UserNotFoundException;
-use Sentry;
-
 use App;
 use Mail;
 use View;
 use Config;
 use Input;
-use Redirect;
 use Request;
+use Redirect;
 use Exception;
 use Notification;
 
@@ -77,21 +71,7 @@ class UsersController extends BaseController {
 	public function index()
 	{
 		// Grab all the users
-		$models = Sentry::getUserProvider()->createModel();
-
-		// Do we want to include the deleted users?
-		if (Input::get('withTrashed')) {
-			$models = $models->withTrashed();
-		} else if (Input::get('onlyTrashed')) {
-			$models = $models->onlyTrashed();
-		}
-
-		// Paginate the users
-		$models = $models->paginate()
-			->appends(array(
-				'withTrashed' => Input::get('withTrashed'),
-				'onlyTrashed' => Input::get('onlyTrashed'),
-			));
+		$models = $this->repository->getAll(true);
 
 		$this->layout->content = View::make('admin.users.index')->withModels($models);
 	}

@@ -12,25 +12,19 @@
 
 		{{ Form::open(array('role' => 'form', 'method' => 'post')) }}
 
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="form-group @if($errors->has('password'))has-error@endif">
-					{{ Form::label('password', trans('validation.attributes.password'), array('class' => 'inpur-lg control-label')) }}
-					{{ Form::password('password', array('class' => 'form-control', 'autocomplete' => 'off')) }}
-					@if($errors->has('password'))
-					<span class="help-block">{{ $errors->first('password') }}</span>
-					@endif
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="form-group @if($errors->has('password_confirmation'))has-error@endif">
-					{{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation'), array('class' => 'inpur-lg control-label')) }}
-					{{ Form::password('password_confirmation', array('class' => 'form-control', 'autocomplete' => 'off')) }}
-					@if($errors->has('password_confirmation'))
-					<span class="help-block">{{ $errors->first('password_confirmation') }}</span>
-					@endif
-				</div>
-			</div>
+		<div class="form-group @if($errors->has('password'))has-error@endif">
+			{{ Form::label('password', trans('validation.attributes.password'), array('class' => 'inpur-lg control-label')) }}
+			{{ Form::password('password', array('class' => 'input-lg form-control', 'autocomplete' => 'off')) }}
+			@if($errors->has('password'))
+			<span class="help-block">{{ $errors->first('password') }}</span>
+			@endif
+		</div>
+		<div class="form-group @if($errors->has('password_confirmation'))has-error@endif">
+			{{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation'), array('class' => 'inpur-lg control-label')) }}
+			{{ Form::password('password_confirmation', array('class' => 'input-lg form-control', 'autocomplete' => 'off')) }}
+			@if($errors->has('password_confirmation'))
+			<span class="help-block">{{ $errors->first('password_confirmation') }}</span>
+			@endif
 		</div>
 
 		{{ Form::hidden('resetCode', $resetCode) }}

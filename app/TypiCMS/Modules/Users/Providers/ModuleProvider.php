@@ -3,7 +3,7 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
-use TypiCMS\Modules\Users\Models\User;
+// use TypiCMS\Modules\Users\Models\User;
 use TypiCMS\Modules\Users\Repositories\SentryUser;
 
 // Form
@@ -33,7 +33,7 @@ class ModuleProvider extends ServiceProvider {
 		{
 			require __DIR__ . '/../breadcrumbs.php';
 			return new SentryUser(
-				new User
+				$app['sentry']
 			);
 		});
 

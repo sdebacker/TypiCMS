@@ -120,6 +120,8 @@ class ListBuilder {
 				$fieldsToDisplay[] = $item->$fieldForDisplay();
 			} else if (is_object($item->$fieldForDisplay) and get_class($item->$fieldForDisplay) == 'Carbon\Carbon') {
 				$fieldsToDisplay[] = $item->$fieldForDisplay->format('d.m.Y');
+			} else if (is_array($item->$fieldForDisplay)) {
+				$fieldsToDisplay[] = implode(', ', $item->$fieldForDisplay);
 			} else {
 				$fieldsToDisplay[] = $item->$fieldForDisplay;
 			}
