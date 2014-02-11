@@ -138,16 +138,25 @@ abstract class RepositoriesAbstract {
 			$query->where('fileable_type', get_class($relatedModel));
 		}
 
-		// files
+		// Files
 		$this->model->files and $query->with('files');
 
-		// order
-		$order = $this->model->order ? : 'id' ;
-		$direction = $this->model->direction ? : 'ASC' ;
-		$query->orderBy($order, $direction);
+		// Sorting DB
+		// $order = $this->model->order ? : 'id' ;
+		// $direction = $this->model->direction ? : 'ASC' ;
+		// $query->orderBy($order, $direction);
 
+		// Get
 		$models = $query->get();
 
+		// Sorting of collection
+		$desc = ($this->model->direction == 'desc') ? true : false ;
+		$models = $models->sortBy(function($model)
+		{
+			return $model->{$this->model->order};
+		}, null, $desc);
+
+		// Nesting
 		if (property_exists($this->model, 'children')) {
 			$models->nest();
 		}

@@ -48,7 +48,7 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		$query = $this->model->with('translations');
 
 		if ( ! $all ) {
-			// take only translated items that are online
+			// Take only translated items that are online
 			$query->whereHas('translations', function($query)
 				{
 					$query->where('status', 1);
@@ -62,14 +62,17 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 
 		$relid and $query->where('category_id', $relid);
 		
-		// files
+		// Files
 		$this->model->files and $query->with('files');
 
-		if ($this->model->order and $this->model->direction) {
-			$query->orderBy($this->model->order, $this->model->direction);
-		}
-
 		$models = $query->get();
+
+		// Sorting
+		$desc = ($this->model->direction == 'desc') ? true : false ;
+		$models = $models->sortBy(function($model)
+		{
+			return $model->{$this->model->order};
+		}, null, $desc);
 
 		// Store in cache for next request
 		$this->cache->put($key, $models);

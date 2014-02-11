@@ -34,10 +34,10 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 
 		! $all and $query->where('status', 1);
 
-		// files
+		// Files
 		$this->model->files and $query->with('files');
 
-		// order
+		// Order
 		$order = $this->model->order ? : 'id' ;
 		$direction = $this->model->direction ? : 'ASC' ;
 		$query->orderBy($order, $direction);

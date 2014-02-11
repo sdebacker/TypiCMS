@@ -45,18 +45,10 @@ class Project extends Translatable {
 
 
 	/**
-	 * lists
+	 * Lists
 	 */
-	public $order = 'id';
-	public $direction = 'desc';
-
-
-	/**
-	 * Items per page
-	 *
-	 * @var string
-	 */
-	public $itemsPerPage = 25;
+	public $order = 'title';
+	public $direction = 'asc';
 
 
 	/**
