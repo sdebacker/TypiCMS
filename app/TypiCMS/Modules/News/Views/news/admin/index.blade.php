@@ -18,16 +18,16 @@
 		@include('admin._buttons-list')
 
 		@if(count($models))
-			<ul id="listmain" class="list-main">
-			@foreach ($models as $news)
-				<li id="item_{{ $news->id }}" class="@if($news->status) online @else offline @endif">
+			<ul class="list-main">
+			@foreach ($models as $model)
+				<li id="item_{{ $model->id }}" class="@if($model->status) online @else offline @endif">
 					<div>
-						<input type="checkbox" value="{{ $news->id }}">
+						<input type="checkbox" value="{{ $model->id }}">
 						<span class="switch" style="cursor: pointer;">@lang('global.En ligne/Hors ligne')</span>
-						<a href="{{ route('admin.news.edit', $news->id) }}">{{ $news->date }} {{ $news->title }}</a>
+						<a href="{{ route('admin.news.edit', $model->id) }}">{{ $model->date }} {{ $model->title }}</a>
 					</div>
 					<div class="attachments">
-						<a class="@if( ! count($news->files))text-muted@endif" href="{{ route('admin.news.files.index', $news->id) }}">{{ count($news->files) }} @choice('modules.files.files', count($news->files))</a>
+						<a class="@if( ! count($model->files))text-muted@endif" href="{{ route('admin.news.files.index', $model->id) }}">{{ count($model->files) }} @choice('modules.files.files', count($model->files))</a>
 					</div>
 				</li>
 			@endforeach

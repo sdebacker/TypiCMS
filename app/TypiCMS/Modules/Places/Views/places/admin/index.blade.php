@@ -18,13 +18,13 @@
 		@include('admin._buttons-list')
 
 		@if(count($models))
-			<ul id="listmain" class="list-main">
-			@foreach ($models as $place)
-				<li id="item_{{ $place->id }}" class="@if($place->status) online @else offline @endif">
+			<ul class="list-main">
+			@foreach ($models as $model)
+				<li id="item_{{ $model->id }}" class="@if($model->status) online @else offline @endif">
 					<div>
-						<input type="checkbox" value="{{ $place->id }}">
+						<input type="checkbox" value="{{ $model->id }}">
 						<span class="switch" style="cursor: pointer;">@lang('global.En ligne/Hors ligne')</span>
-						<a href="{{ route('admin.places.edit', $place->id) }}">{{ $place->title }}</a>
+						<a href="{{ route('admin.places.edit', $model->id) }}">{{ $model->title }}</a>
 					</div>
 				</li>
 			@endforeach
