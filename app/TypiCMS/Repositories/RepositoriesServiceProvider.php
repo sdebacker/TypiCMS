@@ -21,13 +21,6 @@ class RepositoriesServiceProvider extends ServiceProvider {
 	{
 		$app = $this->app;
 
-		$app->bind('TypiCMS\Repositories\User\UserInterface', function($app)
-		{
-			return new SentryUser(
-				new User
-			);
-		});
-
 		$app->bind('TypiCMS\Repositories\Dashboard\DashboardInterface', function($app)
 		{
 			return new EloquentDashboard(

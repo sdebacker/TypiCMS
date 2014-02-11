@@ -2,9 +2,9 @@
 
 use Dimsav\Translatable\Translatable;
 
-use Input;
-
 use TypiCMS\NestedCollection;
+
+use Input;
 
 class Page extends Translatable {
 

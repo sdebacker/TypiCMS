@@ -1,26 +1,4 @@
 <?php
-/**
- * Login / logout.
- */
-Route::get('users/login', array('as' => 'login', 'uses' => 'App\Controllers\Admin\UsersController@getLogin'));
-Route::post('users/login', 'App\Controllers\Admin\UsersController@postLogin');
-
-Route::get('users/logout', array('as' => 'logout', 'uses' => 'App\Controllers\Admin\UsersController@getLogout'));
-
-Route::group(array('before' => 'users.register'), function()
-{
-	Route::get('users/register', array('as' => 'register', 'uses' => 'App\Controllers\Admin\UsersController@getRegister'));
-	Route::post('users/register', 'App\Controllers\Admin\UsersController@postRegister');
-});
-
-Route::get('users/activate/{userid}/{activationCode}', array('as' => 'activate', 'uses' => 'App\Controllers\Admin\UsersController@getActivate'));
-
-Route::get('users/resetpassword', array('as' => 'resetpassword', 'uses' => 'App\Controllers\Admin\UsersController@getResetpassword'));
-Route::post('users/resetpassword', 'App\Controllers\Admin\UsersController@postResetpassword');
-
-Route::get('users/changepassword/{userid}/{resetcode}', array('as' => 'changepassword', 'uses' => 'App\Controllers\Admin\UsersController@getChangepassword'));
-Route::post('users/changepassword/{userid}/{resetcode}', 'App\Controllers\Admin\UsersController@postChangepassword');
-
 if (Request::segment(1) != 'admin') {
 	
 	Route::bind('categories', function($value, $route){
@@ -42,13 +20,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 	Route::get('backup', array('as' => 'backup', 'uses' => 'App\Controllers\Admin\DashboardController@backup'));
 
 	Route::resource('settings', 'App\Controllers\Admin\SettingsController');
-	Route::resource('users', 'App\Controllers\Admin\UsersController');
-
-	Route::resource('news.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
-	Route::resource('pages.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
-	Route::resource('events.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
-	Route::resource('partners.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
-	Route::resource('projects.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');
 
 });
 

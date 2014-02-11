@@ -1,8 +1,4 @@
-<?php namespace TypiCMS\Repositories\User;
-
-use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\Cache\CacheInterface;
-use TypiCMS\Services\ListBuilder\ListBuilder;
+<?php namespace TypiCMS\Modules\Users\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -49,19 +45,6 @@ class SentryUser implements UserInterface {
 		$models = $query->get();
 
 		return $models;
-	}
-
-
-	/**
-	 * Build html list
-	 *
-	 * @param array
-	 * @return string
-	 */
-	public function buildList(array $array = array())
-	{
-		$listObject = new ListBuilder(null, $this->listProperties);
-		return $listObject->build($array);
 	}
 
 

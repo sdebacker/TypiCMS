@@ -1,7 +1,5 @@
 <?php namespace TypiCMS\Models;
 
-use TypiCMS\NestedCollection;
-
 class Setting extends \Eloquent {
 
 	protected $fillable = array(

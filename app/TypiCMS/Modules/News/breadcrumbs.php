@@ -1,15 +1,15 @@
 <?php
 
-// Places breadcrumbs
+// News
 
 Breadcrumbs::register('admin.news.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
     $breadcrumbs->push(Str::title(trans_choice('modules.news.news', 2)), route('admin.news.index'));
 });
 
-Breadcrumbs::register('admin.news.edit', function($breadcrumbs, $place) {
+Breadcrumbs::register('admin.news.edit', function($breadcrumbs, $news) {
     $breadcrumbs->parent('admin.news.index');
-    $breadcrumbs->push($place->title, route('admin.news.edit', $place->id));
+    $breadcrumbs->push($news->title, route('admin.news.edit', $news->id));
 });
 
 Breadcrumbs::register('admin.news.create', function($breadcrumbs) {

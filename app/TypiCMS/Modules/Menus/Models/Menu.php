@@ -1,10 +1,7 @@
 <?php namespace TypiCMS\Modules\Menus\Models;
 
-use Illuminate\Database\Eloquent\Collection;
-
 use Dimsav\Translatable\Translatable;
 
-use TypiCMS\NestedCollection;
 use TypiCMS\Services\ListBuilder\ListBuilder;
 use App;
 

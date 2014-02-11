@@ -1,7 +1,9 @@
-<?php namespace App\Controllers\Admin;
+<?php namespace TypiCMS\Modules\Users\Controllers\Admin;
 
-use TypiCMS\Repositories\User\UserInterface;
-use TypiCMS\Services\Form\User\UserForm;
+use TypiCMS\Modules\Users\Repositories\UserInterface;
+use TypiCMS\Modules\Users\Services\Form\UserForm;
+
+use App\Controllers\Admin\BaseController;
 
 use Cartalyst\Sentry\Users\LoginRequiredException;
 use Cartalyst\Sentry\Users\PasswordRequiredException;

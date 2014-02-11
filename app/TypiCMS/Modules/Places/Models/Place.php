@@ -4,7 +4,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 use Dimsav\Translatable\Translatable;
 
-use TypiCMS\NestedCollection;
 use Input;
 use Carbon\Carbon;
 

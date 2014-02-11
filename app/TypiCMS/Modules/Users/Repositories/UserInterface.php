@@ -1,4 +1,4 @@
-<?php namespace TypiCMS\Repositories\User;
+<?php namespace TypiCMS\Modules\Users\Repositories;
 
 interface UserInterface
 {
@@ -71,14 +71,6 @@ interface UserInterface
 	 * @return array
 	 */
 	public function getGroups($user = null);
-
-	/**
-	 * Build html list
-	 *
-	 * @param array
-	 * @return string
-	 */
-	public function buildList(array $array = array());
 
 	/**
 	 * Create a new User

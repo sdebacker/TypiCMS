@@ -1,7 +1,5 @@
 <?php namespace TypiCMS\Modules\Files\Models;
 
-use TypiCMS\NestedCollection;
-
 use Dimsav\Translatable\Translatable;
 
 class File extends Translatable {

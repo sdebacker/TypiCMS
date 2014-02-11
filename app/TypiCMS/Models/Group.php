@@ -1,6 +1,5 @@
 <?php namespace TypiCMS\Models;
 
-use TypiCMS\NestedCollection;
 use Cartalyst\Sentry\Groups\Eloquent\Group as SentryGroupModel;
 
 class Group extends SentryGroupModel {

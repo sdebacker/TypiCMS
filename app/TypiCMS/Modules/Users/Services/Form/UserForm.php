@@ -1,7 +1,7 @@
-<?php namespace TypiCMS\Services\Form\User;
+<?php namespace TypiCMS\Modules\Users\Services\Form;
 
 use TypiCMS\Services\Validation\ValidableInterface;
-use TypiCMS\Repositories\User\UserInterface;
+use TypiCMS\Modules\Users\Repositories\UserInterface;
 
 class UserForm {
 

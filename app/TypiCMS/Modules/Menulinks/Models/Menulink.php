@@ -2,9 +2,10 @@
 
 use Dimsav\Translatable\Translatable;
 
+use TypiCMS\NestedCollection;
+
 use Request;
 use Config;
-use TypiCMS\NestedCollection;
 
 class Menulink extends Translatable {
 

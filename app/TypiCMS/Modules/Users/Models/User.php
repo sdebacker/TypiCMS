@@ -1,7 +1,6 @@
-<?php namespace TypiCMS\Models;
+<?php namespace TypiCMS\Modules\Users\Models;
 
 use Input;
-use TypiCMS\NestedCollection;
 use Cartalyst\Sentry\Users\Eloquent\User as SentryUserModel;
 
 class User extends SentryUserModel {

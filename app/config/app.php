@@ -65,7 +65,7 @@ return array(
 		'Places'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Places\Models\Place'),
 		'Menus'      => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menus\Models\Menu'),
 		'Menulinks'  => array('menu' => false, 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menulinks\Models\Menulink'),
-		'Users'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\User'),
+		'Users'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Users\Models\User'),
 		// 'Groups'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Groups\Models\Group'),
 	),
 
@@ -139,7 +139,6 @@ return array(
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
 		'TypiCMS\Repositories\RepositoriesServiceProvider',
-		'TypiCMS\Services\Form\FormServiceProvider',
 		'TypiCMS\Providers\StartProvider',
 
 	),

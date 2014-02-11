@@ -4,8 +4,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 use Dimsav\Translatable\Translatable;
 
-use TypiCMS\NestedCollection;
-
 class Category extends Translatable {
 
 	protected $fillable = array(

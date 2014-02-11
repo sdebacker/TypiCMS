@@ -1,17 +1,14 @@
-<?php namespace TypiCMS\Modules\Places\Providers;
+<?php namespace TypiCMS\Modules\Users\Providers;
 
 use View;
 use Illuminate\Support\ServiceProvider;
 
-use TypiCMS\Modules\Places\Models\Place;
-use TypiCMS\Modules\Places\Repositories\EloquentPlace;
-
-// Cache
-use TypiCMS\Services\Cache\LaravelCache;
+use TypiCMS\Modules\Users\Models\User;
+use TypiCMS\Modules\Users\Repositories\SentryUser;
 
 // Form
-use TypiCMS\Modules\Places\Services\Form\PlaceForm;
-use TypiCMS\Modules\Places\Services\Form\PlaceFormLaravelValidator;
+use TypiCMS\Modules\Users\Services\Form\UserForm;
+use TypiCMS\Modules\Users\Services\Form\UserFormLaravelValidator;
 
 class ModuleProvider extends ServiceProvider {
 
@@ -32,20 +29,19 @@ class ModuleProvider extends ServiceProvider {
 
 		$app = $this->app;
 
-		$app->bind('TypiCMS\Modules\Places\Repositories\PlaceInterface', function($app)
+		$app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentPlace(
-				new Place,
-				new LaravelCache($app['cache'], 'places', 10)
+			return new SentryUser(
+				new User
 			);
 		});
 
-		$app->bind('TypiCMS\Modules\Places\Services\Form\PlaceForm', function($app)
+		$app->bind('TypiCMS\Modules\Users\Services\Form\UserForm', function($app)
 		{
-			return new PlaceForm(
-				new PlaceFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Modules\Places\Repositories\PlaceInterface')
+			return new UserForm(
+				new UserFormLaravelValidator( $app['validator'] ),
+				$app->make('TypiCMS\Modules\Users\Repositories\UserInterface')
 			);
 		});
 

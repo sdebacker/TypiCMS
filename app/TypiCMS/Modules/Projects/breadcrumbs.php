@@ -1,18 +1,18 @@
 <?php
 
-// Places breadcrumbs
+// Projects
 
-Breadcrumbs::register('admin.places.index', function($breadcrumbs) {
+Breadcrumbs::register('admin.projects.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.places.places', 2)), route('admin.places.index'));
+    $breadcrumbs->push(Str::title(trans_choice('modules.projects.projects', 2)), route('admin.projects.index'));
 });
 
-Breadcrumbs::register('admin.places.edit', function($breadcrumbs, $place) {
-    $breadcrumbs->parent('admin.places.index');
-    $breadcrumbs->push($place->title, route('admin.places.edit', $place->id));
+Breadcrumbs::register('admin.projects.edit', function($breadcrumbs, $project) {
+    $breadcrumbs->parent('admin.projects.index');
+    $breadcrumbs->push($project->title, route('admin.projects.edit', $project->id));
 });
 
-Breadcrumbs::register('admin.places.create', function($breadcrumbs) {
-    $breadcrumbs->parent('admin.places.index');
-    $breadcrumbs->push(trans('modules.places.New'), route('admin.places.create'));
+Breadcrumbs::register('admin.projects.create', function($breadcrumbs) {
+    $breadcrumbs->parent('admin.projects.index');
+    $breadcrumbs->push(trans('modules.projects.New'), route('admin.projects.create'));
 });
