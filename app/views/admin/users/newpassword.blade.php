@@ -10,24 +10,36 @@
 
 	<div id="login" class="container-login col-sm-4 col-sm-offset-4">
 
-		{{ Former::vertical_open()->role('form'); }}
+		{{ Form::open(array('role' => 'form', 'method' => 'post')) }}
 
 		<div class="row">
 			<div class="col-lg-6">
-			{{ Former::lg_password('password')->autocomplete('off'); }}
+				<div class="form-group @if($errors->has('password'))has-error@endif">
+					{{ Form::label('password', trans('validation.attributes.password'), array('class' => 'inpur-lg control-label')) }}
+					{{ Form::password('password', array('class' => 'form-control', 'autocomplete' => 'off')) }}
+					@if($errors->has('password'))
+					<span class="help-block">{{ $errors->first('password') }}</span>
+					@endif
+				</div>
 			</div>
 			<div class="col-lg-6">
-			{{ Former::lg_password('password_confirmation')->autocomplete('off'); }}
+				<div class="form-group @if($errors->has('password_confirmation'))has-error@endif">
+					{{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation'), array('class' => 'inpur-lg control-label')) }}
+					{{ Form::password('password_confirmation', array('class' => 'form-control', 'autocomplete' => 'off')) }}
+					@if($errors->has('password_confirmation'))
+					<span class="help-block">{{ $errors->first('password_confirmation') }}</span>
+					@endif
+				</div>
 			</div>
 		</div>
 
-		{{ Former::hidden('resetCode', $resetCode);  }}
+		{{ Form::hidden('resetCode', $resetCode) }}
 
-		{{ Former::hidden('id', $id); }}
+		{{ Form::hidden('id', $id) }}
 
-		{{ Former::lg_primary_block_button()->type('submit')->value('modify'); }}
+		{{ Form::button(trans('validation.attributes.modify'), array('class' => 'btn btn-lg btn-primary btn-block', 'type' => 'submit')) }}
 
-		{{ Former::close(); }}
+		{{ Form::close() }}
 
 	</div>
 

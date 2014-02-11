@@ -2,6 +2,8 @@
 
 use TypiCMS\Repositories\User\UserInterface;
 use TypiCMS\Services\Form\User\UserForm;
+use App;
+use Mail;
 use View;
 use Config;
 use Input;
@@ -255,9 +257,9 @@ class UsersController extends BaseController {
 			$data['email'] = $email;
 
 			// Email the reset code to the user
-			\Mail::send('emails.auth.reset', $data, function($m) use($data)
+			Mail::send('emails.auth.reset', $data, function($m) use($data)
 			{
-				$m->to($data['email'])->subject('[' . Config::get('typicms.websiteTitle') . '] ' . trans('modules.users.Password Reset Confirmation'));
+				$m->to($data['email'])->subject('[' . Config::get('typicms.' . App::getLocale() . '.websiteTitle') . '] ' . trans('modules.users.Password Reset Confirmation'));
 			});
 
 			Notification::success(trans('modules.users.An email was sent with password reset information'));
