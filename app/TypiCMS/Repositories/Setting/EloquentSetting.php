@@ -1,5 +1,7 @@
 <?php namespace TypiCMS\Repositories\Setting;
 
+use stdClass;
+
 use Request;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -31,16 +33,20 @@ class EloquentSetting implements SettingInterface {
 		}
 
 		// Item not cached, retrieve it
-		$data = array();
+		$data = new stdClass;
 		foreach ($this->model->get() as $model) {
 			$value = is_numeric($model->value) ? (int) $model->value : $model->value ;
-			if ($model->group_name != 'config') {
-				$data[$model->group_name][$model->key_name] = $value;
+			$group_name = $model->group_name;
+			$key_name = $model->key_name;
+			if ($group_name != 'config') {
+				if ( ! isset($data->$group_name) ) {
+					$data->$group_name = new stdClass;
+				}
+				$data->$group_name->$key_name = $value;
 			} else {
-				$data[$model->key_name] = $value;
+				$data->$key_name = $value;
 			}
 		}
-		$data = (object) $data;
 
 		// Store in cache for next request
 		$this->cache->put($key, $data);

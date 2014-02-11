@@ -1,7 +1,9 @@
 <?php namespace App\Controllers\Admin;
 
 use TypiCMS\Repositories\Setting\SettingInterface;
+
 use View;
+use Config;
 use Input;
 use Redirect;
 use Request;
@@ -21,10 +23,10 @@ class SettingsController extends BaseController {
 	 */
 	public function index()
 	{
-		$datas = $this->repository->getAll(true);
-		Former::populate($datas);
+		$data = $this->repository->getAll(true);
 		$this->title['h1'] = ucfirst(trans('global.settings'));
-		$this->layout->content = View::make('admin.settings.index');
+		$this->layout->content = View::make('admin.settings.index')
+			->withData($data);
 	}
 
 
@@ -35,8 +37,17 @@ class SettingsController extends BaseController {
 	 */
 	public function store()
 	{
+		$data = Input::all();
+		// add checkboxes data
+		$data['langChooser'] = Input::get('langChooser');
+		$data['authPublic']  = Input::get('authPublic');
+		$data['register']    = Input::get('register');
+		foreach (Config::get('app.locales') as $locale) {
+			$data[$locale]['websiteTitle'] = Input::get($locale.'.websiteTitle');
+			$data[$locale]['status'] = Input::get($locale.'.status');
+		}
 
-		$this->repository->store( Input::all() );
+		$this->repository->store( $data );
 		return Redirect::route('admin.settings.index');
 
 	}

@@ -4,11 +4,11 @@
 
 	<div class="col-sm-6">
 
-	{{ Former::vertical_open()->method('POST')->role('form') }}
+	{{ Form::model($data, array('method' => 'post', 'role' => 'form')) }}
 
 		@include('admin.settings._form')
 
-	{{ Former::close() }}
+	{{ Form::close() }}
 
 	</div>
 
