@@ -29,7 +29,7 @@ class ListBuilder {
 	private $formatForDisplay;
 	private $fieldsForDisplay;
 
-	public function __construct($items, array $properties = array())
+	public function __construct($items = array(), array $properties = array())
 	{
 		$this->items = $items;
 		foreach ($properties as $property => $value) {
