@@ -17,7 +17,7 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminList($models, array('display' => array('%s %s (%s)', 'first_name', 'last_name', 'email'), 'switch' => false)) }}
+		{{ HTML::adminList($models, array('display' => array('%s %s (%s)', 'fullName', 'last_name', 'email'), 'switch' => false)) }}
 
 	</div>
 

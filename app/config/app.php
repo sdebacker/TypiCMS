@@ -57,7 +57,6 @@ return array(
 
 	'modules' => array(
 		'Pages'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Pages\Models\Page'),
-		'Users'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\User'),
 		'Files'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Files\Models\File'),
 		'News'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\News\Models\News'),
 		'Events'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Events\Models\Event'),
@@ -66,6 +65,8 @@ return array(
 		'Places'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Places\Models\Place'),
 		'Menus'      => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menus\Models\Menu'),
 		'Menulinks'  => array('menu' => false, 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menulinks\Models\Menulink'),
+		'Users'      => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Models\User'),
+		// 'Groups'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Groups\Models\Group'),
 	),
 
 	/*

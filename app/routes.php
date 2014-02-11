@@ -42,7 +42,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), f
 	Route::get('backup', array('as' => 'backup', 'uses' => 'App\Controllers\Admin\DashboardController@backup'));
 
 	Route::resource('settings', 'App\Controllers\Admin\SettingsController');
-	
 	Route::resource('users', 'App\Controllers\Admin\UsersController');
 
 	Route::resource('news.files', 'TypiCMS\Modules\Files\Controllers\Admin\FilesController');

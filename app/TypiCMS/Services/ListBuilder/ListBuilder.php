@@ -106,12 +106,13 @@ class ListBuilder {
 	public function getAnchor($item)
 	{
 		$params = $item->id;
+		$route = $item->getTable();
 		// Pas propre :
 		if (isset($item->menu_id) and $item->menu_id) {
 			$params = array($item->menu_id, $item->id);
+			$route = 'menus.menulinks';
 		}
-
-		$this->list[] = '<a href="'.route('admin.'.$item->route.'.edit', $params).'">';
+		$this->list[] = '<a href="'.route('admin.'.$route.'.edit', $params).'">';
 
 		$fieldsToDisplay = array();
 		foreach ($this->fieldsForDisplay as $fieldForDisplay) {

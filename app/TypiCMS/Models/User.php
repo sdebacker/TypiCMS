@@ -2,8 +2,9 @@
 
 use Input;
 use TypiCMS\NestedCollection;
+use Cartalyst\Sentry\Users\Eloquent\User as SentryUserModel;
 
-class User extends Base {
+class User extends SentryUserModel {
 
 	protected $fillable = array(
 		'email',
@@ -28,9 +29,21 @@ class User extends Base {
 
 
 	/**
+	 * Returns the user full name, it simply concatenates
+	 * the user first and last name.
+	 *
+	 * @return string
+	 */
+	public function fullName()
+	{
+		return $this->first_name . ' ' . $this->last_name;
+	}
+
+
+	/**
 	 * lists
 	 */
-	public static $order = 'id';
+	public static $order = 'last_name';
 	public static $direction = 'asc';
 
 }
