@@ -98,11 +98,9 @@ class UsersController extends BaseController {
 
 		$user = $this->repository->byId($id);
 
-		Former::populate($user);
-
 		$this->layout->content = View::make('admin.users.edit')
-			->with('user', $user)
-			->with('groups', $this->repository->getGroups())
+			->withModel($user)
+			->withGroups($this->repository->getGroups())
 			->with('selectedGroups', $this->repository->getGroups($user));
 
 	}
@@ -135,10 +133,11 @@ class UsersController extends BaseController {
 	 */
 	public function update($id)
 	{
+		$data = Input::all();
+		// add checkboxes data
+		$data['groups'] = Input::get('groups');
 
-		Request::ajax() and exit($this->repository->update( Input::all() ));
-
-		if ( $this->form->update( Input::all() ) ) {
+		if ( $this->form->update( $data ) ) {
 			return Redirect::route('admin.users.index');
 		}
 
@@ -146,6 +145,7 @@ class UsersController extends BaseController {
 			->withInput()
 			->withErrors($this->form->errors());
 	}
+
 
 	/**
 	 * Remove the specified resource from storage.
@@ -211,6 +211,7 @@ class UsersController extends BaseController {
 
 	}
 
+
 	/**
 	 * Activate a new User
 	 */
@@ -227,6 +228,7 @@ class UsersController extends BaseController {
 
 	}
 
+
 	/**
 	 * Forgot Password / Reset
 	 */
@@ -235,6 +237,7 @@ class UsersController extends BaseController {
 		$this->title['child'] = trans('modules.users.Reset password');
 		$this->layout->content = View::make('admin.users.reset');
 	}
+
 
 	public function postResetpassword () {
 
