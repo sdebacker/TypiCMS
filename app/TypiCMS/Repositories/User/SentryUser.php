@@ -30,14 +30,6 @@ class SentryUser implements UserInterface {
 	public function __construct(Model $model)
 	{
 		$this->model = $model;
-
-		$this->select = array(
-			'users.id AS id',
-			'first_name',
-			'last_name',
-			'email',
-		);
-
 	}
 
 	/**

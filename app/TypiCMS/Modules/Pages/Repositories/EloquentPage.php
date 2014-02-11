@@ -27,16 +27,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 			$this->uris[$page->page_id][$page->locale] = $page->uri;
 		}
 
-		$this->select = array(
-			'pages.id AS id',
-			'slug',
-			'uri',
-			'title',
-			'status',
-			'position',
-			'parent'
-		);
-
 	}
 
 
@@ -90,7 +80,17 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		$uri = $rootUriArray[0].'/'.$rootUriArray[1];
 
 		$query = $this->model
-			->select($this->select)
+			->select(
+				array(
+					'pages.id AS id',
+					'slug',
+					'uri',
+					'title',
+					'status',
+					'position',
+					'parent'
+				)
+			)
 			->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
 			->where('uri', '!=', $uri)
 			->where('uri', 'LIKE', $uri.'%');

@@ -11,18 +11,6 @@ class EloquentEvent extends RepositoriesAbstract implements EventInterface {
 	{
 		$this->model = $model;
 		$this->cache = $cache;
-
-		$this->select = array(
-			'events.id AS id',
-			'start_date',
-			'end_date',
-			'start_time',
-			'end_time',
-			'slug',
-			'title',
-			'status',
-		);
-
 	}
 
 

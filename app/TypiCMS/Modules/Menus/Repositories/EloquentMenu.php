@@ -11,14 +11,6 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface {
 	{
 		$this->model = $model;
 		$this->cache = $cache;
-
-		$this->select = array(
-			'menus.id AS id',
-			'title',
-			'status',
-			'name'
-		);
-
 	}
 
 

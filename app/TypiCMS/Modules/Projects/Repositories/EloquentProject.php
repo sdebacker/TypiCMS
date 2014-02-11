@@ -15,15 +15,6 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 	{
 		$this->model = $model;
 		$this->cache = $cache;
-
-		$this->select = array(
-			'projects.id AS id',
-			'slug',
-			'title',
-			'category_id',
-			'status',
-		);
-
 	}
 
 

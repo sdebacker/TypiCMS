@@ -11,14 +11,6 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
 	{
 		$this->model = $model;
 		$this->cache = $cache;
-
-		$this->select = array(
-			'categories.id AS id',
-			'slug',
-			'title',
-			'status',
-		);
-
 	}
 
 
