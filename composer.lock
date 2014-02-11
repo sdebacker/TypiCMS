@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "178999f39dfa584b77a4ef0a696e20690ba54bc4"
+                "reference": "8230d67c0c6da6d2bd4182c78390f97262bc0e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/178999f39dfa584b77a4ef0a696e20690ba54bc4",
-                "reference": "178999f39dfa584b77a4ef0a696e20690ba54bc4",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8230d67c0c6da6d2bd4182c78390f97262bc0e8a",
+                "reference": "8230d67c0c6da6d2bd4182c78390f97262bc0e8a",
                 "shasum": ""
             },
             "require": {
@@ -71,20 +71,20 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-02-04 21:17:31"
+            "time": "2014-02-10 21:54:24"
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.2.2",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "735cb1e63e0e55c315e187c6ceacb203791af023"
+                "reference": "26309284c216861097b76516c3b206d2b49d55ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/735cb1e63e0e55c315e187c6ceacb203791af023",
-                "reference": "735cb1e63e0e55c315e187c6ceacb203791af023",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/26309284c216861097b76516c3b206d2b49d55ef",
+                "reference": "26309284c216861097b76516c3b206d2b49d55ef",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-02-04 09:05:42"
+            "time": "2014-02-11 12:30:03"
         },
         {
             "name": "bkwld/croppa",
@@ -875,12 +875,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c4f5e7d5c654a9f8277b1814a7b18a33374eb9e6"
+                "reference": "130e0fff64e08b43e0a8c67106fc96e92fec1534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c4f5e7d5c654a9f8277b1814a7b18a33374eb9e6",
-                "reference": "c4f5e7d5c654a9f8277b1814a7b18a33374eb9e6",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/130e0fff64e08b43e0a8c67106fc96e92fec1534",
+                "reference": "130e0fff64e08b43e0a8c67106fc96e92fec1534",
                 "shasum": ""
             },
             "require": {
@@ -984,7 +984,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-02-07 15:03:01"
+            "time": "2014-02-10 16:59:17"
         },
         {
             "name": "maximebf/debugbar",
@@ -1296,12 +1296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "f4dbcb1b7844c41b9bdd915e82f3d6c7d5a09d5e"
+                "reference": "a7106a737ee937281878bbe53c181fb5aefc1f8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f4dbcb1b7844c41b9bdd915e82f3d6c7d5a09d5e",
-                "reference": "f4dbcb1b7844c41b9bdd915e82f3d6c7d5a09d5e",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/a7106a737ee937281878bbe53c181fb5aefc1f8d",
+                "reference": "a7106a737ee937281878bbe53c181fb5aefc1f8d",
                 "shasum": ""
             },
             "require": {
@@ -1382,7 +1382,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-02-03 15:56:36"
+            "time": "2014-02-11 00:00:44"
         },
         {
             "name": "predis/predis",
@@ -1635,12 +1635,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "b93de9e62eae87ac734fd56da2088f0494ab0214"
+                "reference": "940f217cbc3c8a33e5403e7c595495c4884400fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/b93de9e62eae87ac734fd56da2088f0494ab0214",
-                "reference": "b93de9e62eae87ac734fd56da2088f0494ab0214",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/940f217cbc3c8a33e5403e7c595495c4884400fe",
+                "reference": "940f217cbc3c8a33e5403e7c595495c4884400fe",
                 "shasum": ""
             },
             "require": {
@@ -1670,7 +1670,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1679,7 +1681,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-02-03 17:15:33"
+            "time": "2014-02-11 13:52:09"
         },
         {
             "name": "symfony/css-selector",
@@ -1688,12 +1690,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "272e1db67f6f87705fda3bd1277e92a0f1016dd2"
+                "reference": "ed1d61b2e23a0fd5dba0b20651258c4633d3e3a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/272e1db67f6f87705fda3bd1277e92a0f1016dd2",
-                "reference": "272e1db67f6f87705fda3bd1277e92a0f1016dd2",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/ed1d61b2e23a0fd5dba0b20651258c4633d3e3a7",
+                "reference": "ed1d61b2e23a0fd5dba0b20651258c4633d3e3a7",
                 "shasum": ""
             },
             "require": {
@@ -1717,7 +1719,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1730,7 +1734,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "http://symfony.com",
-            "time": "2014-01-24 14:36:08"
+            "time": "2014-02-11 13:52:09"
         },
         {
             "name": "symfony/debug",
@@ -2370,12 +2374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sdebacker/Laravel-FormField.git",
-                "reference": "a737995771f391bfd52042217908ccdc8a2b6f3b"
+                "reference": "f86b645d2a5dae2389ba53f71991816edf8c7a75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sdebacker/Laravel-FormField/zipball/a737995771f391bfd52042217908ccdc8a2b6f3b",
-                "reference": "a737995771f391bfd52042217908ccdc8a2b6f3b",
+                "url": "https://api.github.com/repos/sdebacker/Laravel-FormField/zipball/f86b645d2a5dae2389ba53f71991816edf8c7a75",
+                "reference": "f86b645d2a5dae2389ba53f71991816edf8c7a75",
                 "shasum": ""
             },
             "require": {
@@ -2402,7 +2406,7 @@
             "support": {
                 "source": "https://github.com/sdebacker/Laravel-FormField/tree/master"
             },
-            "time": "2014-02-10 10:49:35"
+            "time": "2014-02-10 15:22:12"
         },
         {
             "name": "weotch/phpthumb",

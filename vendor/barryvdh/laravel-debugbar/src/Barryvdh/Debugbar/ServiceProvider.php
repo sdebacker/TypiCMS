@@ -17,7 +17,32 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
      */
     public function boot()
     {
-        $this->package('barryvdh/laravel-debugbar');
+        $app = $this->app;
+        $app['config']->package('barryvdh/laravel-debugbar', $this->guessPackagePath() . '/config');
+
+        if( ! $this->shouldUseMiddleware()){
+            $app->after(function ($request, $response) use($app)
+            {
+                $debugbar = $app['debugbar'];
+                $debugbar->modifyResponse($request, $response);
+            });
+        }
+
+        $this->app['router']->get('_debugbar/open', array('as' => 'debugbar.openhandler', function() use($app){
+
+            $debugbar = $app['debugbar'];
+
+            if(!$debugbar->isEnabled()){
+                $app->abort('500', 'Debugbar is not enabled');
+            }
+
+            $openHandler = new \DebugBar\OpenHandler($debugbar);
+
+            $data = $openHandler->handle(null, false, false);
+            return \Response::make($data, 200, array(
+                'Content-Type'=> 'application/json'
+            ));
+        }));
 
         if($this->app['config']->get('laravel-debugbar::config.enabled')){
 
@@ -26,9 +51,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
             $debugbar->boot();
 
         }
-
-        $this->commands('command.debugbar.publish');
-        $this->commands('command.debugbar.clear');
     }
 
 
@@ -39,8 +61,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
      */
     public function register()
     {
-
-        $app = $this->app;
         $this->app['debugbar'] = $this->app->share(function ($app){
                 $debugbar = new LaravelDebugBar($app);
 
@@ -63,32 +83,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
                 return new Console\ClearCommand($app['debugbar']);
             });
 
-        if(version_compare($app::VERSION, '4.1', '>=')){
-            $app->middleware('Barryvdh\Debugbar\Middleware', array($app));
-        }else{
-            $app->after(function ($request, $response) use($app)
-            {
-                $debugbar = $app['debugbar'];
-                $debugbar->modifyResponse($request, $response);
-            });
+        $this->commands('command.debugbar.publish');
+        $this->commands('command.debugbar.clear');
+
+        if($this->shouldUseMiddleware()){
+            $this->app->middleware('Barryvdh\Debugbar\Middleware', array($this->app));
         }
-
-        $this->app['router']->get('_debugbar/open', array('as' => 'debugbar.openhandler', function() use($app){
-
-                $debugbar = $app['debugbar'];
-
-                if(!$debugbar->isEnabled()){
-                    $this->app->abort('500', 'Debugbar is not enabled');
-                }
-
-                $openHandler = new \DebugBar\OpenHandler($debugbar);
-
-                $data = $openHandler->handle(null, false, false);
-                return \Response::make($data, 200, array(
-                        'Content-Type'=> 'application/json'
-                    ));
-            }));
-
     }
 
     /**
@@ -99,6 +99,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
     public function provides()
     {
         return array('debugbar', 'command.debugbar.publish', 'command.debugbar.clear');
+    }
+
+    protected function shouldUseMiddleware(){
+        $app = $this->app;
+        return version_compare($app::VERSION, '4.1', '>=');
     }
 
 }
