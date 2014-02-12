@@ -17,7 +17,7 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminList($models) }}
+		{{ HTML::adminTable($models, array('files' => false, 'display' => array(array('%s', 'title'), array('%s', 'address'), array('<a href="%s" target="_blank">%s</a>', 'website', 'website')))) }}
 
 	</div>
 
