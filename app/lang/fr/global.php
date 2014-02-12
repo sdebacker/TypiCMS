@@ -31,5 +31,6 @@ return array(
 	'settings'  => 'configuration',
 	'edit page' => 'modifier cette page',
 	'view website' => 'voir le site',
-	'Drop files to upload (or click)' => 'Cliquer ou glisser des fichiers pour les envoyer.'
+	'Drop files to upload (or click)' => 'Cliquer ou glisser des fichiers pour les envoyer.',
+	'Drop files to upload' => 'Glisser des fichiers pour les envoyer.',
 );

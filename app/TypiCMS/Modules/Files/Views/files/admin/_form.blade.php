@@ -1,7 +1,6 @@
 @section('head')
-
+	{{ HTML::script(asset('//tinymce.cachefly.net/4.0/tinymce.min.js')) }}
 	{{ HTML::script(asset('js/form.js')) }}
-
 @stop
 
 <div class="row">
@@ -25,7 +24,7 @@
 				</div>
 				<div class="form-group">
 					{{ Form::label($lang.'[description]', trans('validation.attributes.description')) }}
-					{{ Form::textarea($lang.'[description]', $model->$lang->description, array('class' => 'editor form-control')) }}
+					{{ Form::textarea($lang.'[description]', $model->$lang->description, array('class' => 'form-control')) }}
 				</div>
 				<div class="form-group">
 					{{ Form::label($lang.'[keywords]', trans('validation.attributes.keywords')) }}

@@ -7309,7 +7309,7 @@ body {
 }
 .thumbnail {
   float: left;
-  margin: 10px 20px 10px 0;
+  margin: 10px;
   display: block;
   position: relative;
   width: 110px;
@@ -7336,17 +7336,12 @@ body {
 .thumbnail:hover {
   text-decoration: none;
 }
-.thumbnail-dropzone {
-  margin: 10px 20px 10px 0;
-  height: 174px;
-  width: 110px;
-  display: inline-block;
-  background-color: #EEE;
-  float: left;
+.dropzone {
+  border: 1px dashed #CCC;
 }
 .dz-message {
   text-align: center;
-  margin-top: 40px;
+  margin: 100px 0;
 }
 .dz-clickable {
   cursor: pointer;

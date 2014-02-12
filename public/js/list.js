@@ -1,3 +1,12 @@
+function cleanUrl () {
+	var url = document.URL.split('?')[0];
+	urlArray = url.split('/');
+	if (urlArray.length > 5 && urlArray[6] == 'files') {
+		url = urlArray[0] + '//' + urlArray[2] + '/' + urlArray[3] + '/' + urlArray[6];
+	}
+	return url;
+}
+
 function enableSortable() {
 	// Sorting avec imbrication
 	var sortableList = $('.sortable'),
@@ -88,7 +97,7 @@ function initListForm() {
 		btnOffline = $('#btnOffline'),
 		nbElementItem = $('#nb_elements');
 
-	// Enable delete button
+	// Enable delete checkboxes
 	btnDelete.click(function(){
 
 		var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
@@ -101,11 +110,12 @@ function initListForm() {
 		confirmString += '?';
 
 		if (confirm(confirmString)) {
+			var url = cleanUrl();
 			checkedCheckboxes.each(function(){
 				var id = $(this).val();
 				$.ajax({
 					type: 'DELETE',
-					url: document.URL.split('?')[0] + '/' + id
+					url: url + '/' + id
 				}).done(function(){
 					$('#item_' + id).slideUp('fast', function () {
 						var nbElements = nbElementItem.html();
@@ -148,11 +158,13 @@ function initListForm() {
 	});
 
 
-	// Enable online button
+	// Enable online checkboxes
 	btnOnline.click(function(){
 		var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
 			nombreElementsTraites = 0,
-			nombreElementsSelectionnes = checkedCheckboxes.length;
+			nombreElementsSelectionnes = checkedCheckboxes.length,
+			url = cleanUrl();
+
 
 		checkedCheckboxes.each(function(){
 			var id = $(this).val(),
@@ -161,7 +173,7 @@ function initListForm() {
 			data[contentLocale] = {'status' : 1};
 			$.ajax({
 				type: 'PATCH',
-				url: document.URL.split('?')[0] + '/' + id,
+				url: url + '/' + id,
 				data: data
 			}).done(function(){
 				$('#item_' + id).removeClass('offline').addClass('online').find(':checkbox').prop({'checked':false});
@@ -176,11 +188,12 @@ function initListForm() {
 		});
 	});
 
-	// Enable offline button
+	// Enable offline checkboxes
 	btnOffline.click(function(){
 		var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
 			nombreElementsTraites = 0,
-			nombreElementsSelectionnes = checkedCheckboxes.length;
+			nombreElementsSelectionnes = checkedCheckboxes.length,
+			url = cleanUrl();
 
 		checkedCheckboxes.each(function(){
 			var id = $(this).val(),
@@ -189,7 +202,7 @@ function initListForm() {
 			data[contentLocale] = {'status' : 0};
 			$.ajax({
 				type: 'PATCH',
-				url: document.URL.split('?')[0] + '/' + id,
+				url: url + '/' + id,
 				data: data
 			}).done(function(){
 				$('#item_' + id).removeClass('online').addClass('offline').find(':checkbox').prop({'checked':false});

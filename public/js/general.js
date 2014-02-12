@@ -56,11 +56,7 @@ function showMessage(responsetext, responsetype) {
 
 		checkAndShowMessageDiv();
 
-		$('#uploader').dropzone({
-			maxFilesize: 2, // MB
-			previewsContainer: '.dropzone-previews',
-			acceptedFiles: 'image/jpeg,image/gif,image/png',
-			previewTemplate: '<div class="thumbnail dz-preview dz-file-preview">\
+		var dropZoneTemplate = '<div class="thumbnail dz-preview dz-file-preview">\
 				<div class="dz-details">\
 					<img data-dz-thumbnail src="" alt="">\
 					<div class="caption">\
@@ -70,8 +66,22 @@ function showMessage(responsetext, responsetype) {
 					</div>\
 				</div>\
 				<div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>\
-			</div>'
+			</div>';
+
+		$('#uploaderAddButtonContainer').click(function(event) {
+			return false;
 		});
+		$( "#uploaderAddButton" ).on( "click", function() {
+			$('#dropzone').trigger('click');
+		});
+
+		Dropzone.options.dropzone = {
+			clickable: true,
+			maxFilesize: 2, // MB
+			acceptedFiles: 'image/jpeg,image/gif,image/png',
+			previewTemplate: dropZoneTemplate,
+			previewsContainer: '.dropzone-previews',
+		};
 
 	});
 

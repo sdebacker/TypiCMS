@@ -55,15 +55,15 @@ body { padding-top: 65px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', '
 	.thumbnail { margin-top: 5px; }
 }
 
-.thumbnail { float: left; margin: 10px 20px 10px 0; display: block; position: relative; width: 110px; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none; transition: none;
+.thumbnail { float: left; margin: 10px; display: block; position: relative; width: 110px; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none; transition: none;
 	.caption { font-size: 12px; padding: 0; margin-top: 1px; height: 64px; overflow: hidden; line-height: 16px; }
 	input[type=checkbox] { position: absolute; top: 2px; left: 2px; margin: 0; }
 	&:hover { text-decoration: none; }
 }
 
-.thumbnail-dropzone { margin: 10px 20px 10px 0; height: 174px; width: 110px; display: inline-block; background-color: #EEE; float: left; }
-
-.dz-message { text-align: center; margin-top: 40px; }
+// .thumbnail-dropzone { margin: 10px 20px 10px 0; height: 174px; width: 110px; display: inline-block; background-color: #EEE; float: left; }
+.dropzone { border: 1px dashed #CCC; }
+.dz-message { text-align: center; margin: 100px 0; }
 .dz-clickable { cursor: pointer; }
 .dz-preview { position: relative;
 	.dz-error-message { display: none; position: absolute; top: 4px; left: 4px; background: rgba(255,255,255,1); color: @brand-danger; width: 100px; min-height: 100px; max-height: 160px; z-index: 500; }
