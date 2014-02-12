@@ -96,12 +96,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "63c8b10b98ca42ff5779b3fd76f33e51b153d206"
+            "reference": "01a5dddefab2b15cc98a714967881d7e5b44835a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/63c8b10b98ca42ff5779b3fd76f33e51b153d206",
-            "reference": "63c8b10b98ca42ff5779b3fd76f33e51b153d206",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/01a5dddefab2b15cc98a714967881d7e5b44835a",
+            "reference": "01a5dddefab2b15cc98a714967881d7e5b44835a",
             "shasum": ""
         },
         "require": {
@@ -142,7 +142,7 @@
             "zendframework/zend-cache": "<2.3",
             "zendframework/zend-log": "<2.3"
         },
-        "time": "2014-02-08 21:41:59",
+        "time": "2014-02-11 18:14:34",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1216,55 +1216,6 @@
         "notification-url": "https://packagist.org/downloads/"
     },
     {
-        "name": "predis/predis",
-        "version": "0.8.x-dev",
-        "version_normalized": "0.8.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nrk/predis.git",
-            "reference": "5f2eea628eb465d866ad2771927d83769c8f956c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nrk/predis/zipball/5f2eea628eb465d866ad2771927d83769c8f956c",
-            "reference": "5f2eea628eb465d866ad2771927d83769c8f956c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.2"
-        },
-        "suggest": {
-            "ext-curl": "Allows access to Webdis when paired with phpiredis",
-            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
-        },
-        "time": "2014-01-16 14:10:29",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Predis": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Daniele Alessandri",
-                "email": "suppakilla@gmail.com",
-                "homepage": "http://clorophilla.net"
-            }
-        ],
-        "description": "Flexible and feature-complete PHP client library for Redis",
-        "homepage": "http://github.com/nrk/predis",
-        "keywords": [
-            "nosql",
-            "predis",
-            "redis"
-        ]
-    },
-    {
         "name": "symfony/filesystem",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -1643,60 +1594,6 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "dimsav/laravel-translatable",
-        "version": "v1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/dimsav/laravel-translatable.git",
-            "reference": "75a9ed107f024e4369b74b66eeedb9f374900e65"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/75a9ed107f024e4369b74b66eeedb9f374900e65",
-            "reference": "75a9ed107f024e4369b74b66eeedb9f374900e65",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "4.0.* | 4.1.*",
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "orchestra/testbench": "2.0.* | 2.1.*",
-            "phpunit/phpunit": "3.7.*"
-        },
-        "time": "2014-02-05 21:17:04",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Dimsav\\Translatable\\": "Translatable/"
-            },
-            "classmap": [
-                "tests"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Dimitrios Savvopoulos",
-                "email": "ds@dimsav.com",
-                "homepage": "http://dimsav.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "A Laravel package for multilingual models",
-        "keywords": [
-            "database",
-            "language",
-            "laravel",
-            "translation"
-        ]
-    },
-    {
         "name": "thomaswelton/laravel-gravatar",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -1795,58 +1692,6 @@
             "ics",
             "php calendar"
         ]
-    },
-    {
-        "name": "symfony/http-foundation",
-        "version": "2.4.x-dev",
-        "version_normalized": "2.4.9999999.9999999-dev",
-        "target-dir": "Symfony/Component/HttpFoundation",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/HttpFoundation.git",
-            "reference": "4bd82e35304e4087706469525c5cb61d125f4c03"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/4bd82e35304e4087706469525c5cb61d125f4c03",
-            "reference": "4bd82e35304e4087706469525c5cb61d125f4c03",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "time": "2014-02-03 17:15:33",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\HttpFoundation\\": ""
-            },
-            "classmap": [
-                "Symfony/Component/HttpFoundation/Resources/stubs"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony HttpFoundation Component",
-        "homepage": "http://symfony.com"
     },
     {
         "name": "symfony/debug",
@@ -2012,91 +1857,18 @@
         "homepage": "http://symfony.com"
     },
     {
-        "name": "symfony/http-kernel",
-        "version": "2.4.x-dev",
-        "version_normalized": "2.4.9999999.9999999-dev",
-        "target-dir": "Symfony/Component/HttpKernel",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/HttpKernel.git",
-            "reference": "3934f25e23f0a507a7f7ca6611b1022794620ab3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/3934f25e23f0a507a7f7ca6611b1022794620ab3",
-            "reference": "3934f25e23f0a507a7f7ca6611b1022794620ab3",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3",
-            "psr/log": "~1.0",
-            "symfony/debug": "~2.3",
-            "symfony/event-dispatcher": "~2.1",
-            "symfony/http-foundation": "~2.4"
-        },
-        "require-dev": {
-            "symfony/browser-kit": "~2.2",
-            "symfony/class-loader": "~2.1",
-            "symfony/config": "~2.0",
-            "symfony/console": "~2.2",
-            "symfony/dependency-injection": "~2.0",
-            "symfony/finder": "~2.0",
-            "symfony/process": "~2.0",
-            "symfony/routing": "~2.2",
-            "symfony/stopwatch": "~2.2",
-            "symfony/templating": "~2.2"
-        },
-        "suggest": {
-            "symfony/browser-kit": "",
-            "symfony/class-loader": "",
-            "symfony/config": "",
-            "symfony/console": "",
-            "symfony/dependency-injection": "",
-            "symfony/finder": ""
-        },
-        "time": "2014-02-04 10:54:30",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\HttpKernel\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony HttpKernel Component",
-        "homepage": "http://symfony.com"
-    },
-    {
         "name": "mockery/mockery",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/padraic/mockery.git",
-            "reference": "5414561da33f0541af447a76cda47424e82f971d"
+            "reference": "d92a1ae1498ec3f9c6000156058203407294a358"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/padraic/mockery/zipball/5414561da33f0541af447a76cda47424e82f971d",
-            "reference": "5414561da33f0541af447a76cda47424e82f971d",
+            "url": "https://api.github.com/repos/padraic/mockery/zipball/d92a1ae1498ec3f9c6000156058203407294a358",
+            "reference": "d92a1ae1498ec3f9c6000156058203407294a358",
             "shasum": ""
         },
         "require": {
@@ -2107,7 +1879,7 @@
             "hamcrest/hamcrest-php": "~1.1",
             "satooshi/php-coveralls": "dev-master"
         },
-        "time": "2014-02-09 11:17:20",
+        "time": "2014-02-12 00:03:43",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2482,18 +2254,292 @@
         ]
     },
     {
+        "name": "way/form",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sdebacker/Laravel-FormField.git",
+            "reference": "f86b645d2a5dae2389ba53f71991816edf8c7a75"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sdebacker/Laravel-FormField/zipball/f86b645d2a5dae2389ba53f71991816edf8c7a75",
+            "reference": "f86b645d2a5dae2389ba53f71991816edf8c7a75",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~4",
+            "php": ">=5.4.0"
+        },
+        "time": "2014-02-10 15:22:12",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Way\\Form": "src/"
+            }
+        },
+        "authors": [
+            {
+                "name": "Jeffrey Way",
+                "email": "jeffrey@laracasts.com"
+            }
+        ],
+        "description": "Make form handling in Laravel simpler.",
+        "keywords": [
+            "forms",
+            "laravel"
+        ],
+        "support": {
+            "source": "https://github.com/sdebacker/Laravel-FormField/tree/master"
+        }
+    },
+    {
+        "name": "dimsav/laravel-translatable",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dimsav/laravel-translatable.git",
+            "reference": "f2d9a32f90c64f6dbba6d03ac364fe6f1f984e7e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/f2d9a32f90c64f6dbba6d03ac364fe6f1f984e7e",
+            "reference": "f2d9a32f90c64f6dbba6d03ac364fe6f1f984e7e",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "4.0.* | 4.1.*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "orchestra/testbench": "2.0.* | 2.1.*",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2014-02-11 23:14:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Dimsav\\Translatable\\": "Translatable/"
+            },
+            "classmap": [
+                "tests"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dimitrios Savvopoulos",
+                "email": "ds@dimsav.com",
+                "homepage": "http://dimsav.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "A Laravel package for multilingual models",
+        "keywords": [
+            "database",
+            "language",
+            "laravel",
+            "translation"
+        ]
+    },
+    {
+        "name": "predis/predis",
+        "version": "0.8.x-dev",
+        "version_normalized": "0.8.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nrk/predis.git",
+            "reference": "809f76a7b3fd0e510a29753528e954a33fa597db"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/809f76a7b3fd0e510a29753528e954a33fa597db",
+            "reference": "809f76a7b3fd0e510a29753528e954a33fa597db",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "suggest": {
+            "ext-curl": "Allows access to Webdis when paired with phpiredis",
+            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+        },
+        "time": "2014-02-11 18:10:09",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Predis": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniele Alessandri",
+                "email": "suppakilla@gmail.com",
+                "homepage": "http://clorophilla.net"
+            }
+        ],
+        "description": "Flexible and feature-complete PHP client library for Redis",
+        "homepage": "http://github.com/nrk/predis",
+        "keywords": [
+            "nosql",
+            "predis",
+            "redis"
+        ]
+    },
+    {
+        "name": "symfony/http-foundation",
+        "version": "2.4.x-dev",
+        "version_normalized": "2.4.9999999.9999999-dev",
+        "target-dir": "Symfony/Component/HttpFoundation",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/HttpFoundation.git",
+            "reference": "cdee7c84ba8b2a8aafa1c055f5cb4f640d81c129"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/cdee7c84ba8b2a8aafa1c055f5cb4f640d81c129",
+            "reference": "cdee7c84ba8b2a8aafa1c055f5cb4f640d81c129",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2014-02-11 15:39:28",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\HttpFoundation\\": ""
+            },
+            "classmap": [
+                "Symfony/Component/HttpFoundation/Resources/stubs"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com",
+                "homepage": "http://fabien.potencier.org",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony HttpFoundation Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "symfony/http-kernel",
+        "version": "2.4.x-dev",
+        "version_normalized": "2.4.9999999.9999999-dev",
+        "target-dir": "Symfony/Component/HttpKernel",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/HttpKernel.git",
+            "reference": "a33b776df7d5f3b54cf68817e71db5d040380732"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/a33b776df7d5f3b54cf68817e71db5d040380732",
+            "reference": "a33b776df7d5f3b54cf68817e71db5d040380732",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "psr/log": "~1.0",
+            "symfony/debug": "~2.3",
+            "symfony/event-dispatcher": "~2.1",
+            "symfony/http-foundation": "~2.4"
+        },
+        "require-dev": {
+            "symfony/browser-kit": "~2.2",
+            "symfony/class-loader": "~2.1",
+            "symfony/config": "~2.0",
+            "symfony/console": "~2.2",
+            "symfony/dependency-injection": "~2.0",
+            "symfony/finder": "~2.0",
+            "symfony/process": "~2.0",
+            "symfony/routing": "~2.2",
+            "symfony/stopwatch": "~2.2",
+            "symfony/templating": "~2.2"
+        },
+        "suggest": {
+            "symfony/browser-kit": "",
+            "symfony/class-loader": "",
+            "symfony/config": "",
+            "symfony/console": "",
+            "symfony/dependency-injection": "",
+            "symfony/finder": ""
+        },
+        "time": "2014-02-11 13:52:09",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\HttpKernel\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com",
+                "homepage": "http://fabien.potencier.org",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony HttpKernel Component",
+        "homepage": "http://symfony.com"
+    },
+    {
         "name": "laravel/framework",
         "version": "4.1.x-dev",
         "version_normalized": "4.1.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "130e0fff64e08b43e0a8c67106fc96e92fec1534"
+            "reference": "d37946f13f72b3b3cc2bd5cb4665dc1bd5d69164"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/130e0fff64e08b43e0a8c67106fc96e92fec1534",
-            "reference": "130e0fff64e08b43e0a8c67106fc96e92fec1534",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/d37946f13f72b3b3cc2bd5cb4665dc1bd5d69164",
+            "reference": "d37946f13f72b3b3cc2bd5cb4665dc1bd5d69164",
             "shasum": ""
         },
         "require": {
@@ -2561,7 +2607,7 @@
         "suggest": {
             "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
         },
-        "time": "2014-02-10 16:59:17",
+        "time": "2014-02-12 03:39:16",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2599,47 +2645,5 @@
             "framework",
             "laravel"
         ]
-    },
-    {
-        "name": "way/form",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sdebacker/Laravel-FormField.git",
-            "reference": "f86b645d2a5dae2389ba53f71991816edf8c7a75"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/sdebacker/Laravel-FormField/zipball/f86b645d2a5dae2389ba53f71991816edf8c7a75",
-            "reference": "f86b645d2a5dae2389ba53f71991816edf8c7a75",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "~4",
-            "php": ">=5.4.0"
-        },
-        "time": "2014-02-10 15:22:12",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Way\\Form": "src/"
-            }
-        },
-        "authors": [
-            {
-                "name": "Jeffrey Way",
-                "email": "jeffrey@laracasts.com"
-            }
-        ],
-        "description": "Make form handling in Laravel simpler.",
-        "keywords": [
-            "forms",
-            "laravel"
-        ],
-        "support": {
-            "source": "https://github.com/sdebacker/Laravel-FormField/tree/master"
-        }
     }
 ]
