@@ -14,7 +14,7 @@ class TableBuilder {
 	public $items = array();
 	
 	private $id = 'table-main';
-	private $class = array('table', 'table-main');
+	private $class = array('table', 'table-condensed', 'table-main');
 	private $checkboxes = true;
 	private $switch = true;
 	private $files = true;
