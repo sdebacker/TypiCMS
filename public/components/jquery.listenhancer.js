@@ -45,7 +45,7 @@
 	var lang = $('html').attr('lang');
 	var methods = {
 		init: function (options) {
-			return this.each(function() {
+			return this.each(function() {				
 				if (options) {
 					$.extend(settings, options);
 				}
@@ -59,35 +59,57 @@
 				);
 
 				listForm.find('.btn-toolbar button').prop('disabled', true);
-				selectAllText = methods.translate('Select all');
-				deSelectAllText = methods.translate('Deselect all');
-				selectionButton = $('<a>', {
-					class: 'btn btn-default btn-xs',
-					id: 'selectionButton',
-					href: '#',
-					text: selectAllText,
-					click: function () {
-						//alert($(this).attr('id'));
-						$(this).toggleClass('checked');
-						var checked_status;
-						if ($(this).hasClass('checked')) {
-							checked_status = 'checked';
-						}
-						listForm.find('input:checkbox:not(:disabled)').each(function () {
-							this.checked = checked_status;
-							if (checked_status) {
-								selectionButton.text(deSelectAllText);
-							} else {
-								selectionButton.text(selectAllText);
-							}
-						});
-						methods.verifierCheckboxes();
-						return false;
-					}
-				});
 				listForm.find('.btn-toolbar').prepend('<div class="btn-group" id="selectAllGroup"></div>');
-				$('#selectAllGroup').append(selectionButton);
-				listForm.find('input:checkbox').click(function () {
+				if (listForm.children('table').length) {
+					// if table
+					selectionButton = $('<input>', {
+						id: 'selectionButton',
+						type: 'checkbox',
+						checked: false,
+						click: function () {
+							$(this).toggleClass('checked');
+							var checked_status;
+							if ($(this).hasClass('checked')) {
+								checked_status = 'checked';
+							}
+							listForm.find('tbody input:checkbox:not(:disabled)').each(function () {
+								this.checked = checked_status;
+							});
+							methods.verifierCheckboxes();
+						},
+						appendTo: listForm.find('table th:first')
+					});
+				} else {
+					// if list
+					selectAllText = methods.translate('Select all');
+					deSelectAllText = methods.translate('Deselect all');
+					selectionButton = $('<a>', {
+						class: 'btn btn-default btn-xs',
+						id: 'selectionButton',
+						href: '#',
+						text: selectAllText,
+						click: function () {
+							//alert($(this).attr('id'));
+							$(this).toggleClass('checked');
+							var checked_status;
+							if ($(this).hasClass('checked')) {
+								checked_status = 'checked';
+							}
+							listForm.find('input:checkbox:not(:disabled)').each(function () {
+								this.checked = checked_status;
+								if (checked_status) {
+									selectionButton.text(deSelectAllText);
+								} else {
+									selectionButton.text(selectAllText);
+								}
+							});
+							methods.verifierCheckboxes();
+							return false;
+						}
+					});
+					$('#selectAllGroup').append(selectionButton);
+				}
+				listForm.find(':checkbox:not(#selectionButton)').change(function () {
 					if (this.checked) {
 						methods.checkChilds($(this));
 					} else {
@@ -128,7 +150,7 @@
 		},
 		launchAction: function() {
 			listForm.find('.btn-toolbar button').prop('disabled', true);
-			var checkedItems = listForm.find('input:checkbox:checked').parent();
+			var checkedItems = listForm.find('input:checkbox:checked:not(#selectionButton)').parent();
 			if (actionName === 'delete') {
 				var nb_elements = listForm.find('#nb_elements');
 				if (nb_elements.html() > '0') {
@@ -153,16 +175,17 @@
 			// return string;
 		},
 		verifierCheckboxes: function() {
-			nbOfCheckboxes = listForm.find('input:checkbox:not(:disabled)').length;
-			nbOfCheckedCheckboxes = listForm.find('input:checkbox:checked').length;
+			nbOfCheckboxes = listForm.find('input:checkbox:not(:disabled,#selectionButton)').length;
+			nbOfCheckedCheckboxes = listForm.find('input:checkbox:checked:not(#selectionButton)').length;
 			if (nbOfCheckedCheckboxes === 0) {
 				listForm.find('.btn-toolbar button').prop('disabled', true);
+				selectionButton.text(selectAllText).removeClass('checked').prop({'checked': false});
 			} else {
 				listForm.find('.btn-toolbar button').prop('disabled', false);
 				if (nbOfCheckboxes === nbOfCheckedCheckboxes) {
-					selectionButton.text(deSelectAllText).addClass('checked');
+					selectionButton.text(deSelectAllText).addClass('checked').prop({'checked': true});
 				} else {
-					selectionButton.text(selectAllText).removeClass('checked');
+					selectionButton.text(selectAllText).removeClass('checked').prop({'checked': false});
 				}
 			}
 		},

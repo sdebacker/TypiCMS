@@ -91,7 +91,7 @@ function initListForm() {
 	// Enable delete button
 	btnDelete.click(function(){
 
-		var checkedCheckboxes = listForm.find(':checkbox:checked'),
+		var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
 			nombreElementsTraites = 0,
 			nombreElementsSelectionnes = checkedCheckboxes.length;
 
@@ -114,6 +114,7 @@ function initListForm() {
 						nombreElementsTraites++;
 						if (nombreElementsSelectionnes == nombreElementsTraites) {
 							alertify.success(nombreElementsSelectionnes + ' items deleted.');
+							$(':checkbox').change();
 						}
 					});
 				}).fail(function(){
@@ -149,7 +150,7 @@ function initListForm() {
 
 	// Enable online button
 	btnOnline.click(function(){
-		var checkedCheckboxes = listForm.find(':checkbox:checked'),
+		var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
 			nombreElementsTraites = 0,
 			nombreElementsSelectionnes = checkedCheckboxes.length;
 
@@ -167,6 +168,7 @@ function initListForm() {
 				nombreElementsTraites++;
 				if (nombreElementsSelectionnes == nombreElementsTraites) {
 					alertify.success(nombreElementsSelectionnes + ' items set online.');
+					$(':checkbox').change();
 				}
 			}).fail(function(){
 				alertify.error('Item couldn’t be set online.');
@@ -176,7 +178,7 @@ function initListForm() {
 
 	// Enable offline button
 	btnOffline.click(function(){
-		var checkedCheckboxes = listForm.find(':checkbox:checked'),
+		var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
 			nombreElementsTraites = 0,
 			nombreElementsSelectionnes = checkedCheckboxes.length;
 
@@ -194,6 +196,7 @@ function initListForm() {
 				nombreElementsTraites++;
 				if (nombreElementsSelectionnes == nombreElementsTraites) {
 					alertify.success(nombreElementsSelectionnes + ' items set offline.');
+					$(':checkbox').change();
 				}
 			}).fail(function(){
 				alertify.error('Item couldn’t be set offline.');

@@ -89,7 +89,7 @@ class TableBuilder {
 	public function getThead()
 	{
 		$this->table[] = '<thead>';
-		$this->checkboxes and $this->table[] = '<th><input type="checkbox" id="selectionButton"></th>';
+		$this->checkboxes and $this->table[] = '<th></th>';
 		$this->checkboxes and $this->table[] = '<th></th>';
 		$this->switch and $this->table[] = '<th>' . trans('validation.attributes.online') . '</th>';
 		foreach ($this->fieldsForDisplay as $fieldForDisplay) {
