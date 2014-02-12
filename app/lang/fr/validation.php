@@ -133,6 +133,7 @@ return array(
 		'uri' => 'URI',
 		'website' => 'Site externe',
 		'online' => 'En ligne',
+		'status' => 'Statut',
 		'exit' => 'Sortir',
 
 		// Pages

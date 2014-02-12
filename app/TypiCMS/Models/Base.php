@@ -6,7 +6,6 @@ use App;
 
 abstract class Base extends Eloquent {
 
-
 	/**
 	 * For testing
 	 */	
@@ -21,27 +20,5 @@ abstract class Base extends Eloquent {
 
 		return call_user_func_array([$mock, 'shouldReceive'], func_get_args());
 	}
-
-
-	public function scopeOrder($query)
-	{
-		return $query->orderBy(static::$order, static::$direction);
-	}
-
-
-	/**
-	 * Renvoie la direction du modèle ou sa direction inverse
-	 *
-	 * @param string $sens : '' ou 'inverse'
-	 * @return string 'asc' or 'desc'
-	 */
-	public static function direction($sens = '')
-	{
-		if ($sens == 'inverse') {
-			return (static::$direction == 'asc') ? 'desc' : 'asc' ;
-		}
-		return static::$direction;
-	}
-
 
 }

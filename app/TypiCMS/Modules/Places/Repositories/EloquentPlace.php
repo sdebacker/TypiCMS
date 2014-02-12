@@ -30,7 +30,11 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	 */
 	public function byPage($paginationPage = 1, $limit = 10, $all = false)
 	{
-		$query = $this->model->with('translations');
+		$query = $this->model
+			->select('places.*', 'status')
+			->with('translations')
+			->join('place_translations', 'place_translations.place_id', '=', 'places.id')
+			->where('locale', App::getLocale());
 
 		! $all and $query->where('status', 1);
 
@@ -38,8 +42,10 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 		$this->model->files and $query->with('files');
 
 		// Order
-		$order = $this->model->order ? : 'id' ;
-		$direction = $this->model->direction ? : 'ASC' ;
+		$order = Input::get('order', $this->model->order);
+		$order = $order ? : 'id' ;
+		$direction = Input::get('direction', $this->model->direction);
+		$direction = $direction ? : 'asc' ;
 		$query->orderBy($order, $direction);
 
 		$models = $query->paginate($limit);

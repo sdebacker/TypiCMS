@@ -38,7 +38,7 @@
 				<legend>{{ trans('global.languages.'.$lang) }}</legend>
 				<div class="form-group">
 					<label class="checkbox">
-						{{ Form::checkbox('status', 1) }} @lang('validation.attributes.online')
+						{{ Form::checkbox($lang.'[status]', 1, $model->$lang->status) }} @lang('validation.attributes.online')
 					</label>
 				</div>
 				<div class="form-group">

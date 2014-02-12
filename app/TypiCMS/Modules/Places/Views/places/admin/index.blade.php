@@ -21,6 +21,6 @@
 
 	</div>
 
-	{{ $models->links() }}
+	{{ $models->appends(Input::except('page'))->links() }}
 
 @stop

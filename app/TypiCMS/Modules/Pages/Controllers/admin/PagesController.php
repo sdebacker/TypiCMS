@@ -111,7 +111,7 @@ class PagesController extends BaseController {
 		$data['comments_enabled'] = Input::get('comments_enabled');
 		$data['is_home']          = Input::get('is_home');
 		foreach (Config::get('app.locales') as $locale) {
-			$data[$locale]['status'] = Input::get($locale.'.status');
+			$data[$locale]['status'] = Input::get($locale.'.status', 0);
 		}
 
 		if ( $this->form->update( $data ) ) {

@@ -3,6 +3,7 @@
 use Config;
 use Request;
 use Route;
+use Input;
 use DB;
 
 use TypiCMS\Services\Helpers;
@@ -58,10 +59,12 @@ class TableBuilder {
 
 				$this->table[] = $this->getAnchor($item);
 
-				$this->switch and $this->table[] = '<td><span class="switch">'.trans('global.En ligne/Hors ligne').'</span></td>';
-
 				foreach ($this->fieldsForDisplay as $fieldForDisplay) {
-					$this->getFields($item, $fieldForDisplay);
+					if (end($fieldForDisplay) == 'status') {
+						$this->switch and $this->table[] = '<td><span class="switch">'.trans('global.En ligne/Hors ligne').'</span></td>';
+					} else {
+						$this->getFields($item, $fieldForDisplay);
+					}
 				}
 
 				// Attachments
@@ -90,11 +93,22 @@ class TableBuilder {
 	{
 		$this->table[] = '<thead>';
 		$this->checkboxes and $this->table[] = '<th></th>';
-		$this->checkboxes and $this->table[] = '<th></th>';
-		$this->switch and $this->table[] = '<th>' . trans('validation.attributes.online') . '</th>';
+		$this->table[] = '<th></th>';
+
+		// add status column
+		array_unshift($this->fieldsForDisplay, array('', 'status'));
+
 		foreach ($this->fieldsForDisplay as $fieldForDisplay) {
-			$this->table[] = '<th>' . trans('validation.attributes.' . end($fieldForDisplay)) . '</th>';
+			$this->table[] = '<th>';
+			$direction = 'asc';
+			$field = end($fieldForDisplay);
+			if (Input::get('order') == $field and Input::get('direction') == 'asc') {
+				$direction = 'desc';
+			}
+			$this->table[] = '<a href=?order=' . $field . '&direction=' . $direction . '>';
+			$this->table[] = trans('validation.attributes.' . $field) . '</a></th>';
 		}
+
 		$this->files and $this->table[] = '<th>' . trans('validation.attributes.files') . '</th>';
 		$this->table[] = '</thead>';
 	}
