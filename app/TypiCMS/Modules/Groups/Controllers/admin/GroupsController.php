@@ -48,7 +48,8 @@ class GroupsController extends BaseController {
 	 */
 	public function create()
 	{
-		//Form for creating a new Group
+		$this->title['child'] = trans('modules.groups.New');
+
 		$this->layout->content = View::make('admin.groups.create');
 	}
 
@@ -95,6 +96,8 @@ class GroupsController extends BaseController {
 	 */
 	public function edit($id)
 	{
+		$this->title['child'] = trans('modules.groups.Edit');
+
 		$group = $this->repository->byId($id);
 		$this->layout->content = View::make('admin.groups.edit')
 			->with('group', $group);

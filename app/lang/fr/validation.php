@@ -188,6 +188,7 @@ return array(
 		'save and exit' => 'Enregistrer et sortir',
 		'log in' => 'Connexion',
 		'modify' => 'Modifier',
+		'permissions' => 'Permissions',
 
 		// Settings
 		'webmasterEmail' => 'Email du webmaster',
