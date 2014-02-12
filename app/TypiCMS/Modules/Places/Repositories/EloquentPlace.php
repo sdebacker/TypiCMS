@@ -58,18 +58,23 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	{
 		$string = Input::get('string');
 
+		// Item not cached, retrieve it
+
 		$query = $this->model->with('translations');
 
-		$query->where('status', 1);
+		if ( ! $all ) {
+			// take only translated items that are online
+			$query->whereHas('translations', function($query)
+				{
+					$query->where('status', 1);
+					$query->where('locale', '=', App::getLocale());
+				}
+			);
+		}
 
 		if (Request::wantsJson()) { // pour affichage sur la carte
 			$query->where('latitude', '!=', '');
 			$query->where('longitude', '!=', '');
-		}
-
-		// All posts or only published
-		if ( ! $all ) {
-			$query->where('status', 1);
 		}
 
 		$string and $query->where('title', 'LIKE', '%'.$string.'%');
