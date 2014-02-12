@@ -1,13 +1,14 @@
 <?php namespace TypiCMS\Modules\Menulinks\Models;
 
-use Dimsav\Translatable\Translatable;
-
+use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 
 use Request;
 use Config;
 
-class Menulink extends Translatable {
+class Menulink extends Base {
+
+	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
 		'menu_id',

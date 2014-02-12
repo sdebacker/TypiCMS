@@ -1,12 +1,13 @@
 <?php namespace TypiCMS\Modules\Pages\Models;
 
-use Dimsav\Translatable\Translatable;
-
+use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 
 use Input;
 
-class Page extends Translatable {
+class Page extends Base {
+
+	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
 		'meta_robots_no_index',

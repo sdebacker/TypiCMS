@@ -1,13 +1,13 @@
 <?php namespace TypiCMS\Modules\News\Models;
 
-use Illuminate\Database\Eloquent\Collection;
-
-use Dimsav\Translatable\Translatable;
+use TypiCMS\Models\Base;
 
 use Input;
 use Carbon\Carbon;
 
-class News extends Translatable {
+class News extends Base {
+
+	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
 		'date',

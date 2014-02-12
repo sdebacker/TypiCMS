@@ -1,10 +1,10 @@
 <?php namespace TypiCMS\Modules\Projects\Models;
 
-use Illuminate\Database\Eloquent\Collection;
+use TypiCMS\Models\Base;
 
-use Dimsav\Translatable\Translatable;
+class Project extends Base {
 
-class Project extends Translatable {
+	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
 		'category_id',

@@ -1,13 +1,13 @@
 <?php namespace TypiCMS\Modules\Places\Models;
 
-use Illuminate\Database\Eloquent\Collection;
-
-use Dimsav\Translatable\Translatable;
+use TypiCMS\Models\Base;
 
 use Input;
 use Carbon\Carbon;
 
-class Place extends Translatable {
+class Place extends Base {
+
+	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
 		'status',

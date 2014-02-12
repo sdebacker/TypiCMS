@@ -1,11 +1,13 @@
 <?php namespace TypiCMS\Modules\Menus\Models;
 
-use Dimsav\Translatable\Translatable;
-
+use TypiCMS\Models\Base;
 use TypiCMS\Services\ListBuilder\ListBuilder;
+
 use App;
 
-class Menu extends Translatable {
+class Menu extends Base {
+
+	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
 		'name',

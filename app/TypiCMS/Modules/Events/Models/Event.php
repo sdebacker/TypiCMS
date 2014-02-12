@@ -1,13 +1,13 @@
 <?php namespace TypiCMS\Modules\Events\Models;
 
-use Illuminate\Database\Eloquent\Collection;
-
-use Dimsav\Translatable\Translatable;
+use TypiCMS\Models\Base;
 
 use Input;
 use Carbon\Carbon;
 
-class Event extends Translatable {
+class Event extends Base {
+
+	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
 		'start_date',

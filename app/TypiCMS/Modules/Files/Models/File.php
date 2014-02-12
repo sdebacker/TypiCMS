@@ -1,8 +1,10 @@
 <?php namespace TypiCMS\Modules\Files\Models;
 
-use Dimsav\Translatable\Translatable;
+use TypiCMS\Models\Base;
 
-class File extends Translatable {
+class File extends Base {
+
+	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
 		'fileable_id',
