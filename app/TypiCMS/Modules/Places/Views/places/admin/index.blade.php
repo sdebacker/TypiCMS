@@ -3,7 +3,7 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($models) }}</span> @choice('modules.places.places', count($models))
+	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('modules.places.places', $models->getTotal())
 @stop
 
 @section('addButton')
