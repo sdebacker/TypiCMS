@@ -101,11 +101,18 @@ class TableBuilder {
 		foreach ($this->fieldsForDisplay as $fieldForDisplay) {
 			$this->table[] = '<th>';
 			$direction = 'asc';
+			$iconDir = ' text-muted';
 			$field = end($fieldForDisplay);
-			if (Input::get('order') == $field and Input::get('direction') == 'asc') {
-				$direction = 'desc';
+			if (Input::get('order') == $field) {
+				$iconDir = '-desc';
+				if (Input::get('direction') == 'asc') {
+					$direction = 'desc';
+					$iconDir = '-asc';
+				}
+				// $iconDir = '-' . $direction;
 			}
 			$this->table[] = '<a href=?order=' . $field . '&direction=' . $direction . '>';
+			$this->table[] = '<i class="fa fa-sort' . $iconDir . '"></i>';
 			$this->table[] = trans('validation.attributes.' . $field) . '</a></th>';
 		}
 
