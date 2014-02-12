@@ -70,7 +70,7 @@ function initListForm() {
 	// Set buttons
 	var listForm = $('.list-form'),
 		contentLocale = listForm.attr('lang'),
-		switches = $('.list-form').find('.switch').css('cursor', 'pointer'),
+		switches = $('.switch').css('cursor', 'pointer'),
 		btnToolbar = listForm.children('.btn-toolbar'),
 		buttonGroup = $('<div>', {
 			class: 'btn-group'
@@ -126,11 +126,11 @@ function initListForm() {
 
 	// Enable online button
 	switches.click(function(){
-		var item = $(this).closest('li'),
+		var item = $(this).closest('li,tr'),
 			status = item.hasClass('online') ? 'online' : 'offline' ,
 			newStatus = item.hasClass('online') ? 'offline' : 'online' ,
 			newStatusValue = item.hasClass('online') ? 0 : 1 ,
-			id = $(this).parent().children(':checkbox').val(),
+			id = item.attr('id').split('_')[1],
 			data = {};
 		data['id'] = id;
 		data[contentLocale] = {'status' : newStatusValue};

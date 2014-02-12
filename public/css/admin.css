@@ -5909,6 +5909,16 @@ body {
 .list-main .offline > div .switch {
   background-position: 0 -20px;
 }
+.table-main .switch {
+  display: inline-block;
+  width: 22px;
+  text-indent: -9999px;
+  background: no-repeat 0 2px url(../../../img/switch-xs.png);
+  margin-left: 5px;
+}
+.table-main .offline .switch {
+  background-position: 0 -20px;
+}
 .sortable .disclose {
   position: absolute;
   left: -15px;
