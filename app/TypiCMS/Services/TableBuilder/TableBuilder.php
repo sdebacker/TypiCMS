@@ -104,12 +104,10 @@ class TableBuilder {
 			$iconDir = ' text-muted';
 			$field = end($fieldForDisplay);
 			if (Input::get('order') == $field) {
-				$iconDir = '-desc';
 				if (Input::get('direction') == 'asc') {
 					$direction = 'desc';
-					$iconDir = '-asc';
 				}
-				// $iconDir = '-' . $direction;
+				$iconDir = '-' . $direction;
 			}
 			$this->table[] = '<a href=?order=' . $field . '&direction=' . $direction . '>';
 			$this->table[] = '<i class="fa fa-sort' . $iconDir . '"></i>';
