@@ -17,11 +17,13 @@ function enableSortable() {
 		toleranceElement = '> div',
 		items = 'li',
 		url = document.URL.split('?')[0] + '/sort';
+
 	if (sortableList.hasClass('nested')) {
 		maxLevels = 3;
 		isTree = true;
 		sortableList.find('li > div').prepend('<span class="disclose"></span>');
 	}
+
 	if (sortableList.hasClass('sortable-thumbnails')) {
 		handle = 'img';
 		items = 'a';
@@ -29,6 +31,7 @@ function enableSortable() {
 		toleranceElement = false;
 		url = '/admin/files/sort';
 	}
+	
 	var sortableOptions = {
 		forcePlaceholderSize: true,
 		handle: handle,
@@ -53,7 +56,6 @@ function enableSortable() {
 			if (isTree) {
 				serializedDatas += '&nested=true&moved=' + elementId;
 			}
-			// console.log(serializedDatas);
 			$.ajax({
 				type: 'POST',
 				url: url,

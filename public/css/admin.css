@@ -7338,16 +7338,27 @@ body {
 }
 .dropzone {
   border: 1px dashed #CCC;
+  position: relative;
+  min-height: 200px;
 }
 .dz-message {
+  font-size: 24px;
+  color: #CCC;
   text-align: center;
-  margin: 100px 0;
+  left: 50%;
+  top: 50%;
+  width: 260px;
+  height: 70px;
+  margin: -35px 0 0 -130px;
+  position: absolute;
+  z-index: 1000;
 }
 .dz-clickable {
   cursor: pointer;
 }
-.dz-preview {
+.dropzone-previews {
   position: relative;
+  z-index: 1001;
 }
 .dz-preview .dz-error-message {
   display: none;

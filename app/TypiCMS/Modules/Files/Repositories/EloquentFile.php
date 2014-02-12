@@ -48,8 +48,14 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 
 		if ( $upload_success ) {
 			list($dataArray['width'], $dataArray['height']) = getimagesize($dataArray['path'].'/'.$dataArray['filename']);
-			$this->model->create($dataArray);
-			return Response::json('success', 200);
+			$uploaded = $this->model->create($dataArray);
+			$position = $this->model
+				->where('fileable_type', $input['fileable_type'])
+				->where('fileable_id', $input['fileable_id'])
+				->max('position') + 1;
+			// send back id and position
+			echo json_encode(array('id' => $uploaded->id, 'position' => $position));
+			exit();
 		} else {
 			return Response::json('error', 400);
 		}

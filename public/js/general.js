@@ -81,6 +81,34 @@ function showMessage(responsetext, responsetype) {
 			acceptedFiles: 'image/jpeg,image/gif,image/png',
 			previewTemplate: dropZoneTemplate,
 			previewsContainer: '.dropzone-previews',
+			init: function () {
+				var totalFiles = 0,
+					completeFiles = 0;
+				this.on("complete", function (file) {
+					completeFiles += 1;
+					if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+						// Mettre à jour les position
+						var files = this.getAcceptedFiles();
+						var done = 0;
+						for (var key in files){
+							var object = jQuery.parseJSON( files[key].xhr.responseText );
+							object.position = parseInt(object.position) + parseInt(key);
+							$.ajax({
+								type: 'PATCH',
+								url: '/admin/files/' + object.id,
+								data: object
+							}).done(function(){
+								done += 1;
+								if (done === files.length) {
+									location.reload();
+								}
+							}).fail(function () {
+								alertify.error(translate('An error occurred while sorting files.'));
+							});
+						}
+					}
+				});
+			}
 		};
 
 	});
