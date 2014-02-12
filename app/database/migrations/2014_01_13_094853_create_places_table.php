@@ -17,7 +17,6 @@ class CreatePlacesTable extends Migration {
 		{
 			$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->tinyInteger('status');
 			$table->string('title');
 			$table->string('slug')->unique()->nullable();
 			$table->string('address')->nullable();
@@ -38,6 +37,8 @@ class CreatePlacesTable extends Migration {
 
 			$table->increments('id')->unsigned();
 			$table->integer('place_id')->unsigned();
+
+			$table->tinyInteger('status');
 
 			$table->string('locale')->index();
 

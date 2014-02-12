@@ -10,7 +10,6 @@ class Place extends Base {
 	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
-		'status',
 		'title',
 		'slug',
 		'address',
@@ -24,6 +23,7 @@ class Place extends Base {
 		'longitude',
 		// Translatable fields
 		'info',
+		'status',
 	);
 	
 
@@ -32,7 +32,7 @@ class Place extends Base {
 	 *
 	 * @var array
 	 */
-	public $translatedAttributes = array('info');
+	public $translatedAttributes = array('info', 'status');
 
 
 	/**
