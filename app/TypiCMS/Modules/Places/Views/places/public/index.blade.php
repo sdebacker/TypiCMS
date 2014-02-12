@@ -40,7 +40,7 @@
 						</div>
 						<div class="col-xs-3 btns">
 						@if ($place->latitude and $place->longitude)
-							<a class="btn-map" href="" title="{{ trans('public.Show on map') }}"><span class="glyphicon glyphicon-map-marker"></span><span class="sr-only">{{ trans('public.Show on map') }}</span></a>					
+							<a class="btn-map" href="" title="{{ trans('public.Show on map') }}"><i class="fa fa-map-marker"></i><span class="sr-only">{{ trans('public.Show on map') }}</span></a>					
 						@endif
 						<a href="{{ route($lang.'.places.slug', array($place->slug)) }}" title="{{ trans('public.More') }}" class="fancybox" data-fancybox-type="iframe"><span class="glyphicon glyphicon-plus"></span><span class="sr-only">{{ trans('public.More') }}</span></a>
 						</div>

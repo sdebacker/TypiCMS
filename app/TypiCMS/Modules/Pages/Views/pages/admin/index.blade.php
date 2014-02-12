@@ -7,7 +7,7 @@
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.pages.create') }}" class=""><span class="glyphicon glyphicon glyphicon-plus-sign"></span><span class="sr-only">{{ ucfirst(trans('modules.pages.New')) }}</span></a>&nbsp;
+	<a href="{{ route('admin.pages.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.pages.New')) }}</span></a>
 @stop
 
 

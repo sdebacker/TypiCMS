@@ -15,8 +15,10 @@
 			{{ Form::label('date', trans('validation.attributes.date'), array('class' => 'control-label')) }}
 			<div class="input-group">
 				{{ Form::text('date', null, array('class' => 'form-control datetimepicker', 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
-				<span class="input-group-addon">
-					<span class="glyphicon-calendar glyphicon"></span>
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">
+						<i class="fa fa-calendar"></i>
+					</button>
 				</span>
 			</div>
 			@if($errors->has('date'))

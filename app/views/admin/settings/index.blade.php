@@ -19,7 +19,7 @@
 	<div class="col-sm-6">
 
 		<div>
-			<a href="{{ route('backup') }}" class="btn btn-default"><span class="glyphicon glyphicon-download"></span> {{ trans('settings.Backup DB') }}</a>
+			<a href="{{ route('backup') }}" class="btn btn-default"><i class="fa fa-download"></i> {{ trans('settings.Backup DB') }}</a>
 		</div>
 
 		<table class="table table-condensed">

@@ -17,14 +17,22 @@
 				{{ Form::label('start_date', trans('validation.attributes.start_date'), array('class' => 'control-label', 'placeholder' => 'DDMMYYYY')) }}
 				<div class="input-group">
 					{{ Form::text('start_date', null, array('class' => 'form-control datepicker datepicker-start')) }}
-					<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<i class="fa fa-calendar"></i>
+						</button>
+					</span>
 				</div>
 			</div>
 			<div class="col-xs-4 form-group">
 				{{ Form::label('start_time', trans('validation.attributes.start_time'), array('class' => 'control-label', 'placeholder' => 'HH:MM')) }}
 				<div class="input-group">
 					{{ Form::text('start_time', null, array('class' => 'form-control timepicker')) }}
-					<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<i class="fa fa-clock-o"></i>
+						</button>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -34,14 +42,22 @@
 				{{ Form::label('end_date', trans('validation.attributes.end_date'), array('class' => 'control-label', 'placeholder' => 'DDMMYYYY')) }}
 				<div class="input-group">
 					{{ Form::text('end_date', null, array('class' => 'form-control datepicker datepicker-end')) }}
-					<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<i class="fa fa-calendar"></i>
+						</button>
+					</span>
 				</div>
 			</div>
 			<div class="col-xs-4">
 				{{ Form::label('end_time', trans('validation.attributes.end_time'), array('class' => 'control-label', 'placeholder' => 'HH:MM')) }}
 				<div class="input-group">
 					{{ Form::text('end_time', null, array('class' => 'form-control timepicker')) }}
-					<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<i class="fa fa-clock-o"></i>
+						</button>
+					</span>
 				</div>
 			</div>
 		</div>

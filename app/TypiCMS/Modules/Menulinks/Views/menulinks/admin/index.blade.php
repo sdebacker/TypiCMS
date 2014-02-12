@@ -7,7 +7,7 @@
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.menus.menulinks.create', $menu->id) }}" class=""><span class="glyphicon glyphicon glyphicon-plus-sign"></span><span class="sr-only">{{ ucfirst(trans('modules.menulinks.New')) }}</span></a>&nbsp;
+	<a href="{{ route('admin.menus.menulinks.create', $menu->id) }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.menulinks.New')) }}</span></a>
 @stop
 
 

@@ -43,7 +43,7 @@
 							</div>
 						</div>
 					</li>
-					<li><a href="{{ route('admin.settings.index') }}"><i class="glyphicon glyphicon-cog"></i> <span class="sr-only">{{ ucfirst(trans('global.settings')) }}</span></a></li>
+					<li><a href="{{ route('admin.settings.index') }}"><i class="fa fa-cog"></i> <span class="sr-only">{{ ucfirst(trans('global.settings')) }}</span></a></li>
 				</ul>
 			</div>
 		</div>

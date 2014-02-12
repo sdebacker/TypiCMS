@@ -7,7 +7,7 @@
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.projects.create') }}" class=""><span class="glyphicon glyphicon glyphicon-plus-sign"></span><span class="sr-only">{{ ucfirst(trans('modules.projects.New')) }}</span></a>&nbsp;
+	<a href="{{ route('admin.projects.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.projects.New')) }}</span></a>
 @stop
 
 
