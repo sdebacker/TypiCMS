@@ -7,15 +7,15 @@ Breadcrumbs::register('admin.files.index', function($breadcrumbs) {
 	$breadcrumbs->push(Str::title(trans_choice('modules.files.files', 2)), route('admin.files.index'));
 });
 
-Breadcrumbs::register('admin.files.edit', function($breadcrumbs, $file) {
-	$breadcrumbs->parent('admin.files.index');
-	$breadcrumbs->push($file->filename, route('admin.files.edit', $file->id));
-});
+// Breadcrumbs::register('admin.files.edit', function($breadcrumbs, $file) {
+// 	$breadcrumbs->parent('admin.files.index');
+// 	$breadcrumbs->push($file->filename, route('admin.files.edit', $file->id));
+// });
 
-Breadcrumbs::register('admin.files.create', function($breadcrumbs) {
-	$breadcrumbs->parent('admin.files.index');
-	$breadcrumbs->push(trans('modules.files.New'), route('admin.files.create'));
-});
+// Breadcrumbs::register('admin.files.create', function($breadcrumbs) {
+// 	$breadcrumbs->parent('admin.files.index');
+// 	$breadcrumbs->push(trans('modules.files.New'), route('admin.files.create'));
+// });
 
 // Files linked to modules
 $modulesWithFiles = array('pages', 'events', 'news', 'projects');

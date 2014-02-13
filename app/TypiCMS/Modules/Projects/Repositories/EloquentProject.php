@@ -5,16 +5,20 @@ use App;
 use Request;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
+use TypiCMS\Modules\Tags\Repositories\TagInterface;
 use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
 
 class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 
-	// Class expects an Eloquent model and a cache interface
-	public function __construct(Model $model, CacheInterface $cache)
+    protected $tag;
+
+	// Class expects an Eloquent model, a cache interface and a TagInterface
+	public function __construct(Model $model, CacheInterface $cache, TagInterface $tag)
 	{
 		$this->model = $model;
 		$this->cache = $cache;
+		$this->tag = $tag;
 	}
 
 
@@ -70,6 +74,60 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 
 		return $models;
 	}
+
+
+	/**
+	 * Create a new model
+	 *
+	 * @param array  Data to create a new object
+	 * @return boolean
+	 */
+	public function create(array $data)
+	{
+		if ( $model = $this->model->create($data) ) {
+			$this->syncTags($model, $data['tags']);
+			return $model;
+		}
+		return false;
+	}
+
+
+	/**
+	 * Update an existing model
+	 *
+	 * @param array  Data to update a model
+	 * @return boolean
+	 */
+	public function update(array $data)
+	{
+		$model = $this->model->find($data['id']);
+		$model->fill($data);
+		$model->save();
+		$this->syncTags($model, $data['tags']);
+		return true;
+	}
+
+    /**
+     * Sync tags for project
+     *
+     * @param \Illuminate\Database\Eloquent\Model  $project
+     * @param array  $tags
+     * @return void
+     */
+    protected function syncTags(Model $project, array $tags)
+    {
+        // Create or add tags
+        $found = $this->tag->findOrCreate( $tags );
+
+        $tagIds = array();
+
+        foreach($found as $tag) {
+            $tagIds[] = $tag->id;
+        }
+
+        // Assign set tags to project
+        $project->tags()->sync($tagIds);
+    }
 
 
 }

@@ -4,6 +4,7 @@ use View;
 use Illuminate\Support\ServiceProvider;
 
 use TypiCMS\Modules\Projects\Models\Project;
+use TypiCMS\Modules\Tags\Models\TagInterface;
 use TypiCMS\Modules\Projects\Repositories\EloquentProject;
 
 // Cache
@@ -37,7 +38,8 @@ class ModuleProvider extends ServiceProvider {
 			require __DIR__ . '/../breadcrumbs.php';
 			return new EloquentProject(
 				new Project,
-				new LaravelCache($app['cache'], 'places', 10)
+				new LaravelCache($app['cache'], 'places', 10),
+				$app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
 			);
 		});
 

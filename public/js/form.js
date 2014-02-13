@@ -38,6 +38,11 @@ function initTinymce(selector) {
 
 		initTinymce('.editor');
 
+		$('#tags').select2({
+			tags: ["red", "green", "blue"],
+			tokenSeparators: [",", " "]
+		});
+
 		if ($('.datepicker').length) {
 			$('.datepicker').parent().datetimepicker({
 				format: 'DD.MM.YYYY',

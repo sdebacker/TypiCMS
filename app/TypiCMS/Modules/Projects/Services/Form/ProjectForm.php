@@ -45,6 +45,8 @@ class ProjectForm {
 			return false;
 		}
 
+        $input['tags'] = $this->processTags($input['tags']);
+
 		return $this->project->create($input);
 	}
 
@@ -60,6 +62,8 @@ class ProjectForm {
 		if( ! $this->valid($inputDot) ) {
 			return false;
 		}
+
+        $input['tags'] = $this->processTags($input['tags']);
 
 		return $this->project->update($input);
 	}

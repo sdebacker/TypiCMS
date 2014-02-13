@@ -7,6 +7,7 @@ use App\Controllers\Admin\BaseController;
 
 use View;
 use Config;
+use Session;
 use Input;
 use Redirect;
 use Request;
@@ -38,9 +39,13 @@ class ProjectsController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository->getModel();
+
+		$tags = Session::getOldInput('tags');
+
 		$this->title['child'] = trans('modules.projects.New');
 		$this->layout->content = View::make('projects.admin.create')
-			->with('model', $model);
+			->withTags($tags)
+			->withModel($model);
 	}
 
 
@@ -54,8 +59,17 @@ class ProjectsController extends BaseController {
 	{
 
 		$this->title['child'] = trans('modules.projects.Edit');
+
+        $tags = '';
+        $model->tags->each(function($tag) use(&$tags)
+        {
+            $tags .= $tag->tag.', ';
+        });
+        $tags = substr($tags, 0, -2);
+
 		$this->layout->content = View::make('projects.admin.edit')
-			->with('model', $model);
+			->withTags($tags)
+			->withModel($model);
 	}
 
 

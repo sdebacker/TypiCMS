@@ -17,6 +17,7 @@ class StartProvider extends ServiceProvider {
         $this->app->register('TypiCMS\Modules\Categories\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Users\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Groups\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Tags\Providers\ModuleProvider');
 
     }
 

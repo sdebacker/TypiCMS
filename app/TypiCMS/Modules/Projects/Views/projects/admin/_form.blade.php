@@ -43,6 +43,11 @@
 
 			@endforeach
 
+			<div class="form-group">
+				{{ Form::label('tags', trans('validation.attributes.tags'), array('class' => 'control-label')) }}
+				{{ Form::text('tags', $tags, array('id' => 'tags', 'class' => 'form-control')) }}
+			</div>
+
 		</div>
 
 	</div>

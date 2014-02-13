@@ -67,4 +67,14 @@ class Project extends Base {
 	}
 
 
+	/**
+	 * Define a many-to-many relationship.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
+	public function tags()
+	{
+	    return $this->belongsToMany('TypiCMS\Modules\Tags\Models\Tag', 'projects_tags', 'project_id', 'tag_id');
+	}
+
 }
