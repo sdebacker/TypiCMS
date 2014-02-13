@@ -1,3 +1,8 @@
+@section('head')
+	{{ HTML::script(asset('//tinymce.cachefly.net/4.0/tinymce.min.js')) }}
+	{{ HTML::script(asset('js/form.js')) }}
+@stop
+
 <div class="row">
 
 	<div class="form-group col-sm-12">
