@@ -95,7 +95,7 @@ function showMessage(responsetext, responsetype) {
 							object.position = parseInt(object.position) + parseInt(key);
 							$.ajax({
 								type: 'PATCH',
-								url: '/admin/files/' + object.id,
+								url: cleanUrl() + '/' + object.id,
 								data: object
 							}).done(function(){
 								done += 1;

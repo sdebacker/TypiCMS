@@ -1,10 +1,5 @@
 function cleanUrl () {
-	var url = document.URL.split('?')[0];
-	urlArray = url.split('/');
-	if (urlArray.length > 5 && urlArray[6] == 'files') {
-		url = urlArray[0] + '//' + urlArray[2] + '/' + urlArray[3] + '/' + urlArray[6];
-	}
-	return url;
+	return document.URL.split('?')[0];
 }
 
 function enableSortable() {
