@@ -134,7 +134,6 @@ return array(
 		'website' => 'Site externe',
 		'online' => 'En ligne',
 		'status' => 'Statut',
-		'exit' => 'Sortir',
 
 		// Pages
 		'rss_enabled' => 'Activer un flux RSS',
@@ -153,6 +152,9 @@ return array(
 		'replace logo' => 'Remplacer le logo',
 		'image' => 'Image',
 		'replace image' => 'Remplacer l’image',
+		'Show on map' => 'afficher sur la carte',
+		'category_id' => 'Catégorie',
+		'info' => 'Informations complémentaires',
 
 		// Events
 		'start_date' => 'Date de début',
@@ -187,6 +189,7 @@ return array(
 		'Change password (if not empty)' => 'Nouveau mot de passe',
 		'save' => 'Enregistrer',
 		'save and exit' => 'Enregistrer et sortir',
+		'exit' => 'Sortir',
 		'log in' => 'Connexion',
 		'modify' => 'Modifier',
 		'permissions' => 'Permissions',
