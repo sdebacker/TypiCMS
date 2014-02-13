@@ -40,12 +40,17 @@ class FilesController extends BaseController {
 	 * List models
 	 * GET /admin/model
 	 */
-	public function index($relatedModel = null)
+	public function index($parent = null)
 	{
-		$models = $this->repository->getAll(true, $relatedModel);
-		$this->layout->content = View::make('files.admin.index')
-			->withModels($models)
-			->with('relatedModel', $relatedModel);
+		$models = $this->repository->getAll(true, $parent);
+		if ($parent) {
+			$this->layout->content = View::make('files.admin.index')
+				->withModels($models)
+				->withParent($parent);
+		} else {
+			$this->layout->content = View::make('files.admin.all')
+				->withModels($models);
+		}
 	}
 
 
@@ -54,12 +59,13 @@ class FilesController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($parent)
 	{
 		$model = $this->repository->getModel();
 		$this->title['child'] = trans('modules.files.New');
 		$this->layout->content = View::make('files.admin.create')
-			->with('model', $model);
+			->withModel($model)
+			->withParent($parent);
 	}
 
 
@@ -69,14 +75,12 @@ class FilesController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($model)
+	public function edit($parent, $model)
 	{
-		// $relatedModel = with(new $model->fileable_type)->find($model->fileable_id);
-		// d($relatedModel);
-
 		$this->title['child'] = trans('modules.files.Edit');
 		$this->layout->content = View::make('files.admin.edit')
-			->with('model', $model);
+			->withModel($model)
+			->withParent($parent);
 	}
 
 
@@ -86,9 +90,9 @@ class FilesController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($model)
+	public function show($parent, $model)
 	{
-		return Redirect::route('admin.files.edit', $model->id);
+		return Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id));
 	}
 
 
@@ -97,7 +101,7 @@ class FilesController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($parent)
 	{
 		// Numeric values must be integer for checkboxes not to be checked.
 		$post = array();
@@ -106,10 +110,10 @@ class FilesController extends BaseController {
 		}
 
 		if ( $this->form->save( Input::all() ) ) {
-			return Redirect::route('admin.files.index');
+			return Redirect::route('admin.' . $parent->route . '.files.index', $parent->id);
 		}
 
-		return Redirect::route('admin.files.create')
+		return Redirect::route('admin.' . $parent->route . '.files.create', $parent->id)
 			->withInput()
 			->withErrors($this->form->errors());
 
@@ -122,16 +126,16 @@ class FilesController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($model)
+	public function update($parent, $model)
 	{
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
 		if ( $this->form->update( Input::all() ) ) {
-			return (Input::get('exit')) ? Redirect::route('admin.files.index') : Redirect::route('admin.files.edit', $model->id) ;
+			return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
 		}
 		
-		return Redirect::route( 'admin.files.edit', $model->id )
+		return Redirect::route( 'admin.' . $parent->route . '.files.edit', array($parent->id, $model->id) )
 			->withInput()
 			->withErrors($this->form->errors());
 	}
@@ -154,7 +158,7 @@ class FilesController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($model)
+	public function destroy($parent, $model)
 	{
 		if( $this->repository->delete($model) ) {
 			if ( ! Request::ajax()) {
