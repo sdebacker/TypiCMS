@@ -6,6 +6,9 @@ use TypiCMS\Services\Cache\CacheInterface;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App;
+use Request;
+
 class EloquentTag extends RepositoriesAbstract implements TagInterface {
 
 	protected $tag;
@@ -17,6 +20,36 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 		$this->tag = $tag;
 		$this->cache = $cache;
 	}
+
+	/**
+	 * Get all tags
+	 *
+	 * @param boolean $all Show published or all
+     * @return StdClass Object with $items
+	 */
+	public function getAll($all = false, $relatedModel = null)
+	{
+		// Build our cache item key, unique per model number,
+		// limit and if we're showing all
+		$allkey = ($all) ? '.all' : '';
+		$key = md5(App::getLocale().'all'.$allkey);
+
+		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		// Item not cached, retrieve it
+
+		$query = $this->tag;
+
+		$models = $query->lists('tag');
+
+		// Store in cache for next request
+		$this->cache->put($key, $models);
+
+		return $models;
+	}
+
 
 	/**
 	 * Find existing tags or create if they don't exist

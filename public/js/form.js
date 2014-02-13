@@ -38,10 +38,17 @@ function initTinymce(selector) {
 
 		initTinymce('.editor');
 
-		$('#tags').select2({
-			tags: ["red", "green", "blue"],
-			tokenSeparators: [",", " "]
-		});
+		// $('#tags').select2({
+		// 	tags: ["red", "green", "blue"],
+		// 	tokenSeparators: [",", " "]
+		// });
+		var tags = $.getJSON("/admin/tags", function(data){
+			console.log(data);
+			$('#tags').select2({
+				tags: data,
+				tokenSeparators: [",", " "]
+			});
+		})
 
 		if ($('.datepicker').length) {
 			$('.datepicker').parent().datetimepicker({

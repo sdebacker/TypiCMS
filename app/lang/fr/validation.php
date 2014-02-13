@@ -168,6 +168,9 @@ return array(
 		// Projects
 		'category_id' => 'Catégorie',
 
+		// Mots-clés
+		'tags' => 'Mots-clés',
+
 		// Menulinks
 		'page_id' => 'Page',
 		'menu_id' => 'Menu',
