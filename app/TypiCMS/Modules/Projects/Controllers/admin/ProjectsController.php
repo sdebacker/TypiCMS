@@ -5,12 +5,13 @@ use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
 
 use App\Controllers\Admin\BaseController;
 
+use App;
 use View;
-use Config;
-use Session;
 use Input;
-use Redirect;
+use Config;
 use Request;
+use Session;
+use Redirect;
 
 class ProjectsController extends BaseController {
 
@@ -40,10 +41,13 @@ class ProjectsController extends BaseController {
 	{
 		$model = $this->repository->getModel();
 
+		$categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
+
 		$tags = Session::getOldInput('tags');
 
 		$this->title['child'] = trans('modules.projects.New');
 		$this->layout->content = View::make('projects.admin.create')
+			->withCategories($categories)
 			->withTags($tags)
 			->withModel($model);
 	}
@@ -60,14 +64,17 @@ class ProjectsController extends BaseController {
 
 		$this->title['child'] = trans('modules.projects.Edit');
 
-        $tags = '';
-        $model->tags->each(function($tag) use(&$tags)
-        {
-            $tags .= $tag->tag.', ';
-        });
-        $tags = substr($tags, 0, -2);
+		$categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
+
+		$tags = '';
+		$model->tags->each(function($tag) use(&$tags)
+		{
+			$tags .= $tag->tag.', ';
+		});
+		$tags = substr($tags, 0, -2);
 
 		$this->layout->content = View::make('projects.admin.edit')
+			->withCategories($categories)
 			->withTags($tags)
 			->withModel($model);
 	}

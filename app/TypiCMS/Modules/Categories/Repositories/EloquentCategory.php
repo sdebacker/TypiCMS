@@ -4,6 +4,8 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
 
+use App;
+
 class EloquentCategory extends RepositoriesAbstract implements CategoryInterface {
 
 	// Class expects an Eloquent model and a cache interface
@@ -13,5 +15,39 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
 		$this->cache = $cache;
 	}
 
+	public function getAllForSelect()
+	{
+
+		// Item not cached, retrieve it
+		$query = $this->model->with('translations');
+
+		// take only translated items that are online
+		$query->whereHas('translations', function($query)
+			{
+				$query->where('status', 1);
+				$query->where('locale', '=', App::getLocale());
+				$query->where('slug', '!=', '');
+			}
+		);
+
+		// Get
+		$categories = $query->get();
+
+		// Sorting of collection
+		$desc = ($this->model->direction == 'desc') ? true : false ;
+		$categories = $categories->sortBy(function($model)
+		{
+			return $model->{$this->model->order};
+		}, null, $desc);
+
+		$array = array('' => '');
+		$categories->each(function($category) use(&$array)
+		{
+			$array[$category->id] = $category->title;
+		});
+
+		return $array;
+
+	}
 
 }

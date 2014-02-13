@@ -61,9 +61,12 @@
 
 			<div class="tab-pane fade in active" id="options">
 
-				<div class="form-group">
+				<div class="form-group @if($errors->has('category_id'))has-error@endif">
 					{{ Form::label('category_id', trans('validation.attributes.category_id'), array('class' => 'control-label')) }}
-					{{ Form::text('category_id', null, array('class' => 'form-control')) }}
+					{{ Form::select('category_id', $categories, null, array('class' => 'form-control')) }}
+					@if($errors->has('category_id'))
+					<span class="help-block">{{ $errors->first('category_id') }}</span>
+					@endif
 				</div>
 				<div class="form-group">
 					{{ Form::label('tags', trans('validation.attributes.tags'), array('class' => 'control-label')) }}
