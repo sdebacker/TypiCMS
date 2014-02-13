@@ -104,7 +104,7 @@ class EventsController extends BaseController {
 
 		// add checkboxes data
 		foreach (Config::get('app.locales') as $locale) {
-			$data[$locale]['status'] = Input::get($locale.'.status', 0);
+			$data[$locale]['status'] = Input::get($locale.'.status');
 		}
 
 		if ( $this->form->update( $data ) ) {
