@@ -61,6 +61,14 @@ class File extends Base {
 	public $direction = 'asc';
 
 
+	/**
+	 * Items per page
+	 *
+	 * @var string
+	 */
+	public $itemsPerPage = 20;
+
+
  	/**
 	 * Polymorphic relation.
 	 */

@@ -3,7 +3,7 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($models) }}</span> @choice('modules.files.files', count($models))
+	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('modules.files.files', $models->getTotal())
 @stop
 
 @section('addButton')
@@ -45,7 +45,8 @@
 
 		{{ Form::close() }}
 
-
 	</div>
+
+	{{ $models->appends(Input::except('page'))->links() }}
 
 @stop

@@ -74,7 +74,7 @@ abstract class RepositoriesAbstract {
 	 * @param boolean $all Show published or all
 	 * @return StdClass Object with $items and $totalItems for pagination
 	 */
-	public function byPage($paginationPage = 1, $limit = 10, $all = false)
+	public function byPage($paginationPage = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
 		// All posts or only published
 		$translations = 'translations';
@@ -86,6 +86,11 @@ abstract class RepositoriesAbstract {
 		}
 
 		$query = $this->model->with($translations);
+
+		if ($relatedModel) {
+			$query->where('fileable_id', $relatedModel->id);
+			$query->where('fileable_type', get_class($relatedModel));
+		}
 
 		// files
 		$this->model->files and $query->with('files');
