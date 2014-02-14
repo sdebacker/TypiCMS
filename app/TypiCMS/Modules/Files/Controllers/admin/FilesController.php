@@ -108,14 +108,9 @@ class FilesController extends BaseController {
 	 */
 	public function store($parent)
 	{
-		// Numeric values must be integer for checkboxes not to be checked.
-		$post = array();
-		foreach (Input::all() as $key => $value) {
-			$post[$key] = is_numeric($value) ? (int) $value : $value ;
-		}
 
-		if ( $this->form->save( Input::all() ) ) {
-			return Redirect::route('admin.' . $parent->route . '.files.index', $parent->id);
+		if ( $model = $this->form->save( Input::all() ) ) {
+			return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
 		}
 
 		return Redirect::route('admin.' . $parent->route . '.files.create', $parent->id)
