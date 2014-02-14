@@ -31,6 +31,9 @@ class EventsControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Event::shouldReceive('create')->once()->andReturn($object);
 		$input = array('start_date' => '10.10.2012');
 		$this->call('POST', 'admin/events', $input);
 		$this->assertRedirectedToRoute('admin.events.edit', array('id' => 1));
@@ -38,6 +41,9 @@ class EventsControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Event::shouldReceive('create')->once()->andReturn($object);
 		$input = array('start_date' => '10.10.2012', 'exit' => true);
 		$this->call('POST', 'admin/events', $input);
 		$this->assertRedirectedToRoute('admin.events.index');

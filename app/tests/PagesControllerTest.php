@@ -40,6 +40,9 @@ class PagesControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Page::shouldReceive('create')->once()->andReturn($object);
 		$input = array('fr.title' => 'test', 'fr.slug' => 'test');
 		$this->call('POST', 'admin/pages', $input);
 		$this->assertRedirectedToRoute('admin.pages.edit', array('id' => 1));
@@ -47,6 +50,9 @@ class PagesControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Page::shouldReceive('create')->once()->andReturn($object);
 		$input = array('fr.title' => 'test', 'fr.slug' => 'test', 'exit' => true);
 		$this->call('POST', 'admin/pages', $input);
 		$this->assertRedirectedToRoute('admin.pages.index');

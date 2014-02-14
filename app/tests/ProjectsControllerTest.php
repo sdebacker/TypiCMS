@@ -31,6 +31,9 @@ class ProjectsControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Project::shouldReceive('create')->once()->andReturn($object);
 		$input = array('fr.title' => 'test', 'fr.slug' => 'test', 'category_id' => 1, 'tags' => '');
 		$this->call('POST', 'admin/projects', $input);
 		$this->assertRedirectedToRoute('admin.projects.edit', array('id' => 1));
@@ -38,6 +41,9 @@ class ProjectsControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Project::shouldReceive('create')->once()->andReturn($object);
 		$input = array('fr.title' => 'test', 'fr.slug' => 'test', 'category_id' => 1, 'tags' => '', 'exit' => true);
 		$this->call('POST', 'admin/projects', $input);
 		$this->assertRedirectedToRoute('admin.projects.index');

@@ -31,6 +31,9 @@ class CategoriesControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Category::shouldReceive('create')->once()->andReturn($object);
 		$input = array('fr.title' => 'test', 'fr.slug' => 'test');
 		$this->call('POST', 'admin/categories', $input);
 		$this->assertRedirectedToRoute('admin.categories.edit', array('id' => 1));
@@ -38,6 +41,9 @@ class CategoriesControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Category::shouldReceive('create')->once()->andReturn($object);
 		$input = array('fr[title]' => 'test', 'fr[slug]' => 'test', 'exit' => true);
 		$this->call('POST', 'admin/categories', $input);
 		$this->assertRedirectedToRoute('admin.categories.index');

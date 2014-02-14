@@ -31,6 +31,9 @@ class PlacesControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Place::shouldReceive('create')->once()->andReturn($object);
 		$input = array('title' => 'test', 'slug' => 'test', 'status' => 0);
 		$this->call('POST', 'admin/places', $input);
 		$this->assertRedirectedToRoute('admin.places.edit', array('id' => 1));
@@ -38,6 +41,9 @@ class PlacesControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Place::shouldReceive('create')->once()->andReturn($object);
 		$input = array('title' => 'test', 'slug' => 'test', 'status' => 0, 'exit' => true);
 		$this->call('POST', 'admin/places', $input);
 		$this->assertRedirectedToRoute('admin.places.index');

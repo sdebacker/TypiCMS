@@ -31,6 +31,9 @@ class MenusControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Menu::shouldReceive('create')->once()->andReturn($object);
 		$input = array('name' => 'test');
 		$this->call('POST', 'admin/menus', $input);
 		$this->assertRedirectedToRoute('admin.menus.edit', array('id' => 1));
@@ -38,6 +41,9 @@ class MenusControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
+		$object = new StdClass; // or a new mock object
+		$object->id = 1;
+		Menu::shouldReceive('create')->once()->andReturn($object);
 		$input = array('name' => 'test', 'exit' => true);
 		$this->call('POST', 'admin/menus', $input);
 		$this->assertRedirectedToRoute('admin.menus.index');
