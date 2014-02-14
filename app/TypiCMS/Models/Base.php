@@ -11,9 +11,10 @@ abstract class Base extends Eloquent {
 	 */	
 	public static function shouldReceive()
 	{
+		var_dump(get_called_class());
 		$classArray = explode('\\', get_called_class());
 		$class = end($classArray);
-		$repo = 'TypiCMS\\Repositories\\'.$class.'\\'.$class.'Interface';
+		$repo = 'TypiCMS\\Modules\\'.str_plural($class).'\\Repositories\\'.$class.'Interface';
 		$mock = Mockery::mock($repo);
 
 		App::instance($repo, $mock);
