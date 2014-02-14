@@ -46,9 +46,9 @@ class CreateMenusTables extends Migration {
 
 			$table->increments('id')->unsigned();
 			$table->integer('menu_id')->unsigned();
-			$table->integer('page_id')->unsigned();
-			$table->integer('parent')->unsigned();
-			$table->integer('position')->unsigned();
+			$table->integer('page_id')->unsigned()->nullable();
+			$table->integer('parent')->unsigned()->default(0);
+			$table->integer('position')->unsigned()->default(0);
 			$table->string('target', 10);
 			$table->string('module_name', 50);
 			$table->string('restricted_to');

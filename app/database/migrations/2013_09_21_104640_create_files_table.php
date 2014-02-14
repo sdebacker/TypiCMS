@@ -36,7 +36,7 @@ class CreateFilesTable extends Migration {
 			$table->integer('filesize')->unsigned();
 			$table->integer('download_count');
 
-			$table->integer('position')->unsigned();
+			$table->integer('position')->unsigned()->default(0);
 
 			$table->timestamps();
 

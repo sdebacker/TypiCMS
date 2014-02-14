@@ -19,20 +19,20 @@ class CreatePagesTable extends Migration {
 
 			$table->increments('id');
 
-			$table->string('meta_robots_no_index');
-			$table->string('meta_robots_no_follow');
+			$table->string('meta_robots_no_index')->default(0);
+			$table->string('meta_robots_no_follow')->default(0);
 
-			$table->integer('position')->unsigned();
-			$table->integer('parent')->unsigned();
+			$table->integer('position')->unsigned()->default(0);
+			$table->integer('parent')->unsigned()->default(0);
 
-			$table->tinyInteger('rss_enabled');
-			$table->tinyInteger('comments_enabled');
-			$table->tinyInteger('is_home');
+			$table->tinyInteger('rss_enabled')->default(0);
+			$table->tinyInteger('comments_enabled')->default(0);
+			$table->tinyInteger('is_home')->default(0);
 
-			$table->text('css');
-			$table->text('js');
+			$table->text('css')->nullable();
+			$table->text('js')->nullable();
 
-			$table->string('template');
+			$table->string('template')->nullable();
 
 			$table->timestamps();
 
@@ -47,7 +47,7 @@ class CreatePagesTable extends Migration {
 
 			$table->string('locale')->index();
 
-			$table->string('slug');
+			$table->string('slug')->nullable();
 			$table->string('uri')->unique()->nullable();
 
 			$table->string('title');
@@ -55,9 +55,9 @@ class CreatePagesTable extends Migration {
 
 			$table->tinyInteger('status');
 
-			$table->string('meta_title');
-			$table->string('meta_keywords');
-			$table->string('meta_description');
+			$table->string('meta_title')->nullable();
+			$table->string('meta_keywords')->nullable();
+			$table->string('meta_description')->nullable();
 
 			$table->timestamps();
 

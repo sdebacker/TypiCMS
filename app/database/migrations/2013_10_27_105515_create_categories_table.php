@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration {
 
 			$table->increments('id');
 
-			$table->integer('position')->unsigned();
+			$table->integer('position')->unsigned()->default(0);
 
 			$table->timestamps();
 		});
