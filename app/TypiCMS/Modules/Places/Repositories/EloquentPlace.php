@@ -28,7 +28,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	 * @param boolean $all Show published or all
 	 * @return StdClass Object with $items and $totalItems for pagination
 	 */
-	public function byPage($paginationPage = 1, $limit = 10, $all = false)
+	public function byPage($paginationPage = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
 		$query = $this->model
 			->select('places.*', 'status')
