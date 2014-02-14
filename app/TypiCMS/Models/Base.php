@@ -11,7 +11,6 @@ abstract class Base extends Eloquent {
 	 */	
 	public static function shouldReceive()
 	{
-		var_dump(get_called_class());
 		$classArray = explode('\\', get_called_class());
 		$class = end($classArray);
 		$repo = 'TypiCMS\\Modules\\'.str_plural($class).'\\Repositories\\'.$class.'Interface';
