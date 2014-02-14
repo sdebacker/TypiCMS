@@ -18,7 +18,7 @@ interface PlaceInterface
      * @param int  Number of articles per page
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10);
+    public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null);
 
     /**
      * Get all pages
