@@ -21,26 +21,26 @@ class EventsControllerTest extends TestCase {
 		$this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $events);
 	}
 
-	// public function testStoreFails()
-	// {
-	// 	$input = array();
-	// 	$this->call('POST', 'admin/events', $input);
-	// 	$this->assertRedirectedToRoute('admin.events.create');
-	// 	$this->assertSessionHasErrors();
-	// }
+	public function testStoreFails()
+	{
+		$input = array();
+		$this->call('POST', 'admin/events', $input);
+		$this->assertRedirectedToRoute('admin.events.create');
+		$this->assertSessionHasErrors();
+	}
 
-	// public function testStoreSuccess()
-	// {
-	// 	$input = array('start_date' => '10.10.2012');
-	// 	$this->call('POST', 'admin/events', $input);
-	// 	$this->assertRedirectedToRoute('admin.events.edit', array('id' => 1));
-	// }
+	public function testStoreSuccess()
+	{
+		$input = array('start_date' => '10.10.2012');
+		$this->call('POST', 'admin/events', $input);
+		$this->assertRedirectedToRoute('admin.events.edit', array('id' => 1));
+	}
 
-	// public function testStoreSuccessWithRedirectToList()
-	// {
-	// 	$input = array('start_date' => '10.10.2012', 'exit' => true);
-	// 	$this->call('POST', 'admin/events', $input);
-	// 	$this->assertRedirectedToRoute('admin.events.index');
-	// }
+	public function testStoreSuccessWithRedirectToList()
+	{
+		$input = array('start_date' => '10.10.2012', 'exit' => true);
+		$this->call('POST', 'admin/events', $input);
+		$this->assertRedirectedToRoute('admin.events.index');
+	}
 
 }

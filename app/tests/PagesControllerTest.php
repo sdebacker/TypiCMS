@@ -30,25 +30,26 @@ class PagesControllerTest extends TestCase {
 		$this->assertNestedViewHas($view, 'models');
 	}
 
-	// public function testStoreFails()
-	// {
-	// 	Input::replace($input = ['template' => 'ss']);
+	public function testStoreFails()
+	{
+		$input = array('fr.title' => 'test', 'fr.slug' => '');
+		$this->call('POST', 'admin/pages', $input);
+		$this->assertRedirectedToRoute('admin.pages.create');
+		$this->assertSessionHasErrors('fr.slug');
+	}
 
-	// 	$this->call('POST', 'admin/pages');
+	public function testStoreSuccess()
+	{
+		$input = array('fr.title' => 'test', 'fr.slug' => 'test');
+		$this->call('POST', 'admin/pages', $input);
+		$this->assertRedirectedToRoute('admin.pages.edit', array('id' => 1));
+	}
 
-	// 	$this->assertRedirectedToRoute('admin.pages.create');
-	// 	$this->assertSessionHasErrors(['template']);
-	// }
-
-	// public function testStoreSuccess()
-	// {
-	// 	Input::replace($input = ['template' => '']);
-
-	// 	// \TypiCMS\Models\Page::shouldReceive('create')->once();
-
-	// 	$this->call('POST', 'admin/pages');
-
-	// 	$this->assertRedirectedToRoute('admin.pages.edit', [], 'flash');
-	// }
+	public function testStoreSuccessWithRedirectToList()
+	{
+		$input = array('fr.title' => 'test', 'fr.slug' => 'test', 'exit' => true);
+		$this->call('POST', 'admin/pages', $input);
+		$this->assertRedirectedToRoute('admin.pages.index');
+	}
 
 }

@@ -23,22 +23,22 @@ class CategoriesControllerTest extends TestCase {
 
 	public function testStoreFails()
 	{
-		$input = array('fr[title]' => 'test', 'fr[slug]' => '', 'position' => 1);
+		$input = array('fr.title' => 'test', 'fr.slug' => '');
 		$this->call('POST', 'admin/categories', $input);
 		$this->assertRedirectedToRoute('admin.categories.create');
-		$this->assertSessionHasErrors();
+		$this->assertSessionHasErrors('fr.slug');
 	}
 
 	public function testStoreSuccess()
 	{
-		$input = array('fr[title]' => 'test', 'fr[slug]' => 'test', 'position' => 1);
+		$input = array('fr.title' => 'test', 'fr.slug' => 'test');
 		$this->call('POST', 'admin/categories', $input);
 		$this->assertRedirectedToRoute('admin.categories.edit', array('id' => 1));
 	}
 
 	public function testStoreSuccessWithRedirectToList()
 	{
-		$input = array('fr[title]' => 'test', 'fr[slug]' => 'test', 'position' => 1, 'exit' => true);
+		$input = array('fr[title]' => 'test', 'fr[slug]' => 'test', 'exit' => true);
 		$this->call('POST', 'admin/categories', $input);
 		$this->assertRedirectedToRoute('admin.categories.index');
 	}
