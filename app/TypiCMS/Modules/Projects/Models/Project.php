@@ -74,7 +74,7 @@ class Project extends Base {
 	 */
 	public function tags()
 	{
-	    return $this->belongsToMany('TypiCMS\Modules\Tags\Models\Tag', 'projects_tags', 'project_id', 'tag_id');
+	    return $this->belongsToMany('TypiCMS\Modules\Tags\Models\Tag', 'projects_tags', 'project_id', 'tag_id')->withTimestamps();
 	}
 
 }
