@@ -81,6 +81,13 @@ Route::filter('auth.admin', function()
 	if ( ! Sentry::check()) {
 		return Redirect::guest(route('login'));
 	}
+	$route = Route::getCurrentRoute()->getName();
+	$user = Sentry::getUser();
+	d($route, $user, $user->getPermissions());
+	if ( ! $user->hasAccess($route)) {
+		d('pas autorisé');
+		// exit();
+	}
 });
 
 Route::filter('users.register', function()

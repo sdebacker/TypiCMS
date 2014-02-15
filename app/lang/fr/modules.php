@@ -81,11 +81,13 @@ return array(
 		'To activate your account' => 'Pour activer votre compte',
 		'Password Reset Confirmation' => 'Confirmation pour la réinitialisation de votre mot de passe.',
 		'Account:' => 'Compte&nbsp;:',
+		'User permissions' => 'Permissions de l’utilisateur',
 	),
 	'groups' => array(
 		'groups' => 'groupe|groupes',
 		'New'  => 'Nouveau groupe',
 		'Edit' => 'Modifier le groupe',
+		'Group permissions' => 'Permissions du groupe',
 	),
 	'menulinks' => array(
 		'menulinks' => 'élément de menu|éléments de menu',
