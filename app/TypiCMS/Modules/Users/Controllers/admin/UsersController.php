@@ -105,7 +105,8 @@ class UsersController extends BaseController {
 		$user = $this->repository->byId($id);
 
 		$this->layout->content = View::make('admin.users.edit')
-			->withModel($user)
+			->withUser($user)
+			->withPermissions($user->getPermissions())
 			->withGroups($this->repository->getGroups())
 			->with('selectedGroups', $this->repository->getGroups($user));
 

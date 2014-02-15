@@ -100,6 +100,7 @@ class GroupsController extends BaseController {
 
 		$group = $this->repository->byId($id);
 		$this->layout->content = View::make('admin.groups.edit')
+			->withPermissions($group->getPermissions())
 			->with('group', $group);
 	}
 

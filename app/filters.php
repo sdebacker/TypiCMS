@@ -83,10 +83,11 @@ Route::filter('auth.admin', function()
 	}
 	$route = Route::getCurrentRoute()->getName();
 	$user = Sentry::getUser();
-	d($route, $user, $user->getPermissions());
+	// d($route, $user, $user->getPermissions());
+	Debugbar::addMessage($user->getPermissions(), 'users permissions');
+	Debugbar::addMessage($user->getMergedPermissions(), 'users merged permissions');
 	if ( ! $user->hasAccess($route)) {
-		d('pas autorisé');
-		// exit();
+		Notification::error('Vous n’êtes pas autorisé');
 	}
 });
 

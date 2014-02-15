@@ -2,6 +2,8 @@
 
 use Cartalyst\Sentry\Sentry;
 
+use Input;
+
 class SentryGroup implements GroupInterface {
 	
 	protected $sentry;
@@ -21,19 +23,13 @@ class SentryGroup implements GroupInterface {
 	 */
 	public function store($data)
 	{
-		// Logic for missing checkbox values
-		if (!array_key_exists('adminPermissions', $data)) $data['adminPermissions'] = 0;
-		if (!array_key_exists('userPermissions', $data)) $data['userPermissions'] = 0;
 
 		$result = array();
 		try {
 				// Create the group
 				$group = $this->sentry->createGroup(array(
 					'name'		=> e($data['name']),
-					'permissions' => array(
-						'admin' => e($data['adminPermissions']),
-						'users' => e($data['userPermissions']),
-					),
+					'permissions' => $data['permissions'],
 				));
 
 			   	$result['success'] = true;
@@ -61,9 +57,6 @@ class SentryGroup implements GroupInterface {
 	 */
 	public function update($data)
 	{
-		// Logic for missing checkbox values
-		if (!array_key_exists('adminPermissions', $data)) $data['adminPermissions'] = 0;
-		if (!array_key_exists('userPermissions', $data)) $data['userPermissions'] = 0;
 
 		try
 		{
@@ -72,20 +65,14 @@ class SentryGroup implements GroupInterface {
 
 			// Update the group details
 			$group->name = e($data['name']);
-			$group->permissions = array(
-				'admin' => e($data['adminPermissions']),
-				'users' => e($data['userPermissions']),
-			);
+			$group->permissions = Input::get('permissions');
 
 			// Update the group
-			if ($group->save())
-			{
+			if ($group->save()) {
 				// Group information was updated
 				$result['success'] = true;
 				$result['message'] = trans('groups.updated');;
-			}
-			else
-			{
+			} else {
 				// Group information was not updated
 				$result['success'] = false;
 				$result['message'] = trans('groups.updateproblem');;
