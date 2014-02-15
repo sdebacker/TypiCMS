@@ -13,11 +13,10 @@ return array(
 		'en' => 'Anglais',
 	),
 	'crud' => array(
-		'create' => 'créer',
-		'edit' => 'Modifier',
-		'delete' => 'Supprimer',
-		'new' => 'Nouveau',
-		'show' => 'Voir',
+		'Create' => 'Créer',
+		'Update' => 'Modifier',
+		'Delete' => 'Supprimer',
+		'View' => 'Voir',
 	),
 	'form' => array(
 		'page content' => 'contenu de la page',
