@@ -19,6 +19,7 @@ return array(
 		'Update' => 'Modifier',
 		'Delete' => 'Supprimer',
 		'View' => 'Voir',
+		'Sort' => 'Ordonner',
 	),
 	'form' => array(
 		'page content' => 'contenu de la page',

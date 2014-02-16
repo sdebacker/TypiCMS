@@ -23,11 +23,7 @@
 
 	</div>
 
-	<div class="col-sm-6">
-
-		<label>@lang('modules.groups.Group permissions')</label>
-		@include('admin._permissions-form')
-
-	</div>
-
 </div>
+
+<label>@lang('modules.groups.Group permissions')</label>
+@include('admin._permissions-form')

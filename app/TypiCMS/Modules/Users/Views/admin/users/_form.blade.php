@@ -103,15 +103,14 @@
 
 	</div>
 
-	<div class="col-sm-6">
-
-		<label>@lang('modules.users.User permissions')</label>
-		<label class="checkbox">
-			{{ Form::hidden('permissions[superuser]', 0) }}
-			{{ Form::checkbox('permissions[superuser]', 1, isset($permissions['superuser']) and $permissions['superuser']) }} Superuser ?
-		</label>
-		@include('admin._permissions-form')
-
-	</div>
-
 </div>
+
+<label>@lang('modules.users.User permissions')</label>
+<div class="checkbox">
+	<label>
+		{{ Form::hidden('permissions[superuser]', 0) }}
+		{{ Form::checkbox('permissions[superuser]', 1, isset($permissions['superuser']) and $permissions['superuser']) }} Superuser ?
+	</label>
+</div>
+@include('admin._permissions-form')
+
