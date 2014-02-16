@@ -13,7 +13,9 @@ return array(
 		'en' => 'Anglais',
 	),
 	'crud' => array(
-		'Create' => 'Créer',
+		'Index' => 'Voir liste',
+		'Create' => 'Nouveau',
+		'Store' => 'Créer',
 		'Update' => 'Modifier',
 		'Delete' => 'Supprimer',
 		'View' => 'Voir',
