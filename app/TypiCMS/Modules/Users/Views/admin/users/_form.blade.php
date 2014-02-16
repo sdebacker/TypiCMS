@@ -27,7 +27,7 @@
 			</div>
 
 			<div class="col-sm-6">
-				@if(isset($user->id))
+				@if(isset($user) and $user->id)
 					<div class="form-group @if($errors->has('password'))has-error@endif">
 						{{ Form::label('password', trans('Change password (if not empty)'), array('class' => 'control-label')) }}
 						{{ Form::password('password', array('class' => 'form-control', 'autocomplete' => 'off')) }}
@@ -86,7 +86,7 @@
 		<div class="checkbox">
 			<label>
 				{{ Form::hidden('activated', 0) }}
-				{{ Form::checkbox('activated', 1, $user->isActivated()) }} Activé
+				{{ Form::checkbox('activated', 1, isset($user) and $user->isActivated()) }} Activé
 			</label>
 		</div>
 
