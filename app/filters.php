@@ -29,6 +29,7 @@ App::missing(function($exception)
 
 App::error(function($exception, $code)
 {
+    switch ($code)
     {
         case 403:
             return Response::view('errors.403', array(), 403);
@@ -66,19 +67,6 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
-// Route::filter('auth_basic_fly', function()
-// {
-// 	if( isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
-// 		$username = 'test';
-// 		$password = 'test';
-// 		if( $_SERVER['PHP_AUTH_USER'] == $username && $_SERVER['PHP_AUTH_PW'] == $password ) {
-// 			return;
-// 		}
-// 	}
-// 	$headers['WWW-Authenticate'] = 'Basic realm="REST API"';
-// 	return Response::make('Authenticate required', 401, $headers);
-// });
-
 Route::filter('auth.public', function()
 {
 	if ( ! Config::get('typicms.authPublic')) return;
@@ -95,11 +83,12 @@ Route::filter('auth.admin', function()
 	}
 	$route = Route::getCurrentRoute()->getName();
 	$user = Sentry::getUser();
-	// d($route, $user, $user->getPermissions());
 	Debugbar::addMessage($user->getPermissions(), 'users permissions');
 	Debugbar::addMessage($user->getMergedPermissions(), 'users merged permissions');
+	Debugbar::addMessage($route, 'route');
 	if ( ! $user->hasAccess($route)) {
-		Notification::error('Vous n’êtes pas autorisé');
+		// App::abort(403);
+		echo('<p class="alert alert-danger col-sm-6">Vous n’êtes pas autorisé</p>');
 	}
 });
 

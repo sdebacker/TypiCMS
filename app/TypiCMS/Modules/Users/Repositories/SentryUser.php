@@ -119,24 +119,13 @@ class SentryUser implements UserInterface {
 	 */
 	public function getGroups($user = null)
 	{
-		$groups = $this->sentry->findAllGroups();
-
 		if ($user) {
 
-			$userGroups = $user->getGroups()->lists('name', 'id');
-			$selectedGroups = array();
-			foreach ($groups as $keyGroup => $group) {
-				$selectedGroups['groups['.$group->id.']'] = in_array($group->name, $userGroups) ? true : false ;
-			}
-			return $selectedGroups;
+			return $user->getGroups()->lists('name', 'id');
 
 		} else {
 
-			$groupsSelect = array();
-			foreach ($groups as $group) {
-				$groupsSelect[$group->name] = 'groups['.$group->id.']';
-			}
-			return $groupsSelect;
+			return $this->sentry->findAllGroups();
 
 		}
 

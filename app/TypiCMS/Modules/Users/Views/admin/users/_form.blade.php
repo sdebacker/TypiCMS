@@ -89,9 +89,10 @@
 
 				<div class="form-group">
 				<label>@lang('validation.attributes.groups')</label>
-				@foreach($groups as $groupName => $groupValue)
+				@foreach($groups as $group)
 					<label class="checkbox">
-						{{ Form::checkbox($groupValue, 1, isset($selectedGroups[$groupValue])) }} {{ $groupName }}
+						{{ Form::hidden('groups[' . $group->id . ']', 0) }}
+						{{ Form::checkbox('groups[' . $group->id . ']', 1, isset($selectedGroups[$group->id])) }} {{ $group->name }}
 					</label>
 				@endforeach
 				</div>
@@ -105,6 +106,10 @@
 	<div class="col-sm-6">
 
 		<label>@lang('modules.users.User permissions')</label>
+		<label class="checkbox">
+			{{ Form::hidden('permissions[superuser]', 0) }}
+			{{ Form::checkbox('permissions[superuser]', 1, isset($permissions['superuser']) and $permissions['superuser']) }} Superuser ?
+		</label>
 		@include('admin._permissions-form')
 
 	</div>
