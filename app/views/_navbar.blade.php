@@ -43,7 +43,9 @@
 							</div>
 						</div>
 					</li>
-					<li><a href="{{ route('admin.settings.index') }}"><i class="fa fa-cog"></i> <span class="sr-only">{{ ucfirst(trans('global.settings')) }}</span></a></li>
+					@if (Sentry::getUser()->hasAccess('admin.settings.index'))
+						<li><a href="{{ route('admin.settings.index') }}"><i class="fa fa-cog"></i> <span class="sr-only">{{ ucfirst(trans('global.settings')) }}</span></a></li>
+					@endif
 				</ul>
 			</div>
 		</div>

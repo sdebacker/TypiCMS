@@ -87,7 +87,7 @@ Route::filter('auth.admin', function()
 	Debugbar::addMessage($user->getMergedPermissions(), 'users merged permissions');
 	Debugbar::addMessage($route, 'route');
 	if ( ! $user->hasAccess($route)) {
-		// App::abort(403);
+		App::abort(403);
 		echo('<p class="alert alert-danger col-sm-6">Vous n’êtes pas autorisé</p>');
 	}
 });
