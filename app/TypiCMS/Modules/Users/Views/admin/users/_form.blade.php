@@ -83,6 +83,13 @@
 
 		</div>
 
+		<div class="checkbox">
+			<label>
+				{{ Form::hidden('activated', 0) }}
+				{{ Form::checkbox('activated', 1, $user->isActivated()) }} Activé
+			</label>
+		</div>
+
 		<div class="row">
 
 			<div class="col-sm-6">
@@ -90,10 +97,12 @@
 				<div class="form-group">
 				<label>@lang('validation.attributes.groups')</label>
 				@foreach($groups as $group)
-					<label class="checkbox">
+				<div class="checkbox">
+					<label>
 						{{ Form::hidden('groups[' . $group->id . ']', 0) }}
 						{{ Form::checkbox('groups[' . $group->id . ']', 1, isset($selectedGroups[$group->id])) }} {{ $group->name }}
 					</label>
+				</div>
 				@endforeach
 				</div>
 

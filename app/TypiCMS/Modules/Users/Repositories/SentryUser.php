@@ -5,6 +5,7 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+use Input;
 use Exception;
 
 use Cartalyst\Sentry\Sentry;
@@ -46,7 +47,13 @@ class SentryUser implements UserInterface {
 	 */
 	public function getAll($all = false)
 	{
-		$users = $this->sentry->findAllUsers();
+		$query = $this->sentry->newQuery();
+		// Order
+		$order = Input::get('order', 'id');
+		$direction = Input::get('direction', 'asc');
+		$query->orderBy($order, $direction);
+
+		$users = $query->get()->all();
 
 		foreach ($users as $user) {
 			if ($user->isActivated()) {

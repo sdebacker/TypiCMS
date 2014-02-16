@@ -14,6 +14,7 @@ class TableBuilder {
 	public $items = array();
 	
 	private $id = 'table-main';
+	private $sortable = true;
 	private $class = array('table', 'table-condensed', 'table-main');
 	private $checkboxes = true;
 	private $switch = true;
@@ -96,7 +97,7 @@ class TableBuilder {
 		$this->table[] = '<th></th>';
 
 		// add status column
-		array_unshift($this->fieldsForDisplay, array('', 'status'));
+		$this->switch and array_unshift($this->fieldsForDisplay, array('', 'status'));
 
 		foreach ($this->fieldsForDisplay as $fieldForDisplay) {
 			$this->table[] = '<th>';
@@ -109,9 +110,15 @@ class TableBuilder {
 				}
 				$iconDir = '-' . $direction;
 			}
-			$this->table[] = '<a href=?order=' . $field . '&direction=' . $direction . '>';
-			$this->table[] = '<i class="fa fa-sort' . $iconDir . '"></i>';
-			$this->table[] = trans('validation.attributes.' . $field) . '</a></th>';
+			if ($this->sortable) {
+				$this->table[] = '<a href=?order=' . $field . '&direction=' . $direction . '>';
+				$this->table[] = '<i class="fa fa-sort' . $iconDir . '"></i>';
+			}
+			$this->table[] = trans('validation.attributes.' . $field);
+			if ($this->sortable) {
+				$this->table[] = '</a>';
+			}
+			$this->table[] = '</th>';
 		}
 
 		$this->files and $this->table[] = '<th>' . trans('validation.attributes.files') . '</th>';
@@ -172,11 +179,18 @@ class TableBuilder {
 		$fieldsToDisplay = array();
 		foreach ($fieldsForDisplay as $fieldForDisplay) {
 			if (method_exists($item, $fieldForDisplay)) {
-				$fieldsToDisplay[] = $item->$fieldForDisplay();
+				$value = $item->$fieldForDisplay();
+				// Todo : move from here
+				if ($fieldForDisplay == 'getMergedPermissions') {
+					is_array($value) and $value = implode(', ', array_keys($value));
+				} else {
+					is_array($value) and $value = implode(', ', $value);
+				}
+				$fieldsToDisplay[] = $value;
 			} else if (is_object($item->$fieldForDisplay) and get_class($item->$fieldForDisplay) == 'Carbon\Carbon') {
 				$fieldsToDisplay[] = $item->$fieldForDisplay->format('d.m.Y');
 			} else if (is_array($item->$fieldForDisplay)) {
-				$fieldsToDisplay[] = implode(', ', $item->$fieldForDisplay);
+				$fieldsToDisplay[] = array_dot($item->$fieldForDisplay);
 			} else {
 				$fieldsToDisplay[] = $item->$fieldForDisplay;
 			}

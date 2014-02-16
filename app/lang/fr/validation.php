@@ -196,6 +196,9 @@ return array(
 		'log in' => 'Connexion',
 		'modify' => 'Modifier',
 		'permissions' => 'Permissions',
+		'isSuperUser' => 'Super utilisateur',
+		'isActivated' => 'Activé',
+		'getMergedPermissions' => 'Permissions',
 
 		// Settings
 		'webmasterEmail' => 'Email du webmaster',

@@ -19,7 +19,19 @@
 		
 		@include('admin._buttons-list')
 
-		{{ HTML::adminList($models, array('display' => array('%s %s — %s — %s — %s', 'first_name', 'last_name', 'email', 'permissions', 'status'), 'switch' => false)) }}
+		{{ HTML::adminTable($models, array(
+			'display' => array(
+				array('%s %s', 'first_name', 'last_name'),
+				array('<a href="mailto:%s">%s</a>', 'email', 'email'),
+				array('%s', 'getMergedPermissions'),
+				array('%s', 'isSuperUser'),
+				array('%s', 'isActivated')
+			),
+			'sortable' => false,
+			'switch' => false,
+			'files' => false,
+			))
+		}}
 
 	</div>
 

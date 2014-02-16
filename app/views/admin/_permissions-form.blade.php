@@ -1,3 +1,15 @@
+<div class="checkbox">
+	<input type="hidden" value="0" name="permissions[dashboard]">
+	<label>
+		<input type="checkbox" value="1" @if(isset($permissions['dashboard']) and $permissions['dashboard'])checked="checked"@endif name="permissions[dashboard]"> Dashboard
+	</label>
+</div>
+<div class="checkbox">
+	<input type="hidden" value="0" name="permissions[admin.settings.index]">
+	<label>
+		<input type="checkbox" value="1" @if(isset($permissions['admin.settings.index']) and $permissions['admin.settings.index'])checked="checked"@endif name="permissions[admin.settings.index]"> Settings
+	</label>
+</div>
 <div class="table-responsive">
 	<table class="table table-condensed">
 		<thead>

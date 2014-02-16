@@ -146,10 +146,12 @@ abstract class RepositoriesAbstract {
 		// Files
 		$this->model->files and $query->with('files');
 
-		// Sorting DB
-		// $order = $this->model->order ? : 'id' ;
-		// $direction = $this->model->direction ? : 'ASC' ;
-		// $query->orderBy($order, $direction);
+		// Order
+		$order = Input::get('order', $this->model->order);
+		$order = $order ? : 'id' ;
+		$direction = Input::get('direction', $this->model->direction);
+		$direction = $direction ? : 'asc' ;
+		$query->orderBy($order, $direction);
 
 		// Get
 		$models = $query->get();
