@@ -47,7 +47,7 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 				$modulesForDashboard[$module]['name'] = $module;
 				$modulesForDashboard[$module]['route'] = $model->route;
 				$modulesForDashboard[$module]['title'] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
-				$modulesForDashboard[$module]['count'] = $model->count();
+				$modulesForDashboard[$module]['count'] = 2;
 			}
 		}
 
