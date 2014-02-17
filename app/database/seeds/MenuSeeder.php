@@ -59,9 +59,9 @@ class MenuSeeder extends Seeder {
 
 		// `typicms`.`typi_menus`
 		$typi_menus = array(
-			array('id' => '1','name' => 'main','created_at' => '2013-09-03 22:05:21','updated_at' => '2013-09-03 22:05:21'),
-			array('id' => '2','name' => 'footer','created_at' => '2013-09-03 22:05:42','updated_at' => '2013-09-03 22:05:42'),
-			array('id' => '3','name' => 'social','created_at' => '2014-02-04 18:27:18','updated_at' => '2014-02-04 18:35:01')
+			array('id' => '1','name' => 'main','class' => 'nav-main nav nav-pills','created_at' => '2013-09-03 22:05:21','updated_at' => '2014-02-17 16:25:05'),
+			array('id' => '2','name' => 'footer','class' => 'nav-footer nav nav-pills pull-right','created_at' => '2013-09-03 22:05:42','updated_at' => '2014-02-17 16:24:59'),
+			array('id' => '3','name' => 'social','class' => 'nav-social list-unstyled','created_at' => '2014-02-04 18:27:18','updated_at' => '2014-02-17 16:25:21')
 		);
 
 		// `typicms`.`typi_menu_translations`
