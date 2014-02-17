@@ -1,9 +1,10 @@
 <?php namespace TypiCMS\Services;
 
-use Route;
-use Request;
 use DB;
+use Route;
+use Sentry;
 use Config;
+use Request;
 
 class Helpers {
 	
@@ -81,16 +82,24 @@ class Helpers {
 		switch (count($routeArray)) {
 			case 1: // ex. root - en
 				$id = Helpers::getIdFromDefaultPage();
-				$route = ( ! $id or $routeArray[0] == 'root') ? route('dashboard') : route('admin.'.$module.'.edit', $id) ;
+				if (! $id or $routeArray[0] == 'root') {
+					$routeName = 'dashboard';
+					$route = route($routeName);
+				} else {
+					$routeName = 'admin.' . $module . '.edit';
+					$route = route($routeName, $id);
+				}
 				break;
 			
 			case 2: // ex. en.news
-				$route = route('admin.'.$module.'.index');
+				$routeName = 'admin.' . $module . '.index';
+				$route = route($routeName);
 				break;
 			
 			default: // ex. en.pages.1 - en.news.slug - en.projects.categories(.slug)
 				if (end($routeArray) == 'categories') {
-					$route = route('admin.'.$module.'.index');
+					$routeName = 'admin.' . $module . '.index';
+					$route = route($routeName);
 				} else {
 					$id = end($routeArray);
 					if (end($routeArray) == 'slug') {
@@ -98,17 +107,22 @@ class Helpers {
 						$slug = end($segments);
 						$id = Helpers::getIdFromSlug($module, $slug);
 					}
-					$route = route('admin.'.$module.'.edit', $id);
+					$routeName = 'admin.' . $module . '.edit';
+					$route = route($routeName, $id);
 				}
 				break;
 			
 		}
 
-		if (in_array($routeArray[0], Config::get('app.locales'))) {
-			$route .= '?locale='.$routeArray[0];
+		if (Sentry::getUser()->hasAccess($routeName)) {
+			if (in_array($routeArray[0], Config::get('app.locales'))) {
+				$route .= '?locale='.$routeArray[0];
+			}
+			return $route;
 		}
 
-		return $route;
+		return route('dashboard');
+
 	}
 
 

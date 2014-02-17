@@ -39,7 +39,7 @@ abstract class BaseController extends Controller {
 		$navBar = null;
 		if (Sentry::getUser()) {
 			// Link to admin side
-			$url = array('url' => Helpers::getAdminUrl(), 'label' => 'edit page');
+			$url = array('url' => Helpers::getAdminUrl(), 'label' => 'admin side');
 
 			$modules = array();
 			foreach (Config::get('app.modules') as $module => $property) {
