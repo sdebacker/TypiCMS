@@ -13,8 +13,8 @@ class SentrySeeder extends Seeder {
         Sentry::getUserProvider()->create(array(
             'email'         => 'info@typidesign.be',
             'password'      => 'admin',
-            'first_name'    => 'Admin',
-            'last_name'     => 'Nimda',
+            'first_name'    => 'Typi',
+            'last_name'     => 'Design',
             'permissions'   => (array) json_decode('{"superuser":1}'),
             'activated'   => 1,
         ));
