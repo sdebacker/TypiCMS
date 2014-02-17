@@ -92,7 +92,7 @@ function showMessage(responsetext, responsetype) {
 						var done = 0;
 						for (var key in files){
 							var object = jQuery.parseJSON( files[key].xhr.responseText );
-							object.position = parseInt(object.position) + parseInt(key);
+							object.position = parseInt($('#nb_elements').text()) + parseInt(key);
 							$.ajax({
 								type: 'PATCH',
 								url: cleanUrl() + '/' + object.id,

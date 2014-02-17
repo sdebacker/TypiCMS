@@ -1,8 +1,9 @@
 <?php namespace TypiCMS\Modules\Files\Repositories;
 
-use Response;
 use Str;
+use Input;
 use Croppa;
+use Response;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -30,31 +31,24 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 
 		$fileName = Str::slug(pathinfo($file->getClientOriginalName(),PATHINFO_FILENAME));
 
-		$dataArray = array();
-		$dataArray['path']          = 'uploads';
-		$dataArray['fileable_id']   = $input['fileable_id'];
-		$dataArray['fileable_type'] = $input['fileable_type'];
-		$dataArray['extension']     = '.'.$file->getClientOriginalExtension();
-		$dataArray['filesize']      = $file->getClientSize();
-		$dataArray['mimetype']      = $file->getClientMimeType();
-		$dataArray['filename']      = $fileName.$dataArray['extension'];
+		$input['path']          = 'uploads';
+		$input['extension']     = '.'.$file->getClientOriginalExtension();
+		$input['filesize']      = $file->getClientSize();
+		$input['mimetype']      = $file->getClientMimeType();
+		$input['filename']      = $fileName.$input['extension'];
 
 		$filecounter = 1;
-		while (file_exists($dataArray['path'].'/'.$dataArray['filename'])) {
-			$dataArray['filename'] = $fileName.'_'.$filecounter++.$dataArray['extension'];
+		while (file_exists($input['path'].'/'.$input['filename'])) {
+			$input['filename'] = $fileName.'_'.$filecounter++.$input['extension'];
 		}
 
-		$upload_success = $file->move($dataArray['path'], $dataArray['filename']);
+		$upload_success = $file->move($input['path'], $input['filename']);
 
 		if ( $upload_success ) {
-			list($dataArray['width'], $dataArray['height']) = getimagesize($dataArray['path'].'/'.$dataArray['filename']);
-			$uploaded = $this->model->create($dataArray);
-			$position = $this->model
-				->where('fileable_type', $input['fileable_type'])
-				->where('fileable_id', $input['fileable_id'])
-				->max('position') + 1;
-			// send back id and position
-			echo json_encode(array('id' => $uploaded->id, 'position' => $position));
+			list($input['width'], $input['height']) = getimagesize($input['path'].'/'.$input['filename']);
+			$uploaded = $this->model->create($input);
+			// send back id
+			echo json_encode(array('id' => $uploaded->id));
 			exit();
 		} else {
 			return Response::json('error', 400);
