@@ -43,12 +43,12 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 		$modulesArray = Config::get('app.modules');
 		$modulesForDashboard = array();
 		foreach ($modulesArray as $module => $property) {
-			if ($property['dashboard'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
-				// $model = DB::table($property['model'])->count();
+			$lowerName = strtolower($module);
+			if ($property['dashboard'] and Sentry::getUser()->hasAccess('admin.' . $lowerName . '.index')) {
 				$modulesForDashboard[$module]['name'] = $module;
-				$modulesForDashboard[$module]['route'] = strtolower($module);
-				$modulesForDashboard[$module]['title'] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
-				$modulesForDashboard[$module]['count'] = DB::table(strtolower($module))->count();
+				$modulesForDashboard[$module]['route'] = $lowerName;
+				$modulesForDashboard[$module]['title'] = Str::title(trans_choice('modules.'.$lowerName.'.'.$lowerName), 2));
+				$modulesForDashboard[$module]['count'] = DB::table($lowerName)->count();
 			}
 		}
 
