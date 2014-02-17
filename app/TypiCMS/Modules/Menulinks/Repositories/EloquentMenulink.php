@@ -69,7 +69,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 			return $this->cache->get($key);
 		}
 
-		$models = $this->model->select('menus.name', 'menulinks.id', 'menulinks.menu_id', 'menulinks.target', 'menulinks.parent', 'menulinks.page_id', 'menulinks.class', 'menulink_translations.title', 'menulink_translations.status', 'menulink_translations.url', 'pages.is_home', 'page_translations.uri as page_uri', 'page_translations.locale', 'module_name')
+		$models = $this->model->select('menus.name', 'menus.class AS menuclass', 'menulinks.id', 'menulinks.menu_id', 'menulinks.target', 'menulinks.parent', 'menulinks.page_id', 'menulinks.class', 'menulink_translations.title', 'menulink_translations.status', 'menulink_translations.url', 'pages.is_home', 'page_translations.uri as page_uri', 'page_translations.locale', 'module_name')
 			
 			->with('translations')
 			->join('menus', 'menulinks.menu_id', '=', 'menus.id')
@@ -89,6 +89,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 			->remember(10000)
 			->get();
 
+		$models->class = $models->first()->menuclass;
 		// Store in cache for next request
 		$this->cache->put($key, $models);
 

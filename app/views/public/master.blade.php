@@ -54,7 +54,7 @@
 
 		@section('mainMenu')
 		<nav role="navigation">
-			{{ Menu::main(array('class' => 'nav nav-pills')) }}
+			{{ Menu::main() }}
 		</nav>
 		@show
 
@@ -63,10 +63,10 @@
 		@section('footer')
 		<div class="row">
 			<div class="col-sm-4">
-				{{ Menu::social(array('class' => 'list-unstyled nav-social')) }}
+				{{ Menu::social(array('id' => 'social')) }}
 			</div>
 			<nav class="col-sm-8" role="navigation">
-				{{ Menu::footer(array('class' => 'nav nav-pills pull-right')) }}
+				{{ Menu::footer() }}
 			</nav>
 		</div>
 		@show

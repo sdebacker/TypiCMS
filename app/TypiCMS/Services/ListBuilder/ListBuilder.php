@@ -181,9 +181,10 @@ class ListBuilder {
 	public function toHtml($parameters = array())
 	{
 		$ulClass = isset($parameters['class']) ? $parameters['class'] : '' ;
+		$ulId = isset($parameters['id']) ? $parameters['id'] : '' ;
 
 		if (count($this->items)) {
-			$this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$this->id.'" class="'.$ulClass.'" role="menu">' ;
+			$this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$ulId.'" class="'.$ulClass.'" role="menu">' ;
 
 			foreach ($this->items as $item) {
 
@@ -345,8 +346,9 @@ class ListBuilder {
 		}
 
 		if ($html) {
-			// dd($parameters);
-			$html = '<ul class="' . $parameters['class'] . '" role="menu">';
+			$class = isset($parameters['class']) ? $parameters['class'] : '' ;
+			$id = isset($parameters['id']) ? $parameters['id'] : '' ;
+			$html = '<ul id="' . $id . '" class="' . $class . '" role="menu">';
 			foreach ($languagesMenu as $item):
 				$html .= '<li class="' . $item->class . '" role="menuitem">';
 				$html .= '<a href="' . $item->url . '">' . $item->lang . '</a>';
