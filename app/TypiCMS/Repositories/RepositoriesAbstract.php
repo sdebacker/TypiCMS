@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Repositories;
 
 use Config;
+use Input;
 use App;
 use Str;
 use DB;

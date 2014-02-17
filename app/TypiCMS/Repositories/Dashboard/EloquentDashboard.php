@@ -2,6 +2,7 @@
 
 use Request;
 use Config;
+use Sentry;
 use Str;
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -38,22 +39,21 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 
 		// Item not cached, retrieve it
 		$modulesArray = Config::get('app.modules');
-		$modules = array();
+		$modulesForDashboard = array();
 		foreach ($modulesArray as $module => $property) {
-			if ($property['dashboard']) {
+			if ($property['dashboard'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
 				$model = new $property['model'];
-				$table = $model->getTable();
-				$modules[$table]['name'] = $table;
-				$modules[$table]['route'] = $model->route;
-				$modules[$table]['title'] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
-				$modules[$table]['count'] = $model->count();
+				$modulesForDashboard[$module]['name'] = $module;
+				$modulesForDashboard[$module]['route'] = $model->route;
+				$modulesForDashboard[$module]['title'] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
+				$modulesForDashboard[$module]['count'] = $model->count();
 			}
 		}
 
 		// Store in cache for next request
-		$this->cache->put($key, $modules);
+		$this->cache->put($key, $modulesForDashboard);
 
-		return $modules;
+		return $modulesForDashboard;
 	}
 
 }

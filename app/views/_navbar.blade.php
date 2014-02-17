@@ -24,7 +24,7 @@
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 						@foreach (Config::get('app.modules') as $module => $property)
-							@if ($property['menu'])
+							@if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index'))
 								<li><a href="{{ route('admin.'.strtolower($module).'.index') }}">{{ Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2)) }}</a></li>
 							@endif
 						@endforeach
