@@ -324,10 +324,13 @@ if (typeof(PhpDebugBar) == 'undefined') {
                 this.$el.empty();
                 if (data.measures) {
                     for (var i = 0; i < data.measures.length; i++) {
-                        var li = $('<li />').addClass(csscls('measure'));
+                        var li = $('<li />').addClass(csscls('measure')),
+                            left = Math.round(data.measures[i].relative_start * 100 / data.duration),
+                            width = Math.min(Math.round(data.measures[i].duration * 100 / data.duration), 100 - left);
+
                         li.append($('<span />').addClass(csscls('value')).css({
-                            left: Math.round(data.measures[i].relative_start * 100 / data.duration) + "%",
-                            width: Math.round(data.measures[i].duration * 100 / data.duration) + "%"
+                            left: left + "%",
+                            width: width + "%"
                         }));
                         li.append($('<span />').addClass(csscls('label')).text(data.measures[i].label + " (" + data.measures[i].duration_str + ")"));
                         this.$el.append(li);
@@ -404,7 +407,7 @@ if (typeof(PhpDebugBar) == 'undefined') {
                     $('<span title="Duration" />').addClass(csscls('duration')).text(stmt.duration_str).appendTo(li);
                 }
                 if (stmt.memory_str) {
-                    $('<span title="Peak memory usage" />').addClass(csscls('memory')).text(stmt.memory_str).appendTo(li);
+                    $('<span title="Memory usage" />').addClass(csscls('memory')).text(stmt.memory_str).appendTo(li);
                 }
                 if (typeof(stmt.is_success) != 'undefined' && !stmt.is_success) {
                     li.addClass(csscls('error'));
@@ -443,8 +446,8 @@ if (typeof(PhpDebugBar) == 'undefined') {
                 if (data.accumulated_duration_str) {
                     this.$status.append($('<span title="Accumulated duration" />').addClass(csscls('duration')).text(data.accumulated_duration_str));
                 }
-                if (data.peak_memory_usage_str) {
-                    this.$status.append($('<span title="Peak memory usage" />').addClass(csscls('memory')).text(data.peak_memory_usage_str));
+                if (data.memory_usage_str) {
+                    this.$status.append($('<span title="Memory usage" />').addClass(csscls('memory')).text(data.memory_usage_str));
                 }
             });
         }
@@ -476,7 +479,8 @@ if (typeof(PhpDebugBar) == 'undefined') {
 
             this.bindAttr('data', function(data) {
                 this.$list.set('data', data.templates);
-                this.$status.empty().append($('<span />').text(data.templates.length + " templates were rendered"));
+                var sentence = data.sentence || "templates were rendered";
+                this.$status.empty().append($('<span />').text(data.templates.length + " " + sentence));
                 if (data.accumulated_render_time_str) {
                     this.$status.append($('<span title="Accumulated render time" />').addClass(csscls('render_time')).text(data.accumulated_render_time_str));
                 }
