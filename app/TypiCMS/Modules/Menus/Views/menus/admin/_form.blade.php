@@ -36,6 +36,14 @@
 			@endif
 		</div>
 
+		<div class="form-group @if($errors->has('class'))has-error@endif">
+			{{ Form::label('class', trans('validation.attributes.class'), array('class' => 'control-label')) }}
+			{{ Form::text('class', null, array('class' => 'form-control')) }}
+			@if($errors->has('class'))
+			<span class="help-block">{{ $errors->first('class') }}</span>
+			@endif
+		</div>
+
 	</div>
 
 </div>

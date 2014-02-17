@@ -1,3 +1,7 @@
+@section('head')
+	{{ HTML::script('js/checkboxes-permissions.js') }}
+@stop
+
 {{ Form::hidden('id') }}
 
 <div class="row">

@@ -48,7 +48,7 @@
 
 		@section('languagesMenu')
 		<nav role="navigation">
-			{{ Menu::languages(array('class' => 'nav nav-pills pull-right')) }}
+			{{ Menu::languages() }}
 		</nav>
 		@show
 
@@ -66,7 +66,7 @@
 				{{ Menu::social() }}
 			</div>
 			<nav class="col-sm-8" role="navigation">
-				{{ Menu::footer(array('class' => 'nav nav-pills pull-right')) }}
+				{{ Menu::footer() }}
 			</nav>
 		</div>
 		@show

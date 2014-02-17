@@ -1,3 +1,7 @@
+@section('head')
+	{{ HTML::script('js/checkboxes-permissions.js') }}
+@stop
+
 <div class="row">
 
 	<div class="form-group col-sm-12">

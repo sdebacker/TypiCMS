@@ -12,6 +12,7 @@ class Menu extends Base {
 	protected $fillable = array(
 		'name',
 		// Translatable fields
+		'class',
 		'title',
 		'status',
 	);
@@ -53,7 +54,8 @@ class Menu extends Base {
 	public function __call($name, $arguments = null)
 	{
 		if ( ! $arguments) {
-			$arguments = array('class' => 'menu-' . $name . ' nav nav-pills');
+			$class = isset($arguments['class']) ? $arguments['class'] : '' ;
+			$arguments = array('class' => $class);
 		} else {
 			$arguments = $arguments[0];
 		}

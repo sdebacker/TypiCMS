@@ -18,6 +18,7 @@ class CreateMenusTables extends Migration {
 
 			$table->increments('id')->unsigned();
 			$table->string('name');
+			$table->string('class')->nullable();
 
 			$table->timestamps();
 
