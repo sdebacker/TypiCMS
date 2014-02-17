@@ -12,7 +12,6 @@ class Menu extends Base {
 	protected $fillable = array(
 		'name',
 		// Translatable fields
-		'class',
 		'title',
 		'status',
 	);
