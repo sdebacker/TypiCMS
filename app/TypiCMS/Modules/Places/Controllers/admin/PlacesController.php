@@ -1,15 +1,15 @@
 <?php namespace TypiCMS\Modules\Places\Controllers\Admin;
 
+use View;
+use Input;
+use Config;
+use Request;
+use Redirect;
+
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 use TypiCMS\Modules\Places\Services\Form\PlaceForm;
 
 use App\Controllers\Admin\BaseController;
-
-use View;
-use Config;
-use Input;
-use Redirect;
-use Request;
 
 class PlacesController extends BaseController {
 

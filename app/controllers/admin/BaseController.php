@@ -1,13 +1,13 @@
 <?php namespace App\Controllers\Admin;
 
-use Controller;
-use View;
-use Config;
-use Sentry;
-use Request;
 use Lang;
-use TypiCMS\Services\Helpers;
+use View;
+use Sentry;
+use Config;
+use Request;
+use Controller;
 
+use TypiCMS\Services\Helpers;
 
 abstract class BaseController extends Controller {
 

@@ -3,10 +3,10 @@
 use TypiCMS\Repositories\Setting\SettingInterface;
 
 use View;
-use Config;
 use Input;
-use Redirect;
+use Config;
 use Request;
+use Redirect;
 
 class SettingsController extends BaseController {
 

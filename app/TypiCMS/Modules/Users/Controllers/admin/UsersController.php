@@ -1,10 +1,5 @@
 <?php namespace TypiCMS\Modules\Users\Controllers\Admin;
 
-use TypiCMS\Modules\Users\Repositories\UserInterface;
-use TypiCMS\Modules\Users\Services\Form\UserForm;
-
-use App\Controllers\Admin\BaseController;
-
 use App;
 use Mail;
 use View;
@@ -14,6 +9,11 @@ use Request;
 use Redirect;
 use Exception;
 use Notification;
+
+use TypiCMS\Modules\Users\Repositories\UserInterface;
+use TypiCMS\Modules\Users\Services\Form\UserForm;
+
+use App\Controllers\Admin\BaseController;
 
 class UsersController extends BaseController {
 

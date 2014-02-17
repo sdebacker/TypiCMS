@@ -1,15 +1,15 @@
 <?php namespace TypiCMS\Modules\Menus\Controllers\Admin;
 
+use View;
+use Input;
+use Config;
+use Request;
+use Redirect;
+
 use TypiCMS\Modules\Menus\Repositories\MenuInterface;
 use TypiCMS\Modules\Menus\Services\Form\MenuForm;
 
 use App\Controllers\Admin\BaseController;
-
-use View;
-use Config;
-use Input;
-use Redirect;
-use Request;
 
 class MenusController extends BaseController {
 

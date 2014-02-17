@@ -1,11 +1,11 @@
 <?php namespace App\Controllers;
 
-use Controller;
-use View;
-use Config;
 use App;
+use View;
 use Sentry;
+use Config;
 use Request;
+use Controller;
 
 use TypiCMS\Modules\Menulinks\Models\Menulink;
 use TypiCMS\Services\Helpers;

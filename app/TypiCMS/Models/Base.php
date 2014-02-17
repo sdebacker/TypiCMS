@@ -1,8 +1,8 @@
 <?php namespace TypiCMS\Models;
 
-use Eloquent;
-use Mockery;
 use App;
+use Mockery;
+use Eloquent;
 
 abstract class Base extends Eloquent {
 

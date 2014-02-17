@@ -1,10 +1,5 @@
 <?php namespace TypiCMS\Modules\Projects\Controllers\Admin;
 
-use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
-use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
-
-use App\Controllers\Admin\BaseController;
-
 use App;
 use View;
 use Input;
@@ -12,6 +7,11 @@ use Config;
 use Request;
 use Session;
 use Redirect;
+
+use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
+use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
+
+use App\Controllers\Admin\BaseController;
 
 class ProjectsController extends BaseController {
 

@@ -1,15 +1,15 @@
 <?php namespace TypiCMS\Modules\Events\Controllers\Admin;
 
+use View;
+use Input;
+use Config;
+use Request;
+use Redirect;
+
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 use TypiCMS\Modules\Events\Services\Form\EventForm;
 
 use App\Controllers\Admin\BaseController;
-
-use View;
-use Config;
-use Input;
-use Redirect;
-use Request;
 
 class EventsController extends BaseController {
 

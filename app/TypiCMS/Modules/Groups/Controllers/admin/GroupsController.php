@@ -1,17 +1,17 @@
 <?php namespace TypiCMS\Modules\Groups\Controllers\Admin;
 
+use Lang;
+use View;
+use Input;
+use Sentry;
+use Config;
+use Redirect;
+use Notification;
+
 use TypiCMS\Modules\Groups\Repositories\GroupInterface;
 use TypiCMS\Modules\Groups\Services\Form\GroupForm;
 
 use App\Controllers\Admin\BaseController;
-
-use Config;
-use Input;
-use Lang;
-use Sentry;
-use View;
-use Redirect;
-use Notification;
 
 class GroupsController extends BaseController {
 

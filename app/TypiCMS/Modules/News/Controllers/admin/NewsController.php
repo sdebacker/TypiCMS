@@ -1,15 +1,15 @@
 <?php namespace TypiCMS\Modules\News\Controllers\Admin;
 
+use View;
+use Input;
+use Config;
+use Request;
+use Redirect;
+
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 use TypiCMS\Modules\News\Services\Form\NewsForm;
 
 use App\Controllers\Admin\BaseController;
-
-use View;
-use Config;
-use Input;
-use Redirect;
-use Request;
 
 class NewsController extends BaseController {
 

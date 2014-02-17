@@ -1,17 +1,17 @@
 <?php namespace TypiCMS\Modules\Menulinks\Controllers\Admin;
 
+use Lang;
+use View;
+use Input;
+use Config;
+use Request;
+use Redirect;
+use Validator;
+
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
 
 use App\Controllers\Admin\BaseController;
-
-use Lang;
-use View;
-use Validator;
-use Input;
-use Redirect;
-use Request;
-use Config;
 
 class MenulinksController extends BaseController {
 

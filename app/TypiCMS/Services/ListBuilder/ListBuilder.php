@@ -1,10 +1,11 @@
 <?php namespace TypiCMS\Services\ListBuilder;
 
-use Illuminate\Database\Eloquent\Collection;
+use DB;
+use Route;
 use Config;
 use Request;
-use Route;
-use DB;
+
+use Illuminate\Database\Eloquent\Collection;
 
 use TypiCMS\Services\Helpers;
 

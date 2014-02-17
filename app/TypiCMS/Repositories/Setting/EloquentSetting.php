@@ -1,8 +1,7 @@
 <?php namespace TypiCMS\Repositories\Setting;
 
-use stdClass;
-
 use Request;
+use stdClass;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;

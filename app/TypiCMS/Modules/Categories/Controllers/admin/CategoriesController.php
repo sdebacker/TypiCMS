@@ -1,15 +1,15 @@
 <?php namespace TypiCMS\Modules\Categories\Controllers\Admin;
 
+use View;
+use Input;
+use Config;
+use Request;
+use Redirect;
+
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 use TypiCMS\Modules\Categories\Services\Form\CategoryForm;
 
 use App\Controllers\Admin\BaseController;
-
-use View;
-use Config;
-use Input;
-use Redirect;
-use Request;
 
 class CategoriesController extends BaseController {
 

@@ -1,10 +1,10 @@
 <?php namespace TypiCMS\Services\TableBuilder;
 
-use Config;
-use Request;
+use DB;
 use Route;
 use Input;
-use DB;
+use Config;
+use Request;
 
 use TypiCMS\Services\Helpers;
 

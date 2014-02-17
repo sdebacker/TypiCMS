@@ -1,15 +1,15 @@
 <?php namespace TypiCMS\Modules\Files\Controllers\Admin;
 
+use View;
+use Input;
+use Request;
+use Redirect;
+use Notification;
+
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 use TypiCMS\Modules\Files\Services\Form\FileForm;
 
 use App\Controllers\Admin\BaseController;
-
-use View;
-use Input;
-use Redirect;
-use Request;
-use Notification;
 
 class FilesController extends BaseController {
 

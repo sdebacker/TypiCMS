@@ -1,15 +1,15 @@
 <?php namespace TypiCMS\Modules\Pages\Controllers\Admin;
 
+use View;
+use Input;
+use Config;
+use Request;
+use Redirect;
+
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 use TypiCMS\Modules\Pages\Services\Form\PageForm;
 
 use App\Controllers\Admin\BaseController;
-
-use View;
-use Input;
-use Config;
-use Redirect;
-use Request;
 
 class PagesController extends BaseController {
 

@@ -1,9 +1,10 @@
 <?php namespace TypiCMS\Repositories\Dashboard;
 
-use Request;
-use Config;
-use Sentry;
 use Str;
+use Sentry;
+use Config;
+use Request;
+
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Services\Cache\CacheInterface;
 
