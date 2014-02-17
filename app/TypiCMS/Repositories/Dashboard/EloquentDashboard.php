@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Repositories\Dashboard;
 
+use DB;
 use Str;
 use Sentry;
 use Config;
@@ -43,11 +44,11 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 		$modulesForDashboard = array();
 		foreach ($modulesArray as $module => $property) {
 			if ($property['dashboard'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
-				$model = new $property['model'];
+				// $model = DB::table($property['model'])->count();
 				$modulesForDashboard[$module]['name'] = $module;
-				$modulesForDashboard[$module]['route'] = $model->route;
+				$modulesForDashboard[$module]['route'] = strtolower($module);
 				$modulesForDashboard[$module]['title'] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
-				$modulesForDashboard[$module]['count'] = 2;
+				$modulesForDashboard[$module]['count'] = DB::table(strtolower($module))->count();
 			}
 		}
 
