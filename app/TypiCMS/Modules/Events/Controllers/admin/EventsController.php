@@ -137,7 +137,7 @@ class EventsController extends BaseController {
 	 */
 	public function destroy($model)
 	{
-		if( $model->delete() ) {
+		if ( $this->repository->delete($model) ) {
 			if ( ! Request::ajax()) {
 				return Redirect::back();
 			}

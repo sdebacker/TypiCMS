@@ -29,23 +29,24 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 	{
 		$file = $input['file'];
 
-		$fileName = Str::slug(pathinfo($file->getClientOriginalName(),PATHINFO_FILENAME));
+		$fileName = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
 
-		$input['path']          = 'uploads';
-		$input['extension']     = '.'.$file->getClientOriginalExtension();
+		$subdir = explode('\\', $input['fileable_type']);
+		$input['path']          = 'uploads/' . str_plural(strtolower(end($subdir)));
+		$input['extension']     = '.' . $file->getClientOriginalExtension();
 		$input['filesize']      = $file->getClientSize();
 		$input['mimetype']      = $file->getClientMimeType();
-		$input['filename']      = $fileName.$input['extension'];
+		$input['filename']      = $fileName . $input['extension'];
 
 		$filecounter = 1;
-		while (file_exists($input['path'].'/'.$input['filename'])) {
-			$input['filename'] = $fileName.'_'.$filecounter++.$input['extension'];
+		while (file_exists($input['path'] . '/' . $input['filename'])) {
+			$input['filename'] = $fileName . '_' . $filecounter++ . $input['extension'];
 		}
 
 		$upload_success = $file->move($input['path'], $input['filename']);
 
 		if ( $upload_success ) {
-			list($input['width'], $input['height']) = getimagesize($input['path'].'/'.$input['filename']);
+			list($input['width'], $input['height']) = getimagesize($input['path'] . '/' . $input['filename']);
 			$uploaded = $this->model->create($input);
 			// send back id
 			echo json_encode(array('id' => $uploaded->id));
@@ -59,8 +60,6 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 	public function delete($model)
 	{
 		if ($model->delete()) {
-			Croppa::delete($model->path.'/'.$model->filename);
-			// unlink($model->path.'/'.$model->filename);
 			return true;
 		}
 		return false;

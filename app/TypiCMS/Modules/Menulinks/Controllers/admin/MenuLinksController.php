@@ -150,7 +150,7 @@ class MenulinksController extends BaseController {
 	 */
 	public function destroy($menu, $model)
 	{
-		if( $model->delete() ) {
+		if ( $this->repository->delete($model) ) {
 			if ( ! Request::ajax()) {
 				return Redirect::back();
 			}

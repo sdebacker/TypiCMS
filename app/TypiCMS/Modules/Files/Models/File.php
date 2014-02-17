@@ -1,5 +1,7 @@
 <?php namespace TypiCMS\Modules\Files\Models;
 
+use Croppa;
+
 use TypiCMS\Models\Base;
 
 class File extends Base {
@@ -77,5 +79,19 @@ class File extends Base {
 		return $this->morphTo();
 	}
 
+
+	/**
+	 * Observers
+	 */
+	public static function boot()
+	{
+		parent::boot();
+
+		static::deleting(function($model)
+		{
+			Croppa::delete($model->path . '/' . $model->filename);
+		});
+
+	}
 
 }
