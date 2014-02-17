@@ -40,8 +40,16 @@ abstract class BaseController extends Controller {
 		if (Sentry::getUser()) {
 			// Link to admin side
 			$url = array('url' => Helpers::getAdminUrl(), 'label' => 'edit page');
+
+			$modules = array();
+			foreach (Config::get('app.modules') as $module => $property) {
+				if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')){
+					$modules[$module] = $property;
+				}
+			}
 			// Render top bar before getting current lang from url
 			$navBar = View::make('_navbar')
+				->with('navBarModules', $modules)
 				->withUrl($url)
 				->withTitle($navBarTitle)
 				->render();

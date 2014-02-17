@@ -19,17 +19,17 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
+					@if ($navBarModules)
 					<li>{{ link_to($url['url'], ucfirst(trans('global.'.$url['label']))) }}</li>
 					<li class="dropdown">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-						@foreach (Config::get('app.modules') as $module => $property)
-							@if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index'))
-								<li><a href="{{ route('admin.'.strtolower($module).'.index') }}">{{ Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2)) }}</a></li>
-							@endif
+						@foreach ($navBarModules as $module => $property)
+							<li><a href="{{ route('admin.'.strtolower($module).'.index') }}">{{ Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2)) }}</a></li>
 						@endforeach
 						</ul>
 					</li>
+					@endif
 					<li class="dropdown">
 						<a href="{{ route('admin.users.index') }}" class="dropdown-toggle" data-toggle="dropdown">{{ Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name }} <b class="caret"></b></a>
 						<div class="dropdown-menu dropdown-user">
@@ -38,7 +38,9 @@
 							</div>
 							<div class="info">
 								<p>{{ Sentry::getUser()->email }}</p>
+								@if (Sentry::getUser()->hasAccess('admin.users.edit'))
 								<p>{{ link_to_route('admin.users.edit', ucFirst( trans_choice('modules.users.profile', 2) ), Sentry::getUser()->id ) }}</p>
+								@endif
 								<p>{{ link_to_route('logout', ucfirst(trans('modules.users.log out')), null, array('class' => 'btn btn-default btn-xs') ) }}</p>
 							</div>
 						</div>
