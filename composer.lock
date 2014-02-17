@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "9c4bc7b898999eec6d6425500f8562baf3a563d9"
+                "reference": "196b9747940e937a17c3b2c2945071bbb0c929ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9c4bc7b898999eec6d6425500f8562baf3a563d9",
-                "reference": "9c4bc7b898999eec6d6425500f8562baf3a563d9",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/196b9747940e937a17c3b2c2945071bbb0c929ac",
+                "reference": "196b9747940e937a17c3b2c2945071bbb0c929ac",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-02-13 18:20:11"
+            "time": "2014-02-15 17:53:16"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -122,16 +122,16 @@
         },
         {
             "name": "bkwld/croppa",
-            "version": "3.0.9",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BKWLD/croppa.git",
-                "reference": "3f6703c9ccab6b59ce6e4dcccc5232bfa974ca56"
+                "reference": "cd643440efe88583d1a652e433c08c7be5f03512"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/3f6703c9ccab6b59ce6e4dcccc5232bfa974ca56",
-                "reference": "3f6703c9ccab6b59ce6e4dcccc5232bfa974ca56",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/cd643440efe88583d1a652e433c08c7be5f03512",
+                "reference": "cd643440efe88583d1a652e433c08c7be5f03512",
                 "shasum": ""
             },
             "require": {
@@ -161,7 +161,7 @@
                 }
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
-            "time": "2013-12-28 02:43:09"
+            "time": "2014-02-14 19:25:50"
         },
         {
             "name": "cartalyst/sentry",
@@ -831,18 +831,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jwage/easy-csv.git",
-                "reference": "69ec9f36c75f800f4ff65b801163de3a38345006"
+                "reference": "696d8048276708f25fae3e37928bcd9ef59fda25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jwage/easy-csv/zipball/69ec9f36c75f800f4ff65b801163de3a38345006",
-                "reference": "69ec9f36c75f800f4ff65b801163de3a38345006",
+                "url": "https://api.github.com/repos/jwage/easy-csv/zipball/696d8048276708f25fae3e37928bcd9ef59fda25",
+                "reference": "696d8048276708f25fae3e37928bcd9ef59fda25",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "EasyCSV": "lib/"
@@ -854,7 +859,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -867,7 +872,7 @@
                 "read",
                 "write"
             ],
-            "time": "2013-12-23 17:02:00"
+            "time": "2014-02-17 00:44:21"
         },
         {
             "name": "laravel/framework",
@@ -875,12 +880,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2ad9eb54166e4121ebf76ea4d08bfa46e801fb2e"
+                "reference": "3a20d62deb10c0f52857004b701488a86484bde5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2ad9eb54166e4121ebf76ea4d08bfa46e801fb2e",
-                "reference": "2ad9eb54166e4121ebf76ea4d08bfa46e801fb2e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3a20d62deb10c0f52857004b701488a86484bde5",
+                "reference": "3a20d62deb10c0f52857004b701488a86484bde5",
                 "shasum": ""
             },
             "require": {
@@ -940,8 +945,8 @@
             },
             "require-dev": {
                 "aws/aws-sdk-php": "2.5.*",
-                "iron-io/iron_mq": "1.4.*",
-                "mockery/mockery": "0.8.0",
+                "iron-io/iron_mq": "1.5.*",
+                "mockery/mockery": "0.9.*",
                 "pda/pheanstalk": "2.1.*",
                 "phpunit/phpunit": "3.7.*"
             },
@@ -984,20 +989,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-02-14 03:03:37"
+            "time": "2014-02-17 03:11:14"
         },
         {
             "name": "maximebf/debugbar",
-            "version": "1.9.3",
+            "version": "1.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "d68b8aded0f1b79a77845e926bd993cd470be2e1"
+                "reference": "5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/d68b8aded0f1b79a77845e926bd993cd470be2e1",
-                "reference": "d68b8aded0f1b79a77845e926bd993cd470be2e1",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f",
+                "reference": "5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f",
                 "shasum": ""
             },
             "require": {
@@ -1034,7 +1039,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2014-02-09 13:36:32"
+            "time": "2014-02-14 16:30:44"
         },
         {
             "name": "mccool/database-backup",
@@ -1296,12 +1301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "b03100601bbe739d5a0aa63c72e25b56c0132f3a"
+                "reference": "8dc659d694d3e0af68688600908ff1cac9d079dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/b03100601bbe739d5a0aa63c72e25b56c0132f3a",
-                "reference": "b03100601bbe739d5a0aa63c72e25b56c0132f3a",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8dc659d694d3e0af68688600908ff1cac9d079dc",
+                "reference": "8dc659d694d3e0af68688600908ff1cac9d079dc",
                 "shasum": ""
             },
             "require": {
@@ -1382,7 +1387,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-02-13 22:34:10"
+            "time": "2014-02-17 17:53:54"
         },
         {
             "name": "predis/predis",
@@ -2465,12 +2470,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "d92a1ae1498ec3f9c6000156058203407294a358"
+                "reference": "759e0a2f5a8f705c152e94b6945eaf29ff63f365"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/d92a1ae1498ec3f9c6000156058203407294a358",
-                "reference": "d92a1ae1498ec3f9c6000156058203407294a358",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/759e0a2f5a8f705c152e94b6945eaf29ff63f365",
+                "reference": "759e0a2f5a8f705c152e94b6945eaf29ff63f365",
                 "shasum": ""
             },
             "require": {
@@ -2522,7 +2527,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-02-12 00:03:43"
+            "time": "2014-02-17 15:17:44"
         },
         {
             "name": "raveren/kint",
