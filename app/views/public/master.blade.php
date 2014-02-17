@@ -48,13 +48,13 @@
 
 		@section('languagesMenu')
 		<nav role="navigation">
-			{{ Menu::languages() }}
+			{{ Menu::languages(array('class' => 'nav nav-pills pull-right')) }}
 		</nav>
 		@show
 
 		@section('mainMenu')
 		<nav role="navigation">
-			{{ Menu::main() }}
+			{{ Menu::main(array('class' => 'nav nav-pills')) }}
 		</nav>
 		@show
 
@@ -63,10 +63,10 @@
 		@section('footer')
 		<div class="row">
 			<div class="col-sm-4">
-				{{ Menu::social() }}
+				{{ Menu::social(array('class' => 'list-unstyled nav-social')) }}
 			</div>
 			<nav class="col-sm-8" role="navigation">
-				{{ Menu::footer() }}
+				{{ Menu::footer(array('class' => 'nav nav-pills pull-right')) }}
 			</nav>
 		</div>
 		@show
