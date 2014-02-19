@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'typicms',
-			'username'  => 'samsfactory',
-			'password'  => 'samu2356',
+			'database'  => $_ENV['MYSQL_DATABASE'],
+			'username'  => $_ENV['MYSQL_USERNAME'],
+			'password'  => $_ENV['MYSQL_PASSWORD'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => 'typi_',
