@@ -131,7 +131,7 @@ return array(
 		'meta_description' => 'Meta description',
 		'summary' => 'Résumé',
 		'uri' => 'URI',
-		'website' => 'Site externe',
+		'website' => 'Site web',
 		'online' => 'En ligne',
 		'status' => 'Statut',
 
