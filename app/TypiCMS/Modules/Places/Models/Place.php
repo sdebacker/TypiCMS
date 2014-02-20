@@ -62,15 +62,6 @@ class Place extends Base {
 
 
 	/**
-	 * Relations
-	 */
-	public function translations()
-	{
-		return $this->hasMany('TypiCMS\Modules\Places\Models\PlaceTranslation');
-	}
-
-
-	/**
 	 * Observers
 	 */
 	public static function boot()

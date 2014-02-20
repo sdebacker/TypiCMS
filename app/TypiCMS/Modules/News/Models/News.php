@@ -70,15 +70,6 @@ class News extends Base {
 
 
 	/**
-	 * Relations
-	 */
-	public function translations()
-	{
-		return $this->hasMany('TypiCMS\Modules\News\Models\NewsTranslation');
-	}
-
-
-	/**
 	 * Accessors
 	 *
 	 * @return string
