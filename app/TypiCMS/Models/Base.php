@@ -18,7 +18,7 @@ abstract class Base extends Eloquent {
 
 		App::instance($repo, $mock);
 
-		return call_user_func_array([$mock, 'shouldReceive'], func_get_args());
+		return call_user_func_array(array($mock, 'shouldReceive'), func_get_args());
 	}
 
 }
