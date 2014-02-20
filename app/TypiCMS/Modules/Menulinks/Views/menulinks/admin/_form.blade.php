@@ -30,9 +30,12 @@
 					{{ Form::label($lang.'[uri]', trans('validation.attributes.uri')) }}
 					{{ Form::text($lang.'[uri]', $model->$lang->uri, array('class' => 'form-control')) }}
 				</div>
-				<div class="form-group">
+				<div class="form-group @if($errors->has($lang.'.url'))has-error@endif">
 					{{ Form::label($lang.'[url]', trans('validation.attributes.website')) }}
 					{{ Form::text($lang.'[url]', $model->$lang->url, array('class' => 'form-control')) }}
+					@if($errors->has($lang.'.url'))
+					<span class="help-block">{{ $errors->first($lang.'.url') }}</span>
+					@endif
 				</div>
 				<div class="form-group">
 					<label class="checkbox">
