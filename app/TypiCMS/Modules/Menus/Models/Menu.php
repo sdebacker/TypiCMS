@@ -51,17 +51,16 @@ class Menu extends Base {
 	 *
 	 * @return menu html
 	 */	
-	public function __call($name, $arguments = array())
+	public static function build($name, $attributes = array())
 	{
-		isset($arguments[0]) and $arguments = $arguments[0];
 		if ($name == 'languages') {
-			$arguments['id'] = 'nav-languages';
-			return with(new ListBuilder)->languagesMenuHtml($arguments);
+			$attributes['id'] = 'nav-languages';
+			return with(new ListBuilder)->languagesMenuHtml($attributes);
 		}
 		$menu = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getMenu($name);
-		$arguments['class'] = $menu->class;
-		$arguments['id'] = 'nav-' . $name;
-		return with(new ListBuilder($menu))->buildPublic()->toHtml($arguments);
+		$attributes['class'] = $menu->class;
+		$attributes['id'] = 'nav-' . $name;
+		return with(new ListBuilder($menu))->buildPublic()->toHtml($attributes);
 	}
 
 	/**
