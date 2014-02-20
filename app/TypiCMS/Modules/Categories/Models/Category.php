@@ -50,7 +50,7 @@ class Category extends Base {
 	 */
 	public function projects()
 	{
-		return $this->hasMany('TypiCMS\Modules\Projects\Models');
+		return $this->hasMany('TypiCMS\Modules\Projects\Models\Project');
 	}
 
 
