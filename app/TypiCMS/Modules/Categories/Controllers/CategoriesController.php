@@ -1,8 +1,8 @@
-<?php namespace TypiCMS\Modules\Projects\Controllers;
+<?php namespace TypiCMS\Modules\Categories\Controllers;
 
 use View;
 
-use TypiCMS\Modules\Projects\Repositories\CategoryInterface;
+use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 
 use App\Controllers\BaseController;
 
