@@ -46,7 +46,7 @@ return array(
 	|
 	*/
 
-	'hasher' => 'native',
+	'hasher' => 'bcrypt', // Sam : changed to bcrypt for compatibility
   
 	/*
 	|--------------------------------------------------------------------------
