@@ -38,12 +38,12 @@ class SettingsController extends BaseController {
 	{
 		$data = Input::all();
 		// add checkboxes data
-		$data['langChooser'] = Input::get('langChooser');
-		$data['authPublic']  = Input::get('authPublic');
-		$data['register']    = Input::get('register');
+		$data['langChooser'] = (int) Input::get('langChooser');
+		$data['authPublic']  = (int) Input::get('authPublic');
+		$data['register']    = (int) Input::get('register');
 		foreach (Config::get('app.locales') as $locale) {
 			$data[$locale]['websiteTitle'] = Input::get($locale.'.websiteTitle');
-			$data[$locale]['status'] = Input::get($locale.'.status');
+			$data[$locale]['status'] = (int) Input::get($locale.'.status');
 		}
 
 		$this->repository->store( $data );
