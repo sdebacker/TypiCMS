@@ -23,7 +23,7 @@ class MenulinksControllerTest extends TestCase {
 
 	public function testStoreFails()
 	{
-		$input = array('menu_id' => 0);
+		$input = array();
 		$this->call('POST', 'admin/menus/1/menulinks', $input);
 		$this->assertRedirectedToRoute('admin.menus.menulinks.create', array('menu_id' => 1));
 		$this->assertSessionHasErrors();
