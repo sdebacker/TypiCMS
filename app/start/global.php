@@ -49,16 +49,6 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
-});
-
-// Throw 404 error on ModelNotFoundException
-App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
-{
-	return Response::view('errors.404', array(), 404);
-});
-
-App::error(function($exception, $code)
-{
 	switch ($code)
 	{
 		case 403:
@@ -68,6 +58,12 @@ App::error(function($exception, $code)
 			return Response::view('errors.404', array(), 404);
 
 	}
+});
+
+// Throw 404 error on ModelNotFoundException
+App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
+{
+	return Response::view('errors.404', array(), 404);
 });
 
 /*
