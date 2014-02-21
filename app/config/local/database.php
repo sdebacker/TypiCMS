@@ -8,9 +8,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => $_ENV['MYSQL_DATABASE'],
-			'username'  => $_ENV['MYSQL_USERNAME'],
-			'password'  => $_ENV['MYSQL_PASSWORD'],
+			'database'  => getenv('MYSQL_DATABASE'),
+			'username'  => getenv('MYSQL_USERNAME'),
+			'password'  => getenv('MYSQL_PASSWORD'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => 'typi_',
