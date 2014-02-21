@@ -51,6 +51,25 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+// Throw 404 error on ModelNotFoundException
+App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
+{
+	return Response::view('errors.404', array(), 404);
+});
+
+App::error(function($exception, $code)
+{
+	switch ($code)
+	{
+		case 403:
+			return Response::view('errors.403', array(), 403);
+
+		case 404:
+			return Response::view('errors.404', array(), 404);
+
+	}
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
