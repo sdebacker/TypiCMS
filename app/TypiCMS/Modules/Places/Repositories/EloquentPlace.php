@@ -38,9 +38,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 
 		! $all and $query->where('status', 1);
 
-		// Files
-		$this->model->files and $query->with('files');
-
 		// Order
 		$order = Input::get('order', $this->model->order);
 		$order = $order ? : 'id' ;

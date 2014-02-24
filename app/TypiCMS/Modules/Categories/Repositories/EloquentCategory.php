@@ -22,13 +22,7 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
 		$query = $this->model->with('translations');
 
 		// take only translated items that are online
-		$query->whereHas('translations', function($query)
-			{
-				$query->where('status', 1);
-				$query->where('locale', '=', App::getLocale());
-				$query->where('slug', '!=', '');
-			}
-		);
+		$query->whereHasOnlineTranslation();
 
 		// Get
 		$categories = $query->get();

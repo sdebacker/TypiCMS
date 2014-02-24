@@ -43,14 +43,8 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		$query = $this->model->with('translations');
 
 		if ( ! $all ) {
-			// Take only translated items that are online
-			$query->whereHas('translations', function($query)
-				{
-					$query->where('status', 1);
-					$query->where('locale', '=', App::getLocale());
-					$query->where('slug', '!=', '');
-				}
-			);
+			// Take only online and translated items
+			$query->whereHasOnlineTranslation();
 		}
 
 		$query->with('category')->with('category.translations');
@@ -58,7 +52,7 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		$relid and $query->where('category_id', $relid);
 		
 		// Files
-		$this->model->files and $query->with('files');
+		$this->model->files and $query->files();
 
 		$models = $query->get();
 

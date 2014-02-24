@@ -138,12 +138,7 @@ abstract class RepositoriesAbstract {
 		}
 
 		// Files
-		$this->model->files and $query = $query->with(array('files' => function($q) use ($all)
-		{
-			if ( ! $all ) {
-				$q->where('status', 1);
-			}
-		}));
+		$this->model->files and $query = $query->files();
 
 		// Order
 		$order = Input::get('order', $this->model->order);
@@ -196,21 +191,8 @@ abstract class RepositoriesAbstract {
 
 		$model = $this->model
 			->with('translations')
-			->whereHas('translations', function($query)
-				{
-					$query->where('status', 1);
-					$query->where('locale', '=', App::getLocale());
-					$query->where('slug', '!=', '');
-				}
-			)
-			->with(array('files' => function($query)
-				{
-					$query->join('file_translations', 'files.id', '=', 'file_translations.file_id');
-					$query->where('locale', App::getLocale());
-					$query->where('status', 1);
-					$query->orderBy('position', 'asc');
-				})
-			)
+			->whereHasOnlineTranslation()
+			->files()
 			->findOrFail($id);
 
 		if ( ! count($model->translations)) {
