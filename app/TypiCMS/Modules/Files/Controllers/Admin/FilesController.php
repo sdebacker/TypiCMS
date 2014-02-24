@@ -2,6 +2,7 @@
 
 use View;
 use Input;
+use Config;
 use Request;
 use Redirect;
 use Notification;
@@ -131,7 +132,14 @@ class FilesController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( Input::all() ) ) {
+		$data = Input::all();
+
+		// add checkboxes data
+		foreach (Config::get('app.locales') as $locale) {
+			$data[$locale]['status'] = (int) Input::get($locale.'.status');
+		}
+
+		if ( $this->form->update( $data ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
 		}
 		
