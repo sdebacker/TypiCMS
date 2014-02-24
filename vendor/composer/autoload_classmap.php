@@ -932,6 +932,7 @@ return array(
     'Barryvdh\\Debugbar\\DataCollector\\IlluminateRouteCollector' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/DataCollector/IlluminateRouteCollector.php',
     'Barryvdh\\Debugbar\\DataCollector\\LaravelCollector' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/DataCollector/LaravelCollector.php',
     'Barryvdh\\Debugbar\\DataCollector\\LogsCollector' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/DataCollector/LogsCollector.php',
+    'Barryvdh\\Debugbar\\DataCollector\\QueryCollector' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/DataCollector/QueryCollector.php',
     'Barryvdh\\Debugbar\\DataCollector\\SymfonyRequestCollector' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/DataCollector/SymfonyRequestCollector.php',
     'Barryvdh\\Debugbar\\DataCollector\\SymfonyRouteCollector' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/DataCollector/SymfonyRouteCollector.php',
     'Barryvdh\\Debugbar\\DataCollector\\ViewCollector' => $vendorDir . '/barryvdh/laravel-debugbar/src/Barryvdh/Debugbar/DataCollector/ViewCollector.php',
