@@ -21,4 +21,23 @@ abstract class Base extends Eloquent {
 		return call_user_func_array(array($mock, 'shouldReceive'), func_get_args());
 	}
 
+	public function scopeFiles($query, $all = false)
+	{
+		return $query->with(array('files' => function($query) use ($all)
+			{
+				$query->with(array('translations' => function($query) use ($all)
+				{
+					$query->where('locale', App::getLocale());
+					! $all and $query->where('status', 1);
+				}));
+				$query->whereHas('translations', function($query) use ($all)
+				{
+					$query->where('locale', App::getLocale());
+					! $all and $query->where('status', 1);
+				});
+				$query->orderBy('position', 'asc');
+			})
+		);
+	}
+
 }

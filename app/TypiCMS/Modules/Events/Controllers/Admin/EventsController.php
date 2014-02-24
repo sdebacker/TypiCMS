@@ -51,7 +51,6 @@ class EventsController extends BaseController {
 	 */
 	public function edit($model)
 	{
-
 		$this->title['child'] = trans('modules.events.Edit');
 		$this->layout->content = View::make('events.admin.edit')
 			->with('model', $model);

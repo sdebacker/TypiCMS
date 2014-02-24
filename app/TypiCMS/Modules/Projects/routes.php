@@ -1,5 +1,10 @@
 <?php 
-Route::model('projects', 'TypiCMS\Modules\Projects\Models\Project');
+Route::bind('projects', function($value, $route){
+	return TypiCMS\Modules\Projects\Models\Project::where('id', $value)
+		->with('translations')
+		->files(true)
+		->firstOrFail();
+});
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), function()
 {

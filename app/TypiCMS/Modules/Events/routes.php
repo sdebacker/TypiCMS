@@ -1,5 +1,10 @@
 <?php 
-Route::model('events', 'TypiCMS\Modules\Events\Models\Event');
+Route::bind('events', function($value, $route){
+	return TypiCMS\Modules\Events\Models\Event::where('id', $value)
+		->with('translations')
+		->files(true)
+		->firstOrFail();
+});
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), function()
 {

@@ -49,14 +49,7 @@ abstract class RepositoriesAbstract {
 		$query = $this->model->where('id', $id);
 
 		// files
-		$this->model->files and $query->with(array('files' => function($query)
-			{
-				$query->join('file_translations', 'files.id', '=', 'file_translations.file_id');
-				$query->where('locale', App::getLocale());
-				$query->where('status', 1);
-				$query->orderBy('position', 'asc');
-			})
-		);
+		$this->model->files and $query->files();
 
 		$model = $query->firstOrFail();
 

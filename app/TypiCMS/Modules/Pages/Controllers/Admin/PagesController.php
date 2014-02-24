@@ -53,9 +53,6 @@ class PagesController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		// $model = $this->repository->byId($model->id);
-		// or
-		$model->load('files', 'files.translations');
 
 		$this->title['child'] = trans('modules.pages.Edit');
 		$this->layout->content = View::make('pages.admin.edit')
