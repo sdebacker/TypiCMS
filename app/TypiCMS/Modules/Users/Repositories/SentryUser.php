@@ -275,12 +275,13 @@ class SentryUser implements UserInterface {
 	 *
 	 * @param array $credentials
 	 * @param boolean $id
-	 * @return boolean
+	 * @return User Model
 	 */
 	public function authenticate($credentials, $remember = false)
 	{
 		try {
-			return $this->sentry->authenticate($credentials, $remember);
+			$this->sentry->authenticate($credentials, $remember);
+			return $this->sentry->getUser();
 		} catch (LoginRequiredException $e) {
 			$error = 'Login field is required.';
 		} catch (PasswordRequiredException $e) {

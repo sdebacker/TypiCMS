@@ -3,8 +3,8 @@
 use App;
 use Mail;
 use View;
-use Config;
 use Input;
+use Config;
 use Request;
 use Redirect;
 use Exception;
@@ -45,9 +45,9 @@ class UsersController extends BaseController {
 		);
 
 		try {
-			$this->repository->authenticate($credentials, false);
-			Notification::success(trans('modules.users.Welcome'));
-			return Redirect::intended(route('dashboard'));
+			$user = $this->repository->authenticate($credentials, false);
+			Notification::success( trans( 'modules.users.Welcome', array('name' => $user->first_name) ) );
+			return Redirect::intended(route('root'));
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
 			return Redirect::route('login')->withInput();

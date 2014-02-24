@@ -63,7 +63,7 @@ return array(
 		'Forgot your password?' => 'Mot de passe oublié ?',
 		'Register new account' => 'Nouveau compte',
 		'New password' => 'Nouveau mot de passe',
-		'Welcome' => 'Bienvenue',
+		'Welcome' => 'Bienvenue :name',
 		'You are logged out' => 'Vous êtes déconnecté',
 		'Your account has been created, you can now log in' => 'Votre compte a été créé, vous pouvez vous connecter.',
 		'Your account has been created, check your email for the confirmation link' => 'Votre compte a été créé, un lien de confirmation vous a été envoyé.',

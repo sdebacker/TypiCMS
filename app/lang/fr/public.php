@@ -20,4 +20,5 @@ return array(
 	'Projects' => 'Projets',
 	'News' => 'Actualités',
 	'Events' => 'Événements',
+	'Search' => 'Chercher',
 );
