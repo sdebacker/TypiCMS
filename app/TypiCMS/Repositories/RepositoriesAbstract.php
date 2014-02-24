@@ -145,7 +145,12 @@ abstract class RepositoriesAbstract {
 		}
 
 		// Files
-		$this->model->files and $query->with('files');
+		$this->model->files and $query = $query->with(array('files' => function($q) use ($all)
+		{
+			if ( ! $all ) {
+				$q->where('status', 1);
+			}
+		}));
 
 		// Order
 		$order = Input::get('order', $this->model->order);
