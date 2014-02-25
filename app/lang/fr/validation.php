@@ -169,7 +169,9 @@ return array(
 		'category_id' => 'Catégorie',
 
 		// Mots-clés
-		'tags' => 'Mots-clés',
+		'tags' => 'Tags',
+		'tag' => 'Tag',
+		'count' => 'Compte',
 
 		// Menulinks
 		'page_id' => 'Page',

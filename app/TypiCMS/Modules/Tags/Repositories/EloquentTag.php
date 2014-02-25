@@ -1,13 +1,14 @@
 <?php namespace TypiCMS\Modules\Tags\Repositories;
 
-use TypiCMS\Modules\Tags\Repositories\TagInterface;
-use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\Cache\CacheInterface;
+use DB;
+use App;
+use Request;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App;
-use Request;
+use TypiCMS\Modules\Tags\Repositories\TagInterface;
+use TypiCMS\Repositories\RepositoriesAbstract;
+use TypiCMS\Services\Cache\CacheInterface;
 
 class EloquentTag extends RepositoriesAbstract implements TagInterface {
 
@@ -20,6 +21,28 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 		$this->tag = $tag;
 		$this->cache = $cache;
 	}
+
+
+	/**
+	 * Get tags paginated
+	 *
+	 * @param boolean $all Show published or all
+     * @return StdClass Object with $items
+	 */
+	public function byPage($paginationPage = 1, $limit = 10, $all = false, $relatedModel = null)
+	{
+		$query = $this->tag->select(
+				'*',
+				DB::raw("(SELECT COUNT(*) FROM `typi_projects_tags` WHERE `tag_id` = `typi_tags`.`id`) AS 'count'")
+			)
+			->with('projects')
+			->orderBy('count', 'desc');
+
+		$models = $query->paginate($limit);
+
+		return $models;
+	}
+
 
 	/**
 	 * Get all tags

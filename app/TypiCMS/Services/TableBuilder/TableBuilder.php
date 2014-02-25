@@ -14,6 +14,7 @@ class TableBuilder {
 	public $items = array();
 	
 	private $id = 'table-main';
+	private $edit = true;
 	private $sortable = true;
 	private $class = array('table', 'table-condensed', 'table-main');
 	private $checkboxes = true;
@@ -58,7 +59,9 @@ class TableBuilder {
 				$this->table[] = '<tr id="item_'.$item->id.'" class="'.implode(' ', $trClass).'" role="menuitem">';
 				$this->checkboxes and $this->table[] = '<td><input type="checkbox" value="'.$item->id.'"></td>';
 
-				$this->table[] = $this->getAnchor($item);
+				if ($this->edit) {
+					$this->table[] = $this->getAnchor($item);
+				}
 
 				foreach ($this->fieldsForDisplay as $fieldForDisplay) {
 					if (end($fieldForDisplay) == 'status') {
@@ -94,7 +97,9 @@ class TableBuilder {
 	{
 		$this->table[] = '<thead>';
 		$this->checkboxes and $this->table[] = '<th></th>';
-		$this->table[] = '<th></th>';
+		if ($this->edit) {
+			$this->table[] = '<th></th>';
+		}
 
 		// add status column
 		$this->switch and array_unshift($this->fieldsForDisplay, array('', 'status'));

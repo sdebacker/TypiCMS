@@ -50,6 +50,11 @@ return array(
 		'New'  => 'Nouveau projet',
 		'Edit' => 'Modifier le projet',
 	),
+	'tags' => array(
+		'tags' => 'tag|tags',
+		'New'  => 'Nouveau tag',
+		'Edit' => 'Modifier le tag',
+	),
 	'users' => array(
 		'users' => 'utilisateur|utilisateurs',
 		'New'  => 'Nouvel utilisateur',
