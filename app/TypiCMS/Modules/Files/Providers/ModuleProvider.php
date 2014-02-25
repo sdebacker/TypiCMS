@@ -1,6 +1,8 @@
 <?php namespace TypiCMS\Modules\Files\Providers;
 
 use View;
+use Config;
+
 use Illuminate\Support\ServiceProvider;
 
 // Model
@@ -40,6 +42,9 @@ class ModuleProvider extends ServiceProvider {
 		{
 			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentFile(new File);
+			if ( ! Config::get('app.cachePublic')) {
+				return $repository;
+			}
 			$laravelCache = new LaravelCache($app['cache'], 'Files', 10);
 			return new CacheDecorator($repository, $laravelCache);
 		});

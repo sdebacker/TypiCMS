@@ -1,6 +1,8 @@
 <?php namespace TypiCMS\Modules\Projects\Providers;
 
 use View;
+use Config;
+
 use Illuminate\Support\ServiceProvider;
 
 // Tags
@@ -46,6 +48,9 @@ class ModuleProvider extends ServiceProvider {
 				new Project,
 				$app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
 			);
+			if ( ! Config::get('app.cachePublic')) {
+				return $repository;
+			}
 			$laravelCache = new LaravelCache($app['cache'], 'Projects', 10);
 			return new CacheDecorator($repository, $laravelCache);
 		});

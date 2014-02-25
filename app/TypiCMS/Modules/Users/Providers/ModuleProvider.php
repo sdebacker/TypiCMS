@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Modules\Users\Providers;
 
 use View;
+
 use Illuminate\Support\ServiceProvider;
 
 // use TypiCMS\Modules\Users\Models\User;

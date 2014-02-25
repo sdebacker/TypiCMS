@@ -1,6 +1,8 @@
 <?php namespace TypiCMS\Modules\Menus\Providers;
 
 use View;
+use Config;
+
 use Illuminate\Support\ServiceProvider;
 
 // Model
@@ -37,6 +39,9 @@ class ModuleProvider extends ServiceProvider {
 		{
 			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentMenu(new Menu);
+			if ( ! Config::get('app.cachePublic')) {
+				return $repository;
+			}
 			$laravelCache = new LaravelCache($app['cache'], 'Menus', 10);
 			return new CacheDecorator($repository, $laravelCache);
 		});

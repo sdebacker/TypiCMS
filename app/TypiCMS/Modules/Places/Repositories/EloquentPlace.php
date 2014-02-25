@@ -52,6 +52,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	 */
 	public function getAll($all = false, $category_id = null)
 	{
+		// get search string
 		$string = Input::get('string');
 
 		$query = $this->model->with('translations');

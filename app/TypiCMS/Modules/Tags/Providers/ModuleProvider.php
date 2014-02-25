@@ -1,6 +1,8 @@
 <?php namespace TypiCMS\Modules\Tags\Providers;
 
 use View;
+use Config;
+
 use Illuminate\Support\ServiceProvider;
 
 // Model
@@ -33,6 +35,9 @@ class ModuleProvider extends ServiceProvider {
 		{
 			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentTag(new Tag);
+			if ( ! Config::get('app.cachePublic')) {
+				return $repository;
+			}
 			$laravelCache = new LaravelCache($app['cache'], 'Tags', 10);
 			return new CacheDecorator($repository, $laravelCache);
 		});

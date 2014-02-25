@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Modules\Groups\Providers;
 
 use View;
+
 use Illuminate\Support\ServiceProvider;
 
 use TypiCMS\Modules\Groups\Models\Group;

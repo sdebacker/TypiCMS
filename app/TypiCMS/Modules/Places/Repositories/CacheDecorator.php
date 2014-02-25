@@ -41,7 +41,10 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface {
 	 */
 	public function getAll($all = false, $category_id = null)
 	{
-		$key = md5(App::getLocale().'all'.$all.$category_id);
+		// get search string
+		$string = Input::get('string');
+
+		$key = md5(App::getLocale().'all'.$all.$category_id.$string);
 
 		if ( $this->cache->has($key) ) {
 			return $this->cache->get($key);
