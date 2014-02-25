@@ -1,14 +1,17 @@
 <?php namespace TypiCMS\Repositories;
 
-use TypiCMS\Models\User;
+use Config;
+
+use Illuminate\Support\ServiceProvider;
+
 use TypiCMS\Models\Setting;
 
-use TypiCMS\Repositories\User\SentryUser;
+// Cache
+use TypiCMS\Repositories\Setting\CacheDecorator;
+use TypiCMS\Services\Cache\LaravelCache;
+
 use TypiCMS\Repositories\Dashboard\EloquentDashboard;
 use TypiCMS\Repositories\Setting\EloquentSetting;
-
-use TypiCMS\Services\Cache\LaravelCache;
-use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider {
 
@@ -24,16 +27,18 @@ class RepositoriesServiceProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Repositories\Dashboard\DashboardInterface', function($app)
 		{
 			return new EloquentDashboard(
-				new LaravelCache($app['cache'], 'dashboard', 10)
+				new LaravelCache($app['cache'], 'Dashboard', 10)
 			);
 		});
 
 		$app->bind('TypiCMS\Repositories\Setting\SettingInterface', function($app)
 		{
-			return new EloquentSetting(
-				new Setting,
-				new LaravelCache($app['cache'], 'configuration', 10)
-			);
+			$repository = new EloquentSetting(new Setting);
+			if ( ! Config::get('app.cache')) {
+				return $repository;
+			}
+			$laravelCache = new LaravelCache($app['cache'], 'Settings', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 	}

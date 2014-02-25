@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider {
 		{
 			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentMenulink(new Menulink);
-			if ( ! Config::get('app.cachePublic')) {
+			if ( ! Config::get('app.cache')) {
 				return $repository;
 			}
 			$laravelCache = new LaravelCache($app['cache'], 'Menulinks', 10);

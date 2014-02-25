@@ -44,7 +44,7 @@
 				</tr>
 				<tr>
 					<td>@lang('settings.Cache public')</td>
-					<td><b><?php echo Config::get('app.cachePublic') ? trans('settings.Yes') : trans('settings.No') ; ?></b></td>
+					<td><b><?php echo Config::get('app.cache') ? trans('settings.Yes') : trans('settings.No') ; ?></b></td>
 				</tr>
 			</tbody>
 		</table>

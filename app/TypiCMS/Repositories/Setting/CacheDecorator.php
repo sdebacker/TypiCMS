@@ -16,11 +16,11 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface 
 
 
 	/**
-	 * Get all models
+	 * Get all settings
 	 *
      * @return StdClass Object with $items
 	 */
-	public function getAll()
+	public function getAll($all = false, $relatedModel = null)
 	{
 		$key = md5('Settings');
 
@@ -45,8 +45,29 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface 
 	 */
 	public function store(array $data)
 	{
-		$data = $this->repo->store($data);
-		return $data;	
+		return $this->repo->store($data);
+	}
+
+
+	/**
+	 * Build Settings Array
+	 *
+	 * @return array
+	 */
+	public function getAllToArray()
+	{
+		$key = md5('SettingsToArray');
+
+		if ( $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		$data = $this->repo->getAllToArray();
+
+		// Store in cache for next request
+		$this->cache->put($key, $data);
+
+		return $data;
 	}
 
 }

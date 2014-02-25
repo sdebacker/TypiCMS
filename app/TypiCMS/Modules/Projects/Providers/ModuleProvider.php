@@ -48,7 +48,7 @@ class ModuleProvider extends ServiceProvider {
 				new Project,
 				$app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
 			);
-			if ( ! Config::get('app.cachePublic')) {
+			if ( ! Config::get('app.cache')) {
 				return $repository;
 			}
 			$laravelCache = new LaravelCache($app['cache'], 'Projects', 10);

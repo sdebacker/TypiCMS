@@ -86,7 +86,7 @@ Route::filter('users.register', function()
 
 Route::filter('cache', function($route, $request, $response = null)
 {
-	if ( ! Sentry::check() and Config::get('app.cachePublic') ) { // no cache if connected
+	if ( ! Sentry::check() and Config::get('app.cache') ) { // no cache if connected
 		$key = 'route-'.Str::slug(Request::fullUrl());
 		if (is_null($response) && Cache::section('public')->has($key)) {
 			return Cache::section('public')->get($key);

@@ -39,7 +39,7 @@ class ModuleProvider extends ServiceProvider {
 		{
 			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentNews(new News);
-			if ( ! Config::get('app.cachePublic')) {
+			if ( ! Config::get('app.cache')) {
 				return $repository;
 			}
 			$laravelCache = new LaravelCache($app['cache'], 'News', 10);

@@ -1,6 +1,6 @@
 <?php namespace TypiCMS\Repositories\Setting;
 
-use Request;
+use DB;
 use stdClass;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -20,7 +20,7 @@ class EloquentSetting implements SettingInterface {
 	 *
      * @return StdClass Object with $items
 	 */
-	public function getAll()
+	public function getAll($all = false, $relatedModel = null)
 	{
 		$data = new stdClass;
 		foreach ($this->model->get() as $model) {
@@ -44,7 +44,7 @@ class EloquentSetting implements SettingInterface {
 	/**
 	 * Update an existing model
 	 *
-	 * @param array  Data to update a model
+	 * @param array Data to update a model
 	 * @return boolean
 	 */
 	public function store(array $data)
@@ -69,6 +69,26 @@ class EloquentSetting implements SettingInterface {
 
 		return true;
 		
+	}
+
+
+	/**
+	 * Build Settings Array
+	 *
+	 * @return array
+	 */
+	public function getAllToArray()
+	{
+		$config = array();
+		foreach (DB::table('settings')->get() as $object) {
+			$key = $object->key_name;
+			if ($object->group_name != 'config') {
+				$config[$object->group_name][$key] = $object->value;
+			} else {
+				$config[$key] = $object->value;
+			}
+		}
+		return $config;
 	}
 
 }

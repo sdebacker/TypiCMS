@@ -4,11 +4,11 @@ interface SettingInterface
 {
 
     /**
-     * Get all pages
+     * Get all settings
      *
      * @return StdClass Object with $items
      */
-    public function getAll();
+    public function getAll($all = false, $relatedModel = null);
 
     /**
      * Update an existing item
@@ -18,5 +18,11 @@ interface SettingInterface
      */
     public function store(array $data);
 
+    /**
+     * Build Settings Array
+     *
+     * @return array
+     */
+    public function getAllToArray();
 
 }
