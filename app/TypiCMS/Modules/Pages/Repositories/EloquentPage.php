@@ -50,7 +50,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		$model->save();
 
 		// update URI in all pages
-		$pages = $this->model->orderBy($this->model->order, $this->model->direction)->get();
+		$pages = $this->model->order()->get();
 		foreach ($pages as $key => $page) {
 			$this->updateUris($page->id, $page->parent);
 		}
@@ -101,9 +101,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		}
 		$query->where('locale', Config::get('app.locale'));
 
-		if ($this->model->order and $this->model->direction) {
-			$query->orderBy($this->model->order, $this->model->direction);
-		}
+		$query->order();
 
 		$models = $query->get();
 

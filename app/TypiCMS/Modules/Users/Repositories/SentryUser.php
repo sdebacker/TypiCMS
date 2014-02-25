@@ -48,10 +48,8 @@ class SentryUser implements UserInterface {
 	public function getAll($all = false)
 	{
 		$query = $this->sentry->newQuery();
-		// Order
-		$order = Input::get('order', 'id');
-		$direction = Input::get('direction', 'asc');
-		$query->orderBy($order, $direction);
+
+		$query->order();
 
 		$users = $query->get()->all();
 

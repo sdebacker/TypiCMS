@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Models;
 
 use App;
+use Input;
 use Mockery;
 use Eloquent;
 
@@ -21,6 +22,14 @@ abstract class Base extends Eloquent {
 		return call_user_func_array(array($mock, 'shouldReceive'), func_get_args());
 	}
 
+
+	/**
+	 * Attach files to model
+	 *
+	 * @param $query
+	 * @param boolean All : all models or online models
+	 * @return Illuminate\Database\Eloquent\Builder $query
+	 */
 	public function scopeFiles($query, $all = false)
 	{
 		return $query->with(array('files' => function($query) use ($all)
@@ -40,6 +49,13 @@ abstract class Base extends Eloquent {
 		);
 	}
 
+
+	/**
+	 * Get models that have online non empty translation
+	 *
+	 * @param $query
+	 * @return Illuminate\Database\Eloquent\Builder $query
+	 */
 	public function scopeWhereHasOnlineTranslation($query)
 	{
 		return $query->whereHas('translations', function($query)
@@ -49,6 +65,20 @@ abstract class Base extends Eloquent {
 				$query->where('slug', '!=', '');
 			}
 		);
+	}
+
+
+	/**
+	 * Order items according to GET value or model value, default is id asc
+	 *
+	 * @param $query
+	 * @return Illuminate\Database\Eloquent\Builder $query
+	 */
+	public function scopeOrder($query)
+	{
+		$order = Input::get('order', $this->order) ? : 'id' ;
+		$direction = Input::get('direction', $this->direction) ? : 'asc' ;
+		return $query->orderBy($order, $direction);
 	}
 
 }
