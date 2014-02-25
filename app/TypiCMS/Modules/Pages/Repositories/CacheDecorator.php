@@ -58,8 +58,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface {
 	 */
 	public function getChildren($uri, $all = false)
 	{
-		// Build the cache key, unique per model slug
-		$key = md5(App::getLocale().'childrenOfId.'.$uri);
+		$key = md5(App::getLocale().'childrenOfId.'.$uri.$all);
 
 		if ( $this->cache->has($key) ) {
 			return $this->cache->get($key);

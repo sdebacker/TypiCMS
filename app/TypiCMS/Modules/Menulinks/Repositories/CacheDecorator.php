@@ -23,7 +23,7 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
 	 */
 	public function getAllFromMenu($all = false, $relid = null)
 	{
-		$key = md5(App::getLocale().$all.$relid);
+		$key = md5(App::getLocale().'all'.$all.$relid);
 
 		if ( $this->cache->has($key) ) {
 			return $this->cache->get($key);
