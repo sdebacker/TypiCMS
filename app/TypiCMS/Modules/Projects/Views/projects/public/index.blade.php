@@ -1,6 +1,6 @@
 @section('main')
 
-	<h2>Projects</h2>
+	<h2>{{ Str::title(trans_choice('modules.projects.projects', 2)) }}</h2>
 
 	@if (count($models))
 	

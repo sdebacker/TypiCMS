@@ -9,7 +9,8 @@
 
 @section('main')
 
-	<h1>Places</h1>
+	<h2>{{ Str::title(trans_choice('modules.places.places', 2)) }}</h2>
+
 	<div class="row">
 
 		<div class="col-sm-4">
@@ -24,12 +25,12 @@
 				</div>
 			</form>
 
-			<h2>
+			<h3>
 			{{ count($places) }} @choice('places', count($places))
 			@if(Input::get('string')) @lang('for')
 				“{{ Input::get('string') }}”
 			@endif
-			</h2>
+			</h3>
 
 			<ul class="list-unstyled addresses">
 				@foreach($places as $place)

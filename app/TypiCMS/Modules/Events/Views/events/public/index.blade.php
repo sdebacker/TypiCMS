@@ -1,5 +1,7 @@
 @section('main')
-	<h1>Events</h1>
+
+	<h2>{{ Str::title(trans_choice('modules.events.events', 2)) }}</h2>
+
 	@if (count($models))
 	<ul>
 		@foreach($models as $model)
