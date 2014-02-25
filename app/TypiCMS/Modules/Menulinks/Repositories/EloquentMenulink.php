@@ -1,21 +1,19 @@
 <?php namespace TypiCMS\Modules\Menulinks\Repositories;
 
-use Config;
 use App;
-use Request;
+use Config;
+
+use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\Cache\CacheInterface;
 use TypiCMS\Modules\Pages\Models\Page;
-use Illuminate\Database\Eloquent\Model;
 
 class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface {
 
-	// Class expects an Eloquent model and a cache interface
-	public function __construct(Model $model, CacheInterface $cache)
+	// Class expects an Eloquent model
+	public function __construct(Model $model)
 	{
 		$this->model = $model;
-		$this->cache = $cache;
 	}
 
 	/**
@@ -26,16 +24,6 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 	 */
 	public function getAllFromMenu($all = false, $relid = null)
 	{
-		// Build our cache item key, unique per model number,
-		// limit and if we're showing all
-		$allkey = ($all) ? '.all' : '';
-		$key = md5(App::getLocale().'all'.$allkey);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
 		$query = $this->model->with('translations')
 			->orderBy('position', 'asc')
 			->where('menu_id', $relid);
@@ -46,9 +34,6 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 		}
 
 		$models = $query->get()->nest();
-
-		// Store in cache for next request
-		$this->cache->put($key, $models);
 
 		return $models;
 	}
@@ -61,13 +46,6 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 	 */
 	public function getMenu($name)
 	{
-
-		// Build our cache item key, unique per model number,
-		$key = md5(App::getLocale().'getMenu'.$name);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
 
 		$models = $this->model->select('menus.name', 'menus.class AS menuclass', 'menulinks.id', 'menulinks.menu_id', 'menulinks.target', 'menulinks.parent', 'menulinks.page_id', 'menulinks.class', 'menulink_translations.title', 'menulink_translations.status', 'menulink_translations.url', 'pages.is_home', 'page_translations.uri as page_uri', 'page_translations.locale', 'module_name')
 			
@@ -90,8 +68,6 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 			->get();
 
 		$models->class = $models->first()->menuclass;
-		// Store in cache for next request
-		$this->cache->put($key, $models);
 
 		return $models;
 

@@ -3,10 +3,14 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
+// Model
 use TypiCMS\Modules\Events\Models\Event;
+
+// Repo
 use TypiCMS\Modules\Events\Repositories\EloquentEvent;
 
 // Cache
+use TypiCMS\Modules\Events\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
 // Form
@@ -35,10 +39,9 @@ class ModuleProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentEvent(
-				new Event,
-				new LaravelCache($app['cache'], 'events', 10)
-			);
+			$repository = new EloquentEvent(new Event);
+			$laravelCache = new LaravelCache($app['cache'], 'Events', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Modules\Events\Services\Form\EventForm', function($app)

@@ -171,7 +171,7 @@ return array(
 		// Mots-clés
 		'tags' => 'Tags',
 		'tag' => 'Tag',
-		'count' => 'Compte',
+		'uses' => 'Utilisations',
 
 		// Menulinks
 		'page_id' => 'Page',

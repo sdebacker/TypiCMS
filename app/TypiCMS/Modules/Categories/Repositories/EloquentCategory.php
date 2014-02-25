@@ -1,24 +1,21 @@
 <?php namespace TypiCMS\Modules\Categories\Repositories;
 
-use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\Cache\CacheInterface;
+use App;
+
 use Illuminate\Database\Eloquent\Model;
 
-use App;
+use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentCategory extends RepositoriesAbstract implements CategoryInterface {
 
-	// Class expects an Eloquent model and a cache interface
-	public function __construct(Model $model, CacheInterface $cache)
+	// Class expects an Eloquent model
+	public function __construct(Model $model)
 	{
 		$this->model = $model;
-		$this->cache = $cache;
 	}
 
 	public function getAllForSelect()
 	{
-
-		// Item not cached, retrieve it
 		$query = $this->model->with('translations');
 
 		// take only translated items that are online

@@ -4,18 +4,11 @@ use DB;
 use Str;
 use Sentry;
 use Config;
-use Request;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\Cache\CacheInterface;
 
 class EloquentDashboard extends RepositoriesAbstract implements DashboardInterface {
 
-	// Class expects an Eloquent model and a cache interface
-	public function __construct(CacheInterface $cache)
-	{
-		$this->cache = $cache;
-	}
 
 	public function getWelcomeMessage()
 	{
@@ -32,12 +25,6 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 
 	public function getDashboardModules()
 	{
-		// Build the cache key, unique per model slug
-		$key = md5('dashboardmodules');
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
 
 		// Item not cached, retrieve it
 		$modulesArray = Config::get('app.modules');
@@ -51,9 +38,6 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 				$modulesForDashboard[$module]['count'] = DB::table($lowerName)->count();
 			}
 		}
-
-		// Store in cache for next request
-		$this->cache->put($key, $modulesForDashboard);
 
 		return $modulesForDashboard;
 	}

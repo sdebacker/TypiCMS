@@ -1,25 +1,23 @@
 <?php namespace TypiCMS\Modules\Pages\Repositories;
 
-use Config;
 use DB;
 use App;
-use Request;
+use Config;
 
-use TypiCMS\Modules\Pages\Models\PageTranslation;
-use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\ListBuilder\ListBuilder;
-use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
+
+use TypiCMS\Services\ListBuilder\ListBuilder;
+use TypiCMS\Repositories\RepositoriesAbstract;
+use TypiCMS\Modules\Pages\Models\PageTranslation;
 
 class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 	protected $uris = array();
 
-	// Class expects an Eloquent model and a cache interface
-	public function __construct(Model $model, CacheInterface $cache)
+	// Class expects an Eloquent model
+	public function __construct(Model $model)
 	{
 		$this->model = $model;
-		$this->cache = $cache;
 
 		// Build uris array of all pages (needed for uris updating after sorting)
 		$pages = DB::table('page_translations')->select('page_id', 'locale', 'uri')->get();
@@ -68,14 +66,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 	 */
 	public function getChildren($uri, $all = false)
 	{
-		// Build the cache key, unique per model slug
-		$key = md5(App::getLocale().'childrenOfId.'.$uri);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
 		$rootUriArray = explode('/', $uri);
 		$uri = $rootUriArray[0].'/'.$rootUriArray[1];
 
@@ -106,9 +96,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		$models = $query->get();
 
 		$models->nest();
-
-		// Store in cache for next request
-		$this->cache->put($key, $models);
 
 		return $models;
 	}
@@ -156,6 +143,14 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 	}
 
+
+	/**
+	 * Update pages uris
+	 *
+	 * @param int $id
+	 * @param $parent
+	 * @return void
+	 */
 	public function updateUris($id, $parent = null)
 	{
 

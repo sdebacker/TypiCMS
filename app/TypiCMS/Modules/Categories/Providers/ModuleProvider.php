@@ -3,10 +3,14 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
+// Model
 use TypiCMS\Modules\Categories\Models\Category;
+
+// Repo
 use TypiCMS\Modules\Categories\Repositories\EloquentCategory;
 
 // Cache
+use TypiCMS\Modules\Categories\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
 // Form
@@ -35,10 +39,9 @@ class ModuleProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Modules\Categories\Repositories\CategoryInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentCategory(
-				new Category,
-				new LaravelCache($app['cache'], 'categories', 10)
-			);
+			$repository = new EloquentCategory(new Category);
+			$laravelCache = new LaravelCache($app['cache'], 'Categories', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Modules\Categories\Services\Form\CategoryForm', function($app)

@@ -1,18 +1,16 @@
 <?php namespace TypiCMS\Repositories;
 
-use Config;
-use Input;
-use App;
-use Str;
 use DB;
-use Request;
-use TypiCMS\Services\ListBuilder\ListBuilder;
+use Str;
+use App;
+use Input;
+use Config;
+
 use TypiCMS\Services\Helpers;
 
 abstract class RepositoriesAbstract {
 
 	protected $model;
-	protected $cache;
 
 	public function view()
 	{
@@ -38,23 +36,12 @@ abstract class RepositoriesAbstract {
 	 */
 	public function byId($id)
 	{
-		// Build the cache key, unique per model slug
-		$key = md5(App::getLocale().'id.'.$id);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
 		$query = $this->model->where('id', $id);
 
 		// files
 		$this->model->files and $query->files();
 
 		$model = $query->firstOrFail();
-
-		// Store in cache for next request
-		$this->cache->put($key, $model);
 
 		return $model;
 	}
@@ -105,17 +92,6 @@ abstract class RepositoriesAbstract {
 	 */
 	public function getAll($all = false, $relatedModel = null)
 	{
-		// Build our cache item key, unique per model number,
-		// limit and if we're showing all
-		$allkey = ($all) ? '.all' : '';
-		$key = md5(App::getLocale().'all'.$allkey);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
-
 		$query = $this->model->with('translations');
 
 		if ( ! $all ) {
@@ -155,9 +131,6 @@ abstract class RepositoriesAbstract {
 			$models->nest();
 		}
 
-		// Store in cache for next request
-		$this->cache->put($key, $models);
-
 		return $models;
 	}
 
@@ -170,15 +143,6 @@ abstract class RepositoriesAbstract {
 	 */
 	public function bySlug($slug)
 	{
-		// Build the cache key, unique per model slug
-		$key = md5(App::getLocale().'slug.'.$slug);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
-
 		// Find id
 		$id = Helpers::getIdFromSlug($this->model->getTable(), $slug);
 
@@ -191,9 +155,6 @@ abstract class RepositoriesAbstract {
 		if ( ! count($model->translations)) {
 			App::abort('404');
 		}
-
-		// Store in cache for next request
-		$this->cache->put($key, $model);
 
 		return $model;
 
@@ -234,10 +195,10 @@ abstract class RepositoriesAbstract {
      * @param  string $string  Human-friendly tag
      * @return string       Computer-friendly tag
      */
-    protected function slug($string)
-    {
-        return filter_var( str_replace(' ', '-', strtolower( trim($string) ) ), FILTER_SANITIZE_URL);
-    }
+    // protected function slug($string)
+    // {
+    //     return filter_var( str_replace(' ', '-', strtolower( trim($string) ) ), FILTER_SANITIZE_URL);
+    // }
 
 
 	/**
@@ -245,14 +206,14 @@ abstract class RepositoriesAbstract {
 	 *
 	 * @return int  Total models
 	 */
-	protected function total($all = false)
-	{
-		if ( ! $all ) {
-			return $this->model->where('status', 1)->count();
-		}
+	// protected function total($all = false)
+	// {
+	// 	if ( ! $all ) {
+	// 		return $this->model->where('status', 1)->count();
+	// 	}
 
-		return $this->model->count();
-	}
+	// 	return $this->model->count();
+	// }
 
 
 	/**

@@ -1,13 +1,14 @@
 <?php namespace TypiCMS\Modules\Places\Controllers;
 
-use View;
-use Request;
 use App;
+use View;
 use Config;
-
-use TypiCMS\Modules\Places\Repositories\PlaceInterface;
+use Request;
+use Response;
 
 use App\Controllers\BaseController;
+
+use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 
 class PlacesController extends BaseController {
 
@@ -30,7 +31,7 @@ class PlacesController extends BaseController {
 		$places = $this->repository->getAll();
 		
 		if (Request::wantsJson()) {
-			return $places;
+			return Response::json($places, 200);
 		}
 
 		$this->layout->content = View::make('places.public.index')
@@ -48,7 +49,7 @@ class PlacesController extends BaseController {
 		$models = $this->repository->getAll();
 		
 		if (Request::wantsJson()) {
-			return $models;
+			return Response::json($models, 200);
 		}
 
 		$this->layout->content = View::make('places.public.results')
@@ -67,7 +68,7 @@ class PlacesController extends BaseController {
 
 		// dd($model->toJson());
 		if (Request::wantsJson()) {
-			return $model;
+			return Response::json($model, 200);
 		}
 
 		$this->title['parent'] = $model->title;

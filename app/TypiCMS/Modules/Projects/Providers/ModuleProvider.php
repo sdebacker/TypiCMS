@@ -3,11 +3,17 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
-use TypiCMS\Modules\Projects\Models\Project;
+// Tags
 use TypiCMS\Modules\Tags\Models\TagInterface;
+
+// Model
+use TypiCMS\Modules\Projects\Models\Project;
+
+// Repo
 use TypiCMS\Modules\Projects\Repositories\EloquentProject;
 
 // Cache
+use TypiCMS\Modules\Projects\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
 // Form
@@ -36,11 +42,12 @@ class ModuleProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Modules\Projects\Repositories\ProjectInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentProject(
+			$repository = new EloquentProject(
 				new Project,
-				new LaravelCache($app['cache'], 'places', 10),
 				$app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
 			);
+			$laravelCache = new LaravelCache($app['cache'], 'Projects', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Modules\Projects\Services\Form\ProjectForm', function($app)

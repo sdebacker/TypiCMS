@@ -3,10 +3,14 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
+// Model
 use TypiCMS\Modules\Files\Models\File;
+
+// Repo
 use TypiCMS\Modules\Files\Repositories\EloquentFile;
 
 // Cache
+use TypiCMS\Modules\Files\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
 // Form
@@ -35,10 +39,9 @@ class ModuleProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Modules\Files\Repositories\FileInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentFile(
-				new File,
-				new LaravelCache($app['cache'], 'files', 10)
-			);
+			$repository = new EloquentFile(new File);
+			$laravelCache = new LaravelCache($app['cache'], 'Files', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Modules\Files\Services\Form\FileForm', function($app)

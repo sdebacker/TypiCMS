@@ -3,10 +3,14 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
+// Model
 use TypiCMS\Modules\Menus\Models\Menu;
+
+// Repo
 use TypiCMS\Modules\Menus\Repositories\EloquentMenu;
 
 // Cache
+use TypiCMS\Modules\Menus\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
 // Form
@@ -20,9 +24,6 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
-		// Require breadcrumbs
-		// require __DIR__ . '/../breadcrumbs.php';
-
 		// Add view dir
 		View::addLocation(__DIR__ . '/../Views');
 	}
@@ -35,10 +36,9 @@ class ModuleProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Modules\Menus\Repositories\MenuInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentMenu(
-				new Menu,
-				new LaravelCache($app['cache'], 'menus', 10)
-			);
+			$repository = new EloquentMenu(new Menu);
+			$laravelCache = new LaravelCache($app['cache'], 'Menus', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Modules\Menus\Services\Form\MenuForm', function($app)

@@ -3,10 +3,14 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
+// Model
 use TypiCMS\Modules\News\Models\News;
+
+// Repo
 use TypiCMS\Modules\News\Repositories\EloquentNews;
 
 // Cache
+use TypiCMS\Modules\News\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
 // Form
@@ -20,9 +24,6 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
-		// Require breadcrumbs
-		// require __DIR__ . '/../breadcrumbs.php';
-
 		// Add view dir
 		View::addLocation(__DIR__ . '/../Views');
 	}
@@ -35,10 +36,9 @@ class ModuleProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Modules\News\Repositories\NewsInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentNews(
-				new News,
-				new LaravelCache($app['cache'], 'news', 10)
-			);
+			$repository = new EloquentNews(new News);
+			$laravelCache = new LaravelCache($app['cache'], 'News', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Modules\News\Services\Form\NewsForm', function($app)

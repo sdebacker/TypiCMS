@@ -45,10 +45,8 @@ class FilesController extends BaseController {
 	{
 		$page = Input::get('page');
 
-		$itemsPerPages = $this->repository->getModel()->itemsPerPage; // Create per module config
+		$models = $this->repository->byPage($page, 10, true, $parent);
 
-		$models = $this->repository->byPage($page, $itemsPerPages, true, $parent);
-		// $models = $this->repository->getAll(true, $parent);
 		if ($parent) {
 			$this->layout->content = View::make('files.admin.index')
 				->withModels($models)

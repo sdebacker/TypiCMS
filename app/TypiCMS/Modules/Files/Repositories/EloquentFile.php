@@ -6,17 +6,15 @@ use Croppa;
 use Response;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
 
 class EloquentFile extends RepositoriesAbstract implements FileInterface {
 
 
 	// Class expects an Eloquent model
-	public function __construct(Model $model, CacheInterface $cache)
+	public function __construct(Model $model)
 	{
 		$this->model = $model;
-		$this->cache = $cache;
 	}
 
 

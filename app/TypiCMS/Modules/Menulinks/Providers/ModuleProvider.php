@@ -3,10 +3,14 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
+// Model
 use TypiCMS\Modules\Menulinks\Models\Menulink;
+
+// Repo
 use TypiCMS\Modules\Menulinks\Repositories\EloquentMenulink;
 
 // Cache
+use TypiCMS\Modules\Menulinks\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
 // Form
@@ -35,10 +39,9 @@ class ModuleProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentMenulink(
-				new Menulink,
-				new LaravelCache($app['cache'], 'menulinks', 10)
-			);
+			$repository = new EloquentMenulink(new Menulink);
+			$laravelCache = new LaravelCache($app['cache'], 'Menulinks', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm', function($app)

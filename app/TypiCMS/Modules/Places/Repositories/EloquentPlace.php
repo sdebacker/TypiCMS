@@ -1,22 +1,20 @@
 <?php namespace TypiCMS\Modules\Places\Repositories;
 
-use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\Cache\CacheInterface;
+use App;
+use Input;
+use Config;
+use Request;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Config;
-use Input;
-use App;
-use Request;
+use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 
-	// Class expects an Eloquent model and a cache interface
-	public function __construct(Model $model, CacheInterface $cache)
+	// Class expects an Eloquent model
+	public function __construct(Model $model)
 	{
 		$this->model = $model;
-		$this->cache = $cache;
 	}
 
 
@@ -56,8 +54,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	{
 		$string = Input::get('string');
 
-		// Item not cached, retrieve it
-
 		$query = $this->model->with('translations');
 
 		if ( ! $all ) {
@@ -93,21 +89,10 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	 */
 	public function bySlug($slug)
 	{
-		// Build the cache key, unique per model slug
-		$key = md5(App::getLocale().'slug.'.$slug);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
 		$model = $this->model->with('translations')
 			->where('slug', $slug)
 			->where('status', 1)
 			->firstOrFail();
-
-		// Store in cache for next request
-		$this->cache->put($key, $model);
 
 		return $model;
 

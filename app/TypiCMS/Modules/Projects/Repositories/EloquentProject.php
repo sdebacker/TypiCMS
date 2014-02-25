@@ -1,23 +1,21 @@
 <?php namespace TypiCMS\Modules\Projects\Repositories;
 
-use Config;
 use App;
-use Request;
+use Config;
+
+use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
-use TypiCMS\Services\Cache\CacheInterface;
-use Illuminate\Database\Eloquent\Model;
 
 class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 
     protected $tag;
 
-	// Class expects an Eloquent model, a cache interface and a TagInterface
-	public function __construct(Model $model, CacheInterface $cache, TagInterface $tag)
+	// Class expects an Eloquent model and a TagInterface
+	public function __construct(Model $model, TagInterface $tag)
 	{
 		$this->model = $model;
-		$this->cache = $cache;
 		$this->tag = $tag;
 	}
 
@@ -30,16 +28,6 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 	 */
 	public function getAll($all = false, $relid = null)
 	{
-		// Build our cache item key, unique per model number,
-		// limit and if we're showing all
-		$allkey = ($all) ? '.all' : '';
-		$key = md5(App::getLocale().'all'.$allkey);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
 		$query = $this->model->with('translations');
 
 		if ( ! $all ) {
@@ -62,9 +50,6 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		{
 			return $model->{$this->model->order};
 		}, null, $desc);
-
-		// Store in cache for next request
-		$this->cache->put($key, $models);
 
 		return $models;
 	}

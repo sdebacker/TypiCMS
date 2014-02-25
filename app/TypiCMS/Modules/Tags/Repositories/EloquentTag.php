@@ -2,24 +2,20 @@
 
 use DB;
 use App;
-use Request;
 
 use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
 use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Services\Cache\CacheInterface;
 
 class EloquentTag extends RepositoriesAbstract implements TagInterface {
 
 	protected $tag;
-	protected $cache;
 
 	// Class expects an Eloquent model
-	public function __construct(Model $tag, CacheInterface $cache)
+	public function __construct(Model $tag)
 	{
 		$this->tag = $tag;
-		$this->cache = $cache;
 	}
 
 
@@ -33,10 +29,10 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 	{
 		$query = $this->tag->select(
 				'*',
-				DB::raw("(SELECT COUNT(*) FROM `typi_projects_tags` WHERE `tag_id` = `typi_tags`.`id`) AS 'count'")
+				DB::raw("(SELECT COUNT(*) FROM `typi_projects_tags` WHERE `tag_id` = `typi_tags`.`id`) AS 'uses'")
 			)
 			->with('projects')
-			->orderBy('count', 'desc');
+			->orderBy('uses', 'desc');
 
 		$models = $query->paginate($limit);
 
@@ -52,23 +48,9 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 	 */
 	public function getAll($all = false, $relatedModel = null)
 	{
-		// Build our cache item key, unique per model number,
-		// limit and if we're showing all
-		$allkey = ($all) ? '.all' : '';
-		$key = md5(App::getLocale().'all'.$allkey);
-
-		if ( Request::segment(1) != 'admin' and $this->cache->active('public') and $this->cache->has($key) ) {
-			return $this->cache->get($key);
-		}
-
-		// Item not cached, retrieve it
-
 		$query = $this->tag;
 
 		$models = $query->lists('tag');
-
-		// Store in cache for next request
-		$this->cache->put($key, $models);
 
 		return $models;
 	}

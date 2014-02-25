@@ -17,7 +17,7 @@
 
 		<!-- @include('admin._buttons-list') -->
 
-		{{ HTML::adminTable($models, array('checkboxes' => false, 'edit' => false, 'switch' => false, 'sortable' => false, 'files' => false, 'display' => array(array('%s', 'tag'), array('%s', 'count')))) }}
+		{{ HTML::adminTable($models, array('checkboxes' => false, 'edit' => false, 'switch' => false, 'sortable' => false, 'files' => false, 'display' => array(array('%s', 'tag'), array('%s', 'uses')))) }}
 
 	</div>
 

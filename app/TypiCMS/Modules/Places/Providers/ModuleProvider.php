@@ -3,10 +3,14 @@
 use View;
 use Illuminate\Support\ServiceProvider;
 
+// Model
 use TypiCMS\Modules\Places\Models\Place;
+
+// Repo
 use TypiCMS\Modules\Places\Repositories\EloquentPlace;
 
 // Cache
+use TypiCMS\Modules\Places\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
 // Form
@@ -35,10 +39,9 @@ class ModuleProvider extends ServiceProvider {
 		$app->bind('TypiCMS\Modules\Places\Repositories\PlaceInterface', function($app)
 		{
 			require __DIR__ . '/../breadcrumbs.php';
-			return new EloquentPlace(
-				new Place,
-				new LaravelCache($app['cache'], 'places', 10)
-			);
+			$repository = new EloquentPlace(new Place);
+			$laravelCache = new LaravelCache($app['cache'], 'Places', 10);
+			return new CacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Modules\Places\Services\Form\PlaceForm', function($app)
