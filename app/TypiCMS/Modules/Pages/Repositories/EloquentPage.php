@@ -78,6 +78,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		$uri = $rootUriArray[0].'/'.$rootUriArray[1];
 
 		$query = $this->model
+			->with('translations')
 			->select(
 				array(
 					'pages.id AS id',
