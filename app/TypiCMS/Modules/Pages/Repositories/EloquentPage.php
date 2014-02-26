@@ -140,8 +140,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 			$parent = $parent ? : 0 ;
 
-			DB::table('pages')
-				->where('id', $id)
+			$this->model->find($id)
 				->update(array('position' => $position, 'parent' => $parent));
 
 			$this->updateUris($id, $parent);

@@ -227,8 +227,6 @@ abstract class RepositoriesAbstract {
 	public function sort(array $data)
 	{
 
-		$table = $this->model->getTable();
-
 		if (isset($data['nested']) and $data['nested']) {
 
 			$position = 0;
@@ -239,8 +237,7 @@ abstract class RepositoriesAbstract {
 
 				$parent = $parent ? : 0 ;
 
-				DB::table($table)
-					->where('id', $id)
+				$this->model->find($id)
 					->update(array('position' => $position, 'parent' => $parent));
 
 			}
@@ -251,8 +248,7 @@ abstract class RepositoriesAbstract {
 				
 				$position = $key + 1;
 
-				DB::table($table)
-					->where('id', $id)
+				$this->model->find($id)
 					->update(array('position' => $position));
 				
 			}
