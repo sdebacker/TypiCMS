@@ -34,7 +34,7 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 	// Lang chooser
 	Route::get('/', array('as' => 'root', 'uses' => 'App\Controllers\PublicController@root'));
 
-	// if ( ! App::runningInConsole()) {
+	if ( ! App::runningInConsole()) {
 		
 		// Build routes from Table Pages
 		$pages = App::make('TypiCMS\Modules\Pages\Repositories\PageInterface')->getForRoutes();
@@ -90,7 +90,7 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 			unset($menulinksArray['paces']);
 		}
 
-	// }
+	}
 
 	// Homepages (for each language)
 	foreach (Config::get('app.locales') as $locale) {
