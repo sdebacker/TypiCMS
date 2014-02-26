@@ -43,7 +43,7 @@
 					<td><b>{{ Config::get('app.locale'); }}</b></td>
 				</tr>
 				<tr>
-					<td>@lang('settings.Cache public')</td>
+					<td>@lang('settings.Cache')</td>
 					<td><b><?php echo Config::get('app.cache') ? trans('settings.Yes') : trans('settings.No') ; ?></b></td>
 				</tr>
 			</tbody>

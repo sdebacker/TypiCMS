@@ -15,6 +15,7 @@ return array(
 	'Active locale' => 'Langue active',
 	'Cache admin' => 'Cache côté admin',
 	'Cache public' => 'Cache côté public',
+	'Cache' => 'Cache',
 	'No' => 'Non',
 	'Yes' => 'Oui',
 );
