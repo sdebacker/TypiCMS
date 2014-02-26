@@ -18,13 +18,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 	public function __construct(Model $model)
 	{
 		$this->model = $model;
-
-		// Build uris array of all pages (needed for uris updating after sorting)
-		$pages = DB::table('page_translations')->select('page_id', 'locale', 'uri')->get();
-		foreach ($pages as $page) {
-			$this->uris[$page->page_id][$page->locale] = $page->uri;
-		}
-
 	}
 
 
@@ -49,6 +42,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 		// update URI in all pages
 		$pages = $this->model->order()->get();
+		$this->uris = $this->getAllUris();
 		foreach ($pages as $key => $page) {
 			$this->updateUris($page->id, $page->parent);
 		}
@@ -57,6 +51,20 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 	}
 
+
+	/**
+	 * Get Uris of all pages
+	 *
+	 * @return Array[id][lang] = uri
+	 */
+	public function getAllUris()
+	{
+		// Build uris array of all pages (needed for uris updating after sorting)
+		$pages = DB::table('page_translations')->select('page_id', 'locale', 'uri')->get();
+		foreach ($pages as $page) {
+			$this->uris[$page->page_id][$page->locale] = $page->uri;
+		}
+	}
 
 	/**
 	 * Retrieve children pages
@@ -125,6 +133,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 		$position = 0;
 
+		$this->uris = $this->getAllUris();
 		foreach ($data['item'] as $id => $parent) {
 			
 			$position ++;

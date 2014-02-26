@@ -59,5 +59,12 @@ interface PageInterface
      */
     public function update(array $data);
 
+    /**
+     * Get Uris of all pages
+     *
+     * @return Array[id][lang] = uri
+     */
+    public function getAllUris();
+
 
 }

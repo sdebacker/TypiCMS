@@ -51,6 +51,17 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface {
 
 
 	/**
+	 * Get Uris of all pages
+	 *
+	 * @return Array[id][lang] = uri
+	 */
+	public function getAllUris()
+	{
+		return $this->repo->getAllUris();
+	}
+
+
+	/**
 	 * Retrieve children pages
 	 *
 	 * @param  int $id model ID
