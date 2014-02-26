@@ -7,6 +7,7 @@ use Input;
 use Config;
 
 use TypiCMS\Services\Helpers;
+use TypiCMS\Modules\Pages\Models\Page;
 
 abstract class RepositoriesAbstract {
 
@@ -232,6 +233,18 @@ abstract class RepositoriesAbstract {
 
 		return true;
 
+	}
+
+
+	public function getPagesForSelect()
+	{
+		$pagesArray = Page::select('pages.id', 'title', 'locale')
+			->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
+			->where('locale', Config::get('app.locale'))
+			->lists('id', 'title');
+		$pagesArray = array_merge(array('' => '0'), $pagesArray);
+		$pagesArray = array_flip($pagesArray);
+		return $pagesArray;
 	}
 
 

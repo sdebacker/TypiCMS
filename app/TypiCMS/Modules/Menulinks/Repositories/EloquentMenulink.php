@@ -1,13 +1,11 @@
 <?php namespace TypiCMS\Modules\Menulinks\Repositories;
 
 use DB;
-use App;
 use Config;
 
 use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Modules\Pages\Models\Page;
 
 class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface {
 
@@ -96,18 +94,6 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 		}
 
 		return $menulinksArray;
-	}
-
-
-	public function getPagesForSelect()
-	{
-		$pagesArray = Page::select('pages.id', 'title', 'locale')
-			->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
-			->where('locale', Config::get('app.locale'))
-			->lists('id', 'title');
-		$pagesArray = array_merge(array('' => '0'), $pagesArray);
-		$pagesArray = array_flip($pagesArray);
-		return $pagesArray;
 	}
 
 }
