@@ -36,7 +36,9 @@ abstract class RepositoriesAbstract {
 	 */
 	public function byId($id)
 	{
-		$query = $this->model->where('id', $id);
+		$query = $this->model
+			->with('translations')
+			->where('id', $id);
 
 		// files
 		$this->model->files and $query->files();
