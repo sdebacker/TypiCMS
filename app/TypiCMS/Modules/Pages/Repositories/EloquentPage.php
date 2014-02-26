@@ -124,6 +124,24 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 
 
 	/**
+	 * Get Pages to build routes
+	 *
+	 * @return Collection
+	 */
+	public function getForRoutes()
+	{
+		return DB::table('pages')
+			->select('pages.id', 'page_id', 'uri', 'locale')
+			->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
+			->where('uri', '!=', '')
+			->where('is_home', '!=', 1)
+			->where('status', '=', 1)
+			->orderBy('locale')
+			->get();
+	}
+
+
+	/**
 	 * Sort models
 	 *
 	 * @param array  Data to update Pages

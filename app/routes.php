@@ -37,43 +37,13 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 	// if ( ! App::runningInConsole()) {
 		
 		// Build routes from Table Pages
-		$queryPages = DB::table('pages')
-			->select('pages.id', 'page_id', 'uri', 'locale')
-			->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
-			->where('uri', '!=', '')
-			->where('is_home', '!=', 1)
-			->where('status', '=', 1)
-			->orderBy('locale');
-
-		// if (Config::get('app.cache')) {
-		// 	$queryPages->remember(1440);
-		// }
-
-		$pages = $queryPages->get();
-
+		$pages = App::make('TypiCMS\Modules\Pages\Repositories\PageInterface')->getForRoutes();
 		foreach ($pages as $page) {
 			Route::get($page->uri, array('as' => $page->locale.'.pages.'.$page->id, 'uses' => 'TypiCMS\Modules\Pages\Controllers\PagesController@uri'));
 		}
 
 		// Build routes from menulinks (modules)
-		$queryMenulinks = DB::table('menulinks')
-			->select('menulinks.id', 'menulink_id', 'uri', 'locale', 'module_name')
-			->join('menulink_translations', 'menulinks.id', '=', 'menulink_translations.menulink_id')
-			->where('uri', '!=', '')
-			->where('module_name', '!=', '')
-			->where('status', '=', 1)
-			->orderBy('module_name');
-
-		// if (Config::get('app.cache')) {
-		// 	$queryMenulinks->remember(1440);
-		// }
-
-		$menulinks = $queryMenulinks->get();
-
-		$menulinksArray = array();
-		foreach ($menulinks as $menulink) {
-			$menulinksArray[$menulink->module_name][$menulink->locale] = $menulink->uri;
-		}
+		$menulinksArray = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getForRoutes();
 
 		// events routes
 		// Add YYY-MM-DD in url ?
