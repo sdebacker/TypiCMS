@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Repositories\Dashboard;
 
 use DB;
+use App;
 use Str;
 use Sentry;
 use Config;
