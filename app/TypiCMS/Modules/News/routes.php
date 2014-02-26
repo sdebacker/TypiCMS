@@ -6,7 +6,7 @@ Route::bind('news', function($value, $route){
 		->firstOrFail();
 });
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), function()
+Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
 {
 	Route::resource('news', 'TypiCMS\Modules\News\Controllers\Admin\NewsController');
 });

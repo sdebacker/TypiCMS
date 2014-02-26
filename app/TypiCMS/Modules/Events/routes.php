@@ -6,7 +6,7 @@ Route::bind('events', function($value, $route){
 		->firstOrFail();
 });
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), function()
+Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
 {
 	Route::resource('events', 'TypiCMS\Modules\Events\Controllers\Admin\EventsController');
 });

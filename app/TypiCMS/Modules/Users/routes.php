@@ -24,7 +24,7 @@ Route::post('users/changepassword/{userid}/{resetcode}', 'TypiCMS\Modules\Users\
 /**
  * Admin routes.
  */
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin|cache.clear'), function()
+Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
 {
 	Route::resource('users', 'TypiCMS\Modules\Users\Controllers\Admin\UsersController');
 });
