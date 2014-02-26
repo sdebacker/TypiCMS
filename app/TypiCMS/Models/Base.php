@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Models;
 
 use App;
+use Cache;
 use Input;
 use Mockery;
 use Eloquent;
@@ -79,6 +80,30 @@ abstract class Base extends Eloquent {
 		$order = Input::get('order', $this->order) ? : 'id' ;
 		$direction = Input::get('direction', $this->direction) ? : 'asc' ;
 		return $query->orderBy($order, $direction);
+	}
+
+
+	public static function boot()
+	{
+		parent::boot();
+
+		static::created(function($model)
+		{
+			Cache::tags('Dashboard')->flush();
+		});
+
+		static::deleted(function($model)
+		{
+			$module = ucfirst($model->table);
+			Cache::tags('Dashboard', $module)->flush();
+		});
+
+		static::saved(function($model)
+		{
+			$module = ucfirst($model->table);
+			Cache::tags($module)->flush();
+		});
+
 	}
 
 }
