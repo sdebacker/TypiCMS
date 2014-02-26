@@ -64,6 +64,7 @@ class Helpers {
 	{
 		return DB::table('pages')
 				->where('is_home', 1)
+				->remember(10)
 				->pluck('id');
 	}
 
