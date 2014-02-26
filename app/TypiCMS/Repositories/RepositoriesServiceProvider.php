@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use TypiCMS\Models\Setting;
 
 // Cache
+use TypiCMS\Repositories\Dashboard\CacheDecorator as DashboardCacheDecorator;
 use TypiCMS\Repositories\Setting\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
@@ -26,9 +27,12 @@ class RepositoriesServiceProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Repositories\Dashboard\DashboardInterface', function($app)
 		{
-			return new EloquentDashboard(
-				new LaravelCache($app['cache'], 'Dashboard', 10)
-			);
+			$repository = new EloquentDashboard();
+			if ( ! Config::get('app.cache')) {
+				return $repository;
+			}
+			$laravelCache = new LaravelCache($app['cache'], 'Dashboard', 10);
+			return new DashboardCacheDecorator($repository, $laravelCache);
 		});
 
 		$app->bind('TypiCMS\Repositories\Setting\SettingInterface', function($app)
