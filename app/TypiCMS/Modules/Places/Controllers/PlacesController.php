@@ -1,8 +1,7 @@
 <?php namespace TypiCMS\Modules\Places\Controllers;
 
-use App;
+use Str;
 use View;
-use Config;
 use Request;
 use Response;
 
@@ -15,7 +14,7 @@ class PlacesController extends BaseController {
 	public function __construct(PlaceInterface $place)
 	{
 		parent::__construct($place);
-		$this->title['parent'] = trans_choice('global.modules.places', 2);
+		$this->title['parent'] = Str::title(trans_choice('modules.places.places', 2));
 	}
 
 	/**
@@ -25,7 +24,6 @@ class PlacesController extends BaseController {
 	 */
 	public function index()
 	{
-
 		$this->title['child'] = '';
 
 		$places = $this->repository->getAll();

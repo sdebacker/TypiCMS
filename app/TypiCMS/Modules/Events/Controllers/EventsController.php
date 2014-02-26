@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Modules\Events\Controllers;
 
+use Str;
 use View;
 
 use TypiCMS\Modules\Events\Repositories\EventInterface;
@@ -11,7 +12,7 @@ class EventsController extends BaseController {
 	public function __construct(EventInterface $event)
 	{
 		parent::__construct($event);
-		$this->title['parent'] = trans_choice('modules.events.events', 2);
+		$this->title['parent'] = Str::title(trans_choice('modules.events.events', 2));
 	}
 
 	/**

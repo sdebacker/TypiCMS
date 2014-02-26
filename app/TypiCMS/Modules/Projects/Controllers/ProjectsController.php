@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Modules\Projects\Controllers;
 
+use Str;
 use View;
 
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
@@ -11,7 +12,7 @@ class ProjectsController extends BaseController {
 	public function __construct(ProjectInterface $project)
 	{
 		parent::__construct($project);
-		$this->title['parent'] = trans_choice('modules.projects.projects', 2);
+		$this->title['parent'] = Str::title(trans_choice('modules.projects.projects', 2));
 	}
 
 

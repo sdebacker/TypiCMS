@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Modules\News\Controllers\Admin;
 
+use Str;
 use View;
 use Input;
 use Config;
@@ -16,7 +17,7 @@ class NewsController extends BaseController {
 	public function __construct(NewsInterface $news, NewsForm $newsform)
 	{
 		parent::__construct($news, $newsform);
-		$this->title['parent'] = trans_choice('modules.news.news', 2);
+		$this->title['parent'] = Str::title(trans_choice('modules.news.news', 2));
 	}
 
 	/**

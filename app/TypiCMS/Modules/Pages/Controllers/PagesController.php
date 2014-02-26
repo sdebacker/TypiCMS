@@ -1,20 +1,19 @@
 <?php namespace TypiCMS\Modules\Pages\Controllers;
 
-use Route;
+use Str;
 use View;
-use Request;
-use Log;
-
-use TypiCMS\Modules\Pages\Repositories\PageInterface;
+use Route;
 
 use App\Controllers\BaseController;
+
+use TypiCMS\Modules\Pages\Repositories\PageInterface;
 
 class PagesController extends BaseController {
 
 	public function __construct(PageInterface $page)
 	{
 		parent::__construct($page);
-		$this->title['parent'] = trans_choice('modules.pages.pages', 2);
+		$this->title['parent'] = Str::title(trans_choice('modules.pages.pages', 2));
 	}
 
 	/**

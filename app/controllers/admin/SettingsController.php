@@ -13,7 +13,7 @@ class SettingsController extends BaseController {
 	public function __construct(SettingInterface $setting)
 	{
 		parent::__construct($setting);
-		$this->title['parent'] = trans('global.settings');
+		$this->title['parent'] = ucfirst(trans('global.settings'));
 	}
 
 

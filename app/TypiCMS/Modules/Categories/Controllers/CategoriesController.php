@@ -1,17 +1,18 @@
 <?php namespace TypiCMS\Modules\Categories\Controllers;
 
+use Str;
 use View;
 
-use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
-
 use App\Controllers\BaseController;
+
+use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 
 class CategoriesController extends BaseController {
 
 	public function __construct(CategoryInterface $category)
 	{
 		parent::__construct($category);
-		$this->title['parent'] = trans_choice('modules.categories.categories', 2);
+		$this->title['parent'] = Str::title(trans_choice('modules.categories.categories', 2));
 	}
 
 

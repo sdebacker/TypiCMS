@@ -1,16 +1,18 @@
 <?php namespace TypiCMS\Modules\News\Controllers;
 
+use Str;
 use View;
-use TypiCMS\Modules\News\Repositories\NewsInterface;
 
 use App\Controllers\BaseController;
+
+use TypiCMS\Modules\News\Repositories\NewsInterface;
 
 class NewsController extends BaseController {
 
 	public function __construct(NewsInterface $news)
 	{
 		parent::__construct($news);
-		$this->title['parent'] = trans_choice('modules.news.news', 2);
+		$this->title['parent'] = Str::title(trans_choice('modules.news.news', 2));
 	}
 
 	/**
