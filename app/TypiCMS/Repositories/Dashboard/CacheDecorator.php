@@ -19,13 +19,37 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
 
 	public function getWelcomeMessage()
 	{
-		return $this->repo->getWelcomeMessage();
+		// Build the cache key, unique per model slug
+		$key = md5(App::getLocale().'WelcomeMessage');
+
+		if ( $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		$message = $this->repo->getWelcomeMessage();
+
+		// Store in cache for next request
+		$this->cache->put($key, $message);
+
+		return $message;
 	}
 
 
 	public function getDashboardModules()
 	{
-		return $this->repo->getDashboardModules();
+		// Build the cache key, unique per model slug
+		$key = md5(App::getLocale().'DashboardModules');
+
+		if ( $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		$modules = $this->repo->getDashboardModules();
+
+		// Store in cache for next request
+		$this->cache->put($key, $modules);
+
+		return $modules;
 	}
 
 }
