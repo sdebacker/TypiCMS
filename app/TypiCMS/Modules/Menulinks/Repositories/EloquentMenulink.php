@@ -64,7 +64,6 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 			->where('menulink_translations.status', 1)
 
 			->orderBy('menulinks.position')
-			->remember(10000)
 			->get();
 
 		$models->class = $models->first()->menuclass;
