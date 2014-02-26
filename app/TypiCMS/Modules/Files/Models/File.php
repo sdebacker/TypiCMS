@@ -87,7 +87,7 @@ class File extends Base {
 	{
 		parent::boot();
 
-		static::deleting(function($model)
+		static::deleted(function($model)
 		{
 			Croppa::delete($model->path . '/' . $model->filename);
 		});
