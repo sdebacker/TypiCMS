@@ -16,11 +16,11 @@
 		<div class="col-sm-4">
 			
 			<form method="get" role="form">
-				<label for="string" class="sr-only">Search</label>
+				<label for="string" class="sr-only">@lang('public.Search')</label>
 				<div class="input-group">
-					<input id="string" type="text" placeholder="search" name="string" class="form-control input-sm">
+					<input id="string" type="text" placeholder="{{ trans('public.Search') }}" name="string" value="{{ Input::get('string') }}" class="form-control input-sm">
 					<span class="input-group-btn">
-						<button type="submit" value="search" class="btn btn-sm btn-primary">Search</button>
+						<button type="submit" class="btn btn-sm btn-primary">@lang('public.Search')</button>
 					</span>
 				</div>
 			</form>
