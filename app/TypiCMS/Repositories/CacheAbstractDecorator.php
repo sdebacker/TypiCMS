@@ -184,7 +184,7 @@ abstract class CacheAbstractDecorator {
 
 	public function delete($model)
 	{
-		return $this->delete($model);
+		return $this->repo->delete($model);
 	}
 
 
