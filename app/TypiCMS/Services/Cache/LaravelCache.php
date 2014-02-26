@@ -24,7 +24,7 @@ class LaravelCache implements CacheInterface {
      */
 	public function get($key)
 	{
-		return $this->cache->section($this->cachekey)->get($key);
+		return $this->cache->tags($this->cachekey)->get($key);
 	}
 
     /**
@@ -53,7 +53,7 @@ class LaravelCache implements CacheInterface {
 			$minutes = $this->minutes;
 		}
 
-		return $this->cache->section($this->cachekey)->put($key, $value, $minutes);
+		return $this->cache->tags($this->cachekey)->put($key, $value, $minutes);
 	}
 
     /**
@@ -91,7 +91,7 @@ class LaravelCache implements CacheInterface {
      */
 	public function has($key)
 	{
-		return $this->cache->section($this->cachekey)->has($key);
+		return $this->cache->tags($this->cachekey)->has($key);
 	}
 
 }
