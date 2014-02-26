@@ -192,31 +192,6 @@ abstract class RepositoriesAbstract {
 		return true;
 	}
 
-    /**
-     * Make a string "slug-friendly" for URLs
-     * @param  string $string  Human-friendly tag
-     * @return string       Computer-friendly tag
-     */
-    // protected function slug($string)
-    // {
-    //     return filter_var( str_replace(' ', '-', strtolower( trim($string) ) ), FILTER_SANITIZE_URL);
-    // }
-
-
-	/**
-	 * Get total model count
-	 *
-	 * @return int  Total models
-	 */
-	// protected function total($all = false)
-	// {
-	// 	if ( ! $all ) {
-	// 		return $this->model->where('status', 1)->count();
-	// 	}
-
-	// 	return $this->model->count();
-	// }
-
 
 	/**
 	 * Sort models

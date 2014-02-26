@@ -145,31 +145,6 @@ abstract class CacheAbstractDecorator {
 		return $bool;
 	}
 
-    /**
-     * Make a string "slug-friendly" for URLs
-     * @param  string $string  Human-friendly tag
-     * @return string       Computer-friendly tag
-     */
-  //   protected function slug($string)
-  //   {
-		// return $this->repo->slug($string);
-  //   }
-
-
-	/**
-	 * Get total model count
-	 *
-	 * @return int  Total models
-	 */
-	// protected function total($all = false)
-	// {
-	// 	if ( ! $all ) {
-	// 		return $this->repo->where('status', 1)->count();
-	// 	}
-
-	// 	return $this->repo->count();
-	// }
-
 
 	/**
 	 * Sort models
