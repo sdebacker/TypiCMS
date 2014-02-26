@@ -46,7 +46,7 @@ class CreateEventsTable extends Migration {
 			$table->timestamps();
 
 			$table->unique(array('event_id', 'locale'));
-			$table->foreign('event_id')->references('id')->on('events');
+			$table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
 			
 		});
 	}

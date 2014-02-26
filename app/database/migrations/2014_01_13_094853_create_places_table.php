@@ -47,7 +47,7 @@ class CreatePlacesTable extends Migration {
 			$table->timestamps();
 
 			$table->unique(array('place_id', 'locale'));
-			$table->foreign('place_id')->references('id')->on('places');
+			$table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
 			
 		});
 

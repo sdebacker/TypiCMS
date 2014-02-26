@@ -60,7 +60,7 @@ class CreateFilesTable extends Migration {
 			$table->timestamps();
 
 			$table->unique(array('file_id', 'locale'));
-			$table->foreign('file_id')->references('id')->on('files');
+			$table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
 			
 		});
 	}

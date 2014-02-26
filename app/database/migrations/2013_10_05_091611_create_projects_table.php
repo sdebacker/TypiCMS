@@ -41,7 +41,7 @@ class CreateProjectsTable extends Migration {
 			$table->timestamps();
 
 			$table->unique(array('project_id', 'locale'));
-			$table->foreign('project_id')->references('id')->on('projects');
+			$table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
 			
 		});
 	}

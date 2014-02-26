@@ -38,7 +38,7 @@ class CreateMenusTables extends Migration {
 			$table->timestamps();
 
 			$table->unique(array('menu_id', 'locale'));
-			$table->foreign('menu_id')->references('id')->on('menus');
+			$table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
 
 		});
 		Schema::create('menulinks', function(Blueprint $table)
@@ -77,7 +77,7 @@ class CreateMenusTables extends Migration {
 			$table->timestamps();
 
 			$table->unique(array('menulink_id', 'locale'));
-			$table->foreign('menulink_id')->references('id')->on('menulinks');
+			$table->foreign('menulink_id')->references('id')->on('menulinks')->onDelete('cascade');
 
 		});
 	}

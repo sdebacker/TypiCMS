@@ -41,7 +41,7 @@ class CreateNewsTable extends Migration {
 			$table->timestamps();
 
 			$table->unique(array('news_id', 'locale'));
-			$table->foreign('news_id')->references('id')->on('news');
+			$table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
 			
 		});
 	}

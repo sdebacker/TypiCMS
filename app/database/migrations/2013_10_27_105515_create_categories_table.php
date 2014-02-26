@@ -40,7 +40,7 @@ class CreateCategoriesTable extends Migration {
 			$table->timestamps();
 
 			$table->unique(array('category_id', 'locale'));
-			$table->foreign('category_id')->references('id')->on('categories');
+			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 			
 		});
 	}
