@@ -199,4 +199,5 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface {
 		}
 	}
 
+
 }
