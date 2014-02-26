@@ -652,12 +652,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "8d39ffa70ac1aecd297e93d4185092f51877edb4"
+                "reference": "edbcaaa5d38267a499289da215d3a9702c65ab1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8d39ffa70ac1aecd297e93d4185092f51877edb4",
-                "reference": "8d39ffa70ac1aecd297e93d4185092f51877edb4",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/edbcaaa5d38267a499289da215d3a9702c65ab1f",
+                "reference": "edbcaaa5d38267a499289da215d3a9702c65ab1f",
                 "shasum": ""
             },
             "require": {
@@ -736,7 +736,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-02-20 17:01:46"
+            "time": "2014-02-26 01:49:03"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -880,12 +880,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a92ecc702c4c4a4cfa3cbb8ea63106d73d0aed1c"
+                "reference": "f7935afc541fc15324efc8538c60866e593ee447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a92ecc702c4c4a4cfa3cbb8ea63106d73d0aed1c",
-                "reference": "a92ecc702c4c4a4cfa3cbb8ea63106d73d0aed1c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f7935afc541fc15324efc8538c60866e593ee447",
+                "reference": "f7935afc541fc15324efc8538c60866e593ee447",
                 "shasum": ""
             },
             "require": {
@@ -989,7 +989,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-02-23 22:16:09"
+            "time": "2014-02-25 22:33:32"
         },
         {
             "name": "maximebf/debugbar",
@@ -1092,12 +1092,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "6b81ac8153be8ae33a877a79be3f61809f1448d9"
+                "reference": "0ac27c8089d0ec41728d96b5aa0dcad18fb0d459"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6b81ac8153be8ae33a877a79be3f61809f1448d9",
-                "reference": "6b81ac8153be8ae33a877a79be3f61809f1448d9",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0ac27c8089d0ec41728d96b5aa0dcad18fb0d459",
+                "reference": "0ac27c8089d0ec41728d96b5aa0dcad18fb0d459",
                 "shasum": ""
             },
             "require": {
@@ -1105,8 +1105,8 @@
                 "psr/log": "~1.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "~2.4.8",
-                "doctrine/couchdb": "dev-master",
+                "aws/aws-sdk-php": "~2.4, >2.4.8",
+                "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
                 "phpunit/phpunit": "~3.7.0",
                 "raven/raven": "~0.5",
@@ -1151,7 +1151,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-02-23 15:06:45"
+            "time": "2014-02-26 12:30:17"
         },
         {
             "name": "nesbot/carbon",
@@ -1805,12 +1805,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
-                "reference": "f0b3d9f4b4bb8ec4b5fa57e8cb6bd8ff4e972b19"
+                "reference": "e82baa333252166ab411240e6bd898023d7568ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/f0b3d9f4b4bb8ec4b5fa57e8cb6bd8ff4e972b19",
-                "reference": "f0b3d9f4b4bb8ec4b5fa57e8cb6bd8ff4e972b19",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/e82baa333252166ab411240e6bd898023d7568ba",
+                "reference": "e82baa333252166ab411240e6bd898023d7568ba",
                 "shasum": ""
             },
             "require": {
@@ -1851,7 +1851,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "http://symfony.com",
-            "time": "2014-02-18 15:41:06"
+            "time": "2014-02-18 16:29:54"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2472,12 +2472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "f4b6818048f3b5b28aea5d22f9d56f44da1305f1"
+                "reference": "6a6fc18508e270cd5a5acaee7492e4e4a303fce6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/f4b6818048f3b5b28aea5d22f9d56f44da1305f1",
-                "reference": "f4b6818048f3b5b28aea5d22f9d56f44da1305f1",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/6a6fc18508e270cd5a5acaee7492e4e4a303fce6",
+                "reference": "6a6fc18508e270cd5a5acaee7492e4e4a303fce6",
                 "shasum": ""
             },
             "require": {
@@ -2530,7 +2530,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-02-24 20:17:14"
+            "time": "2014-02-26 10:59:49"
         },
         {
             "name": "raveren/kint",
