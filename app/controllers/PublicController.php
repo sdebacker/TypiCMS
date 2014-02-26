@@ -15,7 +15,7 @@ class PublicController extends BaseController {
 	{
 		$locales = Config::get('app.locales');
 
-
+		// If we don’t want the lang chooser, redirect to user language
 		if ( ! Config::get('typicms.langChooser')) {
 
 			$locale = substr(getenv('HTTP_ACCEPT_LANGUAGE'), 0, 2);
@@ -24,7 +24,6 @@ class PublicController extends BaseController {
 			return Redirect::route($locale);
 
 		}
-
 
 		$this->title['parent'] = 'Choose your language';
 
