@@ -109,9 +109,11 @@ class LaravelCache implements CacheInterface {
 	public function flush($tags = null)
 	{
         if ($tags) {
-            $this->cachekey = $tags;
+            $tags = is_array($tags) ? $tags : func_get_args();
+        } else {
+            $tags = array($this->cachekey);
         }
-		return $this->cache->tags($this->cachekey)->flush();
+		return $this->cache->tags($tags)->flush();
 	}
 
 }

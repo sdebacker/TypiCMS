@@ -115,8 +115,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface {
 	public function sort(array $data)
 	{
 		$bool = $this->repo->sort($data);
-		$this->cache->flush('Menulinks');
-		$this->cache->flush();
+		$this->cache->flush('Pages', 'Menulinks');
 		return $bool;
 	}
 

@@ -49,9 +49,7 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface 
 	public function create(array $data)
 	{
 		$model = $this->repo->create($data);
-		$this->cache->flush();
-		$this->cache->flush('Dashboard');
-		$this->cache->flush('Tags');
+		$this->cache->flush('Projects', 'Dashboard', 'Tags');
 		return $model;
 	}
 
@@ -65,8 +63,7 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface 
 	public function update(array $data)
 	{
 		$bool = $this->repo->update($data);
-		$this->cache->flush();
-		$this->cache->flush('Tags');
+		$this->cache->flush('Projects', 'Tags');
 		return $bool;
 	}
 
