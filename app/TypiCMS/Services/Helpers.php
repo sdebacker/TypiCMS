@@ -60,7 +60,7 @@ class Helpers {
 	 *
 	 * @return integer
 	 */
-	public static function getIdFromDefaultPage()
+	public static function getHomepageId()
 	{
 		return DB::table('pages')
 				->where('is_home', 1)
@@ -81,8 +81,8 @@ class Helpers {
 
 		switch (count($routeArray)) {
 			case 1: // ex. root - en
-				$id = Helpers::getIdFromDefaultPage();
-				if (! $id or $routeArray[0] == 'root') {
+				$id = Helpers::getHomepageId();
+				if ( ! $id or $routeArray[0] == 'root') {
 					$routeName = 'dashboard';
 					$route = route($routeName);
 				} else {
