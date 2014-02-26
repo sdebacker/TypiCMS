@@ -24,7 +24,6 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
 		$key = md5(App::getLocale().'WelcomeMessage');
 
 		if ( $this->cache->has($key) ) {
-			d('Welcome message from cache');
 			return $this->cache->get($key);
 		}
 
@@ -43,7 +42,6 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
 		$key = md5(App::getLocale().'DashboardModules');
 
 		if ( $this->cache->has($key) ) {
-			d('Dashboard modules from cache');
 			return $this->cache->get($key);
 		}
 

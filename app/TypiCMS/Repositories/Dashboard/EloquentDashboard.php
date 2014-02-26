@@ -12,7 +12,6 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 
 	public function getWelcomeMessage()
 	{
-		d('Getting welcome message');
 		$ch = curl_init('http://www.typi.be/welcomeMessage_fr.html');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		$welcomeMessage = curl_exec($ch);
@@ -27,7 +26,6 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 	public function getDashboardModules()
 	{
 
-		d('Building Dashboard Modules');
 		// Item not cached, retrieve it
 		$modulesArray = Config::get('app.modules');
 		$modulesForDashboard = array();

@@ -59,7 +59,9 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface {
 	 */
 	public function findOrCreate(array $tags)
 	{
-		return $this->repo->findOrCreate($tags);
+		$array = $this->repo->findOrCreate($tags);
+		$this->cache->flush();
+		return $array;
 	}
 
 }

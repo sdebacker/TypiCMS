@@ -27,17 +27,32 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface {
 	 */
 	public function upload(array $input)
 	{
+		$this->cache->flush();
+		$this->cache->flush('Pages');
+		$this->cache->flush('Events');
+		$this->cache->flush('News');
+		$this->cache->flush('Projects');
+		$this->cache->flush('Dashboard');
 		return $this->repo->upload($input);
 	}
+
 
 
 	/**
 	 * Delete a file
 	 *
 	 * @param File model to delete
+	 * @return bool
 	 */
 	public function delete($model)
 	{
+		var_dump($model);
+		$this->cache->flush();
+		$this->cache->flush('Pages');
+		$this->cache->flush('Events');
+		$this->cache->flush('News');
+		$this->cache->flush('Projects');
+		$this->cache->flush('Dashboard');
 		return $this->repo->delete($model);
 	}
 

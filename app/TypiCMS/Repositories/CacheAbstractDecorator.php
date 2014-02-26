@@ -119,11 +119,16 @@ abstract class CacheAbstractDecorator {
 	 * Create a new model
 	 *
 	 * @param array  Data to create a new object
-	 * @return boolean
+	 * @return boolean or model
 	 */
 	public function create(array $data)
 	{
-		return $this->repo->create($data);
+		$model = $this->repo->create($data);
+		if ($model) {
+			$this->cache->flush();
+			$this->cache->flush('Dashboard');
+		}
+		return $model;
 	}
 
 
@@ -135,7 +140,9 @@ abstract class CacheAbstractDecorator {
 	 */
 	public function update(array $data)
 	{
-		return $this->repo->update($data);
+		$bool = $this->repo->update($data);
+		$this->cache->flush();
+		return $bool;
 	}
 
     /**
@@ -172,7 +179,9 @@ abstract class CacheAbstractDecorator {
 	 */
 	public function sort(array $data)
 	{
-		return $this->repo->sort($data);
+		$bool = $this->repo->sort($data);
+		$this->cache->flush();
+		return $bool;
 	}
 
 
@@ -184,7 +193,10 @@ abstract class CacheAbstractDecorator {
 
 	public function delete($model)
 	{
-		return $this->repo->delete($model);
+		$bool = $this->repo->delete($model);
+		$this->cache->flush();
+		$this->cache->flush('Dashboard');
+		return $bool;
 	}
 
 

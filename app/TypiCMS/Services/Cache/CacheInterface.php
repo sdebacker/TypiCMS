@@ -51,4 +51,12 @@ interface CacheInterface {
      */
     public function has($key);
 
+    /**
+     * Flush cache for tags
+     *
+     * @param string    Cache tags
+     * @return bool     If cache is flushed
+     */
+    public function flush($tags = null);
+
 }

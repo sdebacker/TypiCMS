@@ -92,6 +92,9 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface {
 	public function create(array $data)
 	{
 		$model = $this->repo->create($data);
+		$this->cache->flush();
+		$this->cache->flush('Dashboard');
+		return $model;
 	}
 
 
@@ -103,7 +106,9 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface {
 	 */
 	public function update(array $data)
 	{
-		return $this->repo->update($data);		
+		$bool = $this->repo->update($data);
+		$this->cache->flush();
+		return $bool;
 	}
 
 

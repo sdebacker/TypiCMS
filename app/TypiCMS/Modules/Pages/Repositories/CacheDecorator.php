@@ -39,18 +39,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface {
 
 
 	/**
-	 * Update an existing model
-	 *
-	 * @param array  Data to update a model
-	 * @return boolean
-	 */
-	public function update(array $data)
-	{
-		return $this->repo->update($data);
-	}
-
-
-	/**
 	 * Get Uris of all pages
 	 *
 	 * @return Array[id][lang] = uri
@@ -104,7 +92,9 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface {
 	 */
 	public function sort(array $data)
 	{
-		return $this->repo->sort($data);
+		$bool = $this->repo->sort($data);
+		$this->cache->flush();
+		return $bool;
 	}
 
 
