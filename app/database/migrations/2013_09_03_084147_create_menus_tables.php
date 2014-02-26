@@ -58,6 +58,7 @@ class CreateMenusTables extends Migration {
 
 			$table->timestamps();
 
+			$table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
 		});
 		Schema::create('menulink_translations', function(Blueprint $table)
 		{
@@ -92,6 +93,10 @@ class CreateMenusTables extends Migration {
 		Schema::table('menu_translations', function($table)
 		{
 			$table->dropForeign('menu_translations_menu_id_foreign');
+		});
+		Schema::table('menulinks', function($table)
+		{
+			$table->dropForeign('menulinks_menu_id_foreign');
 		});
 		Schema::table('menulink_translations', function($table)
 		{
