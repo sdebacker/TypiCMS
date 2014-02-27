@@ -5,6 +5,7 @@ use Input;
 use Config;
 use Request;
 use Redirect;
+use Paginator;
 use Notification;
 
 use TypiCMS\Modules\Files\Repositories\FileInterface;
@@ -45,11 +46,12 @@ class FilesController extends BaseController {
 	{
 		$page = Input::get('page');
 
-		$itemsPerPage = 10;
+		$itemsPerPage = $parent ? 100 : 10;
 		$data = $this->repository->byPage($page, $itemsPerPage, true, $parent);
 		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
 		if ($parent) {
+			// no pagination
 			$this->layout->content = View::make('files.admin.index')
 				->withModels($models)
 				->withParent($parent);

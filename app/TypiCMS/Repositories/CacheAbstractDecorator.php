@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Repositories;
 
 use App;
+use Input;
 
 abstract class CacheAbstractDecorator {
 
