@@ -12,5 +12,18 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface {
 		$this->model = $model;
 	}
 
+	/**
+	 * Get all models
+	 *
+	 * @param boolean $all Show published or all
+     * @return StdClass Object with $items
+	 */
+	public function getAll($all = false, $relatedModel = null)
+	{
+		return $this->model->with('translations')
+                           ->with('menulinks')
+                           ->order()
+                           ->get();
+	}
 
 }

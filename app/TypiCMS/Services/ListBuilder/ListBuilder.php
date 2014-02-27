@@ -61,7 +61,15 @@ class ListBuilder {
 				// item
 				$this->list[] = '<li id="item_'.$item->id.'" class="'.implode(' ', $liClass).'" role="menuitem">';
 				$this->list[] = '<div>';
-				$this->checkboxes and $this->list[] = '<input type="checkbox" value="'.$item->id.'">';
+
+				// Disable checkbox when relations
+				$disabled = '';
+				$relations = $item->getRelations();
+				$relations = array_except($relations, 'translations');
+				if (count(reset($relations))) {
+					$disabled = 'disabled="disabled" ';
+				}
+				$this->checkboxes and $this->list[] = '<input type="checkbox"'.$disabled.' value="'.$item->id.'">';
 				$this->switch and $this->list[] = '<span class="switch">'.trans('global.En ligne/Hors ligne').'</span>';
 
 				// Anchor
