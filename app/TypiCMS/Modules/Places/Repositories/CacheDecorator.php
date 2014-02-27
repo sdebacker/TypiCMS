@@ -28,7 +28,17 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface {
 	 */
 	public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
+		$key = md5(App::getLocale().'byPage.'.$page.$limit.$all.$relatedModel);
+
+		if ( $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
 		$models = $this->repo->byPage($page, $limit, $all, $relatedModel);
+
+		// Store in cache for next request
+		$this->cache->put($key, $models);
+
 		return $models;
 	}
 

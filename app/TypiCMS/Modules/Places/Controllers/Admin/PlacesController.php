@@ -5,6 +5,7 @@ use Input;
 use Config;
 use Request;
 use Redirect;
+use Paginator;
 
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 use TypiCMS\Modules\Places\Services\Form\PlaceForm;
@@ -28,7 +29,9 @@ class PlacesController extends BaseController {
 
 		$page = Input::get('page');
 
-		$models = $this->repository->byPage($page, 10, true);
+		$itemsPerPage = 10;
+		$data = $this->repository->byPage($page, $itemsPerPage, true);
+		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
 		$this->layout->content = View::make('places.admin.index')
 			->withModels($models);

@@ -1,5 +1,7 @@
 <?php namespace TypiCMS\Modules\Places\Repositories;
 
+use StdClass;
+
 use App;
 use Input;
 use Config;
@@ -28,19 +30,31 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 	 */
 	public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
+		$result = new StdClass;
+		$result->page = $page;
+		$result->limit = $limit;
+		$result->totalItems = 0;
+		$result->items = array();
+
 		$query = $this->model
 			->select('places.*', 'status')
 			->with('translations')
 			->join('place_translations', 'place_translations.place_id', '=', 'places.id')
-			->where('locale', App::getLocale());
+			->where('locale', App::getLocale())
+			->skip($limit * ($page - 1))
+			->take($limit);
 
 		! $all and $query->where('status', 1);
-
 		$query->order();
+		$models = $query->get();
 
-		$models = $query->paginate($limit);
+		$queryTotal = $this->model;
+		! $all and $queryTotal->where('status', 1);
 
-		return $models;
+		$result->totalItems = $queryTotal->count();
+		$result->items = $models->all();
+
+		return $result;
 	}
 
 
