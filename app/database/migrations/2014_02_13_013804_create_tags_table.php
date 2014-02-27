@@ -37,12 +37,8 @@ class CreateTagsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('taggables', function($table)
-		{
-			$table->dropForeign('taggables_tag_id_foreign');
-		});
-		Schema::drop('tags');
 		Schema::drop('taggables');
+		Schema::drop('tags');
 	}
 
 }

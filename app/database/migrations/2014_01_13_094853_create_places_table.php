@@ -61,13 +61,8 @@ class CreatePlacesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('place_translations', function($table)
-		{
-			$table->dropForeign('place_translations_place_id_foreign');
-		});
-
-		Schema::drop('places');
 		Schema::drop('place_translations');
+		Schema::drop('places');
 	}
 
 }

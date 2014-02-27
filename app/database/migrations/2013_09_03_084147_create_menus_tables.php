@@ -90,22 +90,10 @@ class CreateMenusTables extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('menu_translations', function($table)
-		{
-			$table->dropForeign('menu_translations_menu_id_foreign');
-		});
-		Schema::table('menulinks', function($table)
-		{
-			$table->dropForeign('menulinks_menu_id_foreign');
-		});
-		Schema::table('menulink_translations', function($table)
-		{
-			$table->dropForeign('menulink_translations_menulink_id_foreign');
-		});
-		Schema::drop('menus');
-		Schema::drop('menu_translations');
-		Schema::drop('menulinks');
 		Schema::drop('menulink_translations');
+		Schema::drop('menulinks');
+		Schema::drop('menu_translations');
+		Schema::drop('menus');
 	}
 
 }

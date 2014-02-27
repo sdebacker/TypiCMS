@@ -58,12 +58,8 @@ class CreateEventsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('event_translations', function($table)
-		{
-			$table->dropForeign('event_translations_event_id_foreign');
-		});
-		Schema::drop('events');
 		Schema::drop('event_translations');
+		Schema::drop('events');
 	}
 
 }

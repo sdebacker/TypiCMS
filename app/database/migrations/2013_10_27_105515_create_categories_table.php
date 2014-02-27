@@ -52,12 +52,8 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('category_translations', function($table)
-		{
-			$table->dropForeign('category_translations_category_id_foreign');
-		});
-		Schema::drop('categories');
 		Schema::drop('category_translations');
+		Schema::drop('categories');
 	}
 
 }

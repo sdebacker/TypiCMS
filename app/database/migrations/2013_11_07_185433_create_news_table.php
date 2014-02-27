@@ -53,13 +53,8 @@ class CreateNewsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('news_translations', function($table)
-		{
-			$table->dropForeign('news_translations_news_id_foreign');
-		});
-
-		Schema::drop('news');
 		Schema::drop('news_translations');
+		Schema::drop('news');
 	}
 
 }

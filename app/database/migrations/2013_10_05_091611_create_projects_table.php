@@ -53,12 +53,8 @@ class CreateProjectsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('project_translations', function($table)
-		{
-			$table->dropForeign('project_translations_project_id_foreign');
-		});
-		Schema::drop('projects');
 		Schema::drop('project_translations');
+		Schema::drop('projects');
 	}
 
 }
