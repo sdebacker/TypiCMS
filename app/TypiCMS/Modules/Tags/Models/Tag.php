@@ -37,7 +37,7 @@ class Tag extends Base {
      */
     public function projects()
     {
-        return $this->belongsToMany('TypiCMS\Modules\Projects\Models\Project', 'projects_tags', 'tag_id', 'project_id');
+        return $this->morphedByMany('TypiCMS\Modules\Projects\Models\Project', 'taggable');
     }
 
 }
