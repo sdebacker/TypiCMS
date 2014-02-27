@@ -99,13 +99,6 @@ class EventsController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		$data = Input::all();
-
-		// add checkboxes data
-		foreach (Config::get('app.locales') as $locale) {
-			$data[$locale]['status'] = Input::get($locale.'.status') ? (int) Input::get($locale.'.status') : null;
-		}
-
 		if ( $this->form->update( $data ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.events.index') : Redirect::route('admin.events.edit', $model->id) ;
 		}

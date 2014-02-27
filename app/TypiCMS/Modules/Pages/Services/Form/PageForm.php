@@ -45,8 +45,6 @@ class PageForm {
 			return false;
 		}
 
-		// $input['tags'] = $this->processTags($input['tags']);
-
 		return $this->page->create($input);
 	}
 
@@ -57,13 +55,19 @@ class PageForm {
 	 */
 	public function update(array $input)
 	{
+		// add checkboxes data
+		$data['rss_enabled']      = Input::get('rss_enabled');
+		$data['comments_enabled'] = Input::get('comments_enabled');
+		$data['is_home']          = Input::get('is_home');
+		foreach (Config::get('app.locales') as $locale) {
+			$input[$locale]['status'] = Input::get($locale.'.status');
+		}
+
 		$inputDot = array_dot($input);
 
 		if( ! $this->valid($inputDot) ) {
 			return false;
 		}
-
-		// $input['tags'] = $this->processTags($input['tags']);
 
 		return $this->page->update($input);
 	}

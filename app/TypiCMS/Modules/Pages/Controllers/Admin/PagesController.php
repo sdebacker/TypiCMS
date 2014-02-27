@@ -101,16 +101,6 @@ class PagesController extends BaseController {
 	{
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		$data = Input::all();
-
-		// add checkboxes data
-		$data['rss_enabled']      = Input::get('rss_enabled') ? (int) Input::get('rss_enabled') : null;
-		$data['comments_enabled'] = Input::get('comments_enabled') ? (int) Input::get('comments_enabled') : null;
-		$data['is_home']          = Input::get('is_home') ? (int) Input::get('is_home') : null;
-		foreach (Config::get('app.locales') as $locale) {
-			$data[$locale]['status'] = Input::get($locale.'.status') ? (int) Input::get($locale.'.status') : null;
-		}
-
 		if ( $this->form->update( $data ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.pages.index') : Redirect::route('admin.pages.edit', $model->id) ;
 		}

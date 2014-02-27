@@ -46,8 +46,6 @@ class MenulinkForm {
 			return false;
 		}
 
-		// $input['tags'] = $this->processTags($input['tags']);
-
 		return $this->menulink->create($input);
 	}
 
@@ -58,14 +56,17 @@ class MenulinkForm {
 	 */
 	public function update(array $input)
 	{
+		// add checkboxes data
+		foreach (Config::get('app.locales') as $locale) {
+			$input[$locale]['status'] = Input::get($locale.'.status');
+		}
+
 		$inputDot = array_dot($input);
 
 		if( ! $this->valid($inputDot) )
 		{
 			return false;
 		}
-
-		// $input['tags'] = $this->processTags($input['tags']);
 
 		return $this->menulink->update($input);
 	}
