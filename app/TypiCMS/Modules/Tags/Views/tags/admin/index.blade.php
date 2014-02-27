@@ -15,9 +15,9 @@
 
 	<div class="list-form" lang="{{ Config::get('app.locale') }}">
 
-		<!-- @include('admin._buttons-list') -->
+		@include('admin._buttons-list')
 
-		{{ HTML::adminTable($models, array('checkboxes' => false, 'edit' => false, 'switch' => false, 'sortable' => false, 'files' => false, 'display' => array(array('%s', 'tag'), array('%s', 'uses')))) }}
+		{{ HTML::adminTable($models, array('edit' => false, 'switch' => false, 'sortable' => false, 'files' => false, 'display' => array(array('%s', 'tag'), array('%s', 'uses')))) }}
 
 	</div>
 
