@@ -1,5 +1,8 @@
 <?php namespace TypiCMS\Modules\Projects\Services\Form;
 
+use Input;
+use Config;
+
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 
@@ -57,8 +60,12 @@ class ProjectForm {
 	 */
 	public function update(array $input)
 	{
-		$inputDot = array_dot($input);
+		// add checkboxes data
+		foreach (Config::get('app.locales') as $locale) {
+			$input[$locale]['status'] = Input::get($locale.'.status');
+		}
 
+		$inputDot = array_dot($input);
 		if( ! $this->valid($inputDot) ) {
 			return false;
 		}
