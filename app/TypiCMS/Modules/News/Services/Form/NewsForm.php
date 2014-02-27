@@ -15,14 +15,14 @@ class NewsForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * News repository
 	 *
-	 * @var \TypiCMS\Repo\News\NewsInterface
+	 * @var \TypiCMS\Modules\News\Repositories\NewsInterface
 	 */
 	protected $news;
 

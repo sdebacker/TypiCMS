@@ -15,14 +15,14 @@ class ProjectForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * Project repository
 	 *
-	 * @var \TypiCMS\Repo\Project\ProjectInterface
+	 * @var \TypiCMS\Modules\Projects\Repositories\ProjectInterface
 	 */
 	protected $project;
 

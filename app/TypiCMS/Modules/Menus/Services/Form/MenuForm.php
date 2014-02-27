@@ -15,14 +15,14 @@ class MenuForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * Menu repository
 	 *
-	 * @var \TypiCMS\Repo\Menu\MenuInterface
+	 * @var \TypiCMS\Modules\Menus\Repositories\MenuInterface
 	 */
 	protected $menu;
 

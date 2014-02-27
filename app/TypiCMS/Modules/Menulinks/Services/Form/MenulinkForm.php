@@ -15,14 +15,14 @@ class MenulinkForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * Menulink repository
 	 *
-	 * @var \TypiCMS\Repo\Menulink\MenulinkInterface
+	 * @var \TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface
 	 */
 	protected $menulink;
 

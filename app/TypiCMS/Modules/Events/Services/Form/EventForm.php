@@ -15,14 +15,14 @@ class EventForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * Event repository
 	 *
-	 * @var \TypiCMS\Repo\Event\EventInterface
+	 * @var \TypiCMS\Modules\Events\Repositories\EventInterface
 	 */
 	protected $event;
 

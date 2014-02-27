@@ -15,14 +15,14 @@ class FileForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * File repository
 	 *
-	 * @var \TypiCMS\Repo\File\FileInterface
+	 * @var \TypiCMS\Modules\Files\Repositories\FileInterface
 	 */
 	protected $file;
 

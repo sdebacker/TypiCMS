@@ -15,14 +15,14 @@ class CategoryForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * Category repository
 	 *
-	 * @var \TypiCMS\Repo\Category\CategoryInterface
+	 * @var \TypiCMS\Modules\Categories\Repositories\CategoryInterface
 	 */
 	protected $category;
 

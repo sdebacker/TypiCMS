@@ -15,14 +15,14 @@ class PageForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * Page repository
 	 *
-	 * @var \TypiCMS\Repo\Page\PageInterface
+	 * @var \TypiCMS\Modules\Pages\Repositories\PageInterface
 	 */
 	protected $page;
 

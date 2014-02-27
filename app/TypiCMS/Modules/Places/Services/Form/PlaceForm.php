@@ -15,14 +15,14 @@ class PlaceForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * Place repository
 	 *
-	 * @var \TypiCMS\Repo\Place\PlaceInterface
+	 * @var \TypiCMS\Modules\Places\Repositories\PlaceInterface
 	 */
 	protected $place;
 

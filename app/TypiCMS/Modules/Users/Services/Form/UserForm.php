@@ -15,14 +15,14 @@ class UserForm {
 	/**
 	 * Validator
 	 *
-	 * @var \TypiCMS\Form\Service\ValidableInterface
+	 * @var \TypiCMS\Services\Validation\ValidableInterface
 	 */
 	protected $validator;
 
 	/**
 	 * User repository
 	 *
-	 * @var \TypiCMS\Repo\User\UserInterface
+	 * @var \TypiCMS\Modules\Users\Repositories\UserInterface
 	 */
 	protected $user;
 

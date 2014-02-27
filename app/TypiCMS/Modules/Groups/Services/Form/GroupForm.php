@@ -15,14 +15,14 @@ class GroupForm {
 	/**
 	 * Validator
 	 *
-	 * @var \Authority\Service\Form\ValidableInterface 
+	 * @var \TypiCMS\Services\Validation\ValidableInterface 
 	 */
 	protected $validator;
 
 	/**
 	 * Group Repository
 	 *
-	 * @var \Authority\Repo\Group\GroupInterface 
+	 * @var \TypiCMS\Modules\Groups\Repositories\GroupInterface 
 	 */
 	protected $group;
 
