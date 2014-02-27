@@ -57,7 +57,7 @@ abstract class CacheAbstractDecorator {
 	 */
 	public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
-		$key = md5(App::getLocale().'byPage.'.$page.$limit.$all.$relatedModel);
+		$key = md5(App::getLocale().'byPage.'.$page.$limit.$all.$relatedModel.implode(Input::except('page')));
 
 		if ( $this->cache->has($key) ) {
 			return $this->cache->get($key);
