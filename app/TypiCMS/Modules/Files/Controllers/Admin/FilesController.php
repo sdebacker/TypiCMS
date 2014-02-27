@@ -134,7 +134,7 @@ class FilesController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( $data ) ) {
+		if ( $this->form->update( Input::all() ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
 		}
 		

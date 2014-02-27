@@ -99,7 +99,7 @@ class CategoriesController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( $data ) ) {
+		if ( $this->form->update( Input::all() ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.categories.index') : Redirect::route('admin.categories.edit', $model->id) ;
 		}
 

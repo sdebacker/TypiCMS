@@ -100,7 +100,7 @@ class NewsController extends BaseController {
 
 		Request::ajax() and exit($this->repository->update( Input::all() ));
 
-		if ( $this->form->update( $data ) ) {
+		if ( $this->form->update( Input::all() ) ) {
 			return (Input::get('exit')) ? Redirect::route('admin.news.index') : Redirect::route('admin.news.edit', $model->id) ;
 		}
 		
