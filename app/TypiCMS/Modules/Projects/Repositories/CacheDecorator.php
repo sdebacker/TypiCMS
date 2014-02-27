@@ -67,17 +67,5 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface 
 		return $bool;
 	}
 
-    /**
-     * Sync tags for project
-     *
-     * @param \Illuminate\Database\Eloquent\Model  $project
-     * @param array  $tags
-     * @return void
-     */
-    protected function syncTags(Model $project, array $tags)
-    {
-		return $this->repo->syncTags($project, $tags);
-    }
-
 
 }

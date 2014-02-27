@@ -186,4 +186,17 @@ abstract class CacheAbstractDecorator {
 	}
 
 
+    /**
+     * Sync tags for model
+     *
+     * @param \Illuminate\Database\Eloquent\Model  $model
+     * @param array  $tags
+     * @return void
+     */
+    protected function syncTags($model, array $tags)
+    {
+		return $this->repo->syncTags($model, $tags);
+    }
+
+
 }

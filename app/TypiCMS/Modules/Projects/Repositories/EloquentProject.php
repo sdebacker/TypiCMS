@@ -86,29 +86,5 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		return true;
 	}
 
-    /**
-     * Sync tags for project
-     *
-     * @param \Illuminate\Database\Eloquent\Model  $project
-     * @param array  $tags
-     * @return void
-     */
-    protected function syncTags(Model $project, array $tags)
-    {
-        if ( ! $tags) return;
-
-        // Create or add tags
-        $found = $this->tag->findOrCreate( $tags );
-
-        $tagIds = array();
-
-        foreach($found as $tag) {
-            $tagIds[] = $tag->id;
-        }
-
-        // Assign set tags to project
-        $project->tags()->sync($tagIds);
-    }
-
 
 }
