@@ -1,6 +1,7 @@
 <?php 
 Route::bind('menus', function($value, $route){
 	return TypiCMS\Modules\Menus\Models\Menu::with('menulinks')
+		->where('id', $value)
 		->firstOrFail();
 });
 
