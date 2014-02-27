@@ -38,9 +38,9 @@ class SettingsController extends BaseController {
 	{
 		$data = Input::all();
 		// add checkboxes data
-		$data['langChooser'] = (int) Input::get('langChooser');
-		$data['authPublic']  = (int) Input::get('authPublic');
-		$data['register']    = (int) Input::get('register');
+		$data['langChooser'] = Input::get('langChooser') ? (int) Input::get('langChooser') : null;
+		$data['authPublic']  = Input::get('authPublic') ? (int) Input::get('authPublic') : null;
+		$data['register']    = Input::get('register') ? (int) Input::get('register') : null;
 		foreach (Config::get('app.locales') as $locale) {
 			$data[$locale]['websiteTitle'] = Input::get($locale.'.websiteTitle');
 			$data[$locale]['status'] = Input::get($locale.'.status') ? (int) Input::get($locale.'.status') : null;
