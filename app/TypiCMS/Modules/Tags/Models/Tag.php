@@ -5,15 +5,6 @@ use TypiCMS\Models\Base;
 class Tag extends Base {
 
     /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'tags';
-
-
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -23,12 +14,29 @@ class Tag extends Base {
         'slug',
     );
 
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'tags';
+
+
+    /**
+     * lists
+     */
+    public $order = 'tag';
+    public $direction = 'asc';
+
+
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
+
 
     /**
      * Define a many-to-many relationship.

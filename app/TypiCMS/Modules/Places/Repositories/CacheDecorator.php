@@ -2,8 +2,6 @@
 
 use App;
 use Input;
-use Config;
-use Request;
 
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
