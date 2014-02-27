@@ -1,5 +1,8 @@
 <?php 
-Route::model('menus', 'TypiCMS\Modules\Menus\Models\Menu');
+Route::bind('menus', function($value, $route){
+	return TypiCMS\Modules\Menus\Models\Menu::with('menulinks')
+		->firstOrFail();
+});
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
 {
