@@ -45,7 +45,7 @@ class ProjectForm {
 			return false;
 		}
 
-        $input['tags'] and $input['tags'] = $this->processTags($input['tags']);
+        $input['tags'] = $this->processTags($input['tags']);
 
 		return $this->project->create($input);
 	}
@@ -62,7 +62,8 @@ class ProjectForm {
 		if( ! $this->valid($inputDot) ) {
 			return false;
 		}
-        $input['tags'] and $input['tags'] = $this->processTags($input['tags']);
+
+        $input['tags'] = $this->processTags($input['tags']);
 
 		return $this->project->update($input);
 	}
@@ -96,10 +97,10 @@ class ProjectForm {
 	 */
 	protected function processTags($tags)
 	{
-		$tags = explode(',', $tags);
 
-		foreach( $tags as $key => $tag )
-		{
+		$tags = $tags ? explode(',', $tags) : array();
+
+		foreach( $tags as $key => $tag ) {
 			$tags[$key] = trim($tag);
 		}
 
