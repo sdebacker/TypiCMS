@@ -1,5 +1,7 @@
 <?php namespace TypiCMS\Repositories;
 
+use StdClass;
+
 use DB;
 use Str;
 use App;
@@ -53,13 +55,19 @@ abstract class RepositoriesAbstract {
 	/**
 	 * Get paginated pages
 	 *
-	 * @param int $paginationPage Number of pages per page
+	 * @param int $page Number of pages per page
 	 * @param int $limit Results per page
 	 * @param boolean $all Show published or all
 	 * @return StdClass Object with $items and $totalItems for pagination
 	 */
-	public function byPage($paginationPage = 1, $limit = 10, $all = false, $relatedModel = null)
+	public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
+		$result = new StdClass;
+		$result->page = $page;
+		$result->limit = $limit;
+		$result->totalItems = 0;
+		$result->items = array();
+
 		// All posts or only published
 		$translations = 'translations';
 		if ( ! $all ) {
@@ -79,11 +87,20 @@ abstract class RepositoriesAbstract {
 		// files
 		$this->model->files and $query->files();
 
-		$query->order();
+		$query->order()
+			->skip($limit * ($page - 1))
+			->take($limit);
+		$models = $query->get();
 
-		$models = $query->paginate($limit);
+		// Build query to get totalItems
+		$queryTotal = $this->model;
+		! $all and $queryTotal->where('status', 1);
 
-		return $models;
+		// Put items and totalItems in StdClass
+		$result->totalItems = $queryTotal->count();
+		$result->items = $models->all();
+
+		return $result;
 	}
 
 

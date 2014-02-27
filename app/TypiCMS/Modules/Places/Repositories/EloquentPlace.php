@@ -48,9 +48,11 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface {
 		$query->order();
 		$models = $query->get();
 
+		// Build query to get totalItems
 		$queryTotal = $this->model;
 		! $all and $queryTotal->where('status', 1);
 
+		// Put items and totalItems in StdClass
 		$result->totalItems = $queryTotal->count();
 		$result->items = $models->all();
 

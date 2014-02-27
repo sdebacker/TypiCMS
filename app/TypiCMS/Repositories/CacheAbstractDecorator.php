@@ -50,14 +50,24 @@ abstract class CacheAbstractDecorator {
 	/**
 	 * Get paginated pages
 	 *
-	 * @param int $paginationPage Number of pages per page
+	 * @param int $page Number of pages per page
 	 * @param int $limit Results per page
 	 * @param boolean $all Show published or all
 	 * @return StdClass Object with $items and $totalItems for pagination
 	 */
-	public function byPage($paginationPage = 1, $limit = 10, $all = false, $relatedModel = null)
+	public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
-		$models = $this->repo->byPage($paginationPage, $limit, $all, $relatedModel);
+		$key = md5(App::getLocale().'byPage.'.$page.$limit.$all.$relatedModel);
+
+		if ( $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		$models = $this->repo->byPage($page, $limit, $all, $relatedModel);
+
+		// Store in cache for next request
+		$this->cache->put($key, $models);
+
 		return $models;
 	}
 
