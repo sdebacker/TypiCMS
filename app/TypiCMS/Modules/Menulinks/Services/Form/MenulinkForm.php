@@ -1,5 +1,8 @@
 <?php namespace TypiCMS\Modules\Menulinks\Services\Form;
 
+use Input;
+use Config;
+
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 

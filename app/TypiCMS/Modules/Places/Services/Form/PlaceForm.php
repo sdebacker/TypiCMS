@@ -1,5 +1,8 @@
 <?php namespace TypiCMS\Modules\Places\Services\Form;
 
+use Input;
+use Config;
+
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 

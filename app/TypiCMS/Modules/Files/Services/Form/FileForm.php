@@ -1,5 +1,8 @@
 <?php namespace TypiCMS\Modules\Files\Services\Form;
 
+use Input;
+use Config;
+
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 
