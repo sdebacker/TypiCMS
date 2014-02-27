@@ -43,7 +43,7 @@ class SettingsController extends BaseController {
 		$data['register']    = (int) Input::get('register');
 		foreach (Config::get('app.locales') as $locale) {
 			$data[$locale]['websiteTitle'] = Input::get($locale.'.websiteTitle');
-			$data[$locale]['status'] = (int) Input::get($locale.'.status');
+			$data[$locale]['status'] = Input::get($locale.'.status') ? (int) Input::get($locale.'.status') : null;
 		}
 
 		$this->repository->store( $data );

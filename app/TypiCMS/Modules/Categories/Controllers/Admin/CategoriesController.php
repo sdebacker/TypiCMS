@@ -103,7 +103,7 @@ class CategoriesController extends BaseController {
 
 		// add checkboxes data
 		foreach (Config::get('app.locales') as $locale) {
-			$data[$locale]['status'] = (int) Input::get($locale.'.status');
+			$data[$locale]['status'] = Input::get($locale.'.status') ? (int) Input::get($locale.'.status') : null;
 		}
 
 		if ( $this->form->update( $data ) ) {
