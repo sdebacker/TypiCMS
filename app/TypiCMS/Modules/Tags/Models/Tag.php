@@ -31,14 +31,6 @@ class Tag extends Base {
 
 
     /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
-
-    /**
      * Define a many-to-many relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

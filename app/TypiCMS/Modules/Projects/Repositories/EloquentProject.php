@@ -64,7 +64,7 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 	public function create(array $data)
 	{
 		if ( $model = $this->model->create($data) ) {
-			$this->syncTags($model, $data['tags']);
+			$data['tags'] and $this->syncTags($model, $data['tags']);
 			return $model;
 		}
 		return false;
@@ -82,7 +82,7 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 		$model = $this->model->find($data['id']);
 		$model->fill($data);
 		$model->save();
-		isset($data['tags']) and $this->syncTags($model, $data['tags']);
+		$data['tags'] and $this->syncTags($model, $data['tags']);
 		return true;
 	}
 
