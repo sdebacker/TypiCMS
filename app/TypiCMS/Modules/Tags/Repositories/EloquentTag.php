@@ -1,6 +1,9 @@
 <?php namespace TypiCMS\Modules\Tags\Repositories;
 
+use StdClass;
+
 use DB;
+use Str;
 use App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -25,8 +28,14 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 	 * @param boolean $all Show published or all
      * @return StdClass Object with $items
 	 */
-	public function byPage($paginationPage = 1, $limit = 10, $all = false, $relatedModel = null)
+	public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
+		$result = new StdClass;
+		$result->page = $page;
+		$result->limit = $limit;
+		$result->totalItems = 0;
+		$result->items = array();
+
 		$query = $this->tag->select(
 				'*',
 				DB::raw("(SELECT COUNT(*) FROM `typi_projects_tags` WHERE `tag_id` = `typi_tags`.`id`) AS 'uses'")
@@ -34,9 +43,15 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 			->with('projects')
 			->orderBy('uses', 'desc');
 
-		$models = $query->paginate($limit);
+		$models = $query->skip($limit * ($page - 1))
+                        ->take($limit)
+                        ->get();
 
-		return $models;
+		// Put items and totalItems in StdClass
+		$result->totalItems = $this->tag->count();
+		$result->items = $models->all();
+
+		return $result;
 	}
 
 
@@ -84,7 +99,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 		foreach( $tags as $tag ) {
 			$returnTags[] = $this->tag->create(array(
 				'tag' => $tag,
-				'slug' => $this->slug($tag),
+				'slug' => Str::slug($tag),
 			));
 		}
 

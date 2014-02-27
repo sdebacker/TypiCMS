@@ -1,7 +1,7 @@
 <?php namespace TypiCMS\Modules\Tags\Repositories;
 
-use DB;
 use App;
+use Input;
 
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -17,14 +17,27 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface {
 
 
 	/**
-	 * Get tags paginated
+	 * Get paginated pages
 	 *
+	 * @param int $page Number of pages per page
+	 * @param int $limit Results per page
 	 * @param boolean $all Show published or all
-     * @return StdClass Object with $items
+	 * @return StdClass Object with $items and $totalItems for pagination
 	 */
-	public function byPage($paginationPage = 1, $limit = 10, $all = false, $relatedModel = null)
+	public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
 	{
-		return $this->repo->byPage($paginationPage, $limit, $all, $relatedModel);
+		$key = md5(App::getLocale().'byPage.'.$page.$limit.$all.$relatedModel.implode(Input::except('page')));
+
+		if ( $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		$models = $this->repo->byPage($page, $limit, $all, $relatedModel);
+
+		// Store in cache for next request
+		$this->cache->put($key, $models);
+
+		return $models;
 	}
 
 

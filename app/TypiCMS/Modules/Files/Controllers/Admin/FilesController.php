@@ -45,7 +45,9 @@ class FilesController extends BaseController {
 	{
 		$page = Input::get('page');
 
-		$models = $this->repository->byPage($page, 10, true, $parent);
+		$itemsPerPage = 10;
+		$data = $this->repository->byPage($page, $itemsPerPage, true, $parent);
+		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
 		if ($parent) {
 			$this->layout->content = View::make('files.admin.index')

@@ -3,6 +3,7 @@
 use View;
 use Input;
 use Request;
+use Paginator;
 
 use App\Controllers\Admin\BaseController;
 
@@ -25,7 +26,11 @@ class TagsController extends BaseController {
 			return $this->repository->getAll(true);
 		}
 		$page = Input::get('page');
-		$models = $this->repository->byPage($page, 25, true);
+
+		$itemsPerPage = 25;
+		$data = $this->repository->byPage($page, $itemsPerPage, true);
+		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+
 		$this->layout->content = View::make('tags.admin.index')
 			->withModels($models);
 	}
