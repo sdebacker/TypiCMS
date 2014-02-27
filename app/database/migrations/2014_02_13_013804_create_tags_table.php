@@ -26,6 +26,7 @@ class CreateTagsTable extends Migration {
 			$table->integer('taggable_id')->unsigned();
 			$table->string('taggable_type');
 			$table->timestamps();
+			$table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
 		});
 	}
 
@@ -36,6 +37,10 @@ class CreateTagsTable extends Migration {
 	 */
 	public function down()
 	{
+		Schema::table('taggables', function($table)
+		{
+			$table->dropForeign('taggables_tag_id_foreign');
+		});
 		Schema::drop('tags');
 		Schema::drop('taggables');
 	}
