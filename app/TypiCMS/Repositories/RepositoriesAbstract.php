@@ -301,15 +301,14 @@ abstract class RepositoriesAbstract {
      */
     protected function syncTags($model, array $tags)
     {
-        if ( ! $tags) return;
-
         // Create or add tags
-        $found = $this->tag->findOrCreate( $tags );
-
         $tagIds = array();
 
-        foreach($found as $tag) {
-            $tagIds[] = $tag->id;
+        if ($tags) {
+            $found = $this->tag->findOrCreate( $tags );    
+            foreach($found as $tag) {
+                $tagIds[] = $tag->id;
+            }
         }
 
         // Assign set tags to model
