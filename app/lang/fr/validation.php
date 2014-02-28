@@ -211,6 +211,10 @@ return array(
 		'authPublic' => 'Se connecter pour voir le site',
 		'registration allowed' => 'Permettre la création de comptes utilisateurs',
 
+		// Translations
+		'key' => 'Clé',
+		'translations' => 'Traduction',
+
 		// Files
 		'alt_attribute' => 'Texte alternatif',
 		'keywords' => 'Mots-clés',

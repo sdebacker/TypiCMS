@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fecba8e58456a49eb58748f9ea831e99",
+    "hash": "8794f04aa3cf77652b74b078e88a3f90",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2383,46 +2383,6 @@
             "time": "2013-12-27 22:23:35"
         },
         {
-            "name": "way/form",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sdebacker/Laravel-FormField.git",
-                "reference": "f86b645d2a5dae2389ba53f71991816edf8c7a75"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sdebacker/Laravel-FormField/zipball/f86b645d2a5dae2389ba53f71991816edf8c7a75",
-                "reference": "f86b645d2a5dae2389ba53f71991816edf8c7a75",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~4",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Way\\Form": "src/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Jeffrey Way",
-                    "email": "jeffrey@laracasts.com"
-                }
-            ],
-            "description": "Make form handling in Laravel simpler.",
-            "keywords": [
-                "forms",
-                "laravel"
-            ],
-            "support": {
-                "source": "https://github.com/sdebacker/Laravel-FormField/tree/master"
-            },
-            "time": "2014-02-10 15:22:12"
-        },
-        {
             "name": "weotch/phpthumb",
             "version": "1.0.4",
             "source": {
@@ -2578,7 +2538,6 @@
     "stability-flags": {
         "thujohn/rss": 20,
         "eluceo/ical": 20,
-        "way/form": 20,
         "raveren/kint": 20,
         "mockery/mockery": 20
     },

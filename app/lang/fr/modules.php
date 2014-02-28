@@ -99,6 +99,11 @@ return array(
 		'New'  => 'Nouvel élément de menu',
 		'Edit' => 'Modifier l’élément de menu',
 	),
+	'translations' => array(
+		'translations' => 'traduction|traductions',
+		'New'  => 'Nouvelle traduction',
+		'Edit' => 'Modifier la traduction',
+	),
 	'dashboard' => array(
 		'Dashboard' => 'Tableau de bord',
 		'Welcome, :name!' => 'Bienvenue :name !',

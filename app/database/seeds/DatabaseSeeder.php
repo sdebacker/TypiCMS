@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('TagSeeder');
 		$this->call('EventSeeder');
 		$this->call('PlaceSeeder');
+		$this->call('TranslationSeeder');
 	}
 
 }
