@@ -26,11 +26,11 @@
 		"edvinaskrucas/notification": "1.*",
 		"dimsav/laravel-translatable": "2.0.*",
 		"bkwld/croppa": "3.*",
-		"jwage/easy-csv": "dev-master",
+		"jwage/easy-csv": "0.0.*",
 		"thujohn/rss": "dev-master",
 		"barryvdh/laravel-debugbar": "1.*",
 		"mccool/database-backup": "1.0.0",
-		"thomaswelton/laravel-gravatar": "dev-master",
+		"thomaswelton/laravel-gravatar": "0.0.*",
 		"eluceo/ical": "dev-master",
 		"davejamesmiller/laravel-breadcrumbs": "~2.2.0",
 		"way/form": "dev-master"
@@ -68,5 +68,6 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }
