@@ -76,7 +76,7 @@ return array(
 		'Tags'         => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Tags\Models\Tag'),
 		'Users'        => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Users\Models\User'),
 		'Groups'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Groups\Models\Group'),
-		'Translations' => array('menu' => false , 'dashboard' => false , 'model' => 'TypiCMS\Modules\Translations\Models\Translation'),
+		'Translations' => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Modules\Translations\Models\Translation'),
 	),
 
 	/*
