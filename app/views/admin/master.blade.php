@@ -9,11 +9,11 @@
 
 	{{-- CSS --}}
 
-	{{ HTML::style(asset('components/vendor/bootstrap3-datetimepicker/build/css/bootstrap-datetimepicker.min.css')) }}
-	{{ HTML::style(asset('components/vendor/alertify.js/themes/alertify.core.css')) }}
-	{{ HTML::style(asset('components/vendor/alertify.js/themes/alertify.bootstrap.css')) }}
-	{{ HTML::style(asset('components/vendor/select2/select2.css')) }}
-	{{ HTML::style(asset('components/vendor/select2/select2-bootstrap.css')) }}
+	{{ HTML::style(asset('vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')) }}
+	{{ HTML::style(asset('vendor/alertify.js/themes/alertify.core.css')) }}
+	{{ HTML::style(asset('vendor/alertify.js/themes/alertify.bootstrap.css')) }}
+	{{ HTML::style(asset('vendor/select2/select2.css')) }}
+	{{ HTML::style(asset('vendor/select2/select2-bootstrap.css')) }}
 
 	@yield('css')
 
@@ -21,28 +21,28 @@
 
 	{{-- JS --}}
 
-	{{ HTML::script(asset('components/vendor/jquery/jquery.js')) }}
-	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery-ui.js')) }}
-	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery.ui.core.js')) }}
-	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery.ui.mouse.js')) }}
-	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery.ui.widget.js')) }}
-	{{ HTML::script(asset('components/vendor/jquery-ui/ui/jquery.ui.sortable.js')) }}
+	{{ HTML::script(asset('vendor/jquery/jquery.js')) }}
+	{{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery-ui.min.js')) }}
+	{{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.core.min.js')) }}
+	{{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.mouse.min.js')) }}
+	{{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.widget.min.js')) }}
+	{{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.sortable.min.js')) }}
+	{{ HTML::script(asset('vendor/alertify.js/lib/alertify.min.js')) }}
+	{{ HTML::script(asset('vendor/select2/select2.min.js')) }}
+	@if(Config::get('app.locale') != 'en')
+	{{ HTML::script(asset('vendor/select2/select2_locale_'.Config::get('app.locale').'.js')) }}
+	@endif
+	{{ HTML::script(asset('vendor/dropzone/downloads/dropzone.min.js')) }}
+	{{ HTML::script(asset('vendor/bootstrap/js/tab.js')) }}
+	{{ HTML::script(asset('vendor/moment/moment.js')) }}
+	{{ HTML::script(asset('vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')) }}
+	@if(Config::get('app.locale') != 'en')
+	{{ HTML::script(asset('vendor/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
+	@endif
 	{{ HTML::script(asset('components/jquery.mjs.nestedSortable.js')) }}
 	{{ HTML::script(asset('components/jquery.nestedCookie.js')) }}
-	{{ HTML::script(asset('components/vendor/alertify.js/lib/alertify.js')) }}
 	{{ HTML::script(asset('components/jquery.listenhancer.js')) }}
 	{{ HTML::script(asset('components/jquery.slug.js')) }}
-	{{ HTML::script(asset('components/vendor/select2/select2.min.js')) }}
-	@if(Config::get('app.locale') != 'en')
-	{{ HTML::script(asset('components/vendor/select2/select2_locale_'.Config::get('app.locale').'.js')) }}
-	@endif
-	{{ HTML::script(asset('components/vendor/dropzone/downloads/dropzone.js')) }}
-	{{ HTML::script(asset('components/vendor/bootstrap/js/tab.js')) }}
-	{{ HTML::script(asset('components/vendor/moment/moment.js')) }}
-	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/bootstrap-datetimepicker.js')) }}
-	@if(Config::get('app.locale') != 'en')
-	{{ HTML::script(asset('components/vendor/bootstrap3-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
-	@endif
 	{{ HTML::script(asset('js/general.js')) }}
 
 	@yield('js')

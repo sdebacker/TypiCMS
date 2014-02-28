@@ -9,12 +9,12 @@
 	<title>{{ $title }}</title>
 
 	{{ HTML::style(asset('css/public.css')) }}
-	{{ HTML::style(asset('components/vendor/fancybox/source/jquery.fancybox.css')) }}
+	{{ HTML::style(asset('vendor/fancybox/source/jquery.fancybox.css')) }}
 
 	@yield('css')
 
-	{{ HTML::script(asset('components/vendor/jquery-legacy/jquery.js')) }}
-	{{ HTML::script(asset('components/vendor/fancybox/source/jquery.fancybox.js')) }}
+	{{ HTML::script(asset('vendor/jquery-legacy/jquery.js')) }}
+	{{ HTML::script(asset('vendor/fancybox/source/jquery.fancybox.pack.js')) }}
 
 	@yield('js')
 

@@ -1,5 +1,5 @@
 vendor
-public/components/vendor
+app/assets/components
 node_modules
 .DS_Store
 .env.local.php

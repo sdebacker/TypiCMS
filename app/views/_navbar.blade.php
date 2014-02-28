@@ -1,8 +1,8 @@
 @section('js')
 
-	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
-	{{ HTML::script(asset('components/vendor/bootstrap/js/collapse.js')) }}
-	{{ HTML::script(asset('components/vendor/bootstrap/js/transition.js')) }}
+	{{ HTML::script(asset('vendor/bootstrap/js/dropdown.js')) }}
+	{{ HTML::script(asset('vendor/bootstrap/js/collapse.js')) }}
+	{{ HTML::script(asset('vendor/bootstrap/js/transition.js')) }}
 
 @show
 

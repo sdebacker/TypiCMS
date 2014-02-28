@@ -8,11 +8,11 @@
 
 	{{ HTML::style(asset('css/gmaps.css')) }}
 	{{ HTML::style(asset('css/public.css')) }}
-	{{ HTML::style(asset('components/vendor/fancybox/source/jquery.fancybox.css')) }}
+	{{ HTML::style(asset('vendor/fancybox/source/jquery.fancybox.css')) }}
 
-	{{ HTML::script(asset('components/vendor/jquery-legacy/jquery.js')) }}
-	{{ HTML::script(asset('components/vendor/bootstrap/js/dropdown.js')) }}
-	{{ HTML::script(asset('components/vendor/fancybox/source/jquery.fancybox.js')) }}
+	{{ HTML::script(asset('vendor/jquery-legacy/jquery.js')) }}
+	{{ HTML::script(asset('vendor/bootstrap/js/dropdown.js')) }}
+	{{ HTML::script(asset('vendor/fancybox/source/jquery.fancybox.pack.js')) }}
 	{{ HTML::script(asset('//maps.googleapis.com/maps/api/js?sensor=false&amp;language=fr')) }}
 	{{ HTML::script(asset('js/gmaps.js')) }}
 
