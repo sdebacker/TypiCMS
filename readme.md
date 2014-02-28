@@ -1,21 +1,82 @@
-## Laravel PHP Framework
+# TypiCMS
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
+TypiCMS is a starting point for a multilingual content management system build with laravel.
+It follows some concept of repository patterns, validation as a service and cache decorator.
+Bower and gulp are used for assets management and user interface is build with Bootstrap Less.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+This kind of urls are managed by the CMS :
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+Modules:
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+* /fr/evenements/slug-en-francais
+* /en/events/slug-in-english
 
-## Official Documentation
+Pages:
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+* /fr/parent-pages-slug-fr/subpage-slug-fr/page-slug-fr
+* /en/parent-pages-slug-en/subpage-slug-en/page-slug-en
 
-### Contributing To Laravel
+## Installation
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+* Download archive
+* run ``` Composer update ```
+* run ``` php artisan migrate --seed ```
+* go to localhost/admin and log with admin/admin
 
-### License
+## Available modules
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+### Pages
+
+Pages are nestable and uris autocreated and saved in database. A page has routes for each translation.
+
+### Menus
+
+Each menu have nestable entries. One entry can be linked to a module, page, URI or URL.
+
+### Projects
+
+Projects have categories, projects urls follows this pattern : /en/projects/categorie-slug/project-slug
+
+### Categories
+
+Categories relations are one to many with projects but needs to be polymorphic.
+
+### Tags
+
+Tags are fonctionnal on projects module and use [Select2](http://ivaynberg.github.io/select2/) js plugin.
+It has many to many polymorphic relations so it could easily be linked to other modules.
+
+### Events
+
+Events have starting and ending dates
+
+### News
+
+Simple news module
+
+### Files
+
+Files module allows you to upload multiple files linked to a resource. It uses [DropzoneJS](http://www.dropzonejs.com).
+
+[Croppa](https://github.com/BKWLD/croppa) is used to display images and generate thumbnails.
+
+### Users and groups
+
+[Sentry](https://github.com/cartalyst/sentry) is used to manage users, groups and permissions.
+Users registration can be enable or disabled through the settings panel.
+
+### Settings
+
+Change website title, and other options trough the settings panel. Settings are saved in database.
+
+## Contributing To TypiCMS
+
+Feel free to fork and made pull requests. TypiCMS needs many improvements, some options are not functionnal for the moment.
+
+## Testing
+
+TypiCMS needs more tests, only some controllers are actually tested.
+
+## License
+
+TypiCMS is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
