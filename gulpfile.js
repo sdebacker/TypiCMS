@@ -9,6 +9,7 @@ var concat = require('gulp-concat');
 var watch = require('gulp-watch');
 var exec = require('child_process').exec;
 var sys = require('sys');
+var bowerFiles = require("gulp-bower-files");
 
 var publicJsFiles = [
   'public/components/vendor/jquery-legacy/jquery.js',
@@ -23,27 +24,25 @@ var publicJsFiles = [
 var lessDir = 'app/assets/less';
 
 // Compile Less, concat and save to target CSS directory
-gulp.task('public-css', function () {
+gulp.task('public-less', function () {
 
   return gulp.src([
       lessDir + '/public.less'
     ])
     .pipe(less())
-    // .pipe(csso())
-    // .pipe(concat('public.css'))
+    .pipe(csso())
     .pipe(gulp.dest('public/css'))
     .pipe(notify('Public CSS minified'));
 
 });
 
-gulp.task('admin-css', function () {
+gulp.task('admin-less', function () {
 
   return gulp.src([
       lessDir + '/admin.less'
     ])
     .pipe(less())
-    // .pipe(csso())
-    // .pipe(concat('admin.css'))
+    .pipe(csso())
     .pipe(gulp.dest('public/css'))
     .pipe(notify('Admin CSS minified'));
 
@@ -56,7 +55,7 @@ gulp.task('public-js', function () {
     .pipe(uglify())
     .pipe(concat('public.min.js'))
     .pipe(gulp.dest('public/js'))
-    .pipe(notify('JS minified'));
+    .pipe(notify('Public JS minified'));
 
 });
 
@@ -69,10 +68,14 @@ gulp.task('phpunit', function() {
 
 // Keep an eye on Less and PHP files for changes…
 gulp.task('watch', function () {
-    gulp.watch(lessDir + '/*.less', ['public-css', 'admin-css']);
+    gulp.watch(lessDir + '/*.less', ['public-less', 'admin-less']);
     gulp.watch(publicJsFiles, ['public-js']);
     gulp.watch('app/**/*.php', ['phpunit']);
 });
 
+gulp.task("bowerFiles", function(){
+    bowerFiles().pipe(gulp.dest("public/vendor"));
+});
+
 // What tasks does running gulp trigger?
-gulp.task('default', ['public-css', 'admin-css', 'public-js', 'phpunit', 'watch']);
+gulp.task('default', ['bowerFiles', 'public-less', 'admin-less', 'public-js', 'phpunit', 'watch']);
