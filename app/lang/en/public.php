@@ -1,18 +1,7 @@
 <?php 
-
-return array(
-
-	/*
-	|--------------------------------------------------------------------------
-	| EN Public TypiCMS Language Lines
-	|--------------------------------------------------------------------------
-	*/
-	'Skip to content' => 'Skip to content',
-	'More' => 'More',
-
-	'languages' => array(
-		'fr' => 'Français',
-		'nl' => 'Nederlands',
-		'en' => 'English',
-	),
-);
+$translations = App::make('db')
+	->table('translations')
+	->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id')
+	->where('locale', App::getLocale())
+	->lists('translation', 'key');
+return $translations;
