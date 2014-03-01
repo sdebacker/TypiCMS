@@ -24,7 +24,7 @@ foreach ($modulesWithFiles as $module) {
 
 	Breadcrumbs::register('admin.' . $module . '.index', function($breadcrumbs) use ($module) {
 		$breadcrumbs->parent('dashboard');
-		$breadcrumbs->push(Str::title(trans_choice('modules.' . $module . '.' . $module . '', 2)), route('admin.' . $module . '.index'));
+		$breadcrumbs->push(Str::title(trans_choice('pages::global.' . $module . '', 2)), route('admin.' . $module . '.index'));
 	});
 
 	Breadcrumbs::register('admin.' . $module . '.edit', function($breadcrumbs, $page) use ($module) {

@@ -13,7 +13,7 @@
 @section('main')
 
 	<div class="alert alert-info">
-		@lang('global.files_edit_info').
+		@lang('files::global.files_edit_info').
 	</div>
 
 	@include('admin._buttons-list')

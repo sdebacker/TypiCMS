@@ -41,7 +41,7 @@
 			@endforeach
 			</div>
 			<!-- <div class="dropzone-previews"></div> -->
-			<div class="dz-message">@lang('global.Drop files to upload')</div>
+			<div class="dz-message">@lang('files::global.Drop files to upload')</div>
 
 		{{ Form::close() }}
 
