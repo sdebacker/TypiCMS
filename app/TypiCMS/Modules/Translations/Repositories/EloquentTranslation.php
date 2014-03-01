@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Modules\Translations\Repositories;
 
+use DB;
 use App;
 use Config;
 
@@ -71,6 +72,20 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 		$model->fill($data);
 		$model->save();
 		return true;
+	}
+
+
+	/**
+	 * Get translations to Array
+	 *
+	 * @return array
+	 */
+	public function getAllToArray()
+	{
+		return $this->model
+			->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id')
+			->where('locale', App::getLocale())
+			->lists('translation', 'key');
 	}
 
 

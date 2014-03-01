@@ -68,4 +68,26 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
 	}
 
 
+	/**
+	 * Get translations to Array
+	 *
+	 * @return array
+	 */
+	public function getAllToArray()
+	{
+		$key = md5(App::getLocale().'TranslationsToArray');
+
+		if ( $this->cache->has($key) ) {
+			return $this->cache->get($key);
+		}
+
+		$data = $this->repo->getAllToArray();
+
+		// Store in cache for next request
+		$this->cache->put($key, $data);
+
+		return $data;
+	}
+
+
 }
