@@ -23,7 +23,7 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 	}
 
 
-	public function getDashboardModules()
+	public function getModulesList()
 	{
 
 		// Item not cached, retrieve it
@@ -34,7 +34,7 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 			if ($property['dashboard'] and Sentry::getUser()->hasAccess('admin.' . $lowerName . '.index')) {
 				$modulesForDashboard[$module]['name'] = $module;
 				$modulesForDashboard[$module]['route'] = $lowerName;
-				$modulesForDashboard[$module]['title'] = Str::title(trans_choice('modules.'.$lowerName.'.'.$lowerName, 2));
+				$modulesForDashboard[$module]['title'] = Str::title(trans_choice($lowerName . '::global.' . $lowerName, 2));
 				$modulesForDashboard[$module]['count'] = DB::table($lowerName)->count();
 			}
 		}

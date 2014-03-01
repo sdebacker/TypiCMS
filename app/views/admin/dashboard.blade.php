@@ -9,7 +9,7 @@
 		<div class="panel panel-default">
 
 			<div class="panel-heading">
-				<h2 class="panel-title">@lang('modules.dashboard.Welcome, :name!', array('name' => Sentry::getUser()->first_name))</h2>
+				<h2 class="panel-title">@lang('dashboard.Welcome, :name!', array('name' => Sentry::getUser()->first_name))</h2>
 			</div>
 
 			<div class="panel-body">
@@ -25,7 +25,7 @@
 		<div class="panel panel-default">
 
 			<div class="panel-heading">
-				<h2 class="panel-title">@lang('modules.dashboard.Modules')</h2>
+				<h2 class="panel-title">@lang('dashboard.Modules')</h2>
 			</div>
 
 			<div class="list-group">
@@ -46,7 +46,7 @@
 		<div class="panel panel-default">
 
 			<div class="panel-heading">
-				<h2 class="panel-title">@lang('modules.dashboard.Menus')</h2>
+				<h2 class="panel-title">@lang('dashboard.Menus')</h2>
 			</div>
 
 			<div class="list-group">
