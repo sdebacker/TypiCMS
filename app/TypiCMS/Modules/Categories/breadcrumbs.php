@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.categories.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.categories.categories', 2)), route('admin.categories.index'));
+    $breadcrumbs->push(Str::title(trans_choice('categories::global.categories', 2)), route('admin.categories.index'));
 });
 
 Breadcrumbs::register('admin.categories.edit', function($breadcrumbs, $project) {
@@ -14,5 +14,5 @@ Breadcrumbs::register('admin.categories.edit', function($breadcrumbs, $project) 
 
 Breadcrumbs::register('admin.categories.create', function($breadcrumbs) {
     $breadcrumbs->parent('admin.categories.index');
-    $breadcrumbs->push(trans('modules.categories.New'), route('admin.categories.create'));
+    $breadcrumbs->push(trans('categories::global.New'), route('admin.categories.create'));
 });

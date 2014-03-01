@@ -12,7 +12,7 @@ class ProjectsController extends BaseController {
 	public function __construct(ProjectInterface $project)
 	{
 		parent::__construct($project);
-		$this->title['parent'] = Str::title(trans_choice('modules.projects.projects', 2));
+		$this->title['parent'] = Str::title(trans_choice('projects::global.projects', 2));
 	}
 
 

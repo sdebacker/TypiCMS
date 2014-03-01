@@ -1,6 +1,6 @@
 @section('main')
 
-	<h2>{{ Str::title(trans_choice('modules.news.news', 2)) }}</h2>
+	<h2>{{ Str::title(trans_choice('news::global.news', 2)) }}</h2>
 
 	@if (count($models))
 	<ul>

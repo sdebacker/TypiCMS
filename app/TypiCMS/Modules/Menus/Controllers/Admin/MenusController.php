@@ -16,7 +16,7 @@ class MenusController extends BaseController {
 	public function __construct(MenuInterface $menu, MenuForm $menuform)
 	{
 		parent::__construct($menu, $menuform);
-		$this->title['parent'] = trans_choice('modules.menus.menus', 2);
+		$this->title['parent'] = trans_choice('menus::global.menus', 2);
 	}
 
 
@@ -39,7 +39,7 @@ class MenusController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository->getModel();
-		$this->title['child'] = trans('modules.menus.New');
+		$this->title['child'] = trans('menus::global.New');
 		$this->layout->content = View::make('menus.admin.create')
 			->with('model', $model);
 	}
@@ -53,7 +53,7 @@ class MenusController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$this->title['child'] = trans('modules.menus.Edit');
+		$this->title['child'] = trans('menus::global.Edit');
 		$this->layout->content = View::make('menus.admin.edit')
 			->with('model', $model);
 	}

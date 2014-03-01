@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Modules\Places\Providers;
 
+use Lang;
 use View;
 use Config;
 
@@ -29,8 +30,10 @@ class ModuleProvider extends ServiceProvider {
 		// Require breadcrumbs
 		// require __DIR__ . '/../breadcrumbs.php';
 
-		// Add view dir
+		// Add dirs
 		View::addLocation(__DIR__ . '/../Views');
+		Lang::addNamespace('places', __DIR__ . '/../lang');
+
 	}
 
 	public function register()

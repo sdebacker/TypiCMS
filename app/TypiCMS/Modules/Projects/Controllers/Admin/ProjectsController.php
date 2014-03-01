@@ -18,7 +18,7 @@ class ProjectsController extends BaseController {
 	public function __construct(ProjectInterface $project, ProjectForm $projectform)
 	{
 		parent::__construct($project, $projectform);
-		$this->title['parent'] = trans_choice('modules.projects.projects', 2);
+		$this->title['parent'] = trans_choice('projects::global.projects', 2);
 	}
 
 	/**
@@ -45,7 +45,7 @@ class ProjectsController extends BaseController {
 
 		$tags = Session::getOldInput('tags');
 
-		$this->title['child'] = trans('modules.projects.New');
+		$this->title['child'] = trans('projects::global.New');
 		$this->layout->content = View::make('projects.admin.create')
 			->withCategories($categories)
 			->withTags($tags)
@@ -62,7 +62,7 @@ class ProjectsController extends BaseController {
 	public function edit($model)
 	{
 
-		$this->title['child'] = trans('modules.projects.Edit');
+		$this->title['child'] = trans('projects::global.Edit');
 
 		$categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
 

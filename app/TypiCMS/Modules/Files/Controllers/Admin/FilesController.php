@@ -18,7 +18,7 @@ class FilesController extends BaseController {
 	public function __construct(FileInterface $file, FileForm $fileform)
 	{
 		parent::__construct($file, $fileform);
-		$this->title['parent'] = trans_choice('modules.files.files', 2);
+		$this->title['parent'] = trans_choice('files::global.files', 2);
 	}
 
 
@@ -70,7 +70,7 @@ class FilesController extends BaseController {
 	public function create($parent)
 	{
 		$model = $this->repository->getModel();
-		$this->title['child'] = trans('modules.files.New');
+		$this->title['child'] = trans('files::global.New');
 		$this->layout->content = View::make('files.admin.create')
 			->withModel($model)
 			->withParent($parent);
@@ -85,7 +85,7 @@ class FilesController extends BaseController {
 	 */
 	public function edit($parent, $model)
 	{
-		$this->title['child'] = trans('modules.files.Edit');
+		$this->title['child'] = trans('files::global.Edit');
 		$this->layout->content = View::make('files.admin.edit')
 			->withModel($model)
 			->withParent($parent);

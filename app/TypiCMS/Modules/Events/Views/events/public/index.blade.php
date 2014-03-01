@@ -1,6 +1,6 @@
 @section('main')
 
-	<h2>{{ Str::title(trans_choice('modules.events.events', 2)) }}</h2>
+	<h2>{{ Str::title(trans_choice('events::global.events', 2)) }}</h2>
 <?php Glottos::setLocale('fr_FR'); ?>
 	@if (count($models))
 	<ul>

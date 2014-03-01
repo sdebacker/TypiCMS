@@ -25,7 +25,7 @@
 			@if($errors->has('password'))
 			<span class="help-block">{{ $errors->first('password') }}</span>
 			@endif
-			<span class="help-block">{{ link_to_route('resetpassword', trans('modules.users.Forgot your password?')) }}</span>
+			<span class="help-block">{{ link_to_route('resetpassword', trans('users::global.Forgot your password?')) }}</span>
 		</div>
 		<div class="form-group">
 			{{ Form::button(trans('validation.attributes.log in'), array('class' => 'btn btn-lg btn-primary btn-block', 'type' => 'submit')) }}

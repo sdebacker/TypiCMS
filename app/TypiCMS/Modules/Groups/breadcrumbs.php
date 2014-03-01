@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.groups.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.groups.groups', 2)), route('admin.groups.index'));
+    $breadcrumbs->push(Str::title(trans_choice('groups::global.groups', 2)), route('admin.groups.index'));
 });
 
 Breadcrumbs::register('admin.groups.edit', function($breadcrumbs, $group_id) {
@@ -15,5 +15,5 @@ Breadcrumbs::register('admin.groups.edit', function($breadcrumbs, $group_id) {
 
 Breadcrumbs::register('admin.groups.create', function($breadcrumbs) {
     $breadcrumbs->parent('admin.groups.index');
-    $breadcrumbs->push(trans('modules.groups.New'), route('admin.groups.create'));
+    $breadcrumbs->push(trans('groups::global.New'), route('admin.groups.create'));
 });

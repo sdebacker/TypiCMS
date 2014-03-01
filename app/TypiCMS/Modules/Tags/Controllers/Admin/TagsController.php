@@ -14,7 +14,7 @@ class TagsController extends BaseController {
 	public function __construct(TagInterface $tag)
 	{
 		parent::__construct($tag);
-		$this->title['parent'] = trans_choice('modules.tags.tags', 2);
+		$this->title['parent'] = trans_choice('tags::global.tags', 2);
 	}
 
 	/**

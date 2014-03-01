@@ -16,7 +16,7 @@ class CategoriesController extends BaseController {
 	public function __construct(CategoryInterface $category, CategoryForm $categoryform)
 	{
 		parent::__construct($category, $categoryform);
-		$this->title['parent'] = trans_choice('modules.categories.categories', 2);
+		$this->title['parent'] = trans_choice('categories::global.categories', 2);
 	}
 
 	/**
@@ -37,7 +37,7 @@ class CategoriesController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository->getModel();
-		$this->title['child'] = trans('modules.categories.New');
+		$this->title['child'] = trans('categories::global.New');
 		$this->layout->content = View::make('categories.admin.create')
 			->with('model', $model);
 	}
@@ -51,7 +51,7 @@ class CategoriesController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$this->title['child'] = trans('modules.categories.Edit');
+		$this->title['child'] = trans('categories::global.Edit');
 		$this->layout->content = View::make('categories.admin.edit')
 			->with('model', $model);
 	}

@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Modules\Groups\Providers;
 
+use Lang;
 use View;
 
 use Illuminate\Support\ServiceProvider;
@@ -21,8 +22,9 @@ class ModuleProvider extends ServiceProvider {
 		// Require breadcrumbs
 		// require __DIR__ . '/../breadcrumbs.php';
 
-		// Add view dir
+		// Add dirs
 		View::addLocation(__DIR__ . '/../Views');
+		Lang::addNamespace('groups', __DIR__ . '/../lang');
 	}
 
 	public function register()

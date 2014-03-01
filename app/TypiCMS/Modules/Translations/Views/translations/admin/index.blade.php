@@ -3,11 +3,11 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($models) }}</span> @choice('modules.translations.translations', count($models))
+	<span id="nb_elements">{{ count($models) }}</span> @choice('translations::global.translations', count($models))
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.translations.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.translations.New')) }}</span></a>
+	<a href="{{ route('admin.translations.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('translations::global.New')) }}</span></a>
 @stop
 
 

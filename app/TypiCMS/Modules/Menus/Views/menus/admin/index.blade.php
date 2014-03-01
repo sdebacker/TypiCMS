@@ -3,11 +3,11 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($models) }}</span> @choice('modules.menus.menus', count($models))
+	<span id="nb_elements">{{ count($models) }}</span> @choice('menus::global.menus', count($models))
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.menus.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.menus.New')) }}</span></a>
+	<a href="{{ route('admin.menus.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('menus::global.New')) }}</span></a>
 @stop
 
 

@@ -16,7 +16,7 @@ class PagesController extends BaseController {
 	public function __construct(PageInterface $page, PageForm $pageform)
 	{
 		parent::__construct($page, $pageform);
-		$this->title['parent'] = trans_choice('modules.pages.pages', 2);
+		$this->title['parent'] = trans_choice('pages::global.pages', 2);
 	}
 
 
@@ -39,7 +39,7 @@ class PagesController extends BaseController {
 	public function create()
 	{
 		$model = $this->repository->getModel();
-		$this->title['child'] = trans('modules.pages.New');
+		$this->title['child'] = trans('pages::global.New');
 		$this->layout->content = View::make('pages.admin.create')
 			->with('model', $model);
 	}
@@ -54,7 +54,7 @@ class PagesController extends BaseController {
 	public function edit($model)
 	{
 
-		$this->title['child'] = trans('modules.pages.Edit');
+		$this->title['child'] = trans('pages::global.Edit');
 		$this->layout->content = View::make('pages.admin.edit')
 			->withModel($model);
 	}

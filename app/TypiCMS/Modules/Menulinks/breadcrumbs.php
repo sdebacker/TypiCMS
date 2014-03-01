@@ -19,7 +19,7 @@ Breadcrumbs::register('admin.menus.menulinks.create', function($breadcrumbs, $me
 
 Breadcrumbs::register('admin.menus.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.menus.menus', 2)), route('admin.menus.index'));
+    $breadcrumbs->push(Str::title(trans_choice('menus::global.menus', 2)), route('admin.menus.index'));
 });
 
 Breadcrumbs::register('admin.menus.edit', function($breadcrumbs, $menu) {

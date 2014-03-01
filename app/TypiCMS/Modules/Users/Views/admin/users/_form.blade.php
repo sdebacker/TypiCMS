@@ -118,7 +118,7 @@
 
 </div>
 
-<label>@lang('modules.users.User permissions')</label>
+<label>@lang('users::global.User permissions')</label>
 <div class="checkbox">
 	<label>
 		{{ Form::hidden('permissions[superuser]', 0) }}

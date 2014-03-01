@@ -16,7 +16,7 @@ class EventsController extends BaseController {
 	public function __construct(EventInterface $event, EventForm $eventform)
 	{
 		parent::__construct($event, $eventform);
-		$this->title['parent'] = trans_choice('modules.events.events', 2);
+		$this->title['parent'] = trans_choice('events::global.events', 2);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class EventsController extends BaseController {
 	 */
 	public function create()
 	{
-		$this->title['child'] = trans('modules.events.New');
+		$this->title['child'] = trans('events::global.New');
 		$model = $this->repository->getModel();
 		$this->layout->content = View::make('events.admin.create')
 			->with('model', $model);
@@ -51,7 +51,7 @@ class EventsController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$this->title['child'] = trans('modules.events.Edit');
+		$this->title['child'] = trans('events::global.Edit');
 		$this->layout->content = View::make('events.admin.edit')
 			->with('model', $model);
 	}

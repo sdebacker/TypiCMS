@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>{{ trans('modules.users.Welcome') }} {{ $firstName }} {{ $lastName }}</h2>
+		<h2>{{ trans('users::global.Welcome') }} {{ $firstName }} {{ $lastName }}</h2>
 
-		<p><b>{{ trans('modules.users.Account:') }}</b> {{{ $email }}}</p>
-		<p>{{ trans('modules.users.To activate your account') }}, <a href="{{  URL::route('activate', array($userId, urlencode($activationCode))) }}">{{ trans('modules.users.click here') }}.</a></p>
-		<p>{{ trans('modules.users.Or point your browser to this address:') }} <br /> {{  URL::route('activate', array($userId, urlencode($activationCode))) }}</p>
-		<p>{{ trans('modules.users.Thank you') }}</p>
+		<p><b>{{ trans('users::global.Account:') }}</b> {{{ $email }}}</p>
+		<p>{{ trans('users::global.To activate your account') }}, <a href="{{  URL::route('activate', array($userId, urlencode($activationCode))) }}">{{ trans('users::global.click here') }}.</a></p>
+		<p>{{ trans('users::global.Or point your browser to this address:') }} <br /> {{  URL::route('activate', array($userId, urlencode($activationCode))) }}</p>
+		<p>{{ trans('users::global.Thank you') }}</p>
 	</body>
 </html>

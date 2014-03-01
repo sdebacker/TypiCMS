@@ -24,7 +24,7 @@ class GroupsController extends BaseController {
 	public function __construct(GroupInterface $group, GroupForm $groupForm) 
 	{
 		parent::__construct($group, $groupForm);
-		$this->title['parent'] = trans_choice('modules.groups.groups', 2);
+		$this->title['parent'] = trans_choice('groups::global.groups', 2);
 
 		// Establish Filters
 		$this->beforeFilter('inGroup:Admins');
@@ -48,7 +48,7 @@ class GroupsController extends BaseController {
 	 */
 	public function create()
 	{
-		$this->title['child'] = trans('modules.groups.New');
+		$this->title['child'] = trans('groups::global.New');
 
 		$this->layout->content = View::make('admin.groups.create');
 	}
@@ -96,7 +96,7 @@ class GroupsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$this->title['child'] = trans('modules.groups.Edit');
+		$this->title['child'] = trans('groups::global.Edit');
 
 		$group = $this->repository->byId($id);
 		$this->layout->content = View::make('admin.groups.edit')

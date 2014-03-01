@@ -3,11 +3,11 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('modules.places.places', $models->getTotal())
+	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('places::global.places', $models->getTotal())
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.places.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.places.New')) }}</span></a>
+	<a href="{{ route('admin.places.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('places::global.New')) }}</span></a>
 @stop
 
 

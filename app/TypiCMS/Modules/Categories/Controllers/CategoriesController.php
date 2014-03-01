@@ -12,7 +12,7 @@ class CategoriesController extends BaseController {
 	public function __construct(CategoryInterface $category)
 	{
 		parent::__construct($category);
-		$this->title['parent'] = Str::title(trans_choice('modules.categories.categories', 2));
+		$this->title['parent'] = Str::title(trans_choice('categories::global.categories', 2));
 	}
 
 

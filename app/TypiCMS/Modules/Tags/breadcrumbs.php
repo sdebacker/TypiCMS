@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.tags.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.tags.tags', 2)), route('admin.tags.index'));
+    $breadcrumbs->push(Str::title(trans_choice('tags::global.tags', 2)), route('admin.tags.index'));
 });
 
 Breadcrumbs::register('admin.tags.edit', function($breadcrumbs, $page) {
@@ -14,5 +14,5 @@ Breadcrumbs::register('admin.tags.edit', function($breadcrumbs, $page) {
 
 Breadcrumbs::register('admin.tags.create', function($breadcrumbs) {
     $breadcrumbs->parent('admin.tags.index');
-    $breadcrumbs->push(trans('modules.tags.New'), route('admin.tags.create'));
+    $breadcrumbs->push(trans('tags::global.New'), route('admin.tags.create'));
 });

@@ -3,11 +3,11 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('modules.tags.tags', $models->getTotal())
+	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('tags::global.tags', $models->getTotal())
 @stop
 
 @section('addButton')
-	<!-- <a href="{{ route('admin.tags.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.tags.New')) }}</span></a> -->
+	<!-- <a href="{{ route('admin.tags.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('tags::global.New')) }}</span></a> -->
 @stop
 
 

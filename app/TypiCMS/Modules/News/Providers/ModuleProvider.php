@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Modules\News\Providers;
 
+use Lang;
 use View;
 use Config;
 
@@ -26,8 +27,9 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
-		// Add view dir
+		// Add dirs
 		View::addLocation(__DIR__ . '/../Views');
+		Lang::addNamespace('news', __DIR__ . '/../lang');
 	}
 
 	public function register()

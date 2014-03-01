@@ -3,11 +3,11 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($models) }}</span> @choice('modules.news.news', count($models))
+	<span id="nb_elements">{{ count($models) }}</span> @choice('news::global.news', count($models))
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.news.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.news.New')) }}</span></a>
+	<a href="{{ route('admin.news.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('news::global.New')) }}</span></a>
 @stop
 
 

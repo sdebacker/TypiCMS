@@ -143,7 +143,7 @@ class TableBuilder {
 			$this->table[] = '<td class="attachments">';
 			$nb = count($item->files);
 			$attachmentClass = $nb ? '' : 'text-muted' ;
-			$this->table[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $item->id).'">'.$nb.' '.trans_choice('modules.files.files', $nb).'</a>';
+			$this->table[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $item->id).'">'.$nb.' '.trans_choice('files::global.files', $nb).'</a>';
 			$this->table[] = '</td>';
 		}
 	}

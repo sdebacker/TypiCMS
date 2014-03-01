@@ -14,7 +14,7 @@ class PlacesController extends BaseController {
 	public function __construct(PlaceInterface $place)
 	{
 		parent::__construct($place);
-		$this->title['parent'] = Str::title(trans_choice('modules.places.places', 2));
+		$this->title['parent'] = Str::title(trans_choice('places::global.places', 2));
 	}
 
 	/**

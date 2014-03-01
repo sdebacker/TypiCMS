@@ -49,8 +49,6 @@ class SentryUser implements UserInterface {
 	{
 		$query = $this->sentry->newQuery();
 
-		$query->order();
-
 		$users = $query->get()->all();
 
 		foreach ($users as $user) {

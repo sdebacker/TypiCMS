@@ -29,5 +29,5 @@
 
 </div>
 
-<label>@lang('modules.groups.Group permissions')</label>
+<label>@lang('groups::global.Group permissions')</label>
 @include('admin._permissions-form')

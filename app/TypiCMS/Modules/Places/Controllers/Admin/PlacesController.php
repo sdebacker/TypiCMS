@@ -17,7 +17,7 @@ class PlacesController extends BaseController {
 	public function __construct(PlaceInterface $place, PlaceForm $placeform)
 	{
 		parent::__construct($place, $placeform);
-		$this->title['parent'] = trans_choice('modules.places.places', 2);
+		$this->title['parent'] = trans_choice('places::global.places', 2);
 	}
 
 	/**
@@ -47,7 +47,7 @@ class PlacesController extends BaseController {
 	 */
 	public function create()
 	{
-		$this->title['child'] = trans('modules.places.New');
+		$this->title['child'] = trans('places::global.New');
 		$model = $this->repository->getModel();
 		$this->layout->content = View::make('places.admin.create')
 			->withModel($model);
@@ -62,7 +62,7 @@ class PlacesController extends BaseController {
 	 */
 	public function edit($model)
 	{
-		$this->title['child'] = trans('modules.places.Edit');
+		$this->title['child'] = trans('places::global.Edit');
 		$this->layout->content = View::make('places.admin.edit')
 			->withModel($model);
 	}

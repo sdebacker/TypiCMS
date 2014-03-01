@@ -9,7 +9,7 @@
 
 @section('main')
 
-	<h2>{{ Str::title(trans_choice('modules.places.places', 2)) }}</h2>
+	<h2>{{ Str::title(trans_choice('places::global.places', 2)) }}</h2>
 
 	<div class="row">
 

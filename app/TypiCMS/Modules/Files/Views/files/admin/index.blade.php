@@ -3,11 +3,11 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('modules.files.files', $models->getTotal())
+	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('files::global.files', $models->getTotal())
 @stop
 
 @section('addButton')
-	<a id="uploaderAddButtonContainer" href=""><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.files.New')) }}</span></a>
+	<a id="uploaderAddButtonContainer" href=""><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('files::global.New')) }}</span></a>
 @stop
 
 @section('main')

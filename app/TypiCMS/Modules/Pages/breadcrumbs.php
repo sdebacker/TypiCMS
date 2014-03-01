@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.pages.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.pages.pages', 2)), route('admin.pages.index'));
+    $breadcrumbs->push(Str::title(trans_choice('pages::global.pages', 2)), route('admin.pages.index'));
 });
 
 Breadcrumbs::register('admin.pages.edit', function($breadcrumbs, $page) {
@@ -14,5 +14,5 @@ Breadcrumbs::register('admin.pages.edit', function($breadcrumbs, $page) {
 
 Breadcrumbs::register('admin.pages.create', function($breadcrumbs) {
     $breadcrumbs->parent('admin.pages.index');
-    $breadcrumbs->push(trans('modules.pages.New'), route('admin.pages.create'));
+    $breadcrumbs->push(trans('pages::global.New'), route('admin.pages.create'));
 });

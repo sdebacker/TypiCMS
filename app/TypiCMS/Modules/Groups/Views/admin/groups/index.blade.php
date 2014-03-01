@@ -3,11 +3,11 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($groups) }}</span> @choice('modules.groups.groups', count($groups))
+	<span id="nb_elements">{{ count($groups) }}</span> @choice('groups::global.groups', count($groups))
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.groups.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.users.New')) }}</span></a>
+	<a href="{{ route('admin.groups.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('users::global.New')) }}</span></a>
 @stop
 
 @section('main')

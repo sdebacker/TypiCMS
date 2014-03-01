@@ -18,7 +18,7 @@ class TranslationsController extends BaseController {
 	public function __construct(TranslationInterface $translation, TranslationForm $translationform)
 	{
 		parent::__construct($translation, $translationform);
-		$this->title['parent'] = trans_choice('modules.translations.translations', 2);
+		$this->title['parent'] = trans_choice('translations::global.translations', 2);
 	}
 
 	/**
@@ -41,7 +41,7 @@ class TranslationsController extends BaseController {
 	{
 		$model = $this->repository->getModel();
 
-		$this->title['child'] = trans('modules.translations.New');
+		$this->title['child'] = trans('translations::global.New');
 		$this->layout->content = View::make('translations.admin.create')
 			->withModel($model);
 	}
@@ -56,7 +56,7 @@ class TranslationsController extends BaseController {
 	public function edit($model)
 	{
 
-		$this->title['child'] = trans('modules.translations.Edit');
+		$this->title['child'] = trans('translations::global.Edit');
 
 		$this->layout->content = View::make('translations.admin.edit')
 			->withModel($model);

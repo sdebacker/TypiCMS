@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.users.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.users.users', 2)), route('admin.users.index'));
+    $breadcrumbs->push(Str::title(trans_choice('users::global.users', 2)), route('admin.users.index'));
 });
 
 Breadcrumbs::register('admin.users.edit', function($breadcrumbs, $user_id) {
@@ -15,5 +15,5 @@ Breadcrumbs::register('admin.users.edit', function($breadcrumbs, $user_id) {
 
 Breadcrumbs::register('admin.users.create', function($breadcrumbs) {
     $breadcrumbs->parent('admin.users.index');
-    $breadcrumbs->push(trans('modules.users.New'), route('admin.users.create'));
+    $breadcrumbs->push(trans('users::global.New'), route('admin.users.create'));
 });

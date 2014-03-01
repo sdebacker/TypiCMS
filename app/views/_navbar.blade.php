@@ -39,9 +39,9 @@
 							<div class="info">
 								<p>{{ Sentry::getUser()->email }}</p>
 								@if (Sentry::getUser()->hasAccess('admin.users.edit'))
-								<p>{{ link_to_route('admin.users.edit', ucFirst( trans_choice('modules.users.profile', 2) ), Sentry::getUser()->id ) }}</p>
+								<p>{{ link_to_route('admin.users.edit', ucFirst( trans_choice('users::global.profile', 2) ), Sentry::getUser()->id ) }}</p>
 								@endif
-								<p>{{ link_to_route('logout', ucfirst(trans('modules.users.log out')), null, array('class' => 'btn btn-default btn-xs') ) }}</p>
+								<p>{{ link_to_route('logout', ucfirst(trans('users::global.log out')), null, array('class' => 'btn btn-default btn-xs') ) }}</p>
 							</div>
 						</div>
 					</li>

@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.menus.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.menus.menus', 2)), route('admin.menus.index'));
+    $breadcrumbs->push(Str::title(trans_choice('menus::global.menus', 2)), route('admin.menus.index'));
 });
 
 Breadcrumbs::register('admin.menus.edit', function($breadcrumbs, $menu) {
@@ -14,5 +14,5 @@ Breadcrumbs::register('admin.menus.edit', function($breadcrumbs, $menu) {
 
 Breadcrumbs::register('admin.menus.create', function($breadcrumbs) {
     $breadcrumbs->parent('admin.menus.index');
-    $breadcrumbs->push(trans('modules.menus.New'), route('admin.menus.create'));
+    $breadcrumbs->push(trans('menus::global.New'), route('admin.menus.create'));
 });

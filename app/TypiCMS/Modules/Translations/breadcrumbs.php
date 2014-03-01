@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.translations.index', function($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('modules.translations.translations', 2)), route('admin.translations.index'));
+    $breadcrumbs->push(Str::title(trans_choice('translations::global.translations', 2)), route('admin.translations.index'));
 });
 
 Breadcrumbs::register('admin.translations.edit', function($breadcrumbs, $translation) {
@@ -14,5 +14,5 @@ Breadcrumbs::register('admin.translations.edit', function($breadcrumbs, $transla
 
 Breadcrumbs::register('admin.translations.create', function($breadcrumbs) {
     $breadcrumbs->parent('admin.translations.index');
-    $breadcrumbs->push(trans('modules.translations.New'), route('admin.translations.create'));
+    $breadcrumbs->push(trans('translations::global.New'), route('admin.translations.create'));
 });

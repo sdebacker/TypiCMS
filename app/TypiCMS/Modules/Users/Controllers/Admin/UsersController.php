@@ -26,13 +26,13 @@ class UsersController extends BaseController {
 	public function __construct(UserInterface $user, UserForm $userform)
 	{
 		parent::__construct($user, $userform);
-		$this->title['parent'] = trans_choice('modules.users.users', 2);
+		$this->title['parent'] = trans_choice('users::global.users', 2);
 	}
 
 
 	public function getLogin()
 	{
-		$this->title['child'] = trans('modules.users.Log in');
+		$this->title['child'] = trans('users::global.Log in');
 		$this->layout->content = View::make('admin.users.login');
 	}
 
@@ -46,7 +46,7 @@ class UsersController extends BaseController {
 
 		try {
 			$user = $this->repository->authenticate($credentials, false);
-			Notification::success( trans( 'modules.users.Welcome', array('name' => $user->first_name) ) );
+			Notification::success( trans( 'users::global.Welcome', array('name' => $user->first_name) ) );
 			return Redirect::intended(route('root'));
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
@@ -58,7 +58,7 @@ class UsersController extends BaseController {
 	public function getLogout()
 	{
 		$this->repository->logout();
-		Notification::success(trans('modules.users.You are logged out'));
+		Notification::success(trans('users::global.You are logged out'));
 		return Redirect::back();
 	}
 
@@ -84,7 +84,7 @@ class UsersController extends BaseController {
 	 */
 	public function create()
 	{
-		$this->title['child'] = trans('modules.users.New');
+		$this->title['child'] = trans('users::global.New');
 
 		$this->layout->content = View::make('admin.users.create')
 			->with('selectedGroups', array())
@@ -100,7 +100,7 @@ class UsersController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$this->title['child'] = trans('modules.users.Edit');
+		$this->title['child'] = trans('users::global.Edit');
 
 		$user = $this->repository->byId($id);
 
@@ -178,7 +178,7 @@ class UsersController extends BaseController {
 	public function getRegister()
 	{
 		// Show the register form
-		$this->title['child'] = trans('modules.users.Register');
+		$this->title['child'] = trans('users::global.Register');
 		$this->layout->content = View::make('admin.users.register');
 	}
 
@@ -206,7 +206,7 @@ class UsersController extends BaseController {
 			$user = $this->repository->register( $input, $noConfirmation );
 			$message = 'Your account has been created, ';
 			$message .= $noConfirmation ? 'you can now log in' : 'check your email for the confirmation link' ;
-			Notification::success(trans('modules.users.'.$message));
+			Notification::success(trans('users::global.'.$message));
 			return Redirect::route('login');
 
 		} catch (Exception $e) {
@@ -226,7 +226,7 @@ class UsersController extends BaseController {
 
 		try {
 			$this->repository->activate($userId, $activationCode);
-			Notification::success(trans('modules.users.Your account has been activated, you can now log in'));
+			Notification::success(trans('users::global.Your account has been activated, you can now log in'));
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
 		}
@@ -241,7 +241,7 @@ class UsersController extends BaseController {
 	 */
 	public function getResetpassword() {
 		// Show the reset password form
-		$this->title['child'] = trans('modules.users.Reset password');
+		$this->title['child'] = trans('users::global.Reset password');
 		$this->layout->content = View::make('admin.users.reset');
 	}
 
@@ -264,10 +264,10 @@ class UsersController extends BaseController {
 			// Email the reset code to the user
 			Mail::send('emails.auth.reset', $data, function($m) use($data)
 			{
-				$m->to($data['email'])->subject('[' . Config::get('typicms.' . App::getLocale() . '.websiteTitle') . '] ' . trans('modules.users.Password Reset Confirmation'));
+				$m->to($data['email'])->subject('[' . Config::get('typicms.' . App::getLocale() . '.websiteTitle') . '] ' . trans('users::global.Password Reset Confirmation'));
 			});
 
-			Notification::success(trans('modules.users.An email was sent with password reset information'));
+			Notification::success(trans('users::global.An email was sent with password reset information'));
 			return Redirect::route('login');
 
 		} catch (Exception $e) {
@@ -283,13 +283,13 @@ class UsersController extends BaseController {
 	 */
 	public function getChangepassword($userId = null, $resetCode = null) {
 
-		$this->title['child'] = trans('modules.users.New password');
+		$this->title['child'] = trans('users::global.New password');
 
 		try {
 			// Find the user
 			$user = $this->repository->byId($userId);
 			if ( ! $this->repository->checkResetPasswordCode($user, $resetCode) ) {
-				Notification::error(trans('modules.users.This password reset token is invalid'));
+				Notification::error(trans('users::global.This password reset token is invalid'));
 				return Redirect::route('login');
 			}
 			$data['id'] = $userId;
@@ -299,7 +299,7 @@ class UsersController extends BaseController {
 				->with($data);
 
 		} catch (Exception $e) {
-			exit('modules.users.User does not exist');
+			exit('users::global.User does not exist');
 		}
 
 	}
@@ -328,7 +328,7 @@ class UsersController extends BaseController {
 				// Attempt to reset the user password
 				if ($this->repository->attemptResetPassword($user, $input['resetCode'], $input['password'])) {
 
-					Notification::success(trans('modules.users.Your password has been changed'));
+					Notification::success(trans('users::global.Your password has been changed'));
 
 					try {
 						$credentials = array(
@@ -344,10 +344,10 @@ class UsersController extends BaseController {
 
 				} else {
 					// Password reset failed
-					Notification::success(trans('modules.users.There was a problem, please contact the system administrator'));
+					Notification::success(trans('users::global.There was a problem, please contact the system administrator'));
 				}
 			} else {
-				Notification::error(trans('modules.users.This password reset token is invalid'));
+				Notification::error(trans('users::global.This password reset token is invalid'));
 			}
 		} catch (Exception $e) {
 			Notification::error($e->getMessage());
