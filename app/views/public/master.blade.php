@@ -43,8 +43,6 @@
 		@section('header')
 		<header>
 			<h1>{{ link_to_route($lang, Config::get('typicms.' . $lang . '.websiteTitle')) }}</h1>
-			<pre>From DaBa : @lang('public.Skip to content')
-<br>From File : @lang('public.fromFile')</pre>
 		</header>
 		@show
 
