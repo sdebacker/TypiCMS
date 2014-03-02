@@ -8,12 +8,12 @@ class TranslationSeeder extends Seeder {
 	{
 
 		$typi_translations = array(
-			array('id'=>1, 'key'=>'More'),
-			array('id'=>2, 'key'=>'Skip to content'),
-			array('id'=>3, 'key'=>'languages.fr'),
-			array('id'=>4, 'key'=>'languages.en'),
-			array('id'=>5, 'key'=>'languages.nl'),
-			array('id'=>6, 'key'=>'Search'),
+			array('id'=>1, 'key'=>'More', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
+			array('id'=>2, 'key'=>'Skip to content', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
+			array('id'=>3, 'key'=>'languages.fr', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
+			array('id'=>4, 'key'=>'languages.en', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
+			array('id'=>5, 'key'=>'languages.nl', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
+			array('id'=>6, 'key'=>'Search', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
 		);
 
 		$typi_translation_translations = array(
