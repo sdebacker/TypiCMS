@@ -6,9 +6,6 @@ use Config;
 
 use Illuminate\Support\ServiceProvider;
 
-// Tags
-use TypiCMS\Modules\Tags\Models\TagInterface;
-
 // Model
 use TypiCMS\Modules\Translations\Models\Translation;
 
@@ -47,8 +44,7 @@ class ModuleProvider extends ServiceProvider {
 		{
 			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentTranslation(
-				new Translation,
-				$app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
+				new Translation
 			);
 			if ( ! Config::get('app.cache')) {
 				return $repository;
