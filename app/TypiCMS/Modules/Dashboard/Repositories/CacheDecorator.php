@@ -1,4 +1,4 @@
-<?php namespace TypiCMS\Repositories\Dashboard;
+<?php namespace TypiCMS\Modules\Dashboard\Repositories;
 
 use DB;
 use App;

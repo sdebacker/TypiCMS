@@ -14,12 +14,6 @@
 			"role": "Developer"
 		}
 	],
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/sdebacker/Laravel-FormField"
-		}
-	],
 	"require": {
 		"laravel/framework": "4.1.*",
 		"cartalyst/sentry": "2.1.*",
@@ -32,7 +26,8 @@
 		"mccool/database-backup": "1.0.0",
 		"thomaswelton/laravel-gravatar": "0.0.*",
 		"eluceo/ical": "dev-master",
-		"davejamesmiller/laravel-breadcrumbs": "~2.2.0"
+		"davejamesmiller/laravel-breadcrumbs": "~2.2.0",
+		"philf/setting": "dev-master"
 	},
 	"require-dev": {
 		"raveren/kint": "dev-master",

@@ -10,7 +10,7 @@
 
 	{{ Form::model($data, array('method' => 'post', 'role' => 'form')) }}
 
-		@include('admin.settings._form')
+		@include('settings.admin._form')
 
 	{{ Form::close() }}
 

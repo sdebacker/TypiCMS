@@ -1,12 +1,14 @@
-<?php namespace App\Controllers\Admin;
-
-use TypiCMS\Repositories\Setting\SettingInterface;
+<?php namespace TypiCMS\Modules\Settings\Controllers\Admin;
 
 use View;
 use Input;
 use Config;
 use Request;
 use Redirect;
+
+use TypiCMS\Modules\Settings\Repositories\SettingInterface;
+
+use App\Controllers\Admin\BaseController;
 
 class SettingsController extends BaseController {
 
@@ -24,7 +26,7 @@ class SettingsController extends BaseController {
 	public function index()
 	{
 		$data = $this->repository->getAll(true);
-		$this->layout->content = View::make('admin.settings.index')
+		$this->layout->content = View::make('settings.admin.index')
 			->withData($data);
 	}
 

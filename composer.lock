@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8794f04aa3cf77652b74b078e88a3f90",
+    "hash": "08883a88e6f892251c0f2dcf8fa37767",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -498,12 +498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eluceo/iCal.git",
-                "reference": "5caadbb3eef31cc717d99753f68446881c836c19"
+                "reference": "f26cae020c008e986c72dab3f216a41ad9b34b83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eluceo/iCal/zipball/5caadbb3eef31cc717d99753f68446881c836c19",
-                "reference": "5caadbb3eef31cc717d99753f68446881c836c19",
+                "url": "https://api.github.com/repos/eluceo/iCal/zipball/f26cae020c008e986c72dab3f216a41ad9b34b83",
+                "reference": "f26cae020c008e986c72dab3f216a41ad9b34b83",
                 "shasum": ""
             },
             "require": {
@@ -543,7 +543,7 @@
                 "ics",
                 "php calendar"
             ],
-            "time": "2014-02-04 09:12:55"
+            "time": "2014-03-02 17:33:33"
         },
         {
             "name": "emberlabs/gravatarlib",
@@ -1288,6 +1288,50 @@
                 "utf8"
             ],
             "time": "2014-03-01 20:01:07"
+        },
+        {
+            "name": "philf/setting",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Phil-F/Setting.git",
+                "reference": "1acd2721f79ad0b7e63b4f443c319cf25ef9aa1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Phil-F/Setting/zipball/1acd2721f79ad0b7e63b4f443c319cf25ef9aa1d",
+                "reference": "1acd2721f79ad0b7e63b4f443c319cf25ef9aa1d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Philf\\Setting": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Foulston",
+                    "email": "info@weztec.com"
+                }
+            ],
+            "description": "Persistent configuration settings for Laravel - Create, Read, Update and Delete settings stored in files using JSON",
+            "keywords": [
+                "config",
+                "laravel"
+            ],
+            "time": "2014-01-20 09:41:55"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -2538,6 +2582,7 @@
     "stability-flags": {
         "thujohn/rss": 20,
         "eluceo/ical": 20,
+        "philf/setting": 20,
         "raveren/kint": 20,
         "mockery/mockery": 20
     },

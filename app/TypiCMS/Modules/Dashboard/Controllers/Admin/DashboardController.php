@@ -1,37 +1,39 @@
-<?php namespace App\Controllers\Admin;
+<?php namespace TypiCMS\Modules\Dashboard\Controllers\Admin;
  
 use View;
 use Config;
 use Response;
 
-use TypiCMS\Modules\Menus\Models\Menu;
-use TypiCMS\Repositories\Dashboard\DashboardInterface;
+use Symfony\Component\Process\Process;
 
-use McCool\DatabaseBackup\Processors\ShellProcessor;
+use McCool\DatabaseBackup\BackupProcedure;
+use McCool\DatabaseBackup\Storers\S3Storer;
 use McCool\DatabaseBackup\Dumpers\MysqlDumper;
 use McCool\DatabaseBackup\Archivers\GzipArchiver;
-use McCool\DatabaseBackup\Storers\S3Storer;
-use McCool\DatabaseBackup\BackupProcedure;
+use McCool\DatabaseBackup\Processors\ShellProcessor;
 
-use Symfony\Component\Process\Process;
+use TypiCMS\Modules\Menus\Models\Menu;
+use TypiCMS\Modules\Dashboard\Repositories\DashboardInterface;
+
+use App\Controllers\Admin\BaseController;
 
 class DashboardController extends BaseController {
 
 	public function __construct(DashboardInterface $dashboard)
 	{
 		parent::__construct($dashboard);
-		$this->title['parent'] = trans('dashboard.Dashboard');
+		$this->title['parent'] = trans('dashboard::global.Dashboard');
 	}
 
 	public function index($relid = null)
 	{
 		$menus = Menu::with('translations')->get();
 
-		$this->title['child'] = trans('dashboard.Dashboard');
+		$this->title['child'] = trans('dashboard::global.Dashboard');
 
 		$modules = $this->repository->getModulesList();
 		
-		$this->layout->content = View::make('admin.dashboard')
+		$this->layout->content = View::make('dashboard.admin.dashboard')
 			->with('welcomeMessage', $this->repository->getWelcomeMessage())
 			->withModules($modules)
 			->withMenus($menus);

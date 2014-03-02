@@ -1,2 +1,2 @@
 <?php
-return App::make('TypiCMS\Repositories\Setting\SettingInterface')->getAllToArray();
+return App::make('TypiCMS\Modules\Settings\Repositories\SettingInterface')->getAllToArray();

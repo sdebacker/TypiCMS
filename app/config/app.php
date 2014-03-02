@@ -142,7 +142,6 @@ return array(
 		'Philf\Setting\SettingServiceProvider',
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
-		'TypiCMS\Repositories\RepositoriesServiceProvider',
 		'TypiCMS\Providers\StartProvider',
 
 	),

@@ -11,18 +11,6 @@ if (Request::segment(1) != 'admin') {
 	
 }
 
-/**
- * Admin routes.
- */
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
-{
-	Route::get('/', array('as' => 'dashboard', 'uses' => 'App\Controllers\Admin\DashboardController@index'));
-	Route::get('backup', array('as' => 'backup', 'uses' => 'App\Controllers\Admin\DashboardController@backup'));
-
-	Route::resource('settings', 'App\Controllers\Admin\SettingsController');
-
-});
-
 
 /**
  * Public routes.
