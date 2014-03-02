@@ -26,7 +26,7 @@
 			</form>
 
 			<h3>
-			{{ count($places) }} @choice('places', count($places))
+			{{ count($places) }} @choice('places::global.places', count($places))
 			@if(Input::get('string')) @lang('for')
 				“{{ Input::get('string') }}”
 			@endif
