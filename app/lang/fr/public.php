@@ -1,2 +1,8 @@
 <?php 
-return App::make('TypiCMS\Modules\Translations\Repositories\TranslationInterface')->getAllToArray();
+
+return array(
+
+	'More' => 'En savoir plus (Loaded from File)',
+	'fromFile' => 'Cette traduction provient d’un fichier',
+
+);
