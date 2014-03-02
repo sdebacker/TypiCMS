@@ -39,7 +39,6 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\Menus\Repositories\MenuInterface', function($app)
 		{
-			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentMenu(new Menu);
 			if ( ! Config::get('app.cache')) {
 				return $repository;
@@ -54,6 +53,11 @@ class ModuleProvider extends ServiceProvider {
 				new MenuFormLaravelValidator( $app['validator'] ),
 				$app->make('TypiCMS\Modules\Menus\Repositories\MenuInterface')
 			);
+		});
+
+		$app->before(function($request, $response)
+		{
+			require __DIR__ . '/../breadcrumbs.php';
 		});
 
 	}

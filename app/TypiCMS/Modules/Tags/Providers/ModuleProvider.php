@@ -35,13 +35,17 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\Tags\Repositories\TagInterface', function($app)
 		{
-			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentTag(new Tag);
 			if ( ! Config::get('app.cache')) {
 				return $repository;
 			}
 			$laravelCache = new LaravelCache($app['cache'], 'Tags', 10);
 			return new CacheDecorator($repository, $laravelCache);
+		});
+
+		$app->before(function($request, $response)
+		{
+			require __DIR__ . '/../breadcrumbs.php';
 		});
 
 	}

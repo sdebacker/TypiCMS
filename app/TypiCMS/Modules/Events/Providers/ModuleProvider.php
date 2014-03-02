@@ -27,9 +27,6 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
-		// Require breadcrumbs
-		// require __DIR__ . '/../breadcrumbs.php';
-
 		// Add dirs
 		View::addLocation(__DIR__ . '/../Views');
 		Lang::addNamespace('events', __DIR__ . '/../lang');
@@ -42,7 +39,6 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function($app)
 		{
-			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentEvent(new Event);
 			if ( ! Config::get('app.cache')) {
 				return $repository;
@@ -57,6 +53,11 @@ class ModuleProvider extends ServiceProvider {
 				new EventFormLaravelValidator( $app['validator'] ),
 				$app->make('TypiCMS\Modules\Events\Repositories\EventInterface')
 			);
+		});
+
+		$app->before(function($request, $response)
+		{
+			require __DIR__ . '/../breadcrumbs.php';
 		});
 
 	}

@@ -27,9 +27,6 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
-		// Require breadcrumbs
-		// require __DIR__ . '/../breadcrumbs.php';
-
 		// Add dirs
 		View::addLocation(__DIR__ . '/../Views');
 		Lang::addNamespace('files', __DIR__ . '/../lang');
@@ -42,7 +39,6 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\Files\Repositories\FileInterface', function($app)
 		{
-			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentFile(new File);
 			if ( ! Config::get('app.cache')) {
 				return $repository;
@@ -57,6 +53,11 @@ class ModuleProvider extends ServiceProvider {
 				new FileFormLaravelValidator( $app['validator'] ),
 				$app->make('TypiCMS\Modules\Files\Repositories\FileInterface')
 			);
+		});
+
+		$app->before(function($request, $response)
+		{
+			require __DIR__ . '/../breadcrumbs.php';
 		});
 
 	}

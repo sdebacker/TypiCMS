@@ -22,7 +22,6 @@ class TranslationServiceProvider extends LaravelTranslationServiceProvider {
 	{
 		$this->app->bindShared('translation.loader', function($app)
 		{
-			// dd($app);
 			$repository     = $app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface');
 			$fileLoader     = new FileLoader($app['files'], $app['path'].'/lang');
 			$databaseLoader = new DatabaseLoader($repository);

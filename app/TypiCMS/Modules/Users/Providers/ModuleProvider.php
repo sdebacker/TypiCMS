@@ -19,9 +19,6 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
-		// Require breadcrumbs
-		// require __DIR__ . '/../breadcrumbs.php';
-
 		// Add dirs
 		View::addLocation(__DIR__ . '/../Views');
 		Lang::addNamespace('users', __DIR__ . '/../lang');
@@ -34,7 +31,6 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function($app)
 		{
-			require __DIR__ . '/../breadcrumbs.php';
 			return new SentryUser(
 				$app['sentry']
 			);
@@ -46,6 +42,11 @@ class ModuleProvider extends ServiceProvider {
 				new UserFormLaravelValidator( $app['validator'] ),
 				$app->make('TypiCMS\Modules\Users\Repositories\UserInterface')
 			);
+		});
+
+		$app->before(function($request, $response)
+		{
+			require __DIR__ . '/../breadcrumbs.php';
 		});
 
 	}

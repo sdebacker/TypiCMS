@@ -39,7 +39,6 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\News\Repositories\NewsInterface', function($app)
 		{
-			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentNews(new News);
 			if ( ! Config::get('app.cache')) {
 				return $repository;
@@ -54,6 +53,11 @@ class ModuleProvider extends ServiceProvider {
 				new NewsFormLaravelValidator( $app['validator'] ),
 				$app->make('TypiCMS\Modules\News\Repositories\NewsInterface')
 			);
+		});
+
+		$app->before(function($request, $response)
+		{
+			require __DIR__ . '/../breadcrumbs.php';
 		});
 
 	}

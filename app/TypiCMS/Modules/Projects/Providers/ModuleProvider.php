@@ -30,9 +30,6 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
-		// Require breadcrumbs
-		// require __DIR__ . '/../breadcrumbs.php';
-
 		// Add dirs
 		View::addLocation(__DIR__ . '/../Views');
 		Lang::addNamespace('projects', __DIR__ . '/../lang');
@@ -45,7 +42,6 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\Projects\Repositories\ProjectInterface', function($app)
 		{
-			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentProject(
 				new Project,
 				$app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
@@ -63,6 +59,11 @@ class ModuleProvider extends ServiceProvider {
 				new ProjectFormLaravelValidator( $app['validator'] ),
 				$app->make('TypiCMS\Modules\Projects\Repositories\ProjectInterface')
 			);
+		});
+
+		$app->before(function($request, $response)
+		{
+			require __DIR__ . '/../breadcrumbs.php';
 		});
 
 	}

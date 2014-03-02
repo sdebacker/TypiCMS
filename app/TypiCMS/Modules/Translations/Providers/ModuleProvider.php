@@ -27,9 +27,6 @@ class ModuleProvider extends ServiceProvider {
 		// Bring in the routes
 		require __DIR__ . '/../routes.php';
 
-		// Require breadcrumbs
-		// require __DIR__ . '/../breadcrumbs.php';
-
 		// Add dirs
 		View::addLocation(__DIR__ . '/../Views');
 		Lang::addNamespace('translations', __DIR__ . '/../lang');
@@ -42,7 +39,6 @@ class ModuleProvider extends ServiceProvider {
 
 		$app->bind('TypiCMS\Modules\Translations\Repositories\TranslationInterface', function($app)
 		{
-			require __DIR__ . '/../breadcrumbs.php';
 			$repository = new EloquentTranslation(
 				new Translation
 			);
@@ -60,6 +56,12 @@ class ModuleProvider extends ServiceProvider {
 				$app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface')
 			);
 		});
+
+		$app->before(function($request, $response)
+		{
+			require __DIR__ . '/../breadcrumbs.php';
+		});
+
 
 	}
 
