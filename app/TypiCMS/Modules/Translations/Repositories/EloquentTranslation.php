@@ -7,17 +7,14 @@ use Config;
 use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Modules\Tags\Repositories\TagInterface;
 
 class EloquentTranslation extends RepositoriesAbstract implements TranslationInterface {
 
-    protected $tag;
 
-	// Class expects an Eloquent model and a TagInterface
-	public function __construct(Model $model, TagInterface $tag)
+	// Class expects an Eloquent model
+	public function __construct(Model $model)
 	{
 		$this->model = $model;
-		$this->tag = $tag;
 	}
 
 
