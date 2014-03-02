@@ -139,6 +139,7 @@ return array(
 		'Bkwld\Croppa\ServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+		'Philf\Setting\SettingServiceProvider',
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
 		'TypiCMS\Repositories\RepositoriesServiceProvider',
