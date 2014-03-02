@@ -18,7 +18,7 @@ class MenulinksController extends BaseController {
 	public function __construct(MenulinkInterface $menulink, MenulinkForm $menulinkform)
 	{
 		parent::__construct($menulink, $menulinkform);
-		$this->title['parent'] = Lang::choice('modules.menulinks.menulinks', 2);
+		$this->title['parent'] = Lang::choice('menulinks::global.menulinks', 2);
 		// $this->model = $menulink;
 	}
 
@@ -43,7 +43,7 @@ class MenulinksController extends BaseController {
 	public function create($menu)
 	{
 		$model = $this->repository->getModel();
-		$this->title['child'] = trans('modules.menulinks.New');
+		$this->title['child'] = trans('menulinks::global.New');
 
 		$selectPages = $this->repository->getPagesForSelect();
 		$selectModules = $this->repository->getModulesForSelect();
@@ -64,7 +64,7 @@ class MenulinksController extends BaseController {
 	 */
 	public function edit($menu, $model)
 	{
-		$this->title['child'] = trans('modules.menulinks.Edit');
+		$this->title['child'] = trans('menulinks::global.Edit');
 
 		$selectPages = $this->repository->getPagesForSelect();
 		$selectModules = $this->repository->getModulesForSelect();

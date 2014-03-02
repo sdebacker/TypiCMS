@@ -3,11 +3,11 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('modules.menulinks.menulinks', $models->getTotal())
+	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('menulinks::global.menulinks', $models->getTotal())
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.menus.menulinks.create', $menu->id) }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('modules.menulinks.New')) }}</span></a>
+	<a href="{{ route('admin.menus.menulinks.create', $menu->id) }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('menulinks::global.New')) }}</span></a>
 @stop
 
 
