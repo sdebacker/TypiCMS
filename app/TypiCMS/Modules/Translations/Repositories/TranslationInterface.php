@@ -24,7 +24,7 @@ interface TranslationInterface
      *
      * @return array
      */
-    public function getAllToArray($locale = null);
+    public function getAllToArray($locale, $group, $namespace = null);
 
    /**
      * Get all models ordered by locale

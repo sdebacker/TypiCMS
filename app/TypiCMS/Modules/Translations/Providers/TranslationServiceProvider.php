@@ -24,8 +24,7 @@ class TranslationServiceProvider extends LaravelTranslationServiceProvider {
 		{
 			$repository     = $app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface');
 			$fileLoader     = new FileLoader($app['files'], $app['path'].'/lang');
-			$databaseLoader = new DatabaseLoader($repository);
-			return new MixedLoader($fileLoader, $databaseLoader);
+			return new MixedLoader($fileLoader, $repository);
 		});
 	}
 

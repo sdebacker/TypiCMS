@@ -49,7 +49,7 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	 *
 	 * @return array
 	 */
-	public function getAllToArray($locale = null)
+	public function getAllToArray($locale, $group, $namespace = null)
 	{
 		if ($translations = Setting::get('translations.' . $locale)) {
 			return $translations;
