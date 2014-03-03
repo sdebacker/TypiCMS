@@ -27,7 +27,7 @@ class PublicController extends BaseController {
 
 		$this->title['parent'] = 'Choose your language';
 
-		$this->layout->content = View::make('db.root')
+		$this->layout->content = View::make('public.root')
 			->with('locales', $locales);
 	}
 
