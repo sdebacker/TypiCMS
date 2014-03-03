@@ -259,6 +259,7 @@ function initListForm() {
 		});
 
 		$('[contenteditable]').on('focus', function (event) {
+			$(this).removeClass('success-fade-out');
 			$(this).data('text-original', $(this).text());
 		});
 
