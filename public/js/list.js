@@ -235,6 +235,39 @@ function initListForm() {
 			}
 		});
 
+		// Save translations
+		$('[contenteditable]').on('keyup', function (event) {
+			if (event.keyCode == 27) { // esc key pressed
+				// Restore state
+				document.execCommand('undo');
+				$(this).blur();
+			}
+		});
+
+		$('[contenteditable]').on('keypress', function (event) {
+			if (event.keyCode == 13 && ! event.ctrlKey && ! event.metaKey) {
+				$(this).blur();
+				var number = $(this).index();
+				$(this).parent().next('tr').children('td:eq(' + number + ')').focus();
+				event.preventDefault();
+			}
+		});
+
+		$('[contenteditable]').on('blur', function (event) {
+			var data = {};
+
+			data['id'] = $(this).parent().attr('id').split(/[_]+/).pop();;
+			data[$(this).attr('data-name')] = $(this).html();
+
+			$.ajax({
+				url: cleanUrl() + '/' + data['id'],
+				data: data,
+				type: 'patch'
+			});			
+			// console.log(JSON.stringify(data));
+		});
+
+
 	});
 
 }( window.jQuery || window.ender );

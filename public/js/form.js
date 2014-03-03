@@ -89,7 +89,6 @@ function initTinymce(selector) {
 			});
 		};
 
-
 	});
 
 }( window.jQuery || window.ender );

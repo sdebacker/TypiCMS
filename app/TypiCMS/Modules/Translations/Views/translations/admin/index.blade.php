@@ -31,9 +31,9 @@
 			@foreach ($models as $item)
 				<tr id="item_{{ $item['id'] }}">
 					<td><input type="checkbox" value="{{ $item['id'] }}"></td>
-					<td>{{ $item['key'] }}</td>
+					<td contenteditable data-name="key">{{ $item['key'] }}</td>
 					@foreach (Config::get('app.locales') as $locale)
-						<td>{{ $item[$locale] or '' }}</td>
+						<td contenteditable data-name="{{ $locale }}[translation]">{{ $item[$locale] or '' }}</td>
 					@endforeach
 				</tr>
 			@endforeach
