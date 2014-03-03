@@ -26,8 +26,7 @@
 		"mccool/database-backup": "1.0.0",
 		"thomaswelton/laravel-gravatar": "0.0.*",
 		"eluceo/ical": "dev-master",
-		"davejamesmiller/laravel-breadcrumbs": "~2.2.0",
-		"philf/setting": "dev-master"
+		"davejamesmiller/laravel-breadcrumbs": "~2.2.0"
 	},
 	"require-dev": {
 		"raveren/kint": "dev-master",

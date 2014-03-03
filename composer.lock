@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "08883a88e6f892251c0f2dcf8fa37767",
+    "hash": "578d2b16ba0314ec0ad775f6d6ef3b68",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -544,56 +544,6 @@
                 "php calendar"
             ],
             "time": "2014-03-02 17:33:33"
-        },
-        {
-            "name": "emberlabs/gravatarlib",
-            "version": "dev-master",
-            "target-dir": "emberlabs/gravatarlib",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/emberlabs/gravatarlib.git",
-                "reference": "6bd70321aa59a8002d5fa08d9b592121683801df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/emberlabs/gravatarlib/zipball/6bd70321aa59a8002d5fa08d9b592121683801df",
-                "reference": "6bd70321aa59a8002d5fa08d9b592121683801df",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "suggest": {
-                "twig/twig": ">=1.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "emberlabs\\gravatarlib\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sam Thompson",
-                    "email": "sam@emberlabs.org"
-                },
-                {
-                    "name": "Damian Bushong",
-                    "email": "damian@emberlabs.org"
-                }
-            ],
-            "description": "A lightweight PHP 5.3 OOP library providing easy gravatar integration.",
-            "homepage": "http://emberlabs.org/",
-            "keywords": [
-                "gravatar",
-                "templating",
-                "twig"
-            ],
-            "time": "2011-12-28 22:28:37"
         },
         {
             "name": "filp/whoops",
@@ -1288,50 +1238,6 @@
                 "utf8"
             ],
             "time": "2014-03-01 20:01:07"
-        },
-        {
-            "name": "philf/setting",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Phil-F/Setting.git",
-                "reference": "1acd2721f79ad0b7e63b4f443c319cf25ef9aa1d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Phil-F/Setting/zipball/1acd2721f79ad0b7e63b4f443c319cf25ef9aa1d",
-                "reference": "1acd2721f79ad0b7e63b4f443c319cf25ef9aa1d",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~4",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Philf\\Setting": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Phil Foulston",
-                    "email": "info@weztec.com"
-                }
-            ],
-            "description": "Persistent configuration settings for Laravel - Create, Read, Update and Delete settings stored in files using JSON",
-            "keywords": [
-                "config",
-                "laravel"
-            ],
-            "time": "2014-01-20 09:41:55"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -2342,23 +2248,78 @@
             "time": "2014-02-03 17:15:33"
         },
         {
-            "name": "thomaswelton/laravel-gravatar",
-            "version": "0.0.1",
+            "name": "thomaswelton/gravatarlib",
+            "version": "0.1.0",
+            "target-dir": "thomaswelton/GravatarLib",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thomaswelton/laravel-gravatar.git",
-                "reference": "a80389440bc4a0ed0d7025923844f87888c91371"
+                "url": "https://github.com/thomaswelton/gravatarlib.git",
+                "reference": "8a4e829c53ca2abb51ef2e514f696938a9bdbd0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thomaswelton/laravel-gravatar/zipball/a80389440bc4a0ed0d7025923844f87888c91371",
-                "reference": "a80389440bc4a0ed0d7025923844f87888c91371",
+                "url": "https://api.github.com/repos/thomaswelton/gravatarlib/zipball/8a4e829c53ca2abb51ef2e514f696938a9bdbd0c",
+                "reference": "8a4e829c53ca2abb51ef2e514f696938a9bdbd0c",
                 "shasum": ""
             },
             "require": {
-                "emberlabs/gravatarlib": "dev-master",
-                "illuminate/support": "4.x",
                 "php": ">=5.3.0"
+            },
+            "suggest": {
+                "twig/twig": ">=1.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "thomaswelton\\GravatarLib\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Thompson",
+                    "email": "sam@emberlabs.org"
+                },
+                {
+                    "name": "Damian Bushong",
+                    "email": "damian@emberlabs.org"
+                },
+                {
+                    "name": "ThomasWelton",
+                    "email": "thomaswelton@me.com",
+                    "homepage": "https://github.com/thomaswelton",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A lightweight PHP 5.3 OOP library providing easy gravatar integration.",
+            "keywords": [
+                "gravatar",
+                "templating",
+                "twig"
+            ],
+            "time": "2014-03-02 18:29:18"
+        },
+        {
+            "name": "thomaswelton/laravel-gravatar",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thomaswelton/laravel-gravatar.git",
+                "reference": "98fa03d5e1e67d361a6fece16465c64e2b935ce5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thomaswelton/laravel-gravatar/zipball/98fa03d5e1e67d361a6fece16465c64e2b935ce5",
+                "reference": "98fa03d5e1e67d361a6fece16465c64e2b935ce5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.x",
+                "php": ">=5.3.0",
+                "thomaswelton/gravatarlib": "0.1.x"
             },
             "type": "library",
             "autoload": {
@@ -2367,6 +2328,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "ThomasWelton",
@@ -2382,7 +2346,7 @@
                 "laravel",
                 "laravel4"
             ],
-            "time": "2013-11-03 13:51:32"
+            "time": "2014-03-02 19:52:06"
         },
         {
             "name": "thujohn/rss",
@@ -2582,7 +2546,6 @@
     "stability-flags": {
         "thujohn/rss": 20,
         "eluceo/ical": 20,
-        "philf/setting": 20,
         "raveren/kint": 20,
         "mockery/mockery": 20
     },

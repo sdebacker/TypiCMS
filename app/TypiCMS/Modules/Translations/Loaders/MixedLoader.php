@@ -40,7 +40,11 @@ class MixedLoader implements LoaderInterface {
 	public function load($locale, $group, $namespace = null)
 	{
 		$namespace = $namespace ?: '*';
-		return array_merge($this->loadFromDB($locale, $group, $namespace), $this->fileLoader->load($locale, $group, $namespace));
+		// Translations from files
+		$translationsFromFiles = $this->fileLoader->load($locale, $group, $namespace);
+		// If group is 'db', retrive also from DB.
+		$translationsFromDB = ($group == 'db') ? $this->loadFromDB($locale, $group, $namespace) : array() ;
+		return array_merge($translationsFromFiles, $translationsFromDB);
 	}
 
 

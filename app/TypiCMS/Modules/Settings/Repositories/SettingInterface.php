@@ -25,18 +25,4 @@ interface SettingInterface
      */
     public function getAllToArray();
 
-    /**
-     * Get all Settings from DB
-     *
-     * @return array
-     */
-    public function getAllFromDB();
-
-    /**
-     * Save to JSON
-     *
-     * @return void
-     */
-    public function updateJSON();
-
 }

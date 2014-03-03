@@ -17,6 +17,7 @@ class CreateTranslationsTable extends Migration {
 		{
 			$table->engine = 'InnoDB';
 			$table->increments('id');
+			$table->string('group');
 			$table->string('key');
 			$table->timestamps();
 		});

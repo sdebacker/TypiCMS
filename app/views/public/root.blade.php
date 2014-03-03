@@ -20,7 +20,7 @@
 
 				@foreach ($locales as $locale)
 
-				<a href="{{ route($locale) }}" class="btn btn-default btn-lg">{{ trans('public.languages.'.$locale) }}</a>
+				<a href="{{ route($locale) }}" class="btn btn-default btn-lg">{{ trans('db.languages.'.$locale) }}</a>
 
 				@endforeach
 

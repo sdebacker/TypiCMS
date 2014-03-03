@@ -9,6 +9,7 @@
 	@include('admin._buttons-form')
 
 	{{ Form::hidden('id'); }}
+	{{ Form::hidden('group', 'db'); }}
 
 	<div class="col-sm-6">
 

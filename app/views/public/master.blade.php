@@ -34,7 +34,7 @@
 
 <body>
 
-	<a href="#content" class="sr-only">@lang('public.Skip to content')</a>
+	<a href="#content" class="sr-only">@lang('db.Skip to content')</a>
 
 	{{ $navBar }}
 

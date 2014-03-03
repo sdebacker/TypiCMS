@@ -34,13 +34,6 @@ interface TranslationInterface
     public function getAllByLocales();
 
     /**
-     * Save to JSON
-     *
-     * @return void
-     */
-    public function updateJSON();
-
-    /**
      * Create a new Article
      *
      * @param array  Data to create a new object

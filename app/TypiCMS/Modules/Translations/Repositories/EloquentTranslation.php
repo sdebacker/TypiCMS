@@ -6,8 +6,6 @@ use Config;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Setting;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentTranslation extends RepositoriesAbstract implements TranslationInterface {
@@ -51,14 +49,12 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	 */
 	public function getAllToArray($locale, $group, $namespace = null)
 	{
-		if ($translations = Setting::get('translations.' . $locale)) {
-			return $translations;
-		}
-		$this->updateJSON();
-		return $this->model
+		$array = $this->model
 				->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id')
 				->where('locale', $locale)
+				->where('group', $group)
 				->lists('translation', 'key');
+		return $array;
 	}
 
 
@@ -84,17 +80,6 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 
 
 	/**
-	 * Save to JSON
-	 *
-	 * @return void
-	 */
-	public function updateJSON()
-	{
-		Setting::set('translations', $this->getAllByLocales());
-	}
-
-
-	/**
 	 * Create a new model
 	 *
 	 * @param array  Data to create a new object
@@ -103,7 +88,6 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	public function create(array $data)
 	{
 		if ( $model = $this->model->create($data) ) {
-			$this->updateJSON();
 			return $model;
 		}
 		return false;
@@ -121,7 +105,6 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 		$model = $this->model->find($data['id']);
 		$model->fill($data);
 		$model->save();
-		$this->updateJSON();
 		return true;
 	}
 
@@ -134,7 +117,6 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	public function delete($model)
 	{
 		if ($model->delete()) {
-			$this->updateJSON();
 			return true;
 		}
 		return false;

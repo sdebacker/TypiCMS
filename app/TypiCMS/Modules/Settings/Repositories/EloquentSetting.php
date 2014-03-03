@@ -6,8 +6,6 @@ use DB;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Setting;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentSetting implements SettingInterface {
@@ -70,7 +68,6 @@ class EloquentSetting implements SettingInterface {
 				$save = $model->save();
 			}
 		}
-		$this->updateJSON();
 		return true;
 		
 	}
@@ -82,20 +79,6 @@ class EloquentSetting implements SettingInterface {
 	 * @return array
 	 */
 	public function getAllToArray()
-	{
-		if ($config = Setting::get('config')) {
-			return $config;
-		}
-		return $this->getAllFromDB();
-	}
-
-
-	/**
-	 * Get all Settings from DB
-	 *
-	 * @return array
-	 */
-	public function getAllFromDB()
 	{
 		$config = array();
 		foreach (DB::table('settings')->get() as $object) {
@@ -109,15 +92,5 @@ class EloquentSetting implements SettingInterface {
 		return $config;
 	}
 
-
-	/**
-	 * Save to JSON
-	 *
-	 * @return void
-	 */
-	public function updateJSON()
-	{
-		Setting::set('config', $this->getAllFromDB());
-	}
 
 }

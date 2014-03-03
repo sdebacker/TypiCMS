@@ -7,6 +7,7 @@ class Translation extends Base {
 	use \Dimsav\Translatable\Translatable;
 
 	protected $fillable = array(
+		'group',
 		'key',
 		// Translatable fields
 		'translation'
