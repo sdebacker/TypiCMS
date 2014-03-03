@@ -83,6 +83,20 @@ body { padding-top: 65px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', '
 	}
 }
 
+// fade in-out animation
+.success-fade-out {
+     -webkit-animation: fadeout .25s ease-in-out;
+        -moz-animation: fadeout .25s ease-in-out;
+         -ms-animation: fadeout .25s ease-in-out;
+          -o-animation: fadeout .25s ease-in-out;
+             animation: fadeout .25s ease-in-out;
+}
+@-webkit-keyframes fadeout {  from { background-color: #fff; } 20% { background-color: lighten(@brand-success, 30%); } 70% { background-color: lighten(@brand-success, 30%); } to { background-color: #fff; } }
+   @-moz-keyframes fadeout {  from { background-color: #fff; } 20% { background-color: lighten(@brand-success, 30%); } 70% { background-color: lighten(@brand-success, 30%); } to { background-color: #fff; } }
+    @-ms-keyframes fadeout {  from { background-color: #fff; } 20% { background-color: lighten(@brand-success, 30%); } 70% { background-color: lighten(@brand-success, 30%); } to { background-color: #fff; } }
+     @-o-keyframes fadeout {  from { background-color: #fff; } 20% { background-color: lighten(@brand-success, 30%); } 70% { background-color: lighten(@brand-success, 30%); } to { background-color: #fff; } }
+        @keyframes fadeout {  from { background-color: #fff; } 20% { background-color: lighten(@brand-success, 30%); } 70% { background-color: lighten(@brand-success, 30%); } to { background-color: #fff; } }
+
 .max-height { max-height: 150px; overflow: scroll; }
 
 // Alertify

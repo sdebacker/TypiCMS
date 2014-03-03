@@ -245,6 +245,7 @@ function initListForm() {
 		});
 
 		$('[contenteditable]').on('keypress', function (event) {
+			// enter key without ctrl and command
 			if (event.keyCode == 13 && ! event.ctrlKey && ! event.metaKey) {
 				$(this).blur();
 				var number = $(this).index(),
@@ -257,8 +258,15 @@ function initListForm() {
 			}
 		});
 
+		$('[contenteditable]').on('focus', function (event) {
+			$(this).data('text-original', $(this).text());
+		});
+
 		$('[contenteditable]').on('blur', function (event) {
-			var data = {};
+			if ($(this).data('text-original') == $(this).text()) { return }
+
+			var data = {},
+			    cell = $(this);
 			data['id'] = $(this).parent().attr('id').split(/[_]+/).pop();
 			data[$(this).attr('data-name')] = $(this).text().trim();
 
@@ -266,7 +274,11 @@ function initListForm() {
 				url: cleanUrl() + '/' + data['id'],
 				data: data,
 				type: 'patch'
-			});			
+			}).done(function(){
+				cell.addClass('success-fade-out');
+			}).fail(function(){
+				cell.addClass('danger');
+			});
 			// console.log(JSON.stringify(data));
 		});
 
