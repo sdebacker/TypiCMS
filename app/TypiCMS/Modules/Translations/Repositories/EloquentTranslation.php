@@ -51,9 +51,23 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	public function create(array $data)
 	{
 		if ( $model = $this->model->create($data) ) {
+			// Save to json
+			$this->saveToJSON();
 			return $model;
 		}
 		return false;
+	}
+
+	
+	/**
+	 * Save to JSON
+	 *
+	 * @return boolean
+	 */
+	public function saveToJSON()
+	{
+		$translations = $this->getAllToArray();
+		dd($translations);
 	}
 
 
@@ -77,12 +91,19 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	 *
 	 * @return array
 	 */
-	public function getAllToArray()
+	public function getAllToArray($locale = null)
 	{
-		return $this->model
-			->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id')
-			->where('locale', App::getLocale())
-			->lists('translation', 'key');
+		$query = $this->model->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id');
+		if ($locale) {
+			$query->where('locale', $locale);
+			return $query->lists('translation', 'key');
+		}
+		$models = $query->orderBy('locale')->get();
+		$array = array();
+		foreach ($models as $model) {
+			$array[$model->locale][$model->key] = $model->translation;
+		}
+		// dd($array);
 	}
 
 

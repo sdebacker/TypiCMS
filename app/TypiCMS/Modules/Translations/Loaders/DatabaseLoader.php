@@ -30,6 +30,6 @@ class DatabaseLoader extends Loader implements LoaderInterface {
 	 */
 	public function loadRaw($locale, $group, $namespace = null)
 	{
-		return $this->repository->getAllToArray();
+		return $this->repository->getAllToArray($locale);
 	}
 }
