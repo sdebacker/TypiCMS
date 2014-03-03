@@ -1,10 +1,14 @@
 <?php namespace TypiCMS\Modules\Settings\Repositories;
 
-use DB;
 use stdClass;
 
-use TypiCMS\Repositories\RepositoriesAbstract;
+use DB;
+
 use Illuminate\Database\Eloquent\Model;
+
+use Setting;
+
+use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentSetting implements SettingInterface {
 
@@ -79,6 +83,9 @@ class EloquentSetting implements SettingInterface {
 	 */
 	public function getAllToArray()
 	{
+		if ($config = Setting::get('config')) {
+			return $config;
+		}
 		$config = array();
 		foreach (DB::table('settings')->get() as $object) {
 			$key = $object->key_name;
@@ -88,6 +95,7 @@ class EloquentSetting implements SettingInterface {
 				$config[$key] = $object->value;
 			}
 		}
+		Setting::set('config', $config);
 		return $config;
 	}
 

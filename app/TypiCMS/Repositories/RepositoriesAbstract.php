@@ -278,6 +278,11 @@ abstract class RepositoriesAbstract {
 	}
 
 
+	/**
+	 * Delete model
+	 *
+	 * @return boolean
+	 */
 	public function delete($model)
 	{
 		if ($model->files) {

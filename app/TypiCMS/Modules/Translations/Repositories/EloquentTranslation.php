@@ -6,6 +6,8 @@ use Config;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Setting;
+
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentTranslation extends RepositoriesAbstract implements TranslationInterface {
@@ -43,6 +45,59 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 
 
 	/**
+	 * Get translations to Array
+	 *
+	 * @return array
+	 */
+	public function getAllToArray($locale = null)
+	{
+		if ($translations = Setting::get('translations.' . $locale)) {
+			return $translations;
+		}
+		$this->saveToJSON();
+		return $this->model
+				->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id')
+				->where('locale', $locale)
+				->lists('translation', 'key');
+	}
+
+
+	/**
+	 * Get all models ordered by locale
+	 *
+     * @return Array $data
+	 */
+	public function getAllByLocales()
+	{
+		$query = $this->model->with('translations');
+		
+		$data = array();
+
+		$models = $query->get();
+		foreach ($models as $model) {
+			foreach ($model->translations as $translation) {
+				$data[$translation->locale][$model->key] = $translation->translation;
+			}
+		}
+		return $data;
+	}
+
+
+	/**
+	 * Save to JSON
+	 *
+	 * @return void
+	 */
+	public function saveToJSON()
+	{
+		$translations = $this->getAllByLocales();
+		foreach ($translations as $locale => $translation) {
+			Setting::set('translations.' . $locale, $translation);
+		}
+	}
+
+
+	/**
 	 * Create a new model
 	 *
 	 * @param array  Data to create a new object
@@ -51,7 +106,6 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	public function create(array $data)
 	{
 		if ( $model = $this->model->create($data) ) {
-			// Save to json
 			$this->saveToJSON();
 			return $model;
 		}
@@ -59,18 +113,6 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	}
 
 	
-	/**
-	 * Save to JSON
-	 *
-	 * @return boolean
-	 */
-	public function saveToJSON()
-	{
-		$translations = $this->getAllToArray();
-		dd($translations);
-	}
-
-
 	/**
 	 * Update an existing model
 	 *
@@ -82,28 +124,23 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 		$model = $this->model->find($data['id']);
 		$model->fill($data);
 		$model->save();
+		$this->saveToJSON();
 		return true;
 	}
 
 
 	/**
-	 * Get translations to Array
+	 * Delete model
 	 *
-	 * @return array
+	 * @return boolean
 	 */
-	public function getAllToArray($locale = null)
+	public function delete($model)
 	{
-		$query = $this->model->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id');
-		if ($locale) {
-			$query->where('locale', $locale);
-			return $query->lists('translation', 'key');
+		if ($model->delete()) {
+			$this->saveToJSON();
+			return true;
 		}
-		$models = $query->orderBy('locale')->get();
-		$array = array();
-		foreach ($models as $model) {
-			$array[$model->locale][$model->key] = $model->translation;
-		}
-		// dd($array);
+		return false;
 	}
 
 

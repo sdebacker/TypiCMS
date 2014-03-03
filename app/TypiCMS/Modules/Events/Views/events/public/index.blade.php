@@ -10,7 +10,7 @@
 			<br>
 			{{ $model->start_date }}@if($model->end_date) > {{ $model->end_date }} @endif
 			<br>
-			<a href="{{ route($lang.'.'.'events'.'.slug', $model->slug) }}">{{ Lang::trans('public.More') }}</a>
+			<a href="{{ route($lang.'.'.'events'.'.slug', $model->slug) }}">@lang('public.More')</a>
 		</li>
 		@endforeach
 	</ul>

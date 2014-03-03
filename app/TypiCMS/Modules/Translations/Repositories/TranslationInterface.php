@@ -20,6 +20,27 @@ interface TranslationInterface
     public function getAll($all = false);
 
     /**
+     * Get translations to Array
+     *
+     * @return array
+     */
+    public function getAllToArray($locale = null);
+
+   /**
+     * Get all models ordered by locale
+     *
+     * @return Array $data
+     */
+    public function getAllByLocales();
+
+    /**
+     * Save to JSON
+     *
+     * @return void
+     */
+    public function saveToJSON();
+
+    /**
      * Create a new Article
      *
      * @param array  Data to create a new object
@@ -34,12 +55,5 @@ interface TranslationInterface
      * @return boolean
      */
     public function update(array $data);
-
-    /**
-     * Get translations to Array
-     *
-     * @return array
-     */
-    public function getAllToArray();
 
 }
