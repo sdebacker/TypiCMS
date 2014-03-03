@@ -247,17 +247,20 @@ function initListForm() {
 		$('[contenteditable]').on('keypress', function (event) {
 			if (event.keyCode == 13 && ! event.ctrlKey && ! event.metaKey) {
 				$(this).blur();
-				var number = $(this).index();
-				$(this).parent().next('tr').children('td:eq(' + number + ')').focus();
+				var number = $(this).index(),
+					nextCell = $(this).parent().next('tr').children('td:eq(' + number + ')');
+				if ( ! nextCell.length) {
+					nextCell = $(this).parent().parent().children('tr:first-child').children('td:eq(' + (number + 1) + ')');
+				}
+				nextCell.focus();
 				event.preventDefault();
 			}
 		});
 
 		$('[contenteditable]').on('blur', function (event) {
 			var data = {};
-
-			data['id'] = $(this).parent().attr('id').split(/[_]+/).pop();;
-			data[$(this).attr('data-name')] = $(this).html();
+			data['id'] = $(this).parent().attr('id').split(/[_]+/).pop();
+			data[$(this).attr('data-name')] = $(this).text().trim();
 
 			$.ajax({
 				url: cleanUrl() + '/' + data['id'],
