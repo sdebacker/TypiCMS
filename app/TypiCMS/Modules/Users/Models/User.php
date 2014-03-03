@@ -5,23 +5,6 @@ use Cartalyst\Sentry\Users\Eloquent\User as SentryUserModel;
 
 class User extends SentryUserModel {
 
-	protected $fillable = array(
-		'email',
-		'permissions',
-		'activated',
-		'activated_at',
-		'last_login',
-		'first_name',
-		'last_name',
-	);
-
-	
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
 
 	public $view = 'users';
 	public $route = 'users';

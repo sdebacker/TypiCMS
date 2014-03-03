@@ -196,9 +196,8 @@ class UsersController extends BaseController {
 				->withInput()
 				->withErrors($this->form->errors());
 		}
-
 		// confirmation
-		$noConfirmation = false;
+		$noConfirmation = null;
 
 		try {
 
