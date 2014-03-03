@@ -52,14 +52,14 @@ class ListBuilder {
 	public function build($items)
 	{
 		if (count($items)) {
-			$this->list[] = ($this->list) ? '<ul role="menu">' : '<ul id="'.$this->id.'" class="'.implode(' ', $this->class).'" role="menu">' ;
+			$this->list[] = ($this->list) ? '<ul role="menu">' : '<ul class="'.implode(' ', $this->class).'" id="'.$this->id.'" role="menu">' ;
 
 			foreach ($items as $item) {
 				$liClass = array();
 				// online / offline class
 				$liClass[] = $item->status ? 'online' : 'offline' ;
 				// item
-				$this->list[] = '<li id="item_'.$item->id.'" class="'.implode(' ', $liClass).'" role="menuitem">';
+				$this->list[] = '<li class="'.implode(' ', $liClass).'" id="item_'.$item->id.'" role="menuitem">';
 				$this->list[] = '<div>';
 
 				// Disable checkbox when relations
@@ -212,7 +212,7 @@ class ListBuilder {
 				$aTarget = $item->target ? 'target="'.$item->target.'" ' : '' ;
 
 				// item
-				$this->list[] = '<li id="item_'.$item->id.'" class="'.$item->class.'" role="menuitem">';
+				$this->list[] = '<li class="'.$item->class.'" id="item_'.$item->id.'" role="menuitem">';
 
 				$this->list[] = '<a href="'.$item->page_uri.'" '.$aTarget.$aClass.$aDataToggle.'>';
 
@@ -357,7 +357,7 @@ class ListBuilder {
 		if ($html) {
 			$class = isset($parameters['class']) ? $parameters['class'] : '' ;
 			$id = isset($parameters['id']) ? $parameters['id'] : '' ;
-			$html = '<ul id="' . $id . '" class="' . $class . '" role="menu">';
+			$html = '<ul class="' . $class . '" id="' . $id . '" role="menu">';
 			foreach ($languagesMenu as $item):
 				$html .= '<li class="' . $item->class . '" role="menuitem">';
 				$html .= '<a href="' . $item->url . '">' . $item->lang . '</a>';

@@ -42,7 +42,10 @@ class TableBuilder {
 	public function build($items)
 	{
 		if (count($items)) {
-			$this->table[] = '<table id="'.$this->id.'" class="'.implode(' ', $this->class).'">' ;
+			
+			$this->table[] = '<div class="table-responsive">';
+
+			$this->table[] = '<table class="'.implode(' ', $this->class).'" id="'.$this->id.'">';
 
 			$this->getThead();
 
@@ -56,7 +59,7 @@ class TableBuilder {
 				$trClass[] = $item->status ? 'online' : 'offline' ;
 				
 				// Item
-				$this->table[] = '<tr id="item_'.$item->id.'" class="'.implode(' ', $trClass).'" role="menuitem">';
+				$this->table[] = '<tr class="'.implode(' ', $trClass).'" id="item_'.$item->id.'" role="menuitem">';
 				$this->checkboxes and $this->table[] = '<td><input type="checkbox" value="'.$item->id.'"></td>';
 
 				if ($this->edit) {
@@ -81,6 +84,8 @@ class TableBuilder {
 			$this->table[] = '</tbody>';
 
 			$this->table[] = '</table>';
+
+			$this->table[] = '</div>';
 
 		}
 		return implode("\r\n", $this->table);
