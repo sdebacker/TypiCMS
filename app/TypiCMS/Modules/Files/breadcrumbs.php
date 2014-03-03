@@ -22,16 +22,6 @@ $modulesWithFiles = array('pages', 'events', 'news', 'projects');
 
 foreach ($modulesWithFiles as $module) {
 
-	Breadcrumbs::register('admin.' . $module . '.index', function($breadcrumbs) use ($module) {
-		$breadcrumbs->parent('dashboard');
-		$breadcrumbs->push(Str::title(trans_choice('pages::global.' . $module . '', 2)), route('admin.' . $module . '.index'));
-	});
-
-	Breadcrumbs::register('admin.' . $module . '.edit', function($breadcrumbs, $page) use ($module) {
-		$breadcrumbs->parent('admin.' . $module . '.index');
-		$breadcrumbs->push($page->title, route('admin.' . $module . '.edit', $page->id));
-	});
-
 	Breadcrumbs::register('admin.' . $module . '.files.index', function($breadcrumbs, $model) use ($module) {
 		$breadcrumbs->parent('admin.' . $module . '.edit', $model);
 		$breadcrumbs->push(Str::title(trans_choice('files::global.files', 2)), route('admin.' . $module . '.files.index', $model->id));
