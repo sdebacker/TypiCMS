@@ -59,27 +59,6 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 
 
 	/**
-	 * Get all models ordered by locale
-	 *
-     * @return Array $data
-	 */
-	public function getAllByLocales()
-	{
-		$query = $this->model->with('translations');
-		
-		$data = array();
-
-		$models = $query->get();
-		foreach ($models as $model) {
-			foreach ($model->translations as $translation) {
-				$data[$translation->locale][$model->key] = $translation->translation;
-			}
-		}
-		return $data;
-	}
-
-
-	/**
 	 * Create a new model
 	 *
 	 * @param array  Data to create a new object
