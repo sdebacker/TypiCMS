@@ -54,7 +54,7 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 		if ($translations = Setting::get('translations.' . $locale)) {
 			return $translations;
 		}
-		$this->saveToJSON();
+		$this->updateJSON();
 		return $this->model
 				->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id')
 				->where('locale', $locale)
@@ -88,12 +88,9 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	 *
 	 * @return void
 	 */
-	public function saveToJSON()
+	public function updateJSON()
 	{
-		$translations = $this->getAllByLocales();
-		foreach ($translations as $locale => $translation) {
-			Setting::set('translations.' . $locale, $translation);
-		}
+		Setting::set('translations', $this->getAllByLocales());
 	}
 
 
@@ -106,7 +103,7 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	public function create(array $data)
 	{
 		if ( $model = $this->model->create($data) ) {
-			$this->saveToJSON();
+			$this->updateJSON();
 			return $model;
 		}
 		return false;
@@ -124,7 +121,7 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 		$model = $this->model->find($data['id']);
 		$model->fill($data);
 		$model->save();
-		$this->saveToJSON();
+		$this->updateJSON();
 		return true;
 	}
 
@@ -137,7 +134,7 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 	public function delete($model)
 	{
 		if ($model->delete()) {
-			$this->saveToJSON();
+			$this->updateJSON();
 			return true;
 		}
 		return false;

@@ -38,7 +38,7 @@ interface TranslationInterface
      *
      * @return void
      */
-    public function saveToJSON();
+    public function updateJSON();
 
     /**
      * Create a new Article

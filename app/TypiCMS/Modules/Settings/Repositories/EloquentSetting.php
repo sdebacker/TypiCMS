@@ -70,7 +70,7 @@ class EloquentSetting implements SettingInterface {
 				$save = $model->save();
 			}
 		}
-
+		$this->updateJSON();
 		return true;
 		
 	}
@@ -86,6 +86,17 @@ class EloquentSetting implements SettingInterface {
 		if ($config = Setting::get('config')) {
 			return $config;
 		}
+		return $this->getAllFromDB();
+	}
+
+
+	/**
+	 * Get all Settings from DB
+	 *
+	 * @return array
+	 */
+	public function getAllFromDB()
+	{
 		$config = array();
 		foreach (DB::table('settings')->get() as $object) {
 			$key = $object->key_name;
@@ -95,8 +106,18 @@ class EloquentSetting implements SettingInterface {
 				$config[$key] = $object->value;
 			}
 		}
-		Setting::set('config', $config);
 		return $config;
+	}
+
+
+	/**
+	 * Save to JSON
+	 *
+	 * @return void
+	 */
+	public function updateJSON()
+	{
+		Setting::set('config', $this->getAllFromDB());
 	}
 
 }
