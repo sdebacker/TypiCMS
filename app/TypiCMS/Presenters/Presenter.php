@@ -37,6 +37,9 @@ class Presenter {
 	{
 		foreach($collection as $key => $value) {
 			$collection->put($key, $this->model($value, $presenter));
+			if ($value->children instanceof Collection) {
+				$this->collection($value->children, $presenter);
+			}
 		}
 
 		return $collection;
