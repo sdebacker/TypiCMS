@@ -33,7 +33,7 @@ class PagesController extends BaseController {
 	{
 		$models = $this->repository->getAll(true);
 
-		// $models = $this->presenter->collection($models, new PagePresenter);
+		$models = $this->presenter->collection($models, new PagePresenter);
 
 		$this->layout->content = View::make('pages.admin.index')
 			->withModels($models);
