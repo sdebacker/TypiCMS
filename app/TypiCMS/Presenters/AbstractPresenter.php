@@ -111,7 +111,15 @@ abstract class AbstractPresenter implements ArrayAccess
 	*/
 	public function checkbox()
 	{
-		return '<input type="checkbox" value="' . $this->object->id . '">';
+		// Disable checkbox when relations
+		$disabled = '';
+		$relations = $this->object->getRelations();
+		$relations = array_except($relations, array('translations', 'files'));
+		if (reset($relations) and count(reset($relations))) {
+			$disabled = ' disabled';
+		}
+
+		return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
 	}
 
 
@@ -140,5 +148,12 @@ abstract class AbstractPresenter implements ArrayAccess
 		$html[] = '</a>';
 		return implode("\r\n", $html);
 	}
+
+
+	public function getTable()
+	{
+		return $this->object->getTable();
+	}
+
 
 }
