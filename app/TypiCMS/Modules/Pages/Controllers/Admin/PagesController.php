@@ -61,7 +61,6 @@ class PagesController extends BaseController {
 	 */
 	public function edit($model)
 	{
-
 		$this->title['child'] = trans('pages::global.Edit');
 		$this->layout->content = View::make('pages.admin.edit')
 			->withModel($model);

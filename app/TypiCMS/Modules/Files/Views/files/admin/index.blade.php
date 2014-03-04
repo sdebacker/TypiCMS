@@ -30,11 +30,11 @@
 
 			<div class="dropzone-previews clearfix sortable sortable-thumbnails">
 			@foreach ($models as $key => $model)
-				<a href="{{ route('admin.' . $parent->route . '.files.edit', array($model->fileable_id, $model->id)) }}" class="thumbnail @if($model->status == 1) online @else offline @endif" id="item_{{ $model->id }}">
-					<input type="checkbox" value="{{ $model->id }}">
-					<img src="{{ Croppa::url('/'.$model->path.'/'.$model->filename, 100, 100) }}" alt="{{ $model->alt_attribute }}">
+				<a class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.' . $parent->route . '.files.edit', array($model->fileable_id, $model->id)) }}">
+					{{ $model->checkbox }}
+					{{ $model->thumb }}
 					<div class="caption">
-						<div>{{ $model->filename }}</div>
+						<small>{{ $model->status }} {{ $model->filename }}</small>
 						<div>{{ $model->alt_attribute }}</div>
 					</div>
 				</a>

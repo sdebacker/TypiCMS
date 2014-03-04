@@ -60,7 +60,7 @@ function showMessage(responsetext, responsetype) {
 				<div class="dz-details">\
 					<img data-dz-thumbnail src="" alt="">\
 					<div class="caption">\
-						<div data-dz-name></div>\
+						<small data-dz-name></small>\
 						<div data-dz-size></div>\
 						<div class="dz-error-message"><span data-dz-errormessage></span></div>\
 					</div>\
@@ -81,6 +81,8 @@ function showMessage(responsetext, responsetype) {
 			acceptedFiles: 'image/jpeg,image/gif,image/png',
 			previewTemplate: dropZoneTemplate,
 			previewsContainer: '.dropzone-previews',
+			thumbnailWidth: 130,
+			thumbnailHeight: 130,
 			init: function () {
 				var totalFiles = 0,
 					completeFiles = 0;

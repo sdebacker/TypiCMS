@@ -58,10 +58,12 @@ body { padding-top: 65px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', '
 	.thumbnail { margin-top: 5px; }
 }
 
-.thumbnail { float: left; margin: 10px; display: block; position: relative; width: 110px; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none; transition: none;
-	.caption { font-size: 12px; padding: 0; margin-top: 1px; height: 64px; overflow: hidden; line-height: 16px; }
+.thumbnail { float: left; margin: 10px; display: block; position: relative; width: 140px; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none; transition: none;
+	.caption { font-size: 12px; padding: 0; margin-top: 1px; height: 64px; overflow: scroll; line-height: 16px; text-overflow: ellipsis; }
 	input[type=checkbox] { position: absolute; top: 2px; left: 2px; margin: 0; }
 	&:hover { text-decoration: none; }
+	.switch { display: inline-block; width: 6px; height: 6px; margin-top: 5px; text-indent: -9999px; background: no-repeat url(../../../img/status.gif); }
+	.switch.offline { background-position: 0 -6px; }
 }
 
 // .thumbnail-dropzone { margin: 10px 20px 10px 0; height: 174px; width: 110px; display: inline-block; background-color: #EEE; float: left; }

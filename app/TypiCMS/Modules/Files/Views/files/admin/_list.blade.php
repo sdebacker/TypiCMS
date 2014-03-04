@@ -1,14 +1,12 @@
 @if(count($files))
+	<p class="thumbnails-title"><strong><span id="nb_elements">{{ count($files) }}</span> @choice('files::global.files', count($files))</strong></p>
 	<div class="thumbnails">
-		<p class="thumbnails-title"><strong><span id="nb_elements">{{ count($files) }}</span> @choice('files::global.files', count($files))</strong></p>
 	@foreach($files as $file)
 		<div class="thumbnail">
-			<img src="{{ Croppa::url('/'.$file->path.'/'.$file->filename, 135, 135) }}" alt="{{ $file->alt_attribute }}">
+			<img src="{{ Croppa::url('/'.$file->path.'/'.$file->filename, 130, 130, array('quadrant' => 'T')) }}" alt="{{ $file->alt_attribute }}">
 			<div class="caption">
-				<p>
-					{{ $file->filename }} <br>
-					{{ $file->width }} × {{ $file->height }}
-				</p>
+				<small>{{ $file->filename }}</small>
+				<div>{{ $file->width }} × {{ $file->height }} px</div>
 			</div>
 		</div>
 	@endforeach
