@@ -18,7 +18,7 @@ class NewsControllerTest extends TestCase {
 		$news = $this->nestedViewsData[$view]['models'];
 
 		$this->assertNestedViewHas($view, 'models');
-		$this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $news);
+		$this->assertInstanceOf('Illuminate\Pagination\Paginator', $news);
 	}
 
 	public function testStoreFails()

@@ -11,11 +11,11 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
+		$this->call('PageSeeder'); // needed for tests
+		$this->call('MenuSeeder'); // needed for tests
 		$this->call('SentrySeeder');
 		$this->call('SettingsSeeder');
-		$this->call('PageSeeder');
 		$this->call('NewsSeeder');
-		$this->call('MenuSeeder');
 		$this->call('CategorySeeder');
 		$this->call('ProjectSeeder');
 		$this->call('TagSeeder');

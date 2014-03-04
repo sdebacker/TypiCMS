@@ -18,7 +18,7 @@ class EventsControllerTest extends TestCase {
 		$events = $this->nestedViewsData[$view]['models'];
 
 		$this->assertNestedViewHas($view, 'models');
-		$this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $events);
+		$this->assertInstanceOf('Illuminate\Pagination\Paginator', $events);
 	}
 
 	public function testStoreFails()
