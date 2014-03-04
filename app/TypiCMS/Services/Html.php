@@ -17,8 +17,9 @@ class Html {
 	 * @param boolean $sortable
 	 * @return string
 	 */
-	public function th($field, $sortable = true)
+	public function th($field, $sortable = true, $label = true)
 	{
+		$th[] = '<th class="' . $field . '">';
 		if ($sortable) {
 			$direction = 'asc';
 			$iconDir = ' text-muted';
@@ -28,14 +29,18 @@ class Html {
 				}
 				$iconDir = '-' . $direction;
 			}
-			$th[] = "\r\n" . '						<a href="?order=' . $field . '&direction=' . $direction . '">';
-			$th[] = '							<i class="fa fa-sort' . $iconDir . '"></i>';
+			$th[] = '<a href="?order=' . $field . '&direction=' . $direction . '">';
+			$th[] = '<i class="fa fa-sort' . $iconDir . '"></i> ';
 		}
-		$th[] = '							' . trans('validation.attributes.' . $field);
+		if ($label) {
+			$th[] = trans('validation.attributes.' . $field);
+		}
 		if ($sortable) {
-			$th[] = '						</a>' . "\r\n" . '					';
+			$th[] = '</a>';
 		}
-		return implode("\r\n", $th);
+		$th[] = '</th>';
+		$th[] = "\r\n";
+		return implode($th);
 	}
 
 }

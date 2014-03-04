@@ -224,7 +224,7 @@ return array(
 		'position' => 'Position',
 		'name' => 'Nom',
 		'path' => 'Chemin',
-		'files' => 'fichiers',
+		'files' => 'Fichiers',
 		'filename' => 'Nom du fichier',
 		'extension' => 'Extension',
 		'mimetype' => 'Type Mime',

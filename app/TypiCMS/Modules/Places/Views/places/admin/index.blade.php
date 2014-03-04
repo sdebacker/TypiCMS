@@ -24,12 +24,12 @@
 				<thead>
 
 					<tr>
-						<th></th>
-						<th></th>
-						<th>{{ Html::th('status') }}</th>
-						<th>{{ Html::th('title') }}</th>
-						<th>{{ Html::th('address') }}</th>
-						<th>{{ Html::th('website') }}</th>
+						{{ Html::th('checkboxes', false, false) }}
+						{{ Html::th('edit', false, false) }}
+						{{ Html::th('status') }}
+						{{ Html::th('title') }}
+						{{ Html::th('address') }}
+						{{ Html::th('website') }}
 					</tr>
 
 				</thead>
