@@ -127,11 +127,11 @@ abstract class AbstractPresenter implements ArrayAccess
 
 
 	/**
-	* Files
+	* Files in list
 	*
 	* @return string
 	*/
-	public function files()
+	public function countFiles()
 	{
 		$nbFiles = count($this->object->files);
 		$label = $nbFiles ? 'label-success' : 'label-default' ;

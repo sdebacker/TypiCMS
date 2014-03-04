@@ -46,7 +46,7 @@
 						<td>{{ $model->start_date }}</td>
 						<td>{{ $model->end_date }}</td>
 						<td>{{ $model->title }}</td>
-						<td>{{ $model->files }}</td>
+						<td>{{ $model->countFiles }}</td>
 					</tr>
 
 					@endforeach

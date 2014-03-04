@@ -44,7 +44,7 @@
 						<td>{{ $model->status }}</td>
 						<td>{{ $model->date }}</td>
 						<td>{{ $model->title }}</td>
-						<td>{{ $model->files }}</td>
+						<td>{{ $model->countFiles }}</td>
 					</tr>
 
 					@endforeach
