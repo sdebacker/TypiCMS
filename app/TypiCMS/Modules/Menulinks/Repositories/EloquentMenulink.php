@@ -65,7 +65,9 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 			->orderBy('menulinks.position')
 			->get();
 
-		$models->class = $models->first()->menuclass;
+		if ( ! $models->isEmpty()) {
+			$models->setClass($models->first()->menuclass);
+		}
 
 		return $models;
 

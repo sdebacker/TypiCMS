@@ -35,7 +35,7 @@ class MenulinksController extends BaseController {
 	{
 		$models = $this->repository->getAllFromMenu(true, $menu->id);
 
-		// $models = $this->presenter->collection($models, new MenulinkPresenter);
+		$models = $this->presenter->collection($models, new MenulinkPresenter);
 
 		$this->layout->content = View::make('menulinks.admin.index')
 			->withModels($models)

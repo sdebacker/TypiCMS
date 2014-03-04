@@ -58,7 +58,7 @@ class Menu extends Base {
 			return with(new ListBuilder)->languagesMenuHtml($attributes);
 		}
 		$menu = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getMenu($name);
-		$attributes['class'] = $menu->class;
+		$attributes['class'] = $menu->getClass();
 		$attributes['id'] = 'nav-' . $name;
 		return with(new ListBuilder($menu))->buildPublic()->toHtml($attributes);
 	}

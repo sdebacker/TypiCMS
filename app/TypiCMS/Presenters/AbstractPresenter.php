@@ -111,15 +111,7 @@ abstract class AbstractPresenter implements ArrayAccess
 	*/
 	public function checkbox()
 	{
-		// Disable checkbox when relations
-		$disabled = '';
-		$relations = $this->object->getRelations();
-		$relations = array_except($relations, array('translations', 'files'));
-		if (reset($relations) and count(reset($relations))) {
-			$disabled = ' disabled';
-		}
-
-		return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
+		return '<input type="checkbox" value="' . $this->object->id . '">';
 	}
 
 
@@ -131,6 +123,17 @@ abstract class AbstractPresenter implements ArrayAccess
 	public function edit()
 	{
 		return '<a class="btn btn-default btn-xs" href="' . route('admin.' . $this->object->route . '.edit', $this->object->id).'">' . trans('global.Edit') . '</a>';
+	}
+
+
+	/**
+	* Edit button
+	*
+	* @return string
+	*/
+	public function titleAnchor()
+	{
+		return '<a href="' . route('admin.' . $this->object->route . '.edit', $this->object->id).'">' . $this->object->title . '</a>';
 	}
 
 

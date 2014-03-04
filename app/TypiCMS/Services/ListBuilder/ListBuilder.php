@@ -18,17 +18,8 @@ class ListBuilder {
 	private $class = array('list-main');
 	private $nested = false;
 	private $sortable = false;
-	private $gallery = false;
 	private $checkboxes = true;
-	private $display = array('%s', 'title');
-	private $bootstrap = false;
-	private $public = false;
 	private $switch = true;
-	private $defaultChild = false;
-	private $langSignal = false;
-	private $member_access = false;
-	private $formatForDisplay;
-	private $fieldsForDisplay;
 
 	public function __construct($items = array(), array $properties = array())
 	{
@@ -38,13 +29,10 @@ class ListBuilder {
 		}
 		$this->nested and $this->class[] = 'nested';
 		$this->sortable and $this->class[] = 'sortable';
-		// Fields to display
-		$this->formatForDisplay = array_shift($this->display);
-		$this->fieldsForDisplay = $this->display;
 	}
 
 	/**
-	 * Nest items
+	 * Build nested list for admin side
 	 *
 	 * @param  array
 	 * @return string
@@ -52,35 +40,30 @@ class ListBuilder {
 	public function build($items)
 	{
 		if (count($items)) {
-			$this->list[] = ($this->list) ? '<ul role="menu">' : '<ul class="'.implode(' ', $this->class).'" id="'.$this->id.'" role="menu">' ;
+			$this->list[] = $this->list ? '<ul>' : '<ul class="'.implode(' ', $this->class).'" id="'.$this->id.'">' ;
 
 			foreach ($items as $item) {
 				$liClass = array();
 				// item
-				$this->list[] = '<li class="'.implode(' ', $liClass).'" id="item_'.$item->id.'" role="menuitem">';
+				$this->list[] = '<li class="'.implode(' ', $liClass).'" id="item_'.$item->id.'">';
+				
 				$this->list[] = '<div>';
 
-				// Disable checkbox when relations
-				$disabled = '';
-				$relations = $item->getRelations();
-				$relations = array_except($relations, 'translations');
-				if (count(reset($relations))) {
-					$disabled = 'disabled ';
-				}
-				$this->checkboxes and $this->list[] = '<input type="checkbox"'.$disabled.' value="'.$item->id.'">';
-				// online / offline class
-				$switchClass = $item->status ? 'online' : 'offline' ;
-				$this->switch and $this->list[] = '<span class="switch ' . $switchClass . '">' . trans('global.En ligne/Hors ligne') . '</span>';
+				$this->checkboxes and $this->list[] = $item->checkbox;
 
-				// Anchor
-				$this->getAnchor($item);
+				// online / offline class
+				$this->switch and $this->list[] = $item->status;
+
+				$this->list[] = $item->titleAnchor;
 
 				// Attachments
-				$this->getAttachmentsBtn($item);
+				$item->files and $this->list[] = '<div class="attachments">' . $item->countFiles . '</div>';
 
 				$this->list[] = '</div>';
-				// sublists
+
+				// Sublists
 				$item->children and $this->build($item->children);
+
 				$this->list[] = '</li>';
 			}
 			$this->list[] = '</ul>';
@@ -88,62 +71,9 @@ class ListBuilder {
 		return implode("\r\n", $this->list);
 	}
 
-	/**
-	 * Attachments indications
-	 *
-	 * @param  $item
-	 * @return $this
-	 */
-	public function getAttachmentsBtn($item)
-	{
-		if ($item->files) {
-			$this->list[] = '<div class="attachments">';
-			$nb = count($item->files);
-			$attachmentClass = $nb ? '' : 'text-muted' ;
-			$this->list[] = '<a class="'.$attachmentClass.'" href="'.route('admin.'.$item->route.'.files.index', $item->id).'">'.$nb.' '.trans_choice('files::global.files', $nb).'</a>';
-			$this->list[] = '</div>';
-		}
-		return $this;
-	}
 
 	/**
-	 * Main anchor
-	 *
-	 * @param  $item
-	 * @return $this
-	 */
-	public function getAnchor($item)
-	{
-		$params = $item->id;
-		$route = $item->getTable();
-		// Pas propre :
-		if (isset($item->menu_id) and $item->menu_id) {
-			$params = array($item->menu_id, $item->id);
-			$route = 'menus.menulinks';
-		}
-		$this->list[] = '<a href="'.route('admin.'.$route.'.edit', $params).'">';
-
-		$fieldsToDisplay = array();
-		foreach ($this->fieldsForDisplay as $fieldForDisplay) {
-			if (method_exists($item, $fieldForDisplay)) {
-				$fieldsToDisplay[] = $item->$fieldForDisplay();
-			} else if (is_object($item->$fieldForDisplay) and get_class($item->$fieldForDisplay) == 'Carbon\Carbon') {
-				$fieldsToDisplay[] = $item->$fieldForDisplay->format('d.m.Y');
-			} else if (is_array($item->$fieldForDisplay)) {
-				$fieldsToDisplay[] = implode(', ', $item->$fieldForDisplay);
-			} else {
-				$fieldsToDisplay[] = $item->$fieldForDisplay;
-			}
-		}
-		$this->list[] = vsprintf($this->formatForDisplay, $fieldsToDisplay);
-
-		$this->list[] = '</a>';
-
-		return $this;
-	}
-
-	/**
-	 * Nest items
+	 * Build nested list for public side
 	 *
 	 * @param  array
 	 * @return string

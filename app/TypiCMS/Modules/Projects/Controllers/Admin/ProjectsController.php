@@ -34,7 +34,7 @@ class ProjectsController extends BaseController {
 	{
 		$models = $this->repository->getAll(true);
 
-		// $models = $this->presenter->collection($models, new ProjectPresenter);
+		$models = $this->presenter->collection($models, new ProjectPresenter);
 
 		$this->layout->content = View::make('projects.admin.index')
 			->withModels($models);

@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Collection;
 class NestedCollection extends Collection {
 
 	private $total = 0;
+	protected $class;
 
 	public function __construct(array $items = array())
 	{
@@ -41,6 +42,15 @@ class NestedCollection extends Collection {
 		return $this;
 	}
 
+	public function setClass($class = '')
+	{
+		$this->class = $class;
+	}
+
+	public function getClass()
+	{
+		return $this->class;
+	}
 
 	/**
 	 * Get total items in nested collection

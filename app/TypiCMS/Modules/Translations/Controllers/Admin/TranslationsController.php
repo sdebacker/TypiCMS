@@ -8,6 +8,8 @@ use Request;
 use Session;
 use Redirect;
 
+use Illuminate\Support\Collection;
+
 use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 use TypiCMS\Modules\Translations\Services\Form\TranslationForm;
 
@@ -32,9 +34,9 @@ class TranslationsController extends BaseController {
 	 */
 	public function index()
 	{
-		$models = $this->repository->getAll(true);
+		$models = Collection::make($this->repository->getAll(true));
 
-		// $models = $this->presenter->collection($models, new TranslationPresenter);
+		$models = $this->presenter->collection($models, new TranslationPresenter);
 
 		$this->layout->content = View::make('translations.admin.index')
 			->withModels($models);

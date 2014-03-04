@@ -32,7 +32,7 @@ class CategoriesController extends BaseController {
 	{
 		$models = $this->repository->getAll(true);
 
-		// $models = $this->presenter->collection($models, new CategoryPresenter);
+		$models = $this->presenter->collection($models, new CategoryPresenter);
 
 		$this->layout->content = View::make('categories.admin.index')->withModels($models);
 	}

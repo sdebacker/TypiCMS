@@ -33,7 +33,7 @@ class MenusController extends BaseController {
 	{
 		$models = $this->repository->getAll(true);
 
-		// $models = $this->presenter->collection($models, new MenuPresenter);
+		$models = $this->presenter->collection($models, new MenuPresenter);
 
 		$this->layout->content = View::make('menus.admin.index')
 			->withModels($models);
