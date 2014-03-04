@@ -3,7 +3,7 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($models) }}</span> @choice('events::global.events', count($models))
+	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('events::global.events', $models->getTotal())
 @stop
 
 @section('addButton')
@@ -26,10 +26,10 @@
 					<tr>
 						<th></th>
 						<th></th>
-						<th>{{ Html::th('status') }}</th>
+						<th>{{ Html::th('status', false) }}</th>
 						<th>{{ Html::th('start_date') }}</th>
 						<th>{{ Html::th('end_date') }}</th>
-						<th>{{ Html::th('title') }}</th>
+						<th>{{ Html::th('title', false) }}</th>
 					</tr>
 
 				</thead>
@@ -45,7 +45,6 @@
 						<td>{{ $model->start_date }}</td>
 						<td>{{ $model->end_date }}</td>
 						<td>{{ $model->title }}</td>
-						<td><a href="{{ $model->website }}" target="_blank">{{ $model->website }}</a></td>
 					</tr>
 
 					@endforeach
@@ -57,5 +56,7 @@
 		</div>
 
 	</div>
+
+	{{ $models->appends(Input::except('page'))->links() }}
 
 @stop

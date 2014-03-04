@@ -5,6 +5,7 @@ use Input;
 use Config;
 use Request;
 use Redirect;
+use Paginator;
 
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 use TypiCMS\Modules\Events\Services\Form\EventForm;
@@ -30,8 +31,15 @@ class EventsController extends BaseController {
 	 */
 	public function index()
 	{
-		$models = $this->repository->getAll(true);
-		$models = $this->presenter->collection($models, new EventPresenter);
+		$page = Input::get('page');
+
+		$itemsPerPage = 10;
+		$data = $this->repository->byPage($page, $itemsPerPage, true);
+
+		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+
+		$models = $this->presenter->paginator($models, new EventPresenter);
+
 		$this->layout->content = View::make('events.admin.index')->withModels($models);
 	}
 

@@ -6,17 +6,23 @@ use Input;
 use Config;
 use Request;
 use Redirect;
+use Paginator;
 
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 use TypiCMS\Modules\News\Services\Form\NewsForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\News\Presenters\NewsPresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class NewsController extends BaseController {
 
-	public function __construct(NewsInterface $news, NewsForm $newsform)
+	public function __construct(NewsInterface $news, NewsForm $newsform, Presenter $presenter)
 	{
-		parent::__construct($news, $newsform);
+		parent::__construct($news, $newsform, $presenter);
 		$this->title['parent'] = Str::title(trans_choice('news::global.news', 2));
 	}
 
@@ -26,7 +32,15 @@ class NewsController extends BaseController {
 	 */
 	public function index()
 	{
-		$models = $this->repository->getAll(true);
+		$page = Input::get('page');
+
+		$itemsPerPage = 10;
+		$data = $this->repository->byPage($page, $itemsPerPage, true);
+
+		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+
+		$models = $this->presenter->paginator($models, new NewsPresenter);
+
 		$this->layout->content = View::make('news.admin.index')->withModels($models);
 	}
 

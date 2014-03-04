@@ -3,7 +3,7 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($models) }}</span> @choice('news::global.news', count($models))
+	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('news::global.news', $models->getTotal())
 @stop
 
 @section('addButton')
@@ -17,8 +17,44 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminList($models, array('display' => array('%s — %s', 'date', 'title'))) }}
+		<div class="table-responsive">
+
+			<table class="table table-condensed table-main">
+
+				<thead>
+
+					<tr>
+						<th></th>
+						<th></th>
+						<th>{{ Html::th('status', false) }}</th>
+						<th>{{ Html::th('date') }}</th>
+						<th>{{ Html::th('title', false) }}</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					@foreach ($models as $model)
+
+					<tr id="item_{{ $model->id }}">
+						<td>{{ $model->checkbox }}</td>
+						<td>{{ $model->edit }}</td>
+						<td>{{ $model->status }}</td>
+						<td>{{ $model->date }}</td>
+						<td>{{ $model->title }}</td>
+					</tr>
+
+					@endforeach
+
+				</tbody>
+
+			</table>
+
+		</div>
 		
 	</div>
+
+	{{ $models->appends(Input::except('page'))->links() }}
 
 @stop
