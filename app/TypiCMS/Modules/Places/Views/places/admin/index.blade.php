@@ -17,7 +17,41 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminTable($models, array('files' => false, 'display' => array(array('%s', 'title'), array('%s', 'address'), array('<a href="%s" target="_blank">%s</a>', 'website', 'website')))) }}
+		<div class="table-responsive">
+
+			<table class="table table-condensed table-main">
+
+				<thead>
+
+					<th></th>
+					<th></th>
+					<th>{{ Html::th('status') }}</th>
+					<th>{{ Html::th('title') }}</th>
+					<th>{{ Html::th('address') }}</th>
+					<th>{{ Html::th('website') }}</th>
+
+				</thead>
+
+				<tbody>
+
+					@foreach ($models as $model)
+
+					<tr id="item_{{ $model->id }}">
+						<td>{{ $model->checkbox }}</td>
+						<td>{{ $model->edit }}</td>
+						<td>{{ $model->status }}</td>
+						<td>{{ $model->title }}</td>
+						<td>{{ $model->address }}</td>
+						<td><a href="{{ $model->website }}" target="_blank">{{ $model->website }}</a></td>
+					</tr>
+
+					@endforeach
+
+				</tbody>
+
+			</table>
+
+		</div>
 
 	</div>
 

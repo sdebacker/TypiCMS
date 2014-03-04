@@ -15,6 +15,7 @@ abstract class BaseController extends Controller {
 
 	protected $repository;
 	protected $form;
+	protected $presenter;
 
 	/**
 	 * The layout that should be used for responses.
@@ -47,10 +48,11 @@ abstract class BaseController extends Controller {
 	}
 
 
-	public function __construct($repository = null, $form = null)
+	public function __construct($repository = null, $form = null, $presenter = null)
 	{
 		$this->repository = $repository;
 		$this->form = $form;
+		$this->presenter = $presenter;
 		
 		// App::getLocale() and Config::get('app.locale') is set by Input::get('locale') (cf. global.php)
 		// Lang::getLocale() is default value for admin interface

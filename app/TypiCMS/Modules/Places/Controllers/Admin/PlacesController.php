@@ -10,13 +10,18 @@ use Paginator;
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 use TypiCMS\Modules\Places\Services\Form\PlaceForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Places\Presenters\PlacePresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class PlacesController extends BaseController {
 
-	public function __construct(PlaceInterface $place, PlaceForm $placeform)
+	public function __construct(PlaceInterface $place, PlaceForm $placeform, Presenter $presenter)
 	{
-		parent::__construct($place, $placeform);
+		parent::__construct($place, $placeform, $presenter);
 		$this->title['parent'] = trans_choice('places::global.places', 2);
 	}
 
@@ -31,7 +36,10 @@ class PlacesController extends BaseController {
 
 		$itemsPerPage = 10;
 		$data = $this->repository->byPage($page, $itemsPerPage, true);
+
 		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+
+		$models = $this->presenter->paginator($models, new PlacePresenter);
 
 		$this->layout->content = View::make('places.admin.index')
 			->withModels($models);
