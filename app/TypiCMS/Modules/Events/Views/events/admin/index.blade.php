@@ -17,7 +17,44 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminList($models, array('display' => array('%s > %s : %s', 'start_date', 'end_date', 'title'))) }}
+		<div class="table-responsive">
+
+			<table class="table table-condensed table-main">
+
+				<thead>
+
+					<tr>
+						<th></th>
+						<th></th>
+						<th>{{ Html::th('status') }}</th>
+						<th>{{ Html::th('start_date') }}</th>
+						<th>{{ Html::th('end_date') }}</th>
+						<th>{{ Html::th('title') }}</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					@foreach ($models as $model)
+
+					<tr id="item_{{ $model->id }}">
+						<td>{{ $model->checkbox }}</td>
+						<td>{{ $model->edit }}</td>
+						<td>{{ $model->status }}</td>
+						<td>{{ $model->start_date }}</td>
+						<td>{{ $model->end_date }}</td>
+						<td>{{ $model->title }}</td>
+						<td><a href="{{ $model->website }}" target="_blank">{{ $model->website }}</a></td>
+					</tr>
+
+					@endforeach
+
+				</tbody>
+
+			</table>
+
+		</div>
 
 	</div>
 

@@ -9,13 +9,18 @@ use Redirect;
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 use TypiCMS\Modules\Events\Services\Form\EventForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Events\Presenters\EventPresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class EventsController extends BaseController {
 
-	public function __construct(EventInterface $event, EventForm $eventform)
+	public function __construct(EventInterface $event, EventForm $eventform, Presenter $presenter)
 	{
-		parent::__construct($event, $eventform);
+		parent::__construct($event, $eventform, $presenter);
 		$this->title['parent'] = trans_choice('events::global.events', 2);
 	}
 
@@ -26,6 +31,7 @@ class EventsController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true);
+		$models = $this->presenter->collection($models, new EventPresenter);
 		$this->layout->content = View::make('events.admin.index')->withModels($models);
 	}
 
