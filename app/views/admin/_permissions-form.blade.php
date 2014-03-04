@@ -15,13 +15,13 @@
 		<thead>
 			<tr>
 				<th></th>
-				<th>@lang('global.crud.Index')</th>
-				<th>@lang('global.crud.View')</th>
-				<th>@lang('global.crud.Create')</th>
-				<th>@lang('global.crud.Store')</th>
-				<th>@lang('global.crud.Update')</th>
-				<th>@lang('global.crud.Sort')</th>
-				<th>@lang('global.crud.Delete')</th>
+				<th>@lang('global.Index')</th>
+				<th>@lang('global.View')</th>
+				<th>@lang('global.Create')</th>
+				<th>@lang('global.Store')</th>
+				<th>@lang('global.Update')</th>
+				<th>@lang('global.Sort')</th>
+				<th>@lang('global.Delete')</th>
 			</tr>
 		</thead>
 		<tbody>
