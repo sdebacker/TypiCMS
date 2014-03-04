@@ -19,19 +19,43 @@
 		
 		@include('admin._buttons-list')
 
-		{{ HTML::adminTable($models, array(
-			'display' => array(
-				array('%s %s', 'first_name', 'last_name'),
-				array('<a href="mailto:%s">%s</a>', 'email', 'email'),
-				array('%s', 'getMergedPermissions'),
-				array('%s', 'isSuperUser'),
-				array('%s', 'isActivated')
-			),
-			'sortable' => false,
-			'switch' => false,
-			'files' => false,
-			))
-		}}
+		<div class="table-responsive">
+
+			<table class="table table-condensed table-main">
+
+				<thead>
+
+					<th></th>
+					<th></th>
+					<th>{{ Html::th('name') }}</th>
+					<th>{{ Html::th('email') }}</th>
+					<th>{{ Html::th('permissions', false) }}</th>
+					<th>{{ Html::th('isSuperUser') }}</th>
+					<th>{{ Html::th('isActivated') }}</th>
+
+				</thead>
+
+				<tbody>
+
+					@foreach ($models as $model)
+
+					<tr id="item_{{ $model->id }}">
+						<td>{{ $model->checkbox }}</td>
+						<td>{{ $model->edit }}</td>
+						<td>{{ $model->first_name }} {{ $model->last_name }}</td>
+						<td><a href="mailto:{{ $model->email }}">{{ $model->email }}</a></td>
+						<td>{{ $model->getMergedPermissions }}</td>
+						<td>{{ $model->superuser }}</td>
+						<td>{{ $model->activated }}</td>
+					</tr>
+
+					@endforeach
+
+				</tbody>
+
+			</table>
+
+		</div>
 
 	</div>
 

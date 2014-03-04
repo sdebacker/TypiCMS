@@ -11,18 +11,6 @@ class User extends SentryUserModel {
 
 
 	/**
-	 * Returns the user full name, it simply concatenates
-	 * the user first and last name.
-	 *
-	 * @return string
-	 */
-	public function fullName()
-	{
-		return $this->first_name . ' ' . $this->last_name;
-	}
-
-
-	/**
 	 * lists
 	 */
 	public static $order = 'last_name';

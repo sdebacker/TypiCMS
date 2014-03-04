@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Presenters;
 
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 class Presenter {
 

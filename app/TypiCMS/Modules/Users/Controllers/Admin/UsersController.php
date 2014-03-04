@@ -10,9 +10,16 @@ use Redirect;
 use Exception;
 use Notification;
 
+use Illuminate\Support\Collection;
+
 use TypiCMS\Modules\Users\Repositories\UserInterface;
 use TypiCMS\Modules\Users\Services\Form\UserForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Users\Presenters\UserPresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class UsersController extends BaseController {
@@ -23,9 +30,9 @@ class UsersController extends BaseController {
 	 * @param UserInterface $user
 	 * @param UserForm $userform
 	 */
-	public function __construct(UserInterface $user, UserForm $userform)
+	public function __construct(UserInterface $user, UserForm $userform, Presenter $presenter)
 	{
-		parent::__construct($user, $userform);
+		parent::__construct($user, $userform, $presenter);
 		$this->title['parent'] = trans_choice('users::global.users', 2);
 	}
 
@@ -71,7 +78,9 @@ class UsersController extends BaseController {
 	public function index()
 	{
 		// Grab all the users
-		$models = $this->repository->getAll(true);
+		$models = Collection::make($this->repository->getAll(true));
+
+		$models = $this->presenter->collection($models, new UserPresenter);
 
 		$this->layout->content = View::make('admin.users.index')->withModels($models);
 	}
