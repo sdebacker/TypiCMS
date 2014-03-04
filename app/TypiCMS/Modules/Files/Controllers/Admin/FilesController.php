@@ -11,13 +11,18 @@ use Notification;
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 use TypiCMS\Modules\Files\Services\Form\FileForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Files\Presenters\FilePresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class FilesController extends BaseController {
 
-	public function __construct(FileInterface $file, FileForm $fileform)
+	public function __construct(FileInterface $file, FileForm $fileform, Presenter $presenter)
 	{
-		parent::__construct($file, $fileform);
+		parent::__construct($file, $fileform, $presenter);
 		$this->title['parent'] = trans_choice('files::global.files', 2);
 	}
 
@@ -49,6 +54,8 @@ class FilesController extends BaseController {
 		$itemsPerPage = $parent ? 100 : 10;
 		$data = $this->repository->byPage($page, $itemsPerPage, true, $parent);
 		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+
+		$models = $this->presenter->paginator($models, new FilePresenter);
 
 		if ($parent) {
 			// no pagination

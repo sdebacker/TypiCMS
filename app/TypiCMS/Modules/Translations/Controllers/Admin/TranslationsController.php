@@ -11,13 +11,18 @@ use Redirect;
 use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 use TypiCMS\Modules\Translations\Services\Form\TranslationForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Translations\Presenters\TranslationPresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class TranslationsController extends BaseController {
 
-	public function __construct(TranslationInterface $translation, TranslationForm $translationform)
+	public function __construct(TranslationInterface $translation, TranslationForm $translationform, Presenter $presenter)
 	{
-		parent::__construct($translation, $translationform);
+		parent::__construct($translation, $translationform, $presenter);
 		$this->title['parent'] = trans_choice('translations::global.translations', 2);
 	}
 
@@ -28,6 +33,9 @@ class TranslationsController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true);
+
+		// $models = $this->presenter->collection($models, new TranslationPresenter);
+
 		$this->layout->content = View::make('translations.admin.index')
 			->withModels($models);
 	}

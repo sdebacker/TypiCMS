@@ -11,13 +11,18 @@ use Redirect;
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Projects\Presenters\ProjectPresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class ProjectsController extends BaseController {
 
-	public function __construct(ProjectInterface $project, ProjectForm $projectform)
+	public function __construct(ProjectInterface $project, ProjectForm $projectform, Presenter $presenter)
 	{
-		parent::__construct($project, $projectform);
+		parent::__construct($project, $projectform, $presenter);
 		$this->title['parent'] = trans_choice('projects::global.projects', 2);
 	}
 
@@ -28,6 +33,9 @@ class ProjectsController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true);
+
+		// $models = $this->presenter->collection($models, new ProjectPresenter);
+
 		$this->layout->content = View::make('projects.admin.index')
 			->withModels($models);
 	}

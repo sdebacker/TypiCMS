@@ -9,13 +9,18 @@ use Redirect;
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 use TypiCMS\Modules\Categories\Services\Form\CategoryForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Categories\Presenters\CategoryPresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class CategoriesController extends BaseController {
 
-	public function __construct(CategoryInterface $category, CategoryForm $categoryform)
+	public function __construct(CategoryInterface $category, CategoryForm $categoryform, Presenter $presenter)
 	{
-		parent::__construct($category, $categoryform);
+		parent::__construct($category, $categoryform, $presenter);
 		$this->title['parent'] = trans_choice('categories::global.categories', 2);
 	}
 
@@ -26,6 +31,9 @@ class CategoriesController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true);
+
+		// $models = $this->presenter->collection($models, new CategoryPresenter);
+
 		$this->layout->content = View::make('categories.admin.index')->withModels($models);
 	}
 

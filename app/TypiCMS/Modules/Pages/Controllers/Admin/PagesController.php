@@ -9,13 +9,18 @@ use Redirect;
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 use TypiCMS\Modules\Pages\Services\Form\PageForm;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Pages\Presenters\PagePresenter;
+
+// Base controller
 use App\Controllers\Admin\BaseController;
 
 class PagesController extends BaseController {
 
-	public function __construct(PageInterface $page, PageForm $pageform)
+	public function __construct(PageInterface $page, PageForm $pageform, Presenter $presenter)
 	{
-		parent::__construct($page, $pageform);
+		parent::__construct($page, $pageform, $presenter);
 		$this->title['parent'] = trans_choice('pages::global.pages', 2);
 	}
 
@@ -27,6 +32,9 @@ class PagesController extends BaseController {
 	public function index()
 	{
 		$models = $this->repository->getAll(true);
+
+		// $models = $this->presenter->collection($models, new PagePresenter);
+
 		$this->layout->content = View::make('pages.admin.index')
 			->withModels($models);
 	}
