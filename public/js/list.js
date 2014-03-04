@@ -134,15 +134,14 @@ function initListForm() {
 
 	// Enable online button
 	switches.click(function(){
-		var item = $(this).closest('li,tr'),
-			status = item.hasClass('online') ? 'online' : 'offline' ,
-			newStatus = item.hasClass('online') ? 'offline' : 'online' ,
-			newStatusValue = item.hasClass('online') ? 0 : 1 ,
-			id = item.attr('id').split('_')[1],
+		var id = $(this).closest('li,tr').attr('id').split('_')[1],
+			status = $(this).hasClass('online') ? 'online' : 'offline' ,
+			newStatus = $(this).hasClass('online') ? 'offline' : 'online' ,
+			newStatusValue = $(this).hasClass('online') ? 0 : 1 ,
 			data = {};
 		data['id'] = id;
 		data[contentLocale] = {'status' : newStatusValue};
-		$('#item_' + id).removeClass(status).addClass(newStatus);
+		$(this).removeClass(status).addClass(newStatus);
 		$.ajax({
 			type: 'PATCH',
 			url: document.URL.split('?')[0] + '/' + id,
@@ -165,6 +164,8 @@ function initListForm() {
 
 		checkedCheckboxes.each(function(){
 			var id = $(this).val(),
+				statusSwitch = $('#item_' + id + ' .switch'),
+				checkbox = $(this),
 				data = {};
 			data['id'] = id;
 			data[contentLocale] = {'status' : 1};
@@ -173,7 +174,8 @@ function initListForm() {
 				url: url + '/' + id,
 				data: data
 			}).done(function(){
-				$('#item_' + id).removeClass('offline').addClass('online').find(':checkbox').prop({'checked':false});
+				statusSwitch.removeClass('offline').addClass('online');
+				checkbox.prop({'checked':false});
 				nombreElementsTraites++;
 				if (nombreElementsSelectionnes == nombreElementsTraites) {
 					alertify.success(nombreElementsSelectionnes + ' items set online.');
@@ -194,6 +196,8 @@ function initListForm() {
 
 		checkedCheckboxes.each(function(){
 			var id = $(this).val(),
+				statusSwitch = $('#item_' + id + ' .switch'),
+				checkbox = $(this),
 				data = {};
 			data['id'] = id;
 			data[contentLocale] = {'status' : 0};
@@ -202,7 +206,8 @@ function initListForm() {
 				url: url + '/' + id,
 				data: data
 			}).done(function(){
-				$('#item_' + id).removeClass('online').addClass('offline').find(':checkbox').prop({'checked':false});
+				statusSwitch.removeClass('online').addClass('offline');
+				checkbox.prop({'checked':false});
 				nombreElementsTraites++;
 				if (nombreElementsSelectionnes == nombreElementsTraites) {
 					alertify.success(nombreElementsSelectionnes + ' items set offline.');
