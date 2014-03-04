@@ -17,7 +17,37 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminTable($models, array('edit' => false, 'switch' => false, 'files' => false, 'display' => array(array('%s', 'tag'), array('%s', 'uses')))) }}
+		<div class="table-responsive">
+
+			<table class="table table-condensed table-main">
+
+				<thead>
+
+					<tr>
+						<th></th>
+						<th>{{ Html::th('tag') }}</th>
+						<th>{{ Html::th('uses') }}</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					@foreach ($models as $model)
+
+					<tr id="item_{{ $model->id }}">
+						<td>{{ $model->checkbox }}</td>
+						<td>{{ $model->tag }}</td>
+						<td>{{ $model->uses }}</td>
+					</tr>
+
+					@endforeach
+
+				</tbody>
+
+			</table>
+
+		</div>
 
 	</div>
 

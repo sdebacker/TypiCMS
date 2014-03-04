@@ -25,13 +25,15 @@
 
 				<thead>
 
-					<th></th>
-					<th></th>
-					<th>{{ Html::th('name') }}</th>
-					<th>{{ Html::th('email') }}</th>
-					<th>{{ Html::th('permissions', false) }}</th>
-					<th>{{ Html::th('isSuperUser') }}</th>
-					<th>{{ Html::th('isActivated') }}</th>
+					<tr>
+						<th></th>
+						<th></th>
+						<th>{{ Html::th('name') }}</th>
+						<th>{{ Html::th('email') }}</th>
+						<th>{{ Html::th('permissions', false) }}</th>
+						<th>{{ Html::th('isSuperUser') }}</th>
+						<th>{{ Html::th('isActivated') }}</th>
+					</tr>
 
 				</thead>
 

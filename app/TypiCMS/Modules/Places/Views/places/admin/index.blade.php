@@ -23,12 +23,14 @@
 
 				<thead>
 
-					<th></th>
-					<th></th>
-					<th>{{ Html::th('status') }}</th>
-					<th>{{ Html::th('title') }}</th>
-					<th>{{ Html::th('address') }}</th>
-					<th>{{ Html::th('website') }}</th>
+					<tr>
+						<th></th>
+						<th></th>
+						<th>{{ Html::th('status') }}</th>
+						<th>{{ Html::th('title') }}</th>
+						<th>{{ Html::th('address') }}</th>
+						<th>{{ Html::th('website') }}</th>
+					</tr>
 
 				</thead>
 
