@@ -26,6 +26,9 @@ return array(
 	'Sort' => 'Ordonner',
 	'Edit' => 'Modifier',
 
+	'Yes' => 'Oui',
+	'No' => 'Non',
+
 	'Home' => 'Accueil',
 	'En ligne/Hors ligne' => 'En ligne/Hors ligne',
 	'No default page found' => 'Aucune page d’accueil trouvée',
