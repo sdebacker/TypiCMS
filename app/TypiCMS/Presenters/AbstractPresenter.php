@@ -125,4 +125,20 @@ abstract class AbstractPresenter implements ArrayAccess
 		return '<a class="btn btn-default btn-xs" href="' . route('admin.' . $this->object->route . '.edit', $this->object->id).'">' . trans('global.Edit') . '</a>';
 	}
 
+
+	/**
+	* Files
+	*
+	* @return string
+	*/
+	public function files()
+	{
+		$nbFiles = count($this->object->files);
+		$label = $nbFiles ? 'label-success' : 'label-default' ;
+		$html[] = '<a class="label ' . $label . '" href="' . route('admin.' . $this->object->route . '.files.index', $this->object->id) . '">';
+		$html[] = $nbFiles;
+		$html[] = '</a>';
+		return implode("\r\n", $html);
+	}
+
 }

@@ -30,6 +30,7 @@
 						<th>{{ Html::th('start_date') }}</th>
 						<th>{{ Html::th('end_date') }}</th>
 						<th>{{ Html::th('title', false) }}</th>
+						<th>{{ Html::th('files', false) }}</th>
 					</tr>
 
 				</thead>
@@ -45,6 +46,7 @@
 						<td>{{ $model->start_date }}</td>
 						<td>{{ $model->end_date }}</td>
 						<td>{{ $model->title }}</td>
+						<td>{{ $model->files }}</td>
 					</tr>
 
 					@endforeach

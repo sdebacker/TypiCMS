@@ -29,6 +29,7 @@
 						<th>{{ Html::th('status', false) }}</th>
 						<th>{{ Html::th('date') }}</th>
 						<th>{{ Html::th('title', false) }}</th>
+						<th>{{ Html::th('files', false) }}</th>
 					</tr>
 
 				</thead>
@@ -43,6 +44,7 @@
 						<td>{{ $model->status }}</td>
 						<td>{{ $model->date }}</td>
 						<td>{{ $model->title }}</td>
+						<td>{{ $model->files }}</td>
 					</tr>
 
 					@endforeach
