@@ -5,15 +5,21 @@ use Input;
 use Request;
 use Paginator;
 
-use App\Controllers\Admin\BaseController;
-
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
+use TypiCMS\Modules\Tags\Services\Form\TagForm;
+
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Tags\Presenters\TagPresenter;
+
+// Base controller
+use App\Controllers\Admin\BaseController;
 
 class TagsController extends BaseController {
 
-	public function __construct(TagInterface $tag)
+	public function __construct(TagInterface $tag, TagForm $tagform, Presenter $presenter)
 	{
-		parent::__construct($tag);
+		parent::__construct($tag, $tagform, $presenter);
 		$this->title['parent'] = trans_choice('tags::global.tags', 2);
 	}
 
@@ -31,6 +37,7 @@ class TagsController extends BaseController {
 		$itemsPerPage = 25;
 		$data = $this->repository->byPage($page, $itemsPerPage, true);
 		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+		$models = $this->presenter->paginator($models, new TagPresenter);
 
 		$this->layout->content = View::make('tags.admin.index')
 			->withModels($models);

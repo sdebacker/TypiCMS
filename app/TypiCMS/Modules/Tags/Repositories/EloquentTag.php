@@ -8,17 +8,14 @@ use App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use TypiCMS\Modules\Tags\Repositories\TagInterface;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentTag extends RepositoriesAbstract implements TagInterface {
 
-	protected $tag;
-
 	// Class expects an Eloquent model
-	public function __construct(Model $tag)
+	public function __construct(Model $model)
 	{
-		$this->tag = $tag;
+		$this->model = $model;
 	}
 
 
@@ -36,7 +33,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 		$result->totalItems = 0;
 		$result->items = array();
 
-		$query = $this->tag->select(
+		$query = $this->model->select(
 				'*',
 				DB::raw("(SELECT COUNT(*) FROM `typi_taggables` WHERE `tag_id` = `typi_tags`.`id`) AS 'uses'")
 			)
@@ -47,7 +44,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
                         ->get();
 
 		// Put items and totalItems in StdClass
-		$result->totalItems = $this->tag->count();
+		$result->totalItems = $this->model->count();
 		$result->items = $models->all();
 
 		return $result;
@@ -62,7 +59,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 	 */
 	public function getAll($all = false, $relatedModel = null)
 	{
-		$query = $this->tag;
+		$query = $this->model;
 
 		$models = $query->lists('tag');
 
@@ -78,7 +75,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 	 */
 	public function findOrCreate(array $tags)
 	{
-		$foundTags = $this->tag->whereIn('tag', $tags)->get();
+		$foundTags = $this->model->whereIn('tag', $tags)->get();
 
 		$returnTags = array();
 
@@ -96,7 +93,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 
 		// Add remainings tags as new
 		foreach( $tags as $tag ) {
-			$returnTags[] = $this->tag->create(array(
+			$returnTags[] = $this->model->create(array(
 				'tag' => $tag,
 				'slug' => Str::slug($tag),
 			));

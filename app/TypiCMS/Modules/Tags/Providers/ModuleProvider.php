@@ -16,6 +16,10 @@ use TypiCMS\Modules\Tags\Repositories\EloquentTag;
 use TypiCMS\Modules\Tags\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
+// Form
+use TypiCMS\Modules\Tags\Services\Form\TagForm;
+use TypiCMS\Modules\Tags\Services\Form\TagFormLaravelValidator;
+
 class ModuleProvider extends ServiceProvider {
 
 	public function boot()
@@ -41,6 +45,14 @@ class ModuleProvider extends ServiceProvider {
 			}
 			$laravelCache = new LaravelCache($app['cache'], 'Tags', 10);
 			return new CacheDecorator($repository, $laravelCache);
+		});
+
+		$app->bind('TypiCMS\Modules\Tags\Services\Form\TagForm', function($app)
+		{
+			return new TagForm(
+				new TagFormLaravelValidator( $app['validator'] ),
+				$app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
+			);
 		});
 
 		$app->before(function($request, $response)
