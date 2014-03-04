@@ -21,9 +21,9 @@
 	<div class="clearfix">
 	@foreach ($models as $key => $model)
 		<span class="thumbnail @if($model->status == 1) online @else offline @endif" id="item_{{ $model->id }}">
-			<img src="{{ Croppa::url('/'.$model->path.'/'.$model->filename, 100, 100) }}" alt="{{ $model->alt_attribute }}">
+			{{ $model->thumb }}
 			<div class="caption">
-				<div>{{ $model->filename }}</div>
+				<small>{{ $model->status }} {{ $model->filename }}</small>
 				<div>{{ $model->alt_attribute }}</div>
 			</div>
 		</span>
