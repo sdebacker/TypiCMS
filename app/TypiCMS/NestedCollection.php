@@ -27,7 +27,10 @@ class NestedCollection extends Collection {
 		$deleteArray = array();
 		foreach ($this->items as $item) {
 			if ( $item->parent && isset($this->items[$item->parent]) ) {
-				$this->items[$item->parent]->children[] = $item;
+				if ( ! $this->items[$item->parent]->children) {
+					$this->items[$item->parent]->children = new \Illuminate\Support\Collection;
+				}
+				$this->items[$item->parent]->children->put($item->id, $item);
 				$deleteArray[] = $item->id;
 			}
 		}
