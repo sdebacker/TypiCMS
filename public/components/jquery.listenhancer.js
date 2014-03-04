@@ -60,7 +60,7 @@
 
 				listForm.find('.btn-toolbar button').prop('disabled', true);
 				listForm.find('.btn-toolbar').prepend('<div class="btn-group" id="selectAllGroup"></div>');
-				if (listForm.children('table').length) {
+				if (listForm.find('table').length) {
 					// if table
 					selectionButton = $('<input>', {
 						id: 'selectionButton',
