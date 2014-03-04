@@ -53,13 +53,8 @@ class TableBuilder {
 
 			foreach ($items as $item) {
 
-				$trClass = array();
-
-				// Online / Offline class
-				$trClass[] = $item->status ? 'online' : 'offline' ;
-				
 				// Item
-				$this->table[] = '<tr class="'.implode(' ', $trClass).'" id="item_'.$item->id.'" role="menuitem">';
+				$this->table[] = '<tr id="item_'.$item->id.'" role="menuitem">';
 				$this->checkboxes and $this->table[] = '<td><input type="checkbox" value="'.$item->id.'"></td>';
 
 				if ($this->edit) {
@@ -68,7 +63,8 @@ class TableBuilder {
 
 				foreach ($this->fieldsForDisplay as $fieldForDisplay) {
 					if (end($fieldForDisplay) == 'status') {
-						$this->switch and $this->table[] = '<td><span class="switch">'.trans('global.En ligne/Hors ligne').'</span></td>';
+						$switchClass = $item->status ? 'online' : 'offline' ;
+						$this->switch and $this->table[] = '<td><span class="switch ' . $switchClass . '">' . trans('global.En ligne/Hors ligne') . '</span></td>';
 					} else {
 						$this->getFields($item, $fieldForDisplay);
 					}

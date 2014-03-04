@@ -56,8 +56,6 @@ class ListBuilder {
 
 			foreach ($items as $item) {
 				$liClass = array();
-				// online / offline class
-				$liClass[] = $item->status ? 'online' : 'offline' ;
 				// item
 				$this->list[] = '<li class="'.implode(' ', $liClass).'" id="item_'.$item->id.'" role="menuitem">';
 				$this->list[] = '<div>';
@@ -70,7 +68,9 @@ class ListBuilder {
 					$disabled = 'disabled ';
 				}
 				$this->checkboxes and $this->list[] = '<input type="checkbox"'.$disabled.' value="'.$item->id.'">';
-				$this->switch and $this->list[] = '<span class="switch">'.trans('global.En ligne/Hors ligne').'</span>';
+				// online / offline class
+				$switchClass = $item->status ? 'online' : 'offline' ;
+				$this->switch and $this->list[] = '<span class="switch ' . $switchClass . '">' . trans('global.En ligne/Hors ligne') . '</span>';
 
 				// Anchor
 				$this->getAnchor($item);
