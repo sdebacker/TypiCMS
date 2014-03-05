@@ -1,7 +1,9 @@
 <?php namespace TypiCMS\Modules\Menus\Models;
 
 use TypiCMS\Models\Base;
+use TypiCMS\Presenters\Presenter;
 use TypiCMS\Services\ListBuilder;
+use TypiCMS\Modules\Menulinks\Presenters\MenulinkPresenter;
 
 use App;
 
@@ -57,7 +59,11 @@ class Menu extends Base {
 		$menu = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getMenu($name);
 		$attributes['class'] = $menu->getClass();
 		$attributes['id'] = 'nav-' . $name;
-		return with(new ListBuilder($menu))->buildPublic()->toHtml($attributes);
+
+		$presenter = new Presenter();
+		$menu = $presenter->collection($menu, new MenulinkPresenter);
+
+		return with(new ListBuilder($menu))->toHtml($attributes);
 	}
 
 	/**

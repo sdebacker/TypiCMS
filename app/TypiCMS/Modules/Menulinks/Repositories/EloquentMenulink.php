@@ -2,7 +2,9 @@
 
 use DB;
 use Config;
+use Request;
 
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -68,6 +70,52 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 		if ( ! $models->isEmpty()) {
 			$models->setClass($models->first()->menuclass);
 		}
+
+		$models = $this->filter($models)->nest();
+
+		return $models;
+
+	}
+
+
+	/**
+	 * Adapt the colelction before building menu
+	 *
+	 * @param  array
+	 * @return string
+	 */
+	private function filter(Collection $models)
+	{
+		$models->each(function($menulink) {
+
+			// Homepage
+			if ($menulink->is_home) {
+				$menulink->page_uri = Config::get('app.locale');
+			}
+
+			// Link to URI (module for example)
+			if ($menulink->uri) {
+				$menulink->page_uri = $menulink->uri;
+			}
+
+			$menulink->page_uri = '/' . $menulink->page_uri;
+
+			// Link to URL
+			if ($menulink->url) {
+				$menulink->page_uri = $menulink->url;
+			}
+
+			$activeUri = '/' . Request::path();
+
+			if ( $menulink->page_uri == $activeUri or ( strlen($menulink->page_uri) > 3 and preg_match('@^'.$menulink->page_uri.'@', $activeUri) ) ) {
+				// if item uri equals current uri
+				// or current uri contain item uri (item uri must be bigger than 3 to avoid homepage link always active)
+				// then add active class.
+				$classArray = preg_split('/ /', $menulink->class, NULL, PREG_SPLIT_NO_EMPTY);
+				$classArray[] = 'active';
+				$menulink->class = implode(' ', $classArray);
+			}
+		});
 
 		return $models;
 

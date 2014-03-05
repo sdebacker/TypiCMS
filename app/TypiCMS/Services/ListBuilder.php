@@ -18,51 +18,6 @@ class ListBuilder {
 	}
 
 
-	/**
-	 * Build nested list for public side
-	 *
-	 * @param  array
-	 * @return string
-	 */
-	public function buildPublic()
-	{
-		$this->items->each(function($menulink) {
-
-			// Homepage
-			if ($menulink->is_home) {
-				$menulink->page_uri = Config::get('app.locale');
-			}
-
-			// Link tu URI (module for example)
-			if ($menulink->uri) {
-				$menulink->page_uri = $menulink->uri;
-			}
-
-			$menulink->page_uri = '/'.$menulink->page_uri;
-
-			// Link to URL
-			if ($menulink->url) {
-				$menulink->page_uri = $menulink->url;
-			}
-
-			$activeUri = '/'.Request::path();
-
-			if ( $menulink->page_uri == $activeUri or ( strlen($menulink->page_uri) > 3 and preg_match('@^'.$menulink->page_uri.'@', $activeUri) ) ) {
-				// if item uri equals current uri
-				// or current uri contain item uri (item uri must be bigger than 3 to avoid homepage link always active)
-				// then add active class.
-				$classArray = preg_split('/ /', $menulink->class, NULL, PREG_SPLIT_NO_EMPTY);
-				$classArray[] = 'active';
-				$menulink->class = implode(' ', $classArray);
-			}
-		});
-
-		$this->items->nest();
-
-		return $this;
-
-	}
-
 	public function toHtml($parameters = array())
 	{
 		$ulClass = isset($parameters['class']) ? $parameters['class'] : '' ;
@@ -73,26 +28,9 @@ class ListBuilder {
 
 			foreach ($this->items as $item) {
 
-				$aClasses = array();
-				$aDataToggle = '';
-				if ($item->children) {
-					$item->class .= ' dropdown';
-					$aClasses[] = 'dropdown-toggle';
-					$aDataToggle = 'data-toggle="dropdown" ';
-				}
-
-				// class
-				$aClass = $aClasses ? 'class="'.implode(' ', $aClasses).'" ' : '' ;
-
-				// target
-				$aTarget = $item->target ? 'target="'.$item->target.'" ' : '' ;
-
 				// item
 				$this->list[] = '<li class="'.$item->class.'" id="item_'.$item->id.'" role="menuitem">';
-				$this->list[] = '<a href="'.$item->page_uri.'" '.$aTarget.$aClass.$aDataToggle.'>';
-				$this->list[] = $item->title;
-				$this->list[] = ($item->children) ? '<span class="caret"></span>' : '' ;
-				$this->list[] = '</a>';
+				$this->list[] = $item->anchor;
 
 				// sublists
 				if ($item->children) {
