@@ -1,10 +1,12 @@
 
 @section('main')
 
-	<h1>titre : {{ $model->title }}</h1>
-	<p>Date début : {{ $model->date }}</p>
-	<p>Heure début : {{ $model->time }}</p>
-
-	@include('files.public._list', array('files' => $model->files))
+	<article>
+		<h2>{{ $model->title }}</h2>
+		<p class="date">@lang('news::global.Published on') <time datetime="{{ $model->date_sql }}" pubdate>{{ $model->date_localized }}</time></p>
+		<p class="summary">{{ $model->summary }}</p>
+		<div class="body">{{ $model->body }}</div>
+		@include('files.public._list', array('files' => $model->files))
+	</article>
 
 @stop

@@ -63,16 +63,18 @@ abstract class RepositoriesAbstract {
 		$result->totalItems = 0;
 		$result->items = array();
 
-		// All posts or only published
-		$translations = 'translations';
-		if ( ! $all ) {
-			$translations = array('translations' => function($query)
-			{
-				$query->where('status', 1);
-			});
-		}
+		$query = $this->model->with('translations');
 
-		$query = $this->model->with($translations);
+		if ( ! $all ) {
+			// take only translated items that are online
+			$query->whereHas('translations', function($query)
+				{
+					$query->where('status', 1);
+					$query->where('locale', '=', App::getLocale());
+					$query->where('slug', '!=', '');
+				}
+			);
+		}
 
 		if ($relatedModel) {
 			$query->where('fileable_id', $relatedModel->id);
@@ -82,17 +84,16 @@ abstract class RepositoriesAbstract {
 		// files
 		$this->model->files and $query->files();
 
+		$totalItems = $query->count();
+
 		$query->order()
 			->skip($limit * ($page - 1))
 			->take($limit);
+
 		$models = $query->get();
 
-		// Build query to get totalItems
-		$queryTotal = $this->model;
-		! $all and $queryTotal->where('status', 1);
-
 		// Put items and totalItems in StdClass
-		$result->totalItems = $queryTotal->count();
+		$result->totalItems = $totalItems;
 		$result->items = $models->all();
 
 		return $result;

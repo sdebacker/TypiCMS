@@ -2,16 +2,21 @@
 
 use Str;
 use View;
+use Input;
+use Paginator;
 
 use App\Controllers\BaseController;
 
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 
+use TypiCMS\Modules\News\Presenters\NewsPresenter;
+use TypiCMS\Presenters\Presenter;
+
 class NewsController extends BaseController {
 
-	public function __construct(NewsInterface $news)
+	public function __construct(NewsInterface $news, Presenter $presenter)
 	{
-		parent::__construct($news);
+		parent::__construct($news, $presenter);
 		$this->title['parent'] = Str::title(trans_choice('news::global.news', 2));
 	}
 
@@ -22,12 +27,16 @@ class NewsController extends BaseController {
 	 */
 	public function index()
 	{
-		$this->title['child'] = '';
+		$page = Input::get('page');
 
-		$models = $this->repository->getAll();
+		$itemsPerPage = 10;
+		$data = $this->repository->byPage($page, $itemsPerPage);
 
-		$this->layout->content = View::make('news.public.index')
-			->with('models', $models);
+		$models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+
+		$models = $this->presenter->paginator($models, new NewsPresenter);
+
+		$this->layout->content = View::make('news.public.index')->withModels($models);
 	}
 
 	/**
@@ -41,9 +50,11 @@ class NewsController extends BaseController {
 		$model = $this->repository->bySlug($slug);
 
 		$this->title['parent'] = $model->title;
+
+		$model = $this->presenter->model($model, new NewsPresenter);
 		
 		$this->layout->content = View::make('news.public.show')
-			->with('model', $model);
+			->withModel($model);
 	}
 
 }

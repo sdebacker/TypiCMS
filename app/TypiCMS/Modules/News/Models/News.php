@@ -45,7 +45,7 @@ class News extends Base {
 	/**
 	 * lists
 	 */
-	public $order = 'id';
+	public $order = 'date';
 	public $direction = 'desc';
 
 

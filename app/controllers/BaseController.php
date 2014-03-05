@@ -20,6 +20,7 @@ abstract class BaseController extends Controller {
 	protected $layout = 'public/master';
 
 	protected $repository;
+	protected $presenter;
 
 	// The cool kids’ way of handling page titles.
 	// https://gist.github.com/jonathanmarvens/6017139
@@ -31,9 +32,10 @@ abstract class BaseController extends Controller {
 	);
 
 
-	public function __construct($repository = null)
+	public function __construct($repository = null, $presenter = null)
 	{
 		$this->repository = $repository;
+		$this->presenter = $presenter;
 
 		$navBarTitle = Config::get('typicms.' . App::getLocale() . '.websiteTitle');
 		$navBar = null;
