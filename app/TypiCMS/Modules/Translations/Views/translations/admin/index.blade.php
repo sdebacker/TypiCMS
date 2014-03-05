@@ -17,28 +17,42 @@
 
 		@section('btn-locales') @stop
 		@include('admin._buttons-list')
-		<table class="table">
-			<thead>
-				<tr>
-					<th></th>
-					<th>Key</th>
-					@foreach (Config::get('app.locales') as $locale)
-						<th>@lang('global.languages.' . $locale)</th>
+
+		<div class="table-responsive">
+
+			<table class="table">
+
+				<thead>
+
+					<tr>
+						<th></th>
+						<th>Key</th>
+						@foreach (Config::get('app.locales') as $locale)
+							<th>@lang('global.languages.' . $locale)</th>
+						@endforeach
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					@foreach ($models as $item)
+
+					<tr id="item_{{ $item['id'] }}">
+						<td><input type="checkbox" value="{{ $item['id'] }}"></td>
+						<td contenteditable data-name="key">{{ $item['key'] }}</td>
+						@foreach (Config::get('app.locales') as $locale)
+							<td contenteditable data-name="{{ $locale }}[translation]">{{ $item[$locale] or '' }}</td>
+						@endforeach
+					</tr>
+
 					@endforeach
-				</tr>
-			</thead>
-			<tbody>
-			@foreach ($models as $item)
-				<tr id="item_{{ $item['id'] }}">
-					<td><input type="checkbox" value="{{ $item['id'] }}"></td>
-					<td contenteditable data-name="key">{{ $item['key'] }}</td>
-					@foreach (Config::get('app.locales') as $locale)
-						<td contenteditable data-name="{{ $locale }}[translation]">{{ $item[$locale] or '' }}</td>
-					@endforeach
-				</tr>
-			@endforeach
-			</tbody>
-		</table>
+
+				</tbody>
+
+			</table>
+
+		</div>
 
 	</div>
 
