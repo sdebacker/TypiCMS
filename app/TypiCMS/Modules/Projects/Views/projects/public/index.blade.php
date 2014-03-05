@@ -7,8 +7,9 @@
 	<ul>
 		@foreach($models as $model)
 		<li>
-			{{ $model->title }} {{ $model->start_date }}
-			{{ link_to_route($lang.'.projects.categories.slug', trans('db.More'), array($model->category->slug, $model->slug)) }}
+			<strong>{{ $model->title }}</strong>
+			<br>
+			<a href="{{ route($lang.'.projects.categories.slug', array($model->category->slug, $model->slug)) }}">@lang('db.More')</a>
 		</li>
 		@endforeach
 	</ul>
