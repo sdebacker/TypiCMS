@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "de3dc8b9c7ce8ec70fc6184a8b3b4aff6728ae17"
+                "reference": "9799b703150a71f0e0a0b48ab59213c9d9354a0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/de3dc8b9c7ce8ec70fc6184a8b3b4aff6728ae17",
-                "reference": "de3dc8b9c7ce8ec70fc6184a8b3b4aff6728ae17",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9799b703150a71f0e0a0b48ab59213c9d9354a0f",
+                "reference": "9799b703150a71f0e0a0b48ab59213c9d9354a0f",
                 "shasum": ""
             },
             "require": {
@@ -71,26 +71,26 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-02-27 20:50:34"
+            "time": "2014-03-03 22:55:55"
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.3",
+            "version": "v1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "7ffde7c3627e18760a2713cd0260472436fe488c"
+                "reference": "01a4c02709edcde3826873b675ce93ecada11199"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/7ffde7c3627e18760a2713cd0260472436fe488c",
-                "reference": "7ffde7c3627e18760a2713cd0260472436fe488c",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/01a4c02709edcde3826873b675ce93ecada11199",
+                "reference": "01a4c02709edcde3826873b675ce93ecada11199",
                 "shasum": ""
             },
             "require": {
                 "illuminate/filesystem": "~4.0",
                 "illuminate/support": "~4.0",
-                "maximebf/debugbar": "~1.9",
+                "maximebf/debugbar": "1.9.x",
                 "php": ">=5.3.0",
                 "symfony/finder": "~2.3"
             },
@@ -118,7 +118,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-02-24 15:47:08"
+            "time": "2014-03-05 16:23:37"
         },
         {
             "name": "bkwld/croppa",
