@@ -1,7 +1,7 @@
 <?php namespace TypiCMS\Modules\Menus\Models;
 
 use TypiCMS\Models\Base;
-use TypiCMS\Services\ListBuilder\ListBuilder;
+use TypiCMS\Services\ListBuilder;
 
 use App;
 

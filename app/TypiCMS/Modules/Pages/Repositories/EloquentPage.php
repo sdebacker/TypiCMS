@@ -6,7 +6,7 @@ use Config;
 
 use Illuminate\Database\Eloquent\Model;
 
-use TypiCMS\Services\ListBuilder\ListBuilder;
+use TypiCMS\Services\ListBuilder;
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Modules\Pages\Models\PageTranslation;
 

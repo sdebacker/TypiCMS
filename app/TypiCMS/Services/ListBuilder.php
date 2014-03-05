@@ -1,74 +1,20 @@
-<?php namespace TypiCMS\Services\ListBuilder;
+<?php namespace TypiCMS\Services;
 
 use DB;
 use Route;
 use Config;
 use Request;
 
-use Illuminate\Database\Eloquent\Collection;
-
 use TypiCMS\Services\Helpers;
 
 class ListBuilder {
 
 	private $list = array();
-	public $items = array();
+	protected $items = array();
 	
-	private $id = 'listMain';
-	private $class = array('list-main');
-	private $nested = false;
-	private $sortable = false;
-	private $checkboxes = true;
-	private $switch = true;
-
-	public function __construct($items = array(), array $properties = array())
+	public function __construct($items = array())
 	{
 		$this->items = $items;
-		foreach ($properties as $property => $value) {
-			$this->$property = $value;
-		}
-		$this->nested and $this->class[] = 'nested';
-		$this->sortable and $this->class[] = 'sortable';
-	}
-
-	/**
-	 * Build nested list for admin side
-	 *
-	 * @param  array
-	 * @return string
-	 */
-	public function build($items)
-	{
-		if (count($items)) {
-			$this->list[] = $this->list ? '<ul>' : '<ul class="'.implode(' ', $this->class).'" id="'.$this->id.'">' ;
-
-			foreach ($items as $item) {
-				$liClass = array();
-				// item
-				$this->list[] = '<li class="'.implode(' ', $liClass).'" id="item_'.$item->id.'">';
-				
-				$this->list[] = '<div>';
-
-				$this->checkboxes and $this->list[] = $item->checkbox;
-
-				// online / offline class
-				$this->switch and $this->list[] = $item->status;
-
-				$this->list[] = $item->titleAnchor;
-
-				// Attachments
-				$item->files and $this->list[] = '<div class="attachments">' . $item->countFiles . '</div>';
-
-				$this->list[] = '</div>';
-
-				// Sublists
-				$item->children and $this->build($item->children);
-
-				$this->list[] = '</li>';
-			}
-			$this->list[] = '</ul>';
-		}
-		return implode("\r\n", $this->list);
 	}
 
 
@@ -143,13 +89,9 @@ class ListBuilder {
 
 				// item
 				$this->list[] = '<li class="'.$item->class.'" id="item_'.$item->id.'" role="menuitem">';
-
 				$this->list[] = '<a href="'.$item->page_uri.'" '.$aTarget.$aClass.$aDataToggle.'>';
-
 				$this->list[] = $item->title;
-
 				$this->list[] = ($item->children) ? '<span class="caret"></span>' : '' ;
-
 				$this->list[] = '</a>';
 
 				// sublists
