@@ -79,7 +79,7 @@ class Event extends Base {
 		if ($value == '0000-00-00') return;
 		return Carbon::createFromFormat('Y-m-d', $value)->format('d.m.Y');
 	}
- 
+
 	public function getEndDateAttribute($value)
 	{
 		if ($value == '0000-00-00') return;

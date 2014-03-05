@@ -6,11 +6,9 @@
 	<ul>
 		@foreach($models as $model)
 		<li>
-			{{ $model->title }}
-			<br>
-			{{ $model->start_date }}@if($model->end_date) > {{ $model->end_date }} @endif
-			<br>
-			<a href="{{ route($lang.'.'.'events'.'.slug', $model->slug) }}">@lang('db.More')</a>
+			<strong>{{ $model->title }}</strong>
+			<div class="date">{{ $model->date_from_to }}</div>
+			<a href="{{ route($lang.'.events.slug', $model->slug) }}">@lang('db.More')</a>
 		</li>
 		@endforeach
 	</ul>

@@ -5,15 +5,20 @@ use View;
 use Request;
 use Response;
 
-use App\Controllers\BaseController;
-
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
+
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Places\Presenters\PlacePresenter;
+
+// Base controller
+use App\Controllers\BaseController;
 
 class PlacesController extends BaseController {
 
-	public function __construct(PlaceInterface $place)
+	public function __construct(PlaceInterface $place, Presenter $presenter)
 	{
-		parent::__construct($place);
+		parent::__construct($place, $presenter);
 		$this->title['parent'] = Str::title(trans_choice('places::global.places', 2));
 	}
 

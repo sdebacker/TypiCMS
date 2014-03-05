@@ -5,12 +5,14 @@ use View;
 use Input;
 use Paginator;
 
-use App\Controllers\BaseController;
-
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 
-use TypiCMS\Modules\News\Presenters\NewsPresenter;
+// Presenter
 use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\News\Presenters\NewsPresenter;
+
+// Base controller
+use App\Controllers\BaseController;
 
 class NewsController extends BaseController {
 

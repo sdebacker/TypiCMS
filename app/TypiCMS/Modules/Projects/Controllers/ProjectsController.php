@@ -5,13 +5,18 @@ use View;
 
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Projects\Presenters\ProjectPresenter;
+
+// Base controller
 use App\Controllers\BaseController;
 
 class ProjectsController extends BaseController {
 
-	public function __construct(ProjectInterface $project)
+	public function __construct(ProjectInterface $project, Presenter $presenter)
 	{
-		parent::__construct($project);
+		parent::__construct($project, $presenter);
 		$this->title['parent'] = Str::title(trans_choice('projects::global.projects', 2));
 	}
 
