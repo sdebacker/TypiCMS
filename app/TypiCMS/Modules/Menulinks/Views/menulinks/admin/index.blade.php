@@ -19,7 +19,7 @@
 
 		<ul class="list-main nested sortable">
 		@foreach ($models as $model)
-			@include('menulinks.admin._listitem', array('model' => $model))
+			@include('menulinks.admin._listItem', array('model' => $model))
 		@endforeach
 		</ul>
 
