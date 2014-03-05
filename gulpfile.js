@@ -70,7 +70,7 @@ gulp.task('phpunit', function() {
 gulp.task('watch', function () {
     gulp.watch(lessDir + '/*.less', ['public-less', 'admin-less']);
     gulp.watch(publicJsFiles, ['public-js']);
-    gulp.watch('app/**/*.php', ['phpunit']);
+    // gulp.watch('app/**/*.php', ['phpunit']);
 });
 
 gulp.task("bowerFiles", function(){
