@@ -29,8 +29,8 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface {
 
 		$fileName = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
 
-		$subdir = explode('\\', $input['fileable_type']);
-		$input['path']          = 'uploads/' . str_plural(strtolower(end($subdir)));
+		$subdir = str_plural(strtolower(class_basename($input['fileable_type'])));
+		$input['path']          = 'uploads/' . $subdir;
 		$input['extension']     = '.' . $file->getClientOriginalExtension();
 		$input['filesize']      = $file->getClientSize();
 		$input['mimetype']      = $file->getClientMimeType();
