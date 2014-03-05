@@ -33,6 +33,7 @@
 	{{ HTML::script(asset('vendor/select2/select2_locale_'.Config::get('app.locale').'.js')) }}
 	@endif
 	{{ HTML::script(asset('vendor/dropzone/downloads/dropzone.min.js')) }}
+	{{ HTML::script(asset('vendor/bootstrap/js/dropdown.js')) }}
 	{{ HTML::script(asset('vendor/bootstrap/js/tab.js')) }}
 	{{ HTML::script(asset('vendor/moment/moment.js')) }}
 	{{ HTML::script(asset('vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')) }}
