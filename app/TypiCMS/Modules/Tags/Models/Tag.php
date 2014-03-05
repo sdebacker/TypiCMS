@@ -16,11 +16,11 @@ class Tag extends Base {
 
 
     /**
-     * The database table used by the model.
+     * The default route for admin side.
      *
      * @var string
      */
-    protected $table = 'tags';
+    protected $route = 'tags';
 
 
     /**

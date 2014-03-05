@@ -50,13 +50,10 @@ class Page extends Base {
 
 
 	/**
-	 * The database table used by the model.
+	 * The default route for admin side.
 	 *
 	 * @var string
 	 */
-	protected $table = 'pages';
-
-	public $view = 'pages';
 	public $route = 'pages';
 
 	/**

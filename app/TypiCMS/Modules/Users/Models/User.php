@@ -6,7 +6,11 @@ use Cartalyst\Sentry\Users\Eloquent\User as SentryUserModel;
 class User extends SentryUserModel {
 
 
-	public $view = 'users';
+	/**
+	 * The default route for admin side.
+	 *
+	 * @var string
+	 */
 	public $route = 'users';
 
 

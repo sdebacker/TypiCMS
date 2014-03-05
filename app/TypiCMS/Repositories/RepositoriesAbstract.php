@@ -15,11 +15,6 @@ abstract class RepositoriesAbstract {
 
 	protected $model;
 
-	public function view()
-	{
-		return $this->model->view;
-	}
-
 	public function route()
 	{
 		return $this->model->route;

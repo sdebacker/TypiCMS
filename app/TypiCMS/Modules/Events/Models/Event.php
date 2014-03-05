@@ -38,13 +38,10 @@ class Event extends Base {
 
 
 	/**
-	 * The database table used by the model.
+	 * The default route for admin side.
 	 *
 	 * @var string
 	 */
-	protected $table = 'events';
-
-	public $view = 'events';
 	public $route = 'events';
 
 

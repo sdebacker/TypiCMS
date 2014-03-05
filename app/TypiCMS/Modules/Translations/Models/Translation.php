@@ -25,12 +25,11 @@ class Translation extends Base {
 
 
 	/**
-	 * The database table used by the model.
+	 * The default route for admin side.
 	 *
 	 * @var string
 	 */
 	public $route = 'translations';
-	public $view = 'translations';
 
 
 	/**

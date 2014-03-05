@@ -46,13 +46,10 @@ class File extends Base {
 
 
 	/**
-	 * The database table used by the model.
+	 * The default route for admin side.
 	 *
 	 * @var string
 	 */
-	protected $table = 'files';
-
-	public $view = 'files';
 	public $route = 'files';
 
 

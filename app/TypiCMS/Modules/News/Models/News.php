@@ -35,13 +35,10 @@ class News extends Base {
 
 
 	/**
-	 * The database table used by the model.
+	 * The default route for admin side.
 	 *
 	 * @var string
 	 */
-	protected $table = 'news';
-
-	public $view = 'news';
 	public $route = 'news';
 
 

@@ -36,13 +36,10 @@ class Place extends Base {
 
 
 	/**
-	 * The database table used by the model.
+	 * The default route for admin side.
 	 *
 	 * @var string
 	 */
-	protected $table = 'places';
-
-	public $view = 'places';
 	public $route = 'places';
 
 

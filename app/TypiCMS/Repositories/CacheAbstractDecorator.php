@@ -8,11 +8,6 @@ abstract class CacheAbstractDecorator {
 	protected $repo;
 	protected $cache;
 
-	public function view()
-	{
-		return $this->repo->view();
-	}
-
 	public function route()
 	{
 		return $this->repo->route();

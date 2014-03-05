@@ -32,13 +32,10 @@ class Project extends Base {
 
 
 	/**
-	 * The database table used by the model.
+	 * The default route for admin side.
 	 *
 	 * @var string
 	 */
-	protected $table = 'projects';
-
-	public $view = 'projects';
 	public $route = 'projects';
 
 
