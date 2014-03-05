@@ -14,6 +14,7 @@
 	@yield('css')
 
 	{{ HTML::script(asset('vendor/jquery-legacy/jquery.js')) }}
+	{{ HTML::script(asset('vendor/bootstrap/js/dropdown.js')) }}
 	{{ HTML::script(asset('vendor/fancybox/source/jquery.fancybox.pack.js')) }}
 
 	@yield('js')
