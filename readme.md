@@ -19,9 +19,11 @@ Pages:
 ## Installation
 
 * Download archive
-* run ``` Composer update ```
-* run ``` php artisan migrate --seed ```
-* go to localhost/admin and log with admin/admin
+* Rename env.local.php to .env.local.php and fill in your MySQL credentials
+* Create a new database with same name as in .env.local.php
+* Run ``` Composer update ```
+* Run ``` php artisan migrate --seed ```
+* Go to http://localhost/admin and log in with admin/admin
 
 ## Available modules
 
