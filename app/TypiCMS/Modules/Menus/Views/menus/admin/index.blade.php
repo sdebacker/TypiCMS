@@ -17,7 +17,17 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminList($models, array('display' => array('%s (%s)', 'title', 'name'))) }}
+		<ul class="list-main">
+		@foreach ($models as $model)
+			<li id="item_{{ $model->id }}">
+				<div>
+					{{ $model->checkbox }}
+					{{ $model->status }}
+					<a href="{{ route('admin.menus.edit', $model->id) }}">{{ $model->title }} ({{ $model->name }})</a>
+				</div>
+			</li>
+		@endforeach
+		</ul>
 
 	</div>
 

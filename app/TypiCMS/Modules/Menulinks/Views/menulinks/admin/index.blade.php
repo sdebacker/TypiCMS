@@ -17,7 +17,11 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminList($models, array('sortable' => true, 'nested' => true)) }}
+		<ul class="list-main nested sortable">
+		@foreach ($models as $model)
+			@include('menulinks.admin._listitem', array('model' => $model))
+		@endforeach
+		</ul>
 
 	</div>
 

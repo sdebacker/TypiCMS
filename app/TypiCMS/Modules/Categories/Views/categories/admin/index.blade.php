@@ -17,7 +17,17 @@
 
 		@include('admin._buttons-list')
 
-		{{ HTML::adminList($models, array('sortable' => true)) }}
+		<ul class="list-main sortable">
+		@foreach ($models as $model)
+			<li id="item_{{ $model->id }}">
+				<div>
+					{{ $model->checkbox }}
+					{{ $model->status }}
+					<a href="{{ route('admin.categories.edit', $model->id) }}">{{ $model->title }}</a>
+				</div>
+			</li>
+		@endforeach
+		</ul>
 
 	</div>
 
