@@ -31,7 +31,9 @@ class FilesControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
-		$object = new StdClass; // or a new mock object
+		$object = new StdClass;
+
+
 		$object->id = 1;
 		File::shouldReceive('create')->once()->andReturn($object);
 		$input = array('fileable_id' => 1, 'fileable_type' => 1);
@@ -41,7 +43,9 @@ class FilesControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
-		$object = new StdClass; // or a new mock object
+		$object = new StdClass;
+
+
 		$object->id = 1;
 		File::shouldReceive('create')->once()->andReturn($object);
 		$input = array('fileable_id' => 1, 'fileable_type' => 1, 'exit' => true);

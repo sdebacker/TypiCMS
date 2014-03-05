@@ -31,7 +31,9 @@ class NewsControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
-		$object = new StdClass; // or a new mock object
+		$object = new StdClass;
+
+
 		$object->id = 1;
 		News::shouldReceive('create')->once()->andReturn($object);
 		$input = array('date' => '19.02.2014 11:04');
@@ -41,7 +43,9 @@ class NewsControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
-		$object = new StdClass; // or a new mock object
+		$object = new StdClass;
+
+
 		$object->id = 1;
 		News::shouldReceive('create')->once()->andReturn($object);
 		$input = array('date' => '19.02.2014 11:04', 'exit' => true);

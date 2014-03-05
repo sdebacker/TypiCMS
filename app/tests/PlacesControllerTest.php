@@ -31,7 +31,9 @@ class PlacesControllerTest extends TestCase {
 
 	public function testStoreSuccess()
 	{
-		$object = new StdClass; // or a new mock object
+		$object = new StdClass;
+
+
 		$object->id = 1;
 		Place::shouldReceive('create')->once()->andReturn($object);
 		$input = array('title' => 'test', 'slug' => 'test', 'status' => 0);
@@ -41,7 +43,9 @@ class PlacesControllerTest extends TestCase {
 
 	public function testStoreSuccessWithRedirectToList()
 	{
-		$object = new StdClass; // or a new mock object
+		$object = new StdClass;
+
+
 		$object->id = 1;
 		Place::shouldReceive('create')->once()->andReturn($object);
 		$input = array('title' => 'test', 'slug' => 'test', 'status' => 0, 'exit' => true);
