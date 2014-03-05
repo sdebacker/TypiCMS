@@ -107,6 +107,8 @@ require app_path().'/TypiCMS/Macros.php';
 | Save locale in session and set app locale if admin side.
 |--------------------------------------------------------------------------|
 */
+setlocale(LC_ALL, 'fr_BE.UTF-8');
+
 if (Request::segment(1) == 'admin') {
 
 	// If we have a query string like ?locale=xx
