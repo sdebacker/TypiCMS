@@ -1,8 +1,8 @@
 # TypiCMS
 
 TypiCMS is a starting point for a multilingual content management system build with laravel.
-It follows some concept of repository patterns, validation as a service and cache decorator.
-Bower and gulp are used for assets management and user interface is build with Bootstrap Less.
+It uses repositories, validation as a service, cache decorator and presenters.
+Bower and gulp are used for assets management and user interface is build with Bootstrap 3 with Less.
 
 This kind of urls are managed by the CMS :
 
@@ -20,7 +20,7 @@ Pages:
 
 * Download archive
 * Rename env.local.php to .env.local.php and fill in your MySQL credentials
-* Create a new database with same name as in .env.local.php
+* Create a new database with the name filled in your .env.local.php
 * Run ``` Composer update ```
 * Run ``` php artisan migrate --seed ```
 * Go to http://localhost/admin and log in with admin/admin
@@ -29,7 +29,7 @@ Pages:
 
 ### Pages
 
-Pages are nestable and uris autocreated and saved in database. A page has routes for each translation.
+Pages are nestable by drag and drop and uris autocreated and saved in database. A page has routes for each translation.
 
 ### Menus
 
