@@ -88,7 +88,7 @@ class SentryUser implements UserInterface {
 		try {
 			return $this->sentry->findUserById($id);
 		} catch (UserNotFoundException $e) {
-			$error = 'User not found.';
+			$error = trans('modules.users.User not found with id :id', array('id' => $id));
 		}
 		throw new Exception($error);
 	}
@@ -106,7 +106,7 @@ class SentryUser implements UserInterface {
 		try {
 			return $this->sentry->findUserByLogin($login);
 		} catch (UserNotFoundException $e) {
-			$error = 'User not found.';
+			$error = trans('modules.users.User not found with email :mail', array('mail' => $login));
 		}
 		throw new Exception($error);
 	}
@@ -277,20 +277,18 @@ class SentryUser implements UserInterface {
 			$this->sentry->authenticate($credentials, $remember);
 			return $this->sentry->getUser();
 		} catch (LoginRequiredException $e) {
-			$error = 'Login field is required.';
+			$error = trans('modules.users.Login field is required');
 		} catch (PasswordRequiredException $e) {
-			$error = 'Password field is required.';
 		} catch (WrongPasswordException $e) {
-			$error = 'Wrong password, try again.';
 		} catch (UserNotFoundException $e) {
-			$error = 'User not found.';
+			$error = trans('modules.users.User not found with email :mail', array('mail' => $credentials['email']));
 		} catch (UserNotActivatedException $e) {
-			$error = 'User not activated.';
+			$error = trans('modules.users.User not activated');
 		} catch (UserSuspendedException $e) {
 			$time = $throttle->getSuspensionTime();
-			$error = 'User is suspended for [' . $time . '] minutes.';
+			$error = trans('modules.users.User is suspended for :time minutes', array('time' => $time));
 		} catch (UserBannedException $e) {
-			$error = 'User is banned.';
+			$error = trans('modules.users.User is banned');
 		}
 		throw new Exception($error);
 	}
@@ -309,16 +307,18 @@ class SentryUser implements UserInterface {
 			$this->sentry->login($user, $remember);
 			return true;
 		} catch (LoginRequiredException $e) {
-			$error = 'Login field is required.';
+			$error = trans('modules.users.Login field is required');
 		} catch (UserNotActivatedException $e) {
 			$error = 'User not activated.';
+			$error = trans('modules.users.User not activated');
 		} catch (UserNotFoundException $e) {
 			$error = 'User not found.';
+			$error = trans('modules.users.User not found');
 		} catch (UserSuspendedException $e) {
 			$time = $throttle->getSuspensionTime();
-			$error = 'User is suspended for [' . $time . '] minutes.';
+			$error = trans('modules.users.User is suspended for :time minutes', array('time' => $time));
 		} catch (UserBannedException $e) {
-			$error = 'User is banned.';
+			$error = trans('modules.users.User is banned');
 		}
 		throw new Exception($error);
 	}
@@ -362,11 +362,11 @@ class SentryUser implements UserInterface {
 			return true;
 
 		} catch (LoginRequiredException $e) {
-			$error = 'Login field is required.';
+			$error = trans('modules.users.Login field is required');
 		} catch (PasswordRequiredException $e) {
-			$error = 'Password field is required.';
+			$error = trans('modules.users.Password field is required');
 		} catch (UserExistsException $e) {
-			$error = 'User with this login already exists.';
+			$error = trans('modules.users.User with this login already exists');
 		}
 		throw new Exception($error);
 
@@ -393,12 +393,12 @@ class SentryUser implements UserInterface {
 				return true;
 
 			} else {
-				$error = 'There was a problem activating this account.';
+				$error = trans('modules.users.There was a problem activating this account');
 			}
 		} catch (UserNotFoundException $e) {
-			$error = 'User does not exist.';
+			$error = trans('modules.users.User does not exist');
 		} catch (UserAlreadyActivatedException $e) {
-			$error = 'You have already activated this account.';
+			$error = trans('modules.users.You have already activated this account');
 		}
 		throw new Exception($error);
 
