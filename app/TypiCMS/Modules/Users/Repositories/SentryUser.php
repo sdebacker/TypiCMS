@@ -88,7 +88,7 @@ class SentryUser implements UserInterface {
 		try {
 			return $this->sentry->findUserById($id);
 		} catch (UserNotFoundException $e) {
-			$error = trans('modules.users.User not found with id :id', array('id' => $id));
+			$error = trans('users::global.User not found with id :id', array('id' => $id));
 		}
 		throw new Exception($error);
 	}
@@ -106,7 +106,7 @@ class SentryUser implements UserInterface {
 		try {
 			return $this->sentry->findUserByLogin($login);
 		} catch (UserNotFoundException $e) {
-			$error = trans('modules.users.User not found with email :mail', array('mail' => $login));
+			$error = trans('users::global.User not found with email :mail', array('mail' => $login));
 		}
 		throw new Exception($error);
 	}
@@ -277,18 +277,18 @@ class SentryUser implements UserInterface {
 			$this->sentry->authenticate($credentials, $remember);
 			return $this->sentry->getUser();
 		} catch (LoginRequiredException $e) {
-			$error = trans('modules.users.Login field is required');
+			$error = trans('users::global.Login field is required');
 		} catch (PasswordRequiredException $e) {
 		} catch (WrongPasswordException $e) {
 		} catch (UserNotFoundException $e) {
-			$error = trans('modules.users.User not found with email :mail', array('mail' => $credentials['email']));
+			$error = trans('users::global.User not found with email :mail', array('mail' => $credentials['email']));
 		} catch (UserNotActivatedException $e) {
-			$error = trans('modules.users.User not activated');
+			$error = trans('users::global.User not activated');
 		} catch (UserSuspendedException $e) {
 			$time = $throttle->getSuspensionTime();
-			$error = trans('modules.users.User is suspended for :time minutes', array('time' => $time));
+			$error = trans('users::global.User is suspended for :time minutes', array('time' => $time));
 		} catch (UserBannedException $e) {
-			$error = trans('modules.users.User is banned');
+			$error = trans('users::global.User is banned');
 		}
 		throw new Exception($error);
 	}
@@ -307,18 +307,18 @@ class SentryUser implements UserInterface {
 			$this->sentry->login($user, $remember);
 			return true;
 		} catch (LoginRequiredException $e) {
-			$error = trans('modules.users.Login field is required');
+			$error = trans('users::global.Login field is required');
 		} catch (UserNotActivatedException $e) {
 			$error = 'User not activated.';
-			$error = trans('modules.users.User not activated');
+			$error = trans('users::global.User not activated');
 		} catch (UserNotFoundException $e) {
 			$error = 'User not found.';
-			$error = trans('modules.users.User not found');
+			$error = trans('users::global.User not found');
 		} catch (UserSuspendedException $e) {
 			$time = $throttle->getSuspensionTime();
-			$error = trans('modules.users.User is suspended for :time minutes', array('time' => $time));
+			$error = trans('users::global.User is suspended for :time minutes', array('time' => $time));
 		} catch (UserBannedException $e) {
-			$error = trans('modules.users.User is banned');
+			$error = trans('users::global.User is banned');
 		}
 		throw new Exception($error);
 	}
@@ -362,11 +362,11 @@ class SentryUser implements UserInterface {
 			return true;
 
 		} catch (LoginRequiredException $e) {
-			$error = trans('modules.users.Login field is required');
+			$error = trans('users::global.Login field is required');
 		} catch (PasswordRequiredException $e) {
-			$error = trans('modules.users.Password field is required');
+			$error = trans('users::global.Password field is required');
 		} catch (UserExistsException $e) {
-			$error = trans('modules.users.User with this login already exists');
+			$error = trans('users::global.User with this login already exists');
 		}
 		throw new Exception($error);
 
@@ -393,12 +393,12 @@ class SentryUser implements UserInterface {
 				return true;
 
 			} else {
-				$error = trans('modules.users.There was a problem activating this account');
+				$error = trans('users::global.There was a problem activating this account');
 			}
 		} catch (UserNotFoundException $e) {
-			$error = trans('modules.users.User does not exist');
+			$error = trans('users::global.User does not exist');
 		} catch (UserAlreadyActivatedException $e) {
-			$error = trans('modules.users.You have already activated this account');
+			$error = trans('users::global.You have already activated this account');
 		}
 		throw new Exception($error);
 
