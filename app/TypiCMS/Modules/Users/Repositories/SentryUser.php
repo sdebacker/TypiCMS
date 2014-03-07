@@ -279,12 +279,15 @@ class SentryUser implements UserInterface {
 		} catch (LoginRequiredException $e) {
 			$error = trans('users::global.Login field is required');
 		} catch (PasswordRequiredException $e) {
+			$error = trans('users::global.Password field is required');
 		} catch (WrongPasswordException $e) {
+			$error = trans('users::global.Wrong password, try again');
 		} catch (UserNotFoundException $e) {
 			$error = trans('users::global.User not found with email :mail', array('mail' => $credentials['email']));
 		} catch (UserNotActivatedException $e) {
 			$error = trans('users::global.User not activated');
 		} catch (UserSuspendedException $e) {
+			$throttle = $this->throttleProvider->findByUserLogin($credentials['email']);
 			$time = $throttle->getSuspensionTime();
 			$error = trans('users::global.User is suspended for :time minutes', array('time' => $time));
 		} catch (UserBannedException $e) {
@@ -315,6 +318,7 @@ class SentryUser implements UserInterface {
 			$error = 'User not found.';
 			$error = trans('users::global.User not found');
 		} catch (UserSuspendedException $e) {
+			$throttle = $this->throttleProvider->findByUserId($user->id);
 			$time = $throttle->getSuspensionTime();
 			$error = trans('users::global.User is suspended for :time minutes', array('time' => $time));
 		} catch (UserBannedException $e) {
