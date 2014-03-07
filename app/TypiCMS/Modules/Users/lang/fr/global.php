@@ -35,4 +35,15 @@ return array(
 	// messages
 	'User not found with email :mail' => 'L’adresse :mail n’a pas été trouvée.',
 	'User not found with id :id' => 'L’utilisateur avec l’id :id n’a pas été trouvé.',
+	'Login field is required' => 'Une adresse mail est requise.',
+	'Password field is required' => 'Un mot de passe est requis.',
+	'Wrong password, try again' => 'Le mot de passe est incorrect.',
+	'User not activated' => 'Cet utilisateur n’est pas activé',
+	'User is suspended for :time minutes' => 'Cet utilisateur est suspendu pour :time minutes.',
+	'User is banned' => 'Cet utilisateur est banni.',
+	'User not found' => 'Cet utilisateur n’a pas été trouvé.',
+	'User with this login already exists' => 'Cet utilisateur existe déjà.',
+	'There was a problem activating this account' => 'L’activation de ce compte utilisateur a échoué.',
+	'User does not exist' => 'Cet utilisateur n’existe pas.',
+	'You have already activated this account' => 'Cet utilisateur est déjà activé.',
 );
