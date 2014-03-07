@@ -17,7 +17,7 @@ class User extends SentryUserModel {
 	/**
 	 * lists
 	 */
-	public static $order = 'last_name';
-	public static $direction = 'asc';
+	public static $order = 'id';
+	public static $direction = 'desc';
 
 }

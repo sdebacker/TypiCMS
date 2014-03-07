@@ -26,13 +26,13 @@
 				<thead>
 
 					<tr>
-						<th></th>
-						<th></th>
-						<th>{{ Html::th('name') }}</th>
-						<th>{{ Html::th('email') }}</th>
-						<th>{{ Html::th('permissions', false) }}</th>
-						<th>{{ Html::th('isSuperUser') }}</th>
-						<th>{{ Html::th('isActivated') }}</th>
+						{{ Html::th('checkboxes', false, false) }}
+						{{ Html::th('edit', false, false) }}
+						{{ Html::th('name', false) }}
+						{{ Html::th('email', false) }}
+						{{ Html::th('permissions', false) }}
+						{{ Html::th('isSuperUser', false) }}
+						{{ Html::th('status', false) }}
 					</tr>
 
 				</thead>
@@ -48,7 +48,7 @@
 						<td><a href="mailto:{{ $model->email }}">{{ $model->email }}</a></td>
 						<td>{{ $model->getMergedPermissions }}</td>
 						<td>{{ $model->superuser }}</td>
-						<td>{{ $model->activated }}</td>
+						<td>{{ $model->status }}</td>
 					</tr>
 
 					@endforeach

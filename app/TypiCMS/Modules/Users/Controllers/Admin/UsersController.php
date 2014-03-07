@@ -10,8 +10,6 @@ use Redirect;
 use Exception;
 use Notification;
 
-use Illuminate\Support\Collection;
-
 use TypiCMS\Modules\Users\Repositories\UserInterface;
 use TypiCMS\Modules\Users\Services\Form\UserForm;
 
@@ -78,7 +76,7 @@ class UsersController extends BaseController {
 	public function index()
 	{
 		// Grab all the users
-		$models = Collection::make($this->repository->getAll(true));
+		$models = $this->repository->getAll(true);
 
 		$models = $this->presenter->collection($models, new UserPresenter);
 

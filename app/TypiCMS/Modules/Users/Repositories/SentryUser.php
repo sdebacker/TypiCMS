@@ -47,15 +47,13 @@ class SentryUser implements UserInterface {
 	 */
 	public function getAll($all = false)
 	{
-		$query = $this->sentry->newQuery();
-
-		$users = $query->get()->all();
+		$users = $this->sentry->getModel()->get();
 
 		foreach ($users as $user) {
 			if ($user->isActivated()) {
 				$user->status = 'Active';
 			} else {
-				$user->status = 'Not Active';
+				$user->status = 'Not Active';
 			}
 
 			// Pull Suspension & Ban info for this user
@@ -289,7 +287,36 @@ class SentryUser implements UserInterface {
 		} catch (UserNotActivatedException $e) {
 			$error = 'User not activated.';
 		} catch (UserSuspendedException $e) {
-			$error = 'User is suspended for [$time] minutes.';
+			$time = $throttle->getSuspensionTime();
+			$error = 'User is suspended for [' . $time . '] minutes.';
+		} catch (UserBannedException $e) {
+			$error = 'User is banned.';
+		}
+		throw new Exception($error);
+	}
+
+
+	/**
+	 * Log a user in
+	 *
+	 * @param array $credentials
+	 * @param boolean $id
+	 * @return Sentry User
+	 */
+	public function login($user, $remember = false)
+	{
+		try {
+			$this->sentry->login($user, $remember);
+			return true;
+		} catch (LoginRequiredException $e) {
+			$error = 'Login field is required.';
+		} catch (UserNotActivatedException $e) {
+			$error = 'User not activated.';
+		} catch (UserNotFoundException $e) {
+			$error = 'User not found.';
+		} catch (UserSuspendedException $e) {
+			$time = $throttle->getSuspensionTime();
+			$error = 'User is suspended for [' . $time . '] minutes.';
 		} catch (UserBannedException $e) {
 			$error = 'User is banned.';
 		}
@@ -334,11 +361,11 @@ class SentryUser implements UserInterface {
 
 			return true;
 
-		} catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
+		} catch (LoginRequiredException $e) {
 			$error = 'Login field is required.';
-		} catch (Cartalyst\Sentry\Users\PasswordRequiredException $e) {
+		} catch (PasswordRequiredException $e) {
 			$error = 'Password field is required.';
-		} catch (Cartalyst\Sentry\Users\UserExistsException $e) {
+		} catch (UserExistsException $e) {
 			$error = 'User with this login already exists.';
 		}
 		throw new Exception($error);
