@@ -1,12 +1,13 @@
 <?php namespace TypiCMS\Modules\Users\Repositories;
 
-// Part of the code is from https://github.com/brunogaspar/laravel4-starter-kit
-
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+// Part of this code is from https://github.com/brunogaspar/laravel4-starter-kit
 
 use Input;
 use Exception;
+
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Cartalyst\Sentry\Sentry;
 
@@ -47,7 +48,7 @@ class SentryUser implements UserInterface {
 	 */
 	public function getAll($all = false)
 	{
-		$users = $this->sentry->getModel()->get();
+		$users = Collection::make($this->sentry->findAllUsers());
 
 		foreach ($users as $user) {
 			if ($user->isActivated()) {

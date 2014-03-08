@@ -1,8 +1,10 @@
 <?php namespace TypiCMS\Modules\Groups\Repositories;
 
-use Cartalyst\Sentry\Sentry;
-
 use Input;
+
+use Illuminate\Support\Collection;
+
+use Cartalyst\Sentry\Sentry;
 
 class SentryGroup implements GroupInterface {
 	
@@ -34,14 +36,10 @@ class SentryGroup implements GroupInterface {
 
 			   	$result['success'] = true;
 				$result['message'] = trans('groups.created'); 
-		}
-		catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
-		{
+		} catch (\Cartalyst\Sentry\Users\LoginRequiredException $e) {
 			$result['success'] = false;
 			$result['message'] = trans('groups.loginreq');
-		}
-		catch (\Cartalyst\Sentry\Users\UserExistsException $e)
-		{
+		} catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
 			$result['success'] = false;
 			$result['message'] = trans('groups.userexists');;
 		}
@@ -58,8 +56,7 @@ class SentryGroup implements GroupInterface {
 	public function update($data)
 	{
 
-		try
-		{
+		try {
 			// Find the group using the group id
 			$group = $this->sentry->findGroupById($data['id']);
 
@@ -77,19 +74,13 @@ class SentryGroup implements GroupInterface {
 				$result['success'] = false;
 				$result['message'] = trans('groups.updateproblem');;
 			}
-		}
-		catch (\Cartalyst\Sentry\Groups\NameRequiredException $e)
-		{
+		} catch (\Cartalyst\Sentry\Groups\NameRequiredException $e) {
 			$result['success'] = false;
 			$result['message'] = trans('groups.namereq');;
-		}
-		catch (\Cartalyst\Sentry\Groups\GroupExistsException $e)
-		{
+		} catch (\Cartalyst\Sentry\Groups\GroupExistsException $e) {
 			$result['success'] = false;
 			$result['message'] = trans('groups.groupexists');;
-		}
-		catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e)
-		{
+		} catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
 			$result['success'] = false;
 			$result['message'] = trans('groups.notfound');
 		}
@@ -105,16 +96,13 @@ class SentryGroup implements GroupInterface {
 	 */
 	public function destroy($id)
 	{
-		try
-		{
+		try {
 			// Find the group using the group id
 			$group = $this->sentry->findGroupById($id);
 
 			// Delete the group
 			$group->delete();
-		}
-		catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
-		{
+		} catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
 			return false;
 		}
 		return true;
@@ -144,12 +132,9 @@ class SentryGroup implements GroupInterface {
 	 */
 	public function byName($name)
 	{
-		try
-		{
+		try {
 			$group = $this->sentry->findGroupByName($name);
-		}
-		catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
-		{
+		} catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
 			return false;
 		}
 		return $group;
@@ -162,6 +147,6 @@ class SentryGroup implements GroupInterface {
 	 */
 	public function all()
 	{
-		return $this->sentry->getGroupProvider()->findAll();
+		return Collection::make($this->sentry->getGroupProvider()->findAll());
 	}
 }

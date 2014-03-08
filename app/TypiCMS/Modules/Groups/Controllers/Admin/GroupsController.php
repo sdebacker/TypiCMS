@@ -8,8 +8,6 @@ use Config;
 use Redirect;
 use Notification;
 
-use Illuminate\Support\Collection;
-
 use TypiCMS\Modules\Groups\Repositories\GroupInterface;
 use TypiCMS\Modules\Groups\Services\Form\GroupForm;
 
@@ -44,7 +42,7 @@ class GroupsController extends BaseController {
 	 */
 	public function index()
 	{
-		$models = Collection::make($this->repository->all());
+		$models = $this->repository->all();
 
 		$models = $this->presenter->collection($models, new GroupPresenter);
 
