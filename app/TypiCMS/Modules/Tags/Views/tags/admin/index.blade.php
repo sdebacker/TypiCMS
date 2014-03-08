@@ -24,9 +24,9 @@
 				<thead>
 
 					<tr>
-						<th></th>
-						<th>{{ Html::th('tag') }}</th>
-						<th>{{ Html::th('uses') }}</th>
+						{{ Html::th('checkboxes', false, false) }}
+						{{ Html::th('tag') }}
+						{{ Html::th('uses') }}
 					</tr>
 
 				</thead>
