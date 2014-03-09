@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "578d2b16ba0314ec0ad775f6d6ef3b68",
+    "hash": "3b2d5a1ff978b11a9b7819606e218b8e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -393,16 +393,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v2.0.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "f2d9a32f90c64f6dbba6d03ac364fe6f1f984e7e"
+                "reference": "d7472a988b639838fb9921f294ac69b8cda71f45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/f2d9a32f90c64f6dbba6d03ac364fe6f1f984e7e",
-                "reference": "f2d9a32f90c64f6dbba6d03ac364fe6f1f984e7e",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/d7472a988b639838fb9921f294ac69b8cda71f45",
+                "reference": "d7472a988b639838fb9921f294ac69b8cda71f45",
                 "shasum": ""
             },
             "require": {
@@ -441,7 +441,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2014-02-11 23:14:00"
+            "time": "2014-03-09 09:03:03"
         },
         {
             "name": "edvinaskrucas/notification",
