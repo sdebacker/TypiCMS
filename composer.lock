@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "6a9fa907a46ec9aba82ec0b122be0442757771ae"
+                "reference": "9a47bbd312514d856208d3651439dcaee29de0fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6a9fa907a46ec9aba82ec0b122be0442757771ae",
-                "reference": "6a9fa907a46ec9aba82ec0b122be0442757771ae",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9a47bbd312514d856208d3651439dcaee29de0fc",
+                "reference": "9a47bbd312514d856208d3651439dcaee29de0fc",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-03-07 01:22:34"
+            "time": "2014-03-12 20:03:11"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -393,21 +393,21 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "d7472a988b639838fb9921f294ac69b8cda71f45"
+                "reference": "c7a1226f024205ce5a076b86ee927192011c7786"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/d7472a988b639838fb9921f294ac69b8cda71f45",
-                "reference": "d7472a988b639838fb9921f294ac69b8cda71f45",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/c7a1226f024205ce5a076b86ee927192011c7786",
+                "reference": "c7a1226f024205ce5a076b86ee927192011c7786",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "4.0.* | 4.1.*",
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
                 "orchestra/testbench": "2.0.* | 2.1.*",
@@ -441,7 +441,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2014-03-09 09:03:03"
+            "time": "2014-03-09 18:56:40"
         },
         {
             "name": "edvinaskrucas/notification",
@@ -2498,12 +2498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/raveren/kint.git",
-                "reference": "24a15aa6e666aa9492f4bb43b48a3dbf531014ac"
+                "reference": "991203253582980224d00d4b0f71d74788940638"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raveren/kint/zipball/24a15aa6e666aa9492f4bb43b48a3dbf531014ac",
-                "reference": "24a15aa6e666aa9492f4bb43b48a3dbf531014ac",
+                "url": "https://api.github.com/repos/raveren/kint/zipball/991203253582980224d00d4b0f71d74788940638",
+                "reference": "991203253582980224d00d4b0f71d74788940638",
                 "shasum": ""
             },
             "require": {
@@ -2536,7 +2536,7 @@
                 "kint",
                 "php"
             ],
-            "time": "2013-11-04 11:02:37"
+            "time": "2014-03-12 14:25:26"
         }
     ],
     "aliases": [
