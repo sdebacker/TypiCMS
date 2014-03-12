@@ -24,4 +24,27 @@ interface ValidableInterface {
      */
     public function errors();
 
+    /**
+     * getRules
+     *
+     * @return $this->rules array
+     */
+    public function getRules();
+
+    /**
+     * setRule
+     *
+     * @param $key
+     * @param $value
+     * @return $this
+     */
+    public function setRule($key, $value);
+
+    /**
+     * emptyRules
+     *
+     * @return $this
+     */
+    public function emptyRules();
+
 }

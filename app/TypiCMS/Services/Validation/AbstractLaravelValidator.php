@@ -77,4 +77,38 @@ abstract class AbstractLaravelValidator implements ValidableInterface {
         return $this->errors;
     }
 
+    /**
+     * getRules
+     *
+     * @return $this->rules array
+     */
+    public function getRules()
+    {
+        return $this->rules;
+    }
+
+    /**
+     * setRule
+     *
+     * @param $key
+     * @param $value
+     * @return $this
+     */
+    public function setRule($key, $value)
+    {
+        $this->rules[$key] = $value;
+        return $this;
+    }
+
+    /**
+     * emptyRules
+     *
+     * @return $this
+     */
+    public function emptyRules()
+    {
+        $this->rules = array();
+        return $this;
+    }
+
 }

@@ -16,22 +16,5 @@ class UserFormLaravelValidator extends AbstractLaravelValidator {
 		'password' => 'required|min:8|confirmed',
 		'password_confirmation' => 'required'
 	);
-	
-	public function getRules()
-	{
-		return $this->rules;
-	}
-
-	public function setRule($key, $value)
-	{
-		$this->rules[$key] = $value;
-		return $this;
-	}
-
-	public function emptyRules()
-	{
-		$this->rules = array();
-		return $this;
-	}
 
 }
