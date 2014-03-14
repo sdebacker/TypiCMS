@@ -1,5 +1,7 @@
 <?php namespace TypiCMS\Services\Cache;
 
+use StdClass;
+
 use Config;
 use Illuminate\Cache\CacheManager;
 
@@ -9,12 +11,12 @@ class LaravelCache implements CacheInterface {
     protected $cachekey;
     protected $minutes;
 
-	public function __construct(CacheManager $cache, $cachekey, $minutes=null)
-	{
-		$this->cache = $cache;
-		$this->cachekey = $cachekey;
-		$this->minutes = $minutes;
-	}
+    public function __construct(CacheManager $cache, $cachekey, $minutes=null)
+    {
+        $this->cache = $cache;
+        $this->cachekey = $cachekey;
+        $this->minutes = $minutes;
+    }
 
 
     /**
@@ -23,21 +25,9 @@ class LaravelCache implements CacheInterface {
      * @param string    Cache item key
      * @return mixed    PHP data result of cache
      */
-	public function get($key)
-	{
-		return $this->cache->tags($this->cachekey)->get($key);
-	}
-
-
-    /**
-     * Is cache enabled ?
-     *
-     * @param string    Side : admin or public
-     * @return boolean
-     */
-    public function active($side)
+    public function get($key)
     {
-        return Config::get('app.cache'.ucfirst($side)) ? true : false ;
+        return $this->cache->tags($this->cachekey)->get($key);
     }
 
 
@@ -49,15 +39,15 @@ class LaravelCache implements CacheInterface {
      * @param integer   The number of minutes to store the item
      * @return mixed    $value variable returned for convenience
      */
-	public function put($key, $value, $minutes=null)
-	{
-		if( is_null($minutes) )
-		{
-			$minutes = $this->minutes;
-		}
+    public function put($key, $value, $minutes=null)
+    {
+        if( is_null($minutes) )
+        {
+            $minutes = $this->minutes;
+        }
 
-		return $this->cache->tags($this->cachekey)->put($key, $value, $minutes);
-	}
+        return $this->cache->tags($this->cachekey)->put($key, $value, $minutes);
+    }
 
 
     /**
@@ -72,19 +62,19 @@ class LaravelCache implements CacheInterface {
      * @param integer   The number of minutes to store the item
      * @return mixed    $items variable returned for convenience
      */
-	public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes=null)
-	{
-		$cached = new \StdClass;
+    public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes=null)
+    {
+        $cached = new StdClass;
 
-		$cached->currentPage = $currentPage;
-		$cached->items = $items;
-		$cached->totalItems = $totalItems;
-		$cached->perPage = $perPage;
+        $cached->currentPage = $currentPage;
+        $cached->items = $items;
+        $cached->totalItems = $totalItems;
+        $cached->perPage = $perPage;
 
-		$this->put($key, $cached, $minutes);
+        $this->put($key, $cached, $minutes);
 
-		return $cached;
-	}
+        return $cached;
+    }
 
 
     /**
@@ -106,14 +96,14 @@ class LaravelCache implements CacheInterface {
      * @param string    Cache tags
      * @return bool     If cache is flushed
      */
-	public function flush($tags = null)
-	{
+    public function flush($tags = null)
+    {
         if ($tags) {
             $tags = is_array($tags) ? $tags : func_get_args();
         } else {
             $tags = array($this->cachekey);
         }
-		return $this->cache->tags($tags)->flush();
-	}
+        return $this->cache->tags($tags)->flush();
+    }
 
 }
