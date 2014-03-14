@@ -11,14 +11,6 @@ interface CacheInterface {
     public function get($key);
 
     /**
-     * Is cache enabled ?
-     *
-     * @param string    Cache item key
-     * @return boolean
-     */
-    public function active($side);
-
-    /**
      * Add data to the cache
      *
      * @param string    Cache item key
