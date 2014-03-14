@@ -7,16 +7,14 @@ return array(
 	| FR Settings TypiCMS Language Lines
 	|--------------------------------------------------------------------------
 	*/
-	'settings' => 'configuration',
-	'System info' => 'Informations système',
-	'Backup DB' => 'Sauvegarder la base de données',
-	'Environment' => 'Environnement',
-	'System locales' => 'Locales du système',
-	'App locales' => 'Langues de l’application',
-	'Active locale' => 'Langue active',
-	'Cache admin' => 'Cache côté admin',
-	'Cache public' => 'Cache côté public',
+	'settings' => 'settings',
+	'System info' => 'System info',
+	'Backup DB' => 'Database backup',
+	'Environment' => 'Environment',
+	'System locales' => 'System locales',
+	'Locales' => 'Locales',
+	'Active locale' => 'Active locale',
 	'Cache' => 'Cache',
-	'No' => 'Non',
-	'Yes' => 'Oui',
+	'No' => 'No',
+	'Yes' => 'Yes',
 );

@@ -4,20 +4,35 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Global TypiCMS Language Lines
+	| EN Global TypiCMS Language Lines
 	|--------------------------------------------------------------------------
 	*/
-	'crud' => array(
-		'create' => 'créer',
-		'edit' => 'Modifier',
-		'delete' => 'Supprimer',
-		'new' => 'Nouveau',
-		'show' => 'Voir',
+	'languages' => array(
+		'fr' => 'French',
+		'nl' => 'Dutch',
+		'en' => 'English',
 	),
 	'form' => array(
-		'page content' => 'contenu de la page',
-		'meta data' => 'méta données',
+		'page content' => 'page content',
+		'meta data' => 'meta data',
 		'options' => 'options',
 	),
-	'settings'  => 'configuration',
+	'Index' => 'List',
+	'Create' => 'Create',
+	'Store' => 'Store',
+	'Update' => 'Update',
+	'Delete' => 'Delete',
+	'View' => 'View',
+	'Sort' => 'Sort',
+	'Edit' => 'Edit',
+
+	'Yes' => 'Yes',
+	'No' => 'No',
+
+	'Home' => 'Home',
+	'En ligne/Hors ligne' => 'Online/Offline',
+	'No default page found' => 'No default page found',
+	'settings'  => 'settings',
+	'admin side' => 'admin side',
+	'view website' => 'view website',
 );

@@ -61,7 +61,7 @@ return array(
 	*/
 
 	'locales' => array('fr', 'nl', 'en'),
-	'locale' => 'fr',
+	'locale' => 'en',
 
 	'modules' => array(
 		'Pages'        => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Pages\Models\Page'),

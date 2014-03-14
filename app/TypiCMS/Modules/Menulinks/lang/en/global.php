@@ -1,6 +1,6 @@
 <?php 
 return array(
-	'menulinks' => 'menulink|menulinks',
-	'New'  => 'New menulink',
-	'Edit' => 'Edit menulink',
+	'menulinks' => 'Menu link|Menu links',
+	'New'  => 'New menu link',
+	'Edit' => 'Edit menu link',
 );

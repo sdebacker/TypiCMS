@@ -1,7 +1,7 @@
 <?php 
 return array(
-	'groups' => 'groupe|groupes',
-	'New'  => 'Nouveau groupe',
-	'Edit' => 'Modifier le groupe',
-	'Group permissions' => 'Permissions du groupe',
+	'groups' => 'group|groups',
+	'New'  => 'New group',
+	'Edit' => 'Edit group',
+	'Group permissions' => 'Group’s permissions',
 );

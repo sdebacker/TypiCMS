@@ -32,9 +32,7 @@ return array(
 	'Home' => 'Accueil',
 	'En ligne/Hors ligne' => 'En ligne/Hors ligne',
 	'No default page found' => 'Aucune page d’accueil trouvée',
-	'Home' => 'Accueil',
 	'settings'  => 'configuration',
-	// 'edit page' => 'modifier cette page',
 	'admin side' => 'administration',
 	'view website' => 'voir le site',
 );

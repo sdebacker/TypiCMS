@@ -94,7 +94,153 @@ return array(
 	*/
 
 	'attributes' => array(
-		'fr[title]' => 'titre (fr)',
+		// General
+		'name' => 'Name',
+		'username' => 'Username',
+		'email' => 'Email',
+		'first_name' => 'First name',
+		'last_name' => 'Last name',
+		'password' => 'Password',
+		'city' => 'City',
+		'country' => 'Country',
+		'address' => 'Address',
+		'phone' => 'Phone',
+		'mobile' => 'Mobile',
+		'age' => 'Age',
+		'sex' => 'Sex',
+		'gender' => 'Gender',
+		'day' => 'Day',
+		'month' => 'Month',
+		'year' => 'Year',
+		'hour' => 'Hour',
+		'minute' => 'Minute',
+		'second' => 'Second',
+		'title' => 'Title',
+		'websiteTitle' => 'Website title',
+		'content' => 'Content',
+		'description' => 'Description',
+		'excerpt' => 'Excerpt',
+		'date' => 'Date',
+		'time' => 'Time',
+		'available' => 'Available',
+		'size' => 'Size',
+		'slug' => 'Slug',
+		'body' => 'Body',
+		'meta_keywords' => 'Meta keywords',
+		'meta_title' => 'Meta title',
+		'meta_description' => 'Meta description',
+		'summary' => 'Summary',
+		'uri' => 'Uri',
+		'website' => 'Website',
+		'online' => 'Online',
+		'status' => 'Status',
+
+		// Pages
+		'rss_enabled' => 'Rss enabled',
+		'comments_enabled' => 'Comments enabled',
+		'is_home' => 'Is home',
+		'template' => 'Template',
+		'css' => 'Css',
+		'js' => 'Js',
+
+		// Places
+		'latitude' => 'Latitude',
+		'longitude' => 'Longitude',
+		'fax' => 'Fax',
+		'info' => 'Info',
+		'logo' => 'Logo',
+		'replace logo' => 'Replace logo',
+		'image' => 'Image',
+		'replace image' => 'Replace image',
+		'Show on map' => 'Show on map',
+		'category_id' => 'Category',
+		'info' => 'Info',
+
+		// Events
+		'start_date' => 'Start date',
+		'end_date' => 'End date',
+		'start_time' => 'Start time',
+		'end_time' => 'End time',
+		'HH:MM' => 'HH:MM',
+		'DDMMYYYY' => 'DDMMYYYY',
+		'DDMMYYYY HHMM' => 'DDMMYYYY HHMM',
+
+		// Projects
+		'category_id' => 'Category',
+
+		// Mots-clés
+		'tags' => 'Tags',
+		'tag' => 'Tag',
+		'uses' => 'Uses',
+
+		// Menulinks
+		'page_id' => 'Page',
+		'menu_id' => 'Menu',
+		'module_name' => 'Module name',
+		'target' => 'Target',
+		'class' => 'Class',
+		'restricted_to' => 'Restricted to',
+		'link_type' => 'Link type',
+
+		// Users
+		'first_name' => 'First name',
+		'last_name' => 'Last name',
+		'groups' => 'Groups',
+		'email' => 'Email',
+		'password' => 'Password',
+		'password_confirmation' => 'Password confirmation',
+		'reset password' => 'Reset password',
+		'register' => 'Register',
+		'Change password (if not empty)' => 'Change password (if not empty)',
+		'save' => 'Save',
+		'save and exit' => 'Save and exit',
+		'exit' => 'Exit',
+		'log in' => 'Log in',
+		'modify' => 'Modify',
+		'permissions' => 'Permissions',
+		'isSuperUser' => 'IsSuperUser',
+		'isActivated' => 'IsActivated',
+		'getMergedPermissions' => 'Get merged permissions',
+
+		// Settings
+		'webmasterEmail' => 'Webmaster email',
+		'typekitCode' => 'Typekit Code',
+		'googleAnalyticsUniversalCode' => 'Google Analytics Universal Code',
+		'googleAnalyticsCode' => 'Google Analytics Code',
+		'langChooser' => 'Lang chooser',
+		'authPublic' => 'Authenticate to view website',
+		'registration allowed' => 'Registration allowed',
+
+		// Translations
+		'key' => 'Key',
+		'translations' => 'Translations',
+
+		// Files
+		'alt_attribute' => 'Alt attribute',
+		'keywords' => 'Keywords',
+		'folder_id' => 'Folder',
+		'user_id' => 'User',
+		'type' => 'Type',
+		'position' => 'Position',
+		'name' => 'Name',
+		'path' => 'Path',
+		'files' => 'Files',
+		'filename' => 'Filename',
+		'extension' => 'Extension',
+		'mimetype' => 'Mimetype',
+		'width' => 'Width',
+		'height' => 'Height',
+		'download_count' => 'Download_count',
+
+		'Submit' => 'Submit',
+		'Reset' => 'Reset',
+		'Cancel' => 'Cancel',
+	),
+
+	// Values, for example for select menus
+	'values' => array(
+		'Active tab' => 'Active tab',
+		'New tab' => 'New tab',
 	),
 
 );
