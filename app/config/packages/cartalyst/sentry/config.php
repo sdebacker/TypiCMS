@@ -95,7 +95,7 @@ return array(
 		|
 		*/
 
-		'model' => 'Cartalyst\Sentry\Groups\Eloquent\Group',
+		'model' => 'TypiCMS\Modules\Groups\Models\Group',
 
 	),
 

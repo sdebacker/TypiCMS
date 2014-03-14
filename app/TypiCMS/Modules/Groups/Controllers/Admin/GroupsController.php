@@ -5,6 +5,7 @@ use View;
 use Input;
 use Sentry;
 use Config;
+use Request;
 use Redirect;
 use Notification;
 
@@ -46,7 +47,7 @@ class GroupsController extends BaseController {
 
 		$models = $this->presenter->collection($models, new GroupPresenter);
 
-		$this->layout->content = View::make('admin.groups.index')->with('groups', $models);
+		$this->layout->content = View::make('admin.groups.index')->withModels($models);
 	}
 
 	/**
@@ -71,10 +72,10 @@ class GroupsController extends BaseController {
 		// Form Processing
 		$result = $this->form->save( Input::all() );
 
-		if( $result['success'] ) {
+		if ($result['success']) {
 			// Success!
 			Notification::success($result['message']);
-			return Redirect::to('admin/groups');
+			return Redirect::route('admin.groups.index');
 
 		} else {
 			Notification::error($result['message']);
@@ -122,11 +123,10 @@ class GroupsController extends BaseController {
 		// Form Processing
 		$result = $this->form->update( Input::all() );
 
-		if( $result['success'] )
-		{
+		if ($result['success']) {
 			// Success!
 			Notification::success($result['message']);
-			return Redirect::to('admin/groups');
+			return Redirect::route('admin.groups.index');
 
 		} else {
 			Notification::error($result['message']);
@@ -139,19 +139,15 @@ class GroupsController extends BaseController {
 	/**
 	 * Remove the specified resource from storage.
 	 *
+	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		if ($this->repository->destroy($id))
-		{
-			Notification::success('Group Deleted');
-			return Redirect::to('admin/groups');
-		}
-		else 
-		{
-			Notification::error('Unable to Delete Group');
-			return Redirect::to('admin/groups');
+		if ($this->repository->destroy($id)) {
+			if ( ! Request::ajax()) {
+				return Redirect::back();
+			}
 		}
 	}
 

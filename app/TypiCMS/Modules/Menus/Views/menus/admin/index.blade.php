@@ -22,8 +22,9 @@
 			<li id="item_{{ $model->id }}">
 				<div>
 					{{ $model->checkbox }}
+					{{ $model->edit }}
 					{{ $model->status }}
-					<a href="{{ route('admin.menus.edit', $model->id) }}">{{ $model->title }} ({{ $model->name }})</a>
+					<a href="{{ route('admin.menus.menulinks.index', $model->id) }}">{{ $model->title }} ({{ $model->name }})</a>
 				</div>
 			</li>
 		@endforeach

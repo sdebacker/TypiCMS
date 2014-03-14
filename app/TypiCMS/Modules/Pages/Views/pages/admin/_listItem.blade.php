@@ -1,8 +1,9 @@
 <li id="item_{{ $model->id }}">
 	<div>
 		{{ $model->checkbox }}
+		{{ $model->edit }}
 		{{ $model->status }}
-		<a href="{{ route('admin.pages.edit', $model->id) }}">{{ $model->title }}</a>
+		{{ $model->title }}
 		<div class="attachments">{{ $model->countFiles }}</div>
 	</div>
 	@if ($model->children)

@@ -1,8 +1,9 @@
 <li id="item_{{ $model->id }}">
 	<div>
 		{{ $model->checkbox }}
+		{{ $model->edit }}
 		{{ $model->status }}
-		<a href="{{ route('admin.menus.menulinks.edit', array($model->menu_id, $model->id)) }}">{{ $model->title }}</a>
+		{{ $model->title }}
 	</div>
 	@if ($model->children)
 		<ul>

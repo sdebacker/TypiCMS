@@ -17,11 +17,12 @@
 
 		@include('admin._buttons-list')
 
-		<ul class="list-main nested sortable">
+		<ul class="list-main sortable">
 		@foreach ($models as $model)
 			<li id="item_{{ $model->id }}">
 				<div>
 					{{ $model->checkbox }}
+					{{ $model->edit }}
 					{{ $model->status }}
 					<a href="{{ route('admin.projects.edit', $model->id) }}">{{ $model->title }}</a>
 					<div class="attachments">{{ $model->countFiles }}</div>

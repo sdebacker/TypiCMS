@@ -13,19 +13,20 @@ body { padding-top: 65px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', '
 
 .page-header { margin-top: 20px; margin-bottom: 10px; border-bottom: 0; }
 
-.list-main { margin: 0; padding-left: 20px; list-style-type: none; background: url(../../../img/fond_liste.png);
-
-	ul { list-style-type: none;	}
+.list-main { margin: 0; list-style-type: none; padding-left: 0;
+	&.nested { padding-left: 15px; }
+	ul { list-style-type: none;	padding-left: 27px; }
 	.private > div .title { padding-left: 20px; background: url(../../../img/icn_locked.png) no-repeat left center; }
-
-	li { line-height: 26px; position: relative;
-		.title { color: #333; line-height: 26px; position: absolute; left: 45px; padding-left: 3px; top: 0; display: block; max-width: 500px; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; text-overflow: ellipsis; }
+	li { position: relative; border-top: 1px solid #ddd;
+		div { padding: 5px; }
+		.btn-default { margin-left: 10px; }
+		.title { color: #333; position: absolute; left: 45px; padding-left: 3px; top: 0; display: block; max-width: 500px; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; text-overflow: ellipsis; }
 		.attachments { position: absolute; right: 20px; top: 0; margin: 0 5px; }
 	}
+	> li:last-child { border-bottom: 1px solid #ddd; }
 	form { display: inline-block; }
-	.switch { display: inline-block; width: 22px; text-indent: -9999px; background: no-repeat 0 2px url(../../../img/switch-xs.png); margin-left: 5px; }
-	.switch.offline { background-position: 0 -20px; }
-
+	.switch { display: inline-block; width: 22px; text-indent: -9999px; background: no-repeat url(../../../img/switch-xs.png); margin-left: 5px; }
+	.switch.offline { background-position: 0 -22px; }
 }
 
 .table-main {

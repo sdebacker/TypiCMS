@@ -3,33 +3,53 @@
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ count($groups) }}</span> @choice('groups::global.groups', count($groups))
+	<span id="nb_elements">{{ count($models) }}</span> @choice('groups::global.groups', count($models))
 @stop
 
 @section('addButton')
 	<a href="{{ route('admin.groups.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('users::global.New')) }}</span></a>
 @stop
 
+
 @section('main')
 
-<table class="table table-striped table-hover">
-	<thead>
-		<th>Options</th>
-		<th>Name</th>
-		<th>Permissions</th>
-	</thead>
-	<tbody>
-	@foreach ($groups as $group)
-		<tr>
-			<td>
-				<button class="btn btn-xs btn-danger action_confirm {{ ($group->id == 1) ? 'disabled' : '' }}" type="button" data-method="delete" href="{{ URL::to('groups') }}/{{ $group->id }}">Delete</button>
-			</td>
-			<td><a href="{{ route('admin.groups.edit', array($group->id)) }}">{{ $group->name }}</a></td>
-			<td>{{ implode(', ', array_keys($group['permissions'])) }}</td>
-		</tr>	
-	@endforeach
-	</tbody>
-</table> 
+	<div class="list-form" lang="{{ Config::get('app.locale') }}">
+
+		@section('btn-locales') @stop
+		
+		@include('admin._buttons-list')
+
+		<div class="table-responsive">
+
+			<table class="table table-condensed table-main">
+
+				<thead>
+					{{ Html::th('checkboxes', false, false) }}
+					{{ Html::th('edit', false, false) }}
+					{{ Html::th('name', false) }}
+					{{ Html::th('permissions', false) }}
+				</thead>
+
+				<tbody>
+
+					@foreach ($models as $model)
+
+					<tr id="item_{{ $model->id }}">
+						<td>{{ $model->checkbox }}</td>
+						<td>{{ $model->edit }}</td>
+						<td>{{ $model->name }}</td>
+						<td>{{ implode(', ', array_keys($model['permissions'])) }}</td>
+					</tr>	
+
+					@endforeach
+
+				</tbody>
+
+			</table> 
+
+		</div>
+
+	</div>
 
 @stop
 
