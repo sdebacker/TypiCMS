@@ -23,7 +23,7 @@
 			<div class="col-sm-6">
 				<div class="form-group @if($errors->has('email'))has-error@endif">
 					{{ Form::label('email', trans('validation.attributes.email'), array('class' => 'control-label')) }}
-					{{ Form::text('email', null, array('class' => 'form-control', 'autocomplete' => 'off')) }}
+					{{ Form::email('email', null, array('class' => 'form-control', 'autocomplete' => 'off')) }}
 					@if($errors->has('email'))
 					<span class="help-block">{{ $errors->first('email') }}</span>
 					@endif
