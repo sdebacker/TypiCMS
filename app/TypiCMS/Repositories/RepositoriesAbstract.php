@@ -77,12 +77,12 @@ abstract class RepositoriesAbstract {
 		}
 
 		if ($relatedModel) {
-			$query->where('fileable_id', $relatedModel->id);
-			$query->where('fileable_type', get_class($relatedModel));
+			$query = $query->where('fileable_id', $relatedModel->id)
+				->where('fileable_type', get_class($relatedModel));
 		}
 
 		// files
-		$this->model->files and $query->files();
+		$this->model->files and $query = $query->files();
 
 		$totalItems = $query->count();
 
