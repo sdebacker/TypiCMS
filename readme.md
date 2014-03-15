@@ -73,7 +73,8 @@ Change website title, and other options trough the settings panel. Settings are 
 
 ## Contributing To TypiCMS
 
-Feel free to fork and made pull requests. TypiCMS needs many improvements, some options are not functionnal for the moment.
+TypiCMS needs many improvements, some options are not yet implemented.
+TypiCMS aims to follow [PSR-1](http://www.php-fig.org/psr/psr-1/) and [PSR-2](http://www.php-fig.org/psr/psr-2/) standards.
 
 ## Testing
 
