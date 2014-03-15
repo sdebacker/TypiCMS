@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-US">
-	<head>
-		<meta charset="utf-8">
-	</head>
-	<body>
-		<h2>{{ trans('users::global.Reset password') }}</h2>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h2>{{ trans('users::global.Reset password') }}</h2>
 
-		<div>
-			{{ trans('users::global.To reset your password, complete this form:') }} {{ URL::route('resetpassword', array($token)) }}.
-		</div>
-	</body>
+        <div>
+            {{ trans('users::global.To reset your password, complete this form:') }} {{ URL::route('resetpassword', array($token)) }}.
+        </div>
+    </body>
 </html>

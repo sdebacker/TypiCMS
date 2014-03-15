@@ -2,6 +2,6 @@
 
 return array(
 
-	'More' => 'Meer (Loaded from File)',
+    'More' => 'Meer (Loaded from File)',
 
 );
