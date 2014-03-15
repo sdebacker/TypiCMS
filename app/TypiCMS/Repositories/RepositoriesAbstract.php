@@ -300,7 +300,7 @@ abstract class RepositoriesAbstract {
 
         if ($tags) {
             $found = $this->tag->findOrCreate( $tags );    
-            foreach($found as $tag) {
+            foreach ($found as $tag) {
                 $tagIds[] = $tag->id;
             }
         }

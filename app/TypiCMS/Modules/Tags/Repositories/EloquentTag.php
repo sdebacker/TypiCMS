@@ -79,11 +79,11 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 
 		$returnTags = array();
 
-		if( $foundTags ) {
-			foreach( $foundTags as $tag ) {
+		if ( $foundTags ) {
+			foreach ( $foundTags as $tag ) {
 				$pos = array_search($tag->tag, $tags);
 
-				// Add returned tags to array if( $pos !== false )
+				// Add returned tags to array if ( $pos !== false )
 				{
 					$returnTags[] = $tag;
 					unset($tags[$pos]);
@@ -92,7 +92,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface {
 		}
 
 		// Add remainings tags as new
-		foreach( $tags as $tag ) {
+		foreach ( $tags as $tag ) {
 			$returnTags[] = $this->model->create(array(
 				'tag' => $tag,
 				'slug' => Str::slug($tag),

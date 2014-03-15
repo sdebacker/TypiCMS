@@ -4,7 +4,7 @@
 
 	@if (count($models))
 	<ul>
-		@foreach($models as $model)
+		@foreach ($models as $model)
 		<li>
 			<strong>{{ $model->title }}</strong>
 			<div class="date">@lang('news::global.Published on') <time datetime="{{ $model->date_sql }}">{{ $model->date_localized }}</time></div>

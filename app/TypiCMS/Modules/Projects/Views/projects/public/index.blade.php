@@ -5,7 +5,7 @@
 	@if (count($models))
 	
 	<ul>
-		@foreach($models as $model)
+		@foreach ($models as $model)
 		<li>
 			<strong>{{ $model->title }}</strong>
 			<br>

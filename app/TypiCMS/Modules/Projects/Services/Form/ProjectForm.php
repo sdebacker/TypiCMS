@@ -44,7 +44,7 @@ class ProjectForm {
 	{
 		$inputDot = array_dot($input);
 
-		if( ! $this->valid($inputDot) ) {
+		if ( ! $this->valid($inputDot) ) {
 			return false;
 		}
 
@@ -66,7 +66,7 @@ class ProjectForm {
 		}
 
 		$inputDot = array_dot($input);
-		if( ! $this->valid($inputDot) ) {
+		if ( ! $this->valid($inputDot) ) {
 			return false;
 		}
 
@@ -107,7 +107,7 @@ class ProjectForm {
 
 		$tags = $tags ? explode(',', $tags) : array();
 
-		foreach( $tags as $key => $tag ) {
+		foreach ( $tags as $key => $tag ) {
 			$tags[$key] = trim($tag);
 		}
 

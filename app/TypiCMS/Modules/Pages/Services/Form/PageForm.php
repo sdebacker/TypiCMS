@@ -44,7 +44,7 @@ class PageForm {
 	{
 		$inputDot = array_dot($input);
 
-		if( ! $this->valid($inputDot) ) {
+		if ( ! $this->valid($inputDot) ) {
 			return false;
 		}
 
@@ -68,7 +68,7 @@ class PageForm {
 
 		$inputDot = array_dot($input);
 
-		if( ! $this->valid($inputDot) ) {
+		if ( ! $this->valid($inputDot) ) {
 			return false;
 		}
 
@@ -106,7 +106,7 @@ class PageForm {
 	{
 		$tags = explode(',', $tags);
 
-		foreach( $tags as $key => $tag ) {
+		foreach ( $tags as $key => $tag ) {
 			$tags[$key] = trim($tag);
 		}
 

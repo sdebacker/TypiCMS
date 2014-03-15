@@ -4,7 +4,7 @@
 
 	@if (count($models))
 	<ul>
-		@foreach($models as $model)
+		@foreach ($models as $model)
 		<li>
 			<strong>{{ $model->title }}</strong>
 			<div class="date">{{ $model->date_from_to }}</div>

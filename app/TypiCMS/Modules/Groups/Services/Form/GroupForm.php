@@ -42,7 +42,7 @@ class GroupForm {
      */
     public function save(array $input)
     {
-        if( ! $this->valid($input) )
+        if ( ! $this->valid($input) )
         {
             return false;
         }
@@ -57,7 +57,7 @@ class GroupForm {
      */
     public function update(array $input)
     {
-        if( ! $this->valid($input) )
+        if ( ! $this->valid($input) )
         {
             return false;
         }

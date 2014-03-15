@@ -136,7 +136,7 @@ class CategoriesController extends BaseController {
 	 */
 	public function destroy($model)
 	{
-		if( $model->delete() ) {
+		if ( $model->delete() ) {
 			if ( ! Request::ajax()) {
 				return Redirect::back();
 			}

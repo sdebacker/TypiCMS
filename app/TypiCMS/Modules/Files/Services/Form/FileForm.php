@@ -44,7 +44,7 @@ class FileForm {
 	{
 		$inputDot = array_dot($input);
 
-		if( ! $this->valid($inputDot) )
+		if ( ! $this->valid($inputDot) )
 		{
 			return false;
 		}
@@ -66,7 +66,7 @@ class FileForm {
 
 		$inputDot = array_dot($input);
 
-		if( ! $this->valid($inputDot) )
+		if ( ! $this->valid($inputDot) )
 		{
 			return false;
 		}
@@ -105,7 +105,7 @@ class FileForm {
 	{
 		$tags = explode(',', $tags);
 
-		foreach( $tags as $key => $tag )
+		foreach ( $tags as $key => $tag )
 		{
 			$tags[$key] = trim($tag);
 		}

@@ -41,8 +41,7 @@ class LaravelCache implements CacheInterface {
      */
     public function put($key, $value, $minutes=null)
     {
-        if( is_null($minutes) )
-        {
+        if ( is_null($minutes) ) {
             $minutes = $this->minutes;
         }
 

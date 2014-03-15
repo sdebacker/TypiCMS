@@ -170,7 +170,7 @@ class FilesController extends BaseController {
 	 */
 	public function destroy($parent, $model)
 	{
-		if( $this->repository->delete($model) ) {
+		if ( $this->repository->delete($model) ) {
 			if ( ! Request::ajax()) {
 				Notification::success('File '.$model->filename.' deleted.');
 				return Redirect::back();

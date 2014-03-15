@@ -33,7 +33,7 @@
 			</h3>
 
 			<ul class="list-unstyled addresses">
-				@foreach($places as $place)
+				@foreach ($places as $place)
 				<li id="item-{{ $place->id }}">
 					<div class="row">
 						<div class="col-xs-9">

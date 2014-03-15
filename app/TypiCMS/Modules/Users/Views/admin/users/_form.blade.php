@@ -100,7 +100,7 @@
 
 				<div class="form-group">
 				<label>@lang('validation.attributes.groups')</label>
-				@foreach($groups as $group)
+				@foreach ($groups as $group)
 				<div class="checkbox">
 					<label>
 						{{ Form::hidden('groups[' . $group->id . ']', 0) }}

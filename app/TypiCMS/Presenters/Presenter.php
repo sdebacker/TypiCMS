@@ -35,7 +35,7 @@ class Presenter {
 	*/
 	public function collection(Collection $collection, Presentable $presenter)
 	{
-		foreach($collection as $key => $value) {
+		foreach ($collection as $key => $value) {
 			$collection->put($key, $this->model($value, $presenter));
 			if (isset($value->children) and $value->children instanceof Collection) {
 				$this->collection($value->children, $presenter);
@@ -58,7 +58,7 @@ class Presenter {
 	{
 		$items = array();
 
-		foreach($paginator->getItems() as $item) {
+		foreach ($paginator->getItems() as $item) {
 			$items[] = $this->model($item, $presenter);
 		}
 

@@ -169,7 +169,7 @@ class UsersController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		if( $this->repository->destroy($id) ) {
+		if ( $this->repository->destroy($id) ) {
 			if ( ! Request::ajax()) {
 				return Redirect::back();
 			}

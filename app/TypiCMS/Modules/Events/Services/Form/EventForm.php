@@ -44,7 +44,7 @@ class EventForm {
 	{
 		$inputDot = array_dot($input);
 
-		if( ! $this->valid($inputDot) ) {
+		if ( ! $this->valid($inputDot) ) {
 			return false;
 		}
 
@@ -65,7 +65,7 @@ class EventForm {
 
 		$inputDot = array_dot($input);
 
-		if( ! $this->valid($inputDot) ) {
+		if ( ! $this->valid($inputDot) ) {
 			return false;
 		}
 
@@ -103,7 +103,7 @@ class EventForm {
 	{
 		$tags = explode(',', $tags);
 
-		foreach( $tags as $key => $tag )
+		foreach ( $tags as $key => $tag )
 		{
 			$tags[$key] = trim($tag);
 		}

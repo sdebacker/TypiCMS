@@ -44,7 +44,7 @@ class TranslationForm {
 	{
 		$inputDot = array_dot($input);
 
-		if( ! $this->valid($inputDot) ) {
+		if ( ! $this->valid($inputDot) ) {
 			return false;
 		}
 
@@ -60,7 +60,7 @@ class TranslationForm {
 	{
 
 		$inputDot = array_dot($input);
-		if( ! $this->valid($inputDot) ) {
+		if ( ! $this->valid($inputDot) ) {
 			return false;
 		}
 
