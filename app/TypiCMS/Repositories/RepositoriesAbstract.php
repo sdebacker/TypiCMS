@@ -86,7 +86,7 @@ abstract class RepositoriesAbstract {
 
 		$totalItems = $query->count();
 
-		$query->order()
+		$query = $query->order()
 			->skip($limit * ($page - 1))
 			->take($limit);
 
@@ -130,7 +130,7 @@ abstract class RepositoriesAbstract {
 		$this->model->files and $query = $query->files();
 
 		// Query ORDER BY
-		$query->order();
+		$query = $query->order();
 
 		// Get
 		$models = $query->get();
