@@ -29,8 +29,7 @@
 						{{ Html::th('checkboxes', null, false, false) }}
 						{{ Html::th('edit', null, false, false) }}
 						{{ Html::th('name', null, false) }}
-						{{ Html::th('email', null, false) }}
-						{{ Html::th('permissions', null, false) }}
+						{{ Html::th('email', 'asc') }}
 						{{ Html::th('isSuperUser', null, false) }}
 						{{ Html::th('status', null, false) }}
 					</tr>
@@ -46,7 +45,6 @@
 						<td>{{ $model->edit }}</td>
 						<td>{{ $model->first_name }} {{ $model->last_name }}</td>
 						<td><a href="mailto:{{ $model->email }}">{{ $model->email }}</a></td>
-						<td>{{ $model->getMergedPermissions }}</td>
 						<td>{{ $model->superuser }}</td>
 						<td>{{ $model->status }}</td>
 					</tr>
