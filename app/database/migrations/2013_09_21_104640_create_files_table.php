@@ -5,75 +5,75 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateFilesTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('files', function(Blueprint $table)
-		{
-			$table->engine = 'InnoDB';
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('files', function(Blueprint $table)
+        {
+            $table->engine = 'InnoDB';
 
-			$table->increments('id');
-			
-			$table->integer('fileable_id')->unsigned();
-			$table->string('fileable_type');
+            $table->increments('id');
+            
+            $table->integer('fileable_id')->unsigned();
+            $table->string('fileable_type');
 
-			$table->integer('folder_id')->unsigned();
-			
-			$table->integer('user_id')->unsigned();
-			
-			$table->enum('type', array('a', 'v', 'd', 'i', 'o'));
-			$table->string('name', 100);
-			$table->string('filename');
-			$table->string('path');
-			$table->string('extension', 8);
-			$table->string('mimetype', 100);
-			$table->integer('width')->unsigned();
-			$table->integer('height')->unsigned();
-			$table->integer('filesize')->unsigned();
-			$table->integer('download_count');
+            $table->integer('folder_id')->unsigned();
+            
+            $table->integer('user_id')->unsigned();
+            
+            $table->enum('type', array('a', 'v', 'd', 'i', 'o'));
+            $table->string('name', 100);
+            $table->string('filename');
+            $table->string('path');
+            $table->string('extension', 8);
+            $table->string('mimetype', 100);
+            $table->integer('width')->unsigned();
+            $table->integer('height')->unsigned();
+            $table->integer('filesize')->unsigned();
+            $table->integer('download_count');
 
-			$table->integer('position')->unsigned()->default(0);
+            $table->integer('position')->unsigned()->default(0);
 
-			$table->timestamps();
+            $table->timestamps();
 
-		});
+        });
 
-		Schema::create('file_translations', function(Blueprint $table)
-		{
-			$table->engine = 'InnoDB';
+        Schema::create('file_translations', function(Blueprint $table)
+        {
+            $table->engine = 'InnoDB';
 
-			$table->increments('id')->unsigned();
-			$table->integer('file_id')->unsigned();
+            $table->increments('id')->unsigned();
+            $table->integer('file_id')->unsigned();
 
-			$table->string('locale')->index();
+            $table->string('locale')->index();
 
-			$table->tinyInteger('status');
+            $table->tinyInteger('status');
 
-			$table->text('description');
-			$table->string('alt_attribute');
-			$table->string('keywords');
+            $table->text('description');
+            $table->string('alt_attribute');
+            $table->string('keywords');
 
-			$table->timestamps();
+            $table->timestamps();
 
-			$table->unique(array('file_id', 'locale'));
-			$table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
-			
-		});
-	}
+            $table->unique(array('file_id', 'locale'));
+            $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
+            
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('file_translations');
-		Schema::drop('files');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('file_translations');
+        Schema::drop('files');
+    }
 
 }

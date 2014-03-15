@@ -5,55 +5,55 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCategoriesTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('categories', function(Blueprint $table)
-		{
-			$table->engine = 'InnoDB';
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('categories', function(Blueprint $table)
+        {
+            $table->engine = 'InnoDB';
 
-			$table->increments('id');
+            $table->increments('id');
 
-			$table->integer('position')->unsigned()->default(0);
+            $table->integer('position')->unsigned()->default(0);
 
-			$table->timestamps();
-		});
+            $table->timestamps();
+        });
 
-		Schema::create('category_translations', function(Blueprint $table)
-		{
-			$table->engine = 'InnoDB';
+        Schema::create('category_translations', function(Blueprint $table)
+        {
+            $table->engine = 'InnoDB';
 
-			$table->increments('id')->unsigned();
-			$table->integer('category_id')->unsigned();
-			
-			$table->string('locale')->index();
+            $table->increments('id')->unsigned();
+            $table->integer('category_id')->unsigned();
+            
+            $table->string('locale')->index();
 
-			$table->tinyInteger('status');
+            $table->tinyInteger('status');
 
-			$table->string('title');
-			$table->string('slug')->nullable();
+            $table->string('title');
+            $table->string('slug')->nullable();
 
-			$table->timestamps();
+            $table->timestamps();
 
-			$table->unique(array('category_id', 'locale'));
-			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-			
-		});
-	}
+            $table->unique(array('category_id', 'locale'));
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('category_translations');
-		Schema::drop('categories');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('category_translations');
+        Schema::drop('categories');
+    }
 
 }
