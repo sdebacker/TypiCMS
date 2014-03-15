@@ -25,8 +25,8 @@
 				<thead>
 
 					<tr>
-						<th></th>
-						<th>Key</th>
+						{{ Html::th('checkboxes', null, false, false) }}
+						{{ Html::th('key', 'asc') }}
 						@foreach (Config::get('app.locales') as $locale)
 							<th>@lang('global.languages.' . $locale)</th>
 						@endforeach

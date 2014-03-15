@@ -24,10 +24,10 @@
 				<thead>
 
 					<tr>
-						{{ Html::th('checkboxes', false, false) }}
-						{{ Html::th('edit', false, false) }}
+						{{ Html::th('checkboxes', null, false, false) }}
+						{{ Html::th('edit', null, false, false) }}
 						{{ Html::th('status') }}
-						{{ Html::th('title') }}
+						{{ Html::th('title', 'asc') }}
 						{{ Html::th('address') }}
 						{{ Html::th('website') }}
 					</tr>

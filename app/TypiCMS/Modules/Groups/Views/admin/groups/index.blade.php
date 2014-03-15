@@ -24,10 +24,10 @@
 			<table class="table table-condensed table-main">
 
 				<thead>
-					{{ Html::th('checkboxes', false, false) }}
-					{{ Html::th('edit', false, false) }}
-					{{ Html::th('name', false) }}
-					{{ Html::th('permissions', false) }}
+					{{ Html::th('checkboxes', null, false, false) }}
+					{{ Html::th('edit', null, false, false) }}
+					{{ Html::th('name', null, false) }}
+					{{ Html::th('permissions', null, false) }}
 				</thead>
 
 				<tbody>

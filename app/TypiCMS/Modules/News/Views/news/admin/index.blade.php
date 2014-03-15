@@ -24,12 +24,12 @@
 				<thead>
 
 					<tr>
-						{{ Html::th('checkboxes', false, false) }}
-						{{ Html::th('edit', false, false) }}
-						{{ Html::th('status', false) }}
-						{{ Html::th('date') }}
-						{{ Html::th('title', false) }}
-						{{ Html::th('files', false) }}
+						{{ Html::th('checkboxes', null, false, false) }}
+						{{ Html::th('edit', null, false, false) }}
+						{{ Html::th('status', null, false) }}
+						{{ Html::th('date', 'desc') }}
+						{{ Html::th('title', null, false) }}
+						{{ Html::th('files', null, false) }}
 					</tr>
 
 				</thead>

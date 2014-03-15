@@ -30,7 +30,7 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 		
 		$data = array();
 
-		$models = $query->get();
+		$models = $query->order()->get();
 		foreach ($models as $model) {
 			$data[$model->id]['id'] = $model->id;
 			$data[$model->id]['key'] = $model->key;

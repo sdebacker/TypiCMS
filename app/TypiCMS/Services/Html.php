@@ -11,19 +11,24 @@ class Html {
 	 * @param boolean $sortable
 	 * @return string
 	 */
-	public function th($field, $sortable = true, $label = true)
+	public function th($field, $defaultOrder = null, $sortable = true, $label = true)
 	{
+		$order = Input::get('order');
+		if ( ! $order and $defaultOrder) {
+			$order = $field;
+		}
+		$direction = Input::get('direction', $defaultOrder);
 		$th[] = '<th class="' . $field . '">';
 		if ($sortable) {
-			$direction = 'asc';
+			$newDirection = 'asc';
 			$iconDir = ' text-muted';
-			if (Input::get('order') == $field) {
-				if (Input::get('direction') == 'asc') {
-					$direction = 'desc';
+			if ($order == $field) {
+				if ($direction == 'asc') {
+					$newDirection = 'desc';
 				}
-				$iconDir = '-' . $direction;
+				$iconDir = '-' . $newDirection;
 			}
-			$th[] = '<a href="?order=' . $field . '&direction=' . $direction . '">';
+			$th[] = '<a href="?order=' . $field . '&direction=' . $newDirection . '">';
 			$th[] = '<i class="fa fa-sort' . $iconDir . '"></i> ';
 		}
 		if ($label) {

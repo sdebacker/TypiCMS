@@ -24,13 +24,13 @@
 				<thead>
 
 					<tr>
-						{{ Html::th('checkboxes', false, false) }}
-						{{ Html::th('edit', false, false) }}
-						{{ Html::th('status', false) }}
-						{{ Html::th('start_date') }}
+						{{ Html::th('checkboxes', null, false, false) }}
+						{{ Html::th('edit', null, false, false) }}
+						{{ Html::th('status', null, false) }}
+						{{ Html::th('start_date', 'asc') }}
 						{{ Html::th('end_date') }}
-						{{ Html::th('title', false) }}
-						{{ Html::th('files', false) }}
+						{{ Html::th('title', null, false) }}
+						{{ Html::th('files', null, false) }}
 					</tr>
 
 				</thead>
