@@ -11,19 +11,18 @@ use TypiCMS\Services\Helpers;
 
 abstract class BaseController extends Controller {
 
-	public $applicationName;
-
-	protected $repository;
-	protected $form;
-	protected $presenter;
-
 	/**
 	 * The layout that should be used for responses.
 	 */
 	protected $layout = 'admin/master';
 
+	protected $repository;
+	protected $form;
+	protected $presenter;
+
 	// The cool kids’ way of handling page titles.
 	// https://gisglobal.github.com/jonathanmarvens/6017139
+	public $applicationName;
 	public $title  = array(
 		'parent'   => '',
 		'child'    => '',

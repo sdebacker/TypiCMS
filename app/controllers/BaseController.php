@@ -7,10 +7,7 @@ use Config;
 use Request;
 use Controller;
 
-use TypiCMS\Modules\Menulinks\Models\Menulink;
 use TypiCMS\Services\Helpers;
-use TypiCMS\Services\ListBuilder;
-use Illuminate\Support\Collection;
 
 abstract class BaseController extends Controller {
 
