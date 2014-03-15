@@ -194,8 +194,8 @@ return array(
 		'log in' => 'Log in',
 		'modify' => 'Modify',
 		'permissions' => 'Permissions',
-		'isSuperUser' => 'IsSuperUser',
-		'isActivated' => 'IsActivated',
+		'isSuperUser' => 'Superuser',
+		'isActivated' => 'Activated',
 		'getMergedPermissions' => 'Get merged permissions',
 
 		// Settings
