@@ -109,12 +109,18 @@
 			<div class="pull-left">
 				{{ Form::label('logo', trans('validation.attributes.replace logo'), array('class' => 'control-label')) }}
 				{{ Form::file('logo') }}
-				<span class="help-block">@lang('validation.attributes.max 500 Ko')</span>
+				<span class="help-block">
+					@lang('validation.attributes.max') 500 
+					@lang('validation.attributes.KB')
+				</span>
 			</div>
 			@else
 			{{ Form::label('logo', trans('validation.attributes.logo'), array('class' => 'control-label')) }}
 			{{ Form::file('logo') }}
-			<span class="help-block">@lang('validation.attributes.max 500 Ko')</span>
+			<span class="help-block">
+				@lang('validation.attributes.max') 500 
+				@lang('validation.attributes.KB')
+			</span>
 			@endif
 			@if($errors->has('logo'))
 			<span class="help-block">{{ $errors->first('logo') }}</span>
@@ -129,12 +135,18 @@
 			<div class="pull-left">
 				{{ Form::label('image', trans('validation.attributes.replace image'), array('class' => 'control-label')) }}
 				{{ Form::file('image') }}
-				<span class="help-block">@lang('validation.attributes.max 2000 Ko')</span>
+				<span class="help-block">
+					@lang('validation.attributes.max') 2 
+					@lang('validation.attributes.MB')
+				</span>
 			</div>
 			@else
 			{{ Form::label('image', trans('validation.attributes.image'), array('class' => 'control-label')) }}
 			{{ Form::file('image') }}
-			<span class="help-block">@lang('validation.attributes.max 2000 Ko')</span>
+			<span class="help-block">
+				@lang('validation.attributes.max') 2 
+				@lang('validation.attributes.MB')
+			</span>
 			@endif
 			@if($errors->has('image'))
 			<span class="help-block">{{ $errors->first('image') }}</span>

@@ -148,10 +148,6 @@ return array(
 		'longitude' => 'Longitude',
 		'fax' => 'Fax',
 		'info' => 'Info',
-		'logo' => 'Logo',
-		'replace logo' => 'Replace logo',
-		'image' => 'Image',
-		'replace image' => 'Replace image',
 		'Show on map' => 'Show on map',
 		'category_id' => 'Category',
 		'info' => 'Info',
@@ -235,6 +231,15 @@ return array(
 		'Submit' => 'Submit',
 		'Reset' => 'Reset',
 		'Cancel' => 'Cancel',
+
+		// Files
+		'logo' => 'Logo',
+		'replace logo' => 'Replace logo',
+		'image' => 'Image',
+		'replace image' => 'Replace image',
+		'max' => 'Maximum',
+		'KB' => 'KB',
+		'MB' => 'MB',
 	),
 
 	// Values, for example for select menus
