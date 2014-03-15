@@ -40,8 +40,8 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php"
 		],
-		"psr-0": {
-			"TypiCMS": "app"
+		"psr-4": {
+			"TypiCMS\\": "app/TypiCMS"
 		}
 	},
 	"scripts": {
