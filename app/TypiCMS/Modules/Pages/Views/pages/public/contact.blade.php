@@ -1,7 +1,7 @@
 @section('main')
 
-	{{ $model->body }}
+    {{ $model->body }}
 
-	@include('files.public._list', array('files' => $model->files))
+    @include('files.public._list', array('files' => $model->files))
 
 @stop

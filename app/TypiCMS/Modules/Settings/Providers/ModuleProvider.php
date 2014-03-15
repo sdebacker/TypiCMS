@@ -18,36 +18,36 @@ use TypiCMS\Services\Cache\LaravelCache;
 
 class ModuleProvider extends ServiceProvider {
 
-	public function boot()
-	{
-		// Bring in the routes
-		require __DIR__ . '/../routes.php';
+    public function boot()
+    {
+        // Bring in the routes
+        require __DIR__ . '/../routes.php';
 
-		// Add dirs
-		View::addLocation(__DIR__ . '/../Views');
-		Lang::addNamespace('settings', __DIR__ . '/../lang');
-	}
+        // Add dirs
+        View::addLocation(__DIR__ . '/../Views');
+        Lang::addNamespace('settings', __DIR__ . '/../lang');
+    }
 
-	public function register()
-	{
+    public function register()
+    {
 
-		$app = $this->app;
+        $app = $this->app;
 
-		$app->bind('TypiCMS\Modules\Settings\Repositories\SettingInterface', function($app)
-		{
-			$repository = new EloquentSetting(new Setting);
-			if ( ! Config::get('app.cache')) {
-				return $repository;
-			}
-			$laravelCache = new LaravelCache($app['cache'], 'Settings', 10);
-			return new CacheDecorator($repository, $laravelCache);
-		});
+        $app->bind('TypiCMS\Modules\Settings\Repositories\SettingInterface', function($app)
+        {
+            $repository = new EloquentSetting(new Setting);
+            if ( ! Config::get('app.cache')) {
+                return $repository;
+            }
+            $laravelCache = new LaravelCache($app['cache'], 'Settings', 10);
+            return new CacheDecorator($repository, $laravelCache);
+        });
 
-		$app->before(function($request, $response)
-		{
-			require __DIR__ . '/../breadcrumbs.php';
-		});
+        $app->before(function($request, $response)
+        {
+            require __DIR__ . '/../breadcrumbs.php';
+        });
 
-	}
+    }
 
 }

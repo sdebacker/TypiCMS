@@ -7,104 +7,104 @@ use Carbon\Carbon;
 
 class Event extends Base {
 
-	use \Dimsav\Translatable\Translatable;
+    use \Dimsav\Translatable\Translatable;
 
-	protected $fillable = array(
-		'start_date',
-		'end_date',
-		'start_time',
-		'end_time',
-		// Translatable fields
-		'title',
-		'slug',
-		'status',
-		'summary',
-		'body',
-	);
-	
+    protected $fillable = array(
+        'start_date',
+        'end_date',
+        'start_time',
+        'end_time',
+        // Translatable fields
+        'title',
+        'slug',
+        'status',
+        'summary',
+        'body',
+    );
+    
 
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'title',
-		'slug',
-		'status',
-		'summary',
-		'body',
-	);
-
-
-	/**
-	 * The default route for admin side.
-	 *
-	 * @var string
-	 */
-	public $route = 'events';
+    /**
+     * Translatable model configs.
+     *
+     * @var array
+     */
+    public $translatedAttributes = array(
+        'title',
+        'slug',
+        'status',
+        'summary',
+        'body',
+    );
 
 
-	/**
-	 * lists
-	 */
-	public $order = 'start_date';
-	public $direction = 'asc';
+    /**
+     * The default route for admin side.
+     *
+     * @var string
+     */
+    public $route = 'events';
 
 
-	/**
-	 * Items per page
-	 *
-	 * @var string
-	 */
-	public $itemsPerPage = 25;
+    /**
+     * lists
+     */
+    public $order = 'start_date';
+    public $direction = 'asc';
 
 
-	/**
-	 * Relations
-	 */
-	public function files()
-	{
-		return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
-	}
+    /**
+     * Items per page
+     *
+     * @var string
+     */
+    public $itemsPerPage = 25;
 
 
-	/**
-	 * Accessors
-	 *
-	 * @return string
-	 */
-	public function getStartDateAttribute($value)
-	{
-		if ($value == '0000-00-00') return;
-		return Carbon::createFromFormat('Y-m-d', $value)->format('d.m.Y');
-	}
-
-	public function getEndDateAttribute($value)
-	{
-		if ($value == '0000-00-00') return;
-		return Carbon::createFromFormat('Y-m-d', $value)->format('d.m.Y');
-	}
+    /**
+     * Relations
+     */
+    public function files()
+    {
+        return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
+    }
 
 
-	/**
-	 * Observers
-	 */
-	public static function boot()
-	{
-		parent::boot();
+    /**
+     * Accessors
+     *
+     * @return string
+     */
+    public function getStartDateAttribute($value)
+    {
+        if ($value == '0000-00-00') return;
+        return Carbon::createFromFormat('Y-m-d', $value)->format('d.m.Y');
+    }
 
-		static::saving(function($model)
-		{
-			// transform dates to sql
-			if (Input::get('start_date')) {
-				$model->start_date = Carbon::createFromFormat('d.m.Y', Input::get('start_date'))->toDateString();
-			}
-			if (Input::get('end_date')) {
-				$model->end_date = Carbon::createFromFormat('d.m.Y', Input::get('end_date'))->toDateString();
-			}
-		});
+    public function getEndDateAttribute($value)
+    {
+        if ($value == '0000-00-00') return;
+        return Carbon::createFromFormat('Y-m-d', $value)->format('d.m.Y');
+    }
 
-	}
+
+    /**
+     * Observers
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function($model)
+        {
+            // transform dates to sql
+            if (Input::get('start_date')) {
+                $model->start_date = Carbon::createFromFormat('d.m.Y', Input::get('start_date'))->toDateString();
+            }
+            if (Input::get('end_date')) {
+                $model->end_date = Carbon::createFromFormat('d.m.Y', Input::get('end_date'))->toDateString();
+            }
+        });
+
+    }
 
 }

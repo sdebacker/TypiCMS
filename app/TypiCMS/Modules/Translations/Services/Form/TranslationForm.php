@@ -8,83 +8,83 @@ use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 
 class TranslationForm {
 
-	/**
-	 * Form Data
-	 *
-	 * @var array
-	 */
-	protected $data;
+    /**
+     * Form Data
+     *
+     * @var array
+     */
+    protected $data;
 
-	/**
-	 * Validator
-	 *
-	 * @var \TypiCMS\Services\Validation\ValidableInterface
-	 */
-	protected $validator;
+    /**
+     * Validator
+     *
+     * @var \TypiCMS\Services\Validation\ValidableInterface
+     */
+    protected $validator;
 
-	/**
-	 * Translation repository
-	 *
-	 * @var \TypiCMS\Modules\Translations\Repositories\TranslationInterface
-	 */
-	protected $translation;
+    /**
+     * Translation repository
+     *
+     * @var \TypiCMS\Modules\Translations\Repositories\TranslationInterface
+     */
+    protected $translation;
 
-	public function __construct(ValidableInterface $validator, TranslationInterface $translation)
-	{
-		$this->validator = $validator;
-		$this->translation = $translation;
-	}
+    public function __construct(ValidableInterface $validator, TranslationInterface $translation)
+    {
+        $this->validator = $validator;
+        $this->translation = $translation;
+    }
 
-	/**
-	 * Create a new page
-	 *
-	 * @return boolean
-	 */
-	public function save(array $input)
-	{
-		$inputDot = array_dot($input);
+    /**
+     * Create a new page
+     *
+     * @return boolean
+     */
+    public function save(array $input)
+    {
+        $inputDot = array_dot($input);
 
-		if ( ! $this->valid($inputDot) ) {
-			return false;
-		}
+        if ( ! $this->valid($inputDot) ) {
+            return false;
+        }
 
-		return $this->translation->create($input);
-	}
+        return $this->translation->create($input);
+    }
 
-	/**
-	 * Update an existing translation
-	 *
-	 * @return boolean
-	 */
-	public function update(array $input)
-	{
+    /**
+     * Update an existing translation
+     *
+     * @return boolean
+     */
+    public function update(array $input)
+    {
 
-		$inputDot = array_dot($input);
-		if ( ! $this->valid($inputDot) ) {
-			return false;
-		}
+        $inputDot = array_dot($input);
+        if ( ! $this->valid($inputDot) ) {
+            return false;
+        }
 
-		return $this->translation->update($input);
-	}
+        return $this->translation->update($input);
+    }
 
-	/**
-	 * Return any validation errors
-	 *
-	 * @return array
-	 */
-	public function errors()
-	{
-		return $this->validator->errors();
-	}
+    /**
+     * Return any validation errors
+     *
+     * @return array
+     */
+    public function errors()
+    {
+        return $this->validator->errors();
+    }
 
-	/**
-	 * Test if form validator passes
-	 *
-	 * @return boolean
-	 */
-	protected function valid(array $input)
-	{
-		return $this->validator->with($input)->passes();
-	}
+    /**
+     * Test if form validator passes
+     *
+     * @return boolean
+     */
+    protected function valid(array $input)
+    {
+        return $this->validator->with($input)->passes();
+    }
 
 }

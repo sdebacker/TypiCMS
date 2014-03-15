@@ -8,37 +8,37 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentCategory extends RepositoriesAbstract implements CategoryInterface {
 
-	// Class expects an Eloquent model
-	public function __construct(Model $model)
-	{
-		$this->model = $model;
-	}
+    // Class expects an Eloquent model
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
+    }
 
-	public function getAllForSelect()
-	{
-		$query = $this->model->with('translations');
+    public function getAllForSelect()
+    {
+        $query = $this->model->with('translations');
 
-		// take only translated items that are online
-		$query->whereHasOnlineTranslation();
+        // take only translated items that are online
+        $query->whereHasOnlineTranslation();
 
-		// Get
-		$categories = $query->get();
+        // Get
+        $categories = $query->get();
 
-		// Sorting of collection
-		$desc = ($this->model->direction == 'desc') ? true : false ;
-		$categories = $categories->sortBy(function($model)
-		{
-			return $model->{$this->model->order};
-		}, null, $desc);
+        // Sorting of collection
+        $desc = ($this->model->direction == 'desc') ? true : false ;
+        $categories = $categories->sortBy(function($model)
+        {
+            return $model->{$this->model->order};
+        }, null, $desc);
 
-		$array = array('' => '');
-		$categories->each(function($category) use(&$array)
-		{
-			$array[$category->id] = $category->title;
-		});
+        $array = array('' => '');
+        $categories->each(function($category) use(&$array)
+        {
+            $array[$category->id] = $category->title;
+        });
 
-		return $array;
+        return $array;
 
-	}
+    }
 
 }

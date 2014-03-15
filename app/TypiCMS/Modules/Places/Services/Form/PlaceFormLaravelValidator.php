@@ -9,13 +9,13 @@ class PlaceFormLaravelValidator extends AbstractLaravelValidator {
      *
      * @var Array
      */
-	protected $rules = array(
-		'title'       => 'required',
-		'slug'        => 'required_with:title|alpha_dash',
-		'email'       => 'email',
-		'website'     => 'url',
-		'logo'        => 'image|max:500',
-		'image'       => 'image|max:2000',
-	);
+    protected $rules = array(
+        'title'       => 'required',
+        'slug'        => 'required_with:title|alpha_dash',
+        'email'       => 'email',
+        'website'     => 'url',
+        'logo'        => 'image|max:500',
+        'image'       => 'image|max:2000',
+    );
 
 }

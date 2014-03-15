@@ -9,11 +9,11 @@ class MenulinkFormLaravelValidator extends AbstractLaravelValidator {
      *
      * @var Array
      */
-	protected $rules = array(
-		'fr.url'   => 'url',
-		'en.url'   => 'url',
-		'nl.url'   => 'url',
-		'menu_id'  => 'required',
-	);
+    protected $rules = array(
+        'fr.url'   => 'url',
+        'en.url'   => 'url',
+        'nl.url'   => 'url',
+        'menu_id'  => 'required',
+    );
 
 }

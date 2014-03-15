@@ -8,110 +8,110 @@ use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 
 class ProjectForm {
 
-	/**
-	 * Form Data
-	 *
-	 * @var array
-	 */
-	protected $data;
+    /**
+     * Form Data
+     *
+     * @var array
+     */
+    protected $data;
 
-	/**
-	 * Validator
-	 *
-	 * @var \TypiCMS\Services\Validation\ValidableInterface
-	 */
-	protected $validator;
+    /**
+     * Validator
+     *
+     * @var \TypiCMS\Services\Validation\ValidableInterface
+     */
+    protected $validator;
 
-	/**
-	 * Project repository
-	 *
-	 * @var \TypiCMS\Modules\Projects\Repositories\ProjectInterface
-	 */
-	protected $project;
+    /**
+     * Project repository
+     *
+     * @var \TypiCMS\Modules\Projects\Repositories\ProjectInterface
+     */
+    protected $project;
 
-	public function __construct(ValidableInterface $validator, ProjectInterface $project)
-	{
-		$this->validator = $validator;
-		$this->project = $project;
-	}
+    public function __construct(ValidableInterface $validator, ProjectInterface $project)
+    {
+        $this->validator = $validator;
+        $this->project = $project;
+    }
 
-	/**
-	 * Create a new page
-	 *
-	 * @return boolean
-	 */
-	public function save(array $input)
-	{
-		$inputDot = array_dot($input);
+    /**
+     * Create a new page
+     *
+     * @return boolean
+     */
+    public function save(array $input)
+    {
+        $inputDot = array_dot($input);
 
-		if ( ! $this->valid($inputDot) ) {
-			return false;
-		}
-
-        $input['tags'] = $this->processTags($input['tags']);
-
-		return $this->project->create($input);
-	}
-
-	/**
-	 * Update an existing project
-	 *
-	 * @return boolean
-	 */
-	public function update(array $input)
-	{
-		// add checkboxes data
-		foreach (Config::get('app.locales') as $locale) {
-			$input[$locale]['status'] = Input::get($locale.'.status');
-		}
-
-		$inputDot = array_dot($input);
-		if ( ! $this->valid($inputDot) ) {
-			return false;
-		}
+        if ( ! $this->valid($inputDot) ) {
+            return false;
+        }
 
         $input['tags'] = $this->processTags($input['tags']);
 
-		return $this->project->update($input);
-	}
+        return $this->project->create($input);
+    }
 
-	/**
-	 * Return any validation errors
-	 *
-	 * @return array
-	 */
-	public function errors()
-	{
-		return $this->validator->errors();
-	}
+    /**
+     * Update an existing project
+     *
+     * @return boolean
+     */
+    public function update(array $input)
+    {
+        // add checkboxes data
+        foreach (Config::get('app.locales') as $locale) {
+            $input[$locale]['status'] = Input::get($locale.'.status');
+        }
 
-	/**
-	 * Test if form validator passes
-	 *
-	 * @return boolean
-	 */
-	protected function valid(array $input)
-	{
-		return $this->validator->with($input)->passes();
-	}
+        $inputDot = array_dot($input);
+        if ( ! $this->valid($inputDot) ) {
+            return false;
+        }
 
-	/**
-	 * Convert string of tags to
-	 * array of tags
-	 *
-	 * @param  string
-	 * @return array
-	 */
-	protected function processTags($tags)
-	{
+        $input['tags'] = $this->processTags($input['tags']);
 
-		$tags = $tags ? explode(',', $tags) : array();
+        return $this->project->update($input);
+    }
 
-		foreach ( $tags as $key => $tag ) {
-			$tags[$key] = trim($tag);
-		}
+    /**
+     * Return any validation errors
+     *
+     * @return array
+     */
+    public function errors()
+    {
+        return $this->validator->errors();
+    }
 
-		return $tags;
-	}
+    /**
+     * Test if form validator passes
+     *
+     * @return boolean
+     */
+    protected function valid(array $input)
+    {
+        return $this->validator->with($input)->passes();
+    }
+
+    /**
+     * Convert string of tags to
+     * array of tags
+     *
+     * @param  string
+     * @return array
+     */
+    protected function processTags($tags)
+    {
+
+        $tags = $tags ? explode(',', $tags) : array();
+
+        foreach ( $tags as $key => $tag ) {
+            $tags[$key] = trim($tag);
+        }
+
+        return $tags;
+    }
 
 }

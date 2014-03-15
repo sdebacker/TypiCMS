@@ -1,62 +1,62 @@
 @section('head')
-	{{ HTML::script(asset('js/list.js')) }}
+    {{ HTML::script(asset('js/list.js')) }}
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('places::global.places', $models->getTotal())
+    <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('places::global.places', $models->getTotal())
 @stop
 
 @section('addButton')
-	<a href="{{ route('admin.places.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('places::global.New')) }}</span></a>
+    <a href="{{ route('admin.places.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('places::global.New')) }}</span></a>
 @stop
 
 
 @section('main')
 
-	<div class="list-form" lang="{{ Config::get('app.locale') }}">
+    <div class="list-form" lang="{{ Config::get('app.locale') }}">
 
-		@include('admin._buttons-list')
+        @include('admin._buttons-list')
 
-		<div class="table-responsive">
+        <div class="table-responsive">
 
-			<table class="table table-condensed table-main">
+            <table class="table table-condensed table-main">
 
-				<thead>
+                <thead>
 
-					<tr>
-						{{ Html::th('checkboxes', null, false, false) }}
-						{{ Html::th('edit', null, false, false) }}
-						{{ Html::th('status') }}
-						{{ Html::th('title', 'asc') }}
-						{{ Html::th('address') }}
-						{{ Html::th('website') }}
-					</tr>
+                    <tr>
+                        {{ Html::th('checkboxes', null, false, false) }}
+                        {{ Html::th('edit', null, false, false) }}
+                        {{ Html::th('status') }}
+                        {{ Html::th('title', 'asc') }}
+                        {{ Html::th('address') }}
+                        {{ Html::th('website') }}
+                    </tr>
 
-				</thead>
+                </thead>
 
-				<tbody>
+                <tbody>
 
-					@foreach ($models as $model)
+                    @foreach ($models as $model)
 
-					<tr id="item_{{ $model->id }}">
-						<td>{{ $model->checkbox }}</td>
-						<td>{{ $model->edit }}</td>
-						<td>{{ $model->status }}</td>
-						<td>{{ $model->title }}</td>
-						<td>{{ $model->address }}</td>
-						<td><a href="{{ $model->website }}" target="_blank">{{ $model->website }}</a></td>
-					</tr>
+                    <tr id="item_{{ $model->id }}">
+                        <td>{{ $model->checkbox }}</td>
+                        <td>{{ $model->edit }}</td>
+                        <td>{{ $model->status }}</td>
+                        <td>{{ $model->title }}</td>
+                        <td>{{ $model->address }}</td>
+                        <td><a href="{{ $model->website }}" target="_blank">{{ $model->website }}</a></td>
+                    </tr>
 
-					@endforeach
+                    @endforeach
 
-				</tbody>
+                </tbody>
 
-			</table>
+            </table>
 
-		</div>
+        </div>
 
-	</div>
+    </div>
 
-	{{ $models->appends(Input::except('page'))->links() }}
+    {{ $models->appends(Input::except('page'))->links() }}
 
 @stop

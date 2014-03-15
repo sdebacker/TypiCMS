@@ -14,41 +14,41 @@ use TypiCMS\Modules\Users\Services\Form\UserFormLaravelValidator;
 
 class ModuleProvider extends ServiceProvider {
 
-	public function boot()
-	{
-		// Bring in the routes
-		require __DIR__ . '/../routes.php';
+    public function boot()
+    {
+        // Bring in the routes
+        require __DIR__ . '/../routes.php';
 
-		// Add dirs
-		View::addLocation(__DIR__ . '/../Views');
-		Lang::addNamespace('users', __DIR__ . '/../lang');
-	}
+        // Add dirs
+        View::addLocation(__DIR__ . '/../Views');
+        Lang::addNamespace('users', __DIR__ . '/../lang');
+    }
 
-	public function register()
-	{
+    public function register()
+    {
 
-		$app = $this->app;
+        $app = $this->app;
 
-		$app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function($app)
-		{
-			return new SentryUser(
-				$app['sentry']
-			);
-		});
+        $app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function($app)
+        {
+            return new SentryUser(
+                $app['sentry']
+            );
+        });
 
-		$app->bind('TypiCMS\Modules\Users\Services\Form\UserForm', function($app)
-		{
-			return new UserForm(
-				new UserFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Modules\Users\Repositories\UserInterface')
-			);
-		});
+        $app->bind('TypiCMS\Modules\Users\Services\Form\UserForm', function($app)
+        {
+            return new UserForm(
+                new UserFormLaravelValidator( $app['validator'] ),
+                $app->make('TypiCMS\Modules\Users\Repositories\UserInterface')
+            );
+        });
 
-		$app->before(function($request, $response)
-		{
-			require __DIR__ . '/../breadcrumbs.php';
-		});
+        $app->before(function($request, $response)
+        {
+            require __DIR__ . '/../breadcrumbs.php';
+        });
 
-	}
+    }
 
 }

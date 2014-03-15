@@ -12,79 +12,79 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
 
     protected $tag;
 
-	// Class expects an Eloquent model and a TagInterface
-	public function __construct(Model $model, TagInterface $tag)
-	{
-		$this->model = $model;
-		$this->tag = $tag;
-	}
+    // Class expects an Eloquent model and a TagInterface
+    public function __construct(Model $model, TagInterface $tag)
+    {
+        $this->model = $model;
+        $this->tag = $tag;
+    }
 
 
-	/**
-	 * Get all models with categories
-	 *
-	 * @param boolean $all Show published or all
+    /**
+     * Get all models with categories
+     *
+     * @param boolean $all Show published or all
      * @return StdClass Object with $items
-	 */
-	public function getAll($all = false, $relid = null)
-	{
-		$query = $this->model->with('translations');
+     */
+    public function getAll($all = false, $relid = null)
+    {
+        $query = $this->model->with('translations');
 
-		if ( ! $all ) {
-			// Take only online and translated items
-			$query->whereHasOnlineTranslation();
-		}
+        if ( ! $all ) {
+            // Take only online and translated items
+            $query->whereHasOnlineTranslation();
+        }
 
-		$query->with('category')->with('category.translations');
+        $query->with('category')->with('category.translations');
 
-		$relid and $query->where('category_id', $relid);
-		
-		// Files
-		$this->model->files and $query->files();
+        $relid and $query->where('category_id', $relid);
+        
+        // Files
+        $this->model->files and $query->files();
 
-		$models = $query->get();
+        $models = $query->get();
 
-		// Sorting
-		$desc = ($this->model->direction == 'desc') ? true : false ;
-		$models = $models->sortBy(function($model)
-		{
-			return $model->{$this->model->order};
-		}, null, $desc);
+        // Sorting
+        $desc = ($this->model->direction == 'desc') ? true : false ;
+        $models = $models->sortBy(function($model)
+        {
+            return $model->{$this->model->order};
+        }, null, $desc);
 
-		return $models;
-	}
-
-
-	/**
-	 * Create a new model
-	 *
-	 * @param array  Data to create a new object
-	 * @return boolean
-	 */
-	public function create(array $data)
-	{
-		if ( $model = $this->model->create($data) ) {
-			isset($data['tags']) and $this->syncTags($model, $data['tags']);
-			return $model;
-		}
-		return false;
-	}
+        return $models;
+    }
 
 
-	/**
-	 * Update an existing model
-	 *
-	 * @param array  Data to update a model
-	 * @return boolean
-	 */
-	public function update(array $data)
-	{
-		$model = $this->model->find($data['id']);
-		$model->fill($data);
-		$model->save();
-		isset($data['tags']) and $this->syncTags($model, $data['tags']);
-		return true;
-	}
+    /**
+     * Create a new model
+     *
+     * @param array  Data to create a new object
+     * @return boolean
+     */
+    public function create(array $data)
+    {
+        if ( $model = $this->model->create($data) ) {
+            isset($data['tags']) and $this->syncTags($model, $data['tags']);
+            return $model;
+        }
+        return false;
+    }
+
+
+    /**
+     * Update an existing model
+     *
+     * @param array  Data to update a model
+     * @return boolean
+     */
+    public function update(array $data)
+    {
+        $model = $this->model->find($data['id']);
+        $model->fill($data);
+        $model->save();
+        isset($data['tags']) and $this->syncTags($model, $data['tags']);
+        return true;
+    }
 
 
 }

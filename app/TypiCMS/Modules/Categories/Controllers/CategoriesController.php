@@ -9,43 +9,43 @@ use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 
 class CategoriesController extends BaseController {
 
-	public function __construct(CategoryInterface $category)
-	{
-		parent::__construct($category);
-		$this->title['parent'] = Str::title(trans_choice('categories::global.categories', 2));
-	}
+    public function __construct(CategoryInterface $category)
+    {
+        parent::__construct($category);
+        $this->title['parent'] = Str::title(trans_choice('categories::global.categories', 2));
+    }
 
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$this->title['child'] = '';
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $this->title['child'] = '';
 
-		$models = $this->repository->getAll();
+        $models = $this->repository->getAll();
 
-		$this->layout->content = View::make('categories.public.index')
-			->with('models', $models);
-	}
+        $this->layout->content = View::make('categories.public.index')
+            ->with('models', $models);
+    }
 
 
-	/**
-	 * Show resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($category = null, $slug = null)
-	{
-		$model = $this->repository->bySlug($slug);
+    /**
+     * Show resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show($category = null, $slug = null)
+    {
+        $model = $this->repository->bySlug($slug);
 
-		$this->title['parent'] = $model->title;
-		
-		$this->layout->content = View::make('categories.public.show')
-			->with('model', $model);
-	}
+        $this->title['parent'] = $model->title;
+        
+        $this->layout->content = View::make('categories.public.show')
+            ->with('model', $model);
+    }
 
 }

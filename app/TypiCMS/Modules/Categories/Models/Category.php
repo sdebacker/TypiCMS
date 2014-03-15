@@ -4,51 +4,51 @@ use TypiCMS\Models\Base;
 
 class Category extends Base {
 
-	use \Dimsav\Translatable\Translatable;
+    use \Dimsav\Translatable\Translatable;
 
-	protected $fillable = array(
-		'position',
-		// Translatable fields
-		'title',
-		'slug',
-		'status',
-	);
-	
+    protected $fillable = array(
+        'position',
+        // Translatable fields
+        'title',
+        'slug',
+        'status',
+    );
+    
 
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'title',
-		'slug',
-		'status',
-	);
-
-
-	/**
-	 * The default route for admin side.
-	 *
-	 * @var string
-	 */
-	public $route = 'categories';
+    /**
+     * Translatable model configs.
+     *
+     * @var array
+     */
+    public $translatedAttributes = array(
+        'title',
+        'slug',
+        'status',
+    );
 
 
-	/**
-	 * lists
-	 */
-	public $order = 'position';
-	public $direction = 'asc';
+    /**
+     * The default route for admin side.
+     *
+     * @var string
+     */
+    public $route = 'categories';
 
 
-	/**
-	 * Relations
-	 */
-	public function projects()
-	{
-		return $this->hasMany('TypiCMS\Modules\Projects\Models\Project');
-	}
+    /**
+     * lists
+     */
+    public $order = 'position';
+    public $direction = 'asc';
+
+
+    /**
+     * Relations
+     */
+    public function projects()
+    {
+        return $this->hasMany('TypiCMS\Modules\Projects\Models\Project');
+    }
 
 
 }

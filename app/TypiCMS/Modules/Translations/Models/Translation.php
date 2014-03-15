@@ -4,38 +4,38 @@ use TypiCMS\Models\Base;
 
 class Translation extends Base {
 
-	use \Dimsav\Translatable\Translatable;
+    use \Dimsav\Translatable\Translatable;
 
-	protected $fillable = array(
-		'group',
-		'key',
-		// Translatable fields
-		'translation'
-	);
-
-
-	/**
-	 * Translatable model configs.
-	 *
-	 * @var array
-	 */
-	public $translatedAttributes = array(
-		'translation'
-	);
+    protected $fillable = array(
+        'group',
+        'key',
+        // Translatable fields
+        'translation'
+    );
 
 
-	/**
-	 * The default route for admin side.
-	 *
-	 * @var string
-	 */
-	public $route = 'translations';
+    /**
+     * Translatable model configs.
+     *
+     * @var array
+     */
+    public $translatedAttributes = array(
+        'translation'
+    );
 
 
-	/**
-	 * Lists
-	 */
-	public $order = 'key';
-	public $direction = 'asc';
+    /**
+     * The default route for admin side.
+     *
+     * @var string
+     */
+    public $route = 'translations';
+
+
+    /**
+     * Lists
+     */
+    public $order = 'key';
+    public $direction = 'asc';
 
 }

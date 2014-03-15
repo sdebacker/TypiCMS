@@ -22,44 +22,44 @@ use TypiCMS\Modules\Events\Services\Form\EventFormLaravelValidator;
 
 class ModuleProvider extends ServiceProvider {
 
-	public function boot()
-	{
-		// Bring in the routes
-		require __DIR__ . '/../routes.php';
+    public function boot()
+    {
+        // Bring in the routes
+        require __DIR__ . '/../routes.php';
 
-		// Add dirs
-		View::addLocation(__DIR__ . '/../Views');
-		Lang::addNamespace('events', __DIR__ . '/../lang');
-	}
+        // Add dirs
+        View::addLocation(__DIR__ . '/../Views');
+        Lang::addNamespace('events', __DIR__ . '/../lang');
+    }
 
-	public function register()
-	{
+    public function register()
+    {
 
-		$app = $this->app;
+        $app = $this->app;
 
-		$app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function($app)
-		{
-			$repository = new EloquentEvent(new Event);
-			if ( ! Config::get('app.cache')) {
-				return $repository;
-			}
-			$laravelCache = new LaravelCache($app['cache'], 'Events', 10);
-			return new CacheDecorator($repository, $laravelCache);
-		});
+        $app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function($app)
+        {
+            $repository = new EloquentEvent(new Event);
+            if ( ! Config::get('app.cache')) {
+                return $repository;
+            }
+            $laravelCache = new LaravelCache($app['cache'], 'Events', 10);
+            return new CacheDecorator($repository, $laravelCache);
+        });
 
-		$app->bind('TypiCMS\Modules\Events\Services\Form\EventForm', function($app)
-		{
-			return new EventForm(
-				new EventFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Modules\Events\Repositories\EventInterface')
-			);
-		});
+        $app->bind('TypiCMS\Modules\Events\Services\Form\EventForm', function($app)
+        {
+            return new EventForm(
+                new EventFormLaravelValidator( $app['validator'] ),
+                $app->make('TypiCMS\Modules\Events\Repositories\EventInterface')
+            );
+        });
 
-		$app->before(function($request, $response)
-		{
-			require __DIR__ . '/../breadcrumbs.php';
-		});
+        $app->before(function($request, $response)
+        {
+            require __DIR__ . '/../breadcrumbs.php';
+        });
 
-	}
+    }
 
 }

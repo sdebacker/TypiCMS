@@ -13,19 +13,19 @@ use TypiCMS\Modules\Translations\Loaders\DatabaseLoader;
 
 class TranslationServiceProvider extends LaravelTranslationServiceProvider {
 
-	/**
-	 * Register the translation line loader.
-	 *
-	 * @return void
-	 */
-	protected function registerLoader()
-	{
-		$this->app->bindShared('translation.loader', function($app)
-		{
-			$repository     = $app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface');
-			$fileLoader     = new FileLoader($app['files'], $app['path'].'/lang');
-			return new MixedLoader($fileLoader, $repository);
-		});
-	}
+    /**
+     * Register the translation line loader.
+     *
+     * @return void
+     */
+    protected function registerLoader()
+    {
+        $this->app->bindShared('translation.loader', function($app)
+        {
+            $repository     = $app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface');
+            $fileLoader     = new FileLoader($app['files'], $app['path'].'/lang');
+            return new MixedLoader($fileLoader, $repository);
+        });
+    }
 
 }

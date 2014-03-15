@@ -9,8 +9,8 @@ Route::get('users/logout', array('as' => 'logout', 'uses' => 'TypiCMS\Modules\Us
 
 Route::group(array('before' => 'users.register'), function()
 {
-	Route::get('users/register', array('as' => 'register', 'uses' => 'TypiCMS\Modules\Users\Controllers\Admin\UsersController@getRegister'));
-	Route::post('users/register', 'TypiCMS\Modules\Users\Controllers\Admin\UsersController@postRegister');
+    Route::get('users/register', array('as' => 'register', 'uses' => 'TypiCMS\Modules\Users\Controllers\Admin\UsersController@getRegister'));
+    Route::post('users/register', 'TypiCMS\Modules\Users\Controllers\Admin\UsersController@postRegister');
 });
 
 Route::get('users/activate/{userid}/{activationCode}', array('as' => 'activate', 'uses' => 'TypiCMS\Modules\Users\Controllers\Admin\UsersController@getActivate'));
@@ -26,5 +26,5 @@ Route::post('users/changepassword/{userid}/{resetcode}', 'TypiCMS\Modules\Users\
  */
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
 {
-	Route::resource('users', 'TypiCMS\Modules\Users\Controllers\Admin\UsersController');
+    Route::resource('users', 'TypiCMS\Modules\Users\Controllers\Admin\UsersController');
 });

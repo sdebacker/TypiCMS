@@ -1,33 +1,33 @@
 
 @section('head')
-	@if($model->css)
-	<style type="text/css">
-		{{ $model->css }}
-	</style>
-	@endif
-	@if($model->js)
-	<script>
-		{{ $model->js }}
-	</script>
-	@endif
+    @if($model->css)
+    <style type="text/css">
+        {{ $model->css }}
+    </style>
+    @endif
+    @if($model->js)
+    <script>
+        {{ $model->js }}
+    </script>
+    @endif
 @stop
 
 @section('main')
 
-	<div class="row">
-		
-		@if($sideMenu)
-		<div class="col-sm-4">
-			{{ $sideMenu }}
-		</div>
-		@endif
+    <div class="row">
+        
+        @if($sideMenu)
+        <div class="col-sm-4">
+            {{ $sideMenu }}
+        </div>
+        @endif
 
-		<div class="col-sm-8">
-			{{ $model->body }}
-		</div>
+        <div class="col-sm-8">
+            {{ $model->body }}
+        </div>
 
-	</div>
+    </div>
 
-	@include('files.public._list', array('files' => $model->files))
+    @include('files.public._list', array('files' => $model->files))
 
 @stop

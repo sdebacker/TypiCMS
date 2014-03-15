@@ -1,5 +1,5 @@
 @section('main')
 
-	<p>{{ $model->title }}</p>
+    <p>{{ $model->title }}</p>
 
 @stop

@@ -22,44 +22,44 @@ use TypiCMS\Modules\Menulinks\Services\Form\MenulinkFormLaravelValidator;
 
 class ModuleProvider extends ServiceProvider {
 
-	public function boot()
-	{
-		// Bring in the routes
-		require __DIR__ . '/../routes.php';
+    public function boot()
+    {
+        // Bring in the routes
+        require __DIR__ . '/../routes.php';
 
-		// Add dirs
-		View::addLocation(__DIR__ . '/../Views');
-		Lang::addNamespace('menulinks', __DIR__ . '/../lang');
-	}
+        // Add dirs
+        View::addLocation(__DIR__ . '/../Views');
+        Lang::addNamespace('menulinks', __DIR__ . '/../lang');
+    }
 
-	public function register()
-	{
+    public function register()
+    {
 
-		$app = $this->app;
+        $app = $this->app;
 
-		$app->bind('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface', function($app)
-		{
-			$repository = new EloquentMenulink(new Menulink);
-			if ( ! Config::get('app.cache')) {
-				return $repository;
-			}
-			$laravelCache = new LaravelCache($app['cache'], 'Menulinks', 10);
-			return new CacheDecorator($repository, $laravelCache);
-		});
+        $app->bind('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface', function($app)
+        {
+            $repository = new EloquentMenulink(new Menulink);
+            if ( ! Config::get('app.cache')) {
+                return $repository;
+            }
+            $laravelCache = new LaravelCache($app['cache'], 'Menulinks', 10);
+            return new CacheDecorator($repository, $laravelCache);
+        });
 
-		$app->bind('TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm', function($app)
-		{
-			return new MenulinkForm(
-				new MenulinkFormLaravelValidator( $app['validator'] ),
-				$app->make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')
-			);
-		});
+        $app->bind('TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm', function($app)
+        {
+            return new MenulinkForm(
+                new MenulinkFormLaravelValidator( $app['validator'] ),
+                $app->make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')
+            );
+        });
 
-		$app->before(function($request, $response)
-		{
-			require __DIR__ . '/../breadcrumbs.php';
-		});
+        $app->before(function($request, $response)
+        {
+            require __DIR__ . '/../breadcrumbs.php';
+        });
 
-	}
+    }
 
 }

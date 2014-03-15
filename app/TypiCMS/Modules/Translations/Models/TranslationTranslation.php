@@ -3,5 +3,5 @@
 use TypiCMS\Models\Base;
 
 class TranslationTranslation extends Base {
-	
+    
 }

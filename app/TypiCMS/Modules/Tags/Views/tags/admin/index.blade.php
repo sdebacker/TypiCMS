@@ -1,56 +1,56 @@
 @section('head')
-	{{ HTML::script(asset('js/list.js')) }}
+    {{ HTML::script(asset('js/list.js')) }}
 @stop
 
 @section('h1')
-	<span id="nb_elements">{{ $models->getTotal() }}</span> @choice('tags::global.tags', $models->getTotal())
+    <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('tags::global.tags', $models->getTotal())
 @stop
 
 @section('addButton')
-	<!-- <a href="{{ route('admin.tags.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('tags::global.New')) }}</span></a> -->
+    <!-- <a href="{{ route('admin.tags.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('tags::global.New')) }}</span></a> -->
 @stop
 
 
 @section('main')
 
-	<div class="list-form" lang="{{ Config::get('app.locale') }}">
+    <div class="list-form" lang="{{ Config::get('app.locale') }}">
 
-		@include('admin._buttons-list')
+        @include('admin._buttons-list')
 
-		<div class="table-responsive">
+        <div class="table-responsive">
 
-			<table class="table table-condensed table-main">
+            <table class="table table-condensed table-main">
 
-				<thead>
+                <thead>
 
-					<tr>
-						{{ Html::th('checkboxes', null, false, false) }}
-						{{ Html::th('tag', 'asc') }}
-						{{ Html::th('uses') }}
-					</tr>
+                    <tr>
+                        {{ Html::th('checkboxes', null, false, false) }}
+                        {{ Html::th('tag', 'asc') }}
+                        {{ Html::th('uses') }}
+                    </tr>
 
-				</thead>
+                </thead>
 
-				<tbody>
+                <tbody>
 
-					@foreach ($models as $model)
+                    @foreach ($models as $model)
 
-					<tr id="item_{{ $model->id }}">
-						<td>{{ $model->checkbox }}</td>
-						<td>{{ $model->tag }}</td>
-						<td>{{ $model->uses }}</td>
-					</tr>
+                    <tr id="item_{{ $model->id }}">
+                        <td>{{ $model->checkbox }}</td>
+                        <td>{{ $model->tag }}</td>
+                        <td>{{ $model->uses }}</td>
+                    </tr>
 
-					@endforeach
+                    @endforeach
 
-				</tbody>
+                </tbody>
 
-			</table>
+            </table>
 
-		</div>
+        </div>
 
-	</div>
+    </div>
 
-	{{ $models->appends(Input::except('page'))->links() }}
+    {{ $models->appends(Input::except('page'))->links() }}
 
 @stop
