@@ -1,12 +1,6 @@
 <?php namespace TypiCMS\Services;
 
-use DB;
-use Route;
 use Input;
-use Config;
-use Request;
-
-use TypiCMS\Services\Helpers;
 
 class Html {
 
