@@ -34,7 +34,8 @@ class NewsController extends BaseController {
     {
         $page = Input::get('page');
 
-        $itemsPerPage = 10;
+        $itemsPerPage = Config::get('news::admin.itemsPerPage');
+
         $data = $this->repository->byPage($page, $itemsPerPage, true);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);

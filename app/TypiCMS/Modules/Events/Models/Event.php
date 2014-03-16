@@ -53,14 +53,6 @@ class Event extends Base {
 
 
     /**
-     * Items per page
-     *
-     * @var string
-     */
-    public $itemsPerPage = 25;
-
-
-    /**
      * Relations
      */
     public function files()

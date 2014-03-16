@@ -13,4 +13,7 @@
         @endforeach
     </ul>
     @endif
+
+    {{ $models->appends(Input::except('page'))->links() }}
+
 @stop

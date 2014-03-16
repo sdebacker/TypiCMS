@@ -33,7 +33,8 @@ class EventsController extends BaseController {
     {
         $page = Input::get('page');
 
-        $itemsPerPage = 10;
+        $itemsPerPage = Config::get('events::admin.itemsPerPage');
+
         $data = $this->repository->byPage($page, $itemsPerPage, true);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);

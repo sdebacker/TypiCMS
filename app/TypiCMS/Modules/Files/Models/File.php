@@ -61,14 +61,6 @@ class File extends Base {
 
 
     /**
-     * Items per page
-     *
-     * @var string
-     */
-    public $itemsPerPage = 20;
-
-
-     /**
      * Polymorphic relation.
      */
     public function fileable()

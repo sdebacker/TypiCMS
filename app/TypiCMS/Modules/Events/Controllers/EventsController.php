@@ -3,6 +3,7 @@
 use Str;
 use View;
 use Input;
+use Config;
 use Paginator;
 
 use TypiCMS\Modules\Events\Repositories\EventInterface;
@@ -32,7 +33,8 @@ class EventsController extends PublicController {
     {
         $page = Input::get('page');
 
-        $itemsPerPage = 10;
+        $itemsPerPage = Config::get('events::public.itemsPerPage');
+
         $data = $this->repository->byPage($page, $itemsPerPage);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);

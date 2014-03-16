@@ -50,14 +50,6 @@ class News extends Base {
 
 
     /**
-     * Items per page
-     *
-     * @var string
-     */
-    public $itemsPerPage = 10;
-
-
-    /**
      * Relations
      */
     public function files()

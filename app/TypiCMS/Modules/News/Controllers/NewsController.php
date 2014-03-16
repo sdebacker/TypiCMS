@@ -3,6 +3,7 @@
 use Str;
 use View;
 use Input;
+use Config;
 use Paginator;
 
 use TypiCMS\Modules\News\Repositories\NewsInterface;
@@ -31,7 +32,8 @@ class NewsController extends PublicController {
     {
         $page = Input::get('page');
 
-        $itemsPerPage = 10;
+        $itemsPerPage = Config::get('news::public.itemsPerPage');
+        
         $data = $this->repository->byPage($page, $itemsPerPage);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);

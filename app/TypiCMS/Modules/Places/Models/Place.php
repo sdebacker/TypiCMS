@@ -51,14 +51,6 @@ class Place extends Base {
 
 
     /**
-     * Items per page
-     *
-     * @var string
-     */
-    public $itemsPerPage = 10;
-
-
-    /**
      * Observers
      */
     public static function boot()

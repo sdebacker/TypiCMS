@@ -72,15 +72,6 @@ class Page extends Base {
 
     
     /**
-     * Items per page
-     *
-     * @var string
-     */
-    public $itemsPerPage = 5;
-
-
-    
-    /**
      * Relations
      */
     public function menulinks()
