@@ -11,8 +11,8 @@ class DatabaseSeeder extends Seeder {
     {
         Eloquent::unguard();
 
-        $this->call('PageSeeder'); // needed for tests
-        $this->call('MenuSeeder'); // needed for tests
+        $this->call('PageSeeder');
+        $this->call('MenuSeeder');
         $this->call('SentrySeeder');
         $this->call('SettingsSeeder');
         $this->call('NewsSeeder');

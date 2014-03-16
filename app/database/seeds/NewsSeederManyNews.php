@@ -1,6 +1,6 @@
 <?php
 
-class NewsSeeder extends Seeder {
+class NewsSeederManyNews extends Seeder {
 
     public function run()
     {
