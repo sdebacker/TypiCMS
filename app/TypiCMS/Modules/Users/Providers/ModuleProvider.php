@@ -2,6 +2,7 @@
 
 use Lang;
 use View;
+use Config;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +23,7 @@ class ModuleProvider extends ServiceProvider {
         // Add dirs
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('users', __DIR__ . '/../lang');
+        Config::addNamespace('users', __DIR__ . '/../config');
     }
 
     public function register()

@@ -30,6 +30,7 @@ class ModuleProvider extends ServiceProvider {
         // Add dirs
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('pages', __DIR__ . '/../lang');
+        Config::addNamespace('pages', __DIR__ . '/../config');
     }
 
     public function register()
