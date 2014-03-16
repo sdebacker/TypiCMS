@@ -1,7 +1,5 @@
 <?php
 
-use TypiCMS\Models\User;
-
 class PageSeeder extends Seeder {
 
     public function run()

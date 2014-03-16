@@ -1,7 +1,5 @@
 <?php
 
-use TypiCMS\Models\User;
-
 class SettingsSeeder extends Seeder {
 
     public function run()

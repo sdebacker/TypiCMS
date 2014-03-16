@@ -1,7 +1,5 @@
 <?php
 
-use TypiCMS\Models\User;
-
 class TranslationSeeder extends Seeder {
 
     public function run()
