@@ -2,6 +2,7 @@
 
 use App;
 use Config;
+use Request;
 
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -46,8 +47,7 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     public function getMenu($name)
     {
 
-        // Build our cache item key, unique per model number,
-        $key = md5(App::getLocale().'getMenu'.$name);
+        $key = md5(App::getLocale() . 'getMenu' . $name . Request::path());
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
