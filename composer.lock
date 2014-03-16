@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3b2d5a1ff978b11a9b7819606e218b8e",
+    "hash": "df93cd8fecba8d40fed7544e9ed79d50",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "9a47bbd312514d856208d3651439dcaee29de0fc"
+                "reference": "6e65c22e9d780d773c284d5ee70dffd4ac66d429"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9a47bbd312514d856208d3651439dcaee29de0fc",
-                "reference": "9a47bbd312514d856208d3651439dcaee29de0fc",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6e65c22e9d780d773c284d5ee70dffd4ac66d429",
+                "reference": "6e65c22e9d780d773c284d5ee70dffd4ac66d429",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-03-12 20:03:11"
+            "time": "2014-03-13 22:11:14"
         },
         {
             "name": "barryvdh/laravel-debugbar",
