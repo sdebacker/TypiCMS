@@ -29,7 +29,8 @@
             <tbody>
                 <tr>
                     <td class="col-sm-6">@lang('settings::global.Environment')</td>
-                    <td class="col-sm-6"><b>{{ App::environment(); }}</b></td></tr>
+                    <td class="col-sm-6"><b>{{ App::environment(); }}</b></td>
+                </tr>
                 <tr>
                     <td>@lang('settings::global.System locales')</td>
                     <td><div class="max-height"><b><?php system('locale -a'); ?></b></div></td>

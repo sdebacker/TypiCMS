@@ -58,7 +58,7 @@ abstract class BaseController extends Controller {
         $firstSegment = Request::segment(1);
         if (in_array($firstSegment, Config::get('app.locales'))) {
             App::setLocale($firstSegment);
-            setlocale(LC_ALL, $firstSegment . '_' . ucfirst($firstSegment) . '.UTF-8');
+            setlocale(LC_ALL, $firstSegment . '_' . ucfirst($firstSegment));
         }
 
         $this->applicationName = Config::get('typicms.' . App::getLocale() . '.websiteTitle');
