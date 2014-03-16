@@ -30,7 +30,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     private function prepareForTests()
     {
         Artisan::call('migrate');
-        $this->seed();
+        $this->seed('TestSeeder');
     }
 
       /**
