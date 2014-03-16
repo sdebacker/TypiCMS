@@ -16,7 +16,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Files\Presenters\FilePresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class FilesController extends BaseController {
 

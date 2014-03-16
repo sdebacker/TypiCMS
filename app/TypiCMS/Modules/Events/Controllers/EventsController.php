@@ -12,9 +12,9 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Events\Presenters\EventPresenter;
 
 // Base controller
-use App\Controllers\BaseController;
+use TypiCMS\Controllers\PublicController;
 
-class EventsController extends BaseController {
+class EventsController extends PublicController {
 
     public function __construct(EventInterface $event, Presenter $presenter)
     {

@@ -14,7 +14,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Pages\Presenters\PagePresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class PagesController extends BaseController {
 

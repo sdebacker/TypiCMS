@@ -15,7 +15,7 @@ use McCool\DatabaseBackup\Processors\ShellProcessor;
 use TypiCMS\Modules\Menus\Models\Menu;
 use TypiCMS\Modules\Dashboard\Repositories\DashboardInterface;
 
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class DashboardController extends BaseController {
 

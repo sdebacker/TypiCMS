@@ -13,7 +13,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Tags\Presenters\TagPresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class TagsController extends BaseController {
 

@@ -3,11 +3,11 @@
 use Str;
 use View;
 
-use App\Controllers\BaseController;
+use TypiCMS\Controllers\PublicController;
 
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 
-class CategoriesController extends BaseController {
+class CategoriesController extends PublicController {
 
     public function __construct(CategoryInterface $category)
     {

@@ -12,9 +12,9 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\News\Presenters\NewsPresenter;
 
 // Base controller
-use App\Controllers\BaseController;
+use TypiCMS\Controllers\PublicController;
 
-class NewsController extends BaseController {
+class NewsController extends PublicController {
 
     public function __construct(NewsInterface $news, Presenter $presenter)
     {

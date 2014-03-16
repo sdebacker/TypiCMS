@@ -18,7 +18,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Translations\Presenters\TranslationPresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class TranslationsController extends BaseController {
 

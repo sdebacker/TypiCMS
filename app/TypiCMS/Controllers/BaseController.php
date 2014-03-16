@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Admin;
+<?php namespace TypiCMS\Controllers;
 
 use Lang;
 use View;

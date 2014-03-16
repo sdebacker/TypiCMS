@@ -10,9 +10,9 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Projects\Presenters\ProjectPresenter;
 
 // Base controller
-use App\Controllers\BaseController;
+use TypiCMS\Controllers\PublicController;
 
-class ProjectsController extends BaseController {
+class ProjectsController extends PublicController {
 
     public function __construct(ProjectInterface $project, Presenter $presenter)
     {

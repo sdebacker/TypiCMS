@@ -15,7 +15,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Events\Presenters\EventPresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class EventsController extends BaseController {
 

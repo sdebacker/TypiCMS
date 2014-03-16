@@ -20,7 +20,7 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 {
 
 	// Lang chooser
-	Route::get('/', array('as' => 'root', 'uses' => 'App\Controllers\PublicController@root'));
+	Route::get('/', array('as' => 'root', 'uses' => 'TypiCMS\Controllers\PublicController@root'));
 
 	if ( ! App::runningInConsole()) {
 		

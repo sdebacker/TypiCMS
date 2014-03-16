@@ -14,7 +14,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Categories\Presenters\CategoryPresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class CategoriesController extends BaseController {
 

@@ -8,7 +8,7 @@ use Redirect;
 
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
 
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class SettingsController extends BaseController {
 

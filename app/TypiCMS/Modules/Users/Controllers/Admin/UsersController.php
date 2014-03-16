@@ -18,7 +18,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Users\Presenters\UserPresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class UsersController extends BaseController {
 

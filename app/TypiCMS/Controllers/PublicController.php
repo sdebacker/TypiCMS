@@ -1,4 +1,4 @@
-<?php namespace App\Controllers;
+<?php namespace TypiCMS\Controllers;
 
 use App;
 use View;
@@ -9,7 +9,10 @@ use Controller;
 
 use TypiCMS\Services\Helpers;
 
-abstract class BaseController extends Controller {
+// Base controller
+use TypiCMS\Controllers\BaseController;
+
+class PublicController extends Controller {
 
     /**
      * The layout that should be used for responses.
@@ -71,6 +74,32 @@ abstract class BaseController extends Controller {
         View::share('navBar', $navBar);
         View::share('lang', App::getLocale() );
 
+    }
+
+
+    /**
+     * Show lang chooser, redirect to browser lang or redirect to default lang
+     *
+     * @return void
+     */
+    public function root()
+    {
+        $locales = Config::get('app.locales');
+
+        // If we don’t want the lang chooser, redirect to user language
+        if ( ! Config::get('typicms.langChooser')) {
+
+            $locale = substr(getenv('HTTP_ACCEPT_LANGUAGE'), 0, 2);
+            ! in_array($locale, $locales) and $locale = Config::get('app.locale');
+
+            return Redirect::route($locale);
+
+        }
+
+        $this->title['parent'] = 'Choose your language';
+
+        $this->layout->content = View::make('public.root')
+            ->with('locales', $locales);
     }
 
 

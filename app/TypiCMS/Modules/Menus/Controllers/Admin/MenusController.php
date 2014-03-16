@@ -14,7 +14,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Menus\Presenters\MenuPresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class MenusController extends BaseController {
 

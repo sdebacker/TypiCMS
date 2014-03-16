@@ -16,7 +16,7 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\News\Presenters\NewsPresenter;
 
 // Base controller
-use App\Controllers\Admin\BaseController;
+use TypiCMS\Controllers\BaseController;
 
 class NewsController extends BaseController {
 

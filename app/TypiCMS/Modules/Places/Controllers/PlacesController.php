@@ -12,9 +12,9 @@ use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Places\Presenters\PlacePresenter;
 
 // Base controller
-use App\Controllers\BaseController;
+use TypiCMS\Controllers\PublicController;
 
-class PlacesController extends BaseController {
+class PlacesController extends PublicController {
 
     public function __construct(PlaceInterface $place, Presenter $presenter)
     {

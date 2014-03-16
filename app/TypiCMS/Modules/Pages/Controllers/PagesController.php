@@ -4,11 +4,11 @@ use Str;
 use View;
 use Route;
 
-use App\Controllers\BaseController;
+use TypiCMS\Controllers\PublicController;
 
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 
-class PagesController extends BaseController {
+class PagesController extends PublicController {
 
     public function __construct(PageInterface $page)
     {
