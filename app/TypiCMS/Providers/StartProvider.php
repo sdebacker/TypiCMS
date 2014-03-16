@@ -2,7 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class StartProvider extends ServiceProvider {
+class StartProvider extends ServiceProvider
+{
 
     public function register() {
 

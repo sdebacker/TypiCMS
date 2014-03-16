@@ -5,7 +5,8 @@ use TypiCMS\Models\Base;
 use Input;
 use Carbon\Carbon;
 
-class Event extends Base {
+class Event extends Base
+{
 
     use \Dimsav\Translatable\Translatable;
 

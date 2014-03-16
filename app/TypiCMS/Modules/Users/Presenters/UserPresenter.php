@@ -3,7 +3,8 @@
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;
 
-class UserPresenter extends AbstractPresenter implements Presentable {
+class UserPresenter extends AbstractPresenter implements Presentable
+{
 
     public function activated()
     {

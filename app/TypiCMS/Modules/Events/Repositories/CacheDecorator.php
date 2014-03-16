@@ -3,7 +3,8 @@
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
-class CacheDecorator extends CacheAbstractDecorator implements EventInterface {
+class CacheDecorator extends CacheAbstractDecorator implements EventInterface
+{
 
     // Class expects a repo and a cache interface
     public function __construct(EventInterface $repo, CacheInterface $cache)

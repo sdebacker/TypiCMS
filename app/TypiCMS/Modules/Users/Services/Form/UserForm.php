@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Users\Repositories\UserInterface;
 
-class UserForm {
+class UserForm
+{
 
     /**
      * Form Data

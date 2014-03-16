@@ -18,7 +18,8 @@ use TypiCMS\Modules\Menulinks\Presenters\MenulinkPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class MenulinksController extends BaseController {
+class MenulinksController extends BaseController
+{
 
     public function __construct(MenulinkInterface $menulink, MenulinkForm $menulinkform, Presenter $presenter)
     {

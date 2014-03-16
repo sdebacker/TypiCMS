@@ -16,7 +16,8 @@ use TypiCMS\Modules\Menus\Presenters\MenuPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class MenusController extends BaseController {
+class MenusController extends BaseController
+{
 
     public function __construct(MenuInterface $menu, MenuForm $menuform, Presenter $presenter)
     {

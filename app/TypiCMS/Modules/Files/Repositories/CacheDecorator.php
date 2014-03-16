@@ -9,7 +9,8 @@ use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class CacheDecorator extends CacheAbstractDecorator implements FileInterface {
+class CacheDecorator extends CacheAbstractDecorator implements FileInterface
+{
 
 
     // Class expects a repo and a cache interface

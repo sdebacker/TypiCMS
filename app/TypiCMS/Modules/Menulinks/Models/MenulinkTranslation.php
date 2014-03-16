@@ -2,6 +2,7 @@
 
 use Eloquent;
 
-class MenulinkTranslation extends Eloquent {
+class MenulinkTranslation extends Eloquent
+{
 
 }

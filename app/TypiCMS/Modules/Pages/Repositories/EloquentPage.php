@@ -10,7 +10,8 @@ use TypiCMS\Services\ListBuilder;
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Modules\Pages\Models\PageTranslation;
 
-class EloquentPage extends RepositoriesAbstract implements PageInterface {
+class EloquentPage extends RepositoriesAbstract implements PageInterface
+{
 
     protected $uris = array();
 

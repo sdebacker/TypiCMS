@@ -20,7 +20,8 @@ use TypiCMS\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Tags\Services\Form\TagForm;
 use TypiCMS\Modules\Tags\Services\Form\TagFormLaravelValidator;
 
-class ModuleProvider extends ServiceProvider {
+class ModuleProvider extends ServiceProvider
+{
 
     public function boot()
     {

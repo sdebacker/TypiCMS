@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Services\Cache;
 
-interface CacheInterface {
+interface CacheInterface
+{
 
     /**
      * Retrieve data from cache

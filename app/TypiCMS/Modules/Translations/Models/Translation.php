@@ -2,7 +2,8 @@
 
 use TypiCMS\Models\Base;
 
-class Translation extends Base {
+class Translation extends Base
+{
 
     use \Dimsav\Translatable\Translatable;
 

@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 
-class CategoryForm {
+class CategoryForm
+{
 
     /**
      * Form Data

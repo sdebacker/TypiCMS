@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 
-class FileForm {
+class FileForm
+{
 
     /**
      * Form Data

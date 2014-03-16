@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 
-class EloquentSetting implements SettingInterface {
+class EloquentSetting implements SettingInterface
+{
 
     // Class expects an Eloquent model
     public function __construct(Model $model)

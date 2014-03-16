@@ -15,7 +15,8 @@ use TypiCMS\Modules\News\Presenters\NewsPresenter;
 // Base controller
 use TypiCMS\Controllers\PublicController;
 
-class NewsController extends PublicController {
+class NewsController extends PublicController
+{
 
     public function __construct(NewsInterface $news, Presenter $presenter)
     {

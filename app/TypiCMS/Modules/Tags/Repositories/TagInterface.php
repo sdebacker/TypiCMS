@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Modules\Tags\Repositories;
 
-interface TagInterface {
+interface TagInterface
+{
 
     /**
      * Get tags paginated

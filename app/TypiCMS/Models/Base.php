@@ -6,7 +6,8 @@ use Input;
 use Mockery;
 use Eloquent;
 
-abstract class Base extends Eloquent {
+abstract class Base extends Eloquent
+{
 
     /**
      * For testing

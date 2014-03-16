@@ -16,7 +16,8 @@ use TypiCMS\Modules\Categories\Presenters\CategoryPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class CategoriesController extends BaseController {
+class CategoriesController extends BaseController
+{
 
     public function __construct(CategoryInterface $category, CategoryForm $categoryform, Presenter $presenter)
     {

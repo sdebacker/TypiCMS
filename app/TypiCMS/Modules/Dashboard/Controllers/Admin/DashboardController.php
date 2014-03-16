@@ -17,7 +17,8 @@ use TypiCMS\Modules\Dashboard\Repositories\DashboardInterface;
 
 use TypiCMS\Controllers\BaseController;
 
-class DashboardController extends BaseController {
+class DashboardController extends BaseController
+{
 
     public function __construct(DashboardInterface $dashboard)
     {

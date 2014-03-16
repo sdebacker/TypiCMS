@@ -7,7 +7,8 @@ use Request;
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
-class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface {
+class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
+{
 
     // Class expects a repo and a cache interface
     public function __construct(MenulinkInterface $repo, CacheInterface $cache)

@@ -12,7 +12,8 @@ use TypiCMS\Services\Helpers;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class PublicController extends Controller {
+class PublicController extends Controller
+{
 
     /**
      * The layout that should be used for responses.

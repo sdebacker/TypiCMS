@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Groups\Repositories\GroupInterface;
 
-class GroupForm {
+class GroupForm
+{
 
     /**
      * Form Data

@@ -2,7 +2,8 @@
 
 use TypiCMS\Models\Base;
 
-class Tag extends Base {
+class Tag extends Base
+{
 
     /**
      * The attributes that are mass assignable.

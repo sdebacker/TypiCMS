@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
 
-class EloquentProject extends RepositoriesAbstract implements ProjectInterface {
+class EloquentProject extends RepositoriesAbstract implements ProjectInterface
+{
 
     protected $tag;
 

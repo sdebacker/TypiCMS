@@ -17,7 +17,8 @@ use TypiCMS\Modules\Places\Presenters\PlacePresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class PlacesController extends BaseController {
+class PlacesController extends BaseController
+{
 
     public function __construct(PlaceInterface $place, PlaceForm $placeform, Presenter $presenter)
     {

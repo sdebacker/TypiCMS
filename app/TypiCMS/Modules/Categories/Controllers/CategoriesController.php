@@ -7,7 +7,8 @@ use TypiCMS\Controllers\PublicController;
 
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 
-class CategoriesController extends PublicController {
+class CategoriesController extends PublicController
+{
 
     public function __construct(CategoryInterface $category)
     {

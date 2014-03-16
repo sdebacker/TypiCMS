@@ -18,7 +18,8 @@ use TypiCMS\Modules\Projects\Presenters\ProjectPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class ProjectsController extends BaseController {
+class ProjectsController extends BaseController
+{
 
     public function __construct(ProjectInterface $project, ProjectForm $projectform, Presenter $presenter)
     {

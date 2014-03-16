@@ -20,7 +20,8 @@ use TypiCMS\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Menus\Services\Form\MenuForm;
 use TypiCMS\Modules\Menus\Services\Form\MenuFormLaravelValidator;
 
-class ModuleProvider extends ServiceProvider {
+class ModuleProvider extends ServiceProvider
+{
 
     public function boot()
     {

@@ -2,6 +2,7 @@
 
 use Eloquent;
 
-class FileTranslation extends Eloquent {
+class FileTranslation extends Eloquent
+{
 
 }

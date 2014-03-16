@@ -2,7 +2,8 @@
 
 use Illuminate\Translation\LoaderInterface;
 
-class MixedLoader implements LoaderInterface {
+class MixedLoader implements LoaderInterface
+{
 
     /**
      *    The file loader.

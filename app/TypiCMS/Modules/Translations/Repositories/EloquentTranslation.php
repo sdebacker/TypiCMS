@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 
-class EloquentTranslation extends RepositoriesAbstract implements TranslationInterface {
+class EloquentTranslation extends RepositoriesAbstract implements TranslationInterface
+{
 
 
     // Class expects an Eloquent model

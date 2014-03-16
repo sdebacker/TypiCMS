@@ -20,7 +20,8 @@ use TypiCMS\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Translations\Services\Form\TranslationForm;
 use TypiCMS\Modules\Translations\Services\Form\TranslationFormLaravelValidator;
 
-class ModuleProvider extends ServiceProvider {
+class ModuleProvider extends ServiceProvider
+{
 
     public function boot()
     {

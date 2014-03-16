@@ -23,7 +23,8 @@ use TypiCMS\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
 use TypiCMS\Modules\Projects\Services\Form\ProjectFormLaravelValidator;
 
-class ModuleProvider extends ServiceProvider {
+class ModuleProvider extends ServiceProvider
+{
 
     public function boot()
     {

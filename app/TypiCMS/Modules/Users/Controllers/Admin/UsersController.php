@@ -20,7 +20,8 @@ use TypiCMS\Modules\Users\Presenters\UserPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class UsersController extends BaseController {
+class UsersController extends BaseController
+{
 
     /**
      * __construct

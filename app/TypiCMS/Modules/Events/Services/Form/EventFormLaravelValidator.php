@@ -2,7 +2,8 @@
 
 use TypiCMS\Services\Validation\AbstractLaravelValidator;
 
-class EventFormLaravelValidator extends AbstractLaravelValidator {
+class EventFormLaravelValidator extends AbstractLaravelValidator
+{
 
     /**
      * Validation rules

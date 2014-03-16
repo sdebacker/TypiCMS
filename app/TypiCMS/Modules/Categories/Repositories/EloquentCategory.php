@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 
-class EloquentCategory extends RepositoriesAbstract implements CategoryInterface {
+class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
+{
 
     // Class expects an Eloquent model
     public function __construct(Model $model)

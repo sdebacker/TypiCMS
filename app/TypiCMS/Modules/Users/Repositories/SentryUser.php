@@ -24,7 +24,8 @@ use Cartalyst\Sentry\Groups\GroupNotFoundException;
 use Cartalyst\Sentry\Throttling\UserSuspendedException;
 use Cartalyst\Sentry\Throttling\UserBannedException;
 
-class SentryUser implements UserInterface {
+class SentryUser implements UserInterface
+{
 
     /**
      * Construct a new SentryUser Object

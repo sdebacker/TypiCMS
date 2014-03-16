@@ -2,7 +2,8 @@
 
 use TypiCMS\Models\Base;
 
-class Category extends Base {
+class Category extends Base
+{
 
     use \Dimsav\Translatable\Translatable;
 

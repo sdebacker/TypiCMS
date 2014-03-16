@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 
-class ProjectForm {
+class ProjectForm
+{
 
     /**
      * Form Data

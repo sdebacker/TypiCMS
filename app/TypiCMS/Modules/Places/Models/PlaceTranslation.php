@@ -2,7 +2,8 @@
 
 use Eloquent;
 
-class PlaceTranslation extends Eloquent {
+class PlaceTranslation extends Eloquent
+{
     
     
 }

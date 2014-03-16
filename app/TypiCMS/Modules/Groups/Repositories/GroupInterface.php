@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Modules\Groups\Repositories;
 
-interface GroupInterface {
+interface GroupInterface
+{
 
     /**
      * Store a newly created resource in storage.

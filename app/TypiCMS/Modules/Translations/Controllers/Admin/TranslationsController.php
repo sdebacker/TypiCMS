@@ -20,7 +20,8 @@ use TypiCMS\Modules\Translations\Presenters\TranslationPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class TranslationsController extends BaseController {
+class TranslationsController extends BaseController
+{
 
     public function __construct(TranslationInterface $translation, TranslationForm $translationform, Presenter $presenter)
     {

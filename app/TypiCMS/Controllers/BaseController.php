@@ -9,7 +9,8 @@ use Controller;
 
 use TypiCMS\Services\Helpers;
 
-abstract class BaseController extends Controller {
+abstract class BaseController extends Controller
+{
 
     /**
      * The layout that should be used for responses.

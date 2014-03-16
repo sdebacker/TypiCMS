@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 
-class PlaceForm {
+class PlaceForm
+{
 
     /**
      * Form Data

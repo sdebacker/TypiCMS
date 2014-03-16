@@ -2,7 +2,8 @@
 
 use Eloquent;
 
-class NewsTranslation extends Eloquent {
+class NewsTranslation extends Eloquent
+{
 
     /**
      * Observers

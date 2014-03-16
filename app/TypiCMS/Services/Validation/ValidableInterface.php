@@ -1,6 +1,7 @@
 <?php namespace TypiCMS\Services\Validation;
 
-interface ValidableInterface {
+interface ValidableInterface
+{
 
     /**
      * Add data to validation against

@@ -3,7 +3,8 @@
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;
 
-class MenuPresenter extends AbstractPresenter implements Presentable {
+class MenuPresenter extends AbstractPresenter implements Presentable
+{
 
     /**
     * Checkboxes

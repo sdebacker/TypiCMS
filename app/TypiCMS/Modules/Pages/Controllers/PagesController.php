@@ -8,7 +8,8 @@ use TypiCMS\Controllers\PublicController;
 
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 
-class PagesController extends PublicController {
+class PagesController extends PublicController
+{
 
     public function __construct(PageInterface $page)
     {

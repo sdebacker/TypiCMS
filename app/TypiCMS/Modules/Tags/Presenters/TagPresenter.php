@@ -3,6 +3,7 @@
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;
 
-class TagPresenter extends AbstractPresenter implements Presentable {
+class TagPresenter extends AbstractPresenter implements Presentable
+{
 
 }

@@ -13,7 +13,8 @@ use TypiCMS\Modules\Groups\Repositories\SentryGroup;
 use TypiCMS\Modules\Groups\Services\Form\GroupForm;
 use TypiCMS\Modules\Groups\Services\Form\GroupFormLaravelValidator;
 
-class ModuleProvider extends ServiceProvider {
+class ModuleProvider extends ServiceProvider
+{
 
     public function boot()
     {

@@ -13,7 +13,8 @@ use TypiCMS\Modules\Users\Repositories\SentryUser;
 use TypiCMS\Modules\Users\Services\Form\UserForm;
 use TypiCMS\Modules\Users\Services\Form\UserFormLaravelValidator;
 
-class ModuleProvider extends ServiceProvider {
+class ModuleProvider extends ServiceProvider
+{
 
     public function boot()
     {

@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
 
-class TagForm {
+class TagForm
+{
 
     /**
      * Form Data

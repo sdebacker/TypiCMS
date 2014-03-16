@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 
-class EventForm {
+class EventForm
+{
 
     /**
      * Form Data

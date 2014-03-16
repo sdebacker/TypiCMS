@@ -5,7 +5,8 @@ use Carbon\Carbon;
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;
 
-class EventPresenter extends AbstractPresenter implements Presentable {
+class EventPresenter extends AbstractPresenter implements Presentable
+{
 
     public function date_from_to()
     {

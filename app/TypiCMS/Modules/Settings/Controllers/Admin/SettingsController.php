@@ -10,7 +10,8 @@ use TypiCMS\Modules\Settings\Repositories\SettingInterface;
 
 use TypiCMS\Controllers\BaseController;
 
-class SettingsController extends BaseController {
+class SettingsController extends BaseController
+{
 
     public function __construct(SettingInterface $setting)
     {

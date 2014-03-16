@@ -2,7 +2,8 @@
 
 use Eloquent;
 
-class ProjectTranslation extends Eloquent {
+class ProjectTranslation extends Eloquent
+{
 
     /**
      * Observers

@@ -2,7 +2,8 @@
 
 use Eloquent;
 
-class EventTranslation extends Eloquent {
+class EventTranslation extends Eloquent
+{
 
     /**
      * Observers

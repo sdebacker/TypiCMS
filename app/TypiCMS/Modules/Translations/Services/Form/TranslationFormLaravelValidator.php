@@ -2,7 +2,8 @@
 
 use TypiCMS\Services\Validation\AbstractLaravelValidator;
 
-class TranslationFormLaravelValidator extends AbstractLaravelValidator {
+class TranslationFormLaravelValidator extends AbstractLaravelValidator
+{
 
     /**
      * Validation rules

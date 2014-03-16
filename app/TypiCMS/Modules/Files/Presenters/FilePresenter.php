@@ -5,7 +5,8 @@ use Croppa;
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;
 
-class FilePresenter extends AbstractPresenter implements Presentable {
+class FilePresenter extends AbstractPresenter implements Presentable
+{
 
     public function thumb()
     {

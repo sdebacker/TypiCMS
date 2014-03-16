@@ -17,7 +17,8 @@ use TypiCMS\Modules\Events\Presenters\EventPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class EventsController extends BaseController {
+class EventsController extends BaseController
+{
 
     public function __construct(EventInterface $event, EventForm $eventform, Presenter $presenter)
     {

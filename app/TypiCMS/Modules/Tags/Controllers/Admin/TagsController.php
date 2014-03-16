@@ -16,7 +16,8 @@ use TypiCMS\Modules\Tags\Presenters\TagPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class TagsController extends BaseController {
+class TagsController extends BaseController
+{
 
     public function __construct(TagInterface $tag, TagForm $tagform, Presenter $presenter)
     {

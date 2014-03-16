@@ -2,7 +2,8 @@
 
 use Eloquent;
 
-class PageTranslation extends Eloquent {
+class PageTranslation extends Eloquent
+{
 
     /**
      * Observers

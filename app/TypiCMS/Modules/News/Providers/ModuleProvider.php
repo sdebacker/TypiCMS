@@ -20,7 +20,8 @@ use TypiCMS\Services\Cache\LaravelCache;
 use TypiCMS\Modules\News\Services\Form\NewsForm;
 use TypiCMS\Modules\News\Services\Form\NewsFormLaravelValidator;
 
-class ModuleProvider extends ServiceProvider {
+class ModuleProvider extends ServiceProvider
+{
 
     public function boot()
     {

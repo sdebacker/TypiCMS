@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Menus\Repositories\MenuInterface;
 
-class MenuForm {
+class MenuForm
+{
 
     /**
      * Form Data

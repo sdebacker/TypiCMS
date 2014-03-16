@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 
-class PageForm {
+class PageForm
+{
 
     /**
      * Form Data

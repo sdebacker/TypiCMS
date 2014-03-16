@@ -2,7 +2,8 @@
 
 use TypiCMS\Services\Validation\AbstractLaravelValidator;
 
-class NewsFormLaravelValidator extends AbstractLaravelValidator {
+class NewsFormLaravelValidator extends AbstractLaravelValidator
+{
 
     /**
      * Validation rules

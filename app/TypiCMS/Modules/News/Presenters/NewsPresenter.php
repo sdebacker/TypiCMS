@@ -5,7 +5,8 @@ use Carbon\Carbon;
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;
 
-class NewsPresenter extends AbstractPresenter implements Presentable {
+class NewsPresenter extends AbstractPresenter implements Presentable
+{
 
     public function date_localized()
     {

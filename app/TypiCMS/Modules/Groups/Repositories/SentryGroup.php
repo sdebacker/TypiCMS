@@ -6,7 +6,8 @@ use Illuminate\Support\Collection;
 
 use Cartalyst\Sentry\Sentry;
 
-class SentryGroup implements GroupInterface {
+class SentryGroup implements GroupInterface
+{
     
     protected $sentry;
 

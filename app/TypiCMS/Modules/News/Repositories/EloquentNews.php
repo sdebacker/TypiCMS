@@ -4,7 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 
-class EloquentNews extends RepositoriesAbstract implements NewsInterface {
+class EloquentNews extends RepositoriesAbstract implements NewsInterface
+{
 
     // Class expects an Eloquent model
     public function __construct(Model $model)

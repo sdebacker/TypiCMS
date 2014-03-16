@@ -16,7 +16,8 @@ use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
 use TypiCMS\Modules\Settings\Repositories\CacheDecorator;
 use TypiCMS\Services\Cache\LaravelCache;
 
-class ModuleProvider extends ServiceProvider {
+class ModuleProvider extends ServiceProvider
+{
 
     public function boot()
     {

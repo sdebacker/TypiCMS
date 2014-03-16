@@ -18,7 +18,8 @@ use TypiCMS\Modules\Files\Presenters\FilePresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class FilesController extends BaseController {
+class FilesController extends BaseController
+{
 
     public function __construct(FileInterface $file, FileForm $fileform, Presenter $presenter)
     {

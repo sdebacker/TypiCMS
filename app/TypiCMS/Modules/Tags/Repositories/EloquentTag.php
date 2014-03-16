@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 
-class EloquentTag extends RepositoriesAbstract implements TagInterface {
+class EloquentTag extends RepositoriesAbstract implements TagInterface
+{
 
     // Class expects an Eloquent model
     public function __construct(Model $model)

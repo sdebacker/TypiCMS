@@ -7,7 +7,8 @@ use Request;
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
-class CacheDecorator extends CacheAbstractDecorator implements TranslationInterface {
+class CacheDecorator extends CacheAbstractDecorator implements TranslationInterface
+{
 
     // Class expects a repo and a cache interface
     public function __construct(TranslationInterface $repo, CacheInterface $cache)

@@ -5,7 +5,8 @@ use TypiCMS\Models\Base;
 use Input;
 use Carbon\Carbon;
 
-class Place extends Base {
+class Place extends Base
+{
 
     use \Dimsav\Translatable\Translatable;
 

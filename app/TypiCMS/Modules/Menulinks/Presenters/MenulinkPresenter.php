@@ -6,7 +6,8 @@ use Request;
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;
 
-class MenulinkPresenter extends AbstractPresenter implements Presentable {
+class MenulinkPresenter extends AbstractPresenter implements Presentable
+{
 
     public function menuclass()
     {

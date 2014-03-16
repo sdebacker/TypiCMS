@@ -2,6 +2,7 @@
 
 use TypiCMS\Models\Base;
 
-class TranslationTranslation extends Base {
+class TranslationTranslation extends Base
+{
     
 }

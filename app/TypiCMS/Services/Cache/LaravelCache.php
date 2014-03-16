@@ -5,7 +5,8 @@ use StdClass;
 use Config;
 use Illuminate\Cache\CacheManager;
 
-class LaravelCache implements CacheInterface {
+class LaravelCache implements CacheInterface
+{
 
     protected $cache;
     protected $cachekey;

@@ -7,7 +7,8 @@ use TypiCMS\Modules\Menulinks\Presenters\MenulinkPresenter;
 
 use App;
 
-class Menu extends Base {
+class Menu extends Base
+{
 
     use \Dimsav\Translatable\Translatable;
 

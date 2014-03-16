@@ -5,7 +5,8 @@ use App;
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
-class CacheDecorator extends CacheAbstractDecorator implements CategoryInterface {
+class CacheDecorator extends CacheAbstractDecorator implements CategoryInterface
+{
 
     // Class expects a repo and a cache interface
     public function __construct(CategoryInterface $repo, CacheInterface $cache)

@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 
-class TranslationForm {
+class TranslationForm
+{
 
     /**
      * Form Data

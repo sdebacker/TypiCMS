@@ -2,7 +2,8 @@
 
 use Illuminate\Validation\Factory;
 
-abstract class AbstractLaravelValidator implements ValidableInterface {
+abstract class AbstractLaravelValidator implements ValidableInterface
+{
 
     /**
      * Validator

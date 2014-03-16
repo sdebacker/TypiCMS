@@ -2,7 +2,8 @@
 
 use Eloquent;
 
-class CategoryTranslation extends Eloquent {
+class CategoryTranslation extends Eloquent
+{
 
     /**
      * Observers

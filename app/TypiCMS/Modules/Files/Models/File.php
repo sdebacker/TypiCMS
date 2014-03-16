@@ -4,7 +4,8 @@ use Croppa;
 
 use TypiCMS\Models\Base;
 
-class File extends Base {
+class File extends Base
+{
 
     use \Dimsav\Translatable\Translatable;
 

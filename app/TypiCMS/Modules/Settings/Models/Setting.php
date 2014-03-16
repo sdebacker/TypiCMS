@@ -2,7 +2,8 @@
 
 use Eloquent;
 
-class Setting extends Eloquent {
+class Setting extends Eloquent
+{
 
     protected $fillable = array(
         'package',

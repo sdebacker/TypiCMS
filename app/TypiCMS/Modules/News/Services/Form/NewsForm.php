@@ -6,7 +6,8 @@ use Config;
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 
-class NewsForm {
+class NewsForm
+{
 
     /**
      * Form Data

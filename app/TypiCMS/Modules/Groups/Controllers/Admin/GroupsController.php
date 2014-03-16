@@ -19,7 +19,8 @@ use TypiCMS\Modules\Groups\Presenters\GroupPresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class GroupsController extends BaseController {
+class GroupsController extends BaseController
+{
 
     /**
      * __construct

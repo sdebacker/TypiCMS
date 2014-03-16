@@ -2,7 +2,8 @@
 
 use TypiCMS\Services\Validation\AbstractLaravelValidator;
 
-class GroupFormLaravelValidator extends AbstractLaravelValidator {
+class GroupFormLaravelValidator extends AbstractLaravelValidator
+{
     
     /**
      * Validation rules

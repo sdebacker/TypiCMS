@@ -2,7 +2,8 @@
 
 use TypiCMS\Services\Validation\AbstractLaravelValidator;
 
-class MenuFormLaravelValidator extends AbstractLaravelValidator {
+class MenuFormLaravelValidator extends AbstractLaravelValidator
+{
 
     /**
      * Validation rules

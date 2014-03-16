@@ -6,7 +6,8 @@ use TypiCMS\NestedCollection;
 use Request;
 use Config;
 
-class Menulink extends Base {
+class Menulink extends Base
+{
 
     use \Dimsav\Translatable\Translatable;
 

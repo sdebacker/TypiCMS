@@ -8,7 +8,8 @@ use Response;
 use TypiCMS\Repositories\RepositoriesAbstract;
 use Illuminate\Database\Eloquent\Model;
 
-class EloquentFile extends RepositoriesAbstract implements FileInterface {
+class EloquentFile extends RepositoriesAbstract implements FileInterface
+{
 
 
     // Class expects an Eloquent model

@@ -16,7 +16,8 @@ use TypiCMS\Modules\Pages\Presenters\PagePresenter;
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
-class PagesController extends BaseController {
+class PagesController extends BaseController
+{
 
     public function __construct(PageInterface $page, PageForm $pageform, Presenter $presenter)
     {

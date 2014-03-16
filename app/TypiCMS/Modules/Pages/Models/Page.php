@@ -5,7 +5,8 @@ use TypiCMS\NestedCollection;
 
 use Input;
 
-class Page extends Base {
+class Page extends Base
+{
 
     use \Dimsav\Translatable\Translatable;
 

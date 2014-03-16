@@ -7,7 +7,8 @@ use Config;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 
-class EloquentDashboard extends RepositoriesAbstract implements DashboardInterface {
+class EloquentDashboard extends RepositoriesAbstract implements DashboardInterface
+{
 
 
     public function getWelcomeMessage()
