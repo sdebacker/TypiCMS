@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Groups\Controllers\Admin;
+<?php
+namespace TypiCMS\Modules\Groups\Controllers\Admin;
 
 use Lang;
 use View;

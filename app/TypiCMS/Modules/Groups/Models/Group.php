@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Groups\Models;
+<?php
+namespace TypiCMS\Modules\Groups\Models;
 
 use Cartalyst\Sentry\Groups\Eloquent\Group as SentryGroupModel;
 

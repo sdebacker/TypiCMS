@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Events\Models;
+<?php
+namespace TypiCMS\Modules\Events\Models;
 
 use TypiCMS\Models\Base;
 

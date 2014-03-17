@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\News\Models;
+<?php
+namespace TypiCMS\Modules\News\Models;
 
 use Eloquent;
 

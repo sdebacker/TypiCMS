@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Presenters;
+<?php
+namespace TypiCMS\Presenters;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;

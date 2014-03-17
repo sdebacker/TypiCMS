@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menus\Repositories;
+<?php
+namespace TypiCMS\Modules\Menus\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 

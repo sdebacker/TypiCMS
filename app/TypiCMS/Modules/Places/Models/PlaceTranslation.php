@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Places\Models;
+<?php
+namespace TypiCMS\Modules\Places\Models;
 
 use Eloquent;
 

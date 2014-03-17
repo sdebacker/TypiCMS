@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Repositories;
+<?php
+namespace TypiCMS\Repositories;
 
 use App;
 use Input;

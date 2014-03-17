@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menulinks\Presenters;
+<?php
+namespace TypiCMS\Modules\Menulinks\Presenters;
 
 use Config;
 use Request;

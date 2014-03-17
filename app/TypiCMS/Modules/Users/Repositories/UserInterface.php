@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Users\Repositories;
+<?php
+namespace TypiCMS\Modules\Users\Repositories;
 
 interface UserInterface
 {

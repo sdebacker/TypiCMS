@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\News\Presenters;
+<?php
+namespace TypiCMS\Modules\News\Presenters;
 
 use Carbon\Carbon;
 

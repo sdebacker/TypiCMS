@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Projects\Repositories;
+<?php
+namespace TypiCMS\Modules\Projects\Repositories;
 
 interface ProjectInterface
 {

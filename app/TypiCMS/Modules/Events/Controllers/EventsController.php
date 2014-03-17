@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Events\Controllers;
+<?php
+namespace TypiCMS\Modules\Events\Controllers;
 
 use Str;
 use View;

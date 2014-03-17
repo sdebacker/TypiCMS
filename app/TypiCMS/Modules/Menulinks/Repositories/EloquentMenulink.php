@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menulinks\Repositories;
+<?php
+namespace TypiCMS\Modules\Menulinks\Repositories;
 
 use DB;
 use Config;

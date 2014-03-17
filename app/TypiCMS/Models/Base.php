@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Models;
+<?php
+namespace TypiCMS\Models;
 
 use App;
 use Cache;

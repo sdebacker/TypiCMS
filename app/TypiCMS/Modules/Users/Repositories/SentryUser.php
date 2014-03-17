@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Users\Repositories;
+<?php
+namespace TypiCMS\Modules\Users\Repositories;
 
 // Part of this code is from https://github.com/brunogaspar/laravel4-starter-kit
 

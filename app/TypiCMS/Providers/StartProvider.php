@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Providers;
+<?php
+namespace TypiCMS\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

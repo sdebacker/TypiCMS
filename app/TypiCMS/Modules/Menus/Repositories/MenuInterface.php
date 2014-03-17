@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menus\Repositories;
+<?php
+namespace TypiCMS\Modules\Menus\Repositories;
 
 interface MenuInterface
 {

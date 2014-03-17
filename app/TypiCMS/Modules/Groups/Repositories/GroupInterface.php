@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Groups\Repositories;
+<?php
+namespace TypiCMS\Modules\Groups\Repositories;
 
 interface GroupInterface
 {

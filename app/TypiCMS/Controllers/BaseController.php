@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Controllers;
+<?php
+namespace TypiCMS\Controllers;
 
 use Lang;
 use View;

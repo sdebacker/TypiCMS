@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Events\Providers;
+<?php
+namespace TypiCMS\Modules\Events\Providers;
 
 use Lang;
 use View;

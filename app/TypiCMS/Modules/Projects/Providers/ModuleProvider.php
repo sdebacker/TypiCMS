@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Projects\Providers;
+<?php
+namespace TypiCMS\Modules\Projects\Providers;
 
 use Lang;
 use View;

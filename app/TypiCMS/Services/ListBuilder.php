@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Services;
+<?php
+namespace TypiCMS\Services;
 
 use DB;
 use Route;

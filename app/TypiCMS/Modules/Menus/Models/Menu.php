@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menus\Models;
+<?php
+namespace TypiCMS\Modules\Menus\Models;
 
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\Presenter;

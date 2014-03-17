@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Groups\Services\Form;
+<?php
+namespace TypiCMS\Modules\Groups\Services\Form;
 
 use Input;
 use Config;

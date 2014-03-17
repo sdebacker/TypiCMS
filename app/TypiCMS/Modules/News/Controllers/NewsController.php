@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\News\Controllers;
+<?php
+namespace TypiCMS\Modules\News\Controllers;
 
 use Str;
 use View;

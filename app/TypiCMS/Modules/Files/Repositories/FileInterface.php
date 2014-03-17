@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Files\Repositories;
+<?php
+namespace TypiCMS\Modules\Files\Repositories;
 
 interface FileInterface
 {

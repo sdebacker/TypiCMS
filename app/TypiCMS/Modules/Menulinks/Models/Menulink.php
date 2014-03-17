@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menulinks\Models;
+<?php
+namespace TypiCMS\Modules\Menulinks\Models;
 
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;

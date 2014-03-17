@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menus\Repositories;
+<?php
+namespace TypiCMS\Modules\Menus\Repositories;
 
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;

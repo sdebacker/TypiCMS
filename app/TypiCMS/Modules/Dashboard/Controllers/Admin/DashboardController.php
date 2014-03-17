@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Dashboard\Controllers\Admin;
+<?php
+namespace TypiCMS\Modules\Dashboard\Controllers\Admin;
 
 use View;
 use Config;

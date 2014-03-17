@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menus\Models;
+<?php
+namespace TypiCMS\Modules\Menus\Models;
 
 use Eloquent;
 

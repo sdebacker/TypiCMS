@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Settings\Repositories;
+<?php
+namespace TypiCMS\Modules\Settings\Repositories;
 
 use stdClass;
 

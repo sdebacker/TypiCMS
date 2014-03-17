@@ -1,4 +1,5 @@
-<?php namespace TypiCMS;
+<?php
+namespace TypiCMS;
 
 use Illuminate\Database\Eloquent\Collection;
 

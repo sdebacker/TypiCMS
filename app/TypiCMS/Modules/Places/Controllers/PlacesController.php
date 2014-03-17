@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Places\Controllers;
+<?php
+namespace TypiCMS\Modules\Places\Controllers;
 
 use Str;
 use View;

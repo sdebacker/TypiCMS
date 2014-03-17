@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Translations\Loaders;
+<?php
+namespace TypiCMS\Modules\Translations\Loaders;
 
 use Illuminate\Translation\LoaderInterface;
 

@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Categories\Repositories;
+<?php
+namespace TypiCMS\Modules\Categories\Repositories;
 
 interface CategoryInterface
 {

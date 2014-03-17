@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Events\Presenters;
+<?php
+namespace TypiCMS\Modules\Events\Presenters;
 
 use Carbon\Carbon;
 

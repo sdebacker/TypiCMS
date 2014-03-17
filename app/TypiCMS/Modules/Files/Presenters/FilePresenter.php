@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Files\Presenters;
+<?php
+namespace TypiCMS\Modules\Files\Presenters;
 
 use Croppa;
 

@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Translations\Controllers\Admin;
+<?php
+namespace TypiCMS\Modules\Translations\Controllers\Admin;
 
 use App;
 use View;

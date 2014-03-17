@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Users\Controllers\Admin;
+<?php
+namespace TypiCMS\Modules\Users\Controllers\Admin;
 
 use App;
 use Mail;

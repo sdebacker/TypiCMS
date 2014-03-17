@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Translations\Providers;
+<?php
+namespace TypiCMS\Modules\Translations\Providers;
 
 use App;
 

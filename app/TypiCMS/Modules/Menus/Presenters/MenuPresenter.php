@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menus\Presenters;
+<?php
+namespace TypiCMS\Modules\Menus\Presenters;
 
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;

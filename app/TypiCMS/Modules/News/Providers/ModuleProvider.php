@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\News\Providers;
+<?php
+namespace TypiCMS\Modules\News\Providers;
 
 use Lang;
 use View;

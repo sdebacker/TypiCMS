@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menulinks\Providers;
+<?php
+namespace TypiCMS\Modules\Menulinks\Providers;
 
 use Lang;
 use View;

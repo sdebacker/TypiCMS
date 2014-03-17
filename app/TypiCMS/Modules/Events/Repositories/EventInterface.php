@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Events\Repositories;
+<?php
+namespace TypiCMS\Modules\Events\Repositories;
 
 interface EventInterface
 {

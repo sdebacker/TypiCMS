@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Pages\Controllers\Admin;
+<?php
+namespace TypiCMS\Modules\Pages\Controllers\Admin;
 
 use View;
 use Input;

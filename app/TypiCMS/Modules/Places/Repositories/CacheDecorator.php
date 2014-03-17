@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Places\Repositories;
+<?php
+namespace TypiCMS\Modules\Places\Repositories;
 
 use App;
 use Input;

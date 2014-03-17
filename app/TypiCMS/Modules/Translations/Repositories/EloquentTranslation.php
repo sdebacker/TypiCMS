@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Translations\Repositories;
+<?php
+namespace TypiCMS\Modules\Translations\Repositories;
 
 use DB;
 use App;

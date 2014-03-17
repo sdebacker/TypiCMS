@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Services\Validation;
+<?php
+namespace TypiCMS\Services\Validation;
 
 use Illuminate\Validation\Factory;
 

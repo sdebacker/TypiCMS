@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Menulinks\Controllers\Admin;
+<?php
+namespace TypiCMS\Modules\Menulinks\Controllers\Admin;
 
 use Lang;
 use View;

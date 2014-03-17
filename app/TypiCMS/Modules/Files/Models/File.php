@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Files\Models;
+<?php
+namespace TypiCMS\Modules\Files\Models;
 
 use Croppa;
 

@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Events\Services\Form;
+<?php
+namespace TypiCMS\Modules\Events\Services\Form;
 
 use TypiCMS\Services\Validation\AbstractLaravelValidator;
 

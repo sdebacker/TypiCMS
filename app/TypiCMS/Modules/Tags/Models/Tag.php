@@ -1,4 +1,5 @@
-<?php namespace TypiCMS\Modules\Tags\Models;
+<?php
+namespace TypiCMS\Modules\Tags\Models;
 
 use TypiCMS\Models\Base;
 
