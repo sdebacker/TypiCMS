@@ -35,7 +35,7 @@ class TranslationsController extends BaseController
      */
     public function index()
     {
-        $models = Collection::make($this->repository->getAll(true));
+        $models = Collection::make($this->repository->getAll(array(), true));
 
         $models = $this->presenter->collection($models, new TranslationPresenter);
 

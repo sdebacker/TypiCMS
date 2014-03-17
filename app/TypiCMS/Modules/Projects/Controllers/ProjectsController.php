@@ -31,8 +31,13 @@ class ProjectsController extends PublicController
     {
         $this->title['child'] = '';
 
-        $category_id = $category ? $category->id : null ;
-        $models = $this->repository->getAll(false, $category_id);
+        $relatedModels = array('translations', 'category', 'category.translations');
+        
+        if ($category) {
+            $models = $this->repository->getAllBy('category_id', $category->id, $relatedModels, false);
+        } else {
+            $models = $this->repository->getAll($relatedModels, false);
+        }
 
         $this->layout->content = View::make('projects.public.index')
             ->with('category', $category)

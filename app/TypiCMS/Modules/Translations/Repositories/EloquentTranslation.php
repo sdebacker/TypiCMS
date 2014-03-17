@@ -20,14 +20,15 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 
 
     /**
-     * Get all models with categories
+     * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $relid = null)
+    public function getAll(array $with = array(), $all = false)
     {
-        $query = $this->model->with('translations');
+        $query = $this->make(array('translations'));
         
         $data = array();
 

@@ -4,6 +4,15 @@ interface UserInterface
 {
 
     /**
+     * Get all models
+     *
+     * @param boolean $all Show published or all
+     * @param array $with Eager load related models
+     * @return StdClass Object with $items
+     */
+    public function getAll(array $with = array(), $all = false);
+
+    /**
      * Retrieve user by id
      * regardless of status
      *
@@ -20,6 +29,14 @@ interface UserInterface
      * @return User object
      */
     public function findUserByLogin($login);
+
+    /**
+     * Retrieve all groups or user groups
+     *
+     * @param  User $user
+     * @return array
+     */
+    public function getGroups($user = null);
 
     /**
      * Get reset password code for user
@@ -57,22 +74,6 @@ interface UserInterface
     public function getId($user);
 
     /**
-     * Get all pages
-     *
-     * @param boolean $all Show published or all
-     * @return StdClass Object with $items
-     */
-    public function getAll($all = false);
-
-    /**
-     * Retrieve all groups or user groups
-     *
-     * @param  User $user
-     * @return array
-     */
-    public function getGroups($user = null);
-
-    /**
      * Create a new User
      *
      * @param array  Data to create a new object
@@ -96,6 +97,15 @@ interface UserInterface
      * @return boolean
      */
     public function authenticate($credentials, $remember = false);
+
+    /**
+     * Log a user in
+     *
+     * @param array $credentials
+     * @param boolean $id
+     * @return Sentry User
+     */
+    public function login($user, $remember = false);
 
     /**
      * Register a new user

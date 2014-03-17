@@ -24,11 +24,11 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
      * @param boolean $all Show published or all
      * @return StdClass Object with $items
      */
-    public function getAllFromMenu($all = false, $relid = null)
+    public function getAllFromMenu($all = false, $menuId = null)
     {
         $query = $this->model->with('translations')
             ->orderBy('position', 'asc')
-            ->where('menu_id', $relid);
+            ->where('menu_id', $menuId);
 
         // All posts or only published
         if ( ! $all ) {
@@ -80,12 +80,12 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 
 
     /**
-     * Adapt the colelction before building menu
+     * Transform collection before building menu
      *
      * @param  array
      * @return string
      */
-    private function filter(Collection $models)
+    public function filter(Collection $models)
     {
         $models->each(function($menulink) {
 

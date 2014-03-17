@@ -19,29 +19,6 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface
 
 
     /**
-     * Get all models with categories
-     *
-     * @param boolean $all Show published or all
-     * @return StdClass Object with $items
-     */
-    public function getAll($all = false, $relid = null)
-    {
-        $key = md5(App::getLocale().'all'.$all.$relid);
-
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
-        }
-
-        $models = $this->repo->getAll($all, $relid);
-
-        // Store in cache for next request
-        $this->cache->put($key, $models);
-
-        return $models;
-    }
-
-
-    /**
      * Create a new model
      *
      * @param array  Data to create a new object

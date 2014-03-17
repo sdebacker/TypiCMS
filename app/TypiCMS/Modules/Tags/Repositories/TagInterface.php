@@ -4,20 +4,24 @@ interface TagInterface
 {
 
     /**
-     * Get tags paginated
+     * Get paginated models
      *
-     * @param boolean $all Show published or all
-     * @return StdClass Object with $items
+     * @param int $page Number of models per page
+     * @param int $limit Results per page
+     * @param boolean $all get published models or all
+     * @param array $with Eager load related models
+     * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null);
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false);
 
     /**
-     * Get all tags
+     * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $relatedModel = null);
+    public function getAll(array $with = array(), $all = false);
 
     /**
      * Find existing tags or create if they don't exist

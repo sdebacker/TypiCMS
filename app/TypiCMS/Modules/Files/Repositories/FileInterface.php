@@ -4,37 +4,16 @@ interface FileInterface
 {
 
     /**
-     * Retrieve article by id
-     * regardless of status
+     * Get paginated models
      *
-     * @param  int $id File ID
-     * @return stdObject object of article information
+     * @param int $page Number of models per page
+     * @param int $limit Results per page
+     * @param model $from related model
+     * @param boolean $all get published models or all
+     * @param array $with Eager load related models
+     * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byId($id);
-
-    /**
-     * Get all Files
-     *
-     * @param boolean $all Show published or all
-     * @return StdClass Object with $items
-     */
-    public function getAll($all = false);
-
-    /**
-     * Create a new File
-     *
-     * @param array  Data to create a new object
-     * @return boolean
-     */
-    public function create(array $data);
-
-    /**
-     * Update an existing File
-     *
-     * @param array  Data to update a File
-     * @return boolean
-     */
-    public function update(array $data);
+    public function byPageFrom($page = 1, $limit = 10, $from, array $with = array(), $all = false);
 
     /**
      * Upload a file
@@ -43,5 +22,11 @@ interface FileInterface
      */
     public function upload(array $input);
 
+    /**
+     * Delete model
+     *
+     * @return boolean
+     */
+    public function delete($model);
 
 }

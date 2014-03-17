@@ -1,5 +1,6 @@
 <?php namespace TypiCMS\Modules\Files\Repositories;
 
+use App;
 use Str;
 use Input;
 use Croppa;
@@ -18,6 +19,34 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
     {
         $this->repo = $repo;
         $this->cache = $cache;
+    }
+
+
+    /**
+     * Get paginated models
+     *
+     * @param int $page Number of models per page
+     * @param int $limit Results per page
+     * @param model $from related model
+     * @param boolean $all get published models or all
+     * @param array $with Eager load related models
+     * @return StdClass Object with $items and $totalItems for pagination
+     */
+    public function byPageFrom($page = 1, $limit = 10, $from, array $with = array(), $all = false)
+    {
+        $key = md5(App::getLocale().'byPageFrom.'.$page.$limit.$from->id.get_class($from).$all.implode(Input::except('page')));
+
+        if ( $this->cache->has($key) ) {
+            return $this->cache->get($key);
+        }
+
+        $models = $this->repo->byPageFrom($page, $limit, $from, $with, $all);
+
+        // Store in cache for next request
+        $this->cache->put($key, $models);
+
+        return $models;
+
     }
 
 
@@ -42,7 +71,6 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
      */
     public function delete($model)
     {
-        var_dump($model);
         $this->cache->flush('Files', 'Pages', 'Events', 'News', 'Projects', 'Dashboard');
         return $this->repo->delete($model);
     }

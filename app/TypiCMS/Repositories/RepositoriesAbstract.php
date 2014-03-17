@@ -15,15 +15,36 @@ abstract class RepositoriesAbstract {
 
     protected $model;
 
-    public function route()
-    {
-        return $this->model->route;
-    }
 
     public function getModel()
     {
         return $this->model;
     }
+
+
+    /**
+     * Make a new instance of the entity to query on
+     *
+     * @param array $with
+     */
+    public function make(array $with = array())
+    {
+        return $this->model->with($with);
+    }
+
+
+    /**
+     * Find a single entity by key value
+     *
+     * @param string $key
+     * @param string $value
+     * @param array $with
+     */
+    public function getFirstBy($key, $value, array $with = array())
+    {
+        $this->make($with)->where($key, '=', $value)->first();
+    }
+
 
     /**
      * Retrieve model by id
@@ -32,11 +53,9 @@ abstract class RepositoriesAbstract {
      * @param  int $id model ID
      * @return stdObject object of model information
      */
-    public function byId($id)
+    public function byId($id, array $with = array())
     {
-        $query = $this->model
-            ->with('translations')
-            ->where('id', $id);
+        $query = $this->make($with)->where('id', $id);
 
         // files
         $this->model->files and $query->files();
@@ -48,14 +67,15 @@ abstract class RepositoriesAbstract {
 
 
     /**
-     * Get paginated pages
+     * Get paginated models
      *
-     * @param int $page Number of pages per page
+     * @param int $page Number of models per page
      * @param int $limit Results per page
-     * @param boolean $all Show published or all
+     * @param boolean $all get published models or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
         $result = new StdClass;
         $result->page = $page;
@@ -63,22 +83,11 @@ abstract class RepositoriesAbstract {
         $result->totalItems = 0;
         $result->items = array();
 
-        $query = $this->model->with('translations');
+        $query = $this->make($with);
 
         if ( ! $all ) {
             // take only translated items that are online
-            $query->whereHas('translations', function($query)
-                {
-                    $query->where('status', 1);
-                    $query->where('locale', '=', App::getLocale());
-                    $query->where('slug', '!=', '');
-                }
-            );
-        }
-
-        if ($relatedModel) {
-            $query = $query->where('fileable_id', $relatedModel->id)
-                ->where('fileable_type', get_class($relatedModel));
+            $query = $query->whereHasOnlineTranslation();
         }
 
         // files
@@ -104,26 +113,16 @@ abstract class RepositoriesAbstract {
      * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $relatedModel = null)
+    public function getAll(array $with = array(), $all = false)
     {
-        $query = $this->model->with('translations');
+        $query = $this->make($with);
 
         if ( ! $all ) {
             // take only translated items that are online
-            $query->whereHas('translations', function($query)
-                {
-                    $query->where('status', 1);
-                    $query->where('locale', '=', App::getLocale());
-                    $query->where('slug', '!=', '');
-                }
-            );
-        }
-
-        if ($relatedModel) {
-            $query->where('fileable_id', $relatedModel->id);
-            $query->where('fileable_type', get_class($relatedModel));
+            $query = $query->whereHasOnlineTranslation();
         }
 
         // Files
@@ -145,18 +144,43 @@ abstract class RepositoriesAbstract {
 
 
     /**
+     * Get all models with categories
+     *
+     * @param boolean $all Show published or all
+     * @return StdClass Object with $items
+     */
+    public function getAllBy($key, $value, $all = false, array $with = array())
+    {
+        $query = $this->make($with);
+
+        if ( ! $all ) {
+            // Take only online and translated items
+            $query = $query->whereHasOnlineTranslation();
+        }
+
+        $query->where($key, $value);
+        
+        // Files
+        $this->model->files and $query->files();
+
+        $models = $query->get();
+
+        return $models;
+    }
+
+
+    /**
      * Get single model by URL
      *
      * @param string  URL slug of model
      * @return object object of model information
      */
-    public function bySlug($slug)
+    public function bySlug($slug, array $with = array())
     {
         // Find id
         $id = Helpers::getIdFromSlug($this->model->getTable(), $slug);
 
-        $model = $this->model
-            ->with('translations')
+        $model = $this->make($with)
             ->whereHasOnlineTranslation()
             ->files()
             ->findOrFail($id);

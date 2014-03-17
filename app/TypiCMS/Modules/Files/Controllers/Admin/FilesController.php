@@ -52,14 +52,18 @@ class FilesController extends BaseController
     {
         $page = Input::get('page');
 
-        $itemsPerPage = $parent ? 100 : 10;
-        $data = $this->repository->byPage($page, $itemsPerPage, true, $parent);
+        if ($parent) {
+            $itemsPerPage = 100;
+            $data = $this->repository->byPageFrom($page, $itemsPerPage, $parent, array('translations'), true);
+        } else {
+            $itemsPerPage = 10;
+            $data = $this->repository->byPage($page, $itemsPerPage, array('translations'), true);
+        }
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
         $models = $this->presenter->paginator($models, new FilePresenter);
 
         if ($parent) {
-            // no pagination
             $this->layout->content = View::make('files.admin.index')
                 ->withModels($models)
                 ->withParent($parent);

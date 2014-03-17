@@ -8,15 +8,6 @@ abstract class CacheAbstractDecorator {
     protected $repo;
     protected $cache;
 
-    public function route()
-    {
-        return $this->repo->route();
-    }
-
-    public function getModel()
-    {
-        return $this->repo->getModel();
-    }
 
     /**
      * Retrieve model by id
@@ -44,22 +35,23 @@ abstract class CacheAbstractDecorator {
 
 
     /**
-     * Get paginated pages
+     * Get paginated models
      *
-     * @param int $page Number of pages per page
+     * @param int $page Number of models per page
      * @param int $limit Results per page
-     * @param boolean $all Show published or all
+     * @param boolean $all get published models or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'byPage.'.$page.$limit.$all.$relatedModel.implode(Input::except('page')));
+        $key = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
         }
 
-        $models = $this->repo->byPage($page, $limit, $all, $relatedModel);
+        $models = $this->repo->byPage($page, $limit, $with, $all);
 
         // Store in cache for next request
         $this->cache->put($key, $models);
@@ -72,9 +64,10 @@ abstract class CacheAbstractDecorator {
      * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $relatedModel = null)
+    public function getAll(array $with = array(), $all = false)
     {
         // Build our cache item key, unique per model number,
         // limit and if we're showing all
@@ -86,7 +79,7 @@ abstract class CacheAbstractDecorator {
         }
 
         // Item not cached, retrieve it
-        $models = $this->repo->getAll($all, $relatedModel);
+        $models = $this->repo->getAll($with, $all);
 
         // Store in cache for next request
         $this->cache->put($key, $models);

@@ -18,22 +18,23 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
 
 
     /**
-     * Get paginated pages
+     * Get paginated models
      *
-     * @param int $page Number of pages per page
+     * @param int $page Number of models per page
      * @param int $limit Results per page
-     * @param boolean $all Show published or all
+     * @param boolean $all get published models or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'byPage.'.$page.$limit.$all.$relatedModel.implode(Input::except('page')));
+        $key = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
         }
 
-        $models = $this->repo->byPage($page, $limit, $all, $relatedModel);
+        $models = $this->repo->byPage($page, $limit, $with, $all);
 
         // Store in cache for next request
         $this->cache->put($key, $models);
@@ -46,20 +47,21 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $category_id = null)
+    public function getAll(array $with = array(), $all = false)
     {
         // get search string
         $string = Input::get('string');
 
-        $key = md5(App::getLocale().'all'.$all.$category_id.$string);
+        $key = md5(App::getLocale().'all'.$all.$string);
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
         }
 
-        $models = $this->repo->getAll($all, $category_id);
+        $models = $this->repo->getAll(array('translations'), $all);
 
         // Store in cache for next request
         $this->cache->put($key, $models);

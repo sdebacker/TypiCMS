@@ -43,8 +43,8 @@ class Project extends Base
     /**
      * Lists
      */
-    public $order = 'title';
-    public $direction = 'asc';
+    public $order = 'id';
+    public $direction = 'desc';
 
 
     /**

@@ -4,20 +4,13 @@ interface TranslationInterface
 {
 
     /**
-     * Get paginated articles
-     *
-     * @param int  Number of articles per page
-     * @return StdClass Object with $items and $totalItems for pagination
-     */
-    public function byPage($page = 1, $limit = 10);
-
-    /**
-     * Get all pages
+     * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false);
+    public function getAll(array $with = array(), $all = false);
 
     /**
      * Get translations to Array
@@ -27,7 +20,7 @@ interface TranslationInterface
     public function getAllToArray($locale, $group, $namespace = null);
 
     /**
-     * Create a new Article
+     * Create a new model
      *
      * @param array  Data to create a new object
      * @return boolean
@@ -35,11 +28,18 @@ interface TranslationInterface
     public function create(array $data);
 
     /**
-     * Update an existing Article
+     * Update an existing model
      *
-     * @param array  Data to update an Article
+     * @param array  Data to update a model
      * @return boolean
      */
     public function update(array $data);
+
+    /**
+     * Delete model
+     *
+     * @return boolean
+     */
+    public function delete($model);
 
 }

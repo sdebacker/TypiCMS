@@ -26,7 +26,7 @@ class SettingsController extends BaseController
      */
     public function index()
     {
-        $data = $this->repository->getAll(true);
+        $data = $this->repository->getAll(array(), true);
         $this->layout->content = View::make('settings.admin.index')
             ->withData($data);
     }

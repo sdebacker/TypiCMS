@@ -33,7 +33,7 @@ class ProjectsController extends BaseController
      */
     public function index()
     {
-        $models = $this->repository->getAll(true);
+        $models = $this->repository->getAll(array('translations'), true);
 
         $models = $this->presenter->collection($models, new ProjectPresenter);
 

@@ -22,41 +22,6 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface
 
 
     /**
-     * Get all models with categories
-     *
-     * @param boolean $all Show published or all
-     * @return StdClass Object with $items
-     */
-    public function getAll($all = false, $relid = null)
-    {
-        $query = $this->model->with('translations');
-
-        if ( ! $all ) {
-            // Take only online and translated items
-            $query->whereHasOnlineTranslation();
-        }
-
-        $query->with('category')->with('category.translations');
-
-        $relid and $query->where('category_id', $relid);
-        
-        // Files
-        $this->model->files and $query->files();
-
-        $models = $query->get();
-
-        // Sorting
-        $desc = ($this->model->direction == 'desc') ? true : false ;
-        $models = $models->sortBy(function($model)
-        {
-            return $model->{$this->model->order};
-        }, null, $desc);
-
-        return $models;
-    }
-
-
-    /**
      * Create a new model
      *
      * @param array  Data to create a new object

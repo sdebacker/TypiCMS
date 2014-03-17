@@ -17,11 +17,13 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
 
 
     /**
-     * Get all settings
+     * Get all models
      *
+     * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $relatedModel = null)
+    public function getAll(array $with = array(), $all = false)
     {
         $key = md5('Settings');
 
@@ -29,7 +31,7 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
             return $this->cache->get($key);
         }
 
-        $data = $this->repo->getAll();
+        $data = $this->repo->getAll($with);
 
         // Store in cache for next request
         $this->cache->put($key, $data);

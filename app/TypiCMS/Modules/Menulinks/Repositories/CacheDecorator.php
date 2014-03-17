@@ -4,6 +4,8 @@ use App;
 use Config;
 use Request;
 
+use Illuminate\Support\Collection;
+
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
@@ -23,15 +25,15 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
      * @param boolean $all Show published or all
      * @return StdClass Object with $items
      */
-    public function getAllFromMenu($all = false, $relid = null)
+    public function getAllFromMenu($all = false, $menuId = null)
     {
-        $key = md5(App::getLocale().'all'.$all.$relid);
+        $key = md5(App::getLocale().'all'.$all.$menuId);
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
         }
 
-        $models = $this->repo->getAllFromMenu($all, $relid);
+        $models = $this->repo->getAllFromMenu($all, $menuId);
 
         // Store in cache for next request
         $this->cache->put($key, $models);
@@ -61,6 +63,18 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
 
         return $models;
 
+    }
+
+
+    /**
+     * Transform collection before building menu
+     *
+     * @param  array
+     * @return string
+     */
+    public function filter(Collection $models)
+    {
+        return $this->repo->filter($models);
     }
 
 

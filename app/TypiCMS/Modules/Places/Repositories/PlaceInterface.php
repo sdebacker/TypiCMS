@@ -4,50 +4,44 @@ interface PlaceInterface
 {
 
     /**
-     * Retrieve article by id
-     * regardless of status
+     * Get paginated models
      *
-     * @param  int $id Article ID
-     * @return stdObject object of article information
-     */
-    public function byId($id);
-
-    /**
-     * Get paginated articles
-     *
-     * @param int  Number of articles per page
+     * @param int $page Number of models per page
+     * @param int $limit Results per page
+     * @param boolean $all Show published or all
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null);
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false);
 
     /**
-     * Get all pages
+     * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false);
+    public function getAll(array $with = array(), $all = false);
 
     /**
-     * Get single article by URL
+     * Get single model by slug
      *
-     * @param string  URL slug of article
-     * @return object object of article information
+     * @param string $slug slug of model
+     * @return object model
      */
     public function bySlug($slug);
 
     /**
-     * Create a new Article
+     * Create a new model
      *
-     * @param array  Data to create a new object
+     * @param array  Data to create a new model
      * @return boolean
      */
     public function create(array $data);
 
     /**
-     * Update an existing Article
+     * Update an existing model
      *
-     * @param array  Data to update an Article
+     * @param array  Data to update a model
      * @return boolean
      */
     public function update(array $data);

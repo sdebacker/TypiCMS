@@ -25,15 +25,15 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
      * @param boolean $all Show published or all
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'byPage.'.$page.$limit.$all.$relatedModel.implode(Input::except('page')));
+        $key = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
         }
 
-        $models = $this->repo->byPage($page, $limit, $all, $relatedModel);
+        $models = $this->repo->byPage($page, $limit, $with, $all);
 
         // Store in cache for next request
         $this->cache->put($key, $models);
@@ -48,15 +48,15 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
      * @param boolean $all Show published or all
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $relatedModel = null)
+    public function getAll(array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'all'.$all.$relatedModel);
+        $key = md5(App::getLocale().'all'.$all);
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
         }
 
-        $models = $this->repo->getAll($all, $relatedModel);
+        $models = $this->repo->getAll($with, $all);
 
         // Store in cache for next request
         $this->cache->put($key, $models);

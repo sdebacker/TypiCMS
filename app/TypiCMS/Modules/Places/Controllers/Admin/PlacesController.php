@@ -37,7 +37,7 @@ class PlacesController extends BaseController
 
         $itemsPerPage = Config::get('places::admin.itemsPerPage');
 
-        $data = $this->repository->byPage($page, $itemsPerPage, true);
+        $data = $this->repository->byPage($page, $itemsPerPage, array('translations'), true);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 

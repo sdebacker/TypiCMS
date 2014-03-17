@@ -1,5 +1,7 @@
 <?php namespace TypiCMS\Modules\Menulinks\Repositories;
 
+use Illuminate\Support\Collection;
+
 interface MenulinkInterface
 {
 
@@ -18,6 +20,14 @@ interface MenulinkInterface
      * @return StdClass Object with $items
      */
     public function getMenu($name);
+
+    /**
+     * Transform collection before building menu
+     *
+     * @param  array
+     * @return string
+     */
+    public function filter(Collection $models);
 
     /**
      * Get Items to build routes

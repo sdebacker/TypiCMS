@@ -32,12 +32,12 @@ class TagsController extends BaseController
     public function index()
     {
         if (Request::ajax()) {
-            return $this->repository->getAll(true);
+            return $this->repository->getAll(array(), true);
         }
         $page = Input::get('page');
 
         $itemsPerPage = Config::get('tags::admin.itemsPerPage');
-        $data = $this->repository->byPage($page, $itemsPerPage, true);
+        $data = $this->repository->byPage($page, $itemsPerPage, array(), true);
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
         $models = $this->presenter->paginator($models, new TagPresenter);
 

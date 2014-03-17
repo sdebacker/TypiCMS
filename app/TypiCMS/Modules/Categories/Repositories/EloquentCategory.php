@@ -15,6 +15,11 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
         $this->model = $model;
     }
 
+    /**
+     * Get all categories
+     *
+     * @return array
+     */
     public function getAllForSelect()
     {
         $query = $this->model->with('translations');

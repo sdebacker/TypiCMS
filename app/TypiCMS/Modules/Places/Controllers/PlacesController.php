@@ -32,7 +32,7 @@ class PlacesController extends PublicController
     {
         $this->title['child'] = '';
 
-        $places = $this->repository->getAll();
+        $places = $this->repository->getAll(array('translations'));
         
         if (Request::wantsJson()) {
             return Response::json($places, 200);
@@ -43,14 +43,14 @@ class PlacesController extends PublicController
     }
 
     /**
-     * Display resources found.
+     * Search models.
      *
      * @return Response
      */
     public function search()
     {
 
-        $models = $this->repository->getAll();
+        $models = $this->repository->getAll(array('translations'));
         
         if (Request::wantsJson()) {
             return Response::json($models, 200);

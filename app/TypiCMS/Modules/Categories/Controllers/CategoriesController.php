@@ -26,7 +26,7 @@ class CategoriesController extends PublicController
     {
         $this->title['child'] = '';
 
-        $models = $this->repository->getAll();
+        $models = $this->repository->getAll(array('translations'));
 
         $this->layout->content = View::make('categories.public.index')
             ->with('models', $models);

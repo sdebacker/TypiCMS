@@ -19,20 +19,21 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
 
 
     /**
-     * Get all models with categories
+     * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $relid = null)
+    public function getAll(array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'all'.$all.$relid);
+        $key = md5(App::getLocale().'all'.$all);
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
         }
 
-        $models = $this->repo->getAll($all, $relid);
+        $models = $this->repo->getAll($with, $all);
 
         // Store in cache for next request
         $this->cache->put($key, $models);

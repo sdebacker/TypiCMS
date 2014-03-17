@@ -77,7 +77,7 @@ class UsersController extends BaseController
     public function index()
     {
         // Grab all the users
-        $models = $this->repository->getAll(true);
+        $models = $this->repository->getAll(array(), true);
 
         $models = $this->presenter->collection($models, new UserPresenter);
 

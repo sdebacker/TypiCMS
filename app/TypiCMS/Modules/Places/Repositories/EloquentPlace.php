@@ -22,14 +22,14 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
 
 
     /**
-     * Get paginated pages
+     * Get paginated models
      *
-     * @param int $page Number of pages per page
+     * @param int $page Number of models per page
      * @param int $limit Results per page
      * @param boolean $all Show published or all
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, $all = false, $relatedModel = null)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
         $result = new StdClass;
         $result->page = $page;
@@ -65,9 +65,10 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * Get all models
      *
      * @param boolean $all Show published or all
+     * @param array $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll($all = false, $category_id = null)
+    public function getAll(array $with = array(), $all = false)
     {
         // get search string
         $string = Input::get('string');
@@ -100,12 +101,12 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
 
 
     /**
-     * Get single model by URL
+     * Get single model by slug
      *
-     * @param string  URL slug of model
-     * @return object object of model information
+     * @param string $slug slug of model
+     * @return object model
      */
-    public function bySlug($slug)
+    public function bySlug($slug, array $with = array())
     {
         $model = $this->model->with('translations')
             ->where('slug', $slug)
@@ -120,7 +121,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
     /**
      * Create a new model
      *
-     * @param array  Data to create a new object
+     * @param array  Data to create a new model
      * @return boolean
      */
     public function create(array $data)

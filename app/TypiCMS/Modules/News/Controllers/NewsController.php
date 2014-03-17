@@ -35,7 +35,7 @@ class NewsController extends PublicController
 
         $itemsPerPage = Config::get('news::public.itemsPerPage');
         
-        $data = $this->repository->byPage($page, $itemsPerPage);
+        $data = $this->repository->byPage($page, $itemsPerPage, array('translations'));
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
