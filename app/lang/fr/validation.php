@@ -227,6 +227,7 @@ return array(
         'width' => 'Largeur',
         'height' => 'Hauteur',
         'download_count' => 'download_count',
+        'File information' => 'Informations',
 
         'Submit' => 'Envoyer',
         'Reset' => 'Reinitialiser',

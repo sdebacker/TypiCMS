@@ -27,7 +27,7 @@ class FileUpload
 
         $fileName = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
 
-        // $input['path']      = '../../'.$path;
+        // $input['path']      = '../../' . $path;
         $input['path']      = $path;
         $input['extension'] = '.' . $file->getClientOriginalExtension();
         $input['filesize']  = $file->getClientSize();
@@ -36,7 +36,7 @@ class FileUpload
 
         $filecounter = 1;
         while (file_exists($input['path'] . '/' . $input['filename'])) {
-            $input['filename'] = $fileName . '_' . $filecounter++ . $input['extension'];
+            $input['filename'] = $fileName . '_' . $filecounter ++ . $input['extension'];
         }
 
         try {

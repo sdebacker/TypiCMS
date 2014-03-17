@@ -17,32 +17,6 @@
 
     <div class="col-sm-6">
 
-        <div class="clearfix well">
-            @if(isset($model->filename) and $model->filename)
-            <div class="thumbnail">
-                <img src="/{{ $model->path }}/{{ $model->filename }}" alt="{{ $model->alt_attribute }}">
-            </div>
-            <div class="pull-left">
-                {{ Form::label('file', trans('validation.attributes.replace file'), array('class' => 'control-label')) }}
-                {{ Form::file('file') }}
-                <span class="help-block">
-                    @lang('validation.attributes.max') 500 
-                    @lang('validation.attributes.KB')
-                </span>
-            </div>
-            @else
-            {{ Form::label('file', trans('validation.attributes.file'), array('class' => 'control-label')) }}
-            {{ Form::file('file') }}
-            <span class="help-block">
-                @lang('validation.attributes.max') 500 
-                @lang('validation.attributes.KB')
-            </span>
-            @endif
-            @if($errors->has('file'))
-            <span class="help-block">{{ $errors->first('file') }}</span>
-            @endif
-        </div>
-
         @include('admin._tabs-lang')
 
         <div class="tab-content">
@@ -77,67 +51,102 @@
 
     <div class="col-sm-6">
 
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('folder_id', trans('validation.attributes.folder_id')) }}
-                {{ Form::text('folder_id', null, array('class' => 'form-control')) }}
+
+        {{ Form::hidden('folder_id') }}
+        {{ Form::hidden('user_id') }}
+        {{ Form::hidden('type') }}
+        {{ Form::hidden('position') }}
+        {{ Form::hidden('path') }}
+        {{ Form::hidden('filename') }}
+        {{ Form::hidden('extension') }}
+        {{ Form::hidden('mimetype') }}
+        {{ Form::hidden('width') }}
+        {{ Form::hidden('height') }}
+        {{ Form::hidden('download_count') }}
+        {{ Form::hidden('name') }}
+
+        <div class="clearfix well">
+            @if(isset($model->filename) and $model->filename)
+            <div class="thumbnail">
+                <img src="/{{ $model->path }}/{{ $model->filename }}" alt="{{ $model->alt_attribute }}">
             </div>
-            <div class="col-sm-6 form-group">
-                {{ Form::label('user_id', trans('validation.attributes.user_id')) }}
-                {{ Form::text('user_id', null, array('class' => 'form-control')) }}
+            <div class="pull-left">
+                {{ Form::label('file', trans('validation.attributes.replace file'), array('class' => 'control-label')) }}
+                {{ Form::file('file') }}
+                <span class="help-block">
+                    @lang('validation.attributes.max') 500 
+                    @lang('validation.attributes.KB')
+                </span>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('type', trans('validation.attributes.type')) }}
-                {{ Form::text('type', null, array('class' => 'form-control')) }}
-            </div>
-            <div class="col-sm-6 form-group">
-                {{ Form::label('position', trans('validation.attributes.position')) }}
-                {{ Form::text('position', null, array('class' => 'form-control')) }}
-            </div>
+            @else
+            {{ Form::label('file', trans('validation.attributes.file'), array('class' => 'control-label')) }}
+            {{ Form::file('file') }}
+            <span class="help-block">
+                @lang('validation.attributes.max') 500 
+                @lang('validation.attributes.KB')
+            </span>
+            @endif
+            @if($errors->has('file'))
+            <span class="help-block">{{ $errors->first('file') }}</span>
+            @endif
         </div>
 
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('path', trans('validation.attributes.path')) }}
-                {{ Form::text('path', null, array('class' => 'form-control')) }}
-            </div>
-            <div class="col-sm-6 form-group">
-                {{ Form::label('filename', trans('validation.attributes.filename')) }}
-                {{ Form::text('filename', null, array('class' => 'form-control')) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('extension', trans('validation.attributes.extension')) }}
-                {{ Form::text('extension', null, array('class' => 'form-control')) }}
-            </div>
-            <div class="col-sm-6 form-group">
-                {{ Form::label('mimetype', trans('validation.attributes.mimetype')) }}
-                {{ Form::text('mimetype', null, array('class' => 'form-control')) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('width', trans('validation.attributes.width')) }}
-                {{ Form::text('width', null, array('class' => 'form-control')) }}
-            </div>
-            <div class="col-sm-6 form-group">
-                {{ Form::label('height', trans('validation.attributes.height')) }}
-                {{ Form::text('height', null, array('class' => 'form-control')) }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('user_id', trans('validation.attributes.download_count')) }}
-                {{ Form::text('download_count', null, array('class' => 'form-control')) }}
-            </div>
-            <div class="col-sm-6 form-group">
-                {{ Form::label('name', trans('validation.attributes.name')) }}
-                {{ Form::text('name', null, array('class' => 'form-control')) }}
-            </div>
-        </div>
+        <table class="table table-condensed">
+            <thead>
+                <th>{{ trans('validation.attributes.File information') }}</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>{{ trans('validation.attributes.path') }}</th>
+                    <td>{{ $model->path }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.filename') }}</th>
+                    <td>{{ $model->filename }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.extension') }}</th>
+                    <td>{{ $model->extension }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.mimetype') }}</th>
+                    <td>{{ $model->mimetype }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.width') }}</th>
+                    <td>{{ $model->width }} px</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.height') }}</th>
+                    <td>{{ $model->height }} px</td>
+                </tr>
+                <!-- <tr>
+                    <th>{{ trans('validation.attributes.user_id') }}</th>
+                    <td>{{ $model->user_id }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.name') }}</th>
+                    <td>{{ $model->name }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.folder_id') }}</th>
+                    <td>{{ $model->folder_id }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.user_id') }}</th>
+                    <td>{{ $model->user_id }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.type') }}</th>
+                    <td>{{ $model->type }}</td>
+                </tr>
+                <tr>
+                    <th>{{ trans('validation.attributes.position') }}</th>
+                    <td>{{ $model->position }}</td>
+                </tr> -->
+            </tbody>
+        </table>
 
     </div>
 
