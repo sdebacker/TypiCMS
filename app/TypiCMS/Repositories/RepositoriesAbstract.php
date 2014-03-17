@@ -183,6 +183,19 @@ abstract class RepositoriesAbstract {
 
 
     /**
+     * Return all results that have a required relationship
+     *
+     * @param string $relation
+     */
+    public function has($relation, array $with = array())
+    {
+        $entity = $this->make($with);
+
+        return $entity->has($relation)->get();
+    }
+
+
+    /**
      * Create a new model
      *
      * @param array  Data to create a new object

@@ -161,6 +161,32 @@ abstract class CacheAbstractDecorator {
 
 
     /**
+     * Get single model by URL
+     *
+     * @param string  URL slug of model
+     * @return object object of model information
+     */
+    public function has($relation, array $with = array())
+    {
+        // Build the cache key, unique per model slug
+        $cacheKey = md5(App::getLocale().'has.'.$relation);
+
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
+        }
+
+        // Item not cached, retrieve it
+        $model = $this->repo->has($relation, $with);
+
+        // Store in cache for next request
+        $this->cache->put($cacheKey, $model);
+
+        return $model;
+
+    }
+
+
+    /**
      * Create a new model
      *
      * @param array  Data to create a new object
