@@ -4,13 +4,6 @@ interface PageInterface
 {
 
     /**
-     * Get Home page
-     *
-     * @return model
-     */
-    public function getHomePage();
-
-    /**
      * Update an existing model
      *
      * @param array  Data to update a model

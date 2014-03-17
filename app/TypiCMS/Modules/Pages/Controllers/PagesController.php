@@ -24,7 +24,7 @@ class PagesController extends PublicController
      */
     public function homepage()
     {
-        $model = $this->repository->getHomePage();
+        $model = $this->repository->getFirstBy('is_home', 1);
 
         if ($model) {
             return $this->show($model->id);

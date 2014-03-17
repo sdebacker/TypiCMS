@@ -35,6 +35,31 @@ abstract class CacheAbstractDecorator {
 
 
     /**
+     * Find a single entity by key value
+     *
+     * @param string $key
+     * @param string $value
+     * @param array $with
+     */
+    public function getFirstBy($key, $value, array $with = array())
+    {
+        // Build the cache key, unique per model slug
+        $key = md5(App::getLocale().'getFirstBy.'.$key.$value);
+
+        if ( $this->cache->has($key) ) {
+            return $this->cache->get($key);
+        }
+
+        // Item not cached, retrieve it
+        $model = $this->repo->getFirstBy($key, $value, $with);
+
+        $this->cache->put($key, $model);
+
+        return $model;
+    }
+
+
+    /**
      * Get paginated models
      *
      * @param int $page Number of models per page
@@ -69,10 +94,7 @@ abstract class CacheAbstractDecorator {
      */
     public function getAll(array $with = array(), $all = false)
     {
-        // Build our cache item key, unique per model number,
-        // limit and if we're showing all
-        $allkey = ($all) ? '.all' : '';
-        $key = md5(App::getLocale().'all'.$allkey);
+        $key = md5(App::getLocale().'all'.$all);
 
         if ( $this->cache->has($key) ) {
             return $this->cache->get($key);
@@ -80,6 +102,30 @@ abstract class CacheAbstractDecorator {
 
         // Item not cached, retrieve it
         $models = $this->repo->getAll($with, $all);
+
+        // Store in cache for next request
+        $this->cache->put($key, $models);
+
+        return $models;
+    }
+
+
+    /**
+     * Get all models with categories
+     *
+     * @param boolean $all Show published or all
+     * @return StdClass Object with $items
+     */
+    public function getAllBy($key, $value, $all = false, array $with = array())
+    {
+        $key = md5(App::getLocale().'getAllBy'.$key.$value.$all);
+
+        if ( $this->cache->has($key) ) {
+            return $this->cache->get($key);
+        }
+
+        // Item not cached, retrieve it
+        $models = $this->repo->getAllBy($key, $value, $all, $with);
 
         // Store in cache for next request
         $this->cache->put($key, $models);

@@ -17,29 +17,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
 
 
     /**
-     * Get Homepage
-     *
-     * @return TypiCMS\Modules\Pages\Models\Page
-     */
-    public function getHomePage()
-    {
-        // Build the cache key, unique per model slug
-        $key = md5(App::getLocale().'homepage.');
-
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
-        }
-
-        $model = $this->repo->getHomePage();
-
-        // Store in cache for next request
-        $this->cache->put($key, $model);
-
-        return $model;
-    }
-
-
-    /**
      * Get Uris of all pages
      *
      * @return Array[id][lang] = uri

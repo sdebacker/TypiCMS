@@ -42,7 +42,7 @@ abstract class RepositoriesAbstract {
      */
     public function getFirstBy($key, $value, array $with = array())
     {
-        $this->make($with)->where($key, '=', $value)->first();
+        return $this->make($with)->where($key, '=', $value)->first();
     }
 
 

@@ -23,17 +23,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
 
     /**
-     * Get Home page
-     *
-     * @return model
-     */
-    public function getHomePage()
-    {
-        return $this->model->where('is_home', 1)->first();
-    }
-
-
-    /**
      * Update an existing model
      *
      * @param array  Data to update a model
