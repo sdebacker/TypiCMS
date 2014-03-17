@@ -142,6 +142,7 @@ return array(
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
 		'TypiCMS\Providers\StartProvider',
+		'TypiCMS\Providers\UploadServiceProvider',
 
 	),
 
@@ -218,6 +219,7 @@ return array(
 		'Breadcrumbs'     => 'DaveJamesMiller\Breadcrumbs\Facade',
 
 		'Menu'            => 'TypiCMS\Modules\Menus\Models\Menu',
+		'FileUpload'      => 'TypiCMS\Facades\FileUpload',
 
 		
 	),

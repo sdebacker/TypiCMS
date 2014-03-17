@@ -237,6 +237,8 @@ return array(
         'replace logo' => 'Replace logo',
         'image' => 'Image',
         'replace image' => 'Replace image',
+        'file' => 'File',
+        'replace file' => 'Replace file',
         'max' => 'Maximum',
         'KB' => 'KB',
         'MB' => 'MB',

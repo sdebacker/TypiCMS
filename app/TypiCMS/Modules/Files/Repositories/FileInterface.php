@@ -17,13 +17,6 @@ interface FileInterface
     public function byPageFrom($page = 1, $limit = 10, $from, array $with = array(), $all = false);
 
     /**
-     * Upload a file
-     *
-     * @param array input to upload a file
-     */
-    public function upload(array $input);
-
-    /**
      * Delete model
      *
      * @return boolean

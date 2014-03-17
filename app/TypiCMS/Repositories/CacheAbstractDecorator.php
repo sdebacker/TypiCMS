@@ -10,6 +10,11 @@ abstract class CacheAbstractDecorator {
     protected $cache;
 
 
+    public function getModel()
+    {
+        return $this->repo->getModel();
+    }
+
     /**
      * Retrieve model by id
      * regardless of status

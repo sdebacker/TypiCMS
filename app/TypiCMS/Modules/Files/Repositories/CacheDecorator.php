@@ -52,16 +52,20 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
 
 
     /**
-     * Upoad files
+     * Create a new model
      *
      * @param array  Data to create a new object
+     * @return boolean or model
      */
-    public function upload(array $input)
+    public function create(array $data)
     {
-        $this->cache->flush('Files', 'Pages', 'Events', 'News', 'Projects', 'Dashboard');
-        return $this->repo->upload($input);
+        $model = $this->repo->create($data);
+        if ($model) {
+            $parent = str_plural(class_basename($model->fileable_type));
+            $this->cache->flush('Files', $parent, 'Dashboard');
+        }
+        return $model;
     }
-
 
 
     /**
@@ -72,7 +76,8 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
      */
     public function delete($model)
     {
-        $this->cache->flush('Files', 'Pages', 'Events', 'News', 'Projects', 'Dashboard');
+        $parent = str_plural(class_basename($model->fileable_type));
+        $this->cache->flush('Files', $parent, 'Dashboard');
         return $this->repo->delete($model);
     }
 

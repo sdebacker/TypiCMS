@@ -17,6 +17,32 @@
 
     <div class="col-sm-6">
 
+        <div class="clearfix well">
+            @if(isset($model->filename) and $model->filename)
+            <div class="thumbnail">
+                <img src="/{{ $model->path }}/{{ $model->filename }}" alt="{{ $model->alt_attribute }}">
+            </div>
+            <div class="pull-left">
+                {{ Form::label('file', trans('validation.attributes.replace file'), array('class' => 'control-label')) }}
+                {{ Form::file('file') }}
+                <span class="help-block">
+                    @lang('validation.attributes.max') 500 
+                    @lang('validation.attributes.KB')
+                </span>
+            </div>
+            @else
+            {{ Form::label('file', trans('validation.attributes.file'), array('class' => 'control-label')) }}
+            {{ Form::file('file') }}
+            <span class="help-block">
+                @lang('validation.attributes.max') 500 
+                @lang('validation.attributes.KB')
+            </span>
+            @endif
+            @if($errors->has('file'))
+            <span class="help-block">{{ $errors->first('file') }}</span>
+            @endif
+        </div>
+
         @include('admin._tabs-lang')
 
         <div class="tab-content">
