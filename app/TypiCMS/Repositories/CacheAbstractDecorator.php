@@ -125,7 +125,7 @@ abstract class CacheAbstractDecorator {
         }
 
         // Item not cached, retrieve it
-        $models = $this->repo->getAllBy($key, $value, $all, $with);
+        $models = $this->repo->getAllBy($key, $value, $with, $all);
 
         // Store in cache for next request
         $this->cache->put($key, $models);
