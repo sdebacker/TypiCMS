@@ -19,16 +19,16 @@ abstract class CacheAbstractDecorator {
     public function byId($id)
     {
         // Build the cache key, unique per model slug
-        $key = md5(App::getLocale().'id.'.$id);
+        $cacheKey = md5(App::getLocale().'id.'.$id);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         // Item not cached, retrieve it
         $model = $this->repo->byId($id);
 
-        $this->cache->put($key, $model);
+        $this->cache->put($cacheKey, $model);
 
         return $model;
     }
@@ -44,16 +44,16 @@ abstract class CacheAbstractDecorator {
     public function getFirstBy($key, $value, array $with = array())
     {
         // Build the cache key, unique per model slug
-        $key = md5(App::getLocale().'getFirstBy.'.$key.$value);
+        $cacheKey = md5(App::getLocale().'getFirstBy.'.$key.$value);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         // Item not cached, retrieve it
         $model = $this->repo->getFirstBy($key, $value, $with);
 
-        $this->cache->put($key, $model);
+        $this->cache->put($cacheKey, $model);
 
         return $model;
     }
@@ -70,16 +70,16 @@ abstract class CacheAbstractDecorator {
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
+        $cacheKey = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->byPage($page, $limit, $with, $all);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }
@@ -94,17 +94,17 @@ abstract class CacheAbstractDecorator {
      */
     public function getAll(array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'all'.$all);
+        $cacheKey = md5(App::getLocale().'all'.$all);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         // Item not cached, retrieve it
         $models = $this->repo->getAll($with, $all);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }
@@ -118,17 +118,17 @@ abstract class CacheAbstractDecorator {
      */
     public function getAllBy($key, $value, array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'getAllBy'.$key.$value.$all);
+        $cacheKey = md5(App::getLocale().'getAllBy'.$key.$value.$all);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         // Item not cached, retrieve it
         $models = $this->repo->getAllBy($key, $value, $with, $all);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }
@@ -143,17 +143,17 @@ abstract class CacheAbstractDecorator {
     public function bySlug($slug)
     {
         // Build the cache key, unique per model slug
-        $key = md5(App::getLocale().'slug.'.$slug);
+        $cacheKey = md5(App::getLocale().'slug.'.$slug);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         // Item not cached, retrieve it
         $model = $this->repo->bySlug($slug);
 
         // Store in cache for next request
-        $this->cache->put($key, $model);
+        $this->cache->put($cacheKey, $model);
 
         return $model;
 

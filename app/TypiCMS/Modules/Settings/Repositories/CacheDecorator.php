@@ -25,16 +25,16 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
      */
     public function getAll(array $with = array(), $all = false)
     {
-        $key = md5('Settings');
+        $cacheKey = md5('Settings');
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $data = $this->repo->getAll($with);
 
         // Store in cache for next request
-        $this->cache->put($key, $data);
+        $this->cache->put($cacheKey, $data);
 
         return $data;
     }
@@ -61,16 +61,16 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
      */
     public function getAllToArray()
     {
-        $key = md5('SettingsToArray');
+        $cacheKey = md5('SettingsToArray');
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $data = $this->repo->getAllToArray();
 
         // Store in cache for next request
-        $this->cache->put($key, $data);
+        $this->cache->put($cacheKey, $data);
 
         return $data;
     }

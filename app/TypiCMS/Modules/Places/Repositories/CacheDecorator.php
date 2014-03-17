@@ -28,16 +28,16 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
+        $cacheKey = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->byPage($page, $limit, $with, $all);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }
@@ -55,16 +55,16 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
         // get search string
         $string = Input::get('string');
 
-        $key = md5(App::getLocale().'all'.$all.$string);
+        $cacheKey = md5(App::getLocale().'all'.$all.$string);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->getAll(array('translations'), $all);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }
@@ -78,16 +78,16 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      */
     public function bySlug($slug)
     {
-        $key = md5(App::getLocale().'slug.'.$slug);
+        $cacheKey = md5(App::getLocale().'slug.'.$slug);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $model = $this->repo->bySlug($slug);
 
         // Store in cache for next request
-        $this->cache->put($key, $model);
+        $this->cache->put($cacheKey, $model);
 
         return $model;
 

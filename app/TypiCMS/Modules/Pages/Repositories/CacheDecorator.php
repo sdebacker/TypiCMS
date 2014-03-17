@@ -35,16 +35,16 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
      */
     public function getChildren($uri, $all = false)
     {
-        $key = md5(App::getLocale().'childrenOfId.'.$uri.$all);
+        $cacheKey = md5(App::getLocale().'childrenOfId.'.$uri.$all);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->getChildren($uri, $all);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }
@@ -69,16 +69,16 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
      */
     public function getForRoutes()
     {
-        $key = md5(App::getLocale().'pagesForRoutes');
+        $cacheKey = md5(App::getLocale().'pagesForRoutes');
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->getForRoutes();
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }

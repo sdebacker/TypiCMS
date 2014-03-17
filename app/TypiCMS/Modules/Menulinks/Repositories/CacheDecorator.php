@@ -27,16 +27,16 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
      */
     public function getAllFromMenu($all = false, $menuId = null)
     {
-        $key = md5(App::getLocale().'all'.$all.$menuId);
+        $cacheKey = md5(App::getLocale().'all'.$all.$menuId);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->getAllFromMenu($all, $menuId);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }
@@ -50,16 +50,16 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     public function getMenu($name)
     {
 
-        $key = md5(App::getLocale() . 'getMenu' . $name . Request::path());
+        $cacheKey = md5(App::getLocale() . 'getMenu' . $name . Request::path());
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->getMenu($name);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
 
@@ -85,16 +85,16 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
      */
     public function getForRoutes()
     {
-        $key = md5(App::getLocale().'menulinksForRoutes');
+        $cacheKey = md5(App::getLocale().'menulinksForRoutes');
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->getForRoutes();
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }

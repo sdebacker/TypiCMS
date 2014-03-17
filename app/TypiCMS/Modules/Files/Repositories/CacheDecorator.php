@@ -34,16 +34,16 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
      */
     public function byPageFrom($page = 1, $limit = 10, $from, array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'byPageFrom.'.$page.$limit.$from->id.get_class($from).$all.implode(Input::except('page')));
+        $cacheKey = md5(App::getLocale().'byPageFrom.'.$page.$limit.$from->id.get_class($from).$all.implode(Input::except('page')));
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->byPageFrom($page, $limit, $from, $with, $all);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
 

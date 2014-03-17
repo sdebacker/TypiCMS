@@ -22,16 +22,16 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
     public function getWelcomeMessage()
     {
         // Build the cache key, unique per model slug
-        $key = md5(App::getLocale().'WelcomeMessage');
+        $cacheKey = md5(App::getLocale().'WelcomeMessage');
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $message = $this->repo->getWelcomeMessage();
 
         // Store in cache for next request
-        $this->cache->put($key, $message);
+        $this->cache->put($cacheKey, $message);
 
         return $message;
     }
@@ -40,16 +40,16 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
     public function getModulesList()
     {
         // Build the cache key, unique per model slug
-        $key = md5(App::getLocale().'DashboardModules');
+        $cacheKey = md5(App::getLocale().'DashboardModules');
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $modules = $this->repo->getModulesList();
 
         // Store in cache for next request
-        $this->cache->put($key, $modules);
+        $this->cache->put($cacheKey, $modules);
 
         return $modules;
     }

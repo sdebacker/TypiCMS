@@ -27,16 +27,16 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
      */
     public function getAll(array $with = array(), $all = false)
     {
-        $key = md5(App::getLocale().'all'.$all);
+        $cacheKey = md5(App::getLocale().'all'.$all);
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $models = $this->repo->getAll($with, $all);
 
         // Store in cache for next request
-        $this->cache->put($key, $models);
+        $this->cache->put($cacheKey, $models);
 
         return $models;
     }
@@ -77,16 +77,16 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
      */
     public function getAllToArray($locale, $group, $namespace = null)
     {
-        $key = md5(App::getLocale().'TranslationsToArray');
+        $cacheKey = md5(App::getLocale().'TranslationsToArray');
 
-        if ( $this->cache->has($key) ) {
-            return $this->cache->get($key);
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
         }
 
         $data = $this->repo->getAllToArray($locale, $group, $namespace);
 
         // Store in cache for next request
-        $this->cache->put($key, $data);
+        $this->cache->put($cacheKey, $data);
 
         return $data;
     }
