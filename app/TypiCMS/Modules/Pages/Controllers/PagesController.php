@@ -17,43 +17,21 @@ class PagesController extends PublicController
         $this->title['parent'] = Str::title(trans_choice('pages::global.pages', 2));
     }
 
-    /**
-     * Get homepage (is_home attr)
-     *
-     * @return void
-     */
-    public function homepage()
-    {
-        $model = $this->repository->getFirstBy('is_home', 1);
-
-        if ($model) {
-            return $this->show($model->id);
-        }
-
-    }
 
     /**
-     * We have uri, find id and show page
+     * Show page from current uri.
      *
      * @return void
      */
     public function uri()
     {
         $pathArray = explode('.', Route::current()->getName());
-        
-        $pageId = array_pop($pathArray);
-        $this->show($pageId);
-    }
-
-    /**
-     * Show resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        $model = $this->repository->byId($id);
+        if (count($pathArray) == 1) { // there is only language, so we are on homepage
+            $model = $this->repository->getFirstBy('is_home', 1, array('files', 'files.translations'));
+        } else {
+            $id = array_pop($pathArray);
+            $model = $this->repository->byId($id, array('files', 'files.translations'));
+        }
 
         $this->title['parent'] = $model->title;
 

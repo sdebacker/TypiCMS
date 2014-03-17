@@ -13,13 +13,6 @@ class PagesControllerTest extends TestCase {
         $this->get('/');
     }
 
-    public function testHomepages()
-    {
-        foreach (Config::get('app.locales') as $locale) {
-            $this->get($locale);
-        }
-    }
-
     public function testAdminIndex()
     {
         // Page::shouldReceive('getAll')->once();

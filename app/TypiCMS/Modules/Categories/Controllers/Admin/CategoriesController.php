@@ -31,7 +31,7 @@ class CategoriesController extends BaseController
      */
     public function index()
     {
-        $models = $this->repository->getAll(array('translations'), true);
+        $models = $this->repository->getAll(array('translations', 'projects'), true);
 
         $models = $this->presenter->collection($models, new CategoryPresenter);
 

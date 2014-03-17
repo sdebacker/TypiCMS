@@ -32,7 +32,7 @@ class PagesController extends BaseController
      */
     public function index()
     {
-        $models = $this->repository->getAll(array('translations'), true);
+        $models = $this->repository->getAll(array('translations', 'files'), true);
 
         $models = $this->presenter->collection($models, new PagePresenter);
 

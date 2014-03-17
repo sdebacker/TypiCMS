@@ -82,7 +82,7 @@ Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), functio
 
 	// Homepages (for each language)
 	foreach (Config::get('app.locales') as $locale) {
-		Route::get($locale, array('as' => $locale, 'uses' => 'TypiCMS\Modules\Pages\Controllers\PagesController@homepage'));
+		Route::get($locale, array('as' => $locale, 'uses' => 'TypiCMS\Modules\Pages\Controllers\PagesController@uri'));
 	}
 
 });

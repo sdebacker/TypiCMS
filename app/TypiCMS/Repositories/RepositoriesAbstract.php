@@ -57,9 +57,6 @@ abstract class RepositoriesAbstract {
     {
         $query = $this->make($with)->where('id', $id);
 
-        // files
-        $this->model->files and $query->files();
-
         $model = $query->firstOrFail();
 
         return $model;
@@ -89,9 +86,6 @@ abstract class RepositoriesAbstract {
             // take only translated items that are online
             $query = $query->whereHasOnlineTranslation();
         }
-
-        // files
-        $this->model->files and $query = $query->files();
 
         $totalItems = $query->count();
 
@@ -125,9 +119,6 @@ abstract class RepositoriesAbstract {
             $query = $query->whereHasOnlineTranslation();
         }
 
-        // Files
-        $this->model->files and $query = $query->files();
-
         // Query ORDER BY
         $query = $query->order();
 
@@ -160,9 +151,6 @@ abstract class RepositoriesAbstract {
 
         $query->where($key, $value);
         
-        // Files
-        $this->model->files and $query->files();
-
         $models = $query->get();
 
         return $models;
