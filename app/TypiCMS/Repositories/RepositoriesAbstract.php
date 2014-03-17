@@ -140,7 +140,7 @@ abstract class RepositoriesAbstract {
      * @param boolean $all Show published or all
      * @return StdClass Object with $items
      */
-    public function getAllBy($key, $value, $all = false, array $with = array())
+    public function getAllBy($key, $value, array $with = array(), $all = false)
     {
         $query = $this->make($with);
 
