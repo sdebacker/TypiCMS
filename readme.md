@@ -15,6 +15,15 @@ Pages:
 * /fr/parent-pages-slug-fr/subpage-slug-fr/page-slug-fr
 * /en/parent-pages-slug-en/subpage-slug-en/page-slug-en
 
+## Table of contents
+
+ - [Requirements](#requirements)
+ - [Installation](#installation)
+ - [Modules](#modules)
+ - [Contributing](#contributing)
+ - [Testing](#testing)
+ - [Licence](#licence)
+
 ## Requirements
 
 PHP >= 5.4.0 is required with MCrypt PHP Extension
