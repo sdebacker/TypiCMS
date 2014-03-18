@@ -85,7 +85,8 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
             foreach ($foundTags as $tag) {
                 $pos = array_search($tag->tag, $tags);
 
-                // Add returned tags to array if ($pos !== false) {
+                // Add returned tags to array
+                if ($pos !== false) {
                     $returnTags[] = $tag;
                     unset($tags[$pos]);
                 }
