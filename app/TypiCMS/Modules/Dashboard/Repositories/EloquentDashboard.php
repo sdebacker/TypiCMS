@@ -3,8 +3,8 @@ namespace TypiCMS\Modules\Dashboard\Repositories;
 
 use DB;
 use Str;
-use Sentry;
 use Config;
+use Sentry;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -13,13 +13,17 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 
     public function getWelcomeMessage()
     {
-        $ch = curl_init('http://www.typi.be/welcomeMessage_fr.html');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        $welcomeMessage = curl_exec($ch);
-        if (curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
-            return '';
+        if ($welcomeMessageURL = Config::get('typicms.welcomeMessageURL')) {
+            $ch = curl_init($welcomeMessageURL);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $welcomeMessage = curl_exec($ch);
+            if (curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) {
+                return '';
+            }
+            curl_close($ch);
+        } else {
+            $welcomeMessage = Config::get('typicms.welcomeMessage');
         }
-        curl_close($ch);
 
         return $welcomeMessage;
     }

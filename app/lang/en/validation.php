@@ -204,6 +204,8 @@ return array(
         'googleAnalyticsUniversalCode' => 'Google Analytics Universal Code',
         'googleAnalyticsCode' => 'Google Analytics Code',
         'langChooser' => 'Lang chooser',
+        'welcomeMessage' => 'Administration welcome message',
+        'welcomeMessageURL' => 'Administration welcome message URL',
         'authPublic' => 'Authenticate to view website',
         'registration allowed' => 'Registration allowed',
 
