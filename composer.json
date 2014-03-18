@@ -1,6 +1,7 @@
 {
 	"name": "sdebacker/typicms",
 	"description": "Simple multilingual CMS",
+	"version": "1.0.0-dev",
 	"keywords": ["CMS", "multilingual", "laravel", "Typi"],
 	"license": "MIT",
 	"authors": [
