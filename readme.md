@@ -76,7 +76,7 @@ Users registration can be enable through the settings panel (/admin/settings).
 
 Change website title, and other options trough the settings panel. Settings are saved in database.
 
-## Contributing To TypiCMS
+## Contributing
 
 TypiCMS needs many improvements, some options are not yet implemented and some code need to be simplified and moved in separate classes.
 TypiCMS follow [PSR-2](http://www.php-fig.org/psr/psr-2/) standards.
