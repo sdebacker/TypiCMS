@@ -8,7 +8,6 @@ use Exception;
 
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Cartalyst\Sentry\Sentry;
 
@@ -45,8 +44,8 @@ class SentryUser implements UserInterface
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
@@ -79,12 +78,11 @@ class SentryUser implements UserInterface
         return $users;
     }
 
-
     /**
      * Retrieve user by id
      * regardless of status
      *
-     * @param  int $id user ID
+     * @param  int  $id user ID
      * @return User object
      */
     public function byId($id)
@@ -97,12 +95,11 @@ class SentryUser implements UserInterface
         throw new Exception($error);
     }
 
-
     /**
      * Retrieve user by login
      * regardless of status
      *
-     * @param  int $login
+     * @param  int  $login
      * @return User object
      */
     public function findUserByLogin($login)
@@ -115,32 +112,28 @@ class SentryUser implements UserInterface
         throw new Exception($error);
     }
 
-
     /**
      * Retrieve all groups or user groups
      *
-     * @param  User $user
+     * @param  User  $user
      * @return array
      */
     public function getGroups($user = null)
     {
         if ($user) {
-
             return $user->getGroups()->lists('name', 'id');
 
         } else {
-
             return $this->sentry->findAllGroups();
 
         }
 
     }
 
-
     /**
      * Get reset password code for user
      *
-     * @param  User $user
+     * @param  User   $user
      * @return string
      */
     public function getResetPasswordCode($user)
@@ -148,11 +141,10 @@ class SentryUser implements UserInterface
         return $user->getResetPasswordCode();
     }
 
-
     /**
      * Check reset password code for user
      *
-     * @param  User $user
+     * @param  User   $user
      * @param  String $resetCode
      * @return bool
      */
@@ -161,11 +153,10 @@ class SentryUser implements UserInterface
         return $user->checkResetPasswordCode($resetCode);
     }
 
-
     /**
      * Attempt reset password for user
      *
-     * @param  User $user
+     * @param  User   $user
      * @param  String $resetCode
      * @param  String $password
      * @return bool
@@ -175,18 +166,16 @@ class SentryUser implements UserInterface
         return $user->attemptResetPassword($resetCode, $password);
     }
 
-
     /**
      * Get id of user
      *
-     * @param  User $user
+     * @param  User   $user
      * @return string
      */
     public function getId($user)
     {
         return $user->getId();
     }
-
 
     /**
      * Create a new model
@@ -203,7 +192,7 @@ class SentryUser implements UserInterface
             $user = $this->sentry->createUser($userData);
 
             $allGroups = $this->sentry->findAllGroups();
-            
+
             foreach ($allGroups as $group) {
                 if ($data['groups'][$group->id]) {
                     $user->addGroup($group);
@@ -230,7 +219,6 @@ class SentryUser implements UserInterface
 
     }
 
-
     /**
      * Update an existing user
      *
@@ -243,7 +231,7 @@ class SentryUser implements UserInterface
         $user = $this->sentry->findUserById($data['id']);
 
         $allGroups = $this->sentry->findAllGroups();
-        
+
         foreach ($allGroups as $group) {
             if ($data['groups'][$group->id]) {
                 $user->addGroup($group);
@@ -254,7 +242,7 @@ class SentryUser implements UserInterface
 
         $data = array_except($data, array('_method', '_token', 'exit', 'groups'));
 
-        if ( ! $data['password']) {
+        if (! $data['password']) {
             $data = array_except($data, 'password');
         }
 
@@ -263,22 +251,23 @@ class SentryUser implements UserInterface
         }
 
         $user->save();
-        
+
         return true;
-        
+
     }
 
     /**
      * Authenticate a user
      *
-     * @param array $credentials
-     * @param boolean $id
-     * @return User Model
+     * @param  array   $credentials
+     * @param  boolean $id
+     * @return User    Model
      */
     public function authenticate($credentials, $remember = false)
     {
         try {
             $this->sentry->authenticate($credentials, $remember);
+
             return $this->sentry->getUser();
         } catch (LoginRequiredException $e) {
             $error = trans('users::global.Login field is required');
@@ -300,18 +289,18 @@ class SentryUser implements UserInterface
         throw new Exception($error);
     }
 
-
     /**
      * Log a user in
      *
-     * @param array $credentials
-     * @param boolean $id
-     * @return Sentry User
+     * @param  array   $credentials
+     * @param  boolean $id
+     * @return Sentry  User
      */
     public function login($user, $remember = false)
     {
         try {
             $this->sentry->login($user, $remember);
+
             return true;
         } catch (LoginRequiredException $e) {
             $error = trans('users::global.Login field is required');
@@ -331,11 +320,10 @@ class SentryUser implements UserInterface
         throw new Exception($error);
     }
 
-
     /**
      * Register a new user
      *
-     * @param array $input
+     * @param  array   $input
      * @return boolean
      */
     public function register(array $input, $noConfirmation = null)
@@ -347,7 +335,7 @@ class SentryUser implements UserInterface
 
             if ($noConfirmation) {
 
-                // Add this person to the user group. 
+                // Add this person to the user group.
                 $userGroup = $this->sentry->getGroupProvider()->findById(1);
                 $user->addGroup($userGroup);
 
@@ -361,8 +349,7 @@ class SentryUser implements UserInterface
                 $data['userId'] = $user->getId();
 
                 // send email with link to activate.
-                \Mail::send('emails.auth.welcome', $data, function($m) use($data)
-                {
+                \Mail::send('emails.auth.welcome', $data, function ($m) use ($data) {
                     $m->to($data['email'])->subject('Welcome to Typi CMS');
                 });
             }
@@ -384,8 +371,8 @@ class SentryUser implements UserInterface
     /**
      * Activate a user registration
      *
-     * @param int $userId
-     * @param string $activationCode
+     * @param  int     $userId
+     * @param  string  $activationCode
      * @return boolean
      */
     public function activate($userId = null, $activationCode = null)
@@ -394,7 +381,7 @@ class SentryUser implements UserInterface
             $user = $this->sentry->getUserProvider()->findById($userId);
 
             if ($user->attemptActivation($activationCode)) {
-                
+
                 $userGroup = $this->sentry->getGroupProvider()->findById(1);
                 $user->addGroup($userGroup);
 
@@ -412,7 +399,6 @@ class SentryUser implements UserInterface
 
     }
 
-
     /**
      * Logout a user
      *
@@ -423,20 +409,19 @@ class SentryUser implements UserInterface
         return $this->sentry->logout();
     }
 
-
     /**
      * Update a user
      *
-     * @param int $id
+     * @param  int     $id
      * @return boolean
      */
     public function destroy($id)
     {
 
         $user = $this->sentry->findUserById($id);
+
         return $user->delete() ? true : false ;
 
     }
-
 
 }

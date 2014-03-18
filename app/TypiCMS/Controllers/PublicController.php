@@ -11,7 +11,6 @@ use Controller;
 use TypiCMS\Services\Helpers;
 
 // Base controller
-use TypiCMS\Controllers\BaseController;
 
 class PublicController extends Controller
 {
@@ -33,7 +32,6 @@ class PublicController extends Controller
         'child'     => '',
     );
 
-
     public function __construct($repository = null, $presenter = null)
     {
         $this->repository = $repository;
@@ -47,7 +45,7 @@ class PublicController extends Controller
 
             $modules = array();
             foreach (Config::get('app.modules') as $module => $property) {
-                if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')){
+                if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
                     $modules[$module] = $property;
                 }
             }
@@ -78,7 +76,6 @@ class PublicController extends Controller
 
     }
 
-
     /**
      * Show lang chooser, redirect to browser lang or redirect to default lang
      *
@@ -103,7 +100,6 @@ class PublicController extends Controller
         $this->layout->content = View::make('public.root')
             ->with('locales', $locales);
     }
-
 
     /**
      * Setup the layout used by the controller.

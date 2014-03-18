@@ -1,6 +1,6 @@
 <?php
 namespace TypiCMS\Presenters;
- 
-interface Presentable {
 
+interface Presentable
+{
 }

@@ -3,25 +3,21 @@ namespace TypiCMS\Repositories;
 
 use StdClass;
 
-use DB;
 use Str;
 use App;
-use Input;
 use Config;
 
 use TypiCMS\Services\Helpers;
 use TypiCMS\Modules\Pages\Models\Page;
 
-abstract class RepositoriesAbstract {
-
+abstract class RepositoriesAbstract
+{
     protected $model;
-
 
     public function getModel()
     {
         return $this->model;
     }
-
 
     /**
      * Make a new instance of the entity to query on
@@ -33,25 +29,23 @@ abstract class RepositoriesAbstract {
         return $this->model->with($with);
     }
 
-
     /**
      * Find a single entity by key value
      *
      * @param string $key
      * @param string $value
-     * @param array $with
+     * @param array  $with
      */
     public function getFirstBy($key, $value, array $with = array())
     {
         return $this->make($with)->where($key, '=', $value)->first();
     }
 
-
     /**
      * Retrieve model by id
      * regardless of status
      *
-     * @param  int $id model ID
+     * @param  int       $id model ID
      * @return stdObject object of model information
      */
     public function byId($id, array $with = array())
@@ -63,14 +57,13 @@ abstract class RepositoriesAbstract {
         return $model;
     }
 
-
     /**
      * Get paginated models
      *
-     * @param int $page Number of models per page
-     * @param int $limit Results per page
-     * @param boolean $all get published models or all
-     * @param array $with Eager load related models
+     * @param  int      $page  Number of models per page
+     * @param  int      $limit Results per page
+     * @param  boolean  $all   get published models or all
+     * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
@@ -83,7 +76,7 @@ abstract class RepositoriesAbstract {
 
         $query = $this->make($with);
 
-        if ( ! $all ) {
+        if (! $all) {
             // take only translated items that are online
             $query = $query->whereHasOnlineTranslation();
         }
@@ -103,19 +96,18 @@ abstract class RepositoriesAbstract {
         return $result;
     }
 
-
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
     {
         $query = $this->make($with);
 
-        if ( ! $all ) {
+        if (! $all) {
             // take only translated items that are online
             $query = $query->whereHasOnlineTranslation();
         }
@@ -134,29 +126,27 @@ abstract class RepositoriesAbstract {
         return $models;
     }
 
-
     /**
      * Get all models with categories
      *
-     * @param boolean $all Show published or all
+     * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
      */
     public function getAllBy($key, $value, array $with = array(), $all = false)
     {
         $query = $this->make($with);
 
-        if ( ! $all ) {
+        if (! $all) {
             // Take only online and translated items
             $query = $query->whereHasOnlineTranslation();
         }
 
         $query->where($key, $value);
-        
+
         $models = $query->get();
 
         return $models;
     }
-
 
     /**
      * Get single model by URL
@@ -182,7 +172,6 @@ abstract class RepositoriesAbstract {
 
     }
 
-
     /**
      * Return all results that have a required relationship
      *
@@ -195,7 +184,6 @@ abstract class RepositoriesAbstract {
         return $entity->has($relation)->get();
     }
 
-
     /**
      * Create a new model
      *
@@ -207,9 +195,9 @@ abstract class RepositoriesAbstract {
         if ( $model = $this->model->create($data) ) {
             return $model;
         }
+
         return false;
     }
-
 
     /**
      * Update an existing model
@@ -222,9 +210,9 @@ abstract class RepositoriesAbstract {
         $model = $this->model->find($data['id']);
         $model->fill($data);
         $model->save();
+
         return true;
     }
-
 
     /**
      * Sort models
@@ -240,7 +228,7 @@ abstract class RepositoriesAbstract {
             $position = 0;
 
             foreach ($data['item'] as $id => $parent) {
-                
+
                 $position ++;
 
                 $parent = $parent ? : 0 ;
@@ -253,12 +241,12 @@ abstract class RepositoriesAbstract {
         } else {
 
             foreach ($data['item'] as $key => $id) {
-                
+
                 $position = $key + 1;
 
                 $this->model->find($id)
                     ->update(array('position' => $position));
-                
+
             }
 
         }
@@ -266,7 +254,6 @@ abstract class RepositoriesAbstract {
         return true;
 
     }
-
 
     public function getPagesForSelect()
     {
@@ -276,9 +263,9 @@ abstract class RepositoriesAbstract {
             ->lists('id', 'title');
         $pagesArray = array_merge(array('' => '0'), $pagesArray);
         $pagesArray = array_flip($pagesArray);
+
         return $pagesArray;
     }
-
 
     public function getModulesForSelect()
     {
@@ -289,9 +276,9 @@ abstract class RepositoriesAbstract {
                 $selectModules[strtolower($module)] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
             }
         }
+
         return $selectModules;
     }
-
 
     /**
      * Delete model
@@ -301,22 +288,22 @@ abstract class RepositoriesAbstract {
     public function delete($model)
     {
         if ($model->files) {
-            $model->files->each(function($file){
+            $model->files->each(function ($file) {
                 $file->delete();
             });
         }
         if ($model->delete()) {
             return true;
         }
+
         return false;
     }
-
 
     /**
      * Sync tags for model
      *
-     * @param \Illuminate\Database\Eloquent\Model  $model
-     * @param array  $tags
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  array                               $tags
      * @return void
      */
     protected function syncTags($model, array $tags)
@@ -325,7 +312,7 @@ abstract class RepositoriesAbstract {
         $tagIds = array();
 
         if ($tags) {
-            $found = $this->tag->findOrCreate( $tags );    
+            $found = $this->tag->findOrCreate( $tags );
             foreach ($found as $tag) {
                 $tagIds[] = $tag->id;
             }
@@ -334,6 +321,5 @@ abstract class RepositoriesAbstract {
         // Assign set tags to model
         $model->tags()->sync($tagIds);
     }
-
 
 }

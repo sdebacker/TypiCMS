@@ -31,7 +31,6 @@ abstract class BaseController extends Controller
         'h1'       => '',
     );
 
-
     public function getTitle()
     {
         $title = ucfirst($this->title['parent']);
@@ -39,22 +38,21 @@ abstract class BaseController extends Controller
             $title .= ' – ' . ucfirst($this->title['child']);
         }
         $title .= ' – ' . $this->applicationName;
+
         return $title;
     }
-
 
     public function getH1()
     {
         return $this->title['h1'] ? : $this->title['child'] ;
     }
 
-
     public function __construct($repository = null, $form = null, $presenter = null)
     {
         $this->repository = $repository;
         $this->form = $form;
         $this->presenter = $presenter;
-        
+
         // App::getLocale() and Config::get('app.locale') is set by Input::get('locale') (cf. global.php)
         // Lang::getLocale() is default value for admin interface
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
@@ -66,7 +64,7 @@ abstract class BaseController extends Controller
 
             $modules = array();
             foreach (Config::get('app.modules') as $module => $property) {
-                if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')){
+                if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
                     $modules[$module] = $property;
                 }
             }
@@ -89,7 +87,6 @@ abstract class BaseController extends Controller
         View::share('locale', Config::get('app.locale'));
     }
 
-
     /**
      * Setup the layout used by the controller.
      *
@@ -102,6 +99,5 @@ abstract class BaseController extends Controller
             $this->layout = View::make($layout);
         }
     }
-
 
 }

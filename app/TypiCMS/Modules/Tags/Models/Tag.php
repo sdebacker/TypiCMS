@@ -16,7 +16,6 @@ class Tag extends Base
         'slug',
     );
 
-
     /**
      * The default route for admin side.
      *
@@ -24,13 +23,11 @@ class Tag extends Base
      */
     protected $route = 'tags';
 
-
     /**
      * lists
      */
     public $order = 'tag';
     public $direction = 'asc';
-
 
     /**
      * Define a many-to-many relationship.

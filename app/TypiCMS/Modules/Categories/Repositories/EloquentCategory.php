@@ -1,8 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Categories\Repositories;
 
-use App;
-
 use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -33,14 +31,12 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
 
         // Sorting of collection
         $desc = ($this->model->direction == 'desc') ? true : false ;
-        $categories = $categories->sortBy(function($model)
-        {
+        $categories = $categories->sortBy(function ($model) {
             return $model->{$this->model->order};
         }, null, $desc);
 
         $array = array('' => '');
-        $categories->each(function($category) use(&$array)
-        {
+        $categories->each(function ($category) use (&$array) {
             $array[$category->id] = $category->title;
         });
 

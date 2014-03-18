@@ -33,7 +33,6 @@ class Page extends Base
         'meta_description',
     );
 
-
     /**
      * Translatable model configs.
      *
@@ -50,7 +49,6 @@ class Page extends Base
         'meta_description',
     );
 
-
     /**
      * The default route for admin side.
      *
@@ -64,7 +62,6 @@ class Page extends Base
     public $order = 'position';
     public $direction = 'asc';
 
-    
     /**
      * For nested collection
      *
@@ -72,7 +69,6 @@ class Page extends Base
      */
     public $children = array();
 
-    
     /**
      * Relations
      */
@@ -86,7 +82,6 @@ class Page extends Base
         return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
     }
 
-
     /**
      * Scope from
      */
@@ -94,7 +89,6 @@ class Page extends Base
     {
         return $query;
     }
-
 
     /**
      * Custom collection
@@ -106,7 +100,6 @@ class Page extends Base
         return new NestedCollection($models);
     }
 
-
     /**
      * Observers
      */
@@ -116,8 +109,7 @@ class Page extends Base
 
         $self = __CLASS__;
 
-        static::saving(function($model) use ($self)
-        {
+        static::saving(function ($model) use ($self) {
             // change homepage
             if (Input::get('is_home')) {
                 $self::where('is_home', 1)->update(array('is_home' => 0));

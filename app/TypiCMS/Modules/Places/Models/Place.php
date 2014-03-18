@@ -3,9 +3,6 @@ namespace TypiCMS\Modules\Places\Models;
 
 use TypiCMS\Models\Base;
 
-use Input;
-use Carbon\Carbon;
-
 class Place extends Base
 {
 
@@ -27,7 +24,6 @@ class Place extends Base
         'info',
         'status',
     );
-    
 
     /**
      * Translatable model configs.
@@ -36,7 +32,6 @@ class Place extends Base
      */
     public $translatedAttributes = array('info', 'status');
 
-
     /**
      * The default route for admin side.
      *
@@ -44,13 +39,11 @@ class Place extends Base
      */
     public $route = 'places';
 
-
     /**
      * lists
      */
     public $order = 'title';
     public $direction = 'asc';
-
 
     /**
      * Observers
@@ -60,9 +53,8 @@ class Place extends Base
         parent::boot();
 
         $self = __CLASS__;
-        
-        static::creating(function($model) use ($self)
-        {
+
+        static::creating(function ($model) use ($self) {
             // slug = null si vide
             $slug = ($model->slug) ? $model->slug : null ;
             $model->slug = $slug;
@@ -79,8 +71,7 @@ class Place extends Base
 
         });
 
-        static::updating(function($model) use ($self)
-        {
+        static::updating(function ($model) use ($self) {
             // slug = null si vide
             $slug = ($model->slug) ? $model->slug : null ;
             $model->slug = $slug;

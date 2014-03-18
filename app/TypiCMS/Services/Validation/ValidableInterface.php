@@ -8,7 +8,7 @@ interface ValidableInterface
      * Add data to validation against
      *
      * @param array
-     * @return \TypiCMS\Services\Validation\ValidableInterface  $this
+     * @return \TypiCMS\Services\Validation\ValidableInterface $this
      */
     public function with(array $input);
 

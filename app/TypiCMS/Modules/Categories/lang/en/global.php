@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'categories' => 'category|categories',
     'New'  => 'New category',

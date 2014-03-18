@@ -4,11 +4,10 @@ namespace TypiCMS\Repositories;
 use App;
 use Input;
 
-abstract class CacheAbstractDecorator {
-
+abstract class CacheAbstractDecorator
+{
     protected $repo;
     protected $cache;
-
 
     public function getModel()
     {
@@ -19,7 +18,7 @@ abstract class CacheAbstractDecorator {
      * Retrieve model by id
      * regardless of status
      *
-     * @param  int $id model ID
+     * @param  int       $id model ID
      * @return stdObject object of model information
      */
     public function byId($id)
@@ -39,13 +38,12 @@ abstract class CacheAbstractDecorator {
         return $model;
     }
 
-
     /**
      * Find a single entity by key value
      *
      * @param string $key
      * @param string $value
-     * @param array $with
+     * @param array  $with
      */
     public function getFirstBy($key, $value, array $with = array())
     {
@@ -64,14 +62,13 @@ abstract class CacheAbstractDecorator {
         return $model;
     }
 
-
     /**
      * Get paginated models
      *
-     * @param int $page Number of models per page
-     * @param int $limit Results per page
-     * @param boolean $all get published models or all
-     * @param array $with Eager load related models
+     * @param  int      $page  Number of models per page
+     * @param  int      $limit Results per page
+     * @param  boolean  $all   get published models or all
+     * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
@@ -90,12 +87,11 @@ abstract class CacheAbstractDecorator {
         return $models;
     }
 
-
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
@@ -115,11 +111,10 @@ abstract class CacheAbstractDecorator {
         return $models;
     }
 
-
     /**
      * Get all models with categories
      *
-     * @param boolean $all Show published or all
+     * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
      */
     public function getAllBy($key, $value, array $with = array(), $all = false)
@@ -138,7 +133,6 @@ abstract class CacheAbstractDecorator {
 
         return $models;
     }
-
 
     /**
      * Get single model by URL
@@ -165,7 +159,6 @@ abstract class CacheAbstractDecorator {
 
     }
 
-
     /**
      * Get single model by URL
      *
@@ -191,7 +184,6 @@ abstract class CacheAbstractDecorator {
 
     }
 
-
     /**
      * Create a new model
      *
@@ -205,9 +197,9 @@ abstract class CacheAbstractDecorator {
             $this->cache->flush();
             $this->cache->flush('Dashboard');
         }
+
         return $model;
     }
-
 
     /**
      * Update an existing model
@@ -219,9 +211,9 @@ abstract class CacheAbstractDecorator {
     {
         $bool = $this->repo->update($data);
         $this->cache->flush();
+
         return $bool;
     }
-
 
     /**
      * Sort models
@@ -233,36 +225,34 @@ abstract class CacheAbstractDecorator {
     {
         $bool = $this->repo->sort($data);
         $this->cache->flush();
+
         return $bool;
     }
-
 
     public function getModulesForSelect()
     {
         return $this->repo->getModulesForSelect();
     }
 
-
     public function delete($model)
     {
         $bool = $this->repo->delete($model);
         $this->cache->flush();
         $this->cache->flush('Dashboard');
+
         return $bool;
     }
-
 
     /**
      * Sync tags for model
      *
-     * @param \Illuminate\Database\Eloquent\Model  $model
-     * @param array  $tags
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  array                               $tags
      * @return void
      */
     protected function syncTags($model, array $tags)
     {
         return $this->repo->syncTags($model, $tags);
     }
-
 
 }

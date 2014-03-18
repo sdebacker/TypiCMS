@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'groups' => 'group|groups',
     'New'  => 'New group',

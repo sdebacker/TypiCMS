@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'news' => 'nieuws|nieuws',
     'New'  => 'New nieuws',

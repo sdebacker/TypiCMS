@@ -30,13 +30,12 @@ class MixedLoader implements LoaderInterface
         $this->repository     = $repository;
     }
 
-
     /**
      * Load the messages strictly for the given locale.
      *
-     * @param  Language      $language
-     * @param  string          $group
-     * @param  string          $namespace
+     * @param  Language $language
+     * @param  string   $group
+     * @param  string   $namespace
      * @return array
      */
     public function load($locale, $group, $namespace = null)
@@ -46,16 +45,16 @@ class MixedLoader implements LoaderInterface
         $translationsFromFiles = $this->fileLoader->load($locale, $group, $namespace);
         // If group is 'db', retrive also from DB.
         $translationsFromDB = ($group == 'db') ? $this->loadFromDB($locale, $group, $namespace) : array() ;
+
         return array_merge($translationsFromFiles, $translationsFromDB);
     }
-
 
     /**
      * Load the messages from DB strictly for the given locale.
      *
-     * @param  Language      $language
-     * @param  string          $group
-     * @param  string          $namespace
+     * @param  Language $language
+     * @param  string   $group
+     * @param  string   $namespace
      * @return array
      */
     public function loadFromDB($locale, $group, $namespace = null)
@@ -63,12 +62,11 @@ class MixedLoader implements LoaderInterface
         return $this->repository->getAllToArray($locale, $group, $namespace);
     }
 
-
     /**
      * Add a new namespace to the loader.
      *
-     * @param  string  $namespace
-     * @param  string  $hint
+     * @param  string $namespace
+     * @param  string $hint
      * @return void
      */
     public function addNamespace($namespace, $hint)

@@ -40,26 +40,24 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\News\Repositories\NewsInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\News\Repositories\NewsInterface', function ($app) {
             $repository = new EloquentNews(new News);
             if ( ! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'News', 10);
+
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\News\Services\Form\NewsForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\News\Services\Form\NewsForm', function ($app) {
             return new NewsForm(
                 new NewsFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\News\Repositories\NewsInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

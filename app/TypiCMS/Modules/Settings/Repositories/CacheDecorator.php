@@ -16,12 +16,11 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
         $this->cache = $cache;
     }
 
-
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
@@ -40,7 +39,6 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
         return $data;
     }
 
-
     /**
      * Update an existing model
      *
@@ -51,9 +49,9 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
     {
         $bool = $this->repo->store($data);
         $this->cache->flush();
+
         return $bool;
     }
-
 
     /**
      * Build Settings Array

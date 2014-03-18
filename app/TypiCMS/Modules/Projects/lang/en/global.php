@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'projects' => 'project|projects',
     'New'  => 'New project',

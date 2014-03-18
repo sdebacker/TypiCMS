@@ -8,7 +8,7 @@ interface CacheInterface
      * Retrieve data from cache
      *
      * @param string    Cache item key
-     * @return mixed    PHP data result of cache
+     * @return mixed PHP data result of cache
      */
     public function get($key);
 
@@ -18,7 +18,7 @@ interface CacheInterface
      * @param string    Cache item key
      * @param mixed     The data to store
      * @param integer   The number of minutes to store the item
-     * @return mixed    $value variable returned for convenience
+     * @return mixed $value variable returned for convenience
      */
     public function put($key, $value, $minutes=null);
 
@@ -32,7 +32,7 @@ interface CacheInterface
      * @param mixed     The actual items for this page
      * @param string    Cache item key
      * @param integer   The number of minutes to store the item
-     * @return mixed    $items variable returned for convenience
+     * @return mixed $items variable returned for convenience
      */
     public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes=null);
 
@@ -41,7 +41,7 @@ interface CacheInterface
      * Only returns true if exists && is not expired
      *
      * @param string    Cache item key
-     * @return bool     If cache item exists
+     * @return bool If cache item exists
      */
     public function has($key);
 
@@ -49,7 +49,7 @@ interface CacheInterface
      * Flush cache for tags
      *
      * @param string    Cache tags
-     * @return bool     If cache is flushed
+     * @return bool If cache is flushed
      */
     public function flush($tags = null);
 

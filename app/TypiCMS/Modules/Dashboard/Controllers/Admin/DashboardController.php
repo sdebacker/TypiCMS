@@ -8,9 +8,7 @@ use Response;
 use Symfony\Component\Process\Process;
 
 use McCool\DatabaseBackup\BackupProcedure;
-use McCool\DatabaseBackup\Storers\S3Storer;
 use McCool\DatabaseBackup\Dumpers\MysqlDumper;
-use McCool\DatabaseBackup\Archivers\GzipArchiver;
 use McCool\DatabaseBackup\Processors\ShellProcessor;
 
 use TypiCMS\Modules\Menus\Models\Menu;
@@ -34,7 +32,7 @@ class DashboardController extends BaseController
         $this->title['child'] = trans('dashboard::global.Dashboard');
 
         $modules = $this->repository->getModulesList();
-        
+
         $this->layout->content = View::make('dashboard.admin.dashboard')
             ->with('welcomeMessage', $this->repository->getWelcomeMessage())
             ->withModules($modules)

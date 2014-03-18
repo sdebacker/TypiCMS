@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'events' => 'event|events',
     'New'  => 'New event',

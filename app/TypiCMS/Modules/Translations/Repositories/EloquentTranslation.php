@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Translations\Repositories;
 
-use DB;
 use App;
 use Config;
 
@@ -12,25 +11,23 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 class EloquentTranslation extends RepositoriesAbstract implements TranslationInterface
 {
 
-
     // Class expects an Eloquent model
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
-
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
     {
         $query = $this->make(array('translations'));
-        
+
         $data = array();
 
         $models = $query->order()->get();
@@ -41,9 +38,9 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
                 $data[$model->id][$translation->locale] = $translation->translation;
             }
         }
+
         return $data;
     }
-
 
     /**
      * Get translations to Array
@@ -57,9 +54,9 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
                 ->where('locale', $locale)
                 ->where('group', $group)
                 ->lists('translation', 'key');
+
         return $array;
     }
-
 
     /**
      * Create a new model
@@ -72,10 +69,10 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
         if ( $model = $this->model->create($data) ) {
             return $model;
         }
+
         return false;
     }
 
-    
     /**
      * Update an existing model
      *
@@ -91,9 +88,9 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
         $model = $this->model->find($data['id']);
         $model->fill($data);
         $model->save();
+
         return true;
     }
-
 
     /**
      * Delete model
@@ -105,8 +102,8 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
         if ($model->delete()) {
             return true;
         }
+
         return false;
     }
-
 
 }

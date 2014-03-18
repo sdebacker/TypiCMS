@@ -3,7 +3,6 @@ namespace TypiCMS\Modules\Pages\Controllers\Admin;
 
 use View;
 use Input;
-use Config;
 use Request;
 use Redirect;
 
@@ -25,7 +24,6 @@ class PagesController extends BaseController
         parent::__construct($page, $pageform, $presenter);
         $this->title['parent'] = trans_choice('pages::global.pages', 2);
     }
-
 
     /**
      * List models
@@ -54,11 +52,10 @@ class PagesController extends BaseController
             ->with('model', $model);
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($model)
@@ -68,18 +65,16 @@ class PagesController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($model)
     {
         return Redirect::route('admin.pages.edit', $model->id);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -99,11 +94,10 @@ class PagesController extends BaseController
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($model)
@@ -113,7 +107,7 @@ class PagesController extends BaseController
         if ( $this->form->update( Input::all() ) ) {
             return (Input::get('exit')) ? Redirect::route('admin.pages.index') : Redirect::route('admin.pages.edit', $model->id) ;
         }
-        
+
         return Redirect::route( 'admin.pages.edit', $model->id )
             ->withInput()
             ->withErrors($this->form->errors());
@@ -122,7 +116,7 @@ class PagesController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function sort()
@@ -130,11 +124,10 @@ class PagesController extends BaseController
         $this->repository->sort( Input::all() );
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($model)
@@ -145,6 +138,5 @@ class PagesController extends BaseController
             }
         }
     }
-
 
 }

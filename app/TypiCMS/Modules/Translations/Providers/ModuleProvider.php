@@ -40,8 +40,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Translations\Repositories\TranslationInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Translations\Repositories\TranslationInterface', function ($app) {
             $repository = new EloquentTranslation(
                 new Translation
             );
@@ -49,22 +48,20 @@ class ModuleProvider extends ServiceProvider
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Translations', 10);
+
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Translations\Services\Form\TranslationForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Translations\Services\Form\TranslationForm', function ($app) {
             return new TranslationForm(
                 new TranslationFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
-
 
     }
 

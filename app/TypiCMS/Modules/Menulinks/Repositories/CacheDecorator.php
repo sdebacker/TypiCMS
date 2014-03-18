@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Menulinks\Repositories;
 
 use App;
-use Config;
 use Request;
 
 use Illuminate\Support\Collection;
@@ -23,7 +22,7 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
+     * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
      */
     public function getAllFromMenu($all = false, $menuId = null)
@@ -41,7 +40,6 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
 
         return $models;
     }
-
 
     /**
      * Build a menu from its name
@@ -66,7 +64,6 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
 
     }
 
-
     /**
      * Transform collection before building menu
      *
@@ -77,7 +74,6 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     {
         return $this->repo->filter($models);
     }
-
 
     /**
      * Get Items to build routes
@@ -100,10 +96,10 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
         return $models;
     }
 
-
     public function getPagesForSelect()
     {
         $array = $this->repo->getPagesForSelect();
+
         return $array;
     }
 

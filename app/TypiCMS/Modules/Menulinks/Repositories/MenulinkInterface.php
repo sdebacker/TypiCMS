@@ -9,7 +9,7 @@ interface MenulinkInterface
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
+     * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
      */
     public function getAllFromMenu($all = false, $relid = null);
@@ -17,7 +17,7 @@ interface MenulinkInterface
     /**
      * Get menu's items
      *
-     * @param string $name
+     * @param  string   $name
      * @return StdClass Object with $items
      */
     public function getMenu($name);

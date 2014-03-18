@@ -35,7 +35,7 @@ class NewsController extends PublicController
         $page = Input::get('page');
 
         $itemsPerPage = Config::get('news::public.itemsPerPage');
-        
+
         $data = $this->repository->byPage($page, $itemsPerPage, array('translations'));
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
@@ -48,7 +48,7 @@ class NewsController extends PublicController
     /**
      * Show news.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($slug)
@@ -58,7 +58,7 @@ class NewsController extends PublicController
         $this->title['parent'] = $model->title;
 
         $model = $this->presenter->model($model, new NewsPresenter);
-        
+
         $this->layout->content = View::make('news.public.show')
             ->withModel($model);
     }

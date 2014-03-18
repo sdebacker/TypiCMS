@@ -33,18 +33,17 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Dashboard\Repositories\DashboardInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Dashboard\Repositories\DashboardInterface', function ($app) {
             $repository = new EloquentDashboard();
             if ( ! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Dashboard', 10);
+
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

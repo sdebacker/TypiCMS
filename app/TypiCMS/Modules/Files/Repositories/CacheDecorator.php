@@ -2,10 +2,7 @@
 namespace TypiCMS\Modules\Files\Repositories;
 
 use App;
-use Str;
 use Input;
-use Croppa;
-use Response;
 
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -14,7 +11,6 @@ use Illuminate\Database\Eloquent\Model;
 class CacheDecorator extends CacheAbstractDecorator implements FileInterface
 {
 
-
     // Class expects a repo and a cache interface
     public function __construct(FileInterface $repo, CacheInterface $cache)
     {
@@ -22,15 +18,14 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
         $this->cache = $cache;
     }
 
-
     /**
      * Get paginated models
      *
-     * @param int $page Number of models per page
-     * @param int $limit Results per page
-     * @param model $from related model
-     * @param boolean $all get published models or all
-     * @param array $with Eager load related models
+     * @param  int      $page  Number of models per page
+     * @param  int      $limit Results per page
+     * @param  model    $from  related model
+     * @param  boolean  $all   get published models or all
+     * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
     public function byPageFrom($page = 1, $limit = 10, $from, array $with = array(), $all = false)
@@ -50,7 +45,6 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
 
     }
 
-
     /**
      * Create a new model
      *
@@ -64,9 +58,9 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
             $parent = str_plural(class_basename($model->fileable_type));
             $this->cache->flush('Files', $parent, 'Dashboard');
         }
+
         return $model;
     }
-
 
     /**
      * Delete a file
@@ -78,6 +72,7 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
     {
         $parent = str_plural(class_basename($model->fileable_type));
         $this->cache->flush('Files', $parent, 'Dashboard');
+
         return $this->repo->delete($model);
     }
 

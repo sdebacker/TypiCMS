@@ -6,18 +6,15 @@ use Route;
 use Config;
 use Request;
 
-use TypiCMS\Services\Helpers;
-
-class ListBuilder {
-
+class ListBuilder
+{
     private $list = array();
     protected $items = array();
-    
+
     public function __construct($items = array())
     {
         $this->items = $items;
     }
-
 
     public function toHtml($parameters = array())
     {
@@ -43,9 +40,9 @@ class ListBuilder {
             }
             $this->list[] = '</ul>';
         }
+
         return implode("\r\n", $this->list);
     }
-
 
     public function sideList()
     {
@@ -70,9 +67,9 @@ class ListBuilder {
             }
             $this->list[] = '</ul>';
         }
+
         return implode("\r\n", $this->list);
     }
-
 
     /**
      * Build languages Menu.
@@ -83,7 +80,6 @@ class ListBuilder {
     {
         return $this->languagesMenu($parameters, true);
     }
-
 
     /**
      * Build languages Menu.
@@ -108,7 +104,7 @@ class ListBuilder {
         if (isset($routeArray[2]) and $routeArray[2] == 'categories') {
             // There is a category
             if (end($routeArray) != 'categories') {
-                array_pop($segments); 
+                array_pop($segments);
             }
             $category = end($segments);
 
@@ -175,12 +171,12 @@ class ListBuilder {
                 $html .= '</li>';
             endforeach;
             $html .= '</ul>';
+
             return $html;
         }
 
         return $languagesMenu;
 
     }
-
 
 }

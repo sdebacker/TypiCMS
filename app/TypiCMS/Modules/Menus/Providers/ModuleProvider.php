@@ -40,26 +40,24 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Menus\Repositories\MenuInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Menus\Repositories\MenuInterface', function ($app) {
             $repository = new EloquentMenu(new Menu);
             if ( ! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Menus', 10);
+
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Menus\Services\Form\MenuForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Menus\Services\Form\MenuForm', function ($app) {
             return new MenuForm(
                 new MenuFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\Menus\Repositories\MenuInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

@@ -4,10 +4,8 @@ namespace TypiCMS\Modules\Menulinks\Controllers\Admin;
 use Lang;
 use View;
 use Input;
-use Config;
 use Request;
 use Redirect;
-use Validator;
 
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
@@ -44,7 +42,6 @@ class MenulinksController extends BaseController
             ->withMenu($menu);
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -65,11 +62,10 @@ class MenulinksController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($menu, $model)
@@ -79,7 +75,6 @@ class MenulinksController extends BaseController
         $selectPages = $this->repository->getPagesForSelect();
         $selectModules = $this->repository->getModulesForSelect();
 
-
         $this->layout->content = View::make('menulinks.admin.edit', array($menu->id, $model->id))
             ->withMenu($menu)
             ->with('selectPages', $selectPages)
@@ -87,18 +82,16 @@ class MenulinksController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($menu, $model)
     {
         return Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id));
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -118,11 +111,10 @@ class MenulinksController extends BaseController
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($menu, $model)
@@ -133,7 +125,7 @@ class MenulinksController extends BaseController
         if ( $this->form->update( Input::all() ) ) {
             return (Input::get('exit')) ? Redirect::route('admin.menus.menulinks.index', $menu->id) : Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
         }
-        
+
         return Redirect::route( 'admin.menus.menulinks.edit', array($menu->id, $model->id) )
             ->withInput()
             ->withErrors($this->form->errors());
@@ -143,7 +135,7 @@ class MenulinksController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function sort()
@@ -151,11 +143,10 @@ class MenulinksController extends BaseController
         $this->repository->sort( Input::all() );
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($menu, $model)

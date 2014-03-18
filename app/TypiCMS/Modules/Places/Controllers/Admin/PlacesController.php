@@ -47,9 +47,7 @@ class PlacesController extends BaseController
         $this->layout->content = View::make('places.admin.index')
             ->withModels($models);
 
-
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -64,11 +62,10 @@ class PlacesController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($model)
@@ -78,18 +75,16 @@ class PlacesController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($model)
     {
         return Redirect::route('admin.places.edit', $model->id);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -109,11 +104,10 @@ class PlacesController extends BaseController
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($model)
@@ -129,11 +123,10 @@ class PlacesController extends BaseController
             ->withErrors($this->form->errors());
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function sort()
@@ -141,11 +134,10 @@ class PlacesController extends BaseController
         $sort = $this->repository->sort( Input::all() );
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($model)
@@ -156,6 +148,5 @@ class PlacesController extends BaseController
             }
         }
     }
-
 
 }

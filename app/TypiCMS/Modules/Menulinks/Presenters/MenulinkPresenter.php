@@ -1,9 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Menulinks\Presenters;
 
-use Config;
-use Request;
-
 use TypiCMS\Presenters\AbstractPresenter;
 use TypiCMS\Presenters\Presentable;
 
@@ -25,13 +22,12 @@ class MenulinkPresenter extends AbstractPresenter implements Presentable
         return '<a class="btn btn-default btn-xs" href="' . route('admin.menus.menulinks.edit', array($this->object->menu_id, $this->object->id)) . '">' . trans('global.Edit') . '</a>';
     }
 
-
     public function anchor()
     {
         $aClasses = array();
         $anchor = array();
         $aDataToggle = '';
-        
+
         if ($this->object->children) {
             $this->object->class .= ' dropdown';
             $aClasses[] = 'dropdown-toggle';
@@ -48,7 +44,7 @@ class MenulinkPresenter extends AbstractPresenter implements Presentable
         $anchor[] = $this->object->title;
         $anchor[] = ($this->object->children) ? '<span class="caret"></span>' : '' ;
         $anchor[] = '</a>';
-        
+
         return implode($anchor);
     }
 

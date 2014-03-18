@@ -17,7 +17,6 @@ class CategoriesController extends PublicController
         $this->title['parent'] = Str::title(trans_choice('categories::global.categories', 2));
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -33,11 +32,10 @@ class CategoriesController extends PublicController
             ->with('models', $models);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($category = null, $slug = null)
@@ -45,7 +43,7 @@ class CategoriesController extends PublicController
         $model = $this->repository->bySlug($slug);
 
         $this->title['parent'] = $model->title;
-        
+
         $this->layout->content = View::make('categories.public.show')
             ->with('model', $model);
     }

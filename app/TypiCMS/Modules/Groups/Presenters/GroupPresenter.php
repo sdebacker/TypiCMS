@@ -16,6 +16,7 @@ class GroupPresenter extends AbstractPresenter implements Presentable
     {
         // Disable checkbox when object has menulinks
         $disabled = $this->object->id == 1 ? ' disabled' : '' ;
+
         return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
     }
 

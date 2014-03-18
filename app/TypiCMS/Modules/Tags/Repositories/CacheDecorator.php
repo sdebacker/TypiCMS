@@ -17,13 +17,12 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
         $this->cache = $cache;
     }
 
-
     /**
      * Get paginated pages
      *
-     * @param int $page Number of pages per page
-     * @param int $limit Results per page
-     * @param boolean $all Show published or all
+     * @param  int      $page  Number of pages per page
+     * @param  int      $limit Results per page
+     * @param  boolean  $all   Show published or all
      * @return StdClass Object with $items and $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
@@ -42,11 +41,10 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
         return $models;
     }
 
-
     /**
      * Get all tags
      *
-     * @param boolean $all Show published or all
+     * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
@@ -65,17 +63,17 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
         return $models;
     }
 
-
     /**
      * Find existing tags or create if they don't exist
      *
-     * @param  array $tags  Array of strings, each representing a tag
-     * @return array        Array or Arrayable collection of Tag objects
+     * @param  array $tags Array of strings, each representing a tag
+     * @return array Array or Arrayable collection of Tag objects
      */
     public function findOrCreate(array $tags)
     {
         $array = $this->repo->findOrCreate($tags);
         $this->cache->flush();
+
         return $array;
     }
 

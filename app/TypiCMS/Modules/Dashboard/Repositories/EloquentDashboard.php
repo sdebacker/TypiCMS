@@ -11,7 +11,6 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 class EloquentDashboard extends RepositoriesAbstract implements DashboardInterface
 {
 
-
     public function getWelcomeMessage()
     {
         $ch = curl_init('http://www.typi.be/welcomeMessage_fr.html');
@@ -21,9 +20,9 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
             return '';
         }
         curl_close($ch);
+
         return $welcomeMessage;
     }
-
 
     public function getModulesList()
     {

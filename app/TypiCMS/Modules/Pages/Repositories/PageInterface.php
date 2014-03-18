@@ -22,7 +22,7 @@ interface PageInterface
     /**
      * Retrieve children pages
      *
-     * @param  int $id model ID
+     * @param  int        $id model ID
      * @return Collection
      */
     public function getChildren($uri, $all = false);
@@ -53,11 +53,10 @@ interface PageInterface
     /**
      * Update pages uris
      *
-     * @param int $id
+     * @param  int  $id
      * @param $parent
      * @return void
      */
     public function updateUris($id, $parent = null);
-
 
 }

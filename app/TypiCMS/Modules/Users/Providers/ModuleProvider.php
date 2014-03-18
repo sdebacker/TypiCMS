@@ -33,23 +33,20 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function ($app) {
             return new SentryUser(
                 $app['sentry']
             );
         });
 
-        $app->bind('TypiCMS\Modules\Users\Services\Form\UserForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Users\Services\Form\UserForm', function ($app) {
             return new UserForm(
                 new UserFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\Users\Repositories\UserInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

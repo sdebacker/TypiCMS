@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'users' => 'utilisateur|utilisateurs',
     'New'  => 'Nouvel utilisateur',

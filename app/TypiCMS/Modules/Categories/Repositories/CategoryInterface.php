@@ -11,5 +11,4 @@ interface CategoryInterface
      */
     public function getAllForSelect();
 
-
 }

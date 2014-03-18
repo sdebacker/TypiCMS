@@ -15,7 +15,6 @@ class Category extends Base
         'slug',
         'status',
     );
-    
 
     /**
      * Translatable model configs.
@@ -28,7 +27,6 @@ class Category extends Base
         'status',
     );
 
-
     /**
      * The default route for admin side.
      *
@@ -36,13 +34,11 @@ class Category extends Base
      */
     public $route = 'categories';
 
-
     /**
      * lists
      */
     public $order = 'position';
     public $direction = 'asc';
-
 
     /**
      * Relations
@@ -51,6 +47,5 @@ class Category extends Base
     {
         return $this->hasMany('TypiCMS\Modules\Projects\Models\Project');
     }
-
 
 }

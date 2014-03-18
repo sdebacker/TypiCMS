@@ -4,9 +4,8 @@ namespace TypiCMS\Presenters;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 
-class Presenter {
-
-
+class Presenter
+{
     /**
     * Return an instance of a Model wrapped
     * in a presenter object
@@ -24,7 +23,6 @@ class Presenter {
 
         return $object;
     }
-
 
     /**
     * Return an instance of a Collection with each value
@@ -45,7 +43,6 @@ class Presenter {
 
         return $collection;
     }
-
 
     /**
     * Return an instance of a Paginator with each value

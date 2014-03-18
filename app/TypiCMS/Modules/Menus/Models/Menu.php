@@ -21,7 +21,6 @@ class Menu extends Base
         'status',
     );
 
-
     /**
      * Translatable model configs.
      *
@@ -32,7 +31,6 @@ class Menu extends Base
         'status',
     );
 
-    
     /**
      * The default route for admin side.
      *
@@ -46,16 +44,16 @@ class Menu extends Base
     public $order = 'name';
     public $direction = 'asc';
 
-
     /**
      * Build a menu
      *
      * @return menu html
-     */    
+     */
     public static function build($name, $attributes = array())
     {
         if ($name == 'languages') {
             $attributes['id'] = 'nav-languages';
+
             return with(new ListBuilder)->languagesMenuHtml($attributes);
         }
         $menu = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getMenu($name);
@@ -76,13 +74,11 @@ class Menu extends Base
         return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
     }
 
-
     /**
      * Validation rules
      */
     public static $rules = array(
         'name' => 'required',
     );
-
 
 }

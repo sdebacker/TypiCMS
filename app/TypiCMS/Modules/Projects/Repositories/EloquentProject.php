@@ -1,9 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Projects\Repositories;
 
-use App;
-use Config;
-
 use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -21,7 +18,6 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface
         $this->tag = $tag;
     }
 
-
     /**
      * Create a new model
      *
@@ -32,11 +28,12 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface
     {
         if ( $model = $this->model->create($data) ) {
             isset($data['tags']) and $this->syncTags($model, $data['tags']);
+
             return $model;
         }
+
         return false;
     }
-
 
     /**
      * Update an existing model
@@ -50,8 +47,8 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface
         $model->fill($data);
         $model->save();
         isset($data['tags']) and $this->syncTags($model, $data['tags']);
+
         return true;
     }
-
 
 }

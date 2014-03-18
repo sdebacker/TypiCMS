@@ -14,7 +14,7 @@ class Setting extends Eloquent
         'type',
         'environment',
     );
-    
+
     /**
      * The database table used by the model.
      *

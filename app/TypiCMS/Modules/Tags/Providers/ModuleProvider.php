@@ -40,26 +40,24 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Tags\Repositories\TagInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Tags\Repositories\TagInterface', function ($app) {
             $repository = new EloquentTag(new Tag);
             if ( ! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Tags', 10);
+
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Tags\Services\Form\TagForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Tags\Services\Form\TagForm', function ($app) {
             return new TagForm(
                 new TagFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

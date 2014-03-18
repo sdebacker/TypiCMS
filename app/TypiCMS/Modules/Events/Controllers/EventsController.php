@@ -25,7 +25,6 @@ class EventsController extends PublicController
         $this->title['parent'] = Str::title(trans_choice('events::global.events', 2));
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -46,11 +45,10 @@ class EventsController extends PublicController
         $this->layout->content = View::make('events.public.index')->withModels($models);
     }
 
-
     /**
      * Show event.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($slug)
@@ -60,7 +58,7 @@ class EventsController extends PublicController
         $this->title['parent'] = $model->title;
 
         $model = $this->presenter->model($model, new EventPresenter);
-        
+
         $this->layout->content = View::make('events.public.show')
             ->withModel($model);
     }

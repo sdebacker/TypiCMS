@@ -18,7 +18,6 @@ class PagesController extends PublicController
         $this->title['parent'] = Str::title(trans_choice('pages::global.pages', 2));
     }
 
-
     /**
      * Show page from current uri.
      *

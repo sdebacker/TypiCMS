@@ -14,5 +14,4 @@ class CacheDecorator extends CacheAbstractDecorator implements EventInterface
         $this->cache = $cache;
     }
 
-
 }

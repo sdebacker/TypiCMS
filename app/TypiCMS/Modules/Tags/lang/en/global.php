@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'tags' => 'tag|tags',
     'New'  => 'New tag',

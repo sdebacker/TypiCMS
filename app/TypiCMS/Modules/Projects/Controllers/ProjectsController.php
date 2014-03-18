@@ -8,7 +8,6 @@ use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 
 // Presenter
 use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Projects\Presenters\ProjectPresenter;
 
 // Base controller
 use TypiCMS\Controllers\PublicController;
@@ -22,7 +21,6 @@ class ProjectsController extends PublicController
         $this->title['parent'] = Str::title(trans_choice('projects::global.projects', 2));
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +31,7 @@ class ProjectsController extends PublicController
         $this->title['child'] = '';
 
         $relatedModels = array('translations', 'category', 'category.translations');
-        
+
         if ($category) {
             $models = $this->repository->getAllBy('category_id', $category->id, $relatedModels, false);
         } else {
@@ -45,11 +43,10 @@ class ProjectsController extends PublicController
             ->with('models', $models);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($category = null, $slug = null)
@@ -57,7 +54,7 @@ class ProjectsController extends PublicController
         $model = $this->repository->bySlug($slug);
 
         $this->title['parent'] = $model->title;
-        
+
         $this->layout->content = View::make('projects.public.show')
             ->with('model', $model);
     }

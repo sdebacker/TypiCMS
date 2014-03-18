@@ -3,7 +3,6 @@ namespace TypiCMS\Modules\Menus\Controllers\Admin;
 
 use View;
 use Input;
-use Config;
 use Request;
 use Redirect;
 
@@ -25,7 +24,6 @@ class MenusController extends BaseController
         parent::__construct($menu, $menuform, $presenter);
         $this->title['parent'] = trans_choice('menus::global.menus', 2);
     }
-
 
     /**
      * List models
@@ -54,11 +52,10 @@ class MenusController extends BaseController
             ->with('model', $model);
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($model)
@@ -68,18 +65,16 @@ class MenusController extends BaseController
             ->with('model', $model);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($model)
     {
         return Redirect::route('admin.menus.edit', $model->id);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -99,11 +94,10 @@ class MenusController extends BaseController
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($model)
@@ -114,7 +108,7 @@ class MenusController extends BaseController
         if ( $this->form->update( Input::all() ) ) {
             return (Input::get('exit')) ? Redirect::route('admin.menus.index') : Redirect::route('admin.menus.edit', $model->id) ;
         }
-        
+
         return Redirect::route( 'admin.menus.edit', $model->id )
             ->withInput()
             ->withErrors($this->form->errors());
@@ -123,7 +117,7 @@ class MenusController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function sort()
@@ -131,11 +125,10 @@ class MenusController extends BaseController
         $sort = $this->repository->sort( Input::all() );
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($model)
@@ -146,6 +139,5 @@ class MenusController extends BaseController
             }
         }
     }
-
 
 }

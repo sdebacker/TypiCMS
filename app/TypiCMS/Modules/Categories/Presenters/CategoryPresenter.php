@@ -16,6 +16,7 @@ class CategoryPresenter extends AbstractPresenter implements Presentable
     {
         // Disable checkbox when category has projects
         $disabled = $this->object->projects->isEmpty() ? '' : ' disabled' ;
+
         return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
     }
 

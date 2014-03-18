@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Translations\Repositories;
 
 use App;
-use Config;
 use Request;
 
 use TypiCMS\Repositories\CacheAbstractDecorator;
@@ -18,12 +17,11 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
         $this->cache = $cache;
     }
 
-
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
@@ -42,7 +40,6 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
         return $models;
     }
 
-
     /**
      * Create a new model
      *
@@ -53,9 +50,9 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
     {
         $model = $this->repo->create($data);
         $this->cache->flush('Translations', 'Dashboard', 'Tags');
+
         return $model;
     }
-
 
     /**
      * Update an existing model
@@ -67,9 +64,9 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
     {
         $bool = $this->repo->update($data);
         $this->cache->flush('Translations', 'Tags');
+
         return $bool;
     }
-
 
     /**
      * Get translations to Array
@@ -91,6 +88,5 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
 
         return $data;
     }
-
 
 }

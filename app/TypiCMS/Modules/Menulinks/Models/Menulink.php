@@ -4,9 +4,6 @@ namespace TypiCMS\Modules\Menulinks\Models;
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 
-use Request;
-use Config;
-
 class Menulink extends Base
 {
 
@@ -28,7 +25,6 @@ class Menulink extends Base
         'url',
         'status',
     );
-    
 
     /**
      * Translatable model configs.
@@ -42,7 +38,6 @@ class Menulink extends Base
         'status',
     );
 
-
     /**
      * The default route for admin side.
      *
@@ -50,13 +45,11 @@ class Menulink extends Base
      */
     public $route = 'menus.menulinks';
 
-
     /**
      * lists
      */
     public $order = 'position';
     public $direction = 'asc';
-
 
     /**
      * For nested collection
@@ -64,7 +57,6 @@ class Menulink extends Base
      * @var array
      */
     public $children = array();
-
 
     /**
      * Scope from
@@ -74,7 +66,6 @@ class Menulink extends Base
         return $query->where('menu_id', $relid);
     }
 
-
     /**
      * Relation
      */
@@ -83,7 +74,6 @@ class Menulink extends Base
         return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page');
     }
 
-
     /**
      * Relation
      */
@@ -91,7 +81,6 @@ class Menulink extends Base
     {
         return $this->belongsTo('TypiCMS\Modules\Menus\Models\Menu');
     }
-
 
     /**
      * Custom collection

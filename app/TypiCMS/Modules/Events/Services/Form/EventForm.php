@@ -105,8 +105,7 @@ class EventForm
     {
         $tags = explode(',', $tags);
 
-        foreach ( $tags as $key => $tag )
-        {
+        foreach ($tags as $key => $tag) {
             $tags[$key] = trim($tag);
         }
 

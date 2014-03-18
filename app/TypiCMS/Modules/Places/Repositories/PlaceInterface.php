@@ -7,9 +7,9 @@ interface PlaceInterface
     /**
      * Get paginated models
      *
-     * @param int $page Number of models per page
-     * @param int $limit Results per page
-     * @param boolean $all Show published or all
+     * @param  int      $page  Number of models per page
+     * @param  int      $limit Results per page
+     * @param  boolean  $all   Show published or all
      * @return StdClass Object with $items and $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false);
@@ -17,8 +17,8 @@ interface PlaceInterface
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false);
@@ -26,7 +26,7 @@ interface PlaceInterface
     /**
      * Get single model by slug
      *
-     * @param string $slug slug of model
+     * @param  string $slug slug of model
      * @return object model
      */
     public function bySlug($slug);
@@ -46,6 +46,5 @@ interface PlaceInterface
      * @return boolean
      */
     public function update(array $data);
-
 
 }

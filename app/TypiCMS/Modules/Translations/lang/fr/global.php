@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'translations' => 'traduction|traductions',
     'New'  => 'Nouvelle traduction',

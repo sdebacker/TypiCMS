@@ -14,9 +14,8 @@ class CategoryTranslation extends Eloquent
         parent::boot();
 
         $self = __CLASS__;
-        
-        static::creating(function($model) use ($self)
-        {
+
+        static::creating(function ($model) use ($self) {
             // slug = null si vide
             $slug = ($model->slug) ? $model->slug : null ;
             $model->slug = $slug;
@@ -33,8 +32,7 @@ class CategoryTranslation extends Eloquent
 
         });
 
-        static::updating(function($model) use ($self)
-        {
+        static::updating(function ($model) use ($self) {
             // slug = null si vide
             $slug = ($model->slug) ? $model->slug : null ;
             $model->slug = $slug;

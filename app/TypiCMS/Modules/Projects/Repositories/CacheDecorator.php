@@ -1,10 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Projects\Repositories;
 
-use App;
-use Config;
-use Request;
-
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
@@ -18,7 +14,6 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface
         $this->cache = $cache;
     }
 
-
     /**
      * Create a new model
      *
@@ -29,9 +24,9 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface
     {
         $model = $this->repo->create($data);
         $this->cache->flush('Projects', 'Dashboard', 'Tags');
+
         return $model;
     }
-
 
     /**
      * Update an existing model
@@ -43,8 +38,8 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface
     {
         $bool = $this->repo->update($data);
         $this->cache->flush('Projects', 'Tags');
+
         return $bool;
     }
-
 
 }

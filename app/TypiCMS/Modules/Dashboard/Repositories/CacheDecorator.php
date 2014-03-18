@@ -1,11 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Dashboard\Repositories;
 
-use DB;
 use App;
-use Str;
-use Sentry;
-use Config;
 
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -36,7 +32,6 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
 
         return $message;
     }
-
 
     public function getModulesList()
     {

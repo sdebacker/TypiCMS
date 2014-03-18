@@ -14,5 +14,4 @@ class EloquentEvent extends RepositoriesAbstract implements EventInterface
         $this->model = $model;
     }
 
-
 }

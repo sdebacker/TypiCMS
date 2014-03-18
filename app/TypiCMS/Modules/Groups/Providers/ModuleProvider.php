@@ -7,7 +7,6 @@ use Config;
 
 use Illuminate\Support\ServiceProvider;
 
-use TypiCMS\Modules\Groups\Models\Group;
 use TypiCMS\Modules\Groups\Repositories\SentryGroup;
 
 // Form
@@ -33,23 +32,20 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Groups\Repositories\GroupInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Groups\Repositories\GroupInterface', function ($app) {
             return new SentryGroup(
                 $app['sentry']
             );
         });
 
-        $app->bind('TypiCMS\Modules\Groups\Services\Form\GroupForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Groups\Services\Form\GroupForm', function ($app) {
             return new GroupForm(
                 new GroupFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\Groups\Repositories\GroupInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

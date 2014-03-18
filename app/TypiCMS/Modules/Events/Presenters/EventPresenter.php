@@ -26,6 +26,7 @@ class EventPresenter extends AbstractPresenter implements Presentable
                 $sDateFormat = '%d';
             }
         }
+
         return ucfirst(trans('events::global.from')) . ' <time datetime="' . $sDateSQL . '">' . $sDate->formatLocalized($sDateFormat) . '</time> ' . trans('events::global.to') . ' <time datetime="' . $eDateSQL . '">' . $eDate->formatLocalized($dateFormat) . '</time>';
     }
 }

@@ -11,8 +11,8 @@ class StartProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register() {
-
+    public function register()
+    {
         $this->app->register('TypiCMS\Modules\News\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Places\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Events\Providers\ModuleProvider');

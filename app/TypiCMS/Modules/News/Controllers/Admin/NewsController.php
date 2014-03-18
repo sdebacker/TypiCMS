@@ -60,11 +60,10 @@ class NewsController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($model)
@@ -74,18 +73,16 @@ class NewsController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($model)
     {
         return Redirect::route('admin.news.edit', $model->id);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -105,11 +102,10 @@ class NewsController extends BaseController
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($model)
@@ -120,17 +116,16 @@ class NewsController extends BaseController
         if ( $this->form->update( Input::all() ) ) {
             return (Input::get('exit')) ? Redirect::route('admin.news.index') : Redirect::route('admin.news.edit', $model->id) ;
         }
-        
+
         return Redirect::route( 'admin.news.edit', $model->id )
             ->withInput()
             ->withErrors($this->form->errors());
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($model)

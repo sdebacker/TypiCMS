@@ -7,8 +7,8 @@ use Sentry;
 use Config;
 use Request;
 
-class Helpers {
-    
+class Helpers
+{
     public function __construct()
     {
     }
@@ -16,8 +16,8 @@ class Helpers {
     /**
      * I have slug, give me id.
      *
-     * @param string $module
-     * @param string $slug
+     * @param  string  $module
+     * @param  string  $slug
      * @return integer
      */
     public static function getIdFromSlug($module = null, $slug = null)
@@ -33,12 +33,11 @@ class Helpers {
                 ->pluck($module.'.id');
     }
 
-
     /**
      * I have id, give me slugs.
      *
-     * @param string $module
-     * @param int    $id
+     * @param  string $module
+     * @param  int    $id
      * @return Array
      */
     public static function getSlugsFromId($module = null, $id = null)
@@ -55,7 +54,6 @@ class Helpers {
                 ->lists('slug', 'locale');
     }
 
-
     /**
      * Give me the default page id.
      *
@@ -68,7 +66,6 @@ class Helpers {
                 ->remember(10)
                 ->pluck('id');
     }
-
 
     /**
      * Get admin url from current page.
@@ -84,7 +81,7 @@ class Helpers {
         switch (count($routeArray)) {
             case 1: // ex. root - en
                 $id = Helpers::getHomepageId();
-                if ( ! $id or $routeArray[0] == 'root') {
+                if (! $id or $routeArray[0] == 'root') {
                     $routeName = 'dashboard';
                     $route = route($routeName);
                 } else {
@@ -92,12 +89,12 @@ class Helpers {
                     $route = route($routeName, $id);
                 }
                 break;
-            
+
             case 2: // ex. en.news
                 $routeName = 'admin.' . $module . '.index';
                 $route = route($routeName);
                 break;
-            
+
             default: // ex. en.pages.1 - en.news.slug - en.projects.categories(.slug)
                 if (end($routeArray) == 'categories') {
                     $routeName = 'admin.' . $module . '.index';
@@ -113,20 +110,20 @@ class Helpers {
                     $route = route($routeName, $id);
                 }
                 break;
-            
+
         }
 
         if (Sentry::getUser()->hasAccess($routeName)) {
             if (in_array($routeArray[0], Config::get('app.locales'))) {
                 $route .= '?locale='.$routeArray[0];
             }
+
             return $route;
         }
 
         return route('dashboard');
 
     }
-
 
     /**
      * Get public url from current page.
@@ -138,7 +135,7 @@ class Helpers {
         $segments = Request::segments();
         array_shift($segments);
         $lang = Config::get('app.locale');
-        
+
         switch (count($segments)) {
             case 0:
                 return '';

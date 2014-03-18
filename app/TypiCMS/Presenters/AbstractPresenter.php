@@ -14,7 +14,6 @@ abstract class AbstractPresenter implements ArrayAccess
     */
     protected $object;
 
-
     /**
     * Inject the object to be presented
     *
@@ -24,7 +23,6 @@ abstract class AbstractPresenter implements ArrayAccess
     {
         $this->object = $object;
     }
-
 
     /**
     * Check to see if there is a presenter
@@ -41,7 +39,6 @@ abstract class AbstractPresenter implements ArrayAccess
         return $this->object->$key;
     }
 
-
     /**
     * Check to see if the offset exists
     * on the current object
@@ -53,7 +50,6 @@ abstract class AbstractPresenter implements ArrayAccess
     {
         return isset($this->object[$key]);
     }
-
 
     /**
     * Retrieve the key from the object
@@ -67,7 +63,6 @@ abstract class AbstractPresenter implements ArrayAccess
         return $this->object[$key];
     }
 
-
     /**
     * Set a property on the object
     * as if it were any array
@@ -80,7 +75,6 @@ abstract class AbstractPresenter implements ArrayAccess
         $this->object[$key] = $value;
     }
 
-
     /**
     * Unset a key on the object
     * as if it were an array
@@ -92,7 +86,6 @@ abstract class AbstractPresenter implements ArrayAccess
         unset($this->object[$key]);
     }
 
-
     /**
     * Online / Offline switches
     *
@@ -101,9 +94,9 @@ abstract class AbstractPresenter implements ArrayAccess
     public function status()
     {
         $class = ($this->object->status) ? 'online' : 'offline' ;
+
         return '<span class="switch ' . $class . '">' . trans('global.En ligne/Hors ligne') . '</span>';
     }
-
 
     /**
     * Checkboxes
@@ -115,7 +108,6 @@ abstract class AbstractPresenter implements ArrayAccess
         return '<input type="checkbox" value="' . $this->object->id . '">';
     }
 
-
     /**
     * Edit button
     *
@@ -126,7 +118,6 @@ abstract class AbstractPresenter implements ArrayAccess
         return '<a class="btn btn-default btn-xs" href="' . route('admin.' . $this->object->route . '.edit', $this->object->id).'">' . trans('global.Edit') . '</a>';
     }
 
-
     /**
     * Edit button
     *
@@ -136,7 +127,6 @@ abstract class AbstractPresenter implements ArrayAccess
     {
         return '<a href="' . route('admin.' . $this->object->route . '.edit', $this->object->id).'">' . $this->object->title . '</a>';
     }
-
 
     /**
     * Files in list
@@ -150,14 +140,13 @@ abstract class AbstractPresenter implements ArrayAccess
         $html[] = '<a class="label ' . $label . '" href="' . route('admin.' . $this->object->route . '.files.index', $this->object->id) . '">';
         $html[] = $nbFiles;
         $html[] = '</a>';
+
         return implode("\r\n", $html);
     }
-
 
     public function getTable()
     {
         return $this->object->getTable();
     }
-
 
 }

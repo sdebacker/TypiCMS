@@ -10,10 +10,9 @@ use Illuminate\Translation\FileLoader;
 
 // Loaders Custom
 use TypiCMS\Modules\Translations\Loaders\MixedLoader;
-use TypiCMS\Modules\Translations\Loaders\DatabaseLoader;
 
-class TranslationServiceProvider extends LaravelTranslationServiceProvider {
-
+class TranslationServiceProvider extends LaravelTranslationServiceProvider
+{
     /**
      * Register the translation line loader.
      *
@@ -21,10 +20,10 @@ class TranslationServiceProvider extends LaravelTranslationServiceProvider {
      */
     protected function registerLoader()
     {
-        $this->app->bindShared('translation.loader', function($app)
-        {
+        $this->app->bindShared('translation.loader', function ($app) {
             $repository     = $app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface');
             $fileLoader     = new FileLoader($app['files'], $app['path'].'/lang');
+
             return new MixedLoader($fileLoader, $repository);
         });
     }

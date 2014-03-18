@@ -16,7 +16,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
         $this->cache = $cache;
     }
 
-
     /**
      * Get Uris of all pages
      *
@@ -27,11 +26,10 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
         return $this->repo->getAllUris();
     }
 
-
     /**
      * Retrieve children pages
      *
-     * @param  int $id model ID
+     * @param  int        $id model ID
      * @return Collection
      */
     public function getChildren($uri, $all = false)
@@ -50,7 +48,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
         return $models;
     }
 
-
     /**
      * Build html list
      *
@@ -61,7 +58,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     {
         return $this->repo->buildSideList($models);
     }
-
 
     /**
      * Get Pages to build routes
@@ -84,7 +80,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
         return $models;
     }
 
-
     /**
      * Sort models
      *
@@ -95,14 +90,14 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     {
         $bool = $this->repo->sort($data);
         $this->cache->flush('Pages', 'Menulinks');
+
         return $bool;
     }
-
 
     /**
      * Update pages uris
      *
-     * @param int $id
+     * @param  int  $id
      * @param $parent
      * @return void
      */

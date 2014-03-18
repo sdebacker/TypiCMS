@@ -15,8 +15,7 @@ class PageTranslation extends Eloquent
 
         $self = __CLASS__;
 
-        static::creating(function($model) use ($self)
-        {
+        static::creating(function ($model) use ($self) {
             // Build page's URI
             $model->uri = null;
             if ($model->slug) {
@@ -34,8 +33,7 @@ class PageTranslation extends Eloquent
             }
         });
 
-        static::updating(function($model) use ($self)
-        {
+        static::updating(function ($model) use ($self) {
             $original = $model->getOriginal();
 
             $model->uri = ($model->uri) ? $model->uri : null ;

@@ -40,26 +40,24 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Places\Repositories\PlaceInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Places\Repositories\PlaceInterface', function ($app) {
             $repository = new EloquentPlace(new Place);
             if ( ! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Places', 10);
+
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Places\Services\Form\PlaceForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Places\Services\Form\PlaceForm', function ($app) {
             return new PlaceForm(
                 new PlaceFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\Places\Repositories\PlaceInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

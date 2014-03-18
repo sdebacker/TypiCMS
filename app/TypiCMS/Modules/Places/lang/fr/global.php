@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'places' => 'adresse|adresses',
     'New'  => 'Nouvelle adresse',

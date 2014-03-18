@@ -40,26 +40,24 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Files\Repositories\FileInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Files\Repositories\FileInterface', function ($app) {
             $repository = new EloquentFile(new File);
             if ( ! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Files', 10);
+
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Files\Services\Form\FileForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Files\Services\Form\FileForm', function ($app) {
             return new FileForm(
                 new FileFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\Files\Repositories\FileInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

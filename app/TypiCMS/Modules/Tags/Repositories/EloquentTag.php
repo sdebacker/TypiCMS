@@ -5,7 +5,6 @@ use StdClass;
 
 use DB;
 use Str;
-use App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,14 +19,13 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
         $this->model = $model;
     }
 
-
     /**
      * Get paginated models
      *
-     * @param int $page Number of models per page
-     * @param int $limit Results per page
-     * @param boolean $all get published models or all
-     * @param array $with Eager load related models
+     * @param  int      $page  Number of models per page
+     * @param  int      $limit Results per page
+     * @param  boolean  $all   get published models or all
+     * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
@@ -55,12 +53,11 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
         return $result;
     }
 
-
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
@@ -72,12 +69,11 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
         return $models;
     }
 
-
     /**
      * Find existing tags or create if they don't exist
      *
-     * @param  array $tags  Array of strings, each representing a tag
-     * @return array        Array or Arrayable collection of Tag objects
+     * @param  array $tags Array of strings, each representing a tag
+     * @return array Array or Arrayable collection of Tag objects
      */
     public function findOrCreate(array $tags)
     {
@@ -85,12 +81,11 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
 
         $returnTags = array();
 
-        if ( $foundTags ) {
-            foreach ( $foundTags as $tag ) {
+        if ($foundTags) {
+            foreach ($foundTags as $tag) {
                 $pos = array_search($tag->tag, $tags);
 
-                // Add returned tags to array if ( $pos !== false )
-                {
+                // Add returned tags to array if ($pos !== false) {
                     $returnTags[] = $tag;
                     unset($tags[$pos]);
                 }
@@ -98,7 +93,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
         }
 
         // Add remainings tags as new
-        foreach ( $tags as $tag ) {
+        foreach ($tags as $tag) {
             $returnTags[] = $this->model->create(array(
                 'tag' => $tag,
                 'slug' => Str::slug($tag),

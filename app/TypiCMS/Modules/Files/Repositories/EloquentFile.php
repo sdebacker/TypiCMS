@@ -3,17 +3,11 @@ namespace TypiCMS\Modules\Files\Repositories;
 
 use StdClass;
 
-use Str;
-use Input;
-use Croppa;
-use Response;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 use Illuminate\Database\Eloquent\Model;
 
 class EloquentFile extends RepositoriesAbstract implements FileInterface
 {
-
 
     // Class expects an Eloquent model
     public function __construct(Model $model)
@@ -21,15 +15,14 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
         $this->model = $model;
     }
 
-
     /**
      * Get paginated models
      *
-     * @param int $page Number of models per page
-     * @param int $limit Results per page
-     * @param model $from related model
-     * @param boolean $all get published models or all
-     * @param array $with Eager load related models
+     * @param  int      $page  Number of models per page
+     * @param  int      $limit Results per page
+     * @param  model    $from  related model
+     * @param  boolean  $all   get published models or all
+     * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
     public function byPageFrom($page = 1, $limit = 10, $from, array $with = array(), $all = false)
@@ -62,7 +55,6 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
         return $result;
     }
 
-
     /**
      * Delete model
      *
@@ -73,6 +65,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
         if ($model->delete()) {
             return true;
         }
+
         return false;
     }
 

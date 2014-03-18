@@ -28,7 +28,7 @@ class UsersController extends BaseController
      * __construct
      *
      * @param UserInterface $user
-     * @param UserForm $userform
+     * @param UserForm      $userform
      */
     public function __construct(UserInterface $user, UserForm $userform, Presenter $presenter)
     {
@@ -36,13 +36,11 @@ class UsersController extends BaseController
         $this->title['parent'] = trans_choice('users::global.users', 2);
     }
 
-
     public function getLogin()
     {
         $this->title['child'] = trans('users::global.Log in');
         $this->layout->content = View::make('admin.users.login');
     }
-
 
     public function postLogin()
     {
@@ -54,21 +52,22 @@ class UsersController extends BaseController
         try {
             $user = $this->repository->authenticate($credentials, false);
             Notification::success( trans( 'users::global.Welcome', array('name' => $user->first_name) ) );
+
             return Redirect::intended(route('root'));
         } catch (Exception $e) {
             Notification::error($e->getMessage());
+
             return Redirect::route('login')->withInput();
         }
     }
-
 
     public function getLogout()
     {
         $this->repository->logout();
         Notification::success(trans('users::global.You are logged out'));
+
         return Redirect::back();
     }
-
 
     /**
      * Display a listing of the resource.
@@ -85,7 +84,6 @@ class UsersController extends BaseController
         $this->layout->content = View::make('admin.users.index')->withModels($models);
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -100,11 +98,10 @@ class UsersController extends BaseController
             ->with('groups', $this->repository->getGroups());
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($id)
@@ -120,7 +117,6 @@ class UsersController extends BaseController
             ->with('selectedGroups', $this->repository->getGroups($user));
 
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -140,11 +136,10 @@ class UsersController extends BaseController
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($id)
@@ -162,11 +157,10 @@ class UsersController extends BaseController
             ->withErrors($this->form->errors());
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($id)
@@ -178,9 +172,8 @@ class UsersController extends BaseController
         }
     }
 
-
     /**
-     * Get registration form. 
+     * Get registration form.
      *
      * @return Response
      */
@@ -191,13 +184,12 @@ class UsersController extends BaseController
         $this->layout->content = View::make('admin.users.register');
     }
 
-
     /**
-     * Register a new user. 
+     * Register a new user.
      *
      * @return Response
      */
-    public function postRegister() 
+    public function postRegister()
     {
 
         if ( ! $this->form->valid( Input::all() ) ) {
@@ -215,23 +207,24 @@ class UsersController extends BaseController
             $message = 'Your account has been created, ';
             $message .= $noConfirmation ? 'you can now log in' : 'check your email for the confirmation link' ;
             Notification::success(trans('users::global.'.$message));
+
             return Redirect::route('login');
 
         } catch (Exception $e) {
 
             Notification::error($e->getMessage());
+
             return Redirect::route('register')->withInput();
-            
+
         }
 
     }
 
-
     /**
      * Activate a new User
      */
-    public function getActivate($userId = null, $activationCode = null) {
-
+    public function getActivate($userId = null, $activationCode = null)
+    {
         try {
             $this->repository->activate($userId, $activationCode);
             Notification::success(trans('users::global.Your account has been activated, you can now log in'));
@@ -243,19 +236,18 @@ class UsersController extends BaseController
 
     }
 
-
     /**
      * Forgot Password / Reset
      */
-    public function getResetpassword() {
+    public function getResetpassword()
+    {
         // Show the reset password form
         $this->title['child'] = trans('users::global.Reset password');
         $this->layout->content = View::make('admin.users.reset');
     }
 
-
-    public function postResetpassword () {
-
+    public function postResetpassword()
+    {
         if ( ! $this->form->resetPasswordValid( Input::all() ) ) {
             return Redirect::route('resetpassword')
                 ->withInput()
@@ -270,27 +262,27 @@ class UsersController extends BaseController
             $data['email'] = $email;
 
             // Email the reset code to the user
-            Mail::send('emails.auth.reset', $data, function($m) use($data)
-            {
+            Mail::send('emails.auth.reset', $data, function ($m) use ($data) {
                 $m->to($data['email'])->subject('[' . Config::get('typicms.' . App::getLocale() . '.websiteTitle') . '] ' . trans('users::global.Password Reset Confirmation'));
             });
 
             Notification::success(trans('users::global.An email was sent with password reset information'));
+
             return Redirect::route('login');
 
         } catch (Exception $e) {
             Notification::error($e->getMessage());
+
             return Redirect::route('resetpassword')->withInput();
         }
 
     }
 
-
     /**
      * Change User's password
      */
-    public function getChangepassword($userId = null, $resetCode = null) {
-
+    public function getChangepassword($userId = null, $resetCode = null)
+    {
         $this->title['child'] = trans('users::global.New password');
 
         try {
@@ -298,6 +290,7 @@ class UsersController extends BaseController
             $user = $this->repository->byId($userId);
             if ( ! $this->repository->checkResetPasswordCode($user, $resetCode) ) {
                 Notification::error(trans('users::global.This password reset token is invalid'));
+
                 return Redirect::route('login');
             }
             $data['id'] = $userId;
@@ -316,8 +309,8 @@ class UsersController extends BaseController
     /**
      * Change User's password
      */
-    public function postChangepassword() {
-
+    public function postChangepassword()
+    {
         $input = Input::all();
 
         if ( ! $this->form->changePasswordValid( $input ) ) {
@@ -325,7 +318,6 @@ class UsersController extends BaseController
                 ->withInput()
                 ->withErrors($this->form->errors());
         }
-
 
         try {
 
@@ -344,9 +336,11 @@ class UsersController extends BaseController
                             'password' => $input['password']
                         );
                         $this->repository->authenticate($credentials, false);
+
                         return Redirect::route('dashboard');
                     } catch (Exception $e) {
                         Notification::error($e->getMessage());
+
                         return Redirect::route('login')->withInput();
                     }
 
@@ -364,6 +358,5 @@ class UsersController extends BaseController
         return Redirect::route('login');
 
     }
-
 
 }

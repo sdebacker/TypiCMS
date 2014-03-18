@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'news' => 'actualité|actualités',
     'New'  => 'Nouvelle actualité',

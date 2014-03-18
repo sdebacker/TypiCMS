@@ -3,7 +3,6 @@ namespace TypiCMS\Modules\Files\Controllers\Admin;
 
 use View;
 use Input;
-use Config;
 use Request;
 use Redirect;
 use Response;
@@ -29,7 +28,6 @@ class FilesController extends BaseController
         parent::__construct($file, $fileform, $presenter);
         $this->title['parent'] = trans_choice('files::global.files', 2);
     }
-
 
     /**
      * List models
@@ -60,7 +58,6 @@ class FilesController extends BaseController
         }
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -75,11 +72,10 @@ class FilesController extends BaseController
             ->withParent($parent);
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($parent, $model)
@@ -90,18 +86,16 @@ class FilesController extends BaseController
             ->withParent($parent);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($parent, $model)
     {
         return Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id));
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -125,23 +119,24 @@ class FilesController extends BaseController
                 echo json_encode(array('id' => $model->id));
                 exit();
             }
+
             return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
         }
 
         if (Request::ajax()) {
             return Response::json('error', 400);
         }
+
         return Redirect::route('admin.' . $parent->route . '.files.create', $parent->id)
             ->withInput()
             ->withErrors($this->form->errors());
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($parent, $model)
@@ -162,7 +157,7 @@ class FilesController extends BaseController
         if ( $this->form->update($input) ) {
             return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
         }
-        
+
         return Redirect::route( 'admin.' . $parent->route . '.files.edit', array($parent->id, $model->id) )
             ->withInput()
             ->withErrors($this->form->errors());
@@ -171,7 +166,7 @@ class FilesController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function sort()
@@ -179,11 +174,10 @@ class FilesController extends BaseController
         $sort = $this->repository->sort( Input::all() );
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($parent, $model)
@@ -191,12 +185,12 @@ class FilesController extends BaseController
         if ( $this->repository->delete($model) ) {
             if ( ! Request::ajax()) {
                 Notification::success('File '.$model->filename.' deleted.');
+
                 return Redirect::back();
             }
         } else {
             Notification::error('Error deleting file '.$model->filename.'.');
         }
     }
-
 
 }

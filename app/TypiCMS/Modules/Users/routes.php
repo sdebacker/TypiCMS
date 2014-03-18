@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Login / logout.
  */
@@ -7,8 +7,7 @@ Route::post('users/login', 'TypiCMS\Modules\Users\Controllers\Admin\UsersControl
 
 Route::get('users/logout', array('as' => 'logout', 'uses' => 'TypiCMS\Modules\Users\Controllers\Admin\UsersController@getLogout'));
 
-Route::group(array('before' => 'users.register'), function()
-{
+Route::group(array('before' => 'users.register'), function () {
     Route::get('users/register', array('as' => 'register', 'uses' => 'TypiCMS\Modules\Users\Controllers\Admin\UsersController@getRegister'));
     Route::post('users/register', 'TypiCMS\Modules\Users\Controllers\Admin\UsersController@postRegister');
 });
@@ -24,7 +23,6 @@ Route::post('users/changepassword/{userid}/{resetcode}', 'TypiCMS\Modules\Users\
 /**
  * Admin routes.
  */
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
-{
+Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
     Route::resource('users', 'TypiCMS\Modules\Users\Controllers\Admin\UsersController');
 });

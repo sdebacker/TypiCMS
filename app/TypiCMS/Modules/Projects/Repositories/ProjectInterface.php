@@ -20,5 +20,4 @@ interface ProjectInterface
      */
     public function update(array $data);
 
-
 }

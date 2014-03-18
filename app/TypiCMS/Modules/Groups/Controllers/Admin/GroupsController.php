@@ -1,11 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Groups\Controllers\Admin;
 
-use Lang;
 use View;
 use Input;
-use Sentry;
-use Config;
 use Request;
 use Redirect;
 use Notification;
@@ -27,9 +24,9 @@ class GroupsController extends BaseController
      * __construct
      *
      * @param Groupnterface $group
-     * @param GroupForm $groupform
+     * @param GroupForm     $groupform
      */
-    public function __construct(GroupInterface $group, GroupForm $groupForm, Presenter $presenter) 
+    public function __construct(GroupInterface $group, GroupForm $groupForm, Presenter $presenter)
     {
         parent::__construct($group, $groupForm, $presenter);
         $this->title['parent'] = trans_choice('groups::global.groups', 2);
@@ -77,10 +74,12 @@ class GroupsController extends BaseController
         if ($result['success']) {
             // Success!
             Notification::success($result['message']);
+
             return Redirect::route('admin.groups.index');
 
         } else {
             Notification::error($result['message']);
+
             return Redirect::action('GroupController@create')
                 ->withInput()
                 ->withErrors( $this->form->errors() );
@@ -94,7 +93,7 @@ class GroupsController extends BaseController
      */
     public function show($id)
     {
-        //Show a group and its permissions. 
+        //Show a group and its permissions.
         $group = $this->repository->byId($id);
 
         $this->layout->content = View::make('admin.groups.show')->with('group', $group);
@@ -128,10 +127,12 @@ class GroupsController extends BaseController
         if ($result['success']) {
             // Success!
             Notification::success($result['message']);
+
             return Redirect::route('admin.groups.index');
 
         } else {
             Notification::error($result['message']);
+
             return Redirect::action('GroupController@create')
                 ->withInput()
                 ->withErrors( $this->form->errors() );
@@ -141,7 +142,7 @@ class GroupsController extends BaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($id)

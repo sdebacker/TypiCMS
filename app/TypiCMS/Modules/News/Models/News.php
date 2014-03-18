@@ -20,7 +20,6 @@ class News extends Base
         'summary',
         'body',
     );
-    
 
     /**
      * Translatable model configs.
@@ -35,7 +34,6 @@ class News extends Base
         'body',
     );
 
-
     /**
      * The default route for admin side.
      *
@@ -43,13 +41,11 @@ class News extends Base
      */
     public $route = 'news';
 
-
     /**
      * lists
      */
     public $order = 'date';
     public $direction = 'desc';
-
 
     /**
      * Relations
@@ -58,7 +54,6 @@ class News extends Base
     {
         return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
     }
-
 
     /**
      * Accessors
@@ -71,7 +66,6 @@ class News extends Base
         return Carbon::parse($value)->format('d.m.Y H:i');
     }
 
-
     /**
      * Observers
      */
@@ -79,8 +73,7 @@ class News extends Base
     {
         parent::boot();
 
-        static::saving(function($model)
-        {
+        static::saving(function ($model) {
             // transform dates to sql
             if (Input::get('date')) {
                 $model->date = Carbon::createFromFormat('d.m.Y H:i', Input::get('date'))->toDateTimeString();

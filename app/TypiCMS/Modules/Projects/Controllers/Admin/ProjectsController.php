@@ -4,7 +4,6 @@ namespace TypiCMS\Modules\Projects\Controllers\Admin;
 use App;
 use View;
 use Input;
-use Config;
 use Request;
 use Session;
 use Redirect;
@@ -62,11 +61,10 @@ class ProjectsController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($model)
@@ -77,8 +75,7 @@ class ProjectsController extends BaseController
         $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
 
         $tags = '';
-        $model->tags->each(function($tag) use(&$tags)
-        {
+        $model->tags->each(function ($tag) use (&$tags) {
             $tags .= $tag->tag.', ';
         });
         $tags = substr($tags, 0, -2);
@@ -89,18 +86,16 @@ class ProjectsController extends BaseController
             ->withModel($model);
     }
 
-
     /**
      * Show resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($model)
     {
         return Redirect::route('admin.projects.edit', $model->id);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -120,11 +115,10 @@ class ProjectsController extends BaseController
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($model)
@@ -135,7 +129,7 @@ class ProjectsController extends BaseController
         if ( $this->form->update( Input::all() ) ) {
             return (Input::get('exit')) ? Redirect::route('admin.projects.index') : Redirect::route('admin.projects.edit', $model->id) ;
         }
-        
+
         return Redirect::route( 'admin.projects.edit', $model->id )
             ->withInput()
             ->withErrors($this->form->errors());
@@ -144,7 +138,7 @@ class ProjectsController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function sort()
@@ -152,11 +146,10 @@ class ProjectsController extends BaseController
         $sort = $this->repository->sort( Input::all() );
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($model)
@@ -167,6 +160,5 @@ class ProjectsController extends BaseController
             }
         }
     }
-
 
 }

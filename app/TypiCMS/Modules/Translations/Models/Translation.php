@@ -15,7 +15,6 @@ class Translation extends Base
         'translation'
     );
 
-
     /**
      * Translatable model configs.
      *
@@ -25,14 +24,12 @@ class Translation extends Base
         'translation'
     );
 
-
     /**
      * The default route for admin side.
      *
      * @var string
      */
     public $route = 'translations';
-
 
     /**
      * Lists

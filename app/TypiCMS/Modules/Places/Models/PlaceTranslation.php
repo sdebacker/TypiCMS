@@ -5,6 +5,5 @@ use Eloquent;
 
 class PlaceTranslation extends Eloquent
 {
-    
-    
+
 }

@@ -4,7 +4,6 @@ namespace TypiCMS\Modules\Settings\Controllers\Admin;
 use View;
 use Input;
 use Config;
-use Request;
 use Redirect;
 
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
@@ -20,7 +19,6 @@ class SettingsController extends BaseController
         $this->title['parent'] = ucfirst(trans('global.settings'));
     }
 
-
     /**
      * List models
      * GET /admin/model
@@ -31,7 +29,6 @@ class SettingsController extends BaseController
         $this->layout->content = View::make('settings.admin.index')
             ->withData($data);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -51,9 +48,9 @@ class SettingsController extends BaseController
         }
 
         $this->repository->store( $data );
+
         return Redirect::route('admin.settings.index');
 
     }
-
 
 }

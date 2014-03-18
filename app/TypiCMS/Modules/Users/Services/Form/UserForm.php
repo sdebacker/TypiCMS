@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Users\Services\Form;
 
 use Input;
-use Config;
 
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Users\Repositories\UserInterface;
@@ -44,7 +43,7 @@ class UserForm
      */
     public function save(array $input)
     {
-        
+
         if ( ! $this->valid($input) ) {
             return false;
         }
@@ -58,7 +57,7 @@ class UserForm
      * @return boolean
      */
     public function update(array $input)
-    {        
+    {
         $this->validator->setRule('email', 'required|email|unique:users,email,'.$input['id']);
         $this->validator->setRule('password', 'min:8');
         $this->validator->setRule('password_confirmation', '');
@@ -88,6 +87,7 @@ class UserForm
     public function resetPasswordValid(array $input)
     {
         $this->validator->emptyRules()->setRule('email', 'required|email');
+
         return $this->valid($input);
     }
 
@@ -99,6 +99,7 @@ class UserForm
     public function changePasswordValid(array $input)
     {
         $this->validator->emptyRules()->setRule('password', 'required|min:8|confirmed');
+
         return $this->valid($input);
     }
 

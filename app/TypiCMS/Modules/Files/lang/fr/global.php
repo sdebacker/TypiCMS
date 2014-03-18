@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
     'files' => 'fichier|fichiers',
     'New'  => 'Nouveau fichier',

@@ -32,7 +32,6 @@ class File extends Base
         'alt_attribute',
         'status',
     );
-    
 
     /**
      * Translatable model configs.
@@ -46,7 +45,6 @@ class File extends Base
         'status',
     );
 
-
     /**
      * The default route for admin side.
      *
@@ -54,13 +52,11 @@ class File extends Base
      */
     public $route = 'files';
 
-
     /**
      * lists
      */
     public $order = 'position';
     public $direction = 'asc';
-
 
     /**
      * Polymorphic relation.
@@ -70,7 +66,6 @@ class File extends Base
         return $this->morphTo();
     }
 
-
     /**
      * Observers
      */
@@ -78,8 +73,7 @@ class File extends Base
     {
         parent::boot();
 
-        static::deleted(function($model)
-        {
+        static::deleted(function ($model) {
             Croppa::delete($model->path . '/' . $model->filename);
         });
 

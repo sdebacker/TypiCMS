@@ -3,8 +3,8 @@ namespace TypiCMS;
 
 use Illuminate\Database\Eloquent\Collection;
 
-class NestedCollection extends Collection {
-
+class NestedCollection extends Collection
+{
     private $total = 0;
     protected $class;
 
@@ -13,7 +13,6 @@ class NestedCollection extends Collection {
         parent::__construct($items);
         $this->total = count($items);
     }
-
 
     /**
      * Nest items
@@ -29,7 +28,7 @@ class NestedCollection extends Collection {
         $deleteArray = array();
         foreach ($this->items as $item) {
             if ( $item->parent && isset($this->items[$item->parent]) ) {
-                if ( ! $this->items[$item->parent]->children) {
+                if (! $this->items[$item->parent]->children) {
                     $this->items[$item->parent]->children = new \Illuminate\Support\Collection;
                 }
                 $this->items[$item->parent]->children->put($item->id, $item);

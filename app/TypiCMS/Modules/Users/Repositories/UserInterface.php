@@ -7,8 +7,8 @@ interface UserInterface
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false);
@@ -17,7 +17,7 @@ interface UserInterface
      * Retrieve user by id
      * regardless of status
      *
-     * @param  int $id user ID
+     * @param  int  $id user ID
      * @return User object
      */
     public function byId($id);
@@ -26,7 +26,7 @@ interface UserInterface
      * Retrieve user by login
      * regardless of status
      *
-     * @param  int $login
+     * @param  int  $login
      * @return User object
      */
     public function findUserByLogin($login);
@@ -34,7 +34,7 @@ interface UserInterface
     /**
      * Retrieve all groups or user groups
      *
-     * @param  User $user
+     * @param  User  $user
      * @return array
      */
     public function getGroups($user = null);
@@ -42,7 +42,7 @@ interface UserInterface
     /**
      * Get reset password code for user
      *
-     * @param  User $user
+     * @param  User   $user
      * @return string
      */
     public function getResetPasswordCode($user);
@@ -50,7 +50,7 @@ interface UserInterface
     /**
      * Check reset password code for user
      *
-     * @param  User $user
+     * @param  User   $user
      * @param  String $resetCode
      * @return bool
      */
@@ -59,7 +59,7 @@ interface UserInterface
     /**
      * Attempt reset password for user
      *
-     * @param  User $user
+     * @param  User   $user
      * @param  String $resetCode
      * @param  String $password
      * @return bool
@@ -69,7 +69,7 @@ interface UserInterface
     /**
      * Get id of user
      *
-     * @param  User $user
+     * @param  User   $user
      * @return string
      */
     public function getId($user);
@@ -93,8 +93,8 @@ interface UserInterface
     /**
      * Authenticate a user
      *
-     * @param array $credentials
-     * @param boolean $id
+     * @param  array   $credentials
+     * @param  boolean $id
      * @return boolean
      */
     public function authenticate($credentials, $remember = false);
@@ -102,16 +102,16 @@ interface UserInterface
     /**
      * Log a user in
      *
-     * @param array $credentials
-     * @param boolean $id
-     * @return Sentry User
+     * @param  array   $credentials
+     * @param  boolean $id
+     * @return Sentry  User
      */
     public function login($user, $remember = false);
 
     /**
      * Register a new user
      *
-     * @param array $input
+     * @param  array   $input
      * @return boolean
      */
     public function register(array $input, $noConfirmation = null);
@@ -119,8 +119,8 @@ interface UserInterface
     /**
      * Activate a user registration
      *
-     * @param int $userId
-     * @param string $activationCode
+     * @param  int     $userId
+     * @param  string  $activationCode
      * @return boolean
      */
     public function activate($userId = null, $activationCode = null);
@@ -135,10 +135,9 @@ interface UserInterface
     /**
      * Update a user
      *
-     * @param int $id
+     * @param  int     $id
      * @return boolean
      */
     public function destroy($id);
-
 
 }

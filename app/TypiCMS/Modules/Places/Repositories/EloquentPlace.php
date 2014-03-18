@@ -5,7 +5,6 @@ use StdClass;
 
 use App;
 use Input;
-use Config;
 use Request;
 
 use Illuminate\Database\Eloquent\Model;
@@ -21,13 +20,12 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         $this->model = $model;
     }
 
-
     /**
      * Get paginated models
      *
-     * @param int $page Number of models per page
-     * @param int $limit Results per page
-     * @param boolean $all Show published or all
+     * @param  int      $page  Number of models per page
+     * @param  int      $limit Results per page
+     * @param  boolean  $all   Show published or all
      * @return StdClass Object with $items and $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
@@ -61,12 +59,11 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         return $result;
     }
 
-
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
@@ -76,10 +73,9 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
 
         $query = $this->model->with('translations');
 
-        if ( ! $all ) {
+        if (! $all) {
             // take only translated items that are online
-            $query->whereHas('translations', function($query)
-                {
+            $query->whereHas('translations', function ($query) {
                     $query->where('status', 1);
                     $query->where('locale', '=', App::getLocale());
                 }
@@ -100,11 +96,10 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         return $models;
     }
 
-
     /**
      * Get single model by slug
      *
-     * @param string $slug slug of model
+     * @param  string $slug slug of model
      * @return object model
      */
     public function bySlug($slug, array $with = array())
@@ -117,7 +112,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         return $model;
 
     }
-
 
     /**
      * Create a new model
@@ -144,13 +138,12 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
 
         $model->save();
 
-        if ( ! $model ) {
+        if (! $model) {
             return false;
         }
 
         return $model;
     }
-
 
     /**
      * Update an existing model
@@ -185,8 +178,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         $model->save();
 
         return true;
-        
-    }
 
+    }
 
 }

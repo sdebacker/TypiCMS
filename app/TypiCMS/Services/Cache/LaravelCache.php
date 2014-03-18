@@ -3,7 +3,6 @@ namespace TypiCMS\Services\Cache;
 
 use StdClass;
 
-use Config;
 use Illuminate\Cache\CacheManager;
 
 class LaravelCache implements CacheInterface
@@ -20,18 +19,16 @@ class LaravelCache implements CacheInterface
         $this->minutes = $minutes;
     }
 
-
     /**
      * Retrieve data from cache
      *
      * @param string    Cache item key
-     * @return mixed    PHP data result of cache
+     * @return mixed PHP data result of cache
      */
     public function get($key)
     {
         return $this->cache->tags($this->cachekey)->get($key);
     }
-
 
     /**
      * Add data to the cache
@@ -39,7 +36,7 @@ class LaravelCache implements CacheInterface
      * @param string    Cache item key
      * @param mixed     The data to store
      * @param integer   The number of minutes to store the item
-     * @return mixed    $value variable returned for convenience
+     * @return mixed $value variable returned for convenience
      */
     public function put($key, $value, $minutes=null)
     {
@@ -49,7 +46,6 @@ class LaravelCache implements CacheInterface
 
         return $this->cache->tags($this->cachekey)->put($key, $value, $minutes);
     }
-
 
     /**
      * Add data to the cache
@@ -61,7 +57,7 @@ class LaravelCache implements CacheInterface
      * @param mixed     The actual items for this page
      * @param string    Cache item key
      * @param integer   The number of minutes to store the item
-     * @return mixed    $items variable returned for convenience
+     * @return mixed $items variable returned for convenience
      */
     public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes=null)
     {
@@ -77,25 +73,23 @@ class LaravelCache implements CacheInterface
         return $cached;
     }
 
-
     /**
      * Test if item exists in cache
      * Only returns true if exists && is not expired
      *
      * @param string    Cache item key
-     * @return bool     If cache item exists
+     * @return bool If cache item exists
      */
     public function has($key)
     {
         return $this->cache->tags($this->cachekey)->has($key);
     }
 
-
     /**
      * Flush cache for tags
      *
      * @param string    Cache tags
-     * @return bool     If cache is flushed
+     * @return bool If cache is flushed
      */
     public function flush($tags = null)
     {
@@ -104,6 +98,7 @@ class LaravelCache implements CacheInterface
         } else {
             $tags = array($this->cachekey);
         }
+
         return $this->cache->tags($tags)->flush();
     }
 

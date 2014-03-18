@@ -23,7 +23,6 @@ class Event extends Base
         'summary',
         'body',
     );
-    
 
     /**
      * Translatable model configs.
@@ -38,7 +37,6 @@ class Event extends Base
         'body',
     );
 
-
     /**
      * The default route for admin side.
      *
@@ -46,13 +44,11 @@ class Event extends Base
      */
     public $route = 'events';
 
-
     /**
      * lists
      */
     public $order = 'start_date';
     public $direction = 'asc';
-
 
     /**
      * Relations
@@ -61,7 +57,6 @@ class Event extends Base
     {
         return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
     }
-
 
     /**
      * Accessors
@@ -80,7 +75,6 @@ class Event extends Base
         return Carbon::createFromFormat('Y-m-d', $value)->format('d.m.Y');
     }
 
-
     /**
      * Observers
      */
@@ -88,8 +82,7 @@ class Event extends Base
     {
         parent::boot();
 
-        static::saving(function($model)
-        {
+        static::saving(function ($model) {
             // transform dates to sql
             if (Input::get('start_date')) {
                 $model->start_date = Carbon::createFromFormat('d.m.Y', Input::get('start_date'))->toDateString();

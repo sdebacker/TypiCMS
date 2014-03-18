@@ -10,7 +10,6 @@ use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 
 // Presenter
 use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Places\Presenters\PlacePresenter;
 
 // Base controller
 use TypiCMS\Controllers\PublicController;
@@ -34,7 +33,7 @@ class PlacesController extends PublicController
         $this->title['child'] = '';
 
         $places = $this->repository->getAll(array('translations'));
-        
+
         if (Request::wantsJson()) {
             return Response::json($places, 200);
         }
@@ -52,7 +51,7 @@ class PlacesController extends PublicController
     {
 
         $models = $this->repository->getAll(array('translations'));
-        
+
         if (Request::wantsJson()) {
             return Response::json($models, 200);
         }
@@ -64,7 +63,7 @@ class PlacesController extends PublicController
     /**
      * Show place.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($slug)
@@ -77,7 +76,7 @@ class PlacesController extends PublicController
         }
 
         $this->title['parent'] = $model->title;
-        
+
         return View::make('places.public.show')
             ->with('model', $model);
     }

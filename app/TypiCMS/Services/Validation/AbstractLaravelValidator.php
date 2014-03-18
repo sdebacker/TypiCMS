@@ -62,6 +62,7 @@ abstract class AbstractLaravelValidator implements ValidableInterface
 
         if ( $validator->fails() ) {
             $this->errors = $validator->messages();
+
             return false;
         }
 
@@ -98,6 +99,7 @@ abstract class AbstractLaravelValidator implements ValidableInterface
     public function setRule($key, $value)
     {
         $this->rules[$key] = $value;
+
         return $this;
     }
 
@@ -109,6 +111,7 @@ abstract class AbstractLaravelValidator implements ValidableInterface
     public function emptyRules()
     {
         $this->rules = array();
+
         return $this;
     }
 

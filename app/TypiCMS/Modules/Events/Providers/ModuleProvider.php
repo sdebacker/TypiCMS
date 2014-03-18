@@ -40,26 +40,24 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function ($app) {
             $repository = new EloquentEvent(new Event);
             if ( ! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Events', 10);
+
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Events\Services\Form\EventForm', function($app)
-        {
+        $app->bind('TypiCMS\Modules\Events\Services\Form\EventForm', function ($app) {
             return new EventForm(
                 new EventFormLaravelValidator( $app['validator'] ),
                 $app->make('TypiCMS\Modules\Events\Repositories\EventInterface')
             );
         });
 
-        $app->before(function($request, $response)
-        {
+        $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });
 

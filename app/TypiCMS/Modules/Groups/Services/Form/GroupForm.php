@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Groups\Services\Form;
 
 use Input;
-use Config;
 
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Groups\Repositories\GroupInterface;
@@ -20,14 +19,14 @@ class GroupForm
     /**
      * Validator
      *
-     * @var \TypiCMS\Services\Validation\ValidableInterface 
+     * @var \TypiCMS\Services\Validation\ValidableInterface
      */
     protected $validator;
 
     /**
      * Group Repository
      *
-     * @var \TypiCMS\Modules\Groups\Repositories\GroupInterface 
+     * @var \TypiCMS\Modules\Groups\Repositories\GroupInterface
      */
     protected $group;
 
@@ -44,8 +43,7 @@ class GroupForm
      */
     public function save(array $input)
     {
-        if ( ! $this->valid($input) )
-        {
+        if ( ! $this->valid($input) ) {
             return false;
         }
 
@@ -59,8 +57,7 @@ class GroupForm
      */
     public function update(array $input)
     {
-        if ( ! $this->valid($input) )
-        {
+        if ( ! $this->valid($input) ) {
             return false;
         }
 
@@ -70,7 +67,7 @@ class GroupForm
     /**
      * Return any validation errors
      *
-     * @return array 
+     * @return array
      */
     public function errors()
     {
@@ -80,14 +77,12 @@ class GroupForm
     /**
      * Test if form validator passes
      *
-     * @return boolean 
+     * @return boolean
      */
     protected function valid(array $input)
     {
-
         return $this->validator->with($input)->passes();
-        
-    }
 
+    }
 
 }

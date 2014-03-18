@@ -14,5 +14,4 @@ class CacheDecorator extends CacheAbstractDecorator implements MenuInterface
         $this->cache = $cache;
     }
 
-
 }

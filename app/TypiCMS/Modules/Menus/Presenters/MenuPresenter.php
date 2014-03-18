@@ -16,6 +16,7 @@ class MenuPresenter extends AbstractPresenter implements Presentable
     {
         // Disable checkbox when object has menulinks
         $disabled = $this->object->menulinks->isEmpty() ? '' : ' disabled' ;
+
         return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
     }
 

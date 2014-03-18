@@ -10,11 +10,11 @@ interface GroupInterface
      * @return Response
      */
     public function store($data);
-    
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($id);
@@ -22,14 +22,14 @@ interface GroupInterface
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($id);
 
     /**
      * Return a specific user by a given id
-     * 
+     *
      * @param  integer $id
      * @return User
      */
@@ -37,7 +37,7 @@ interface GroupInterface
 
     /**
      * Return a specific user by a given name
-     * 
+     *
      * @param  string $name
      * @return User
      */

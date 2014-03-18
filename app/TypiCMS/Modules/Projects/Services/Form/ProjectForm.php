@@ -109,7 +109,7 @@ class ProjectForm
 
         $tags = $tags ? explode(',', $tags) : array();
 
-        foreach ( $tags as $key => $tag ) {
+        foreach ($tags as $key => $tag) {
             $tags[$key] = trim($tag);
         }
 

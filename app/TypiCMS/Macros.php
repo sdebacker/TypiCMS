@@ -1,8 +1,7 @@
-<?php 
-HTML::macro('th', function($field = '', $defaultOrder = null, $sortable = true, $label = true)
-{
+<?php
+HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true, $label = true) {
     $order = Input::get('order');
-    if ( ! $order and $defaultOrder) {
+    if (! $order and $defaultOrder) {
         $order = $field;
     }
     $direction = Input::get('direction', $defaultOrder);
@@ -27,5 +26,6 @@ HTML::macro('th', function($field = '', $defaultOrder = null, $sortable = true, 
     }
     $th[] = '</th>';
     $th[] = "\r\n";
+
     return implode($th);
 });

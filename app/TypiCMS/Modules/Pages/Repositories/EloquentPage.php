@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Services\ListBuilder;
 use TypiCMS\Repositories\RepositoriesAbstract;
-use TypiCMS\Modules\Pages\Models\PageTranslation;
 
 class EloquentPage extends RepositoriesAbstract implements PageInterface
 {
@@ -21,7 +20,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     {
         $this->model = $model;
     }
-
 
     /**
      * Update an existing model
@@ -47,7 +45,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
     }
 
-
     /**
      * Get Uris of all pages
      *
@@ -65,7 +62,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     /**
      * Retrieve children pages
      *
-     * @param  int $id model ID
+     * @param  int        $id model ID
      * @return Collection
      */
     public function getChildren($uri, $all = false)
@@ -91,7 +88,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
             ->where('uri', 'LIKE', $uri.'%');
 
         // All posts or only published
-        if ( ! $all ) {
+        if (! $all) {
             $query->where('status', 1);
         }
         $query->where('locale', Config::get('app.locale'));
@@ -105,7 +102,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         return $models;
     }
 
-
     /**
      * Build html list
      *
@@ -115,9 +111,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function buildSideList($models)
     {
         $listObject = new ListBuilder($models);
+
         return $listObject->sideList();
     }
-
 
     /**
      * Get Pages to build routes
@@ -136,7 +132,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
             ->get();
     }
 
-
     /**
      * Sort models
      *
@@ -150,7 +145,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
         $this->uris = $this->getAllUris();
         foreach ($data['item'] as $id => $parent) {
-            
+
             $position ++;
 
             $parent = $parent ? : 0 ;
@@ -166,11 +161,10 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
     }
 
-
     /**
      * Update pages uris
      *
-     * @param int $id
+     * @param  int  $id
      * @param $parent
      * @return void
      */
@@ -185,7 +179,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
         // transform URI
         foreach (Config::get('app.locales') as $locale) {
-            
+
             if (isset($modelSlugs[$locale])) {
 
                 $uri = isset($parentUris[$locale]) ? $parentUris[$locale].'/'.$modelSlugs[$locale] : $locale.'/'.$modelSlugs[$locale] ;

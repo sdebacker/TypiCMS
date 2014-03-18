@@ -17,7 +17,6 @@ class Project extends Base
         'summary',
         'body',
     );
-    
 
     /**
      * Translatable model configs.
@@ -32,7 +31,6 @@ class Project extends Base
         'body',
     );
 
-
     /**
      * The default route for admin side.
      *
@@ -40,13 +38,11 @@ class Project extends Base
      */
     public $route = 'projects';
 
-
     /**
      * Lists
      */
     public $order = 'id';
     public $direction = 'desc';
-
 
     /**
      * Relations
@@ -56,7 +52,6 @@ class Project extends Base
         return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
     }
 
-
     /**
      * Relation
      */
@@ -64,7 +59,6 @@ class Project extends Base
     {
         return $this->belongsTo('TypiCMS\Modules\Categories\Models\Category');
     }
-
 
     /**
      * Define a many-to-many relationship.

@@ -12,7 +12,7 @@ abstract class Base extends Eloquent
 
     /**
      * For testing
-     */    
+     */
     public static function shouldReceive()
     {
         $class = class_basename(get_called_class());
@@ -24,7 +24,6 @@ abstract class Base extends Eloquent
         return call_user_func_array(array($mock, 'shouldReceive'), func_get_args());
     }
 
-
     /**
      * Attach files to model
      *
@@ -34,15 +33,12 @@ abstract class Base extends Eloquent
      */
     public function scopeFiles($query, $all = false)
     {
-        return $query->with(array('files' => function($query) use ($all)
-            {
-                $query->with(array('translations' => function($query) use ($all)
-                {
+        return $query->with(array('files' => function ($query) use ($all) {
+                $query->with(array('translations' => function ($query) use ($all) {
                     $query->where('locale', App::getLocale());
                     ! $all and $query->where('status', 1);
                 }));
-                $query->whereHas('translations', function($query) use ($all)
-                {
+                $query->whereHas('translations', function ($query) use ($all) {
                     $query->where('locale', App::getLocale());
                     ! $all and $query->where('status', 1);
                 });
@@ -50,7 +46,6 @@ abstract class Base extends Eloquent
             })
         );
     }
-
 
     /**
      * Get models that have online non empty translation
@@ -60,15 +55,13 @@ abstract class Base extends Eloquent
      */
     public function scopeWhereHasOnlineTranslation($query)
     {
-        return $query->whereHas('translations', function($query)
-            {
+        return $query->whereHas('translations', function ($query) {
                 $query->where('status', 1);
                 $query->where('locale', App::getLocale());
                 $query->where('slug', '!=', '');
             }
         );
     }
-
 
     /**
      * Order items according to GET value or model value, default is id asc
@@ -80,9 +73,9 @@ abstract class Base extends Eloquent
     {
         $order = Input::get('order', $this->order) ? : 'id' ;
         $direction = Input::get('direction', $this->direction) ? : 'asc' ;
+
         return $query->orderBy($order, $direction);
     }
-
 
     // public static function boot()
     // {

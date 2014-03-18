@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace TypiCMS\Services\Upload;
 
 use Str;
@@ -12,13 +12,13 @@ use Notification;
 */
 class FileUpload
 {
-    
+
     /**
      * Handle the file upload. Returns the array on success, or false
      * on failure.
      *
-     * @param  \Symfony\Component\HttpFoundation\File\UploadedFile  $file
-     * @param  String $path where to upload file
+     * @param  \Symfony\Component\HttpFoundation\File\UploadedFile $file
+     * @param  String                                              $path where to upload file
      * @return array|bool
      */
     public function handle(UploadedFile $file, $path = 'uploads')
@@ -42,9 +42,11 @@ class FileUpload
         try {
             $file->move($input['path'], $input['filename']);
             list($input['width'], $input['height']) = getimagesize($input['path'] . '/' . $input['filename']);
+
             return $input;
         } catch (FileException $e) {
             Notification::error($e->getmessage());
+
             return false;
         }
 

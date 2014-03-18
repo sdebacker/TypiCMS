@@ -7,8 +7,6 @@ use DB;
 
 use Illuminate\Database\Eloquent\Model;
 
-use TypiCMS\Repositories\RepositoriesAbstract;
-
 class EloquentSetting implements SettingInterface
 {
 
@@ -18,12 +16,11 @@ class EloquentSetting implements SettingInterface
         $this->model = $model;
     }
 
-
     /**
      * Get all models
      *
-     * @param boolean $all Show published or all
-     * @param array $with Eager load related models
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false)
@@ -45,7 +42,6 @@ class EloquentSetting implements SettingInterface
 
         return $data;
     }
-
 
     /**
      * Update an existing model
@@ -72,10 +68,10 @@ class EloquentSetting implements SettingInterface
                 $save = $model->save();
             }
         }
-        return true;
-        
-    }
 
+        return true;
+
+    }
 
     /**
      * Build Settings Array
@@ -93,8 +89,8 @@ class EloquentSetting implements SettingInterface
                 $config[$key] = $object->value;
             }
         }
+
         return $config;
     }
-
 
 }
