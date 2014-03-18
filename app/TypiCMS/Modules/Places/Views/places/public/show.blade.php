@@ -32,7 +32,6 @@
 
 <body style="padding:0">
 
-
     <div class="row">
         <div class="col-sm-4">
             <h3>{{ $model->title }}</h3>
@@ -40,7 +39,7 @@
             @if($model->logo)
                 <p><img src="{{ Croppa::url('/uploads/places/'.$model->logo, 0, 200) }}" alt=""></p>
             @endif
-            
+
             <p>
                 @if ($model->address)
                     {{ $model->address }}<br>

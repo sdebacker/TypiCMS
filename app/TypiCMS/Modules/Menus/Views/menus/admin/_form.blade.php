@@ -1,7 +1,7 @@
 <div class="row">
 
     @include('admin._buttons-form')
-    
+
     {{ Form::hidden('id'); }}
 
     <div class="col-sm-6">

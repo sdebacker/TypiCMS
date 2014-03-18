@@ -10,7 +10,7 @@
     {{ Form::hidden('id'); }}
 
     <div class="col-sm-6">
-        
+
         @include('admin._tabs-lang')
 
         <div class="tab-content">
@@ -80,9 +80,9 @@
             </li>
             @endif
         </ul>
-        
+
         <div class="tab-content">
-            
+
             <div class="tab-pane fade in active" id="options">
                 <div class="form-group">
                     <label class="checkbox">

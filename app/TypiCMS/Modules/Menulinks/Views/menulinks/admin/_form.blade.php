@@ -73,7 +73,7 @@
                 {{ Form::text('class', $model->$lang->class, array('class' => 'form-control')) }}
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-sm-6 form-group">
                 {{ Form::label('restricted_to', trans('validation.attributes.restricted_to')) }}

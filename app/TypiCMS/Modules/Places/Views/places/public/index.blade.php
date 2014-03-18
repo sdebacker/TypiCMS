@@ -14,7 +14,7 @@
     <div class="row">
 
         <div class="col-sm-4">
-            
+
             <form method="get" role="form">
                 <label for="string" class="sr-only">@lang('db.Search')</label>
                 <div class="input-group">

@@ -56,7 +56,7 @@
                     </div>
                 @endif
             </div>
-            
+
         </div>
 
         <div class="row">
@@ -126,4 +126,3 @@
     </label>
 </div>
 @include('admin._permissions-form')
-

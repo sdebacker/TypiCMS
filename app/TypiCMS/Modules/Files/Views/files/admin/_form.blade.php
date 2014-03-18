@@ -51,7 +51,6 @@
 
     <div class="col-sm-6">
 
-
         {{ Form::hidden('folder_id') }}
         {{ Form::hidden('user_id') }}
         {{ Form::hidden('type') }}

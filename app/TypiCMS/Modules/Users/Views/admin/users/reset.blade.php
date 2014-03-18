@@ -7,7 +7,7 @@
 @section('main')
 
 <div class="row">
-    
+
     <div id="reset" class="container-reset col-sm-4 col-sm-offset-4">
 
         {{ Form::open(array('role' => 'form', 'method' => 'post')) }}
@@ -23,10 +23,9 @@
             {{ Form::button(trans('validation.attributes.reset password'), array('class' => 'btn btn-lg btn-primary btn-block', 'type' => 'submit')) }}
 
         {{ Form::close() }}
-        
+
     </div>
 
 </div>
-
 
 @stop

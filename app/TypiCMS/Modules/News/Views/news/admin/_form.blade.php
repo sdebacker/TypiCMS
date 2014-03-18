@@ -6,7 +6,7 @@
 <div class="row">
 
     @include('admin._buttons-form')
-    
+
     {{ Form::hidden('id') }}
 
     <div class="col-sm-6">
@@ -25,7 +25,6 @@
             <span class="help-block">{{ $errors->first('date') }}</span>
             @endif
         </div>
-
 
         @include('admin._tabs-lang')
 
