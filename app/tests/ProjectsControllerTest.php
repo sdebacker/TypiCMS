@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\Projects\Models\Project;
 
-class ProjectsControllerTest extends TestCase {
-
+class ProjectsControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -33,7 +33,6 @@ class ProjectsControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         Project::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'category_id' => 1, 'tags' => '');
@@ -44,7 +43,6 @@ class ProjectsControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         Project::shouldReceive('create')->once()->andReturn($object);

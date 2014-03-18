@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\Events\Models\Event;
 
-class EventsControllerTest extends TestCase {
-
+class EventsControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -33,7 +33,6 @@ class EventsControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         Event::shouldReceive('create')->once()->andReturn($object);
         $input = array('start_date' => '10.10.2012');
@@ -44,7 +43,6 @@ class EventsControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         Event::shouldReceive('create')->once()->andReturn($object);

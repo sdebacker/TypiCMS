@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\Menulinks\Models\Menulink;
 
-class MenulinksControllerTest extends TestCase {
-
+class MenulinksControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -33,7 +33,6 @@ class MenulinksControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         Menulink::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'menu_id' => '1');
@@ -44,7 +43,6 @@ class MenulinksControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         Menulink::shouldReceive('create')->once()->andReturn($object);

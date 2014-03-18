@@ -1,13 +1,12 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
-
+class TestCase extends Illuminate\Foundation\Testing\TestCase
+{
     protected $nestedViewData = array();
 
     public function __call($method, $args)
     {
-        if (in_array($method, ['get', 'post', 'put', 'patch', 'delete']))
-        {
+        if (in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
             return $this->call($method, $args[0]);
         }
 
@@ -52,7 +51,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
      */
     public function registerNestedView($view)
     {
-        View::composer($view, function($view){
+        View::composer($view, function ($view) {
             $this->nestedViewsData[$view->getName()] = $view->getData();
         });
     }
@@ -60,8 +59,8 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     /**
      * Assert that the given view has a given piece of bound data.
      *
-     * @param  string|array  $key
-     * @param  mixed  $value
+     * @param  string|array $key
+     * @param  mixed        $value
      * @return void
      */
     public function assertNestedViewHas($view, $key, $value = null)
@@ -79,15 +78,15 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
         } else {
             if(isset($data[$key]))
                 $this->assertEquals($value, $data[$key]);
-            else 
-                return $this->assertTrue(false, 'The View has no bound data with this key.');            
+            else
+                return $this->assertTrue(false, 'The View has no bound data with this key.');
         }
     }
 
     /**
      * Assert that the view has a given list of bound data.
      *
-     * @param  array  $bindings
+     * @param  array $bindings
      * @return void
      */
     public function assertNestedViewHasAll($view, array $bindings)

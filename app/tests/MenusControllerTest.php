@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\Menus\Models\Menu;
 
-class MenusControllerTest extends TestCase {
-
+class MenusControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -33,7 +33,6 @@ class MenusControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         Menu::shouldReceive('create')->once()->andReturn($object);
         $input = array('name' => 'test');
@@ -44,7 +43,6 @@ class MenusControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         Menu::shouldReceive('create')->once()->andReturn($object);

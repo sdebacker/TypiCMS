@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\Pages\Models\Page;
 
-class PagesControllerTest extends TestCase {
-
+class PagesControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -35,7 +35,6 @@ class PagesControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         Page::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test');
@@ -46,7 +45,6 @@ class PagesControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         Page::shouldReceive('create')->once()->andReturn($object);

@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\Files\Models\File;
 
-class FilesControllerTest extends TestCase {
-
+class FilesControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -33,7 +33,6 @@ class FilesControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         File::shouldReceive('create')->once()->andReturn($object);
         $input = array('fileable_id' => 1, 'fileable_type' => 1);
@@ -44,7 +43,6 @@ class FilesControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         File::shouldReceive('create')->once()->andReturn($object);

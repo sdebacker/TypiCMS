@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\News\Models\News;
 
-class NewsControllerTest extends TestCase {
-
+class NewsControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -33,7 +33,6 @@ class NewsControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         News::shouldReceive('create')->once()->andReturn($object);
         $input = array('date' => '19.02.2014 11:04');
@@ -44,7 +43,6 @@ class NewsControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         News::shouldReceive('create')->once()->andReturn($object);

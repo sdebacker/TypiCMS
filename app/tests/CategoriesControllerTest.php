@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\Categories\Models\Category;
 
-class CategoriesControllerTest extends TestCase {
-
+class CategoriesControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -33,7 +33,6 @@ class CategoriesControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         Category::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test');
@@ -44,7 +43,6 @@ class CategoriesControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         Category::shouldReceive('create')->once()->andReturn($object);

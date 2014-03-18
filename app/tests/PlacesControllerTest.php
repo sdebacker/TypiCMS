@@ -1,8 +1,8 @@
 <?php
 use TypiCMS\Modules\Places\Models\Place;
 
-class PlacesControllerTest extends TestCase {
-
+class PlacesControllerTest extends TestCase
+{
     public function tearDown()
     {
         Mockery::close();
@@ -33,7 +33,6 @@ class PlacesControllerTest extends TestCase {
     {
         $object = new StdClass;
 
-
         $object->id = 1;
         Place::shouldReceive('create')->once()->andReturn($object);
         $input = array('title' => 'test', 'slug' => 'test', 'status' => 0);
@@ -44,7 +43,6 @@ class PlacesControllerTest extends TestCase {
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
-
 
         $object->id = 1;
         Place::shouldReceive('create')->once()->andReturn($object);
