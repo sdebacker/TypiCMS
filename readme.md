@@ -23,11 +23,12 @@ PHP >= 5.4.0 is required with MCrypt PHP Extension
 
 * Download archive ``` git clone git://github.com/sdebacker/TypiCMS.git ```
 * ``` cd TypiCMS ```
-* Rename env.local.php to .env.local.php and fill in your MySQL credentials
-* Create a new database with the name filled in your .env.local.php
-* ``` Composer install ``` (You need [Composer](https://getcomposer.org/doc/00-intro.md) to be installed)
-* ``` php artisan migrate --seed ```
-* ``` chmod -R 777 app/storage ```
+* Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md) : ``` Composer install ```
+* Fill in your MySQL credentials in env.local.php
+* Rename env.local.php to .env.local.php : ``` mv env.local.php .env.local.php ```
+* Create a new database with the name filled in .env.local.php
+* Migrate and seed Database : ``` php artisan migrate --seed ```
+* ``` chmod -R 777 app/storage ``` and ``` chmod -R 777 public/uploads ```
 * Go to http://localhost/admin and log in with admin@example.com as email and admin as password.
 
 ## Modules
