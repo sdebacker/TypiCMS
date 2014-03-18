@@ -31,7 +31,7 @@ MCrypt PHP Extension
 * ``` chmod -R 777 app/storage ```
 * Go to http://localhost/admin and log in with admin@example.com as email and admin as password.
 
-## Available modules
+## Modules
 
 ### Pages
 
@@ -71,7 +71,7 @@ Thumbnails are generated on the fly with [Croppa](https://github.com/BKWLD/cropp
 ### Users and groups
 
 [Sentry](https://github.com/cartalyst/sentry) is used to manage users, groups and permissions.
-Users registration can be enable or disabled through the settings panel.
+Users registration can be enable through the settings panel (/admin/settings).
 
 ### Settings
 
