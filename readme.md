@@ -17,13 +17,12 @@ Pages:
 
 ## Requirements
 
-PHP >= 5.4.0 is required
-MCrypt PHP Extension
+PHP >= 5.4.0 is required with MCrypt PHP Extension
 
 ## Installation
 
-* Download archive ``` git clone git://github.com/sdebacker/typicms.git typicms ```
-* ``` cd typicms ```
+* Download archive ``` git clone git://github.com/sdebacker/TypiCMS.git ```
+* ``` cd TypiCMS ```
 * Rename env.local.php to .env.local.php and fill in your MySQL credentials
 * Create a new database with the name filled in your .env.local.php
 * ``` Composer install ``` (You need [Composer](https://getcomposer.org/doc/00-intro.md) to be installed)
