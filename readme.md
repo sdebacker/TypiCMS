@@ -3,20 +3,9 @@
 TypiCMS is a starting point for a multilingual content management system build with Laravel.
 Bower and gulp are used for assets management and user interface is build with Bootstrap 3 with Less.
 
-This kind of urls are managed by the CMS :
-
-Modules:
-
-* /fr/evenements/slug-en-francais
-* /en/events/slug-in-english
-
-Pages:
-
-* /fr/parent-pages-slug-fr/subpage-slug-fr/page-slug-fr
-* /en/parent-pages-slug-en/subpage-slug-en/page-slug-en
-
 ## Table of contents
 
+- [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -25,11 +14,40 @@ Pages:
 - [Testing](#testing)
 - [Licence](#licence)
 
+## Features
+
+### URLs
+
+This kind of urls are managed by the CMS :
+
+**Modules:**
+
+* /en/events/slug-in-english
+* /fr/evenements/slug-en-francais
+
+**Pages:**
+
+* /en/parent-pages-slug-en/subpage-slug-en/page-slug-en
+* /fr/parent-pages-slug-fr/subpage-slug-fr/page-slug-fr
+
+### Patterns
+
+- Repositories
+- Cache decorator
+- Form and validation service
+- Presenters
+
+### Assets
+
+- Gulp
+- Bower
+- Bootstrap 3
+
 ## Requirements
 
 - PHP >= 5.4.0
 - MCrypt PHP Extension
-- APC or Memcached
+- Memcached or APC
 
 ## Installation
 
