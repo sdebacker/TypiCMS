@@ -1,7 +1,6 @@
 # TypiCMS
 
-TypiCMS is a starting point for a multilingual content management system build with laravel.
-It uses repositories, validation as a service, cache decorator and presenters.
+TypiCMS is a starting point for a multilingual content management system build with Laravel.
 Bower and gulp are used for assets management and user interface is build with Bootstrap 3 with Less.
 
 This kind of urls are managed by the CMS :
@@ -16,14 +15,21 @@ Pages:
 * /fr/parent-pages-slug-fr/subpage-slug-fr/page-slug-fr
 * /en/parent-pages-slug-en/subpage-slug-en/page-slug-en
 
+## Requirements
+
+PHP >= 5.4.0 is required
+MCrypt PHP Extension
+
 ## Installation
 
-* Download archive
+* Download archive ``` git clone git://github.com/sdebacker/typicms.git typicms ```
+* ``` cd typicms ```
 * Rename env.local.php to .env.local.php and fill in your MySQL credentials
 * Create a new database with the name filled in your .env.local.php
-* Run ``` Composer update ```
-* Run ``` php artisan migrate --seed ```
-* Go to http://localhost/admin and log in with admin/admin
+* ``` Composer install ``` (You need [Composer](https://getcomposer.org/doc/00-intro.md) to be installed)
+* ``` php artisan migrate --seed ```
+* ``` chmod -R 777 app/storage ```
+* Go to http://localhost/admin and log in with admin@example.com as email and admin as password.
 
 ## Available modules
 
@@ -37,15 +43,15 @@ Each menu have nestable entries. One entry can be linked to a module, page, URI 
 
 ### Projects
 
-Projects have categories, projects urls follows this pattern : /en/projects/categorie-slug/project-slug
+Projects have categories, projects urls follows this pattern : /en/projects/category-slug/project-slug
 
 ### Categories
 
-Categories relations are one to many with projects but needs to be polymorphic.
+Categories has many projects.
 
 ### Tags
 
-Tags are fonctionnal on projects module and use [Select2](http://ivaynberg.github.io/select2/) js plugin.
+Tags are linked to projects and use [Select2](http://ivaynberg.github.io/select2/) js plugin.
 It has many to many polymorphic relations so it could easily be linked to other modules.
 
 ### Events
@@ -60,7 +66,7 @@ Simple news module
 
 Files module allows you to upload multiple files linked to a resource. It uses [DropzoneJS](http://www.dropzonejs.com).
 
-[Croppa](https://github.com/BKWLD/croppa) is used to display images and generate thumbnails.
+Thumbnails are generated on the fly with [Croppa](https://github.com/BKWLD/croppa).
 
 ### Users and groups
 
@@ -73,12 +79,12 @@ Change website title, and other options trough the settings panel. Settings are 
 
 ## Contributing To TypiCMS
 
-TypiCMS needs many improvements, some options are not yet implemented.
-TypiCMS aims to follow [PSR-1](http://www.php-fig.org/psr/psr-1/) and [PSR-2](http://www.php-fig.org/psr/psr-2/) standards.
+TypiCMS needs many improvements, some options are not yet implemented and some code need to be simplified and moved in separate classes.
+TypiCMS follow [PSR-2](http://www.php-fig.org/psr/psr-2/) standards.
 
 ## Testing
 
-TypiCMS needs more tests, only some controllers are actually tested.
+Some admin controllers are actually tested, more tests needed.
 
 ## License
 
