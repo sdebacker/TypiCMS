@@ -1,7 +1,7 @@
 <?php
 
-class ProjectSeeder extends Seeder {
-
+class ProjectSeeder extends Seeder
+{
     public function run()
     {
         $typi_projects = array(

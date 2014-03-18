@@ -1,7 +1,7 @@
 <?php
 
-class TranslationSeeder extends Seeder {
-
+class TranslationSeeder extends Seeder
+{
     public function run()
     {
 

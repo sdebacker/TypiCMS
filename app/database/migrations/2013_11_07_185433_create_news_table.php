@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsTable extends Migration {
-
+class CreateNewsTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,8 +12,7 @@ class CreateNewsTable extends Migration {
      */
     public function up()
     {
-        Schema::create('news', function(Blueprint $table)
-        {
+        Schema::create('news', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
@@ -21,8 +20,7 @@ class CreateNewsTable extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('news_translations', function(Blueprint $table)
-        {
+        Schema::create('news_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -34,7 +32,7 @@ class CreateNewsTable extends Migration {
 
             $table->string('title');
             $table->string('slug')->nullable();
-            
+
             $table->text('summary');
             $table->text('body');
 
@@ -42,7 +40,7 @@ class CreateNewsTable extends Migration {
 
             $table->unique(array('news_id', 'locale'));
             $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
-            
+
         });
     }
 

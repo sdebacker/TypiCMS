@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlacesTable extends Migration {
-
+class CreatePlacesTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -13,8 +13,7 @@ class CreatePlacesTable extends Migration {
     public function up()
     {
 
-        Schema::create('places', function(Blueprint $table)
-        {
+        Schema::create('places', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('title');
@@ -31,8 +30,7 @@ class CreatePlacesTable extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('place_translations', function(Blueprint $table)
-        {
+        Schema::create('place_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -48,9 +46,8 @@ class CreatePlacesTable extends Migration {
 
             $table->unique(array('place_id', 'locale'));
             $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
-            
-        });
 
+        });
 
     }
 

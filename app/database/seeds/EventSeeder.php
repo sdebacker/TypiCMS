@@ -1,7 +1,7 @@
 <?php
 
-class EventSeeder extends Seeder {
-
+class EventSeeder extends Seeder
+{
     public function run()
     {
 

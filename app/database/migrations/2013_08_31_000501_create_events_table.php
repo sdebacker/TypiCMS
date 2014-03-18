@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventsTable extends Migration {
-
+class CreateEventsTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,8 +12,7 @@ class CreateEventsTable extends Migration {
      */
     public function up()
     {
-        Schema::create('events', function(Blueprint $table)
-        {
+        Schema::create('events', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
@@ -26,8 +25,7 @@ class CreateEventsTable extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('event_translations', function(Blueprint $table)
-        {
+        Schema::create('event_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -39,7 +37,7 @@ class CreateEventsTable extends Migration {
 
             $table->string('title');
             $table->string('slug')->nullable();
-            
+
             $table->text('summary');
             $table->text('body');
 
@@ -47,7 +45,7 @@ class CreateEventsTable extends Migration {
 
             $table->unique(array('event_id', 'locale'));
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
-            
+
         });
     }
 

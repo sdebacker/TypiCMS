@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTranslationsTable extends Migration {
-
+class CreateTranslationsTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -13,8 +13,7 @@ class CreateTranslationsTable extends Migration {
     public function up()
     {
 
-        Schema::create('translations', function(Blueprint $table)
-        {
+        Schema::create('translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('group');
@@ -22,8 +21,7 @@ class CreateTranslationsTable extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('translation_translations', function(Blueprint $table)
-        {
+        Schema::create('translation_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -37,9 +35,8 @@ class CreateTranslationsTable extends Migration {
 
             $table->unique(array('translation_id', 'locale'));
             $table->foreign('translation_id')->references('id')->on('translations')->onDelete('cascade');
-            
-        });
 
+        });
 
     }
 

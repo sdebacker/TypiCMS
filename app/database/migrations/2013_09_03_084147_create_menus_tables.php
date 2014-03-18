@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenusTables extends Migration {
-
+class CreateMenusTables extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,8 +12,7 @@ class CreateMenusTables extends Migration {
      */
     public function up()
     {
-        Schema::create('menus', function(Blueprint $table)
-        {
+        Schema::create('menus', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -23,8 +22,7 @@ class CreateMenusTables extends Migration {
             $table->timestamps();
 
         });
-        Schema::create('menu_translations', function(Blueprint $table)
-        {
+        Schema::create('menu_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -41,8 +39,7 @@ class CreateMenusTables extends Migration {
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
 
         });
-        Schema::create('menulinks', function(Blueprint $table)
-        {
+        Schema::create('menulinks', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -60,8 +57,7 @@ class CreateMenusTables extends Migration {
 
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
         });
-        Schema::create('menulink_translations', function(Blueprint $table)
-        {
+        Schema::create('menulink_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();

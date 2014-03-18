@@ -1,7 +1,7 @@
 <?php
 
-class SettingsSeeder extends Seeder {
-
+class SettingsSeeder extends Seeder
+{
     public function run()
     {
         DB::table('settings')->truncate();

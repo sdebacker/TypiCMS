@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFilesTable extends Migration {
-
+class CreateFilesTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,19 +12,18 @@ class CreateFilesTable extends Migration {
      */
     public function up()
     {
-        Schema::create('files', function(Blueprint $table)
-        {
+        Schema::create('files', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            
+
             $table->integer('fileable_id')->unsigned();
             $table->string('fileable_type');
 
             $table->integer('folder_id')->unsigned();
-            
+
             $table->integer('user_id')->unsigned();
-            
+
             $table->enum('type', array('a', 'v', 'd', 'i', 'o'));
             $table->string('name', 100);
             $table->string('filename');
@@ -42,8 +41,7 @@ class CreateFilesTable extends Migration {
 
         });
 
-        Schema::create('file_translations', function(Blueprint $table)
-        {
+        Schema::create('file_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -61,7 +59,7 @@ class CreateFilesTable extends Migration {
 
             $table->unique(array('file_id', 'locale'));
             $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
-            
+
         });
     }
 

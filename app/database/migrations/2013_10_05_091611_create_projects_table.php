@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectsTable extends Migration {
-
+class CreateProjectsTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,8 +12,7 @@ class CreateProjectsTable extends Migration {
      */
     public function up()
     {
-        Schema::create('projects', function(Blueprint $table)
-        {
+        Schema::create('projects', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
@@ -21,8 +20,7 @@ class CreateProjectsTable extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('project_translations', function(Blueprint $table)
-        {
+        Schema::create('project_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -42,7 +40,7 @@ class CreateProjectsTable extends Migration {
 
             $table->unique(array('project_id', 'locale'));
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-            
+
         });
     }
 

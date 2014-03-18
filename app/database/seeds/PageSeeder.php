@@ -1,7 +1,7 @@
 <?php
 
-class PageSeeder extends Seeder {
-
+class PageSeeder extends Seeder
+{
     public function run()
     {
 

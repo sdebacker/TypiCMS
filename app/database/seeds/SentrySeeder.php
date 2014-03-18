@@ -1,7 +1,7 @@
 <?php
 
-class SentrySeeder extends Seeder {
-
+class SentrySeeder extends Seeder
+{
         public function run()
         {
                 DB::table('users')->truncate();

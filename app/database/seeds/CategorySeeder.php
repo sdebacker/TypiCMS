@@ -1,7 +1,7 @@
 <?php
 
-class CategorySeeder extends Seeder {
-
+class CategorySeeder extends Seeder
+{
     public function run()
     {
 

@@ -1,7 +1,7 @@
 <?php
 
-class PlaceSeeder extends Seeder {
-
+class PlaceSeeder extends Seeder
+{
     public function run()
     {
 

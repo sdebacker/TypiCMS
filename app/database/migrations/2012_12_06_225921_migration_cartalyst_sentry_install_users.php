@@ -20,8 +20,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class MigrationCartalystSentryInstallUsersX extends Migration {
-
+class MigrationCartalystSentryInstallUsersX extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -29,8 +29,7 @@ class MigrationCartalystSentryInstallUsersX extends Migration {
      */
     public function up()
     {
-        Schema::create('users', function($table)
-        {
+        Schema::create('users', function ($table) {
             $table->increments('id');
             $table->string('email');
             $table->string('password');

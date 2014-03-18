@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePagesTable extends Migration {
-
+class CreatePagesTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -13,8 +13,7 @@ class CreatePagesTable extends Migration {
     public function up()
     {
 
-        Schema::create('pages', function(Blueprint $table)
-        {
+        Schema::create('pages', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
@@ -38,8 +37,7 @@ class CreatePagesTable extends Migration {
 
         });
 
-        Schema::create('page_translations', function(Blueprint $table)
-        {
+        Schema::create('page_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
@@ -63,7 +61,7 @@ class CreatePagesTable extends Migration {
 
             $table->unique(array('page_id', 'locale'));
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
-            
+
         });
 
     }

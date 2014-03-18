@@ -1,7 +1,7 @@
 <?php
 
-class TagSeeder extends Seeder {
-
+class TagSeeder extends Seeder
+{
     public function run()
     {
         $typi_tags = array(

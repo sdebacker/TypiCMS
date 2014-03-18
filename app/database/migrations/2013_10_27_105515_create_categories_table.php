@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration {
-
+class CreateCategoriesTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,8 +12,7 @@ class CreateCategoriesTable extends Migration {
      */
     public function up()
     {
-        Schema::create('categories', function(Blueprint $table)
-        {
+        Schema::create('categories', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
@@ -23,13 +22,12 @@ class CreateCategoriesTable extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('category_translations', function(Blueprint $table)
-        {
+        Schema::create('category_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id')->unsigned();
             $table->integer('category_id')->unsigned();
-            
+
             $table->string('locale')->index();
 
             $table->tinyInteger('status');
@@ -41,7 +39,7 @@ class CreateCategoriesTable extends Migration {
 
             $table->unique(array('category_id', 'locale'));
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            
+
         });
     }
 

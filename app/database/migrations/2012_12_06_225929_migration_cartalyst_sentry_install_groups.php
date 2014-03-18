@@ -20,8 +20,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class MigrationCartalystSentryInstallGroupsX extends Migration {
-
+class MigrationCartalystSentryInstallGroupsX extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -29,8 +29,7 @@ class MigrationCartalystSentryInstallGroupsX extends Migration {
      */
     public function up()
     {
-        Schema::create('groups', function($table)
-        {
+        Schema::create('groups', function ($table) {
             $table->increments('id');
             $table->string('name');
             $table->text('permissions')->nullable();
