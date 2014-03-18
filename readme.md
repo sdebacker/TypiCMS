@@ -17,28 +17,38 @@ Pages:
 
 ## Table of contents
 
- - [Requirements](#requirements)
- - [Installation](#installation)
- - [Modules](#modules)
- - [Contributing](#contributing)
- - [Testing](#testing)
- - [Licence](#licence)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Modules](#modules)
+- [Contributing](#contributing)
+- [Testing](#testing)
+- [Licence](#licence)
 
 ## Requirements
 
-PHP >= 5.4.0 is required with MCrypt PHP Extension
+- PHP >= 5.4.0
+- MCrypt PHP Extension
+- APC or Memcached
 
 ## Installation
 
-* Download archive ``` git clone git://github.com/sdebacker/TypiCMS.git ```
-* ``` cd TypiCMS ```
-* Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md) : ``` Composer install ```
-* Fill in your MySQL credentials in env.local.php
-* Rename env.local.php to .env.local.php : ``` mv env.local.php .env.local.php ```
-* Create a new database with the name filled in .env.local.php
-* Migrate and seed Database : ``` php artisan migrate --seed ```
-* ``` chmod -R 777 app/storage ``` and ``` chmod -R 777 public/uploads ```
-* Go to http://localhost/admin and log in with admin@example.com as email and admin as password.
+1. Download TypiCMS ``` git clone git://github.com/sdebacker/TypiCMS.git mywebsite```
+2. Enter newly created folder ``` cd mywebsite ```
+3. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md) : ``` Composer install ```
+4. Fill in your MySQL credentials in env.local.php
+5. Rename env.local.php to .env.local.php : ``` mv env.local.php .env.local.php ```
+6. Create a new database with the name filled in .env.local.php
+7. Migrate and seed Database : ``` php artisan migrate --seed ```
+8. Set permissions ``` chmod -R 777 app/storage ``` and ``` chmod -R 777 public/uploads ```
+9. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
+
+## Configuration
+
+1. Set available locale and default locale in app/config/app.php
+2. Set a new encryption key manually or with ``` php artisan key:generate ```
+3. Change cache prefix in app/config/cache.php
+4. Cache driver is set to memcached, you can change it to apc in app/config/cache.php
 
 ## Modules
 
