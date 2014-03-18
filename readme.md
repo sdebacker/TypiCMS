@@ -69,7 +69,7 @@ Thumbnails are generated on the fly with [Croppa](https://github.com/BKWLD/cropp
 
 ### Users and groups
 
-[Sentry](https://github.com/cartalyst/sentry) is used to manage users, groups and permissions.
+[Sentry 2](https://cartalyst.com/manual/sentry) is used to manage users, groups and permissions.
 Users registration can be enable through the settings panel (/admin/settings).
 
 ### Settings
