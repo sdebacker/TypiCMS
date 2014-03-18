@@ -10,7 +10,6 @@
     <a href="{{ route('admin.events.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('events::global.New')) }}</span></a>
 @stop
 
-
 @section('main')
 
     <div class="list-form" lang="{{ Config::get('app.locale') }}">

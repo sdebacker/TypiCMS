@@ -15,7 +15,7 @@
 @section('main')
 
     <div class="row">
-        
+
         @if($sideMenu)
         <div class="col-sm-4">
             {{ $sideMenu }}

@@ -10,13 +10,12 @@
     <a href="{{ route('admin.groups.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('users::global.New')) }}</span></a>
 @stop
 
-
 @section('main')
 
     <div class="list-form" lang="{{ Config::get('app.locale') }}">
 
         @section('btn-locales') @stop
-        
+
         @include('admin._buttons-list')
 
         <div class="table-responsive">
@@ -39,17 +38,16 @@
                         <td>{{ $model->edit }}</td>
                         <td>{{ $model->name }}</td>
                         <td>{{ implode(', ', array_keys($model['permissions'])) }}</td>
-                    </tr>    
+                    </tr>
 
                     @endforeach
 
                 </tbody>
 
-            </table> 
+            </table>
 
         </div>
 
     </div>
 
 @stop
-

@@ -10,7 +10,6 @@
     <a href="{{ route('admin.pages.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('pages::global.New')) }}</span></a>
 @stop
 
-
 @section('main')
 
     <div class="list-form" lang="{{ Config::get('app.locale') }}">

@@ -38,7 +38,6 @@
 
     </div>
 
-
     @if (Sentry::getUser()->hasAccess(array('admin.menus.index', 'admin.menulinks.index')))
 
     <div class="col-sm-4">
@@ -60,7 +59,6 @@
     </div>
 
     @endif
-
 
 </div>
 

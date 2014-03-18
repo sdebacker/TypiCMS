@@ -10,7 +10,6 @@
     <a href="{{ route('admin.places.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('places::global.New')) }}</span></a>
 @stop
 
-
 @section('main')
 
     <div class="list-form" lang="{{ Config::get('app.locale') }}">
