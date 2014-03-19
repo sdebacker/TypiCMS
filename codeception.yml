@@ -10,9 +10,12 @@ settings:
     memory_limit: 1024M
     log: true
 modules:
+    enabled: [Db]
     config:
         Db:
-            dsn: ''
-            user: ''
+            dsn: 'mysql:host=localhost;dbname=typicms'
+            user: 'root'
             password: ''
-            dump: app/tests/_data/dump.sql
+            dump: 'app/tests/_data/dump.sql'
+            populate: true
+            cleanup: false
