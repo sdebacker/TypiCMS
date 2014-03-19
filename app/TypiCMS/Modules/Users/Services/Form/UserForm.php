@@ -59,7 +59,7 @@ class UserForm
     public function update(array $input)
     {
         $this->validator->setRule('email', 'required|email|unique:users,email,'.$input['id']);
-        $this->validator->setRule('password', 'min:8');
+        $this->validator->setRule('password', 'min:8|confirmed');
         $this->validator->setRule('password_confirmation', '');
 
         if ( ! $this->valid($input) ) {

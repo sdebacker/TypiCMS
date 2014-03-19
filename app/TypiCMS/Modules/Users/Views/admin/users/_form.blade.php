@@ -31,30 +31,20 @@
             </div>
 
             <div class="col-sm-6">
-                @if(isset($user) and $user->id)
-                    <div class="form-group @if($errors->has('password'))has-error@endif">
-                        {{ Form::label('password', trans('Change password (if not empty)'), array('class' => 'control-label')) }}
-                        {{ Form::password('password', array('class' => 'form-control', 'autocomplete' => 'off')) }}
-                        @if($errors->has('password'))
-                        <span class="help-block">{{ $errors->first('password') }}</span>
-                        @endif
-                    </div>
-                @else
-                    <div class="form-group @if($errors->has('password'))has-error@endif">
-                        {{ Form::label('password', trans('validation.attributes.password'), array('class' => 'control-label')) }}
-                        {{ Form::password('password', array('class' => 'form-control', 'required' => 'required', 'autocomplete' => 'off')) }}
-                        @if($errors->has('password'))
-                        <span class="help-block">{{ $errors->first('password') }}</span>
-                        @endif
-                    </div>
-                    <div class="form-group @if($errors->has('password_confirmation'))has-error@endif">
-                        {{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation'), array('class' => 'control-label')) }}
-                        {{ Form::password('password_confirmation', array('class' => 'form-control', 'required' => 'required', 'autocomplete' => 'off')) }}
-                        @if($errors->has('password_confirmation'))
-                        <span class="help-block">{{ $errors->first('password_confirmation') }}</span>
-                        @endif
-                    </div>
-                @endif
+                <div class="form-group @if($errors->has('password'))has-error@endif">
+                    {{ Form::label('password', trans('validation.attributes.password'), array('class' => 'control-label')) }}
+                    {{ Form::password('password', array('class' => 'form-control', 'required' => 'required', 'autocomplete' => 'off')) }}
+                    @if($errors->has('password'))
+                    <span class="help-block">{{ $errors->first('password') }}</span>
+                    @endif
+                </div>
+                <div class="form-group @if($errors->has('password_confirmation'))has-error@endif">
+                    {{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation'), array('class' => 'control-label')) }}
+                    {{ Form::password('password_confirmation', array('class' => 'form-control', 'required' => 'required', 'autocomplete' => 'off')) }}
+                    @if($errors->has('password_confirmation'))
+                    <span class="help-block">{{ $errors->first('password_confirmation') }}</span>
+                    @endif
+                </div>
             </div>
 
         </div>

@@ -240,7 +240,7 @@ class SentryUser implements UserInterface
             }
         }
 
-        $data = array_except($data, array('_method', '_token', 'exit', 'groups'));
+        $data = array_except($data, array('_method', '_token', 'exit', 'groups', 'password_confirmation'));
 
         if (! $data['password']) {
             $data = array_except($data, 'password');
