@@ -153,6 +153,7 @@ abstract class AbstractPresenter implements ArrayAccess
     public function publicUri($lang)
     {
         $routeName = $lang . strstr(Route::current()->getName(), '.');
+        $routeName = preg_replace('/\.edit$/', '.slug', $routeName);
         // if model is translated and is online
         if (isset($this->object->$lang->slug) and $this->object->$lang->status) {
             return route($routeName, $this->object->$lang->slug);

@@ -79,6 +79,7 @@
             @show
         @yield('titleSmall')
         </h1>
+        <small><a href="{{ TypiCMS::getPublicUrl() }}">{{ TypiCMS::getPublicUrl() }}</a></small>
     </div>
     @show
 
@@ -88,6 +89,7 @@
 
     @include('admin._footer')
 
+    <!-- <a href="{{ TypiCMS::getPublicUrl() }}">{{ TypiCMS::getPublicUrl() }}</a> -->
 </div>
 
 </body>

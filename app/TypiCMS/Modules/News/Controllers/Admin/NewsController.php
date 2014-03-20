@@ -9,6 +9,8 @@ use Request;
 use Redirect;
 use Paginator;
 
+use TypiCMS;
+
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 use TypiCMS\Modules\News\Services\Form\NewsForm;
 
@@ -68,6 +70,8 @@ class NewsController extends BaseController
      */
     public function edit($model)
     {
+        $model = $this->presenter->model($model, new NewsPresenter);
+        TypiCMS::setModel($model);
         $this->title['child'] = trans('news::global.Edit');
         $this->layout->content = View::make('news.admin.edit')
             ->withModel($model);

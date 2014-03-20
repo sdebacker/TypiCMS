@@ -46,7 +46,7 @@ class TypiCMS
         foreach ($locales as $locale) {
             $langsArray[] = (object) array(
                 'lang' => $locale,
-                'url' => $this->getPublicUrl($locale),
+                'url' => $this->getTranslatedUrl($locale),
                 'class' => Config::get('app.locale') == $locale ? 'active' : ''
             );
         }
@@ -59,16 +59,41 @@ class TypiCMS
     * @param string $lang
     * @return string
     */
-    private function getPublicUrl($lang)
+    private function getTranslatedUrl($lang)
     {
         if ($this->model) {
             return $this->model->publicUri($lang);
         }
-        if ($routeName = Route::current()->getName()) {
+        if ($routeName = Route::current()->getName() != 'root') {
             $routeName = $lang . strstr(Route::current()->getName(), '.');
+            if ($routeName == $lang) {
+                return $lang;
+            }
             return route($routeName);
         }
         return $lang;
+    }
+
+    /**
+    * Get url from model
+    *
+    * @param string $lang
+    * @return string
+    */
+    public function getPublicUrl($lang = null)
+    {
+        $lang = $lang ?: Config::get('app.locale') ;
+        if ($this->model) {
+            return $this->model->publicUri($lang);
+        }
+        $routeArray = explode('.', Route::current()->getName());
+        $routeArray[0] = $lang;
+        array_pop($routeArray);
+        $route = implode('.', $routeArray);
+        if (in_array(last($routeArray), array('pages', 'files', 'categories'))) {
+            return $lang;
+        }
+        return route($route);
     }
 
 }
