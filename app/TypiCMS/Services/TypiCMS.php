@@ -90,10 +90,11 @@ class TypiCMS
         $routeArray[0] = $lang;
         array_pop($routeArray);
         $route = implode('.', $routeArray);
-        if (in_array(last($routeArray), array('pages', 'files', 'categories'))) {
-            return $lang;
+
+        if (Route::getRoutes()->hasNamedRoute($route)) {
+            return route($route);
         }
-        return route($route);
+        return $lang;
     }
 
 }
