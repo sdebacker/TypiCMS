@@ -16,34 +16,6 @@ class ListBuilder
         $this->items = $items;
     }
 
-    public function toHtml($parameters = array())
-    {
-        $ulClass = isset($parameters['class']) ? $parameters['class'] : '' ;
-        $ulId = isset($parameters['id']) ? $parameters['id'] : '' ;
-
-        if (count($this->items)) {
-            $this->list[] = ($this->list) ? '<ul class="dropdown-menu">' : '<ul id="'.$ulId.'" class="'.$ulClass.'" role="menu">' ;
-
-            foreach ($this->items as $item) {
-
-                // item
-                $this->list[] = '<li class="'.$item->class.'" id="item_'.$item->id.'" role="menuitem">';
-                $this->list[] = $item->anchor;
-
-                // sublists
-                if ($item->children) {
-                    $this->items = $item->children;
-                    $this->toHtml();
-                }
-
-                $this->list[] = '</li>';
-            }
-            $this->list[] = '</ul>';
-        }
-
-        return implode("\r\n", $this->list);
-    }
-
     public function sideList()
     {
         if (count($this->items)) {
