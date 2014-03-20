@@ -7,6 +7,8 @@ use Input;
 use Config;
 use Paginator;
 
+use TypiCMS;
+
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 
 // Presenter
@@ -58,6 +60,8 @@ class NewsController extends PublicController
         $this->title['parent'] = $model->title;
 
         $model = $this->presenter->model($model, new NewsPresenter);
+
+        TypiCMS::setModel($model);
 
         $this->layout->content = View::make('news.public.show')
             ->withModel($model);

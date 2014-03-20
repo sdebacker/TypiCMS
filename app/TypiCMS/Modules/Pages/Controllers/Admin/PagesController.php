@@ -3,6 +3,7 @@ namespace TypiCMS\Modules\Pages\Controllers\Admin;
 
 use View;
 use Input;
+use TypiCMS;
 use Request;
 use Redirect;
 
@@ -60,6 +61,8 @@ class PagesController extends BaseController
      */
     public function edit($model)
     {
+        $model = $this->presenter->model($model, new PagePresenter);
+        TypiCMS::setModel($model);
         $this->title['child'] = trans('pages::global.Edit');
         $this->layout->content = View::make('pages.admin.edit')
             ->withModel($model);

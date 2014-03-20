@@ -8,6 +8,8 @@ use Request;
 use Redirect;
 use Paginator;
 
+use TypiCMS;
+
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 use TypiCMS\Modules\Events\Services\Form\EventForm;
 
@@ -67,6 +69,8 @@ class EventsController extends BaseController
      */
     public function edit($model)
     {
+        $model = $this->presenter->model($model, new EventPresenter);
+        TypiCMS::setModel($model);
         $this->title['child'] = trans('events::global.Edit');
         $this->layout->content = View::make('events.admin.edit')
             ->with('model', $model);

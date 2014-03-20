@@ -77,27 +77,27 @@ abstract class Base extends Eloquent
         return $query->orderBy($order, $direction);
     }
 
-    // public static function boot()
-    // {
-    //     parent::boot();
+    public static function boot()
+    {
+        parent::boot();
 
-    //     static::created(function($model)
-    //     {
-    //         Cache::tags('Dashboard')->flush();
-    //     });
+        static::created(function($model)
+        {
+            Cache::tags('Dashboard')->flush();
+        });
 
-    //     static::deleted(function($model)
-    //     {
-    //         $module = ucfirst($model->table);
-    //         Cache::tags('Dashboard', $module)->flush();
-    //     });
+        static::deleted(function($model)
+        {
+            $module = ucfirst($model->table);
+            Cache::tags('Dashboard', $module)->flush();
+        });
 
-    //     static::saved(function($model)
-    //     {
-    //         $module = ucfirst($model->table);
-    //         Cache::tags($module)->flush();
-    //     });
+        static::saved(function($model)
+        {
+            $module = ucfirst($model->table);
+            Cache::tags($module)->flush();
+        });
 
-    // }
+    }
 
 }

@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Events\Presenters;
 
+use Route;
+
 use Carbon\Carbon;
 
 use TypiCMS\Presenters\AbstractPresenter;
@@ -29,4 +31,5 @@ class EventPresenter extends AbstractPresenter implements Presentable
 
         return ucfirst(trans('events::global.from')) . ' <time datetime="' . $sDateSQL . '">' . $sDate->formatLocalized($sDateFormat) . '</time> ' . trans('events::global.to') . ' <time datetime="' . $eDateSQL . '">' . $eDate->formatLocalized($dateFormat) . '</time>';
     }
+
 }

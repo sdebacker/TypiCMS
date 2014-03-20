@@ -43,13 +43,13 @@
 
         @section('header')
         <header>
-            <h1>{{ link_to_route($lang, Config::get('typicms.' . $lang . '.websiteTitle')) }}</h1>
+            <h1><a href="/{{ $lang }}">{{ Config::get('typicms.' . $lang . '.websiteTitle') }}</a></h1>
         </header>
         @show
 
         @section('languagesMenu')
         <nav role="navigation">
-            {{ HTML::languagesMenu(array('class' => 'nav nav-pills pull-right')) }}
+            {{ TypiCMS::languagesMenu(array('class' => 'nav nav-pills pull-right')) }}
         </nav>
         @show
 

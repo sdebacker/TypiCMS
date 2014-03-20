@@ -60,6 +60,23 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     }
 
     /**
+     * Get page by uri
+     *
+     * @param  string                      $uri
+     * @return TypiCMS\Modules\Models\Page $model
+     */
+    public function byUri($uri)
+    {
+        $model = $this->model
+            ->whereHas('translations', function($q) use ($uri)
+            {
+                $q->where('uri', $uri);
+                $q->where('status', 1);
+            })->firstOrFail();
+        return $model;
+    }
+
+    /**
      * Retrieve children pages
      *
      * @param  int        $id model ID
