@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Events\Presenters;
 
+use Route;
+
 use Carbon\Carbon;
 
 use TypiCMS\Presenters\AbstractPresenter;
@@ -28,5 +30,16 @@ class EventPresenter extends AbstractPresenter implements Presentable
         }
 
         return ucfirst(trans('events::global.from')) . ' <time datetime="' . $sDateSQL . '">' . $sDate->formatLocalized($sDateFormat) . '</time> ' . trans('events::global.to') . ' <time datetime="' . $eDateSQL . '">' . $eDate->formatLocalized($dateFormat) . '</time>';
+    }
+
+    public function buildUri($lang)
+    {
+        $routeName = Route::current()->getName();
+        $routeArray = explode('.', Route::current()->getName());
+
+        $routeArray[0] = $lang;
+        $translatedRoute = implode('.', $routeArray);
+
+        return route($translatedRoute, $this->object->$lang->slug);
     }
 }

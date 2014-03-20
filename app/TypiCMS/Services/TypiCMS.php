@@ -45,7 +45,7 @@ class TypiCMS
         foreach ($locales as $locale) {
             $langsArray[] = (object) array(
                 'lang' => $locale,
-                'url' => '/' . $this->getUrl($locale),
+                'url' => $this->getUrl($locale),
                 'class' => Config::get('app.locale') == $locale ? 'active' : ''
             );
         }
@@ -61,7 +61,7 @@ class TypiCMS
     private function getUrl($lang)
     {
         if ($this->model) {
-            return $this->model->$lang->uri;
+            return $this->model->buildUri($lang);
         }
         return $lang;
     }

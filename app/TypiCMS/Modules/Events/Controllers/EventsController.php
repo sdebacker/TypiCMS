@@ -7,6 +7,8 @@ use Input;
 use Config;
 use Paginator;
 
+use TypiCMS;
+
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 
 // Presenter
@@ -54,6 +56,10 @@ class EventsController extends PublicController
     public function show($slug)
     {
         $model = $this->repository->bySlug($slug);
+
+        $model = $this->presenter->model($model, new EventPresenter);
+
+        TypiCMS::setModel($model);
 
         $this->title['parent'] = $model->title;
 

@@ -7,13 +7,15 @@ use View;
 use Route;
 
 use TypiCMS;
+
+use TypiCMS\Modules\Pages\Repositories\PageInterface;
+
 // Presenter
 use TypiCMS\Presenters\Presenter;
 use TypiCMS\Modules\Pages\Presenters\PagePresenter;
 
+// Base controller
 use TypiCMS\Controllers\PublicController;
-
-use TypiCMS\Modules\Pages\Repositories\PageInterface;
 
 class PagesController extends PublicController
 {
