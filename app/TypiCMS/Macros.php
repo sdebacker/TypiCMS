@@ -30,10 +30,22 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
     return implode($th);
 });
 
-HTML::macro('languagesMenu', function ($attributes)
-{
-    $attributes['id'] = 'nav-languages';
-    return with(new TypiCMS\Services\ListBuilder)->languagesMenuHtml($attributes);
+HTML::macro('languagesMenu', function(array $langsArray = array(), array $attributes = array()){
+
+    $attributes['role'] = 'menu';
+    $attributes = HTML::attributes($attributes);
+
+    $html = array();
+    $html[] = '<ul ' . $attributes . '>';
+    foreach ($langsArray as $item) {
+        $html[] = '<li class="' . $item->class . '" role="menuitem">';
+        $html[] = '<a href="' . $item->url . '">' . $item->lang . '</a>';
+        $html[] = '</li>';
+    }
+    $html[] = '</ul>';
+
+    return implode("\r\n", $html);
+
 });
 
 HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) use (&$builtMenu)

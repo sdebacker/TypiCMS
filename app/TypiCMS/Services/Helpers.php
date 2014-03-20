@@ -71,6 +71,7 @@ class Helpers
      */
     public static function getAdminUrl()
     {
+        return route('dashboard');
         $routeName = Route::current()->getName();
 
         if ( ! $routeName) {

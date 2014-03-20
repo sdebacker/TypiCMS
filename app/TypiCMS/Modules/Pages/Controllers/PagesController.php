@@ -6,6 +6,11 @@ use Str;
 use View;
 use Route;
 
+use TypiCMS;
+// Presenter
+use TypiCMS\Presenters\Presenter;
+use TypiCMS\Modules\Pages\Presenters\PagePresenter;
+
 use TypiCMS\Controllers\PublicController;
 
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
@@ -13,9 +18,9 @@ use TypiCMS\Modules\Pages\Repositories\PageInterface;
 class PagesController extends PublicController
 {
 
-    public function __construct(PageInterface $page)
+    public function __construct(PageInterface $page, Presenter $presenter)
     {
-        parent::__construct($page);
+        parent::__construct($page, $presenter);
         $this->title['parent'] = Str::title(trans_choice('pages::global.pages', 2));
     }
 
@@ -75,6 +80,10 @@ class PagesController extends PublicController
     private function prepareForView($model = null)
     {
         $this->title['parent'] = $model->title;
+
+        $model = $this->presenter->model($model, new PagePresenter);
+
+        TypiCMS::setModel($model);
 
         // get children pages
         $childrenModels = $this->repository->getChildren($model->uri);

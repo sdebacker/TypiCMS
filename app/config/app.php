@@ -143,6 +143,7 @@ return array(
 
 		'TypiCMS\Providers\StartProvider',
 		'TypiCMS\Providers\UploadServiceProvider',
+		'TypiCMS\Providers\TypiCMSServiceProvider',
 
 	),
 
@@ -220,6 +221,7 @@ return array(
 
 		'Menu'            => 'TypiCMS\Modules\Menus\Models\Menu',
 		'FileUpload'      => 'TypiCMS\Facades\FileUpload',
+		'TypiCMS'         => 'TypiCMS\Facades\TypiCMS',
 
 		
 	),

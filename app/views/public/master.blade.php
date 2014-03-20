@@ -49,7 +49,7 @@
 
         @section('languagesMenu')
         <nav role="navigation">
-            {{ HTML::languagesMenu(array('class' => 'nav nav-pills pull-right')) }}
+            {{ TypiCMS::languagesMenu(array('class' => 'nav nav-pills pull-right')) }}
         </nav>
         @show
 
