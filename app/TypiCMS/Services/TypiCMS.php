@@ -2,6 +2,7 @@
 namespace TypiCMS\Services;
 
 use HTML;
+use Route;
 use Config;
 
 /**
@@ -45,7 +46,7 @@ class TypiCMS
         foreach ($locales as $locale) {
             $langsArray[] = (object) array(
                 'lang' => $locale,
-                'url' => $this->getUrl($locale),
+                'url' => $this->getPublicUrl($locale),
                 'class' => Config::get('app.locale') == $locale ? 'active' : ''
             );
         }
@@ -58,10 +59,14 @@ class TypiCMS
     * @param string $lang
     * @return string
     */
-    private function getUrl($lang)
+    private function getPublicUrl($lang)
     {
         if ($this->model) {
-            return $this->model->buildUri($lang);
+            return $this->model->publicUri($lang);
+        }
+        if ($routeName = Route::current()->getName() != 'root') {
+            $routeName = $lang . strstr(Route::current()->getName(), '.');
+            return route($routeName);
         }
         return $lang;
     }

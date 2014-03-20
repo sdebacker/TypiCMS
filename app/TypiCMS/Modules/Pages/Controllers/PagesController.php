@@ -4,7 +4,7 @@ namespace TypiCMS\Modules\Pages\Controllers;
 use App;
 use Str;
 use View;
-use Route;
+use Config;
 
 use TypiCMS;
 
@@ -33,6 +33,7 @@ class PagesController extends PublicController
      */
     public function homepage($lang = null)
     {
+        ! in_array($lang, Config::get('app.locales')) and App::abort(404);
         $model = $this->repository->getFirstBy('is_home', 1, array('files', 'files.translations'));
         $this->prepareForView($model);
     }
