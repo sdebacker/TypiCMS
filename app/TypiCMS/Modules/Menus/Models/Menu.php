@@ -52,17 +52,13 @@ class Menu extends Base
      */
     public static function build($name, $attributes = array())
     {
-        if ($name == 'languages') {
-            $attributes['id'] = 'nav-languages';
-
-            return with(new ListBuilder)->languagesMenuHtml($attributes);
-        }
-        $menu = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getMenu($name);
-        $attributes['class'] = $menu->getClass();
+        
+        $items = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getMenu($name);
+        $attributes['class'] = $items->getClass();
         $attributes['id'] = 'nav-' . $name;
         $attributes['role'] = 'menu';
 
-        return HTML::menu($menu, $attributes);
+        return HTML::menu($items, $attributes);
     }
 
     /**

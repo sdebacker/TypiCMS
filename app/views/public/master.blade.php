@@ -49,7 +49,7 @@
 
         @section('languagesMenu')
         <nav role="navigation">
-            {{ Menu::build('languages', array('class' => 'nav nav-pills pull-right')) }}
+            {{ HTML::languagesMenu(array('class' => 'nav nav-pills pull-right')) }}
         </nav>
         @show
 
