@@ -29,7 +29,6 @@ class Helpers
         return DB::table($module)
                 ->join($moduleSingular.'_translations', $module.'.id', '=', $moduleSingular.'_translations.'.$moduleSingular.'_id')
                 ->where('slug', $slug)
-                ->remember(10)
                 ->pluck($module.'.id');
     }
 
@@ -50,7 +49,6 @@ class Helpers
                 ->join($moduleSingular.'_translations', $module.'.id', '=', $moduleSingular.'_translations.'.$moduleSingular.'_id')
                 ->where($module.'.id', $id)
                 ->where($moduleSingular.'_translations.status', 1)
-                ->remember(10)
                 ->lists('slug', 'locale');
     }
 
@@ -59,13 +57,12 @@ class Helpers
      *
      * @return integer
      */
-    public static function getHomepageId()
-    {
-        return DB::table('pages')
-                ->where('is_home', 1)
-                ->remember(10)
-                ->pluck('id');
-    }
+    // public static function getHomepageId()
+    // {
+    //     return DB::table('pages')
+    //             ->where('is_home', 1)
+    //             ->pluck('id');
+    // }
 
     /**
      * Get admin url from current page.
@@ -74,7 +71,15 @@ class Helpers
      */
     public static function getAdminUrl()
     {
-        $routeArray = explode('.', Route::current()->getName());
+        $routeName = Route::current()->getName();
+
+        if ( ! $routeName) {
+            $slug = last(Request::segments());
+            $id = Helpers::getIdFromSlug('pages', $slug);
+            return route('admin.pages.edit', $id);
+        }
+
+        $routeArray = explode('.', $routeName);
 
         $module = isset($routeArray[1]) ? $routeArray[1] : 'pages' ;
 
@@ -132,35 +137,36 @@ class Helpers
      */
     public static function getPublicUrl()
     {
-        $segments = Request::segments();
-        array_shift($segments);
-        $lang = Config::get('app.locale');
+        return '/';
+        // $segments = Request::segments();
+        // array_shift($segments);
+        // $lang = Config::get('app.locale');
 
-        switch (count($segments)) {
-            case 0:
-                return '';
-                break;
+        // switch (count($segments)) {
+        //     case 0:
+        //         return '';
+        //         break;
 
-            case 1:
-                try {
-                    return route($lang.'.'.$segments[0]);
-                } catch (\InvalidArgumentException $e) {
-                    return route($lang);
-                }
-                break;
+        //     case 1:
+        //         try {
+        //             return route($lang.'.'.$segments[0]);
+        //         } catch (\InvalidArgumentException $e) {
+        //             return route($lang);
+        //         }
+        //         break;
 
-            default:
-                try {
-                    return route($lang.'.'.$segments[0].'.'.$segments[1]);
-                } catch (\InvalidArgumentException $e) {
-                    try {
-                        return route($lang.'.'.$segments[0]);
-                    } catch (\InvalidArgumentException $e) {
-                        return route($lang);
-                    }
-                }
-                break;
-        }
+        //     default:
+        //         try {
+        //             return route($lang.'.'.$segments[0].'.'.$segments[1]);
+        //         } catch (\InvalidArgumentException $e) {
+        //             try {
+        //                 return route($lang.'.'.$segments[0]);
+        //             } catch (\InvalidArgumentException $e) {
+        //                 return route($lang);
+        //             }
+        //         }
+        //         break;
+        // }
     }
 
 }

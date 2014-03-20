@@ -43,7 +43,7 @@
 
         @section('header')
         <header>
-            <h1>{{ link_to_route($lang, Config::get('typicms.' . $lang . '.websiteTitle')) }}</h1>
+            <h1><a href="/{{ $lang }}">{{ Config::get('typicms.' . $lang . '.websiteTitle') }}</a></h1>
         </header>
         @show
 

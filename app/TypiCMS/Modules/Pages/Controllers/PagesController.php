@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Pages\Controllers;
 
+use App;
 use Str;
 use View;
 use Route;
@@ -19,20 +20,60 @@ class PagesController extends PublicController
     }
 
     /**
-     * Show page from current uri.
+     * Page uri : lang
      *
      * @return void
      */
-    public function uri()
+    public function homepage($lang = null)
     {
-        $pathArray = explode('.', Route::current()->getName());
-        if (count($pathArray) == 1) { // there is only language, so we are on homepage
-            $model = $this->repository->getFirstBy('is_home', 1, array('files', 'files.translations'));
-        } else {
-            $id = array_pop($pathArray);
-            $model = $this->repository->byId($id, array('files', 'files.translations'));
-        }
+        $model = $this->repository->getFirstBy('is_home', 1, array('files', 'files.translations'));
+        $this->prepareForView($model);
+    }
 
+    /**
+     * Page uri : lang/slug
+     *
+     * @return void
+     */
+    public function slug($lang = null, $slug = null)
+    {
+        $uri = $lang . '/' . $slug;
+        $model = $this->repository->byUri($uri);
+        $this->prepareForView($model);
+    }
+
+    /**
+     * Page uri : lang/slug/slug
+     *
+     * @return void
+     */
+    public function niv1($lang = null, $niv1 = null, $slug = null)
+    {
+        $uri = $lang . '/' . $niv1 . '/' . $slug;
+        $model = $this->repository->byUri($uri);
+        $this->prepareForView($model);
+    }
+
+    /**
+     * Page uri : lang/slug/slug/slug
+     *
+     * @return void
+     */
+    public function niv2($lang = null, $niv1 = null, $niv2 = null, $slug = null)
+    {
+        $uri = $lang . '/' . $niv1 . '/' . $niv2 . '/' . $slug;
+        $model = $this->repository->byUri($uri);
+        $this->prepareForView($model);
+    }
+
+    /**
+     * Show page from model.
+     *
+     * @param Model $model
+     * @return void
+     */
+    private function prepareForView($model = null)
+    {
         $this->title['parent'] = $model->title;
 
         // get children pages

@@ -60,34 +60,14 @@ class ListBuilder
      */
     public function languagesMenu($parameters, $html = false)
     {
+        $routeName = Route::current()->getName();
+
+        if ( ! $routeName) {
+            $slug = last(Request::segments());
+            $id = Helpers::getIdFromSlug('pages', $slug);
+        }
 
         $routeArray = explode('.', Route::current()->getName());
-
-        $module = isset($routeArray[1]) ? $routeArray[1] : 'pages' ;
-        $segments = Request::segments();
-
-        if (end($routeArray) == 'slug') {
-            // Last segment is a slug
-            $slug = end($segments);
-            $id = Helpers::getIdFromSlug($module, $slug);
-            $slugs = Helpers::getSlugsFromId($module, $id);
-        }
-
-        if (isset($routeArray[2]) and $routeArray[2] == 'categories') {
-            // There is a category
-            if (end($routeArray) != 'categories') {
-                array_pop($segments);
-            }
-            $category = end($segments);
-
-            $id = Helpers::getIdFromSlug('categories', $category);
-            $categories = DB::table($module)
-                ->join('categories', 'projects.category_id', '=', 'categories.id')
-                ->join('category_translations', 'category_translations.category_id', '=', 'categories.id')
-                ->where('categories.id', $id)
-                ->where('category_translations.status', 1)
-                ->lists('slug', 'locale');
-        }
 
         $languagesMenu = array();
 
@@ -95,37 +75,9 @@ class ListBuilder
 
             foreach (Config::get('app.locales') as $lg) {
 
-                // Build translated routes
-                $translatedRouteArray = $routeArray;
-                $translatedRouteArray[0] = $lg;
-
-                $translatedRouteName = implode('.', $translatedRouteArray);
-                $routeParams = array();
-
-                if (in_array('categories', $translatedRouteArray)) {
-                    if (isset($categories[$lg])) {
-                        $routeParams[] = $categories[$lg];
-                    } else {
-                        array_pop($translatedRouteArray);
-                    }
-                }
-                if (in_array('slug', $translatedRouteArray)) {
-                    if (isset($slugs[$lg])) {
-                        $routeParams[] = $slugs[$lg];
-                    } else {
-                        array_pop($translatedRouteArray);
-                    }
-                }
-                $translatedRouteName = implode('.', $translatedRouteArray);
-
-                // single page or module index
-                $route = Route::getRoutes()->hasNamedRoute($translatedRouteName);
-                // if route in this lang doesn't exist, redirect to homepage
-                ! $route and $translatedRouteName = $lg;
-
                 $languagesMenu[] = (object) array(
                     'lang' => $lg,
-                    'url' => route($translatedRouteName, $routeParams),
+                    'url' => '/' . $lg,
                     'class' => Config::get('app.locale') == $lg ? 'active' : ''
                 );
 
