@@ -39,8 +39,6 @@ class PublicController extends Controller
 
         $modules = TypiCMS::getModules();
 
-        TypiCMS::setDefaultLocale(Config::get('app.locale'));
-
         // Set locale (taken from URL)
         $firstSegment = Request::segment(1);
         if (in_array($firstSegment, Config::get('app.locales'))) {

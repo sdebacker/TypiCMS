@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Providers;
 
+use Config;
+
 use Illuminate\Support\ServiceProvider;
 
 use TypiCMS\Services\TypiCMS;
@@ -17,5 +19,7 @@ class TypiCMSServiceProvider extends ServiceProvider
         $this->app['typicms'] = $this->app->share(function ($app) {
             return new TypiCMS;
         });
+
     }
+
 }
