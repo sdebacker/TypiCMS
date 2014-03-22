@@ -44,7 +44,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
         $model = $this->repo->byUri($uri);
 
         // Store in cache for next request
-        $this->cache->put($cacheKey, $models);
+        $this->cache->put($cacheKey, $model);
 
         return $model;
     }
