@@ -53,7 +53,9 @@
 
 <body>
 
-{{ $navBar }}
+@if (Sentry::getUser())
+    @include('_navbar')
+@endif
 
 <div class="container-global col-xs-12">
 
@@ -79,7 +81,6 @@
             @show
         @yield('titleSmall')
         </h1>
-        <small><a href="{{ TypiCMS::getPublicUrl() }}">{{ TypiCMS::getPublicUrl() }}</a></small>
     </div>
     @show
 

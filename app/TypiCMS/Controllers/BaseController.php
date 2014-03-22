@@ -52,31 +52,12 @@ abstract class BaseController extends Controller
     public function __construct($repository = null, $form = null, $presenter = null)
     {
         $this->repository = $repository;
-        $this->form = $form;
-        $this->presenter = $presenter;
+        $this->form       = $form;
+        $this->presenter  = $presenter;
 
-        // App::getLocale() and Config::get('app.locale') is set by Input::get('locale') (cf. global.php)
-        // Lang::getLocale() is default value for admin interface
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
 
-        $navBar = null;
-        if (Sentry::getUser()) {
-            // Link to public side
-            $link = TypiCMS::publicLink();
-
-            $modules = array();
-            foreach (Config::get('app.modules') as $module => $property) {
-                if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
-                    $modules[$module] = $property;
-                }
-            }
-            // Render top bar before getting current lang from url
-            $navBar = View::make('_navbar')
-                ->with('navBarModules', $modules)
-                ->withLink($link)
-                ->withTitle($this->applicationName)
-                ->render();
-        }
+        $modules = TypiCMS::getModules();
 
         $instance = $this;
         View::composer($this->layout, function ($view) use ($instance) {
@@ -84,7 +65,7 @@ abstract class BaseController extends Controller
             $view->with('h1', $instance->getH1());
         });
 
-        View::share('navBar', $navBar);
+        View::share('modules', $modules);
         View::share('locales', Config::get('app.locales'));
         View::share('locale', Config::get('app.locale'));
     }

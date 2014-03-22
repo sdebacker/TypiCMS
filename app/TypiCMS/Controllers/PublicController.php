@@ -35,27 +35,11 @@ class PublicController extends Controller
     public function __construct($repository = null, $presenter = null)
     {
         $this->repository = $repository;
-        $this->presenter = $presenter;
+        $this->presenter  = $presenter;
 
-        $navBarTitle = Config::get('typicms.' . App::getLocale() . '.websiteTitle');
-        $navBar = null;
-        if (Sentry::getUser()) {
-            // Link to admin side
-            $link = TypiCMS::adminLink();
+        $modules = TypiCMS::getModules();
 
-            $modules = array();
-            foreach (Config::get('app.modules') as $module => $property) {
-                if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
-                    $modules[$module] = $property;
-                }
-            }
-            // Render top bar before getting current lang from url
-            $navBar = View::make('_navbar')
-                ->with('navBarModules', $modules)
-                ->withLink($link)
-                ->withTitle($navBarTitle)
-                ->render();
-        }
+        TypiCMS::setDefaultLocale(Config::get('app.locale'));
 
         // Set locale (taken from URL)
         $firstSegment = Request::segment(1);
@@ -71,7 +55,7 @@ class PublicController extends Controller
             $view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));
         });
 
-        View::share('navBar', $navBar);
+        View::share('modules', $modules);
         View::share('lang', App::getLocale() );
 
     }

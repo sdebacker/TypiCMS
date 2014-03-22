@@ -37,9 +37,9 @@
 
     <a href="#content" class="sr-only">@lang('db.Skip to content')</a>
 
-    {{ $navBar }}
-
-    {{ TypiCMS::adminLink() }}
+@if (Sentry::getUser())
+    @include('_navbar')
+@endif
 
     <div class="container" id="content">
 

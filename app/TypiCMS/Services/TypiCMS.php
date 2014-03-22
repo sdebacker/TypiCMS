@@ -1,9 +1,13 @@
 <?php
 namespace TypiCMS\Services;
 
+use App;
 use HTML;
 use Route;
 use Config;
+use Request;
+
+use Sentry;
 
 /**
 * LangSwitcher
@@ -11,6 +15,12 @@ use Config;
 class TypiCMS
 {
     private $model;
+    private $locale;
+
+    public function __construct()
+    {
+        $this->locale = Config::get('app.locale');
+    }
 
     /**
     * Set model
@@ -20,6 +30,26 @@ class TypiCMS
     public function setModel($model)
     {
         $this->model = $model;
+    }
+
+    /**
+    * Set default locale
+    *
+    * @param String $locale
+    */
+    public function setDefaultLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+
+    /**
+    * Get default locale
+    *
+    * @return String $locale
+    */
+    public function getDefaultLocale()
+    {
+        return $this->locale;
     }
 
     /**
@@ -106,7 +136,7 @@ class TypiCMS
     public function publicLink(array $attributes = array())
     {
         $url = $this->getPublicUrl();
-        $title = ucfirst(trans('global.view website'));
+        $title = ucfirst(trans('global.view website', array(), null, $this->getDefaultLocale()));
         return HTML::link($url, $title, $attributes);
     }
 
@@ -119,12 +149,62 @@ class TypiCMS
     public function adminLink(array $attributes = array())
     {
         $url = route('dashboard');
-        $title = ucfirst(trans('global.admin side'));
+        $title = ucfirst(trans('global.admin side', array(), null, $this->getDefaultLocale()));
         if ($this->model) {
-            $url = route('admin.' . $this->model->route . '.edit', $this->model->id);
-            $title = 'Edit ' . $this->model->title;
+            $url = route('admin.' . $this->model->route . '.edit', $this->model->id) . '?locale=' . App::getLocale();
+            // $title = 'Edit ' . $this->model->title;
         }
         return HTML::link($url, $title, $attributes);
     }
+
+    /**
+    * Build admin or public link
+    *
+    * @param array $attributes
+    * @return string
+    */
+    public function otherSideLink(array $attributes = array())
+    {
+        if ($this->isAdmin()) {
+            return $this->publicLink($attributes);
+        }
+        return $this->adminLink($attributes);
+    }
+
+    /**
+    * Build admin or public link
+    *
+    * @param array $attributes
+    * @return string
+    */
+    public function isAdmin()
+    {
+        if (Request::segment(1) == 'admin') {
+            return true;
+        }
+        return false; 
+    }
+
+    
+    /**
+    * Build admin or public link
+    *
+    * @param array $attributes
+    * @return string
+    */
+    public function getModules()
+    {
+        $modules = array();
+        if (Sentry::getUser()) {
+            foreach (Config::get('app.modules') as $module => $property) {
+                if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
+                    $modules[$module] = $property;
+                }
+            }
+        }
+        return $modules;
+    }
+
+
 
 }
