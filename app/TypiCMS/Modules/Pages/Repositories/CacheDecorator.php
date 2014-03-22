@@ -26,6 +26,30 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
         return $this->repo->getAllUris();
     }
 
+
+    /**
+     * Get page by uri
+     *
+     * @param  string                      $uri
+     * @return TypiCMS\Modules\Models\Page $model
+     */
+    public function byUri($uri)
+    {
+        $cacheKey = md5(App::getLocale().'byUri.'.$uri);
+
+        if ( $this->cache->has($cacheKey) ) {
+            return $this->cache->get($cacheKey);
+        }
+
+        $model = $this->repo->byUri($uri);
+
+        // Store in cache for next request
+        $this->cache->put($cacheKey, $models);
+
+        return $model;
+    }
+
+
     /**
      * Retrieve children pages
      *
