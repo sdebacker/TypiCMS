@@ -21,7 +21,8 @@ class SettingsSeeder extends Seeder
             array('id' => '12','package' => NULL,'group_name' => 'config','key_name' => 'welcomeMessage','value' => 'Welcome to the administration panel.','type' => '','environment' => NULL,'created_at' => '2014-03-18 12:48:01','updated_at' => '2014-03-18 12:48:01'),
             array('id' => '13','package' => NULL,'group_name' => 'config','key_name' => 'googleAnalyticsUniversalCode','value' => '','type' => '','environment' => NULL,'created_at' => '2014-03-18 12:48:01','updated_at' => '2014-03-18 12:48:01'),
             array('id' => '14','package' => NULL,'group_name' => 'config','key_name' => 'authPublic','value' => NULL,'type' => '','environment' => NULL,'created_at' => '2014-03-18 12:48:01','updated_at' => '2014-03-18 12:48:01'),
-            array('id' => '15','package' => NULL,'group_name' => 'config','key_name' => 'register','value' => NULL,'type' => '','environment' => NULL,'created_at' => '2014-03-18 12:48:01','updated_at' => '2014-03-18 12:48:01')
+            array('id' => '15','package' => NULL,'group_name' => 'config','key_name' => 'register','value' => NULL,'type' => '','environment' => NULL,'created_at' => '2014-03-18 12:48:01','updated_at' => '2014-03-18 12:48:01'),
+            array('id' => '16','package' => NULL,'group_name' => 'config','key_name' => 'adminLocale','value' => 'en','type' => '','environment' => NULL,'created_at' => '2014-03-22 12:48:01','updated_at' => '2014-03-22 12:48:01')
         );
 
         DB::table('settings')->insert( $typi_settings );

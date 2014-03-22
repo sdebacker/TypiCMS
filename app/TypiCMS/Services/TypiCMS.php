@@ -15,12 +15,6 @@ use Sentry;
 class TypiCMS
 {
     private $model;
-    private $locale;
-
-    public function __construct()
-    {
-        $this->locale = Config::get('app.locale');
-    }
 
     /**
     * Set model
@@ -30,26 +24,6 @@ class TypiCMS
     public function setModel($model)
     {
         $this->model = $model;
-    }
-
-    /**
-    * Set default locale
-    *
-    * @param String $locale
-    */
-    public function setDefaultLocale($locale)
-    {
-        $this->locale = $locale;
-    }
-
-    /**
-    * Get default locale
-    *
-    * @return String $locale
-    */
-    public function getDefaultLocale()
-    {
-        return $this->locale;
     }
 
     /**
@@ -136,7 +110,7 @@ class TypiCMS
     public function publicLink(array $attributes = array())
     {
         $url = $this->getPublicUrl();
-        $title = ucfirst(trans('global.view website', array(), null, $this->getDefaultLocale()));
+        $title = ucfirst(trans('global.view website', array(), null, Config::get('typicms.adminLocale')));
         return HTML::link($url, $title, $attributes);
     }
 
@@ -149,7 +123,7 @@ class TypiCMS
     public function adminLink(array $attributes = array())
     {
         $url = route('dashboard');
-        $title = ucfirst(trans('global.admin side', array(), null, $this->getDefaultLocale()));
+        $title = ucfirst(trans('global.admin side', array(), null, Config::get('typicms.adminLocale')));
         if ($this->model) {
             $url = route('admin.' . $this->model->route . '.edit', $this->model->id) . '?locale=' . App::getLocale();
             // $title = 'Edit ' . $this->model->title;

@@ -205,6 +205,7 @@ return array(
         'googleAnalyticsCode' => 'Google Analytics Code',
         'langChooser' => 'Lang chooser',
         'welcomeMessage' => 'Administration welcome message',
+        'adminLocale' => 'Administration language',
         'welcomeMessageURL' => 'Administration welcome message URL',
         'authPublic' => 'Authenticate to view website',
         'registration allowed' => 'Registration allowed',

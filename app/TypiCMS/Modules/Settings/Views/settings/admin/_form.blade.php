@@ -46,6 +46,13 @@
     <span class="help-block">{{ $errors->first('welcomeMessage') }}</span>
     @endif
 </div>
+<div class="form-group @if($errors->has('adminLocale'))has-error@endif">
+    {{ Form::label('adminLocale', trans('validation.attributes.adminLocale'), array('class' => 'control-label')) }}
+    {{ Form::select('adminLocale', array('en' => 'English', 'fr' => 'French'), null, array('class' => 'form-control')) }}
+    @if($errors->has('adminLocale'))
+    <span class="help-block">{{ $errors->first('adminLocale') }}</span>
+    @endif
+</div>
 <div class="form-group @if($errors->has('typekitCode'))has-error@endif">
     {{ Form::label('typekitCode', trans('validation.attributes.typekitCode'), array('class' => 'control-label')) }}
     {{ Form::text('typekitCode', null, array('class' => 'form-control')) }}

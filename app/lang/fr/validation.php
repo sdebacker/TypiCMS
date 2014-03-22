@@ -205,6 +205,7 @@ return array(
         'googleAnalyticsCode' => 'Google Analytics Classic',
         'langChooser' => 'Page de choix de langue',
         'welcomeMessage' => 'Message d’accueil de l’interface d’administration',
+        'adminLocale' => 'Langue de l’interface d’administration',
         'welcomeMessageURL' => 'URL du message d’accueil de l’interface d’administration',
         'authPublic' => 'Se connecter pour voir le site',
         'registration allowed' => 'Permettre la création de comptes utilisateurs',
