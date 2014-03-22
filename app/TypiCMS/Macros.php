@@ -87,5 +87,3 @@ HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) 
     return implode("\r\n", $menuList);
 
 });
-
-

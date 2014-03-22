@@ -39,6 +39,8 @@
 
     {{ $navBar }}
 
+    {{ TypiCMS::adminLink() }}
+
     <div class="container" id="content">
 
         @section('header')

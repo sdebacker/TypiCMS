@@ -94,7 +94,24 @@ class TypiCMS
         if (Route::getRoutes()->hasNamedRoute($route)) {
             return route($route);
         }
-        return $lang;
+        return '/' . $lang;
+    }
+
+    /**
+    * Build admin link
+    *
+    * @param array $attributes
+    * @return string
+    */
+    public function adminLink(array $attributes = array())
+    {
+        $url = route('dashboard');
+        $title = ucfirst(trans('global.admin side'));
+        if ($this->model) {
+            $url = route('admin.' . $this->model->route . '.edit', $this->model->id);
+            $title = 'Edit ' . $this->model->title;
+        }
+        return HTML::link($url, $title, $attributes);
     }
 
 }
