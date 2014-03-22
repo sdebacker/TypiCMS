@@ -8,9 +8,9 @@ use Config;
 use Request;
 use Controller;
 
-use TypiCMS\Services\Helpers;
+use TypiCMS;
 
-// Base controller
+use TypiCMS\Services\Helpers;
 
 class PublicController extends Controller
 {
@@ -41,7 +41,7 @@ class PublicController extends Controller
         $navBar = null;
         if (Sentry::getUser()) {
             // Link to admin side
-            $url = array('url' => Helpers::getAdminUrl(), 'label' => 'admin side');
+            $link = TypiCMS::adminLink();
 
             $modules = array();
             foreach (Config::get('app.modules') as $module => $property) {
@@ -52,7 +52,7 @@ class PublicController extends Controller
             // Render top bar before getting current lang from url
             $navBar = View::make('_navbar')
                 ->with('navBarModules', $modules)
-                ->withUrl($url)
+                ->withLink($link)
                 ->withTitle($navBarTitle)
                 ->render();
         }

@@ -8,6 +8,8 @@ use Config;
 use Request;
 use Controller;
 
+use TypiCMS;
+
 use TypiCMS\Services\Helpers;
 
 abstract class BaseController extends Controller
@@ -60,7 +62,7 @@ abstract class BaseController extends Controller
         $navBar = null;
         if (Sentry::getUser()) {
             // Link to public side
-            $url = array('url' => Helpers::getPublicUrl(), 'label' => 'view website');
+            $link = TypiCMS::publicLink();
 
             $modules = array();
             foreach (Config::get('app.modules') as $module => $property) {
@@ -71,7 +73,7 @@ abstract class BaseController extends Controller
             // Render top bar before getting current lang from url
             $navBar = View::make('_navbar')
                 ->with('navBarModules', $modules)
-                ->withUrl($url)
+                ->withLink($link)
                 ->withTitle($this->applicationName)
                 ->render();
         }

@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if ($navBarModules)
-                    <li>{{ link_to($url['url'], ucfirst(trans('global.'.$url['label']))) }}</li>
+                    <li>{{ $link }}</li>
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
                         <ul class="dropdown-menu">

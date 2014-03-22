@@ -98,6 +98,19 @@ class TypiCMS
     }
 
     /**
+    * Build public link
+    *
+    * @param array $attributes
+    * @return string
+    */
+    public function publicLink(array $attributes = array())
+    {
+        $url = $this->getPublicUrl();
+        $title = ucfirst(trans('global.view website'));
+        return HTML::link($url, $title, $attributes);
+    }
+
+    /**
     * Build admin link
     *
     * @param array $attributes
