@@ -42,7 +42,7 @@ function initTinymce(selector) {
 			var tags = $.getJSON("/admin/tags", function(data){
 				$('#tags').select2({
 					tags: data,
-					tokenSeparators: [",", " "]
+					tokenSeparators: [',']
 				});
 			})
 		};
