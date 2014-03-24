@@ -3,6 +3,7 @@ namespace TypiCMS\Repositories;
 
 use StdClass;
 
+use DB;
 use Str;
 use App;
 use Config;
@@ -233,8 +234,9 @@ abstract class RepositoriesAbstract
 
                 $parent = $parent ? : 0 ;
 
-                $this->model->find($id)
-                    ->update(array('position' => $position, 'parent' => $parent));
+                DB::table($this->model->getTable())
+                  ->where('id', $id)
+                  ->update(array('position' => $position, 'parent' => $parent));
 
             }
 
