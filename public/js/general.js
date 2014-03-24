@@ -11,7 +11,7 @@ function translate(string) {
 	// } else {
 	// 	return string;
 	// }
-		return string;
+	return string;
 }
 
 function showMessage(responsetext, responsetype) {
