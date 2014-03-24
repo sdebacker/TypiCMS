@@ -42,6 +42,17 @@ class PagesControllerTest extends TestCase
         $this->assertRedirectedToRoute('admin.pages.edit', array('id' => 1));
     }
 
+    public function testUpdateSuccess()
+    {
+        $object = new StdClass;
+
+        $object->id = 1;
+        Page::shouldReceive('update')->once()->andReturn($object);
+        $input = array('id' => 1, 'fr.title' => 'test', 'fr.slug' => 'test');
+        $this->call('PATCH', 'admin/pages/1', $input);
+        $this->assertRedirectedToRoute('admin.pages.edit', array('id' => 1));
+    }
+
     public function testStoreSuccessWithRedirectToList()
     {
         $object = new StdClass;
