@@ -58,7 +58,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         $urisAndSlugs = array();
         foreach ($pages as $page) {
             $urisAndSlugs[$page->page_id]['uris'][$page->locale] = $page->uri;
-            $urisAndSlugs[$page->page_id]['slugs'][$page->locale] = $page->uri;
+            $urisAndSlugs[$page->page_id]['slugs'][$page->locale] = $page->slug;
         }
         return $urisAndSlugs;
     }
@@ -165,6 +165,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         $position = 0;
 
         $this->urisAndSlugs = $this->getAllUris();
+
         foreach ($data['item'] as $id => $parent) {
 
             $position ++;
@@ -193,25 +194,20 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function updateUris($id, $parent = null)
     {
 
-        // model slugs
-        $modelSlugs = DB::table('page_translations')->where('page_id', $id)->lists('slug', 'locale');
-        // var_dump($modelSlugs);
-
         // parent uris
         $parentUris = DB::table('page_translations')->where('page_id', $parent)->lists('uri', 'locale');
-        // var_dump($parentUris);
 
         // transform URI
         foreach (Config::get('app.locales') as $locale) {
 
-            if (isset($modelSlugs[$locale])) {
+            if (isset($this->urisAndSlugs[$id]['slugs'][$locale])) {
 
-                $uri = isset($parentUris[$locale]) ? $parentUris[$locale].'/'.$modelSlugs[$locale] : $locale.'/'.$modelSlugs[$locale] ;
+                $uri = isset($parentUris[$locale]) ? $parentUris[$locale].'/'.$this->urisAndSlugs[$id]['slugs'][$locale] : $locale.'/'.$this->urisAndSlugs[$id]['slugs'][$locale] ;
 
                 // Check uri is unique
                 $tmpUri = $uri;
                 $i = 0;
-                while (DB::table('page_translations')->where('uri', $tmpUri)->where('page_id', '!=', $id)->first()) {
+                while ($this->uriExistsInDB($tmpUri, $id)) {
                     $i ++;
                     // increment uri if exists
                     $tmpUri = $uri . '-' . $i;
@@ -221,14 +217,19 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
                 // update uri if needed
                 if ($uri != $this->urisAndSlugs[$id]['uris'][$locale]) {
                     DB::table('page_translations')
-                        ->where('page_id', '=', $id)
-                        ->where('locale', '=', $locale)
-                        ->update(array('uri' => $uri));
+                      ->where('page_id', '=', $id)
+                      ->where('locale', '=', $locale)
+                      ->update(array('uri' => $uri));
                 }
 
             }
 
         }
+    }
+
+    public function uriExistsInDB($uri, $id)
+    {
+        return DB::table('page_translations')->where('uri', $uri)->where('page_id', '!=', $id)->first();
     }
 
 }
