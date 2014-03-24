@@ -88,6 +88,16 @@ abstract class AbstractPresenter implements ArrayAccess
     }
 
     /**
+    * Return the model
+    *
+    * @return string
+    */
+    public function object()
+    {
+        return $this->object;
+    }
+
+    /**
     * Online / Offline switches
     *
     * @return string
