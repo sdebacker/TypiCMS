@@ -61,17 +61,17 @@ Route::filter('auth.admin', function()
 	}
 	$route = Route::getCurrentRoute()->getName();
 	$user = Sentry::getUser();
-	Debugbar::addMessage($user->getPermissions(), 'users permissions');
-	Debugbar::addMessage($user->getMergedPermissions(), 'users merged permissions');
-	Debugbar::addMessage($route, 'route');
+	// Debugbar::addMessage($user->getPermissions(), 'users permissions');
+	// Debugbar::addMessage($user->getMergedPermissions(), 'users merged permissions');
+	// Debugbar::addMessage($route, 'route');
 	if ( ! $user->hasAccess($route)) {
 		App::abort(403);
-		echo('<p class="alert alert-danger col-sm-6">Vous n’êtes pas autorisé</p>');
 	}
 });
 
 Route::filter('users.register', function()
 {
+	d(Config::get('typicms.register'));
 	if ( ! Config::get('typicms.register')) {
 		App::abort(404);
 	}
