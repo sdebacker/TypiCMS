@@ -14,6 +14,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 {
 
     protected $uris = array();
+    protected $urisAndSlugs = array();
 
     // Class expects an Eloquent model
     public function __construct(Model $model)
@@ -36,7 +37,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
         // update URI in all pages
         $pages = $this->model->order()->get();
-        $this->uris = $this->getAllUris();
+        $this->urisAndSlugs = $this->getAllUris();
         foreach ($pages as $key => $page) {
             $this->updateUris($page->id, $page->parent);
         }
@@ -53,10 +54,13 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function getAllUris()
     {
         // Build uris array of all pages (needed for uris updating after sorting)
-        $pages = DB::table('page_translations')->select('page_id', 'locale', 'uri')->get();
+        $pages = DB::table('page_translations')->select('page_id', 'locale', 'uri', 'slug')->get();
+        $urisAndSlugs = array();
         foreach ($pages as $page) {
-            $this->uris[$page->page_id][$page->locale] = $page->uri;
+            $urisAndSlugs[$page->page_id]['uris'][$page->locale] = $page->uri;
+            $urisAndSlugs[$page->page_id]['slugs'][$page->locale] = $page->uri;
         }
+        return $urisAndSlugs;
     }
 
     /**
@@ -105,7 +109,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
             ->where('uri', 'LIKE', $uri.'%');
 
         // All posts or only published
-        if (! $all) {
+        if ( ! $all) {
             $query->where('status', 1);
         }
         $query->where('locale', Config::get('app.locale'));
@@ -160,15 +164,16 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
         $position = 0;
 
-        $this->uris = $this->getAllUris();
+        $this->urisAndSlugs = $this->getAllUris();
         foreach ($data['item'] as $id => $parent) {
 
             $position ++;
 
             $parent = $parent ? : 0 ;
 
-            $this->model->find($id)
-                ->update(array('position' => $position, 'parent' => $parent));
+            DB::table('pages')
+              ->where('id', $id)
+              ->update(array('position' => $position, 'parent' => $parent));
 
             $this->updateUris($id, $parent);
 
@@ -181,8 +186,8 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     /**
      * Update pages uris
      *
-     * @param  int  $id
-     * @param $parent
+     * @param  int $id
+     * @param  int $parent
      * @return void
      */
     public function updateUris($id, $parent = null)
@@ -190,9 +195,11 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
         // model slugs
         $modelSlugs = DB::table('page_translations')->where('page_id', $id)->lists('slug', 'locale');
+        // var_dump($modelSlugs);
 
         // parent uris
         $parentUris = DB::table('page_translations')->where('page_id', $parent)->lists('uri', 'locale');
+        // var_dump($parentUris);
 
         // transform URI
         foreach (Config::get('app.locales') as $locale) {
@@ -207,12 +214,12 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
                 while (DB::table('page_translations')->where('uri', $tmpUri)->where('page_id', '!=', $id)->first()) {
                     $i ++;
                     // increment uri if exists
-                    $tmpUri = $uri.'-'.$i;
+                    $tmpUri = $uri . '-' . $i;
                 }
                 $uri = $tmpUri;
 
                 // update uri if needed
-                if ($uri != $this->uris[$id][$locale]) {
+                if ($uri != $this->urisAndSlugs[$id]['uris'][$locale]) {
                     DB::table('page_translations')
                         ->where('page_id', '=', $id)
                         ->where('locale', '=', $locale)
