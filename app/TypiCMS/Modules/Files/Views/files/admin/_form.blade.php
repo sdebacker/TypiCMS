@@ -1,4 +1,4 @@
-@section('head')
+@section('js')
     {{ HTML::script(asset('//tinymce.cachefly.net/4.0/tinymce.min.js')) }}
     {{ HTML::script(asset('js/form.js')) }}
 @stop

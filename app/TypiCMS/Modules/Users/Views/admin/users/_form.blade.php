@@ -1,4 +1,4 @@
-@section('head')
+@section('js')
     {{ HTML::script('js/checkboxes-permissions.js') }}
 @stop
 

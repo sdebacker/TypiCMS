@@ -1,4 +1,4 @@
-@section('head')
+@section('js')
     {{ HTML::script(asset('js/list.js')) }}
 @stop
 

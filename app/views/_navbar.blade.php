@@ -1,9 +1,3 @@
-@section('js')
-
-    {{ HTML::script(asset('vendor/bootstrap/js/collapse.js')) }}
-    {{ HTML::script(asset('vendor/bootstrap/js/transition.js')) }}
-
-@show
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">

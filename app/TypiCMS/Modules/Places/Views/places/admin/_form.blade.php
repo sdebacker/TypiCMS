@@ -1,10 +1,8 @@
 @section('js')
-
     {{ HTML::script(asset('//tinymce.cachefly.net/4.0/tinymce.min.js')) }}
     {{ HTML::script(asset('js/form.js')) }}
     {{ HTML::script(asset('//maps.googleapis.com/maps/api/js?sensor=false&amp;language=fr')) }}
     {{ HTML::script(asset('js/gmaps.admin.js')) }}
-
 @stop
 
 <div class="row">
