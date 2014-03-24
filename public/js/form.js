@@ -36,7 +36,9 @@ function initTinymce(selector) {
 			slugField: '#slug'
 		});
 
-		initTinymce('.editor');
+		if ($('.editor').length) {
+			initTinymce('.editor');
+		}
 
 		if ($('#tags').length) {
 			var tags = $.getJSON("/admin/tags", function(data){
@@ -45,7 +47,7 @@ function initTinymce(selector) {
 					tokenSeparators: [',']
 				});
 			})
-		};
+		}
 
 		// Set tab in red on validation errors
 		var firstErrorTabActive = false;
