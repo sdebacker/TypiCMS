@@ -6,9 +6,11 @@ use Carbon\Carbon;
 class Dates
 {
     /**
-     * Past events
+     * Concat two dates
      *
-     * @return array
+     * @param string $startingDate
+     * @param string $endingDate
+     * @return string
      */
     public static function concat($startingDate, $endingDate)
     {
