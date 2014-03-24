@@ -71,7 +71,6 @@ Route::filter('auth.admin', function()
 
 Route::filter('users.register', function()
 {
-	d(Config::get('typicms.register'));
 	if ( ! Config::get('typicms.register')) {
 		App::abort(404);
 	}
