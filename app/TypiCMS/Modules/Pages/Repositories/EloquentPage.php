@@ -13,8 +13,8 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 class EloquentPage extends RepositoriesAbstract implements PageInterface
 {
 
-    protected $uris = array();
     protected $urisAndSlugs = array();
+    protected $flatUris = array();
 
     // Class expects an Eloquent model
     public function __construct(Model $model)
@@ -35,9 +35,11 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         $model->fill($data);
         $model->save();
 
+        $this->urisAndSlugs = $this->getAllUris();
+        $this->flatUris = $this->flatUris();
+
         // update URI in all pages
         $pages = $this->model->order()->get();
-        $this->urisAndSlugs = $this->getAllUris();
         foreach ($pages as $key => $page) {
             $this->updateUris($page->id, $page->parent);
         }
@@ -47,18 +49,23 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     }
 
     /**
-     * Get Uris of all pages
+     * Get uris and slugs from all pages
      *
-     * @return Array[id][lang] = uri
+     * @return Array[id][lang] = array('uri' => $uri, 'slug' => $slug)
      */
     public function getAllUris()
     {
         // Build uris array of all pages (needed for uris updating after sorting)
-        $pages = DB::table('page_translations')->select('page_id', 'locale', 'uri', 'slug')->get();
+        $pages = DB::table('page_translations')
+                   ->select('page_id', 'locale', 'uri', 'slug')
+                   ->get();
+        // var_dump($pages);
         $urisAndSlugs = array();
         foreach ($pages as $page) {
-            $urisAndSlugs[$page->page_id]['uris'][$page->locale] = $page->uri;
-            $urisAndSlugs[$page->page_id]['slugs'][$page->locale] = $page->slug;
+            $urisAndSlugs[$page->page_id][$page->locale] = array(
+                'uri' => $page->uri,
+                'slug' => $page->slug
+            );
         }
         return $urisAndSlugs;
     }
@@ -165,6 +172,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         $position = 0;
 
         $this->urisAndSlugs = $this->getAllUris();
+        $this->flatUris = $this->flatUris();
 
         foreach ($data['item'] as $id => $parent) {
 
@@ -194,32 +202,37 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function updateUris($id, $parent = null)
     {
 
-        // parent uris
-        $parentUris = DB::table('page_translations')->where('page_id', $parent)->lists('uri', 'locale');
-
         // transform URI
         foreach (Config::get('app.locales') as $locale) {
 
-            if (isset($this->urisAndSlugs[$id]['slugs'][$locale])) {
+            if (isset($this->urisAndSlugs[$id][$locale]['slug'])) {
 
-                $uri = isset($parentUris[$locale]) ? $parentUris[$locale].'/'.$this->urisAndSlugs[$id]['slugs'][$locale] : $locale.'/'.$this->urisAndSlugs[$id]['slugs'][$locale] ;
+                if ($this->urisAndSlugs[$id][$locale]['slug']) {
 
-                // Check uri is unique
-                $tmpUri = $uri;
-                $i = 0;
-                while ($this->uriExistsInDB($tmpUri, $id)) {
-                    $i ++;
-                    // increment uri if exists
-                    $tmpUri = $uri . '-' . $i;
+                    $uri = isset($this->urisAndSlugs[$parent][$locale]['uri']) ? $this->urisAndSlugs[$parent][$locale]['uri'].'/'.$this->urisAndSlugs[$id][$locale]['slug'] : $locale.'/'.$this->urisAndSlugs[$id][$locale]['slug'] ;
+
+                    // Check uri is unique
+                    $tmpUri = $uri;
+                    $i = 0;
+                    while ($this->uriExists($tmpUri, $id)) {
+                        $i ++;
+                        // increment uri if exists
+                        $tmpUri = $uri . '-' . $i;
+                    }
+                    $uri = $tmpUri;
+                } else {
+                    $uri = null;
                 }
-                $uri = $tmpUri;
 
                 // update uri if needed
-                if ($uri != $this->urisAndSlugs[$id]['uris'][$locale]) {
+                if ($uri != $this->urisAndSlugs[$id][$locale]['uri']) {
+                    // update uri in DB
                     DB::table('page_translations')
                       ->where('page_id', '=', $id)
                       ->where('locale', '=', $locale)
                       ->update(array('uri' => $uri));
+                    // update uri in array
+                    $this->urisAndSlugs[$id][$locale]['uri'] = $uri;
                 }
 
             }
@@ -227,9 +240,31 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         }
     }
 
-    public function uriExistsInDB($uri, $id)
+    /**
+     * Get flat array of all uris
+     *
+     * @return array
+     */
+    public function flatUris()
     {
-        return DB::table('page_translations')->where('uri', $uri)->where('page_id', '!=', $id)->first();
+        return DB::table('page_translations')->lists('page_id', 'uri');
+    }
+
+    /**
+     * Check if uri exists in flatUris
+     *
+     * @param  string $uri
+     * @param  int    $id
+     * @return bool
+     */
+    public function uriExists($uri, $id)
+    {
+        if (array_key_exists($uri, $this->flatUris)) {
+            if ($id != $this->flatUris[$uri]) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
