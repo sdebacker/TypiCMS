@@ -1,4 +1,4 @@
-# TypiCMS
+# TypiCMS [![Build Status](https://travis-ci.org/sdebacker/TypiCMS.png?branch=master)](https://travis-ci.org/sdebacker/TypiCMS)
 
 TypiCMS is a starting point for a multilingual content management system build with Laravel.
 Bower and gulp are used for assets management and user interface is build with Bootstrap 3 with Less.
