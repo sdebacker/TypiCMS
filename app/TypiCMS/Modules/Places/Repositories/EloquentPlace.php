@@ -5,7 +5,10 @@ use StdClass;
 
 use App;
 use Input;
+use Croppa;
 use Request;
+
+use FileUpload;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -122,18 +125,16 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
     public function create(array $data)
     {
         // Create the model
-        $model = $this->model;
-
-        $data = array_except($data, array('exit'));
-
-        $model->fill($data);
+        $model = $this->model->fill($data);
 
         if (Input::hasFile('logo')) {
-            $model->logo = $this->upload(Input::file('logo'));
+            $file = FileUpload::handle(Input::file('logo'), 'uploads/places');
+            $model->logo = $file['filename'];
         }
 
         if (Input::hasFile('image')) {
-            $model->image = $this->upload(Input::file('image'));
+            $file = FileUpload::handle(Input::file('image'), 'uploads/places');
+            $model->image = $file['filename'];
         }
 
         $model->save();
@@ -156,24 +157,27 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
 
         $model = $this->model->find($data['id']);
 
-        $data = array_except($data, array('exit'));
         $model->fill($data);
 
         if (Input::hasFile('logo')) {
             // delete prev logo
             Croppa::delete('/uploads/'.$this->model->getTable().'/'.$model->getOriginal('logo'));
-            $model->logo = $this->upload(Input::file('logo'));
+            $file = FileUpload::handle(Input::file('logo'), 'uploads/places');
+            $model->logo = $file['filename'];
         } else {
             $model->logo = $model->getOriginal('logo');
         }
 
         if (Input::hasFile('image')) {
             // delete prev image
-            Croppa::delete('/uploads/'.$this->model->table.'/'.$model->getOriginal('image'));
-            $model->image = $this->upload(Input::file('image'));
+            Croppa::delete('/uploads/'.$this->model->getTable().'/'.$model->getOriginal('image'));
+            $file = FileUpload::handle(Input::file('image'), 'uploads/places');
+            $model->image = $file['filename'];
         } else {
             $model->image = $model->getOriginal('image');
         }
+        // d($model);
+        // exit();
 
         $model->save();
 

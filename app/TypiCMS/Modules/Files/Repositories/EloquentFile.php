@@ -3,8 +3,11 @@ namespace TypiCMS\Modules\Files\Repositories;
 
 use StdClass;
 
-use TypiCMS\Repositories\RepositoriesAbstract;
 use Illuminate\Database\Eloquent\Model;
+
+use FileUpload;
+
+use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentFile extends RepositoriesAbstract implements FileInterface
 {
@@ -67,6 +70,56 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
         }
 
         return false;
+    }
+
+    /**
+     * Create a new model
+     *
+     * @param array  Data to create a new model
+     * @return boolean
+     */
+    public function create(array $data)
+    {
+        if (isset($data['file']) and $data['file']) {
+            $path = 'uploads/' . str_plural(strtolower(class_basename($data['fileable_type'])));
+            $file = FileUpload::handle($data['file'], $path);
+            $data = array_merge($data, $file);
+        }
+
+        // Create the model
+        $model = $this->model->fill($data);
+
+        $model->save();
+
+        if (! $model) {
+            return false;
+        }
+
+        return $model;
+    }
+
+    /**
+     * Update an existing model
+     *
+     * @param array  Data to update a model
+     * @return boolean
+     */
+    public function update(array $data)
+    {
+        if (isset($data['file']) and $data['file']) {
+            $path = 'uploads/' . str_plural(strtolower(class_basename($data['fileable_type'])));
+            $file = FileUpload::handle($data['file'], $path);
+            $data = array_merge($data, $file);
+        }
+
+        $model = $this->model->find($data['id']);
+
+        $model->fill($data);
+
+        $model->save();
+
+        return true;
+
     }
 
 }

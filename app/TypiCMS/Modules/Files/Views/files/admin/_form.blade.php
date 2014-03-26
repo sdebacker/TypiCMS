@@ -64,25 +64,25 @@
         {{ Form::hidden('download_count') }}
         {{ Form::hidden('name') }}
 
-        <div class="clearfix well">
+        <div class="clearfix well media @if($errors->has('file'))has-error@endif">
             @if(isset($model->filename) and $model->filename)
-            <div class="thumbnail">
-                <img src="/{{ $model->path }}/{{ $model->filename }}" alt="{{ $model->alt_attribute }}">
-            </div>
             <div class="pull-left">
+                <img class="media-object" src="{{ Croppa::url('/' . $model->path . '/' . $model->filename, 150) }}" alt="{{ $model->alt_attribute }}">
+            </div>
+            <div class="media-body">
                 {{ Form::label('file', trans('validation.attributes.replace file'), array('class' => 'control-label')) }}
                 {{ Form::file('file') }}
                 <span class="help-block">
-                    @lang('validation.attributes.max') 500 
-                    @lang('validation.attributes.KB')
+                    @lang('validation.attributes.max') 2 
+                    @lang('validation.attributes.MB')
                 </span>
             </div>
             @else
             {{ Form::label('file', trans('validation.attributes.file'), array('class' => 'control-label')) }}
             {{ Form::file('file') }}
             <span class="help-block">
-                @lang('validation.attributes.max') 500 
-                @lang('validation.attributes.KB')
+                @lang('validation.attributes.max') 2 
+                @lang('validation.attributes.MB')
             </span>
             @endif
             @if($errors->has('file'))

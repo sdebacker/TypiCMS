@@ -11,7 +11,6 @@ use Notification;
 
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 use TypiCMS\Modules\Files\Services\Form\FileForm;
-use FileUpload;
 
 // Presenter
 use TypiCMS\Presenters\Presenter;
@@ -104,17 +103,8 @@ class FilesController extends BaseController
      */
     public function store($parent)
     {
-        $input = Input::except('file');
 
-        $uploaded = null;
-        if (Input::hasFile('file')) {
-            $path = 'uploads/' . str_plural(strtolower(class_basename($input['fileable_type'])));
-            $uploaded = FileUpload::handle(Input::file('file'), $path);
-        }
-
-        $uploaded and $input = array_merge($input, $uploaded);
-
-        if ( $model = $this->form->save($input) ) {
+        if ( $model = $this->form->save(Input::all()) ) {
             if (Request::ajax()) {
                 echo json_encode(array('id' => $model->id));
                 exit();
@@ -144,17 +134,7 @@ class FilesController extends BaseController
 
         Request::ajax() and exit($this->repository->update( Input::all() ));
 
-        $input = Input::except('file');
-
-        $uploaded = null;
-        if (Input::hasFile('file')) {
-            $path = 'uploads/' . str_plural(strtolower(class_basename($input['fileable_type'])));
-            $uploaded = FileUpload::handle(Input::file('file'), $path);
-        }
-
-        $uploaded and $input = array_merge($input, $uploaded);
-
-        if ( $this->form->update($input) ) {
+        if ( $this->form->update(Input::all()) ) {
             return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
         }
 

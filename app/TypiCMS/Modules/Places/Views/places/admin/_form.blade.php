@@ -97,12 +97,12 @@
             </div>
         </div>
 
-        <div class="clearfix well">
-            @if(isset($model->logo) and $model->logo)
-            <div class="thumbnail">
-                <img src="/uploads/{{ $model->getTable() }}/{{ $model->logo }}" alt="">
-            </div>
+        <div class="clearfix well media @if($errors->has('logo'))has-error@endif">
+            @if($model->logo)
             <div class="pull-left">
+                <img class="media-object" src="{{ Croppa::url('/uploads/' . $model->getTable() . '/' . $model->logo, 150) }}" alt="">
+            </div>
+            <div class="media-body">
                 {{ Form::label('logo', trans('validation.attributes.replace logo'), array('class' => 'control-label')) }}
                 {{ Form::file('logo') }}
                 <span class="help-block">
@@ -123,12 +123,12 @@
             @endif
         </div>
 
-        <div class="clearfix well">
-            @if(isset($model->image) and $model->image)
-            <div class="thumbnail">
-                <img src="/uploads/{{ $model->getTable() }}/{{ $model->image }}" alt="">
-            </div>
+        <div class="clearfix well media @if($errors->has('image'))has-error@endif">
+            @if($model->image)
             <div class="pull-left">
+                <img class="media-object" src="{{ Croppa::url('/uploads/' . $model->getTable() . '/' . $model->image, 150) }}" alt="">
+            </div>
+            <div class="media-body">
                 {{ Form::label('image', trans('validation.attributes.replace image'), array('class' => 'control-label')) }}
                 {{ Form::file('image') }}
                 <span class="help-block">
