@@ -11,9 +11,9 @@ function initTinymce(selector) {
 		// statusbar: false,
 		style_formats : [
 			{title : 'File (link)', selector : 'a', classes : 'file'},
-			{title : 'Button (link)', selector : 'a', classes : 'btn'},
+			{title : 'Button (link)', selector : 'a', classes : 'btn btn-default'},
 		],
-		content_css : '/components/tinymce/css/tiny_mce.css',
+		content_css : '/css/public.css,/components/tinymce/css/tiny_mce.css',
 		toolbar: 'formatselect | styleselect | bold italic | subscript superscript | bullist numlist outdent indent | link unlink | alignleft aligncenter alignright alignjustify | table | nonbreaking | image | code',
 		language_url: '/components/tinymce/langs/fr.js'
 	});

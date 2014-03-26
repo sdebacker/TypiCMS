@@ -1,2 +1,2 @@
 body { padding: 10px; }
-td { color: #FFF; font-size: 14px; }
+td { font-size: 14px; min-width: 20px; }
