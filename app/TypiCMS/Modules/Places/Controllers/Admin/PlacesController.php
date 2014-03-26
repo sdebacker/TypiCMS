@@ -5,6 +5,7 @@ use View;
 use Input;
 use Config;
 use Request;
+use TypiCMS;
 use Redirect;
 use Paginator;
 
@@ -70,6 +71,8 @@ class PlacesController extends BaseController
      */
     public function edit($model)
     {
+        $model = $this->presenter->model($model, new PlacePresenter);
+        TypiCMS::setModel($model);
         $this->title['child'] = trans('places::global.Edit');
         $this->layout->content = View::make('places.admin.edit')
             ->withModel($model);

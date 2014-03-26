@@ -68,8 +68,7 @@
             </div>
             <div class="col-sm-6 form-group @if($errors->has('website'))has-error@endif">
                 {{ Form::label('website', trans('validation.attributes.website'), array('class' => 'control-label')) }}
-                <?php $default = isset($model->website) ? $model->website : 'http://'; ?>
-                {{ Form::text('website', $default, array('class' => 'form-control')) }}
+                {{ Form::text('website', null, array('class' => 'form-control')) }}
                 @if($errors->has('website'))
                 <span class="help-block">{{ $errors->first('website') }}</span>
                 @endif
