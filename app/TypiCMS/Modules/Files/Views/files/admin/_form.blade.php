@@ -92,7 +92,7 @@
 
         <table class="table table-condensed">
             <thead>
-                <th>{{ trans('validation.attributes.File information') }}</th>
+                <th>{{ trans('validation.attributes.file information') }}</th>
                 <th></th>
             </thead>
             <tbody>
