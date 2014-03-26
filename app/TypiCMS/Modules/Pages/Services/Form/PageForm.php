@@ -65,7 +65,7 @@ class PageForm
         $data['comments_enabled'] = Input::get('comments_enabled');
         $data['is_home']          = Input::get('is_home');
         foreach (Config::get('app.locales') as $locale) {
-            $input[$locale]['status'] = Input::get($locale.'.status');
+            $input[$locale]['status'] = Input::get($locale.'.status', 0);
         }
 
         $inputDot = array_dot($input);
