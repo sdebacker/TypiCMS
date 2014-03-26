@@ -230,13 +230,7 @@ return array(
         'width' => 'Largeur',
         'height' => 'Hauteur',
         'download_count' => 'download_count',
-        'File information' => 'Informations',
-
-        'Submit' => 'Envoyer',
-        'Reset' => 'Reinitialiser',
-        'Cancel' => 'Annuler',
-
-        // Files
+        'file information' => 'Informations',
         'logo' => 'Logo',
         'replace logo' => 'Remplacer le logo',
         'image' => 'Image',
@@ -246,6 +240,11 @@ return array(
         'max' => 'Maximum',
         'KB' => 'Ko',
         'MB' => 'Mo',
+
+        'Submit' => 'Envoyer',
+        'Reset' => 'Reinitialiser',
+        'Cancel' => 'Annuler',
+
     ),
 
     // Values, for example for select menus
