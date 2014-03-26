@@ -19,7 +19,7 @@
     <div class="jumbotron">
 
         <h1>403</h1>
-        <p>Sorry, but you are not autorized.</p>
+        <p>Sorry, but you are not authorized to access this area.</p>
         <p>Go to our <a href="/">homepage</a>?</p>
 
     </div>
