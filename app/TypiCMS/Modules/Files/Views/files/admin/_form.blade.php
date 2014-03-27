@@ -67,7 +67,11 @@
         <div class="clearfix well media @if($errors->has('file'))has-error@endif">
             @if(isset($model->filename) and $model->filename)
             <div class="pull-left">
+                @if (in_array(strtolower($model->extension), array('.jpg', '.jpeg', '.gif', '.png')))
                 <img class="media-object" src="{{ Croppa::url('/' . $model->path . '/' . $model->filename, 150) }}" alt="{{ $model->alt_attribute }}">
+                @else
+                <i class="text-center fa fa-file-text-o"></i>
+                @endif
             </div>
             <div class="media-body">
                 {{ Form::label('file', trans('validation.attributes.replace file'), array('class' => 'control-label')) }}
@@ -112,14 +116,18 @@
                     <th>{{ trans('validation.attributes.mimetype') }}</th>
                     <td>{{ $model->mimetype }}</td>
                 </tr>
+                @if ($model->width)
                 <tr>
                     <th>{{ trans('validation.attributes.width') }}</th>
                     <td>{{ $model->width }} px</td>
                 </tr>
+                @endif
+                @if ($model->height)
                 <tr>
                     <th>{{ trans('validation.attributes.height') }}</th>
                     <td>{{ $model->height }} px</td>
                 </tr>
+                @endif
                 <!-- <tr>
                     <th>{{ trans('validation.attributes.user_id') }}</th>
                     <td>{{ $model->user_id }}</td>

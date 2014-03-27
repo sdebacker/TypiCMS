@@ -12,7 +12,7 @@ class FileFormLaravelValidator extends AbstractLaravelValidator
      * @var Array
      */
     protected $rules = array(
-        'file'          => 'mimes:jpeg,gif,png|max:2000',
+        'file'          => 'mimes:jpeg,gif,png,pdf|max:2000',
         'fileable_id'   => 'required',
         'fileable_type' => 'required',
     );

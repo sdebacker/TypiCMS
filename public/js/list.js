@@ -20,7 +20,7 @@ function enableSortable() {
 	}
 
 	if (sortableList.hasClass('sortable-thumbnails')) {
-		handle = 'img';
+		handle = 'img,div';
 		items = 'a';
 		placeholder = false;
 		toleranceElement = false;

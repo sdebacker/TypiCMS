@@ -58,7 +58,9 @@ function showMessage(responsetext, responsetype) {
 
 		var dropZoneTemplate = '<div class="thumbnail dz-preview dz-file-preview">\
 				<div class="dz-details">\
-					<img data-dz-thumbnail src="" alt="">\
+					<div class="thumb-container">\
+						<img data-dz-thumbnail src="" alt="">\
+					</div>\
 					<div class="caption">\
 						<small data-dz-name></small>\
 						<div data-dz-size></div>\
@@ -78,7 +80,7 @@ function showMessage(responsetext, responsetype) {
 		Dropzone.options.dropzone = {
 			clickable: true,
 			maxFilesize: 2, // MB
-			acceptedFiles: 'image/jpeg,image/gif,image/png',
+			acceptedFiles: 'application/pdf,image/jpeg,image/gif,image/png',
 			previewTemplate: dropZoneTemplate,
 			previewsContainer: '.dropzone-previews',
 			thumbnailWidth: 130,

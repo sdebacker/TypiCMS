@@ -30,8 +30,8 @@ class CreateFilesTable extends Migration
             $table->string('path');
             $table->string('extension', 8);
             $table->string('mimetype', 100);
-            $table->integer('width')->unsigned();
-            $table->integer('height')->unsigned();
+            $table->integer('width')->unsigned()->nullable();
+            $table->integer('height')->unsigned()->nullable();
             $table->integer('filesize')->unsigned();
             $table->integer('download_count');
 
