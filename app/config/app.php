@@ -77,6 +77,7 @@ return array(
 		'Users'        => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Users\Models\User'),
 		'Groups'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Groups\Models\Group'),
 		'Translations' => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Modules\Translations\Models\Translation'),
+		'Contacts'     => array('menu' => true , 'dashboard' => true,  'model' => 'TypiCMS\Modules\Contacts\Models\Contact'),
 	),
 
 	/*
@@ -139,6 +140,7 @@ return array(
 		'Bkwld\Croppa\ServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+		'Msurguy\Honeypot\HoneypotServiceProvider',
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
 		'TypiCMS\Providers\StartProvider',

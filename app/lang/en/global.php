@@ -35,4 +35,6 @@ return array(
     'settings'  => 'settings',
     'admin side' => 'admin side',
     'view website' => 'view website',
+
+    'Mandatory fields' => 'Mandatory fields',
 );

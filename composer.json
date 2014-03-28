@@ -27,7 +27,8 @@
 		"mccool/database-backup": "1.0.0",
 		"thomaswelton/laravel-gravatar": "0.0.*",
 		"eluceo/ical": "dev-master",
-		"davejamesmiller/laravel-breadcrumbs": "~2.2.0"
+		"davejamesmiller/laravel-breadcrumbs": "~2.2.0",
+		"msurguy/honeypot": "dev-master"
 	},
 	"require-dev": {
 		"phpspec/phpspec": "2.0.*@dev",

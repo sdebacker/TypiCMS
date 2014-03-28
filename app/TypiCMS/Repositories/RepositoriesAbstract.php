@@ -261,7 +261,7 @@ abstract class RepositoriesAbstract
     {
         $pagesArray = Page::select('pages.id', 'title', 'locale')
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
-            ->where('locale', Config::get('app.locale'))
+            ->where('locale', Config::get('typicms.adminLocale'))
             ->lists('id', 'title');
         $pagesArray = array_merge(array('' => '0'), $pagesArray);
         $pagesArray = array_flip($pagesArray);
@@ -275,7 +275,7 @@ abstract class RepositoriesAbstract
         $selectModules = array('' => '');
         foreach ($modulesArray as $module => $property) {
             if ($property['menu']) {
-                $selectModules[strtolower($module)] = Str::title(trans_choice('modules.'.strtolower($module.'.'.$module), 2));
+                $selectModules[strtolower($module)] = Str::title(trans_choice(strtolower($module) . '::global.' . strtolower($module), 2));
             }
         }
 

@@ -14,47 +14,11 @@ function translate(string) {
 	return string;
 }
 
-function showMessage(responsetext, responsetype) {
-	var errorClass;
-	if (responsetype == 'error') {
-		errorClass = ' alert-error';
-	} else {
-		errorClass = '';
-	}
-	$('.alert').remove();
-	var alerte = '<p class="alert'+errorClass+'">'+responsetext+'</p>';
-	$('#container').prepend(alerte);
-	$('.alert').hide().fadeIn('fast');
-}
-
 !function( $ ){
 
 	"use strict";
 
 	$(function () {
-
-
-		function javascriptError(data, statusText) {
-			showMessage(translate('Unknown error'), 1);
-			console.log(statusText);
-			console.log(data);
-		}
-
-
-		function checkAndShowMessageDiv() {
-			var messageDiv, error;
-			messageDiv = $('#message');
-			if (messageDiv.length) {
-				messageDiv.hide().children('li').each(function () {
-					if ($(this).hasClass('error')) {
-						error = 'error';
-					}
-					showMessage($(this).text(), error);
-				});
-			}
-		}
-
-		checkAndShowMessageDiv();
 
 		var dropZoneTemplate = '<div class="thumbnail dz-preview dz-file-preview">\
 				<div class="dz-details">\

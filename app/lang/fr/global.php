@@ -35,4 +35,6 @@ return array(
     'settings'  => 'configuration',
     'admin side' => 'administration',
     'view website' => 'voir le site',
+
+    'Mandatory fields' => 'Champs obligatoires',
 );

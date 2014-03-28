@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 19 Mars 2014 à 22:01
+-- Généré le: Ven 28 Mars 2014 à 13:39
 -- Version du serveur: 5.6.14
 -- Version de PHP: 5.5.5
 
@@ -162,8 +162,8 @@ CREATE TABLE IF NOT EXISTS `typi_files` (
   `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `extension` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `mimetype` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `width` int(10) unsigned NOT NULL,
-  `height` int(10) unsigned NOT NULL,
+  `width` int(10) unsigned DEFAULT NULL,
+  `height` int(10) unsigned DEFAULT NULL,
   `filesize` int(10) unsigned NOT NULL,
   `download_count` int(11) NOT NULL,
   `position` int(10) unsigned NOT NULL DEFAULT '0',
@@ -214,9 +214,9 @@ CREATE TABLE IF NOT EXISTS `typi_groups` (
 --
 
 INSERT INTO `typi_groups` (`id`, `name`, `permissions`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '{"dashboard":1,"admin.settings.index":1,"admin.pages.index":1,"admin.pages.view":1,"admin.pages.create":1,"admin.pages.store":1,"admin.pages.edit":1,"admin.pages.sort":1,"admin.pages.destroy":1,"admin.files.index":1,"admin.files.view":1,"admin.files.create":1,"admin.files.store":1,"admin.files.edit":1,"admin.files.sort":1,"admin.files.destroy":1,"admin.news.index":1,"admin.news.view":1,"admin.news.create":1,"admin.news.store":1,"admin.news.edit":1,"admin.news.sort":1,"admin.news.destroy":1,"admin.events.index":1,"admin.events.view":1,"admin.events.create":1,"admin.events.store":1,"admin.events.edit":1,"admin.events.sort":1,"admin.events.destroy":1,"admin.categories.index":1,"admin.categories.view":1,"admin.categories.create":1,"admin.categories.store":1,"admin.categories.edit":1,"admin.categories.sort":1,"admin.categories.destroy":1,"admin.projects.index":1,"admin.projects.view":1,"admin.projects.create":1,"admin.projects.store":1,"admin.projects.edit":1,"admin.projects.sort":1,"admin.projects.destroy":1,"admin.places.index":1,"admin.places.view":1,"admin.places.create":1,"admin.places.store":1,"admin.places.edit":1,"admin.places.sort":1,"admin.places.destroy":1,"admin.menus.index":1,"admin.menus.view":1,"admin.menus.create":1,"admin.menus.store":1,"admin.menus.edit":1,"admin.menus.sort":1,"admin.menus.destroy":1,"admin.menulinks.index":1,"admin.menulinks.view":1,"admin.menulinks.create":1,"admin.menulinks.store":1,"admin.menulinks.edit":1,"admin.menulinks.sort":1,"admin.menulinks.destroy":1,"admin.users.index":1,"admin.users.view":1,"admin.users.create":1,"admin.users.store":1,"admin.users.edit":1,"admin.users.sort":1,"admin.users.destroy":1,"admin.groups.index":1,"admin.groups.view":1,"admin.groups.create":1,"admin.groups.store":1,"admin.groups.edit":1,"admin.groups.sort":1,"admin.groups.destroy":1}', '2014-03-19 22:01:05', '2014-03-19 22:01:05'),
-(2, 'Public', '', '2014-03-19 22:01:05', '2014-03-19 22:01:05'),
-(3, 'News', '{"dashboard":1,"admin.news.index":1,"admin.news.view":1,"admin.news.create":1,"admin.news.store":1,"admin.news.edit":1,"admin.news.sort":1,"admin.news.destroy":1}', '2014-03-19 22:01:05', '2014-03-19 22:01:05');
+(1, 'Admin', '{"dashboard":1,"admin.settings.index":1,"admin.pages.index":1,"admin.pages.view":1,"admin.pages.create":1,"admin.pages.store":1,"admin.pages.edit":1,"admin.pages.sort":1,"admin.pages.destroy":1,"admin.files.index":1,"admin.files.view":1,"admin.files.create":1,"admin.files.store":1,"admin.files.edit":1,"admin.files.sort":1,"admin.files.destroy":1,"admin.news.index":1,"admin.news.view":1,"admin.news.create":1,"admin.news.store":1,"admin.news.edit":1,"admin.news.sort":1,"admin.news.destroy":1,"admin.events.index":1,"admin.events.view":1,"admin.events.create":1,"admin.events.store":1,"admin.events.edit":1,"admin.events.sort":1,"admin.events.destroy":1,"admin.categories.index":1,"admin.categories.view":1,"admin.categories.create":1,"admin.categories.store":1,"admin.categories.edit":1,"admin.categories.sort":1,"admin.categories.destroy":1,"admin.projects.index":1,"admin.projects.view":1,"admin.projects.create":1,"admin.projects.store":1,"admin.projects.edit":1,"admin.projects.sort":1,"admin.projects.destroy":1,"admin.places.index":1,"admin.places.view":1,"admin.places.create":1,"admin.places.store":1,"admin.places.edit":1,"admin.places.sort":1,"admin.places.destroy":1,"admin.menus.index":1,"admin.menus.view":1,"admin.menus.create":1,"admin.menus.store":1,"admin.menus.edit":1,"admin.menus.sort":1,"admin.menus.destroy":1,"admin.menulinks.index":1,"admin.menulinks.view":1,"admin.menulinks.create":1,"admin.menulinks.store":1,"admin.menulinks.edit":1,"admin.menulinks.sort":1,"admin.menulinks.destroy":1,"admin.users.index":1,"admin.users.view":1,"admin.users.create":1,"admin.users.store":1,"admin.users.edit":1,"admin.users.sort":1,"admin.users.destroy":1,"admin.groups.index":1,"admin.groups.view":1,"admin.groups.create":1,"admin.groups.store":1,"admin.groups.edit":1,"admin.groups.sort":1,"admin.groups.destroy":1}', '2014-03-28 12:38:46', '2014-03-28 12:38:46'),
+(2, 'Public', '', '2014-03-28 12:38:46', '2014-03-28 12:38:46'),
+(3, 'News', '{"dashboard":1,"admin.news.index":1,"admin.news.view":1,"admin.news.create":1,"admin.news.store":1,"admin.news.edit":1,"admin.news.sort":1,"admin.news.destroy":1}', '2014-03-28 12:38:46', '2014-03-28 12:38:46');
 
 -- --------------------------------------------------------
 
@@ -247,11 +247,11 @@ CREATE TABLE IF NOT EXISTS `typi_menulinks` (
 
 INSERT INTO `typi_menulinks` (`id`, `menu_id`, `page_id`, `parent`, `position`, `target`, `module_name`, `restricted_to`, `class`, `link_type`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 0, 1, '', '', '', '', '', '2013-09-03 20:08:05', '2014-02-04 17:58:25'),
-(2, 1, 2, 0, 7, '', '', '', 'menu-contact', '', '2013-09-03 20:08:35', '2014-02-04 17:58:25'),
+(2, 1, 0, 0, 7, '', 'contacts', '', 'menu-contact', '', '2013-09-03 20:08:35', '2014-03-28 12:32:30'),
 (16, 1, 29, 0, 2, '', 'poi', '', '', '', '2013-09-09 21:18:49', '2014-02-04 17:58:25'),
 (17, 1, 0, 0, 3, '', 'events', '', '', '', '2013-10-05 17:30:30', '2014-02-04 17:58:25'),
 (18, 1, 0, 0, 5, '', 'projects', '', '', '', '2013-10-05 17:31:09', '2014-02-04 17:58:25'),
-(19, 2, 2, 0, 2, '', '', '', '', '', '2013-11-02 16:20:16', '2013-11-02 16:31:37'),
+(19, 2, 0, 0, 2, '', 'contacts', '', '', '', '2013-11-02 16:20:16', '2014-03-28 12:32:46'),
 (20, 2, 1, 0, 1, '', '', '', '', '', '2013-11-02 16:20:43', '2013-11-02 16:31:37'),
 (21, 1, 0, 0, 4, '', 'news', '', '', '', '2013-11-08 10:14:39', '2014-02-04 17:58:25'),
 (22, 3, 0, 0, 0, '_blank', '', '', 'fa fa-facebook btn-facebook', '', '2014-02-04 17:30:11', '2014-02-04 17:30:17'),
@@ -287,9 +287,9 @@ INSERT INTO `typi_menulink_translations` (`id`, `menulink_id`, `locale`, `status
 (1, 1, 'fr', 1, 'Accueil', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 1, 'nl', 1, 'Home', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 1, 'en', 1, 'Home', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 2, 'fr', 1, 'Contact', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 2, 'nl', 1, 'Contact', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 2, 'en', 1, 'Contact', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 2, 'fr', 1, 'Contact', '', 'fr/contact', '0000-00-00 00:00:00', '2014-03-28 12:29:27'),
+(5, 2, 'nl', 1, 'Contact', '', 'nl/contact', '0000-00-00 00:00:00', '2014-03-28 12:29:27'),
+(6, 2, 'en', 1, 'Contact', '', 'en/contact', '0000-00-00 00:00:00', '2014-03-28 12:29:27'),
 (46, 16, 'fr', 1, 'Infos', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (47, 16, 'nl', 1, 'Info', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (48, 16, 'en', 1, 'Info', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -299,9 +299,9 @@ INSERT INTO `typi_menulink_translations` (`id`, `menulink_id`, `locale`, `status
 (52, 18, 'fr', 1, 'Projets', '', 'fr/projets', '2013-10-05 17:31:09', '2013-10-05 17:31:11'),
 (53, 18, 'nl', 1, 'Projecten', '', 'nl/projecten', '2013-10-05 17:31:09', '2013-10-05 17:31:49'),
 (54, 18, 'en', 1, 'Projects', '', 'en/projects', '2013-10-05 17:31:09', '2013-10-05 17:31:51'),
-(55, 19, 'fr', 1, 'Contact', '', '', '2013-11-02 16:20:16', '2013-11-02 16:20:18'),
-(56, 19, 'nl', 1, 'Contact', '', '', '2013-11-02 16:20:16', '2013-11-02 16:20:16'),
-(57, 19, 'en', 1, 'Contact', '', '', '2013-11-02 16:20:16', '2013-11-02 16:20:16'),
+(55, 19, 'fr', 1, 'Contact', '', 'fr/contact', '2013-11-02 16:20:16', '2014-03-28 12:30:40'),
+(56, 19, 'nl', 1, 'Contact', '', 'nl/contact', '2013-11-02 16:20:16', '2014-03-28 12:30:40'),
+(57, 19, 'en', 1, 'Contact', '', 'en/contact', '2013-11-02 16:20:16', '2014-03-28 12:30:40'),
 (58, 20, 'fr', 1, 'Accueil', '', '', '2013-11-02 16:20:43', '2013-11-02 16:20:51'),
 (59, 20, 'nl', 1, 'Home', '', '', '2013-11-02 16:20:43', '2013-11-02 16:20:47'),
 (60, 20, 'en', 1, 'Home', '', '', '2013-11-02 16:20:43', '2013-11-02 16:20:44'),
@@ -406,7 +406,8 @@ INSERT INTO `typi_migrations` (`migration`, `batch`) VALUES
 ('2013_11_07_185433_create_news_table', 1),
 ('2014_01_13_094853_create_places_table', 1),
 ('2014_02_13_013804_create_tags_table', 1),
-('2014_02_28_223553_create_translations_table', 1);
+('2014_02_28_223553_create_translations_table', 1),
+('2014_03_28_101553_create_contacts_table', 1);
 
 -- --------------------------------------------------------
 
@@ -825,7 +826,7 @@ CREATE TABLE IF NOT EXISTS `typi_settings` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Contenu de la table `typi_settings`
@@ -846,7 +847,8 @@ INSERT INTO `typi_settings` (`id`, `package`, `group_name`, `key_name`, `value`,
 (12, NULL, 'config', 'welcomeMessage', 'Welcome to the administration panel.', '', NULL, '2014-03-18 11:48:01', '2014-03-18 11:48:01'),
 (13, NULL, 'config', 'googleAnalyticsUniversalCode', '', '', NULL, '2014-03-18 11:48:01', '2014-03-18 11:48:01'),
 (14, NULL, 'config', 'authPublic', NULL, '', NULL, '2014-03-18 11:48:01', '2014-03-18 11:48:01'),
-(15, NULL, 'config', 'register', '1', '', NULL, '2014-03-18 11:48:01', '2014-03-18 11:48:01');
+(15, NULL, 'config', 'register', NULL, '', NULL, '2014-03-18 11:48:01', '2014-03-18 11:48:01'),
+(16, NULL, 'config', 'adminLocale', 'en', '', NULL, '2014-03-22 11:48:01', '2014-03-22 11:48:01');
 
 -- --------------------------------------------------------
 
@@ -1076,7 +1078,7 @@ CREATE TABLE IF NOT EXISTS `typi_users` (
 --
 
 INSERT INTO `typi_users` (`id`, `email`, `password`, `permissions`, `activated`, `activation_code`, `activated_at`, `last_login`, `persist_code`, `reset_password_code`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES
-(1, 'admin@example.com', '$2y$08$KohSyMczDMtn9Oy8joPnge76.wCycu.BW9VMznxmvkpI/oOwHp84y', '{"superuser":1}', 1, NULL, NULL, NULL, NULL, NULL, 'Typi', 'Design', '2014-03-19 22:01:05', '2014-03-19 22:01:05');
+(1, 'admin@example.com', '$2y$08$5g2mUC28DvOmVJEr8Zw8Pe1AHbEG0M.JdOm2uoy29BcHicf0DIyP.', '{"superuser":1}', 1, NULL, NULL, NULL, NULL, NULL, 'Typi', 'Design', '2014-03-28 12:38:46', '2014-03-28 12:38:46');
 
 -- --------------------------------------------------------
 

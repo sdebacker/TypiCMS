@@ -70,6 +70,7 @@ class MenulinksController extends BaseController
      */
     public function edit($menu, $model)
     {
+        $model = $this->presenter->model($model, new MenulinkPresenter);
         $this->title['child'] = trans('menulinks::global.Edit');
 
         $selectPages = $this->repository->getPagesForSelect();

@@ -26,6 +26,7 @@ class StartProvider extends ServiceProvider
         $this->app->register('TypiCMS\Modules\Tags\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Translations\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Settings\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\Contacts\Providers\ModuleProvider');
         // Pages and menulinks need to be at last for routing to work.
         $this->app->register('TypiCMS\Modules\Menulinks\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Pages\Providers\ModuleProvider');

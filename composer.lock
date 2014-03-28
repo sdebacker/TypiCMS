@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "98079307036b2548f836a49f866bb671",
+    "hash": "0ca2ff2df2a9a10897e97a203afdfe3a",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "dd8f78b8abde74245578dbfb930c29efff20f25a"
+                "reference": "5ec2118777620a79e2125d2f1b020112362740d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/dd8f78b8abde74245578dbfb930c29efff20f25a",
-                "reference": "dd8f78b8abde74245578dbfb930c29efff20f25a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5ec2118777620a79e2125d2f1b020112362740d5",
+                "reference": "5ec2118777620a79e2125d2f1b020112362740d5",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5.x-dev"
+                    "dev-master": "2.6.x-dev"
                 }
             },
             "autoload": {
@@ -71,20 +71,20 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-03-20 20:01:49"
+            "time": "2014-03-25 22:51:48"
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.5.4",
+            "version": "v1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "574c1c270eb889b4744a0612d8ebfd2518389a0b"
+                "reference": "e6a15a859eb528d4137017acd6d4055f15326720"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/574c1c270eb889b4744a0612d8ebfd2518389a0b",
-                "reference": "574c1c270eb889b4744a0612d8ebfd2518389a0b",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/e6a15a859eb528d4137017acd6d4055f15326720",
+                "reference": "e6a15a859eb528d4137017acd6d4055f15326720",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-03-24 08:17:02"
+            "time": "2014-03-25 19:40:57"
         },
         {
             "name": "bkwld/croppa",
@@ -1100,6 +1100,55 @@
             "time": "2014-03-23 19:50:26"
         },
         {
+            "name": "msurguy/honeypot",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/msurguy/Honeypot.git",
+                "reference": "d2121255bd2efe285620066af743f9f042dd9496"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/msurguy/Honeypot/zipball/d2121255bd2efe285620066af743f9f042dd9496",
+                "reference": "d2121255bd2efe285620066af743f9f042dd9496",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "4.*",
+                "illuminate/support": "4.*",
+                "illuminate/translation": "4.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Msurguy\\Honeypot\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksim Surguy",
+                    "email": "m.surguy@gmail.com"
+                }
+            ],
+            "description": "Honeypot spam prevention",
+            "keywords": [
+                "Forms",
+                "Honeypot",
+                "laravel",
+                "spam"
+            ],
+            "time": "2014-03-27 17:00:56"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "1.8.0",
             "source": {
@@ -1191,16 +1240,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.20",
+            "version": "v1.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "aea0de833cba7cf2c25239be71f2787edaee36d5"
+                "reference": "f45ba8bc7962b7356847724989a6949b68d975a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/aea0de833cba7cf2c25239be71f2787edaee36d5",
-                "reference": "aea0de833cba7cf2c25239be71f2787edaee36d5",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/f45ba8bc7962b7356847724989a6949b68d975a2",
+                "reference": "f45ba8bc7962b7356847724989a6949b68d975a2",
                 "shasum": ""
             },
             "require": {
@@ -1238,7 +1287,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-03-01 20:01:07"
+            "time": "2014-03-26 10:52:02"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -2757,6 +2806,7 @@
     "stability-flags": {
         "thujohn/rss": 20,
         "eluceo/ical": 20,
+        "msurguy/honeypot": 20,
         "phpspec/phpspec": 20,
         "raveren/kint": 20,
         "mockery/mockery": 20
