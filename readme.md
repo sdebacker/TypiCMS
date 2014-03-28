@@ -99,6 +99,10 @@ Events have starting and ending dates
 
 Simple news module
 
+### Contacts
+
+Frontend contact form and admin side records management
+
 ### Files
 
 Files module allows you to upload multiple files linked to a resource. It uses [DropzoneJS](http://www.dropzonejs.com).
