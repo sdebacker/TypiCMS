@@ -69,7 +69,8 @@ function initTinymce(selector) {
 					up: "fa fa-arrow-up",
 					down: "fa fa-arrow-down"
 				},
-				format: 'DD.MM.YYYY',
+				// format: 'DD.MM.YYYY',
+				format: 'YYYY-MM-DD',
 				pickTime: false,
 				language: lang
 			});
@@ -89,7 +90,8 @@ function initTinymce(selector) {
 					up: "fa fa-arrow-up",
 					down: "fa fa-arrow-down"
 				},
-				format: 'DD.MM.YYYY HH:mm',
+				// format: 'DD.MM.YYYY HH:mm',
+				format: 'YYYY-MM-DD hh:mm:ss',
 				useSeconds: false,
 				language: lang
 			});
