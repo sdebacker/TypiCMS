@@ -4,7 +4,6 @@ namespace TypiCMS\Modules\News\Models;
 use TypiCMS\Models\Base;
 
 use Input;
-use Carbon\Carbon;
 
 class News extends Base
 {

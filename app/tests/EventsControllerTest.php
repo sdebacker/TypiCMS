@@ -35,7 +35,7 @@ class EventsControllerTest extends TestCase
 
         $object->id = 1;
         Event::shouldReceive('create')->once()->andReturn($object);
-        $input = array('start_date' => '10.10.2012');
+        $input = array('start_date' => '2014-03-10', 'end_date' => '2014-03-10');
         $this->call('POST', 'admin/events', $input);
         $this->assertRedirectedToRoute('admin.events.edit', array('id' => 1));
     }
@@ -46,7 +46,7 @@ class EventsControllerTest extends TestCase
 
         $object->id = 1;
         Event::shouldReceive('create')->once()->andReturn($object);
-        $input = array('start_date' => '10.10.2012', 'exit' => true);
+        $input = array('start_date' => '2014-03-10', 'end_date' => '2014-03-10', 'exit' => true);
         $this->call('POST', 'admin/events', $input);
         $this->assertRedirectedToRoute('admin.events.index');
     }

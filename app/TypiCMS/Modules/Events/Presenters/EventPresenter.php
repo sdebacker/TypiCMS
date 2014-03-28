@@ -11,16 +11,34 @@ use TypiCMS\Presenters\Presentable;
 class EventPresenter extends AbstractPresenter implements Presentable
 {
 
+    public function startDateOrDefault()
+    {
+        return $this->object->start_date->format('Y-m-d') ? : Carbon::now()->format('Y-m-d');
+    }
+
+    public function endDateOrDefault()
+    {
+        return $this->object->end_date->format('Y-m-d') ? : Carbon::now()->format('Y-m-d');
+    }
+
+    public function start_date()
+    {
+        return $this->object->start_date->format('d.m.Y');
+    }
+
+    public function end_date()
+    {
+        return $this->object->end_date->format('d.m.Y');
+    }
+
     public function date_from_to()
     {
-        $sDate = Carbon::parse($this->object->start_date);
-        $eDate = Carbon::parse($this->object->end_date);
+        $sDate = $this->object->start_date;
+        $eDate = $this->object->end_date;
         $dateFormat = '%d %B %Y';
         $sDateFormat = $dateFormat;
-        $sDateSQL = $sDate->format('Y-m-d');
-        $eDateSQL = $eDate->format('Y-m-d');
         if ($sDate == $eDate) {
-            return ucfirst(trans('events::global.on')) . ' <time datetime="' . $sDateSQL . '">' . $sDate->formatLocalized($dateFormat) . '</time>';
+            return ucfirst(trans('events::global.on')) . ' <time datetime="' . $sDate . '">' . $sDate->formatLocalized($dateFormat) . '</time>';
         }
         if ($sDate->format('Y') == $eDate->format('Y')) {
             $sDateFormat = '%d %B';
@@ -29,7 +47,7 @@ class EventPresenter extends AbstractPresenter implements Presentable
             }
         }
 
-        return ucfirst(trans('events::global.from')) . ' <time datetime="' . $sDateSQL . '">' . $sDate->formatLocalized($sDateFormat) . '</time> ' . trans('events::global.to') . ' <time datetime="' . $eDateSQL . '">' . $eDate->formatLocalized($dateFormat) . '</time>';
+        return ucfirst(trans('events::global.from')) . ' <time datetime="' . $sDate . '">' . $sDate->formatLocalized($sDateFormat) . '</time> ' . trans('events::global.to') . ' <time datetime="' . $eDate . '">' . $eDate->formatLocalized($dateFormat) . '</time>';
     }
 
 }

@@ -57,6 +57,7 @@ class EventsController extends BaseController
     {
         $this->title['child'] = trans('events::global.New');
         $model = $this->repository->getModel();
+        $model = $this->presenter->model($model, new EventPresenter);
         $this->layout->content = View::make('events.admin.create')
             ->with('model', $model);
     }

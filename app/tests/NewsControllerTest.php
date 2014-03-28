@@ -35,7 +35,7 @@ class NewsControllerTest extends TestCase
 
         $object->id = 1;
         News::shouldReceive('create')->once()->andReturn($object);
-        $input = array('date' => '19.02.2014 11:04');
+        $input = array('date' => '2014-03-10 11:04:00');
         $this->call('POST', 'admin/news', $input);
         $this->assertRedirectedToRoute('admin.news.edit', array('id' => 1));
     }
@@ -46,7 +46,7 @@ class NewsControllerTest extends TestCase
 
         $object->id = 1;
         News::shouldReceive('create')->once()->andReturn($object);
-        $input = array('date' => '19.02.2014 11:04', 'exit' => true);
+        $input = array('date' => '2014-03-10 11:04:00', 'exit' => true);
         $this->call('POST', 'admin/news', $input);
         $this->assertRedirectedToRoute('admin.news.index');
     }
