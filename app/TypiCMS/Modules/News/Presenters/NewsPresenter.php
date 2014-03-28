@@ -9,14 +9,14 @@ use TypiCMS\Presenters\Presentable;
 class NewsPresenter extends AbstractPresenter implements Presentable
 {
 
-    public function date_localized()
+    public function dateLocalized()
     {
-        return Carbon::parse($this->object->date)->formatLocalized('%d %B %Y %H:%M');
+        return $this->object->date->formatLocalized('%d %B %Y %H:%M');
     }
 
-    public function date_sql()
+    public function dateOrDefault()
     {
-        return Carbon::parse($this->object->date)->format('Y-m-d H:i:s');
+        return $this->object->date ? : Carbon::now();
     }
 
 }

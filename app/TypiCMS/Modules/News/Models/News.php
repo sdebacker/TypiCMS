@@ -11,6 +11,8 @@ class News extends Base
 
     use \Dimsav\Translatable\Translatable;
 
+    protected $dates = array('date');
+
     protected $fillable = array(
         'date',
         // Translatable fields
@@ -53,33 +55,6 @@ class News extends Base
     public function files()
     {
         return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
-    }
-
-    /**
-     * Accessors
-     *
-     * @return string
-     */
-    public function getDateAttribute($value)
-    {
-        if ($value == '0000-00-00 00:00') return;
-        return Carbon::parse($value)->format('d.m.Y H:i');
-    }
-
-    /**
-     * Observers
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saving(function ($model) {
-            // transform dates to sql
-            if (Input::get('date')) {
-                $model->date = Carbon::createFromFormat('d.m.Y H:i', Input::get('date'))->toDateTimeString();
-            }
-        });
-
     }
 
 }

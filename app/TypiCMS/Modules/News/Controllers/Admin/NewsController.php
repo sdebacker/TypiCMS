@@ -58,6 +58,7 @@ class NewsController extends BaseController
     {
         $this->title['child'] = trans('news::global.New');
         $model = $this->repository->getModel();
+        $model = $this->presenter->model($model, new NewsPresenter);
         $this->layout->content = View::make('news.admin.create')
             ->withModel($model);
     }

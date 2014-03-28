@@ -7,7 +7,7 @@
         @foreach ($models as $model)
         <li>
             <strong>{{ $model->title }}</strong>
-            <div class="date">@lang('news::global.Published on') <time datetime="{{ $model->date_sql }}">{{ $model->date_localized }}</time></div>
+            <div class="date">@lang('news::global.Published on') <time datetime="{{ $model->date }}">{{ $model->dateLocalized }}</time></div>
             <a href="{{ route($lang.'.news.slug', $model->slug) }}">@lang('db.More')</a>
         </li>
         @endforeach

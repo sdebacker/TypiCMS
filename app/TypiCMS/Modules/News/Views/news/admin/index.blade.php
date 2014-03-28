@@ -41,7 +41,7 @@
                         <td>{{ $model->checkbox }}</td>
                         <td>{{ $model->edit }}</td>
                         <td>{{ $model->status }}</td>
-                        <td>{{ $model->date }}</td>
+                        <td>{{ $model->dateLocalized }}</td>
                         <td>{{ $model->title }}</td>
                         <td>{{ $model->countFiles }}</td>
                     </tr>

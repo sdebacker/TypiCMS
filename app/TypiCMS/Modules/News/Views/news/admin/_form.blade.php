@@ -14,7 +14,7 @@
         <div class="form-group @if($errors->has('date'))has-error@endif">
             {{ Form::label('date', trans('validation.attributes.date'), array('class' => 'control-label')) }}
             <div class="input-group">
-                {{ Form::text('date', null, array('class' => 'form-control datetimepicker', 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
+                {{ Form::text('date', $model->dateOrDefault, array('class' => 'form-control datetimepicker', 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">
                         <i class="fa fa-calendar"></i>
