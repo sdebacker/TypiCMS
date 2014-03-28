@@ -63,6 +63,12 @@ function initTinymce(selector) {
 
 		if ($('.datepicker').length) {
 			$('.datepicker').parent().datetimepicker({
+				icons: {
+					time: "fa fa-clock-o",
+					date: "fa fa-calendar",
+					up: "fa fa-arrow-up",
+					down: "fa fa-arrow-down"
+				},
 				format: 'DD.MM.YYYY',
 				pickTime: false,
 				language: lang
@@ -77,16 +83,28 @@ function initTinymce(selector) {
 
 		if ($('.datetimepicker').length) {
 			$('.datetimepicker').parent().datetimepicker({
+				icons: {
+					time: "fa fa-clock-o",
+					date: "fa fa-calendar",
+					up: "fa fa-arrow-up",
+					down: "fa fa-arrow-down"
+				},
 				format: 'DD.MM.YYYY HH:mm',
-				pickSeconds: false,
+				useSeconds: false,
 				language: lang
 			});
 		};
 
 		if ($('.timepicker').length) {
 			$('.timepicker').parent().datetimepicker({
+				icons: {
+					time: "fa fa-clock-o",
+					date: "fa fa-calendar",
+					up: "fa fa-arrow-up",
+					down: "fa fa-arrow-down"
+				},
 				pickDate: false,
-				pickSeconds: false,
+				useSeconds: false,
 				language: lang
 			});
 		};

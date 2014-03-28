@@ -11,7 +11,7 @@
     "flexslider": "*",
     "select2": "~3.4.*",
     "font-awesome": "~4.0.3",
-    "eonasdan-bootstrap-datetimepicker": "~2.1.30"
+    "eonasdan-bootstrap-datetimepicker": "~3.0.*"
   },
   "overrides": {
     "alertify.js": {
