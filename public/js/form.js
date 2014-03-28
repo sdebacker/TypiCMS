@@ -105,6 +105,7 @@ function initTinymce(selector) {
 					up: "fa fa-arrow-up",
 					down: "fa fa-arrow-down"
 				},
+				format: 'HH:mm',
 				pickDate: false,
 				useSeconds: false,
 				language: lang
