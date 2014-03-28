@@ -72,7 +72,7 @@ This kind of urls are managed by the CMS :
 
 ### Pages
 
-Pages are nestable by drag and drop and uris autocreated and saved in database. A page has routes for each translation.
+Pages are nestable with drag and drop, on drop, uris are generated and saved in database. A page has routes for each translation.
 
 ### Menus
 
