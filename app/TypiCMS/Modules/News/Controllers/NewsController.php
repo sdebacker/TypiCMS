@@ -57,11 +57,11 @@ class NewsController extends PublicController
     {
         $model = $this->repository->bySlug($slug);
 
-        $this->title['parent'] = $model->title;
-
         $model = $this->presenter->model($model, new NewsPresenter);
 
         TypiCMS::setModel($model);
+
+        $this->title['parent'] = $model->title;
 
         $this->layout->content = View::make('news.public.show')
             ->withModel($model);

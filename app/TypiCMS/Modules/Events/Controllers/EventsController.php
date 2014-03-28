@@ -63,8 +63,6 @@ class EventsController extends PublicController
 
         $this->title['parent'] = $model->title;
 
-        $model = $this->presenter->model($model, new EventPresenter);
-
         $this->layout->content = View::make('events.public.show')
             ->withModel($model);
     }
