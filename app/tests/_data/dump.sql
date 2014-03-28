@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 28 Mars 2014 à 13:39
+-- Généré le: Ven 28 Mars 2014 à 14:45
 -- Version du serveur: 5.6.14
 -- Version de PHP: 5.5.5
 
@@ -81,6 +81,41 @@ INSERT INTO `typi_category_translations` (`id`, `category_id`, `locale`, `status
 (10, 4, 'fr', 1, 'Printemps', 'printemps', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (11, 4, 'nl', 1, 'Lente', 'lente', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (12, 4, 'en', 1, 'Spring', 'spring', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `typi_contacts`
+--
+
+CREATE TABLE IF NOT EXISTS `typi_contacts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `language` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `website` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `postcode` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mobile` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fax` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `message` text COLLATE utf8_unicode_ci,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `typi_contacts`
+--
+
+INSERT INTO `typi_contacts` (`id`, `title`, `first_name`, `last_name`, `language`, `email`, `website`, `company`, `address`, `postcode`, `city`, `country`, `phone`, `mobile`, `fax`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'mr', 'poi', 'poi', 'fr', 'poi@poi.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'poi', '2014-03-28 13:43:16', '2014-03-28 13:43:16');
 
 -- --------------------------------------------------------
 
@@ -214,9 +249,9 @@ CREATE TABLE IF NOT EXISTS `typi_groups` (
 --
 
 INSERT INTO `typi_groups` (`id`, `name`, `permissions`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '{"dashboard":1,"admin.settings.index":1,"admin.pages.index":1,"admin.pages.view":1,"admin.pages.create":1,"admin.pages.store":1,"admin.pages.edit":1,"admin.pages.sort":1,"admin.pages.destroy":1,"admin.files.index":1,"admin.files.view":1,"admin.files.create":1,"admin.files.store":1,"admin.files.edit":1,"admin.files.sort":1,"admin.files.destroy":1,"admin.news.index":1,"admin.news.view":1,"admin.news.create":1,"admin.news.store":1,"admin.news.edit":1,"admin.news.sort":1,"admin.news.destroy":1,"admin.events.index":1,"admin.events.view":1,"admin.events.create":1,"admin.events.store":1,"admin.events.edit":1,"admin.events.sort":1,"admin.events.destroy":1,"admin.categories.index":1,"admin.categories.view":1,"admin.categories.create":1,"admin.categories.store":1,"admin.categories.edit":1,"admin.categories.sort":1,"admin.categories.destroy":1,"admin.projects.index":1,"admin.projects.view":1,"admin.projects.create":1,"admin.projects.store":1,"admin.projects.edit":1,"admin.projects.sort":1,"admin.projects.destroy":1,"admin.places.index":1,"admin.places.view":1,"admin.places.create":1,"admin.places.store":1,"admin.places.edit":1,"admin.places.sort":1,"admin.places.destroy":1,"admin.menus.index":1,"admin.menus.view":1,"admin.menus.create":1,"admin.menus.store":1,"admin.menus.edit":1,"admin.menus.sort":1,"admin.menus.destroy":1,"admin.menulinks.index":1,"admin.menulinks.view":1,"admin.menulinks.create":1,"admin.menulinks.store":1,"admin.menulinks.edit":1,"admin.menulinks.sort":1,"admin.menulinks.destroy":1,"admin.users.index":1,"admin.users.view":1,"admin.users.create":1,"admin.users.store":1,"admin.users.edit":1,"admin.users.sort":1,"admin.users.destroy":1,"admin.groups.index":1,"admin.groups.view":1,"admin.groups.create":1,"admin.groups.store":1,"admin.groups.edit":1,"admin.groups.sort":1,"admin.groups.destroy":1}', '2014-03-28 12:38:46', '2014-03-28 12:38:46'),
-(2, 'Public', '', '2014-03-28 12:38:46', '2014-03-28 12:38:46'),
-(3, 'News', '{"dashboard":1,"admin.news.index":1,"admin.news.view":1,"admin.news.create":1,"admin.news.store":1,"admin.news.edit":1,"admin.news.sort":1,"admin.news.destroy":1}', '2014-03-28 12:38:46', '2014-03-28 12:38:46');
+(1, 'Admin', '{"dashboard":1,"admin.settings.index":1,"admin.pages.index":1,"admin.pages.view":1,"admin.pages.create":1,"admin.pages.store":1,"admin.pages.edit":1,"admin.pages.sort":1,"admin.pages.destroy":1,"admin.files.index":1,"admin.files.view":1,"admin.files.create":1,"admin.files.store":1,"admin.files.edit":1,"admin.files.sort":1,"admin.files.destroy":1,"admin.news.index":1,"admin.news.view":1,"admin.news.create":1,"admin.news.store":1,"admin.news.edit":1,"admin.news.sort":1,"admin.news.destroy":1,"admin.events.index":1,"admin.events.view":1,"admin.events.create":1,"admin.events.store":1,"admin.events.edit":1,"admin.events.sort":1,"admin.events.destroy":1,"admin.categories.index":1,"admin.categories.view":1,"admin.categories.create":1,"admin.categories.store":1,"admin.categories.edit":1,"admin.categories.sort":1,"admin.categories.destroy":1,"admin.projects.index":1,"admin.projects.view":1,"admin.projects.create":1,"admin.projects.store":1,"admin.projects.edit":1,"admin.projects.sort":1,"admin.projects.destroy":1,"admin.places.index":1,"admin.places.view":1,"admin.places.create":1,"admin.places.store":1,"admin.places.edit":1,"admin.places.sort":1,"admin.places.destroy":1,"admin.menus.index":1,"admin.menus.view":1,"admin.menus.create":1,"admin.menus.store":1,"admin.menus.edit":1,"admin.menus.sort":1,"admin.menus.destroy":1,"admin.menulinks.index":1,"admin.menulinks.view":1,"admin.menulinks.create":1,"admin.menulinks.store":1,"admin.menulinks.edit":1,"admin.menulinks.sort":1,"admin.menulinks.destroy":1,"admin.users.index":1,"admin.users.view":1,"admin.users.create":1,"admin.users.store":1,"admin.users.edit":1,"admin.users.sort":1,"admin.users.destroy":1,"admin.groups.index":1,"admin.groups.view":1,"admin.groups.create":1,"admin.groups.store":1,"admin.groups.edit":1,"admin.groups.sort":1,"admin.groups.destroy":1}', '2014-03-28 13:42:39', '2014-03-28 13:42:39'),
+(2, 'Public', '', '2014-03-28 13:42:39', '2014-03-28 13:42:39'),
+(3, 'News', '{"dashboard":1,"admin.news.index":1,"admin.news.view":1,"admin.news.create":1,"admin.news.store":1,"admin.news.edit":1,"admin.news.sort":1,"admin.news.destroy":1}', '2014-03-28 13:42:39', '2014-03-28 13:42:39');
 
 -- --------------------------------------------------------
 
@@ -1078,7 +1113,7 @@ CREATE TABLE IF NOT EXISTS `typi_users` (
 --
 
 INSERT INTO `typi_users` (`id`, `email`, `password`, `permissions`, `activated`, `activation_code`, `activated_at`, `last_login`, `persist_code`, `reset_password_code`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES
-(1, 'admin@example.com', '$2y$08$5g2mUC28DvOmVJEr8Zw8Pe1AHbEG0M.JdOm2uoy29BcHicf0DIyP.', '{"superuser":1}', 1, NULL, NULL, NULL, NULL, NULL, 'Typi', 'Design', '2014-03-28 12:38:46', '2014-03-28 12:38:46');
+(1, 'admin@example.com', '$2y$08$ToVNLWrqtLxrUzh7QfawfeRLc3MPM.QsXs2iZ2Xi7OOjq8rnlXMSe', '{"superuser":1}', 1, NULL, NULL, NULL, NULL, NULL, 'Typi', 'Design', '2014-03-28 13:42:39', '2014-03-28 13:42:39');
 
 -- --------------------------------------------------------
 
