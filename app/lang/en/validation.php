@@ -169,8 +169,8 @@ return array(
         'start_time' => 'Start time',
         'end_time' => 'End time',
         'HH:MM' => 'HH:MM',
-        'DDMMYYYY' => 'DDMMYYYY',
-        'DDMMYYYY HHMM' => 'DDMMYYYY HHMM',
+        'DDMMYYYY' => 'DD.MM.YYYY',
+        'DDMMYYYY HHMM' => 'DD.MM.YYYY HH:MM',
 
         // Projects
         'category_id' => 'Category',
