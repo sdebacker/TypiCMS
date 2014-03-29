@@ -61,8 +61,8 @@ function initTinymce(selector) {
 			};
 		});
 
-		if ($('.datepicker').length) {
-			$('.datepicker').parent().datetimepicker({
+		if ($('.picker-date').length) {
+			$('.picker-date').datetimepicker({
 				icons: {
 					time: "fa fa-clock-o",
 					date: "fa fa-calendar",
@@ -74,16 +74,16 @@ function initTinymce(selector) {
 				pickTime: false,
 				language: lang
 			});
-			$('.datepicker-start').parent().on('change.dp', function (e) {
-				$('.datepicker-end').parent().data('DateTimePicker').setStartDate(e.date);
+			$('.picker-date-start').on('dp.change', function (e) {
+				$('.picker-date-end').data('DateTimePicker').setMinDate(e.date);
 			});
-			$('.datepicker-end').parent().on('change.dp', function (e) {
-				$('.datepicker-start').parent().data('DateTimePicker').setEndDate(e.date);
+			$('.picker-date-end').on('dp.change', function (e) {
+				$('.picker-date-start').data('DateTimePicker').setMaxDate(e.date);
 			});
 		};
 
-		if ($('.datetimepicker').length) {
-			$('.datetimepicker').parent().datetimepicker({
+		if ($('.picker-datetime').length) {
+			$('.picker-datetime').datetimepicker({
 				icons: {
 					time: "fa fa-clock-o",
 					date: "fa fa-calendar",
@@ -97,8 +97,8 @@ function initTinymce(selector) {
 			});
 		};
 
-		if ($('.timepicker').length) {
-			$('.timepicker').parent().datetimepicker({
+		if ($('.picker-time').length) {
+			$('.picker-time').datetimepicker({
 				icons: {
 					time: "fa fa-clock-o",
 					date: "fa fa-calendar",
@@ -107,7 +107,6 @@ function initTinymce(selector) {
 				},
 				format: 'HH:mm',
 				pickDate: false,
-				useSeconds: false,
 				language: lang
 			});
 		};
