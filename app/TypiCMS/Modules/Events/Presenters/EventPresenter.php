@@ -11,16 +11,6 @@ use TypiCMS\Presenters\Presentable;
 class EventPresenter extends AbstractPresenter implements Presentable
 {
 
-    public function startDateOrDefault()
-    {
-        return $this->object->start_date->format('Y-m-d') ? : Carbon::now()->format('Y-m-d');
-    }
-
-    public function endDateOrDefault()
-    {
-        return $this->object->end_date->format('Y-m-d') ? : Carbon::now()->format('Y-m-d');
-    }
-
     public function start_date()
     {
         return $this->object->start_date->format('d.m.Y');

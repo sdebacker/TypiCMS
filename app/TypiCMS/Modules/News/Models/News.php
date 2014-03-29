@@ -1,9 +1,11 @@
 <?php
 namespace TypiCMS\Modules\News\Models;
 
-use TypiCMS\Models\Base;
-
 use Input;
+
+use Carbon\Carbon;
+
+use TypiCMS\Models\Base;
 
 class News extends Base
 {
@@ -54,6 +56,11 @@ class News extends Base
     public function files()
     {
         return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
+    }
+
+    public function setDateAttribute($value)
+    {
+        $this->attributes['date'] = Carbon::parse($value);
     }
 
 }

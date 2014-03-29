@@ -13,9 +13,9 @@
 
         <div class="row">
             <div class="col-xs-8 form-group @if($errors->has('start_date'))has-error@endif">
-                {{ Form::label('start_date', trans('validation.attributes.start_date'), array('class' => 'control-label', 'placeholder' => 'DDMMYYYY')) }}
+                {{ Form::label('start_date', trans('validation.attributes.start_date'), array('class' => 'control-label')) }}
                 <div class="input-group picker-date picker-date-start">
-                    {{ Form::text('start_date', $model->startDateOrDefault, array('class' => 'form-control')) }}
+                    {{ Form::text('start_date', $model->dateOrNow('start_date', 'd.m.Y'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
                             <i class="fa fa-calendar"></i>
@@ -27,9 +27,9 @@
                 @endif
             </div>
             <div class="col-xs-4 form-group">
-                {{ Form::label('start_time', trans('validation.attributes.start_time'), array('class' => 'control-label', 'placeholder' => 'HH:MM')) }}
+                {{ Form::label('start_time', trans('validation.attributes.start_time'), array('class' => 'control-label')) }}
                 <div class="input-group picker-time">
-                    {{ Form::text('start_time', null, array('class' => 'form-control')) }}
+                    {{ Form::text('start_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
                             <i class="fa fa-clock-o"></i>
@@ -41,9 +41,9 @@
 
         <div class="row">
             <div class="col-xs-8 form-group @if($errors->has('end_date'))has-error@endif">
-                {{ Form::label('end_date', trans('validation.attributes.end_date'), array('class' => 'control-label', 'placeholder' => 'DDMMYYYY')) }}
+                {{ Form::label('end_date', trans('validation.attributes.end_date'), array('class' => 'control-label')) }}
                 <div class="input-group picker-date picker-date-end">
-                    {{ Form::text('end_date', $model->endDateOrDefault, array('class' => 'form-control')) }}
+                    {{ Form::text('end_date', $model->dateOrNow('end_date', 'd.m.Y'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
                             <i class="fa fa-calendar"></i>
@@ -55,9 +55,9 @@
                 @endif
             </div>
             <div class="col-xs-4 form-group">
-                {{ Form::label('end_time', trans('validation.attributes.end_time'), array('class' => 'control-label', 'placeholder' => 'HH:MM')) }}
+                {{ Form::label('end_time', trans('validation.attributes.end_time'), array('class' => 'control-label')) }}
                 <div class="input-group picker-time">
-                    {{ Form::text('end_time', null, array('class' => 'form-control')) }}
+                    {{ Form::text('end_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
                             <i class="fa fa-clock-o"></i>

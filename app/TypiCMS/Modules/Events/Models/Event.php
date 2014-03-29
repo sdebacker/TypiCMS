@@ -60,4 +60,14 @@ class Event extends Base
         return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
     }
 
+    public function setStartDateAttribute($value)
+    {
+        $this->attributes['start_date'] = Carbon::parse($value);
+    }
+
+    public function setEndDateAttribute($value)
+    {
+        $this->attributes['end_date'] = Carbon::parse($value);
+    }
+
 }

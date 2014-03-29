@@ -5,6 +5,8 @@ use Input;
 use Route;
 use ArrayAccess;
 
+use Carbon\Carbon;
+
 abstract class AbstractPresenter implements ArrayAccess
 {
 
@@ -170,6 +172,12 @@ abstract class AbstractPresenter implements ArrayAccess
         }
         $routeName = substr($routeName, 0, strrpos($routeName, '.'));
         return route($routeName);
+    }
+
+    public function dateOrNow($date, $format)
+    {
+        $date = $this->object->$date ? : Carbon::now() ;
+        return $date->format($format);
     }
 
 }
