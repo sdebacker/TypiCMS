@@ -1,8 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Users\Repositories;
 
-// Part of this code is from https://github.com/brunogaspar/laravel4-starter-kit
+// Part of this code come from https://github.com/brunogaspar/laravel4-starter-kit
 
+use Mail;
 use Input;
 use Exception;
 
@@ -122,10 +123,8 @@ class SentryUser implements UserInterface
     {
         if ($user) {
             return $user->getGroups()->lists('name', 'id');
-
         } else {
             return $this->sentry->findAllGroups();
-
         }
 
     }
@@ -333,26 +332,17 @@ class SentryUser implements UserInterface
             // Let's register a user.
             $user = $this->sentry->register($input, $noConfirmation);
 
-            if ($noConfirmation) {
+            // Get the activation code & prep data for email
+            $data['activationCode'] = $user->GetActivationCode();
+            $data['email'] = $input['email'];
+            $data['firstName'] = $input['first_name'];
+            $data['lastName'] = $input['last_name'];
+            $data['userId'] = $user->getId();
 
-                // Add this person to the user group.
-                $userGroup = $this->sentry->getGroupProvider()->findById(1);
-                $user->addGroup($userGroup);
-
-            } else {
-
-                // Get the activation code & prep data for email
-                $data['activationCode'] = $user->GetActivationCode();
-                $data['email'] = $input['email'];
-                $data['firstName'] = $input['first_name'];
-                $data['lastName'] = $input['last_name'];
-                $data['userId'] = $user->getId();
-
-                // send email with link to activate.
-                \Mail::send('emails.auth.welcome', $data, function ($m) use ($data) {
-                    $m->to($data['email'])->subject('Welcome to Typi CMS');
-                });
-            }
+            // send email with link to activate.
+            Mail::send('emails.auth.welcome', $data, function ($m) use ($data) {
+                $m->to($data['email'])->subject('Welcome to Typi CMS');
+            });
 
             return true;
 
@@ -382,7 +372,7 @@ class SentryUser implements UserInterface
 
             if ($user->attemptActivation($activationCode)) {
 
-                $userGroup = $this->sentry->getGroupProvider()->findById(1);
+                $userGroup = $this->sentry->findGroupByName('Public');
                 $user->addGroup($userGroup);
 
                 return true;
