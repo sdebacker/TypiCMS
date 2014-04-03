@@ -22,7 +22,11 @@ class EventSeeder extends Seeder
             array('id' => '7','event_id' => '3','locale' => 'fr','status' => '1','title' => 'Evenement 2','slug' => 'evenement-2','summary' => '','body' => '','created_at' => '2013-10-28 23:22:37','updated_at' => '2013-10-28 23:22:37'),
             array('id' => '8','event_id' => '3','locale' => 'nl','status' => '0','title' => 'Event 2','slug' => 'event-2','summary' => '','body' => '','created_at' => '2013-10-28 23:22:37','updated_at' => '2013-10-28 23:22:37'),
             array('id' => '9','event_id' => '3','locale' => 'en','status' => '1','title' => 'Event 2','slug' => 'event-2','summary' => '','body' => '','created_at' => '2013-10-28 23:22:37','updated_at' => '2013-10-28 23:22:37'),
+<<<<<<< HEAD
             array('id' => '10','event_id' => '4','locale' => 'fr','status' => '1','title' => 'Evenement 3','slug' => 'evenement-3','summary' => '','body' => '','created_at' => '2014-03-28 23:22:37','updated_at' => '2014-03-28 23:22:37'),
+=======
+            array('id' => '10','event_id' => '4','locale' => 'fr','status' => '1','title' => 'Event 3','slug' => 'evenement-3','summary' => '','body' => '','created_at' => '2014-03-28 23:22:37','updated_at' => '2014-03-28 23:22:37'),
+>>>>>>> 9298a371b256c50a7ceff27ad0ffc1a4bcd69d07
             array('id' => '11','event_id' => '4','locale' => 'nl','status' => '0','title' => 'Event 3','slug' => 'event-3','summary' => '','body' => '','created_at' => '2014-03-28 23:22:37','updated_at' => '2014-03-28 23:22:37'),
             array('id' => '12','event_id' => '4','locale' => 'en','status' => '1','title' => 'Event 3','slug' => 'event-3','summary' => '','body' => '','created_at' => '2014-03-28 23:22:37','updated_at' => '2014-03-28 23:22:37')
         );
