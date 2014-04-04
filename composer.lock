@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5ec2118777620a79e2125d2f1b020112362740d5"
+                "reference": "b525feee1303f0674877a754fd1412cc26da2ff2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5ec2118777620a79e2125d2f1b020112362740d5",
-                "reference": "5ec2118777620a79e2125d2f1b020112362740d5",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b525feee1303f0674877a754fd1412cc26da2ff2",
+                "reference": "b525feee1303f0674877a754fd1412cc26da2ff2",
                 "shasum": ""
             },
             "require": {
@@ -71,20 +71,20 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-03-25 22:51:48"
+            "time": "2014-04-03 20:18:01"
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.5.5",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "e6a15a859eb528d4137017acd6d4055f15326720"
+                "reference": "268f286c20a4e177522c133701b6a83e984cd8b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/e6a15a859eb528d4137017acd6d4055f15326720",
-                "reference": "e6a15a859eb528d4137017acd6d4055f15326720",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/268f286c20a4e177522c133701b6a83e984cd8b5",
+                "reference": "268f286c20a4e177522c133701b6a83e984cd8b5",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-03-25 19:40:57"
+            "time": "2014-03-27 16:20:18"
         },
         {
             "name": "bkwld/croppa",
