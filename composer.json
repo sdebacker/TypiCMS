@@ -31,6 +31,7 @@
 		"msurguy/honeypot": "dev-master"
 	},
 	"require-dev": {
+		"itsgoingd/clockwork": "1.*",
 		"phpspec/phpspec": "2.0.*@dev",
 		"raveren/kint": "dev-master",
 		"mockery/mockery": "0.9.*@dev"

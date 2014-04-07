@@ -135,7 +135,10 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Cartalyst\Sentry\SentryServiceProvider',
+
 		'Barryvdh\Debugbar\ServiceProvider',
+		'Clockwork\Support\Laravel\ClockworkServiceProvider',
+
 		'Krucas\Notification\NotificationServiceProvider',
 		'Bkwld\Croppa\ServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
