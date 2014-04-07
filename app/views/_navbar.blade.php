@@ -17,7 +17,7 @@
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         @foreach ($modules as $module => $property)
-                            <li><a href="{{ route('admin.'.strtolower($module).'.index') }}">{{ Str::title(trans_choice(strtolower($module) . '::global.' . strtolower($module), 2, array(), null, Config::get('typicms.adminLocale'))) }}</a></li>
+                            <li><a href="{{ route('admin.'.strtolower($module).'.index') }}">{{ Str::title(trans(strtolower($module) . '::global.name', array(), null, Config::get('typicms.adminLocale'))) }}</a></li>
                         @endforeach
                         </ul>
                     </li>

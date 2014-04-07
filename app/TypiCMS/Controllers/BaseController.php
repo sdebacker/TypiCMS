@@ -3,6 +3,7 @@ namespace TypiCMS\Controllers;
 
 use Lang;
 use View;
+use Event;
 use Sentry;
 use Config;
 use Request;
@@ -33,24 +34,18 @@ abstract class BaseController extends Controller
         'h1'       => '',
     );
 
-    public function getTitle()
-    {
-        $title = ucfirst($this->title['parent']);
-        if ($this->title['child']) {
-            $title .= ' – ' . ucfirst($this->title['child']);
-        }
-        $title .= ' – ' . $this->applicationName;
-
-        return $title;
-    }
-
-    public function getH1()
-    {
-        return $this->title['h1'] ? : $this->title['child'] ;
-    }
-
     public function __construct($repository = null, $form = null, $presenter = null)
     {
+        $this->beforeFilter(function()
+        {
+            Event::fire('clockwork.controller.start');
+        });
+
+        $this->afterFilter(function()
+        {
+            Event::fire('clockwork.controller.end');
+        });
+
         $this->repository = $repository;
         $this->form       = $form;
         $this->presenter  = $presenter;
@@ -68,6 +63,22 @@ abstract class BaseController extends Controller
         View::share('modules', $modules);
         View::share('locales', Config::get('app.locales'));
         View::share('locale', Config::get('app.locale'));
+    }
+
+    public function getTitle()
+    {
+        $title = ucfirst($this->title['parent']);
+        if ($this->title['child']) {
+            $title .= ' – ' . ucfirst($this->title['child']);
+        }
+        $title .= ' – ' . $this->applicationName;
+
+        return $title;
+    }
+
+    public function getH1()
+    {
+        return $this->title['h1'] ? : $this->title['child'] ;
     }
 
     /**

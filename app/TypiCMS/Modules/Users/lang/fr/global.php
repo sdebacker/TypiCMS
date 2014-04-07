@@ -1,5 +1,6 @@
 <?php
 return array(
+    'name' => 'utilisateurs',
     'users' => 'utilisateur|utilisateurs',
     'New'  => 'Nouvel utilisateur',
     'Edit' => 'Modifier l’utilisateur',

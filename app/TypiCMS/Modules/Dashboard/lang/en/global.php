@@ -1,12 +1,6 @@
 <?php
-
 return array(
-
-    /*
-    |--------------------------------------------------------------------------
-    | FR Dashboard TypiCMS Language Lines
-    |--------------------------------------------------------------------------
-    */
+    'name' => 'Dashboard',
     'Dashboard' => 'Dashboard',
     'Welcome, :name!' => 'Welcome :name !',
     'Modules' => 'Modules',

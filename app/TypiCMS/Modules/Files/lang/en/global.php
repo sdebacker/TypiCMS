@@ -1,5 +1,6 @@
 <?php
 return array(
+    'name' => 'files',
     'files' => 'file|files',
     'New'  => 'New file',
     'Edit' => 'Edit file',

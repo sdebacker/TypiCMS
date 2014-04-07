@@ -39,7 +39,7 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
             if ($property['dashboard'] and Sentry::getUser()->hasAccess('admin.' . $lowerName . '.index')) {
                 $modulesForDashboard[$module]['name'] = $module;
                 $modulesForDashboard[$module]['route'] = $lowerName;
-                $modulesForDashboard[$module]['title'] = Str::title(trans_choice($lowerName . '::global.' . $lowerName, 2));
+                $modulesForDashboard[$module]['title'] = Str::title(trans($lowerName . '::global.name'));
                 $modulesForDashboard[$module]['count'] = DB::table($lowerName)->count();
             }
         }

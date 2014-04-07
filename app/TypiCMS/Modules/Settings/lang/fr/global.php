@@ -1,12 +1,6 @@
 <?php
-
 return array(
-
-    /*
-    |--------------------------------------------------------------------------
-    | FR Settings TypiCMS Language Lines
-    |--------------------------------------------------------------------------
-    */
+    'name' => 'configuration',
     'settings' => 'configuration',
     'System info' => 'Informations système',
     'Backup DB' => 'Sauvegarder la base de données',

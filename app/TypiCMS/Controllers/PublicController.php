@@ -3,6 +3,7 @@ namespace TypiCMS\Controllers;
 
 use App;
 use View;
+use Event;
 use Sentry;
 use Config;
 use Request;
@@ -34,6 +35,16 @@ class PublicController extends Controller
 
     public function __construct($repository = null, $presenter = null)
     {
+        $this->beforeFilter(function()
+        {
+            Event::fire('clockwork.controller.start');
+        });
+
+        $this->afterFilter(function()
+        {
+            Event::fire('clockwork.controller.end');
+        });
+
         $this->repository = $repository;
         $this->presenter  = $presenter;
 
