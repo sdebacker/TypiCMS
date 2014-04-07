@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.events.index', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('events::global.events', 2)), route('admin.events.index'));
+    $breadcrumbs->push(Str::title(trans('events::global.name')), route('admin.events.index'));
 });
 
 Breadcrumbs::register('admin.events.edit', function ($breadcrumbs, $event) {

@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.files.index', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('files::global.files', 2)), route('admin.files.index'));
+    $breadcrumbs->push(Str::title(trans('files::global.name')), route('admin.files.index'));
 });
 
 // Breadcrumbs::register('admin.files.edit', function ($breadcrumbs, $file) {

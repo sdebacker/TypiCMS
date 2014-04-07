@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.news.index', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('news::global.news', 2)), route('admin.news.index'));
+    $breadcrumbs->push(Str::title(trans('news::global.name')), route('admin.news.index'));
 });
 
 Breadcrumbs::register('admin.news.edit', function ($breadcrumbs, $news) {

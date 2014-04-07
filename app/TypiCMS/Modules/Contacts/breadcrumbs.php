@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.contacts.index', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('contacts::global.contacts', 2)), route('admin.contacts.index'));
+    $breadcrumbs->push(Str::title(trans('contacts::global.name')), route('admin.contacts.index'));
 });
 
 Breadcrumbs::register('admin.contacts.edit', function ($breadcrumbs, $contact) {

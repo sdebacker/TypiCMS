@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.pages.index', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('pages::global.pages', 2)), route('admin.pages.index'));
+    $breadcrumbs->push(Str::title(trans('pages::global.name')), route('admin.pages.index'));
 });
 
 Breadcrumbs::register('admin.pages.edit', function ($breadcrumbs, $page) {

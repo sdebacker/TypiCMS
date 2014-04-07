@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.projects.index', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('projects::global.projects', 2)), route('admin.projects.index'));
+    $breadcrumbs->push(Str::title(trans('projects::global.name')), route('admin.projects.index'));
 });
 
 Breadcrumbs::register('admin.projects.edit', function ($breadcrumbs, $project) {

@@ -4,7 +4,7 @@
 
 Breadcrumbs::register('admin.places.index', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push(Str::title(trans_choice('places::global.places', 2)), route('admin.places.index'));
+    $breadcrumbs->push(Str::title(trans('places::global.name')), route('admin.places.index'));
 });
 
 Breadcrumbs::register('admin.places.edit', function ($breadcrumbs, $place) {
