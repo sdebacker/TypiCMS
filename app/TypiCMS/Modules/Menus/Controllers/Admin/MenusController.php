@@ -61,6 +61,7 @@ class MenusController extends BaseController
     public function edit($model)
     {
         $this->title['child'] = trans('menus::global.Edit');
+        $model = $this->presenter->model($model, new MenuPresenter);
         $this->layout->content = View::make('menus.admin.edit')
             ->with('model', $model);
     }
