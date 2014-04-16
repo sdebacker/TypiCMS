@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "b525feee1303f0674877a754fd1412cc26da2ff2"
+                "reference": "e684a341105c3df39b080a06407e416021a41906"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b525feee1303f0674877a754fd1412cc26da2ff2",
-                "reference": "b525feee1303f0674877a754fd1412cc26da2ff2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e684a341105c3df39b080a06407e416021a41906",
+                "reference": "e684a341105c3df39b080a06407e416021a41906",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-04-03 20:18:01"
+            "time": "2014-04-14 21:49:32"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -821,16 +821,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.1.24",
+            "version": "v4.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4f69e545e0ca19b54010ca4c68a66ba6de6e853c"
+                "reference": "2f1c6cd51dfd51d573977f07e34ba609cc0bf3ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4f69e545e0ca19b54010ca4c68a66ba6de6e853c",
-                "reference": "4f69e545e0ca19b54010ca4c68a66ba6de6e853c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2f1c6cd51dfd51d573977f07e34ba609cc0bf3ac",
+                "reference": "2f1c6cd51dfd51d573977f07e34ba609cc0bf3ac",
                 "shasum": ""
             },
             "require": {
@@ -889,7 +889,7 @@
                 "illuminate/workbench": "self.version"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "2.5.*",
+                "aws/aws-sdk-php": "2.6.*",
                 "iron-io/iron_mq": "1.5.*",
                 "mockery/mockery": "0.9.*",
                 "pda/pheanstalk": "2.1.*",
@@ -906,9 +906,7 @@
             },
             "autoload": {
                 "classmap": [
-                    [
-                        "src/Illuminate/Queue/IlluminateQueueClosure.php"
-                    ]
+                    "src/Illuminate/Queue/IlluminateQueueClosure.php"
                 ],
                 "files": [
                     "src/Illuminate/Support/helpers.php"
@@ -934,7 +932,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-03-17 15:49:21"
+            "time": "2014-04-16 15:27:05"
         },
         {
             "name": "maximebf/debugbar",
@@ -2407,12 +2405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thujohn/rss-l4.git",
-                "reference": "3441ff033d43642ace9744caee22a468713ec8a2"
+                "reference": "8c03400062167c3f6b7340a1c964cdb3626a4e4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thujohn/rss-l4/zipball/3441ff033d43642ace9744caee22a468713ec8a2",
-                "reference": "3441ff033d43642ace9744caee22a468713ec8a2",
+                "url": "https://api.github.com/repos/thujohn/rss-l4/zipball/8c03400062167c3f6b7340a1c964cdb3626a4e4b",
+                "reference": "8c03400062167c3f6b7340a1c964cdb3626a4e4b",
                 "shasum": ""
             },
             "require": {
@@ -2441,7 +2439,7 @@
                 "laravel4",
                 "rss"
             ],
-            "time": "2013-12-27 22:23:35"
+            "time": "2014-04-07 20:15:45"
         },
         {
             "name": "weotch/phpthumb",
