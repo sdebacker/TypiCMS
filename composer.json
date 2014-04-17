@@ -28,10 +28,10 @@
 		"thomaswelton/laravel-gravatar": "0.0.*",
 		"eluceo/ical": "dev-master",
 		"davejamesmiller/laravel-breadcrumbs": "~2.2.0",
-		"msurguy/honeypot": "dev-master"
+		"msurguy/honeypot": "dev-master",
+		"itsgoingd/clockwork": "1.*"
 	},
 	"require-dev": {
-		"itsgoingd/clockwork": "1.*",
 		"phpspec/phpspec": "2.0.*@dev",
 		"raveren/kint": "dev-master",
 		"mockery/mockery": "0.9.*@dev"
