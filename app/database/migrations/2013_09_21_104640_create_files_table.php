@@ -49,7 +49,7 @@ class CreateFilesTable extends Migration
 
             $table->string('locale')->index();
 
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
 
             $table->text('description');
             $table->string('alt_attribute');

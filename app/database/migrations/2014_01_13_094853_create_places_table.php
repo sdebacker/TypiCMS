@@ -36,7 +36,7 @@ class CreatePlacesTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('place_id')->unsigned();
 
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
 
             $table->string('locale')->index();
 

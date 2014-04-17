@@ -51,7 +51,7 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->text('body');
 
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
 
             $table->string('meta_title')->nullable();
             $table->string('meta_keywords')->nullable();

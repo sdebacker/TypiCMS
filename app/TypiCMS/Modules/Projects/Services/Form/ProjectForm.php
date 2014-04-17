@@ -64,7 +64,7 @@ class ProjectForm
     {
         // add checkboxes data
         foreach (Config::get('app.locales') as $locale) {
-            $input[$locale]['status'] = Input::get($locale.'.status');
+            $input[$locale]['status'] = Input::get($locale.'.status', '0');
         }
 
         $inputDot = array_dot($input);

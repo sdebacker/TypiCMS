@@ -33,7 +33,7 @@ class CreateEventsTable extends Migration
 
             $table->string('locale');
 
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
 
             $table->string('title');
             $table->string('slug')->nullable();

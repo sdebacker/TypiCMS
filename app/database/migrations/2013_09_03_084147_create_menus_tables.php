@@ -65,7 +65,7 @@ class CreateMenusTables extends Migration
 
             $table->string('locale')->index();
 
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
 
             $table->string('title', 100);
             $table->string('url');
