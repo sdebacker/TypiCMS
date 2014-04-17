@@ -74,7 +74,7 @@
             <li class="active">
                 <a href="#options" data-target="#options" data-toggle="tab">Options</a>
             </li>
-            @if($model->files)
+            @if($model->files->count())
             <li>
                 <a href="#images" data-target="#images" data-toggle="tab">Images</a>
             </li>
@@ -113,7 +113,7 @@
                 </div>
             </div>
 
-            @if($model->files)
+            @if($model->files->count())
             <div class="tab-pane fade" id="images">
                 @include('files.admin._list', array('files' => $model->files))
             </div>
