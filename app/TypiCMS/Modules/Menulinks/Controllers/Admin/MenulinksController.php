@@ -73,13 +73,10 @@ class MenulinksController extends BaseController
         $model = $this->presenter->model($model, new MenulinkPresenter);
         $this->title['child'] = trans('menulinks::global.Edit');
 
-        $selectPages = $this->repository->getPagesForSelect();
-        $selectModules = $this->repository->getModulesForSelect();
-
-        $this->layout->content = View::make('menulinks.admin.edit', array($menu->id, $model->id))
+        $this->layout->content = View::make('menulinks.admin.edit')
             ->withMenu($menu)
-            ->with('selectPages', $selectPages)
-            ->with('selectModules', $selectModules)
+            ->with('selectPages', $this->repository->getPagesForSelect())
+            ->with('selectModules', $this->repository->getModulesForSelect())
             ->withModel($model);
     }
 
