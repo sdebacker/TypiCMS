@@ -241,7 +241,7 @@ return array(
         'width' => 'Width',
         'height' => 'Height',
         'download_count' => 'Download_count',
-        'File information' => 'File information',
+        'file information' => 'File information',
 
         'Submit' => 'Submit',
         'Reset' => 'Reset',
