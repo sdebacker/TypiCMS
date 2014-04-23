@@ -2,6 +2,7 @@
 namespace TypiCMS\Services\Upload;
 
 use Str;
+use Config;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -33,6 +34,9 @@ class FileUpload
         $input['filesize']  = $file->getClientSize();
         $input['mimetype']  = $file->getClientMimeType();
         $input['filename']  = $fileName . $input['extension'];
+
+        $fileTypes = Config::get('file.types');
+        $input['type'] = $fileTypes[strtolower($file->getClientOriginalExtension())];
 
         $filecounter = 1;
         while (file_exists($input['path'] . '/' . $input['filename'])) {
