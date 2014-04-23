@@ -51,17 +51,17 @@
 
     <div class="col-sm-6">
 
-        {{ Form::hidden('folder_id') }}
-        {{ Form::hidden('user_id') }}
+        {{ Form::hidden('folder_id', 0) }}
+        {{ Form::hidden('user_id', 0) }}
         {{ Form::hidden('type') }}
-        {{ Form::hidden('position') }}
+        {{ Form::hidden('position', 0) }}
         {{ Form::hidden('path') }}
         {{ Form::hidden('filename') }}
         {{ Form::hidden('extension') }}
         {{ Form::hidden('mimetype') }}
         {{ Form::hidden('width') }}
         {{ Form::hidden('height') }}
-        {{ Form::hidden('download_count') }}
+        {{ Form::hidden('download_count', 0) }}
 
         <div class="clearfix well media @if($errors->has('file'))has-error@endif">
             @if(isset($model->filename) and $model->filename)

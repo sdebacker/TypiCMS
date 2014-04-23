@@ -20,9 +20,9 @@ class CreateFilesTable extends Migration
             $table->integer('fileable_id')->unsigned();
             $table->string('fileable_type');
 
-            $table->integer('folder_id')->unsigned();
+            $table->integer('folder_id')->unsigned()->default(0);
 
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->default(0);
 
             $table->enum('type', array('a', 'v', 'd', 'i', 'o'));
             $table->string('filename');
@@ -32,7 +32,7 @@ class CreateFilesTable extends Migration
             $table->integer('width')->unsigned()->nullable();
             $table->integer('height')->unsigned()->nullable();
             $table->integer('filesize')->unsigned();
-            $table->integer('download_count');
+            $table->integer('download_count')->default(0);
 
             $table->integer('position')->unsigned()->default(0);
 

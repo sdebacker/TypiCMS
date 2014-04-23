@@ -18,8 +18,10 @@
 
         {{ Form::open(array('route' => array('admin.' . $parent->route . '.files.store', $parent->id), 'files' => true, 'class' => 'dropzone', 'id' => 'dropzone')) }}
             @foreach (Config::get('app.locales') as $locale)
-                {{ Form::hidden($locale.'[alt_attribute]', '') }}
                 {{ Form::hidden($locale.'[status]', 1) }}
+                {{ Form::hidden($locale.'[description]') }}
+                {{ Form::hidden($locale.'[alt_attribute]', '') }}
+                {{ Form::hidden($locale.'[keywords]') }}
             @endforeach
             {{ Form::hidden('fileable_id', $parent->id); }}
             {{ Form::hidden('fileable_type', get_class($parent)); }}
