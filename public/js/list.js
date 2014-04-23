@@ -26,7 +26,7 @@ function enableSortable() {
 		toleranceElement = false;
 		url = '/admin/files/sort';
 	}
-	
+
 	var sortableOptions = {
 		forcePlaceholderSize: true,
 		handle: handle,
@@ -46,7 +46,7 @@ function enableSortable() {
 		expandOnHover: 700,
 		startCollapsed: false,
 		update: function(event, ui) {
-			var serializedDatas = sortableList.sortable('serialize'),
+			var serializedDatas = sortableList.sortable('serialize').replace(/null/g, '0'),
 				elementId = ui.item.attr('id').split(/[_]+/).pop();
 			if (isTree) {
 				serializedDatas += '&nested=true&moved=' + elementId;
