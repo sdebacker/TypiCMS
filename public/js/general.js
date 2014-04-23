@@ -55,7 +55,7 @@ function translate(string) {
 				this.on("complete", function (file) {
 					completeFiles += 1;
 					if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-						// Mettre à jour les position
+						// Update positions
 						var files = this.getAcceptedFiles();
 						var done = 0;
 						for (var key in files){
