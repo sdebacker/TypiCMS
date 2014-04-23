@@ -28,7 +28,6 @@ class FileUpload
 
         $fileName = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
 
-        // $input['path']      = '../../' . $path;
         $input['path']      = $path;
         $input['extension'] = '.' . $file->getClientOriginalExtension();
         $input['filesize']  = $file->getClientSize();
