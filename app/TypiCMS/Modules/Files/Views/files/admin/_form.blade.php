@@ -62,7 +62,6 @@
         {{ Form::hidden('width') }}
         {{ Form::hidden('height') }}
         {{ Form::hidden('download_count') }}
-        {{ Form::hidden('name') }}
 
         <div class="clearfix well media @if($errors->has('file'))has-error@endif">
             @if(isset($model->filename) and $model->filename)

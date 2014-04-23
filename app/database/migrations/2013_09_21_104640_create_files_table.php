@@ -25,7 +25,6 @@ class CreateFilesTable extends Migration
             $table->integer('user_id')->unsigned();
 
             $table->enum('type', array('a', 'v', 'd', 'i', 'o'));
-            $table->string('name', 100);
             $table->string('filename');
             $table->string('path');
             $table->string('extension', 8);
