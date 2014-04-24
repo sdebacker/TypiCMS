@@ -48,13 +48,13 @@ class ProjectsController extends BaseController
      */
     public function create()
     {
+        $this->title['child'] = trans('projects::global.New');
         $model = $this->repository->getModel();
+        $model = $this->presenter->model($model, new ProjectPresenter);
 
         $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
 
         $tags = Session::getOldInput('tags');
-
-        $this->title['child'] = trans('projects::global.New');
         $this->layout->content = View::make('projects.admin.create')
             ->withCategories($categories)
             ->withTags($tags)
@@ -71,6 +71,8 @@ class ProjectsController extends BaseController
     {
 
         $this->title['child'] = trans('projects::global.Edit');
+
+        $model = $this->presenter->model($model, new ProjectPresenter);
 
         $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
 

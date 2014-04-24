@@ -47,8 +47,9 @@ class PagesController extends BaseController
      */
     public function create()
     {
-        $model = $this->repository->getModel();
         $this->title['child'] = trans('pages::global.New');
+        $model = $this->repository->getModel();
+        $model = $this->presenter->model($model, new PagePresenter);
         $this->layout->content = View::make('pages.admin.create')
             ->with('model', $model);
     }
@@ -61,9 +62,9 @@ class PagesController extends BaseController
      */
     public function edit($model)
     {
+        $this->title['child'] = trans('pages::global.Edit');
         $model = $this->presenter->model($model, new PagePresenter);
         TypiCMS::setModel($model);
-        $this->title['child'] = trans('pages::global.Edit');
         $this->layout->content = View::make('pages.admin.edit')
             ->withModel($model);
     }

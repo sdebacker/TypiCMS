@@ -59,6 +59,7 @@ class PlacesController extends BaseController
     {
         $this->title['child'] = trans('places::global.New');
         $model = $this->repository->getModel();
+        $model = $this->presenter->model($model, new PlacePresenter);
         $this->layout->content = View::make('places.admin.create')
             ->withModel($model);
     }
@@ -71,9 +72,9 @@ class PlacesController extends BaseController
      */
     public function edit($model)
     {
+        $this->title['child'] = trans('places::global.Edit');
         $model = $this->presenter->model($model, new PlacePresenter);
         TypiCMS::setModel($model);
-        $this->title['child'] = trans('places::global.Edit');
         $this->layout->content = View::make('places.admin.edit')
             ->withModel($model);
     }

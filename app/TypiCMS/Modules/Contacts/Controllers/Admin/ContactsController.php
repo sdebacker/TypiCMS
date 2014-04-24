@@ -57,6 +57,7 @@ class ContactsController extends BaseController
     {
         $this->title['child'] = trans('contacts::global.New');
         $model = $this->repository->getModel();
+        $model = $this->presenter->model($model, new ContactPresenter);
         $this->layout->content = View::make('contacts.admin.create')
             ->with('model', $model);
     }

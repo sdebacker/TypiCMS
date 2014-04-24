@@ -45,8 +45,9 @@ class CategoriesController extends BaseController
      */
     public function create()
     {
-        $model = $this->repository->getModel();
         $this->title['child'] = trans('categories::global.New');
+        $model = $this->repository->getModel();
+        $model = $this->presenter->model($model, new CategoryPresenter);
         $this->layout->content = View::make('categories.admin.create')
             ->with('model', $model);
     }
@@ -59,6 +60,7 @@ class CategoriesController extends BaseController
      */
     public function edit($model)
     {
+        $model = $this->presenter->model($model, new CategoryPresenter);
         $this->title['child'] = trans('categories::global.Edit');
         $this->layout->content = View::make('categories.admin.edit')
             ->with('model', $model);
