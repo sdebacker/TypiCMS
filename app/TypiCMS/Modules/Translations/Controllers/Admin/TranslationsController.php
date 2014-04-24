@@ -48,9 +48,8 @@ class TranslationsController extends BaseController
      */
     public function create()
     {
-        $model = $this->repository->getModel();
-
         $this->title['child'] = trans('translations::global.New');
+        $model = $this->repository->getModel();
         $this->layout->content = View::make('translations.admin.create')
             ->withModel($model);
     }
@@ -63,9 +62,7 @@ class TranslationsController extends BaseController
      */
     public function edit($model)
     {
-
         $this->title['child'] = trans('translations::global.Edit');
-
         $this->layout->content = View::make('translations.admin.edit')
             ->withModel($model);
     }
