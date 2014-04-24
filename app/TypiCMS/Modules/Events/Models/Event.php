@@ -69,5 +69,4 @@ class Event extends Base
     {
         $this->attributes['end_date'] = Carbon::parse($value);
     }
-
 }

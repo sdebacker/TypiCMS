@@ -27,5 +27,4 @@ class TranslationServiceProvider extends LaravelTranslationServiceProvider
             return new MixedLoader($fileLoader, $repository);
         });
     }
-
 }

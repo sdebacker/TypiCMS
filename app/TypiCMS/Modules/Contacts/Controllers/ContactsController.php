@@ -54,7 +54,7 @@ class ContactsController extends PublicController
     {
         App::setLocale(Input::get('locale'));
 
-        if ( $model = $this->form->save( Input::all() ) ) {
+        if ($model = $this->form->save(Input::all())) {
             Session::flash('formIsSent', true);
             return Redirect::back();
         }
@@ -64,5 +64,4 @@ class ContactsController extends PublicController
             ->withErrors($this->form->errors());
 
     }
-
 }

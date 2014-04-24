@@ -48,5 +48,4 @@ interface ValidableInterface
      * @return $this
      */
     public function emptyRules();
-
 }

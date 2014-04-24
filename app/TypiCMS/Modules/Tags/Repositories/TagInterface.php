@@ -31,5 +31,4 @@ interface TagInterface
      * @return array Array or Arrayable collection of Tag objects
      */
     public function findOrCreate(array $tags);
-
 }

@@ -27,5 +27,4 @@ interface SettingInterface
      * @return array
      */
     public function getAllToArray();
-
 }

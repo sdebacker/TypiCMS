@@ -42,5 +42,4 @@ interface TranslationInterface
      * @return boolean
      */
     public function delete($model);
-
 }

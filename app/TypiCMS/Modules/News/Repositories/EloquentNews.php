@@ -13,5 +13,4 @@ class EloquentNews extends RepositoriesAbstract implements NewsInterface
     {
         $this->model = $model;
     }
-
 }

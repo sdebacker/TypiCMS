@@ -43,7 +43,7 @@ class MenuForm
     {
         $inputDot = array_dot($input);
 
-        if ( ! $this->valid($inputDot) ) {
+        if (! $this->valid($inputDot)) {
             return false;
         }
 
@@ -59,7 +59,7 @@ class MenuForm
     {
         $inputDot = array_dot($input);
 
-        if ( ! $this->valid($inputDot) ) {
+        if (! $this->valid($inputDot)) {
             return false;
         }
 
@@ -103,5 +103,4 @@ class MenuForm
 
         return $tags;
     }
-
 }

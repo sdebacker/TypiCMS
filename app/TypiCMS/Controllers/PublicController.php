@@ -35,13 +35,11 @@ class PublicController extends Controller
 
     public function __construct($repository = null, $presenter = null)
     {
-        $this->beforeFilter(function()
-        {
+        $this->beforeFilter(function () {
             Event::fire('clockwork.controller.start');
         });
 
-        $this->afterFilter(function()
-        {
+        $this->afterFilter(function () {
             Event::fire('clockwork.controller.end');
         });
 
@@ -65,7 +63,7 @@ class PublicController extends Controller
         });
 
         View::share('modules', $modules);
-        View::share('lang', App::getLocale() );
+        View::share('lang', App::getLocale());
 
     }
 
@@ -76,9 +74,8 @@ class PublicController extends Controller
      */
     protected function setupLayout()
     {
-        if ( ! is_null($this->layout)) {
+        if (! is_null($this->layout)) {
             $this->layout = View::make($this->layout);
         }
     }
-
 }

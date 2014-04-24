@@ -8,7 +8,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
 
 Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
 
-    if ( ! App::runningInConsole()) {
+    if (! App::runningInConsole()) {
 
         // Build routes from menulinks (modules)
         $menulinksArray = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getForRoutes();

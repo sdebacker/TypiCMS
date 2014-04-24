@@ -62,5 +62,4 @@ class News extends Base
     {
         $this->attributes['date'] = Carbon::parse($value);
     }
-
 }

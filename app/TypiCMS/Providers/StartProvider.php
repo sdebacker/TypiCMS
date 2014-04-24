@@ -32,5 +32,4 @@ class StartProvider extends ServiceProvider
         $this->app->register('TypiCMS\Modules\Menulinks\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Pages\Providers\ModuleProvider');
     }
-
 }

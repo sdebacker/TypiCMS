@@ -68,7 +68,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
             ->orderBy('menulinks.position')
             ->get();
 
-        if ( ! $models->isEmpty()) {
+        if (! $models->isEmpty()) {
             $models->setClass($models->first()->menuclass);
         }
 
@@ -107,11 +107,11 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 
             $activeUri = '/' . Request::path();
 
-            if ( $menulink->page_uri == $activeUri or ( strlen($menulink->page_uri) > 3 and preg_match('@^'.$menulink->page_uri.'@', $activeUri) ) ) {
+            if ($menulink->page_uri == $activeUri or (strlen($menulink->page_uri) > 3 and preg_match('@^'.$menulink->page_uri.'@', $activeUri))) {
                 // if item uri equals current uri
                 // or current uri contain item uri (item uri must be bigger than 3 to avoid homepage link always active)
                 // then add active class.
-                $classArray = preg_split('/ /', $menulink->class, NULL, PREG_SPLIT_NO_EMPTY);
+                $classArray = preg_split('/ /', $menulink->class, null, PREG_SPLIT_NO_EMPTY);
                 $classArray[] = 'active';
                 $menulink->class = implode(' ', $classArray);
             }
@@ -144,5 +144,4 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 
         return $menulinksArray;
     }
-
 }

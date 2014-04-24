@@ -17,5 +17,4 @@ interface DashboardInterface
      * @return array
      */
     public function getModulesList();
-
 }

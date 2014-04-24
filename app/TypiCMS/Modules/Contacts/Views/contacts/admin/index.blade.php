@@ -45,7 +45,7 @@
                     <tr id="item_{{ $model->id }}">
                         <td>{{ $model->checkbox }}</td>
                         <td>{{ $model->edit }}</td>
-                        <td>{{ $model->created_at }}</td>
+                        <td>{{ $model->createdAt }}</td>
                         <td>{{ $model->first_name }}</td>
                         <td>{{ $model->last_name }}</td>
                         <td>{{ $model->email }}</td>

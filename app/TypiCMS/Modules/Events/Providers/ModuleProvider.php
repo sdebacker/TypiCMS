@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function ($app) {
             $repository = new EloquentEvent(new Event);
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Events', 10);
@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Events\Services\Form\EventForm', function ($app) {
             return new EventForm(
-                new EventFormLaravelValidator( $app['validator'] ),
+                new EventFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Events\Repositories\EventInterface')
             );
         });
@@ -62,5 +62,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

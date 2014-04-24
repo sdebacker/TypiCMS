@@ -63,5 +63,4 @@ class PageTranslation extends Eloquent
         });
 
     }
-
 }

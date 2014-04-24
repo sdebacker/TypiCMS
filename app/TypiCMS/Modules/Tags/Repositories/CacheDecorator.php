@@ -29,7 +29,7 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
     {
         $cacheKey = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -51,7 +51,7 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
     {
         $cacheKey = md5(App::getLocale().'all'.$all);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -76,5 +76,4 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
 
         return $array;
     }
-
 }

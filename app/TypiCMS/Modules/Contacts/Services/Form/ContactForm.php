@@ -43,7 +43,7 @@ class ContactForm
     {
         $inputDot = array_dot($input);
 
-        if ( ! $this->valid($inputDot) ) {
+        if (! $this->valid($inputDot)) {
             return false;
         }
 
@@ -59,7 +59,7 @@ class ContactForm
     {
         $inputDot = array_dot($input);
 
-        if ( ! $this->valid($inputDot) ) {
+        if (! $this->valid($inputDot)) {
             return false;
         }
 
@@ -85,5 +85,4 @@ class ContactForm
     {
         return $this->validator->with($input)->passes();
     }
-
 }

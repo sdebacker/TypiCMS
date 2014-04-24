@@ -44,7 +44,7 @@ class ModuleProvider extends ServiceProvider
             $repository = new EloquentTranslation(
                 new Translation
             );
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Translations', 10);
@@ -54,7 +54,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Translations\Services\Form\TranslationForm', function ($app) {
             return new TranslationForm(
-                new TranslationFormLaravelValidator( $app['validator'] ),
+                new TranslationFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface')
             );
         });
@@ -64,5 +64,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

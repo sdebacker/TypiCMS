@@ -80,5 +80,4 @@ class PlacesController extends PublicController
         return View::make('places.public.show')
             ->with('model', $model);
     }
-
 }

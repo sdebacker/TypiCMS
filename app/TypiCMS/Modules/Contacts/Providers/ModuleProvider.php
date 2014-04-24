@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Contacts\Repositories\ContactInterface', function ($app) {
             $repository = new EloquentContact(new Contact);
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Contacts', 10);
@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Contacts\Services\Form\ContactForm', function ($app) {
             return new ContactForm(
-                new ContactFormLaravelValidator( $app['validator'] ),
+                new ContactFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Contacts\Repositories\ContactInterface')
             );
         });
@@ -62,5 +62,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

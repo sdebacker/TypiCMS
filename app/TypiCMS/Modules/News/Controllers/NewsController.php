@@ -66,5 +66,4 @@ class NewsController extends PublicController
         $this->layout->content = View::make('news.public.show')
             ->withModel($model);
     }
-
 }

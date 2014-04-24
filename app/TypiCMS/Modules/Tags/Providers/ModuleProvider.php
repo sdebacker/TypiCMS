@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Tags\Repositories\TagInterface', function ($app) {
             $repository = new EloquentTag(new Tag);
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Tags', 10);
@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Tags\Services\Form\TagForm', function ($app) {
             return new TagForm(
-                new TagFormLaravelValidator( $app['validator'] ),
+                new TagFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
             );
         });
@@ -62,5 +62,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

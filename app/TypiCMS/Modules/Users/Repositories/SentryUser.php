@@ -413,5 +413,4 @@ class SentryUser implements UserInterface
         return $user->delete() ? true : false ;
 
     }
-
 }

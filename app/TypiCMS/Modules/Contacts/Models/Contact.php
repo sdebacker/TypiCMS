@@ -37,5 +37,4 @@ class Contact extends Base
      */
     public $order = 'created_at';
     public $direction = 'desc';
-
 }

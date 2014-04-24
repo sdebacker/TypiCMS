@@ -166,7 +166,7 @@ abstract class RepositoriesAbstract
             ->files()
             ->findOrFail($id);
 
-        if ( ! count($model->translations)) {
+        if (! count($model->translations)) {
             App::abort('404');
         }
 
@@ -194,7 +194,7 @@ abstract class RepositoriesAbstract
      */
     public function create(array $data)
     {
-        if ( $model = $this->model->create($data) ) {
+        if ($model = $this->model->create($data)) {
             return $model;
         }
 
@@ -320,7 +320,7 @@ abstract class RepositoriesAbstract
         $tagIds = array();
 
         if ($tags) {
-            $found = $this->tag->findOrCreate( $tags );
+            $found = $this->tag->findOrCreate($tags);
             foreach ($found as $tag) {
                 $tagIds[] = $tag->id;
             }
@@ -329,5 +329,4 @@ abstract class RepositoriesAbstract
         // Assign set tags to model
         $model->tags()->sync($tagIds);
     }
-
 }

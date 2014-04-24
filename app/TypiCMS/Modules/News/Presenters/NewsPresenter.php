@@ -11,5 +11,4 @@ class NewsPresenter extends AbstractPresenter implements Presentable
     {
         return $this->object->date->formatLocalized('%d %B %Y %H:%M');
     }
-
 }

@@ -30,7 +30,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
     {
         $cacheKey = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -56,7 +56,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
 
         $cacheKey = md5(App::getLocale().'all'.$all.$string);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -78,7 +78,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
     {
         $cacheKey = md5(App::getLocale().'slug.'.$slug);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -118,5 +118,4 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
 
         return $bool;
     }
-
 }

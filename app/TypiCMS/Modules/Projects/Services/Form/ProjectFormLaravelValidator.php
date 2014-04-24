@@ -17,5 +17,4 @@ class ProjectFormLaravelValidator extends AbstractLaravelValidator
         'en.slug'     => 'required_with:en.title|required_with:en.status|alpha_dash',
         'category_id' => 'required',
     );
-
 }

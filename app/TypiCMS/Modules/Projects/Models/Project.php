@@ -69,5 +69,4 @@ class Project extends Base
     {
         return $this->morphToMany('TypiCMS\Modules\Tags\Models\Tag', 'taggable')->withTimestamps();
     }
-
 }

@@ -34,9 +34,11 @@ class PagesController extends PublicController
      */
     public function uri($uri = null)
     {
-        if ($uri == '/') return $this->root();
+        if ($uri == '/') {
+            return $this->root();
+        }
 
-        if ( in_array($uri, Config::get('app.locales')) ) {
+        if (in_array($uri, Config::get('app.locales'))) {
             $model = $this->repository->getFirstBy('is_home', 1, array('files', 'files.translations'));
         } else {
             $model = $this->repository->byUri($uri);
@@ -71,7 +73,7 @@ class PagesController extends PublicController
         $locales = Config::get('app.locales');
 
         // If we don’t want the lang chooser, redirect to browser language
-        if ( ! Config::get('typicms.langChooser')) {
+        if (! Config::get('typicms.langChooser')) {
             $locale = substr(getenv('HTTP_ACCEPT_LANGUAGE'), 0, 2);
             ! in_array($locale, $locales) and $locale = Config::get('app.locale');
             return Redirect::to($locale);
@@ -82,5 +84,4 @@ class PagesController extends PublicController
         $this->layout->content = View::make('public.root')
             ->with('locales', $locales);
     }
-
 }

@@ -12,5 +12,5 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
 });
 
 Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
-	Route::get('{uri}', 'TypiCMS\Modules\Pages\Controllers\PagesController@uri')->where('uri', '(.*)');
+    Route::get('{uri}', 'TypiCMS\Modules\Pages\Controllers\PagesController@uri')->where('uri', '(.*)');
 });

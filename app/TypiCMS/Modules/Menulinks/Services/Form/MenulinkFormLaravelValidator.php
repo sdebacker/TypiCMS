@@ -17,5 +17,4 @@ class MenulinkFormLaravelValidator extends AbstractLaravelValidator
         'nl.url'   => 'url',
         'menu_id'  => 'required',
     );
-
 }

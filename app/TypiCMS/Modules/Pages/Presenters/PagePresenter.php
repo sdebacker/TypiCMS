@@ -10,5 +10,4 @@ class PagePresenter extends AbstractPresenter implements Presentable
     {
         return '/' . $this->object->$lang->uri;
     }
-
 }

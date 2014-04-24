@@ -36,13 +36,11 @@ abstract class BaseController extends Controller
 
     public function __construct($repository = null, $form = null, $presenter = null)
     {
-        $this->beforeFilter(function()
-        {
+        $this->beforeFilter(function () {
             Event::fire('clockwork.controller.start');
         });
 
-        $this->afterFilter(function()
-        {
+        $this->afterFilter(function () {
             Event::fire('clockwork.controller.end');
         });
 
@@ -88,10 +86,9 @@ abstract class BaseController extends Controller
      */
     protected function setupLayout()
     {
-        if ( ! is_null($this->layout)) {
+        if (! is_null($this->layout)) {
             $layout = Request::ajax() ? 'admin/ajax' : $this->layout;
             $this->layout = View::make($layout);
         }
     }
-
 }

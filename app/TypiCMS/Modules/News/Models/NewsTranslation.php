@@ -50,5 +50,4 @@ class NewsTranslation extends Eloquent
         });
 
     }
-
 }

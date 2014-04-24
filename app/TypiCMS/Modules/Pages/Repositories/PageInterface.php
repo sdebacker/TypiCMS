@@ -58,5 +58,4 @@ interface PageInterface
      * @return void
      */
     public function updateUris($id, $parent = null);
-
 }

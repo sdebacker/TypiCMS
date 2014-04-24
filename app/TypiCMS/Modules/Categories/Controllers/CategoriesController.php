@@ -47,5 +47,4 @@ class CategoriesController extends PublicController
         $this->layout->content = View::make('categories.public.show')
             ->with('model', $model);
     }
-
 }

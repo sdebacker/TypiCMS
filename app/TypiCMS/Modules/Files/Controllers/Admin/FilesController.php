@@ -104,7 +104,7 @@ class FilesController extends BaseController
     public function store($parent)
     {
 
-        if ( $model = $this->form->save(Input::all()) ) {
+        if ($model = $this->form->save(Input::all())) {
             if (Request::ajax()) {
                 echo json_encode(array('id' => $model->id));
                 exit();
@@ -132,13 +132,13 @@ class FilesController extends BaseController
     public function update($parent, $model)
     {
 
-        Request::ajax() and exit($this->repository->update( Input::all() ));
+        Request::ajax() and exit($this->repository->update(Input::all()));
 
-        if ( $this->form->update(Input::all()) ) {
+        if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
         }
 
-        return Redirect::route( 'admin.' . $parent->route . '.files.edit', array($parent->id, $model->id) )
+        return Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id))
             ->withInput()
             ->withErrors($this->form->errors());
     }
@@ -151,7 +151,7 @@ class FilesController extends BaseController
      */
     public function sort()
     {
-        $sort = $this->repository->sort( Input::all() );
+        $sort = $this->repository->sort(Input::all());
     }
 
     /**
@@ -162,8 +162,8 @@ class FilesController extends BaseController
      */
     public function destroy($parent, $model)
     {
-        if ( $this->repository->delete($model) ) {
-            if ( ! Request::ajax()) {
+        if ($this->repository->delete($model)) {
+            if (! Request::ajax()) {
                 Notification::success('File '.$model->filename.' deleted.');
 
                 return Redirect::back();
@@ -172,5 +172,4 @@ class FilesController extends BaseController
             Notification::error('Error deleting file '.$model->filename.'.');
         }
     }
-
 }

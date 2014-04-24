@@ -66,7 +66,7 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
      */
     public function create(array $data)
     {
-        if ( $model = $this->model->create($data) ) {
+        if ($model = $this->model->create($data)) {
             return $model;
         }
 
@@ -105,5 +105,4 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 
         return false;
     }
-
 }

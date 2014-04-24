@@ -51,7 +51,7 @@ class UsersController extends BaseController
 
         try {
             $user = $this->repository->authenticate($credentials, false);
-            Notification::success( trans( 'users::global.Welcome', array('name' => $user->first_name) ) );
+            Notification::success(trans('users::global.Welcome', array('name' => $user->first_name)));
 
             return Redirect::intended(route('root'));
         } catch (Exception $e) {
@@ -126,7 +126,7 @@ class UsersController extends BaseController
     public function store()
     {
 
-        if ( $this->form->save( Input::all() ) ) {
+        if ($this->form->save(Input::all())) {
             return Redirect::route('admin.users.index');
         }
 
@@ -148,11 +148,11 @@ class UsersController extends BaseController
         // add checkboxes data
         $data['groups'] = Input::get('groups');
 
-        if ( $this->form->update( Input::all() ) ) {
+        if ($this->form->update(Input::all())) {
             return Redirect::route('admin.users.index');
         }
 
-        return Redirect::route( 'admin.users.edit', $id )
+        return Redirect::route('admin.users.edit', $id)
             ->withInput()
             ->withErrors($this->form->errors());
     }
@@ -165,8 +165,8 @@ class UsersController extends BaseController
      */
     public function destroy($id)
     {
-        if ( $this->repository->destroy($id) ) {
-            if ( ! Request::ajax()) {
+        if ($this->repository->destroy($id)) {
+            if (! Request::ajax()) {
                 return Redirect::back();
             }
         }
@@ -192,7 +192,7 @@ class UsersController extends BaseController
     public function postRegister()
     {
 
-        if ( ! $this->form->valid( Input::all() ) ) {
+        if (! $this->form->valid(Input::all())) {
             return Redirect::route('register')
                 ->withInput()
                 ->withErrors($this->form->errors());
@@ -203,7 +203,7 @@ class UsersController extends BaseController
         try {
 
             $input = Input::except('password_confirmation');
-            $user = $this->repository->register( $input, $noConfirmation );
+            $user = $this->repository->register($input, $noConfirmation);
             $message = 'Your account has been created, ';
             $message .= $noConfirmation ? 'you can now log in' : 'check your email for the confirmation link' ;
             Notification::success(trans('users::global.'.$message));
@@ -248,7 +248,7 @@ class UsersController extends BaseController
 
     public function postResetpassword()
     {
-        if ( ! $this->form->resetPasswordValid( Input::all() ) ) {
+        if (! $this->form->resetPasswordValid(Input::all())) {
             return Redirect::route('resetpassword')
                 ->withInput()
                 ->withErrors($this->form->errors());
@@ -288,7 +288,7 @@ class UsersController extends BaseController
         try {
             // Find the user
             $user = $this->repository->byId($userId);
-            if ( ! $this->repository->checkResetPasswordCode($user, $resetCode) ) {
+            if (! $this->repository->checkResetPasswordCode($user, $resetCode)) {
                 Notification::error(trans('users::global.This password reset token is invalid'));
 
                 return Redirect::route('login');
@@ -313,7 +313,7 @@ class UsersController extends BaseController
     {
         $input = Input::all();
 
-        if ( ! $this->form->changePasswordValid( $input ) ) {
+        if (! $this->form->changePasswordValid($input)) {
             return Redirect::route('changepassword', array($input['id'], $input['resetCode']))
                 ->withInput()
                 ->withErrors($this->form->errors());
@@ -358,5 +358,4 @@ class UsersController extends BaseController
         return Redirect::route('login');
 
     }
-
 }

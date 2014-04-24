@@ -78,5 +78,4 @@ class File extends Base
         });
 
     }
-
 }

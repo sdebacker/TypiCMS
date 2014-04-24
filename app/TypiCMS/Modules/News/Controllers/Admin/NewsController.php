@@ -97,7 +97,7 @@ class NewsController extends BaseController
     public function store()
     {
 
-        if ( $model = $this->form->save( Input::all() ) ) {
+        if ($model = $this->form->save(Input::all())) {
             return (Input::get('exit')) ? Redirect::route('admin.news.index') : Redirect::route('admin.news.edit', $model->id) ;
         }
 
@@ -116,13 +116,13 @@ class NewsController extends BaseController
     public function update($model)
     {
 
-        Request::ajax() and exit($this->repository->update( Input::all() ));
+        Request::ajax() and exit($this->repository->update(Input::all()));
 
-        if ( $this->form->update( Input::all() ) ) {
+        if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ? Redirect::route('admin.news.index') : Redirect::route('admin.news.edit', $model->id) ;
         }
 
-        return Redirect::route( 'admin.news.edit', $model->id )
+        return Redirect::route('admin.news.edit', $model->id)
             ->withInput()
             ->withErrors($this->form->errors());
     }
@@ -135,11 +135,10 @@ class NewsController extends BaseController
      */
     public function destroy($model)
     {
-        if ( $this->repository->delete($model) ) {
-            if ( ! Request::ajax()) {
+        if ($this->repository->delete($model)) {
+            if (! Request::ajax()) {
                 return Redirect::back();
             }
         }
     }
-
 }

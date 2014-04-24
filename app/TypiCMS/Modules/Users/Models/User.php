@@ -17,5 +17,4 @@ class User extends SentryUserModel
      */
     public static $order = 'email';
     public static $direction = 'asc';
-
 }

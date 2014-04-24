@@ -43,7 +43,7 @@ class ProjectForm
     {
         $inputDot = array_dot($input);
 
-        if ( ! $this->valid($inputDot) ) {
+        if (! $this->valid($inputDot)) {
             return false;
         }
 
@@ -60,7 +60,7 @@ class ProjectForm
     public function update(array $input)
     {
         $inputDot = array_dot($input);
-        if ( ! $this->valid($inputDot) ) {
+        if (! $this->valid($inputDot)) {
             return false;
         }
 
@@ -107,5 +107,4 @@ class ProjectForm
 
         return $tags;
     }
-
 }

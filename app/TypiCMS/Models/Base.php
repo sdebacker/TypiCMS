@@ -33,7 +33,8 @@ abstract class Base extends Eloquent
      */
     public function scopeFiles($query, $all = false)
     {
-        return $query->with(array('files' => function ($query) use ($all) {
+        return $query->with(
+            array('files' => function ($query) use ($all) {
                 $query->with(array('translations' => function ($query) use ($all) {
                     $query->where('locale', App::getLocale());
                     ! $all and $query->where('status', 1);
@@ -55,7 +56,9 @@ abstract class Base extends Eloquent
      */
     public function scopeWhereHasOnlineTranslation($query)
     {
-        return $query->whereHas('translations', function ($query) {
+        return $query->whereHas(
+            'translations',
+            function ($query) {
                 $query->where('status', 1);
                 $query->where('locale', App::getLocale());
                 $query->where('slug', '!=', '');
@@ -81,23 +84,19 @@ abstract class Base extends Eloquent
     {
         parent::boot();
 
-        static::created(function($model)
-        {
+        static::created(function ($model) {
             Cache::tags('Dashboard')->flush();
         });
 
-        static::deleted(function($model)
-        {
+        static::deleted(function ($model) {
             $module = ucfirst($model->table);
             Cache::tags('Dashboard', $module)->flush();
         });
 
-        static::saved(function($model)
-        {
+        static::saved(function ($model) {
             $module = ucfirst($model->table);
             Cache::tags($module)->flush();
         });
 
     }
-
 }

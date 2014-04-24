@@ -37,11 +37,11 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
         $result->items = array();
 
         $query = $this->model->select(
-                'id',
-                'tag',
-                DB::raw("(SELECT COUNT(*) FROM `typi_taggables` WHERE `tag_id` = `typi_tags`.`id`) AS 'uses'")
-            )
-            ->order();
+            'id',
+            'tag',
+            DB::raw("(SELECT COUNT(*) FROM `typi_taggables` WHERE `tag_id` = `typi_tags`.`id`) AS 'uses'")
+        )
+        ->order();
 
         $models = $query->skip($limit * ($page - 1))
                         ->take($limit)
@@ -104,5 +104,4 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
 
         return $returnTags;
     }
-
 }

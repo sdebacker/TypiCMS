@@ -12,5 +12,4 @@ interface MenuInterface
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false);
-
 }

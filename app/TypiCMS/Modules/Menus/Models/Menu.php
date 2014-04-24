@@ -75,5 +75,4 @@ class Menu extends Base
     public static $rules = array(
         'name' => 'required',
     );
-
 }

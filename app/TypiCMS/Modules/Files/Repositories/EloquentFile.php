@@ -31,7 +31,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
      * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPageFrom($page = 1, $limit = 10, $from, array $with = array(), $all = false)
+    public function byPageFrom($page = 1, $limit = 10, $from = null, array $with = array(), $all = false)
     {
         $result = new StdClass;
         $result->page = $page;
@@ -129,5 +129,4 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
         return true;
 
     }
-
 }

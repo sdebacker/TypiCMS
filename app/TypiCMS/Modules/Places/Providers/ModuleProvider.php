@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Places\Repositories\PlaceInterface', function ($app) {
             $repository = new EloquentPlace(new Place);
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Places', 10);
@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Places\Services\Form\PlaceForm', function ($app) {
             return new PlaceForm(
-                new PlaceFormLaravelValidator( $app['validator'] ),
+                new PlaceFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Places\Repositories\PlaceInterface')
             );
         });
@@ -62,5 +62,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

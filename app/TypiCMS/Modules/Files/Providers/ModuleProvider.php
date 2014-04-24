@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Files\Repositories\FileInterface', function ($app) {
             $repository = new EloquentFile(new File);
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Files', 10);
@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Files\Services\Form\FileForm', function ($app) {
             return new FileForm(
-                new FileFormLaravelValidator( $app['validator'] ),
+                new FileFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Files\Repositories\FileInterface')
             );
         });
@@ -62,5 +62,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

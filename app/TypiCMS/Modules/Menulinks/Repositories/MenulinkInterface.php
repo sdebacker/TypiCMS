@@ -36,5 +36,4 @@ interface MenulinkInterface
      * @return Array
      */
     public function getForRoutes();
-
 }

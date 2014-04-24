@@ -10,5 +10,4 @@ interface CategoryInterface
      * @return array
      */
     public function getAllForSelect();
-
 }

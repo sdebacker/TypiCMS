@@ -85,7 +85,7 @@ class CategoriesController extends BaseController
     public function store()
     {
 
-        if ( $model = $this->form->save( Input::all() ) ) {
+        if ($model = $this->form->save(Input::all())) {
             return (Input::get('exit')) ? Redirect::route('admin.categories.index') : Redirect::route('admin.categories.edit', $model->id) ;
         }
 
@@ -104,13 +104,13 @@ class CategoriesController extends BaseController
     public function update($model)
     {
 
-        Request::ajax() and exit($this->repository->update( Input::all() ));
+        Request::ajax() and exit($this->repository->update(Input::all()));
 
-        if ( $this->form->update( Input::all() ) ) {
+        if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ? Redirect::route('admin.categories.index') : Redirect::route('admin.categories.edit', $model->id) ;
         }
 
-        return Redirect::route( 'admin.categories.edit', $model->id )
+        return Redirect::route('admin.categories.edit', $model->id)
             ->withInput()
             ->withErrors($this->form->errors());
     }
@@ -123,7 +123,7 @@ class CategoriesController extends BaseController
      */
     public function sort()
     {
-        $sort = $this->repository->sort( Input::all() );
+        $sort = $this->repository->sort(Input::all());
     }
 
     /**
@@ -134,11 +134,10 @@ class CategoriesController extends BaseController
      */
     public function destroy($model)
     {
-        if ( $model->delete() ) {
-            if ( ! Request::ajax()) {
+        if ($model->delete()) {
+            if (! Request::ajax()) {
                 return Redirect::back();
             }
         }
     }
-
 }

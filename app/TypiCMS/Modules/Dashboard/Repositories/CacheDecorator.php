@@ -21,7 +21,7 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale().'WelcomeMessage');
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -38,7 +38,7 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale().'DashboardModules');
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -49,5 +49,4 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
 
         return $modules;
     }
-
 }

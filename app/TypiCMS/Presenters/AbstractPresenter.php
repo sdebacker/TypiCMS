@@ -179,5 +179,4 @@ abstract class AbstractPresenter implements ArrayAccess
         $date = $this->object->$date ? : Carbon::now() ;
         return $date->format($format);
     }
-
 }

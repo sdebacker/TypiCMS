@@ -42,5 +42,4 @@ class ListBuilder
 
         return implode("\r\n", $this->list);
     }
-
 }

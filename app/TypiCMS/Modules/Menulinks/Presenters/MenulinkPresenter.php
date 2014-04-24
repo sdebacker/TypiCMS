@@ -21,5 +21,4 @@ class MenulinkPresenter extends AbstractPresenter implements Presentable
     {
         return '<a class="btn btn-default btn-xs" href="' . route('admin.menus.menulinks.edit', array($this->object->menu_id, $this->object->id)) . '">' . trans('global.Edit') . '</a>';
     }
-
 }

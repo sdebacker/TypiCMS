@@ -21,5 +21,4 @@ class Setting extends Eloquent
      * @var string
      */
     protected $table = 'settings';
-
 }

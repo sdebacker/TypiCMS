@@ -50,5 +50,4 @@ class EventTranslation extends Eloquent
         });
 
     }
-
 }

@@ -26,7 +26,7 @@ abstract class CacheAbstractDecorator
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale().'id.'.$id);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -50,7 +50,7 @@ abstract class CacheAbstractDecorator
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale().'getFirstBy.'.$key.$value);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -75,7 +75,7 @@ abstract class CacheAbstractDecorator
     {
         $cacheKey = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -98,7 +98,7 @@ abstract class CacheAbstractDecorator
     {
         $cacheKey = md5(App::getLocale().'all'.$all);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -121,7 +121,7 @@ abstract class CacheAbstractDecorator
     {
         $cacheKey = md5(App::getLocale().'getAllBy'.$key.$value.$all);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -145,7 +145,7 @@ abstract class CacheAbstractDecorator
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale().'slug.'.$slug);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -170,7 +170,7 @@ abstract class CacheAbstractDecorator
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale().'has.'.$relation);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -254,5 +254,4 @@ abstract class CacheAbstractDecorator
     {
         return $this->repo->syncTags($model, $tags);
     }
-
 }

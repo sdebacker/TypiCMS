@@ -21,5 +21,4 @@ class ContactFormLaravelValidator extends AbstractLaravelValidator
         'my_name'    => 'honeypot',
         'my_time'    => 'required|honeytime:5',
     );
-
 }

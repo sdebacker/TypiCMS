@@ -49,5 +49,4 @@ interface GroupInterface
      * @return stdObject Collection of users
      */
     public function all();
-
 }

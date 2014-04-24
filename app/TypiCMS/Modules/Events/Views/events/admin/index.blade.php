@@ -42,8 +42,8 @@
                         <td>{{ $model->checkbox }}</td>
                         <td>{{ $model->edit }}</td>
                         <td>{{ $model->status }}</td>
-                        <td>{{ $model->start_date }}</td>
-                        <td>{{ $model->end_date }}</td>
+                        <td>{{ $model->startDate }}</td>
+                        <td>{{ $model->endDate }}</td>
                         <td>{{ $model->title }}</td>
                         <td>{{ $model->countFiles }}</td>
                     </tr>

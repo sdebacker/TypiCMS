@@ -42,7 +42,7 @@ class UserForm
     public function save(array $input)
     {
 
-        if ( ! $this->valid($input) ) {
+        if (! $this->valid($input)) {
             return false;
         }
 
@@ -60,7 +60,7 @@ class UserForm
         $this->validator->setRule('password', 'min:8|confirmed');
         $this->validator->setRule('password_confirmation', '');
 
-        if ( ! $this->valid($input) ) {
+        if (! $this->valid($input)) {
             return false;
         }
 
@@ -110,5 +110,4 @@ class UserForm
     {
         return $this->validator->with($input)->passes();
     }
-
 }

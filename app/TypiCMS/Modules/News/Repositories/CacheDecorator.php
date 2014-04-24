@@ -13,5 +13,4 @@ class CacheDecorator extends CacheAbstractDecorator implements NewsInterface
         $this->repo = $repo;
         $this->cache = $cache;
     }
-
 }

@@ -69,7 +69,7 @@ class GroupsController extends BaseController
     public function store()
     {
         // Form Processing
-        $result = $this->form->save( Input::all() );
+        $result = $this->form->save(Input::all());
 
         if ($result['success']) {
             // Success!
@@ -82,7 +82,7 @@ class GroupsController extends BaseController
 
             return Redirect::action('GroupController@create')
                 ->withInput()
-                ->withErrors( $this->form->errors() );
+                ->withErrors($this->form->errors());
         }
     }
 
@@ -122,7 +122,7 @@ class GroupsController extends BaseController
     public function update($id)
     {
         // Form Processing
-        $result = $this->form->update( Input::all() );
+        $result = $this->form->update(Input::all());
 
         if ($result['success']) {
             // Success!
@@ -135,7 +135,7 @@ class GroupsController extends BaseController
 
             return Redirect::action('GroupController@create')
                 ->withInput()
-                ->withErrors( $this->form->errors() );
+                ->withErrors($this->form->errors());
         }
     }
 
@@ -148,10 +148,9 @@ class GroupsController extends BaseController
     public function destroy($id)
     {
         if ($this->repository->destroy($id)) {
-            if ( ! Request::ajax()) {
+            if (! Request::ajax()) {
                 return Redirect::back();
             }
         }
     }
-
 }

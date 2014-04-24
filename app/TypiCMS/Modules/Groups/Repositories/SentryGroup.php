@@ -43,7 +43,7 @@ class SentryGroup implements GroupInterface
             $result['message'] = trans('groups.loginreq');
         } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
             $result['success'] = false;
-            $result['message'] = trans('groups.userexists');;
+            $result['message'] = trans('groups.userexists');
         }
 
         return $result;
@@ -70,18 +70,18 @@ class SentryGroup implements GroupInterface
             if ($group->save()) {
                 // Group information was updated
                 $result['success'] = true;
-                $result['message'] = trans('groups.updated');;
+                $result['message'] = trans('groups.updated');
             } else {
                 // Group information was not updated
                 $result['success'] = false;
-                $result['message'] = trans('groups.updateproblem');;
+                $result['message'] = trans('groups.updateproblem');
             }
         } catch (\Cartalyst\Sentry\Groups\NameRequiredException $e) {
             $result['success'] = false;
-            $result['message'] = trans('groups.namereq');;
+            $result['message'] = trans('groups.namereq');
         } catch (\Cartalyst\Sentry\Groups\GroupExistsException $e) {
             $result['success'] = false;
-            $result['message'] = trans('groups.groupexists');;
+            $result['message'] = trans('groups.groupexists');
         } catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
             $result['success'] = false;
             $result['message'] = trans('groups.notfound');

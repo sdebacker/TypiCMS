@@ -28,5 +28,4 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
                            ->order()
                            ->get();
     }
-
 }

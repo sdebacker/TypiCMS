@@ -79,7 +79,9 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
 
         if (! $all) {
             // take only translated items that are online
-            $query->whereHas('translations', function ($query) {
+            $query->whereHas(
+                'translations',
+                function ($query) {
                     $query->where('status', 1);
                     $query->where('locale', '=', App::getLocale());
                 }
@@ -189,5 +191,4 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         return true;
 
     }
-
 }

@@ -18,5 +18,4 @@ class CacheDecorator extends CacheAbstractDecorator implements CategoryInterface
     {
         return $this->repo->getAllForSelect();
     }
-
 }

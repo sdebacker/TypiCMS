@@ -66,5 +66,4 @@ class EventsController extends PublicController
         $this->layout->content = View::make('events.public.show')
             ->withModel($model);
     }
-
 }

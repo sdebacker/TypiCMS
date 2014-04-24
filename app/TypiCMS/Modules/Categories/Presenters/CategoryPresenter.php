@@ -19,5 +19,4 @@ class CategoryPresenter extends AbstractPresenter implements Presentable
 
         return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
     }
-
 }

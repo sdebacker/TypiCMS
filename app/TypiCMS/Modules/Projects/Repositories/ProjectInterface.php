@@ -19,5 +19,4 @@ interface ProjectInterface
      * @return boolean
      */
     public function update(array $data);
-
 }

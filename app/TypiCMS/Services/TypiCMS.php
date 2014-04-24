@@ -156,7 +156,7 @@ class TypiCMS
         if (Request::segment(1) == 'admin') {
             return true;
         }
-        return false; 
+        return false;
     }
 
     
@@ -178,7 +178,4 @@ class TypiCMS
         }
         return $modules;
     }
-
-
-
 }

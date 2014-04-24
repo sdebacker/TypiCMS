@@ -91,5 +91,4 @@ class Menulink extends Base
     {
         return new NestedCollection($models);
     }
-
 }

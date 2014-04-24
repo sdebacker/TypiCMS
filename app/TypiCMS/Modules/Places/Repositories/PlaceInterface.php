@@ -46,5 +46,4 @@ interface PlaceInterface
      * @return boolean
      */
     public function update(array $data);
-
 }

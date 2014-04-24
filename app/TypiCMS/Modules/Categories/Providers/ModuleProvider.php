@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Categories\Repositories\CategoryInterface', function ($app) {
             $repository = new EloquentCategory(new Category);
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Categories', 10);
@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Categories\Services\Form\CategoryForm', function ($app) {
             return new CategoryForm(
-                new CategoryFormLaravelValidator( $app['validator'] ),
+                new CategoryFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')
             );
         });
@@ -62,5 +62,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

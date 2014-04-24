@@ -11,17 +11,17 @@ use TypiCMS\Presenters\Presentable;
 class EventPresenter extends AbstractPresenter implements Presentable
 {
 
-    public function start_date()
+    public function startDate()
     {
         return $this->object->start_date->format('d.m.Y');
     }
 
-    public function end_date()
+    public function endDdate()
     {
         return $this->object->end_date->format('d.m.Y');
     }
 
-    public function date_from_to()
+    public function dateFromTo()
     {
         $sDate = $this->object->start_date;
         $eDate = $this->object->end_date;
@@ -39,5 +39,4 @@ class EventPresenter extends AbstractPresenter implements Presentable
 
         return ucfirst(trans('events::global.from')) . ' <time datetime="' . $sDate . '">' . $sDate->formatLocalized($sDateFormat) . '</time> ' . trans('events::global.to') . ' <time datetime="' . $eDate . '">' . $eDate->formatLocalized($dateFormat) . '</time>';
     }
-
 }

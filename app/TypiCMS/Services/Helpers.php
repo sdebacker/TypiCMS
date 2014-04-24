@@ -22,7 +22,9 @@ class Helpers
      */
     public static function getIdFromSlug($module = null, $slug = null)
     {
-        if ( ! $module or ! $slug) return false;
+        if (! $module or ! $slug) {
+            return false;
+        }
 
         $moduleSingular = str_singular($module);
 
@@ -41,7 +43,9 @@ class Helpers
      */
     public static function getSlugsFromId($module = null, $id = null)
     {
-        if ( ! $module or ! $id) return false;
+        if (! $module or ! $id) {
+            return false;
+        }
 
         $moduleSingular = str_singular($module);
 
@@ -51,5 +55,4 @@ class Helpers
                 ->where($moduleSingular.'_translations.status', 1)
                 ->lists('slug', 'locale');
     }
-
 }

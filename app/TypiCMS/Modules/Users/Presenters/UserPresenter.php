@@ -21,5 +21,4 @@ class UserPresenter extends AbstractPresenter implements Presentable
     {
         return $this->object->status;
     }
-
 }

@@ -47,5 +47,4 @@ class Category extends Base
     {
         return $this->hasMany('TypiCMS\Modules\Projects\Models\Project');
     }
-
 }

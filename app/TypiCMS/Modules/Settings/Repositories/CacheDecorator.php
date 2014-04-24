@@ -27,7 +27,7 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
     {
         $cacheKey = md5('Settings');
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -62,7 +62,7 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
     {
         $cacheKey = md5('SettingsToArray');
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -73,5 +73,4 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
 
         return $data;
     }
-
 }

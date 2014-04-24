@@ -43,5 +43,4 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
         return $array;
 
     }
-
 }

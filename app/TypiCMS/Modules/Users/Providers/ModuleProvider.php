@@ -41,7 +41,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Users\Services\Form\UserForm', function ($app) {
             return new UserForm(
-                new UserFormLaravelValidator( $app['validator'] ),
+                new UserFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Users\Repositories\UserInterface')
             );
         });
@@ -51,5 +51,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

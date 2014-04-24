@@ -20,7 +20,7 @@ interface CacheInterface
      * @param integer   The number of minutes to store the item
      * @return mixed $value variable returned for convenience
      */
-    public function put($key, $value, $minutes=null);
+    public function put($key, $value, $minutes = null);
 
     /**
      * Add data to the cache
@@ -34,7 +34,7 @@ interface CacheInterface
      * @param integer   The number of minutes to store the item
      * @return mixed $items variable returned for convenience
      */
-    public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes=null);
+    public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes = null);
 
     /**
      * Test if item exists in cache
@@ -52,5 +52,4 @@ interface CacheInterface
      * @return bool If cache is flushed
      */
     public function flush($tags = null);
-
 }

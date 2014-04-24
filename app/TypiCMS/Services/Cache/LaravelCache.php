@@ -12,7 +12,7 @@ class LaravelCache implements CacheInterface
     protected $cachekey;
     protected $minutes;
 
-    public function __construct(CacheManager $cache, $cachekey, $minutes=null)
+    public function __construct(CacheManager $cache, $cachekey, $minutes = null)
     {
         $this->cache = $cache;
         $this->cachekey = $cachekey;
@@ -38,9 +38,9 @@ class LaravelCache implements CacheInterface
      * @param integer   The number of minutes to store the item
      * @return mixed $value variable returned for convenience
      */
-    public function put($key, $value, $minutes=null)
+    public function put($key, $value, $minutes = null)
     {
-        if ( is_null($minutes) ) {
+        if (is_null($minutes)) {
             $minutes = $this->minutes;
         }
 
@@ -59,7 +59,7 @@ class LaravelCache implements CacheInterface
      * @param integer   The number of minutes to store the item
      * @return mixed $items variable returned for convenience
      */
-    public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes=null)
+    public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes = null)
     {
         $cached = new StdClass;
 
@@ -101,5 +101,4 @@ class LaravelCache implements CacheInterface
 
         return $this->cache->tags($tags)->flush();
     }
-
 }

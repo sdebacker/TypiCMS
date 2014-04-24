@@ -14,5 +14,4 @@ class TranslationFormLaravelValidator extends AbstractLaravelValidator
     protected $rules = array(
         'key' => 'required',
     );
-
 }

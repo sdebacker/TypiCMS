@@ -117,5 +117,4 @@ class Page extends Base
         });
 
     }
-
 }

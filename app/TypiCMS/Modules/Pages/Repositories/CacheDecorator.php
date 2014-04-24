@@ -37,7 +37,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     {
         $cacheKey = md5(App::getLocale().'byUri.'.$uri);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -60,7 +60,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     {
         $cacheKey = md5(App::getLocale().'childrenOfId.'.$uri.$all);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -92,7 +92,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     {
         $cacheKey = md5(App::getLocale().'pagesForRoutes');
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -129,5 +129,4 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     {
         return $this->repo->updateUris($id, $parent);
     }
-
 }

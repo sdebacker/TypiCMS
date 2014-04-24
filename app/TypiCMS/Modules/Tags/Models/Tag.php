@@ -38,5 +38,4 @@ class Tag extends Base
     {
         return $this->morphedByMany('TypiCMS\Modules\Projects\Models\Project', 'taggable');
     }
-
 }

@@ -40,7 +40,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Groups\Services\Form\GroupForm', function ($app) {
             return new GroupForm(
-                new GroupFormLaravelValidator( $app['validator'] ),
+                new GroupFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Groups\Repositories\GroupInterface')
             );
         });
@@ -50,5 +50,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

@@ -8,21 +8,11 @@ class ContactPresenter extends AbstractPresenter implements Presentable
 {
 
     /**
-     * Concat first_name aned last_name
-     * 
-     * @return String
-     */
-    public function full_name()
-    {
-        return $this->object->first_name . ' ' . $this->object->last_name;
-    }
-
-    /**
      * Format creation date
      * 
      * @return String
      */
-    public function created_at()
+    public function createdAt()
     {
         return $this->object->created_at->format('d.m.Y');
     }
@@ -36,5 +26,4 @@ class ContactPresenter extends AbstractPresenter implements Presentable
     {
         return '/' . $lang;
     }
-
 }

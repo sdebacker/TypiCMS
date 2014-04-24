@@ -50,5 +50,4 @@ class ProjectTranslation extends Eloquent
         });
 
     }
-
 }

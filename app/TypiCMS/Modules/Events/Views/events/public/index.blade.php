@@ -7,7 +7,7 @@
         @foreach ($models as $model)
         <li>
             <strong>{{ $model->title }}</strong>
-            <div class="date">{{ $model->date_from_to }}</div>
+            <div class="date">{{ $model->dateFromTo }}</div>
             <a href="{{ route($lang.'.events.slug', $model->slug) }}">@lang('db.More')</a>
         </li>
         @endforeach

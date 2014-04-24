@@ -29,7 +29,7 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     {
         $cacheKey = md5(App::getLocale().'all'.$all.$menuId);
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -51,7 +51,7 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
 
         $cacheKey = md5(App::getLocale() . 'getMenu' . $name . Request::path());
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -84,7 +84,7 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     {
         $cacheKey = md5(App::getLocale().'menulinksForRoutes');
 
-        if ( $this->cache->has($cacheKey) ) {
+        if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
@@ -102,5 +102,4 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
 
         return $array;
     }
-
 }

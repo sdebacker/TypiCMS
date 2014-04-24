@@ -86,7 +86,7 @@ class TranslationsController extends BaseController
     public function store()
     {
 
-        if ( $model = $this->form->save( Input::all() ) ) {
+        if ($model = $this->form->save(Input::all())) {
             return (Input::get('exit')) ? Redirect::route('admin.translations.index') : Redirect::route('admin.translations.edit', $model->id) ;
         }
 
@@ -105,13 +105,13 @@ class TranslationsController extends BaseController
     public function update($model)
     {
 
-        Request::ajax() and exit($this->repository->update( Input::all() ));
+        Request::ajax() and exit($this->repository->update(Input::all()));
 
-        if ( $this->form->update( Input::all() ) ) {
+        if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ? Redirect::route('admin.translations.index') : Redirect::route('admin.translations.edit', $model->id) ;
         }
 
-        return Redirect::route( 'admin.translations.edit', $model->id )
+        return Redirect::route('admin.translations.edit', $model->id)
             ->withInput()
             ->withErrors($this->form->errors());
     }
@@ -124,7 +124,7 @@ class TranslationsController extends BaseController
      */
     public function sort()
     {
-        $sort = $this->repository->sort( Input::all() );
+        $sort = $this->repository->sort(Input::all());
     }
 
     /**
@@ -135,11 +135,10 @@ class TranslationsController extends BaseController
      */
     public function destroy($model)
     {
-        if ( $this->repository->delete($model) ) {
-            if ( ! Request::ajax()) {
+        if ($this->repository->delete($model)) {
+            if (! Request::ajax()) {
                 return Redirect::back();
             }
         }
     }
-
 }

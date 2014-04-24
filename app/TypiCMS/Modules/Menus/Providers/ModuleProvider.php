@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Menus\Repositories\MenuInterface', function ($app) {
             $repository = new EloquentMenu(new Menu);
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Menus', 10);
@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Menus\Services\Form\MenuForm', function ($app) {
             return new MenuForm(
-                new MenuFormLaravelValidator( $app['validator'] ),
+                new MenuFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Menus\Repositories\MenuInterface')
             );
         });
@@ -62,5 +62,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

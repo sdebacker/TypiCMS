@@ -14,5 +14,4 @@ class TagFormLaravelValidator extends AbstractLaravelValidator
     protected $rules = array(
         'tag' => 'required',
     );
-
 }

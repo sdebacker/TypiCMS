@@ -48,7 +48,7 @@ class ModuleProvider extends ServiceProvider
                 new Project,
                 $app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
             );
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Projects', 10);
@@ -58,7 +58,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Projects\Services\Form\ProjectForm', function ($app) {
             return new ProjectForm(
-                new ProjectFormLaravelValidator( $app['validator'] ),
+                new ProjectFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Projects\Repositories\ProjectInterface')
             );
         });
@@ -68,5 +68,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

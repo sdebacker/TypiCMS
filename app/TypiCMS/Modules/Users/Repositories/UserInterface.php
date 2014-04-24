@@ -139,5 +139,4 @@ interface UserInterface
      * @return boolean
      */
     public function destroy($id);
-
 }

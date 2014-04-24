@@ -13,5 +13,4 @@ class CacheDecorator extends CacheAbstractDecorator implements EventInterface
         $this->repo = $repo;
         $this->cache = $cache;
     }
-
 }

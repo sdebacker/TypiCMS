@@ -64,5 +64,4 @@ class Presenter
 
         return $paginator;
     }
-
 }

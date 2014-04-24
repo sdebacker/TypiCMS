@@ -18,5 +18,4 @@ class TagPresenter extends AbstractPresenter implements Presentable
         $disabled = $this->object->uses ? ' disabled' : '' ;
         return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
     }
-
 }

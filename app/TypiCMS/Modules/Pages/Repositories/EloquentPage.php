@@ -87,8 +87,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function byUri($uri)
     {
         $model = $this->model
-            ->whereHas('translations', function($q) use ($uri)
-            {
+            ->whereHas('translations', function ($q) use ($uri) {
                 $q->where('uri', $uri);
                 $q->where('status', 1);
             })->firstOrFail();
@@ -124,7 +123,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
             ->where('uri', 'LIKE', $uri.'%');
 
         // All posts or only published
-        if ( ! $all) {
+        if (! $all) {
             $query->where('status', 1);
         }
         $query->where('locale', Config::get('app.locale'));
@@ -274,5 +273,4 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         }
         return false;
     }
-
 }

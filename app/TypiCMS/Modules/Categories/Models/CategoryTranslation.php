@@ -50,5 +50,4 @@ class CategoryTranslation extends Eloquent
         });
 
     }
-
 }

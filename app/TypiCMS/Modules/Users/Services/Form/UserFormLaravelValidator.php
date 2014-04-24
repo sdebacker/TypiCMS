@@ -18,5 +18,4 @@ class UserFormLaravelValidator extends AbstractLaravelValidator
         'password' => 'required|min:8|confirmed',
         'password_confirmation' => 'required'
     );
-
 }

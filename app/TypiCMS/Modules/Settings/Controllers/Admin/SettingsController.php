@@ -47,10 +47,9 @@ class SettingsController extends BaseController
             $data[$locale]['status'] = Input::get($locale.'.status') ? (int) Input::get($locale.'.status') : null;
         }
 
-        $this->repository->store( $data );
+        $this->repository->store($data);
 
         return Redirect::route('admin.settings.index');
 
     }
-
 }

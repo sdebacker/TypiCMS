@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface', function ($app) {
             $repository = new EloquentMenulink(new Menulink);
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Menulinks', 10);
@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm', function ($app) {
             return new MenulinkForm(
-                new MenulinkFormLaravelValidator( $app['validator'] ),
+                new MenulinkFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')
             );
         });
@@ -62,5 +62,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

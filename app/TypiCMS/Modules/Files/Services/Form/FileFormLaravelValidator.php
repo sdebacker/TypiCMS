@@ -16,5 +16,4 @@ class FileFormLaravelValidator extends AbstractLaravelValidator
         'fileable_id'   => 'required',
         'fileable_type' => 'required',
     );
-
 }

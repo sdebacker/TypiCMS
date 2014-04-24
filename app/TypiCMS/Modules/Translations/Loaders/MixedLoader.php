@@ -74,5 +74,4 @@ class MixedLoader implements LoaderInterface
         $this->hints[$namespace] = $hint;
         $this->fileLoader->addNamespace($namespace, $hint);
     }
-
 }

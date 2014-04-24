@@ -35,7 +35,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Dashboard\Repositories\DashboardInterface', function ($app) {
             $repository = new EloquentDashboard();
-            if ( ! Config::get('app.cache')) {
+            if (! Config::get('app.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'Dashboard', 10);
@@ -48,5 +48,4 @@ class ModuleProvider extends ServiceProvider
         });
 
     }
-
 }

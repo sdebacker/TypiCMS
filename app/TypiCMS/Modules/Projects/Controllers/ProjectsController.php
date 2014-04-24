@@ -58,5 +58,4 @@ class ProjectsController extends PublicController
         $this->layout->content = View::make('projects.public.show')
             ->with('model', $model);
     }
-
 }

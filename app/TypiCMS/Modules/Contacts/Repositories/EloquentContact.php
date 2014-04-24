@@ -13,5 +13,4 @@ class EloquentContact extends RepositoriesAbstract implements ContactInterface
     {
         $this->model = $model;
     }
-
 }

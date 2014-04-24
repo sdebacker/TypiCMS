@@ -41,5 +41,4 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface
 
         return $bool;
     }
-
 }

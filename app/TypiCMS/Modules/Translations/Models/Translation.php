@@ -36,5 +36,4 @@ class Translation extends Base
      */
     public $order = 'key';
     public $direction = 'asc';
-
 }

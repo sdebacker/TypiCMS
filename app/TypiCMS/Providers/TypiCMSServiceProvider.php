@@ -21,5 +21,4 @@ class TypiCMSServiceProvider extends ServiceProvider
         });
 
     }
-
 }

@@ -11,5 +11,4 @@ class Group extends SentryGroupModel
      * @var string
      */
     public $route = 'groups';
-
 }

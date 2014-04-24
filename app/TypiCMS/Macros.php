@@ -30,7 +30,7 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
     return implode($th);
 });
 
-HTML::macro('languagesMenu', function(array $langsArray = array(), array $attributes = array()){
+HTML::macro('languagesMenu', function (array $langsArray = array(), array $attributes = array()) {
 
     $attributes['role'] = 'menu';
     $attributes = HTML::attributes($attributes);
@@ -48,8 +48,7 @@ HTML::macro('languagesMenu', function(array $langsArray = array(), array $attrib
 
 });
 
-HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) use (&$builtMenu)
-{
+HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) use (&$builtMenu) {
     // dd($items);
     $menuList = array('<ul ' . HTML::attributes($ulAttr) . '>');
 

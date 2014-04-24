@@ -89,5 +89,4 @@ class Place extends Base
         });
 
     }
-
 }
