@@ -6,5 +6,5 @@
 
 /* SITE */
 
-	Doctype:HTML5
+	Doctype: HTML5
 	IDE: Sublime Text
