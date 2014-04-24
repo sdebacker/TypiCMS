@@ -135,16 +135,12 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Cartalyst\Sentry\SentryServiceProvider',
-
-		'Barryvdh\Debugbar\ServiceProvider',
 		'Clockwork\Support\Laravel\ClockworkServiceProvider',
-
 		'Krucas\Notification\NotificationServiceProvider',
 		'Bkwld\Croppa\ServiceProvider',
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 		'Msurguy\Honeypot\HoneypotServiceProvider',
-		'LeroyMerlin\LaraSniffer\ServiceProvider',
 		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
 
 		'TypiCMS\Providers\StartProvider',

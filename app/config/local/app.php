@@ -26,5 +26,17 @@ return array(
 
 	'url' => 'http://typicms.local',
 
+	/*
+	|--------------------------------------------------------------------------
+	| Locally Autoloaded Service Providers
+	|--------------------------------------------------------------------------
+	*/
+
+	'providers' => array(
+
+		'Barryvdh\Debugbar\ServiceProvider',
+		'LeroyMerlin\LaraSniffer\ServiceProvider',
+
+	),
 
 );

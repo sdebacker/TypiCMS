@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "25de7e0713abc2e7f547d4a136e0e1e5",
+    "hash": "b8c7039a3ebd509783a93107497e400f",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -72,53 +72,6 @@
                 "sdk"
             ],
             "time": "2014-04-24 00:29:22"
-        },
-        {
-            "name": "barryvdh/laravel-debugbar",
-            "version": "v1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "268f286c20a4e177522c133701b6a83e984cd8b5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/268f286c20a4e177522c133701b6a83e984cd8b5",
-                "reference": "268f286c20a4e177522c133701b6a83e984cd8b5",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/filesystem": "~4.0",
-                "illuminate/support": "~4.0",
-                "maximebf/debugbar": "1.9.x",
-                "php": ">=5.3.0",
-                "symfony/finder": "~2.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Barryvdh\\Debugbar": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Barry vd. Heuvel",
-                    "email": "barryvdh@gmail.com"
-                }
-            ],
-            "description": "PHP Debugbar integration for Laravel",
-            "keywords": [
-                "debug",
-                "debugbar",
-                "laravel",
-                "profiler",
-                "webprofiler"
-            ],
-            "time": "2014-03-27 16:20:18"
         },
         {
             "name": "bkwld/croppa",
@@ -979,56 +932,6 @@
                 "laravel"
             ],
             "time": "2014-04-17 17:16:42"
-        },
-        {
-            "name": "maximebf/debugbar",
-            "version": "1.9.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f",
-                "reference": "5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "psr/log": "~1.0"
-            },
-            "require-dev": {
-                "php": ">=5.3.0"
-            },
-            "suggest": {
-                "kriswallsmith/assetic": "The best way to manage assets",
-                "monolog/monolog": "Log using Monolog",
-                "predis/predis": "Redis storage"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "DebugBar": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxime Bouroumeau-Fuseau",
-                    "email": "maxime.bouroumeau@gmail.com",
-                    "homepage": "http://maximebf.com"
-                }
-            ],
-            "description": "Debug bar in the browser for php application",
-            "homepage": "https://github.com/maximebf/php-debugbar",
-            "keywords": [
-                "debug"
-            ],
-            "time": "2014-02-14 16:30:44"
         },
         {
             "name": "mccool/database-backup",
@@ -2603,6 +2506,53 @@
     ],
     "packages-dev": [
         {
+            "name": "barryvdh/laravel-debugbar",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "reference": "268f286c20a4e177522c133701b6a83e984cd8b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/268f286c20a4e177522c133701b6a83e984cd8b5",
+                "reference": "268f286c20a4e177522c133701b6a83e984cd8b5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "~4.0",
+                "illuminate/support": "~4.0",
+                "maximebf/debugbar": "1.9.x",
+                "php": ">=5.3.0",
+                "symfony/finder": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Barryvdh\\Debugbar": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "PHP Debugbar integration for Laravel",
+            "keywords": [
+                "debug",
+                "debugbar",
+                "laravel",
+                "profiler",
+                "webprofiler"
+            ],
+            "time": "2014-03-27 16:20:18"
+        },
+        {
             "name": "leroy-merlin-br/larasniffer",
             "version": "dev-master",
             "source": {
@@ -2651,6 +2601,56 @@
                 "sniff"
             ],
             "time": "2014-04-23 22:06:28"
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "1.9.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f",
+                "reference": "5bbb3bc78b3e9ee0c4cc8c3619171ea16f0fb51f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "DebugBar": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug"
+            ],
+            "time": "2014-02-14 16:30:44"
         },
         {
             "name": "mockery/mockery",
