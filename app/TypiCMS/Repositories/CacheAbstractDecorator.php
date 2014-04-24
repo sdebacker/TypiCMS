@@ -96,7 +96,7 @@ abstract class CacheAbstractDecorator
      */
     public function getAll(array $with = array(), $all = false)
     {
-        $cacheKey = md5(App::getLocale().'all'.$all);
+        $cacheKey = md5(App::getLocale() . 'all' . implode($with) . $all);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);

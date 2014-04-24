@@ -25,7 +25,7 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
      */
     public function getAll(array $with = array(), $all = false)
     {
-        $cacheKey = md5('Settings');
+        $cacheKey = md5('Settings' . implode($with));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);

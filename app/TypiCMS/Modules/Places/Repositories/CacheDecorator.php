@@ -54,7 +54,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
         // get search string
         $string = Input::get('string');
 
-        $cacheKey = md5(App::getLocale().'all'.$all.$string);
+        $cacheKey = md5(App::getLocale() . 'all' . $all . implode($with) . $string);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
