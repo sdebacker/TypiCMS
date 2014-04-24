@@ -34,7 +34,8 @@
 	"require-dev": {
 		"phpspec/phpspec": "2.0.*@dev",
 		"raveren/kint": "dev-master",
-		"mockery/mockery": "0.9.*@dev"
+		"mockery/mockery": "0.9.*@dev",
+		"leroy-merlin-br/larasniffer": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

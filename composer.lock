@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5199a58373aef14ce7ca11a683a68922",
+    "hash": "25de7e0713abc2e7f547d4a136e0e1e5",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2603,6 +2603,56 @@
     ],
     "packages-dev": [
         {
+            "name": "leroy-merlin-br/larasniffer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leroy-merlin-br/larasniffer.git",
+                "reference": "4d5ea1baa1c66e1411e3b954c4172f7c8d331482"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leroy-merlin-br/larasniffer/zipball/4d5ea1baa1c66e1411e3b954c4172f7c8d331482",
+                "reference": "4d5ea1baa1c66e1411e3b954c4172f7c8d331482",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~4.0",
+                "illuminate/support": "~4.0",
+                "php": ">=5.4.0",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*@dev",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LeroyMerlin\\LaraSniffer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zizaco Ziuini",
+                    "email": "zizaco@gmail.com",
+                    "homepage": "http://www.zizaco.net"
+                }
+            ],
+            "description": "Larasniffer detect violations of a defined coding standard. It helps your code remains clean and consistent.",
+            "keywords": [
+                "laravel",
+                "psr1",
+                "psr2",
+                "sniff"
+            ],
+            "time": "2014-04-23 22:06:28"
+        },
+        {
             "name": "mockery/mockery",
             "version": "0.9.0",
             "source": {
@@ -2875,6 +2925,76 @@
             "time": "2014-03-20 13:38:44"
         },
         {
+            "name": "squizlabs/php_codesniffer",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "a76a39b317ce8106abe6264daa505e24e1731860"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/a76a39b317ce8106abe6264daa505e24e1731860",
+                "reference": "a76a39b317ce8106abe6264daa505e24e1731860",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.1.2"
+            },
+            "suggest": {
+                "phpunit/php-timer": "dev-master"
+            },
+            "bin": [
+                "scripts/phpcs"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "CodeSniffer.php",
+                    "CodeSniffer/CLI.php",
+                    "CodeSniffer/Exception.php",
+                    "CodeSniffer/File.php",
+                    "CodeSniffer/Report.php",
+                    "CodeSniffer/Reporting.php",
+                    "CodeSniffer/Sniff.php",
+                    "CodeSniffer/Tokens.php",
+                    "CodeSniffer/Reports/",
+                    "CodeSniffer/CommentParser/",
+                    "CodeSniffer/Tokenizers/",
+                    "CodeSniffer/DocGenerators/",
+                    "CodeSniffer/Standards/AbstractPatternSniff.php",
+                    "CodeSniffer/Standards/AbstractScopeSniff.php",
+                    "CodeSniffer/Standards/AbstractVariableSniff.php",
+                    "CodeSniffer/Standards/IncorrectPatternException.php",
+                    "CodeSniffer/Standards/Generic/Sniffs/",
+                    "CodeSniffer/Standards/MySource/Sniffs/",
+                    "CodeSniffer/Standards/PEAR/Sniffs/",
+                    "CodeSniffer/Standards/PSR1/Sniffs/",
+                    "CodeSniffer/Standards/PSR2/Sniffs/",
+                    "CodeSniffer/Standards/Squiz/Sniffs/",
+                    "CodeSniffer/Standards/Zend/Sniffs/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "time": "2014-02-04 23:49:58"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v2.4.3",
             "target-dir": "Symfony/Component/Yaml",
@@ -2934,7 +3054,8 @@
         "msurguy/honeypot": 20,
         "phpspec/phpspec": 20,
         "raveren/kint": 20,
-        "mockery/mockery": 20
+        "mockery/mockery": 20,
+        "leroy-merlin-br/larasniffer": 20
     },
     "platform": [
 
