@@ -32,4 +32,19 @@ return array(
     'Password Reset Confirmation' => 'Password Reset Confirmation',
     'Account:' => 'Account:',
     'User permissions' => 'User permissions',
+
+    // messages
+    'User not found with email :mail' => 'User not found with email :mail',
+    'User not found with id :id' => 'User not found with id :id',
+    'Login field is required' => 'Login field is required',
+    'Password field is required' => 'Password field is required',
+    'Wrong password, try again' => 'Wrong password, try again',
+    'User not activated' => 'User not activated',
+    'User is suspended for :time minutes' => 'User is suspended for :time minutes',
+    'User is banned' => 'User is banned',
+    'User not found' => 'User not found',
+    'User with this login already exists' => 'User with this login already exists',
+    'There was a problem activating this account' => 'There was a problem activating this account',
+    'User does not exist' => 'User does not exist',
+    'You have already activated this account' => 'You have already activated this account',
 );
