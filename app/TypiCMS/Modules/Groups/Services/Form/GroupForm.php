@@ -1,8 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Groups\Services\Form;
 
-use Input;
-
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Groups\Repositories\GroupInterface;
 

@@ -1,9 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Files\Services\Form;
 
-use Input;
-use Config;
-
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 
@@ -60,11 +57,6 @@ class FileForm
      */
     public function update(array $input)
     {
-        // add checkboxes data
-        foreach (Config::get('app.locales') as $locale) {
-            $input[$locale]['status'] = Input::get($locale.'.status', '0');
-        }
-
         $inputDot = array_dot($input);
 
         if ( ! $this->valid($inputDot) ) {

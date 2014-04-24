@@ -5,6 +5,7 @@ use StdClass;
 
 use App;
 use Input;
+use Config;
 use Croppa;
 use Request;
 
@@ -154,6 +155,10 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      */
     public function update(array $data)
     {
+        // add checkboxes data
+        foreach (Config::get('app.locales') as $locale) {
+            $data[$locale]['status'] = Input::get($locale.'.status', 0);
+        }
 
         $model = $this->model->find($data['id']);
 

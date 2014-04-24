@@ -1,9 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Contacts\Services\Form;
 
-use Input;
-use Config;
-
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Contacts\Repositories\ContactInterface;
 

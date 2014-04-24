@@ -1,8 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Translations\Services\Form;
 
-use Input;
-
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 
