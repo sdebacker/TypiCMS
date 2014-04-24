@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e463927b360f7cf8b37027b459265159",
+    "hash": "5199a58373aef14ce7ca11a683a68922",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -11,16 +11,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "e684a341105c3df39b080a06407e416021a41906"
+                "reference": "b4317377f1f93b32fc72b12c0faa9c8ac66dbe4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e684a341105c3df39b080a06407e416021a41906",
-                "reference": "e684a341105c3df39b080a06407e416021a41906",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b4317377f1f93b32fc72b12c0faa9c8ac66dbe4b",
+                "reference": "b4317377f1f93b32fc72b12c0faa9c8ac66dbe4b",
                 "shasum": ""
             },
             "require": {
-                "guzzle/guzzle": ">=3.7.0,<3.9.0",
+                "guzzle/guzzle": ">=3.7.0,<=3.9.9",
                 "php": ">=5.3.3"
             },
             "require-dev": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-04-14 21:49:32"
+            "time": "2014-04-24 00:29:22"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -165,26 +165,26 @@
         },
         {
             "name": "cartalyst/sentry",
-            "version": "v2.1.1",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cartalyst/sentry.git",
-                "reference": "1617fcf46fd2753668774f59587257b41351406a"
+                "reference": "7eba43edce31eb6485e2b2e4f3e700e322de80fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/1617fcf46fd2753668774f59587257b41351406a",
-                "reference": "1617fcf46fd2753668774f59587257b41351406a",
+                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/7eba43edce31eb6485e2b2e4f3e700e322de80fa",
+                "reference": "7eba43edce31eb6485e2b2e4f3e700e322de80fa",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "illuminate/cookie": "~4",
-                "illuminate/database": "~4",
-                "illuminate/http": "~4",
-                "illuminate/session": "~4",
+                "illuminate/cookie": ">=4.0.9,<4.2",
+                "illuminate/database": ">=4.0.9,<4.2",
+                "illuminate/http": ">=4.0.9,<4.2",
+                "illuminate/session": ">=4.0.9,<4.2",
                 "ircmaxell/password-compat": "1.0.*",
                 "mockery/mockery": "0.7.2"
             },
@@ -261,7 +261,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2013-11-27 22:30:58"
+            "time": "2014-04-22 18:39:45"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -598,22 +598,22 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.8.1",
+            "version": "v3.9.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba"
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "e4d12d7d6acccf75a5e504114e2df9195e494108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
-                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/e4d12d7d6acccf75a5e504114e2df9195e494108",
+                "reference": "e4d12d7d6acccf75a5e504114e2df9195e494108",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "php": ">=5.3.3",
-                "symfony/event-dispatcher": ">=2.1"
+                "symfony/event-dispatcher": "~2.1"
             },
             "replace": {
                 "guzzle/batch": "self.version",
@@ -640,13 +640,13 @@
                 "guzzle/stream": "self.version"
             },
             "require-dev": {
-                "doctrine/cache": "*",
-                "monolog/monolog": "1.*",
+                "doctrine/cache": "~1.3",
+                "monolog/monolog": "~1.0",
                 "phpunit/phpunit": "3.7.*",
-                "psr/log": "1.0.*",
-                "symfony/class-loader": "*",
-                "zendframework/zend-cache": "<2.3",
-                "zendframework/zend-log": "<2.3"
+                "psr/log": "~1.0",
+                "symfony/class-loader": "~2.1",
+                "zendframework/zend-cache": "2.*,<2.3",
+                "zendframework/zend-log": "2.*,<2.3"
             },
             "type": "library",
             "extra": {
@@ -686,7 +686,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-01-28 22:29:15"
+            "time": "2014-04-23 21:43:40"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -726,6 +726,51 @@
                 "password"
             ],
             "time": "2013-04-30 19:58:08"
+        },
+        {
+            "name": "itsgoingd/clockwork",
+            "version": "v1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsgoingd/clockwork.git",
+                "reference": "c49de25cdb43c58579d6d1c9c9abbf083300dcaa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/c49de25cdb43c58579d6d1c9c9abbf083300dcaa",
+                "reference": "c49de25cdb43c58579d6d1c9c9abbf083300dcaa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "psr/log": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Clockwork": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "itsgoingd",
+                    "email": "itsgoingd@luzer.sk",
+                    "homepage": "http://twitter.com/itsgoingd"
+                }
+            ],
+            "description": "Server-side component of Clockwork, a Chrome extension for PHP development",
+            "homepage": "http://github.com/itsgoingd/clockwork",
+            "keywords": [
+                "debugging",
+                "laravel",
+                "logging",
+                "profiling"
+            ],
+            "time": "2014-02-13 23:08:01"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -821,16 +866,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.1.27",
+            "version": "v4.1.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2f1c6cd51dfd51d573977f07e34ba609cc0bf3ac"
+                "reference": "301a6a5293f15c8c17f5278ed6197f3cbaccadd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2f1c6cd51dfd51d573977f07e34ba609cc0bf3ac",
-                "reference": "2f1c6cd51dfd51d573977f07e34ba609cc0bf3ac",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/301a6a5293f15c8c17f5278ed6197f3cbaccadd4",
+                "reference": "301a6a5293f15c8c17f5278ed6197f3cbaccadd4",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +891,7 @@
                 "phpseclib/phpseclib": "0.3.*",
                 "predis/predis": "0.8.*",
                 "stack/builder": "1.0.*",
-                "swiftmailer/swiftmailer": "5.0.*",
+                "swiftmailer/swiftmailer": "~5.0",
                 "symfony/browser-kit": "2.4.*",
                 "symfony/console": "2.4.*",
                 "symfony/css-selector": "2.4.*",
@@ -857,6 +902,7 @@
                 "symfony/http-kernel": "2.4.*",
                 "symfony/process": "2.4.*",
                 "symfony/routing": "2.4.*",
+                "symfony/security": "2.4.*",
                 "symfony/translation": "2.4.*"
             },
             "replace": {
@@ -932,7 +978,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-04-16 15:27:05"
+            "time": "2014-04-17 17:16:42"
         },
         {
             "name": "maximebf/debugbar",
@@ -1031,16 +1077,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "392ef35fd470638e08d0160d6b1cbab63cb23174"
+                "reference": "1afc39690e7414412face1f8cbf67b73db34485c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/392ef35fd470638e08d0160d6b1cbab63cb23174",
-                "reference": "392ef35fd470638e08d0160d6b1cbab63cb23174",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1afc39690e7414412face1f8cbf67b73db34485c",
+                "reference": "1afc39690e7414412face1f8cbf67b73db34485c",
                 "shasum": ""
             },
             "require": {
@@ -1068,7 +1114,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8.x-dev"
+                    "dev-master": "1.9.x-dev"
                 }
             },
             "autoload": {
@@ -1095,7 +1141,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-03-23 19:50:26"
+            "time": "2014-04-20 16:41:26"
         },
         {
             "name": "msurguy/honeypot",
@@ -1103,12 +1149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/msurguy/Honeypot.git",
-                "reference": "d2121255bd2efe285620066af743f9f042dd9496"
+                "reference": "a28df74ea18947adaef23370c277ecfa5c946b59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msurguy/Honeypot/zipball/d2121255bd2efe285620066af743f9f042dd9496",
-                "reference": "d2121255bd2efe285620066af743f9f042dd9496",
+                "url": "https://api.github.com/repos/msurguy/Honeypot/zipball/a28df74ea18947adaef23370c277ecfa5c946b59",
+                "reference": "a28df74ea18947adaef23370c277ecfa5c946b59",
                 "shasum": ""
             },
             "require": {
@@ -1144,7 +1190,7 @@
                 "laravel",
                 "spam"
             ],
-            "time": "2014-03-27 17:00:56"
+            "time": "2014-04-18 16:26:59"
         },
         {
             "name": "nesbot/carbon",
@@ -1518,16 +1564,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.0.3",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230"
+                "reference": "748c01c1144713ac0118396935d10b6ceec91b68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
-                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/748c01c1144713ac0118396935d10b6ceec91b68",
+                "reference": "748c01c1144713ac0118396935d10b6ceec91b68",
                 "shasum": ""
             },
             "require": {
@@ -1551,7 +1597,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Chris Corbyn"
@@ -1563,7 +1611,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-12-03 13:33:24"
+            "time": "2014-03-18 09:03:27"
         },
         {
             "name": "symfony/browser-kit",
@@ -2242,6 +2290,82 @@
             "time": "2014-02-11 13:52:09"
         },
         {
+            "name": "symfony/security",
+            "version": "v2.4.3",
+            "target-dir": "Symfony/Component/Security",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Security.git",
+                "reference": "ef511d47c94ad92e37112b43efcbf7da8696a803"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Security/zipball/ef511d47c94ad92e37112b43efcbf7da8696a803",
+                "reference": "ef511d47c94ad92e37112b43efcbf7da8696a803",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/http-foundation": "~2.1",
+                "symfony/http-kernel": "~2.4"
+            },
+            "replace": {
+                "symfony/security-acl": "self.version",
+                "symfony/security-core": "self.version",
+                "symfony/security-csrf": "self.version",
+                "symfony/security-http": "self.version"
+            },
+            "require-dev": {
+                "doctrine/common": "~2.2",
+                "doctrine/dbal": "~2.2",
+                "ircmaxell/password-compat": "1.0.*",
+                "psr/log": "~1.0",
+                "symfony/expression-language": "~2.4",
+                "symfony/routing": "~2.2",
+                "symfony/validator": "~2.2"
+            },
+            "suggest": {
+                "doctrine/dbal": "For using the built-in ACL implementation",
+                "ircmaxell/password-compat": "For using the BCrypt password encoder in PHP <5.5",
+                "symfony/class-loader": "For using the ACL generateSql script",
+                "symfony/expression-language": "For using the expression voter",
+                "symfony/finder": "For using the ACL generateSql script",
+                "symfony/routing": "For using the HttpUtils class to create sub-requests, redirect the user, and match URLs",
+                "symfony/validator": "For using the user password constraint"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Security\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Security Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-03-26 11:35:33"
+        },
+        {
             "name": "symfony/translation",
             "version": "v2.4.3",
             "target-dir": "Symfony/Component/Translation",
@@ -2478,51 +2602,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "itsgoingd/clockwork",
-            "version": "v1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "c49de25cdb43c58579d6d1c9c9abbf083300dcaa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/c49de25cdb43c58579d6d1c9c9abbf083300dcaa",
-                "reference": "c49de25cdb43c58579d6d1c9c9abbf083300dcaa",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "psr/log": "1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Clockwork": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "itsgoingd",
-                    "email": "itsgoingd@luzer.sk",
-                    "homepage": "http://twitter.com/itsgoingd"
-                }
-            ],
-            "description": "Server-side component of Clockwork, a Chrome extension for PHP development",
-            "homepage": "http://github.com/itsgoingd/clockwork",
-            "keywords": [
-                "debugging",
-                "laravel",
-                "logging",
-                "profiling"
-            ],
-            "time": "2014-02-13 23:08:01"
-        },
         {
             "name": "mockery/mockery",
             "version": "0.9.0",
