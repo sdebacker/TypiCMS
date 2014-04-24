@@ -34,6 +34,14 @@
                         {{ Form::checkbox($lang.'[status]', 1, $model->$lang->status) }} @lang('validation.attributes.online')
                     </label>
                 </div>
+                <div class="form-group">
+                    {{ Form::label($lang.'[summary]', trans('validation.attributes.summary')) }}
+                    {{ Form::textarea($lang.'[summary]', $model->$lang->summary, array('class' => 'form-control', 'rows' => 4)) }}
+                </div>
+                <div class="form-group">
+                    {{ Form::label($lang.'[body]', trans('validation.attributes.body')) }}
+                    {{ Form::textarea($lang.'[body]', $model->$lang->body, array('class' => 'editor form-control')) }}
+                </div>
             </div>
 
             @endforeach
