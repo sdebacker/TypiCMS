@@ -263,7 +263,9 @@ class UsersController extends BaseController
 
             // Email the reset code to the user
             Mail::send('emails.auth.reset', $data, function ($m) use ($data) {
-                $m->to($data['email'])->subject('[' . Config::get('typicms.' . App::getLocale() . '.websiteTitle') . '] ' . trans('users::global.Password Reset Confirmation'));
+                $subject  = '[' . Config::get('typicms.' . App::getLocale() . '.websiteTitle') . '] ';
+                $subject .= trans('users::global.Password Reset Confirmation');
+                $m->to($data['email'])->subject($subject);
             });
 
             Notification::success(trans('users::global.An email was sent with password reset information'));
@@ -346,7 +348,8 @@ class UsersController extends BaseController
 
                 } else {
                     // Password reset failed
-                    Notification::success(trans('users::global.There was a problem, please contact the system administrator'));
+                    $msg = trans('users::global.There was a problem, please contact the system administrator');
+                    Notification::success($msg);
                 }
             } else {
                 Notification::error(trans('users::global.This password reset token is invalid'));

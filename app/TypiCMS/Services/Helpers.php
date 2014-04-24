@@ -27,11 +27,12 @@ class Helpers
         }
 
         $moduleSingular = str_singular($module);
+        $translationsTable = $moduleSingular . '_translations';
 
         return DB::table($module)
-                ->join($moduleSingular.'_translations', $module.'.id', '=', $moduleSingular.'_translations.'.$moduleSingular.'_id')
+                ->join($translationsTable, $module . '.id', '=', $translationsTable . '.' . $moduleSingular . '_id')
                 ->where('slug', $slug)
-                ->pluck($module.'.id');
+                ->pluck($module . '.id');
     }
 
     /**
@@ -48,11 +49,12 @@ class Helpers
         }
 
         $moduleSingular = str_singular($module);
+        $translationsTable = $moduleSingular . '_translations';
 
         return DB::table($module)
-                ->join($moduleSingular.'_translations', $module.'.id', '=', $moduleSingular.'_translations.'.$moduleSingular.'_id')
-                ->where($module.'.id', $id)
-                ->where($moduleSingular.'_translations.status', 1)
+                ->join($translationsTable, $module . '.id', '=', $translationsTable . '.' . $moduleSingular . '_id')
+                ->where($module . '.id', $id)
+                ->where($translationsTable . '.status', 1)
                 ->lists('slug', 'locale');
     }
 }

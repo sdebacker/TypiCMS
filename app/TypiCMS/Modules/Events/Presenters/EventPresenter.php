@@ -37,6 +37,16 @@ class EventPresenter extends AbstractPresenter implements Presentable
             }
         }
 
-        return ucfirst(trans('events::global.from')) . ' <time datetime="' . $sDate . '">' . $sDate->formatLocalized($sDateFormat) . '</time> ' . trans('events::global.to') . ' <time datetime="' . $eDate . '">' . $eDate->formatLocalized($dateFormat) . '</time>';
+        $dateFromTo  = ucfirst(trans('events::global.from')) . ' ';
+        $dateFromTo .= '<time datetime="' . $sDate . '">';
+        $dateFromTo .= $sDate->formatLocalized($sDateFormat);
+        $dateFromTo .= '</time>';
+        $dateFromTo .= ' ' . trans('events::global.to') . ' ';
+        $dateFromTo .= '<time datetime="' . $eDate . '">';
+        $dateFromTo .= $eDate->formatLocalized($dateFormat);
+        $dateFromTo .= '</time>';
+
+        return $dateFromTo;
+
     }
 }

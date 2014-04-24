@@ -128,7 +128,8 @@ abstract class AbstractPresenter implements ArrayAccess
     */
     public function edit()
     {
-        return '<a class="btn btn-default btn-xs" href="' . route('admin.' . $this->object->route . '.edit', $this->object->id).'">' . trans('global.Edit') . '</a>';
+        $url = route('admin.' . $this->object->route . '.edit', $this->object->id);
+        return '<a class="btn btn-default btn-xs" href="' . $url .'">' . trans('global.Edit') . '</a>';
     }
 
     /**
@@ -138,7 +139,8 @@ abstract class AbstractPresenter implements ArrayAccess
     */
     public function titleAnchor()
     {
-        return '<a href="' . route('admin.' . $this->object->route . '.edit', $this->object->id).'">' . $this->object->title . '</a>';
+        $url = route('admin.' . $this->object->route . '.edit', $this->object->id);
+        return '<a href="' . $url . '">' . $this->object->title . '</a>';
     }
 
     /**
@@ -150,7 +152,8 @@ abstract class AbstractPresenter implements ArrayAccess
     {
         $nbFiles = count($this->object->files);
         $label = $nbFiles ? 'label-success' : 'label-default' ;
-        $html[] = '<a class="label ' . $label . '" href="' . route('admin.' . $this->object->route . '.files.index', $this->object->id) . '">';
+        $url = route('admin.' . $this->object->route . '.files.index', $this->object->id);
+        $html[] = '<a class="label ' . $label . '" href="' . $url . '">';
         $html[] = $nbFiles;
         $html[] = '</a>';
 

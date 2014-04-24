@@ -83,7 +83,9 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
     {
         isset($data['key']) and $data['key'] = htmlspecialchars($data['key']);
         foreach (Config::get('app.locales') as $locale) {
-            isset($data[$locale]['translation']) and $data[$locale]['translation'] = htmlspecialchars($data[$locale]['translation']);
+            if (isset($data[$locale]['translation'])) {
+                $data[$locale]['translation'] = htmlspecialchars($data[$locale]['translation']);
+            }
         }
         $model = $this->model->find($data['id']);
         $model->fill($data);

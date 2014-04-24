@@ -35,7 +35,9 @@ class Dates
             $startingDateFormat = '%A %d %B %Y';
         }
 
-        return Carbon::createFromFormat('Y-m-d', $startingDate)->formatLocalized($startingDateFormat).' to '.Carbon::createFromFormat('Y-m-d', $endingDate)->formatLocalized($endingDateFormat);
+        return Carbon::createFromFormat('Y-m-d', $startingDate)
+            ->formatLocalized($startingDateFormat) . ' to ' . Carbon::createFromFormat('Y-m-d', $endingDate)
+            ->formatLocalized($endingDateFormat);
 
     }
 }
