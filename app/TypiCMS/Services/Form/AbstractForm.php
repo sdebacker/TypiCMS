@@ -1,18 +1,8 @@
 <?php
-namespace TypiCMS\Modules\Contacts\Services\Form;
+namespace TypiCMS\Services\Form;
 
-use TypiCMS\Services\Validation\ValidableInterface;
-use TypiCMS\Modules\Contacts\Repositories\ContactInterface;
-
-class ContactForm
+abstract class AbstractForm
 {
-
-    /**
-     * Form Data
-     *
-     * @var array
-     */
-    protected $data;
 
     /**
      * Validator
@@ -22,20 +12,14 @@ class ContactForm
     protected $validator;
 
     /**
-     * Contact repository
+     * Repository
      *
-     * @var \TypiCMS\Modules\Contacts\Repositories\ContactInterface
+     * @var RepositoryInterface
      */
-    protected $contact;
-
-    public function __construct(ValidableInterface $validator, ContactInterface $contact)
-    {
-        $this->validator = $validator;
-        $this->contact = $contact;
-    }
+    protected $repository;
 
     /**
-     * Create a new page
+     * Create a new item
      *
      * @return boolean
      */
@@ -47,11 +31,11 @@ class ContactForm
             return false;
         }
 
-        return $this->contact->create($input);
+        return $this->repository->create($input);
     }
 
     /**
-     * Update an existing contact
+     * Update an existing item
      *
      * @return boolean
      */
@@ -63,7 +47,7 @@ class ContactForm
             return false;
         }
 
-        return $this->contact->update($input);
+        return $this->repository->update($input);
     }
 
     /**
@@ -84,5 +68,23 @@ class ContactForm
     protected function valid(array $input)
     {
         return $this->validator->with($input)->passes();
+    }
+
+    /**
+     * Convert string of tags to
+     * array of tags
+     *
+     * @param  string
+     * @return array
+     */
+    protected function processTags($tags)
+    {
+        $tags = explode(',', $tags);
+
+        foreach ($tags as $key => $tag) {
+            $tags[$key] = trim($tag);
+        }
+
+        return $tags;
     }
 }
