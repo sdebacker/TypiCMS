@@ -27,13 +27,11 @@
                         {{ Html::th('checkboxes', null, false, false) }}
                         {{ Html::th('edit', null, false, false) }}
                         {{ Html::th('created_at', 'desc') }}
+                        {{ Html::th('title') }}
                         {{ Html::th('first_name') }}
                         {{ Html::th('last_name') }}
                         {{ Html::th('email') }}
-                        {{ Html::th('address') }}
-                        {{ Html::th('postcode') }}
-                        {{ Html::th('city') }}
-                        {{ Html::th('country') }}
+                        {{ Html::th('message') }}
                     </tr>
 
                 </thead>
@@ -46,13 +44,11 @@
                         <td>{{ $model->checkbox }}</td>
                         <td>{{ $model->edit }}</td>
                         <td>{{ $model->createdAt }}</td>
+                        <td>{{ $model->title }}</td>
                         <td>{{ $model->first_name }}</td>
                         <td>{{ $model->last_name }}</td>
                         <td>{{ $model->email }}</td>
-                        <td>{{ $model->address }}</td>
-                        <td>{{ $model->postcode }}</td>
-                        <td>{{ $model->city }}</td>
-                        <td>{{ $model->country }}</td>
+                        <td>{{ $model->message }}</td>
                     </tr>
 
                     @endforeach
