@@ -25,7 +25,7 @@ class CategoryTranslation extends Eloquent
                 // Check uri is unique
                 while ($self::where('slug', $model->slug)->where('locale', $model->locale)->first()) {
                     $i++;
-                    // increment uri if exists
+                    // increment slug if exists
                     $model->slug = $slug.'-'.$i;
                 }
             }
@@ -42,7 +42,7 @@ class CategoryTranslation extends Eloquent
                 // Check uri is unique
                 while ($self::where('slug', $model->slug)->where('id', '!=', $model->id)->where('locale', $model->locale)->first()) {
                     $i++;
-                    // increment uri if exists
+                    // increment slug if exists
                     $model->slug = $slug.'-'.$i;
                 }
             }

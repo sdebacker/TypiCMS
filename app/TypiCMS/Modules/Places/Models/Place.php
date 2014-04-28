@@ -64,7 +64,7 @@ class Place extends Base
                 // Check uri is unique
                 while ($self::where('slug', $model->slug)->first()) {
                     $i++;
-                    // increment uri if exists
+                    // increment slug if exists
                     $model->slug = $slug.'-'.$i;
                 }
             }
@@ -81,7 +81,7 @@ class Place extends Base
                 // Check uri is unique
                 while ($self::where('slug', $model->slug)->where('id', '!=', $model->id)->first()) {
                     $i++;
-                    // increment uri if exists
+                    // increment slug if exists
                     $model->slug = $slug.'-'.$i;
                 }
             }
