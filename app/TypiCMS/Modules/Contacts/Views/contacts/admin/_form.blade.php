@@ -5,6 +5,7 @@
     {{ Form::hidden('id'); }}
     {{ Form::hidden('locale', App::getLocale()); }}
     {{ Form::honeypot('my_name', 'my_time') }}
+    {{ Form::hidden('my_time', Crypt::encrypt(time()-60)); }}
 
     <div class="col-sm-6">
 
