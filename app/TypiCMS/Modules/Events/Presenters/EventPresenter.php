@@ -16,7 +16,7 @@ class EventPresenter extends AbstractPresenter implements Presentable
         return $this->object->start_date->format('d.m.Y');
     }
 
-    public function endDdate()
+    public function endDate()
     {
         return $this->object->end_date->format('d.m.Y');
     }
