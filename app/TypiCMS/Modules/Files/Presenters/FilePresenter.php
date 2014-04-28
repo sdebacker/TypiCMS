@@ -12,7 +12,13 @@ class FilePresenter extends AbstractPresenter implements Presentable
     public function thumb()
     {
         if ($this->isImage($this->object)) {
-            return '<img src="' . Croppa::url('/'.$this->object->path.'/'.$this->object->filename, 130, 130, array('quadrant' => 'T')) . '" alt="' . $this->object->alt_attribute . '">';
+            $src = Croppa::url(
+                '/'.$this->object->path.'/'.$this->object->filename,
+                130,
+                130,
+                array('quadrant' => 'T')
+            );
+            return '<img src="' . $src . '" alt="' . $this->object->alt_attribute . '">';
         } else {
             return '<div class="text-center doc"><i class="text-center fa fa-file-text-o"></i></div>';
         }

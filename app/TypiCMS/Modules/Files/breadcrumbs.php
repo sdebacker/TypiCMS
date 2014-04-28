@@ -24,7 +24,10 @@ foreach ($modulesWithFiles as $module) {
 
     Breadcrumbs::register('admin.' . $module . '.files.index', function ($breadcrumbs, $model) use ($module) {
         $breadcrumbs->parent('admin.' . $module . '.edit', $model);
-        $breadcrumbs->push(Str::title(trans_choice('files::global.files', 2)), route('admin.' . $module . '.files.index', $model->id));
+        $breadcrumbs->push(
+            Str::title(trans_choice('files::global.files', 2)),
+            route('admin.' . $module . '.files.index', $model->id)
+        );
     });
 
     Breadcrumbs::register('admin.' . $module . '.files.edit', function ($breadcrumbs, $model, $file) use ($module) {
