@@ -117,7 +117,6 @@ if (Request::segment(1) == 'admin') {
 
 			// Store locale in session
 			Session::put('locale', Input::get('locale'));
-			Log::info('Lang is now '.Input::get('locale'));
 
 		}
 
