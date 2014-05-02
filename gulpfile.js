@@ -7,8 +7,6 @@ var csso = require('gulp-csso');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
-var exec = require('child_process').exec;
-var sys = require('sys');
 var bowerFiles = require("gulp-bower-files");
 
 var publicJsFiles = [
@@ -59,18 +57,10 @@ gulp.task('public-js', function () {
 
 });
 
-// Run all PHPUnit tests
-gulp.task('phpunit', function() {
-    exec('phpunit', function(error, stdout) {
-        sys.puts(stdout);
-    });
-});
-
-// Keep an eye on Less and PHP files for changes…
+// Keep an eye on Less and JS files for changes…
 gulp.task('watch', function () {
     gulp.watch(lessDir + '/*.less', ['public-less', 'admin-less']);
     gulp.watch(publicJsFiles, ['public-js']);
-    // gulp.watch('app/**/*.php', ['phpunit']);
 });
 
 gulp.task("bowerFiles", function(){
@@ -78,4 +68,4 @@ gulp.task("bowerFiles", function(){
 });
 
 // What tasks does running gulp trigger?
-gulp.task('default', ['bowerFiles', 'public-less', 'admin-less', 'public-js', 'phpunit', 'watch']);
+gulp.task('default', ['bowerFiles', 'public-less', 'admin-less', 'public-js', 'watch']);
