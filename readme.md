@@ -114,6 +114,12 @@ Thumbnails are generated on the fly with [Croppa](https://github.com/BKWLD/cropp
 [Sentry 2](https://cartalyst.com/manual/sentry) is used to manage users, groups and permissions.
 Users registration can be enable through the settings panel (/admin/settings).
 
+### Translations
+
+Translations are manageable through the admin panel (/admin/translations).
+Each cell of the translation table is editable in place.
+You can call DB translation everywhere with ``` Lang::get('db.Key') ```, ``` trans('db.Key') ``` or ``` @lang('db.Key') ```.
+
 ### Settings
 
 Change website title, and other options trough the settings panel. Settings are saved in database.
