@@ -28,11 +28,14 @@
                 </div>
                 <div class="form-group">
                     {{ Form::label($lang.'[uri]', trans('validation.attributes.uri')) }}
-                    {{ Form::text($lang.'[uri]', $model->$lang->uri, array('class' => 'form-control')) }}
+                    <div class="input-group">
+                        <span class="input-group-addon">/</span>
+                        {{ Form::text($lang.'[uri]', $model->$lang->uri, array('class' => 'form-control')) }}
+                    </div>
                 </div>
                 <div class="form-group @if($errors->has($lang.'.url'))has-error@endif">
                     {{ Form::label($lang.'[url]', trans('validation.attributes.website')) }}
-                    {{ Form::text($lang.'[url]', $model->$lang->url, array('class' => 'form-control')) }}
+                    {{ Form::text($lang.'[url]', $model->$lang->url, array('class' => 'form-control', 'placeholder' => 'http://')) }}
                     @if($errors->has($lang.'.url'))
                     <span class="help-block">{{ $errors->first($lang.'.url') }}</span>
                     @endif
