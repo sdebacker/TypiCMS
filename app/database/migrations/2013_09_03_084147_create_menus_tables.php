@@ -49,9 +49,7 @@ class CreateMenusTables extends Migration
             $table->integer('position')->unsigned()->default(0);
             $table->string('target', 10)->nullable();
             $table->string('module_name', 50)->nullable();
-            $table->string('restricted_to')->nullable();
             $table->string('class')->nullable();
-            $table->string('link_type', 20)->nullable();
 
             $table->timestamps();
 

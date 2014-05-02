@@ -74,17 +74,6 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('restricted_to', trans('validation.attributes.restricted_to')) }}
-                {{ Form::text('restricted_to', $model->$lang->restricted_to, array('class' => 'form-control')) }}
-            </div>
-            <div class="col-sm-6 form-group">
-                {{ Form::label('link_type', trans('validation.attributes.link_type')) }}
-                {{ Form::text('link_type', $model->$lang->link_type, array('class' => 'form-control')) }}
-            </div>
-        </div>
-
     </div>
 
 </div>
