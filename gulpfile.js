@@ -1,13 +1,14 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var notify = require('gulp-notify');
-var less = require('gulp-less');
-var path = require('path');
-var csso = require('gulp-csso');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var watch = require('gulp-watch');
-var bowerFiles = require("gulp-bower-files");
+var gulp       = require('gulp'),
+    gutil      = require('gulp-util'),
+    notify     = require('gulp-notify'),
+    less       = require('gulp-less'),
+    path       = require('path'),
+    csso       = require('gulp-csso'),
+    uglify     = require('gulp-uglify'),
+    concat     = require('gulp-concat'),
+    watch      = require('gulp-watch'),
+    bowerFiles = require("gulp-bower-files"),
+    plumber    = require("gulp-plumber");
 
 var publicJsFiles = [
   'public/components/vendor/jquery-legacy/jquery.js',
@@ -27,6 +28,7 @@ gulp.task('public-less', function () {
   return gulp.src([
       lessDir + '/public.less'
     ])
+    .pipe(plumber())
     .pipe(less())
     .pipe(csso())
     .pipe(gulp.dest('public/css'))
@@ -39,6 +41,7 @@ gulp.task('admin-less', function () {
   return gulp.src([
       lessDir + '/admin.less'
     ])
+    .pipe(plumber())
     .pipe(less())
     .pipe(csso())
     .pipe(gulp.dest('public/css'))
@@ -50,6 +53,7 @@ gulp.task('admin-less', function () {
 gulp.task('public-js', function () {
 
   return gulp.src(publicJsFiles)
+    .pipe(plumber())
     .pipe(uglify())
     .pipe(concat('public.min.js'))
     .pipe(gulp.dest('public/js'))
