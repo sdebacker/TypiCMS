@@ -13,7 +13,7 @@ $( document ).ready(function() {
 				center: new google.maps.LatLng(50.85,4.36),
 				mapTypeControl: false,
 				streetViewControl: false,
-				zoom: 16
+				zoom: 12
 			},
 			markerShape = {
 				coord: [0,0, 27,0, 27,37, 0,37],
@@ -137,8 +137,10 @@ $( document ).ready(function() {
 				markers[i]['html'] += '</p>';
 			}
 			// console.log(markers);
-			drop();
-			AutoCenter();
+			if (markers.length > 0) {
+				drop();
+				AutoCenter();
+			}
 		});
 	}
 
