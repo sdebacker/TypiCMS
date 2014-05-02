@@ -10,8 +10,9 @@ use Illuminate\Support\ServiceProvider;
 // Tags
 use TypiCMS\Modules\Tags\Models\TagInterface;
 
-// Model
+// Models
 use TypiCMS\Modules\Projects\Models\Project;
+use TypiCMS\Modules\Projects\Models\ProjectTranslation;
 
 // Repo
 use TypiCMS\Modules\Projects\Repositories\EloquentProject;
@@ -23,6 +24,9 @@ use TypiCMS\Services\Cache\LaravelCache;
 // Form
 use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
 use TypiCMS\Modules\Projects\Services\Form\ProjectFormLaravelValidator;
+
+// Observers
+use TypiCMS\Observers\SlugObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -36,6 +40,9 @@ class ModuleProvider extends ServiceProvider
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('projects', __DIR__ . '/../lang');
         Config::addNamespace('projects', __DIR__ . '/../config');
+
+        // Slug observer
+        ProjectTranslation::observe(new SlugObserver);
     }
 
     public function register()
