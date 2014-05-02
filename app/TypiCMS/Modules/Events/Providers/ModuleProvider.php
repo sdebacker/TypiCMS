@@ -7,8 +7,9 @@ use Config;
 
 use Illuminate\Support\ServiceProvider;
 
-// Model
+// Models
 use TypiCMS\Modules\Events\Models\Event;
+use TypiCMS\Modules\Events\Models\EventTranslation;
 
 // Repo
 use TypiCMS\Modules\Events\Repositories\EloquentEvent;
@@ -20,6 +21,9 @@ use TypiCMS\Services\Cache\LaravelCache;
 // Form
 use TypiCMS\Modules\Events\Services\Form\EventForm;
 use TypiCMS\Modules\Events\Services\Form\EventFormLaravelValidator;
+
+// Observers
+use TypiCMS\Observers\SlugObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -33,6 +37,9 @@ class ModuleProvider extends ServiceProvider
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('events', __DIR__ . '/../lang');
         Config::addNamespace('events', __DIR__ . '/../config');
+
+        // Slug observer
+        EventTranslation::observe(new SlugObserver);
     }
 
     public function register()
