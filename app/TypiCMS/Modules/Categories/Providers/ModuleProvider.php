@@ -7,8 +7,9 @@ use Config;
 
 use Illuminate\Support\ServiceProvider;
 
-// Model
+// Models
 use TypiCMS\Modules\Categories\Models\Category;
+use TypiCMS\Modules\Categories\Models\CategoryTranslation;
 
 // Repo
 use TypiCMS\Modules\Categories\Repositories\EloquentCategory;
@@ -20,6 +21,9 @@ use TypiCMS\Services\Cache\LaravelCache;
 // Form
 use TypiCMS\Modules\Categories\Services\Form\CategoryForm;
 use TypiCMS\Modules\Categories\Services\Form\CategoryFormLaravelValidator;
+
+// Observers
+use TypiCMS\Observers\SlugObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -33,6 +37,9 @@ class ModuleProvider extends ServiceProvider
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('categories', __DIR__ . '/../lang');
         Config::addNamespace('categories', __DIR__ . '/../config');
+
+        // Slug observer
+        CategoryTranslation::observe(new SlugObserver);
     }
 
     public function register()
