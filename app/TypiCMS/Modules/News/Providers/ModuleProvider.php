@@ -7,8 +7,9 @@ use Config;
 
 use Illuminate\Support\ServiceProvider;
 
-// Model
+// Models
 use TypiCMS\Modules\News\Models\News;
+use TypiCMS\Modules\News\Models\NewsTranslation;
 
 // Repo
 use TypiCMS\Modules\News\Repositories\EloquentNews;
@@ -20,6 +21,9 @@ use TypiCMS\Services\Cache\LaravelCache;
 // Form
 use TypiCMS\Modules\News\Services\Form\NewsForm;
 use TypiCMS\Modules\News\Services\Form\NewsFormLaravelValidator;
+
+// Observers
+use TypiCMS\Observers\SlugObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -33,6 +37,9 @@ class ModuleProvider extends ServiceProvider
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('news', __DIR__ . '/../lang');
         Config::addNamespace('news', __DIR__ . '/../config');
+
+        // Slug observer
+        NewsTranslation::observe(new SlugObserver);
     }
 
     public function register()
