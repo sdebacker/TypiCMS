@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d24c0be2768265ccba8fb465cb5c60e0b3abcf85"
+                "reference": "649950c8d35cfd08fc8616cb3562df8a3ab7a5ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d24c0be2768265ccba8fb465cb5c60e0b3abcf85",
-                "reference": "d24c0be2768265ccba8fb465cb5c60e0b3abcf85",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/649950c8d35cfd08fc8616cb3562df8a3ab7a5ea",
+                "reference": "649950c8d35cfd08fc8616cb3562df8a3ab7a5ea",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-04-30 00:41:28"
+            "time": "2014-05-01 22:02:23"
         },
         {
             "name": "bkwld/croppa",
@@ -2507,16 +2507,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.6.0",
+            "version": "v1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "268f286c20a4e177522c133701b6a83e984cd8b5"
+                "reference": "67a3cb07874ebc559ce3f1631f4b97c11540be56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/268f286c20a4e177522c133701b6a83e984cd8b5",
-                "reference": "268f286c20a4e177522c133701b6a83e984cd8b5",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/67a3cb07874ebc559ce3f1631f4b97c11540be56",
+                "reference": "67a3cb07874ebc559ce3f1631f4b97c11540be56",
                 "shasum": ""
             },
             "require": {
@@ -2550,7 +2550,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-03-27 16:20:18"
+            "time": "2014-05-01 08:48:50"
         },
         {
             "name": "leroy-merlin-br/larasniffer",
@@ -2654,16 +2654,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.0",
+            "version": "0.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "0fd49fd3f6c984409802004b1dd7b55d0f35ce4a"
+                "reference": "17f63ee40ed14a8afb7ba1f0ae15cc4491d719d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/0fd49fd3f6c984409802004b1dd7b55d0f35ce4a",
-                "reference": "0fd49fd3f6c984409802004b1dd7b55d0f35ce4a",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/17f63ee40ed14a8afb7ba1f0ae15cc4491d719d1",
+                "reference": "17f63ee40ed14a8afb7ba1f0ae15cc4491d719d1",
                 "shasum": ""
             },
             "require": {
@@ -2672,7 +2672,8 @@
             },
             "require-dev": {
                 "hamcrest/hamcrest-php": "~1.1",
-                "satooshi/php-coveralls": "dev-master"
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.7@dev"
             },
             "type": "library",
             "extra": {
@@ -2715,7 +2716,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-02-05 21:30:08"
+            "time": "2014-05-02 12:16:45"
         },
         {
             "name": "phpspec/php-diff",
@@ -2926,16 +2927,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "a76a39b317ce8106abe6264daa505e24e1731860"
+                "reference": "396178ada8499ec492363587f037125bf7b07fcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/a76a39b317ce8106abe6264daa505e24e1731860",
-                "reference": "a76a39b317ce8106abe6264daa505e24e1731860",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/396178ada8499ec492363587f037125bf7b07fcc",
+                "reference": "396178ada8499ec492363587f037125bf7b07fcc",
                 "shasum": ""
             },
             "require": {
@@ -2949,6 +2950,11 @@
                 "scripts/phpcs"
             ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-phpcs-fixer": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
                     "CodeSniffer.php",
@@ -2992,7 +2998,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-02-04 23:49:58"
+            "time": "2014-05-01 03:07:07"
         },
         {
             "name": "symfony/yaml",
