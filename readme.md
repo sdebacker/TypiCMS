@@ -1,6 +1,6 @@
 # TypiCMS [![Build Status](https://travis-ci.org/sdebacker/TypiCMS.svg?branch=master)](https://travis-ci.org/sdebacker/TypiCMS)
 
-TypiCMS is a starting point for a multilingual content management system build with Laravel 4.1.
+TypiCMS is a starting point for a multilingual content management system build with Laravel 4.1.  
 Bower and gulp are used for assets management and user interface is build with Bootstrap 3 with Less.
 
 ## Table of contents
@@ -88,7 +88,7 @@ Categories has many projects.
 
 ### Tags
 
-Tags are linked to projects and use [Select2](http://ivaynberg.github.io/select2/) js plugin.
+Tags are linked to projects and use [Select2](http://ivaynberg.github.io/select2/) js plugin.  
 It has many to many polymorphic relations so it could easily be linked to other modules.
 
 ### Events
@@ -105,19 +105,19 @@ Frontend contact form and admin side records management
 
 ### Files
 
-Files module allows you to upload multiple files linked to a resource. It uses [DropzoneJS](http://www.dropzonejs.com).
-
+Files module allows you to upload multiple files linked to a resource. It uses [DropzoneJS](http://www.dropzonejs.com).  
 Thumbnails are generated on the fly with [Croppa](https://github.com/BKWLD/croppa).
 
 ### Users and groups
 
-[Sentry 2](https://cartalyst.com/manual/sentry) is used to manage users, groups and permissions.
+[Sentry 2](https://cartalyst.com/manual/sentry) is used to manage users, groups and permissions.  
 Users registration can be enable through the settings panel (/admin/settings).
 
 ### Translations
 
-Translations are manageable through the admin panel (/admin/translations).
+Translations can be store in database through the admin panel (/admin/translations).  
 Each cell of the translation table is editable in place.
+
 You can call DB translation everywhere with ``` Lang::get('db.Key') ```, ``` trans('db.Key') ``` or ``` @lang('db.Key') ```.
 
 ### Settings
@@ -126,8 +126,8 @@ Change website title, and other options trough the settings panel. Settings are 
 
 ## Contributing
 
-TypiCMS needs many improvements, some options are not yet implemented and some code need to be simplified and moved in separate classes.
-TypiCMS follow [PSR-2](http://www.php-fig.org/psr/psr-2/) standards.
+TypiCMS needs many improvements, some options are not yet implemented and some code need to be simplified and moved in separate classes.  
+TypiCMS follow [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.
 
 ## Testing
 
