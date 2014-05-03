@@ -66,7 +66,7 @@ class TypiCMS
     private function getTranslatedUrl($lang)
     {
         if ($this->model) {
-            return $this->model->publicUri($lang);
+            return $this->model->present()->publicUri($lang);
         }
         if ($routeName = Route::current()->getName() != 'root') {
             $routeName = $lang . strstr(Route::current()->getName(), '.');
@@ -88,7 +88,7 @@ class TypiCMS
     {
         $lang = $lang ?: Config::get('app.locale') ;
         if ($this->model) {
-            return $this->model->publicUri($lang);
+            return $this->model->present()->publicUri($lang);
         }
         $routeArray = explode('.', Route::current()->getName());
         $routeArray[0] = $lang;

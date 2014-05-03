@@ -12,19 +12,15 @@ use Paginator;
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 use TypiCMS\Modules\Places\Services\Form\PlaceForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Places\Presenters\PlacePresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class PlacesController extends BaseController
 {
 
-    public function __construct(PlaceInterface $place, PlaceForm $placeform, Presenter $presenter)
+    public function __construct(PlaceInterface $place, PlaceForm $placeform)
     {
-        parent::__construct($place, $placeform, $presenter);
+        parent::__construct($place, $placeform);
         $this->title['parent'] = trans_choice('places::global.places', 2);
     }
 
@@ -43,8 +39,6 @@ class PlacesController extends BaseController
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        $models = $this->presenter->paginator($models, new PlacePresenter);
-
         $this->layout->content = View::make('places.admin.index')
             ->withModels($models);
 
@@ -59,7 +53,6 @@ class PlacesController extends BaseController
     {
         $this->title['child'] = trans('places::global.New');
         $model = $this->repository->getModel();
-        $model = $this->presenter->model($model, new PlacePresenter);
         $this->layout->content = View::make('places.admin.create')
             ->withModel($model);
     }
@@ -73,7 +66,6 @@ class PlacesController extends BaseController
     public function edit($model)
     {
         $this->title['child'] = trans('places::global.Edit');
-        $model = $this->presenter->model($model, new PlacePresenter);
         TypiCMS::setModel($model);
         $this->layout->content = View::make('places.admin.edit')
             ->withModel($model);

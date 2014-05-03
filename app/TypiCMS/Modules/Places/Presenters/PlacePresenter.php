@@ -1,10 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Places\Presenters;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class PlacePresenter extends AbstractPresenter implements Presentable
+class PlacePresenter extends Presenter
 {
 
 }

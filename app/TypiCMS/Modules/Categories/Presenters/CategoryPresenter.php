@@ -1,10 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Categories\Presenters;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class CategoryPresenter extends AbstractPresenter implements Presentable
+class CategoryPresenter extends Presenter
 {
 
     /**
@@ -15,8 +14,8 @@ class CategoryPresenter extends AbstractPresenter implements Presentable
     public function checkbox()
     {
         // Disable checkbox when category has projects
-        $disabled = $this->object->projects->isEmpty() ? '' : ' disabled' ;
+        $disabled = $this->entity->projects->isEmpty() ? '' : ' disabled' ;
 
-        return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
+        return '<input type="checkbox" value="' . $this->entity->id . '"' . $disabled . '>';
     }
 }

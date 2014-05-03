@@ -3,28 +3,27 @@ namespace TypiCMS\Modules\Files\Presenters;
 
 use Croppa;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class FilePresenter extends AbstractPresenter implements Presentable
+class FilePresenter extends Presenter
 {
 
     public function thumb()
     {
-        if ($this->isImage($this->object)) {
+        if ($this->isImage($this->entity)) {
             $src = Croppa::url(
-                '/'.$this->object->path.'/'.$this->object->filename,
+                '/'.$this->entity->path.'/'.$this->entity->filename,
                 130,
                 130,
                 array('quadrant' => 'T')
             );
-            return '<img src="' . $src . '" alt="' . $this->object->alt_attribute . '">';
+            return '<img src="' . $src . '" alt="' . $this->entity->alt_attribute . '">';
         } else {
             return '<div class="text-center doc"><i class="text-center fa fa-file-text-o"></i></div>';
         }
     }
 
-    public function isImage($object)
+    private function isImage($object)
     {
         return in_array(strtolower($object->extension), array('.jpg', '.jpeg', '.gif', '.png'));
     }

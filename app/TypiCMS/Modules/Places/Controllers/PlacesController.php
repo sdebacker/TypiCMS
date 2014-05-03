@@ -8,18 +8,15 @@ use Response;
 
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-
 // Base controller
 use TypiCMS\Controllers\PublicController;
 
 class PlacesController extends PublicController
 {
 
-    public function __construct(PlaceInterface $place, Presenter $presenter)
+    public function __construct(PlaceInterface $place)
     {
-        parent::__construct($place, $presenter);
+        parent::__construct($place);
         $this->title['parent'] = Str::title(trans_choice('places::global.places', 2));
     }
 

@@ -38,9 +38,9 @@
                     @foreach ($models as $model)
 
                     <tr id="item_{{ $model->id }}">
-                        <td>{{ $model->checkbox }}</td>
-                        <td>{{ $model->edit }}</td>
-                        <td>{{ $model->status }}</td>
+                        <td>{{ $model->present()->checkbox }}</td>
+                        <td>{{ $model->present()->edit }}</td>
+                        <td>{{ $model->present()->status }}</td>
                         <td>{{ $model->title }}</td>
                         <td>{{ $model->address }}</td>
                         <td><a href="{{ $model->website }}" target="_blank">{{ $model->website }}</a></td>

@@ -5,26 +5,25 @@ use Route;
 
 use Carbon\Carbon;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class EventPresenter extends AbstractPresenter implements Presentable
+class EventPresenter extends Presenter
 {
 
     public function startDate()
     {
-        return $this->object->start_date->format('d.m.Y');
+        return $this->entity->start_date->format('d.m.Y');
     }
 
     public function endDate()
     {
-        return $this->object->end_date->format('d.m.Y');
+        return $this->entity->end_date->format('d.m.Y');
     }
 
     public function dateFromTo()
     {
-        $sDate = $this->object->start_date;
-        $eDate = $this->object->end_date;
+        $sDate = $this->entity->start_date;
+        $eDate = $this->entity->end_date;
         $dateFormat = '%d %B %Y';
         $sDateFormat = $dateFormat;
         if ($sDate == $eDate) {

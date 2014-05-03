@@ -10,19 +10,15 @@ use Redirect;
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 use TypiCMS\Modules\Pages\Services\Form\PageForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Pages\Presenters\PagePresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class PagesController extends BaseController
 {
 
-    public function __construct(PageInterface $page, PageForm $pageform, Presenter $presenter)
+    public function __construct(PageInterface $page, PageForm $pageform)
     {
-        parent::__construct($page, $pageform, $presenter);
+        parent::__construct($page, $pageform);
         $this->title['parent'] = trans_choice('pages::global.pages', 2);
     }
 
@@ -33,8 +29,6 @@ class PagesController extends BaseController
     public function index()
     {
         $models = $this->repository->getAll(array('translations', 'files'), true);
-
-        $models = $this->presenter->collection($models, new PagePresenter);
 
         $this->layout->content = View::make('pages.admin.index')
             ->withModels($models);
@@ -49,7 +43,6 @@ class PagesController extends BaseController
     {
         $this->title['child'] = trans('pages::global.New');
         $model = $this->repository->getModel();
-        $model = $this->presenter->model($model, new PagePresenter);
         $this->layout->content = View::make('pages.admin.create')
             ->with('model', $model);
     }
@@ -63,7 +56,6 @@ class PagesController extends BaseController
     public function edit($model)
     {
         $this->title['child'] = trans('pages::global.Edit');
-        $model = $this->presenter->model($model, new PagePresenter);
         TypiCMS::setModel($model);
         $this->layout->content = View::make('pages.admin.edit')
             ->withModel($model);

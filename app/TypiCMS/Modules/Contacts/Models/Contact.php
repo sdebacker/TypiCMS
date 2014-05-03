@@ -6,6 +6,10 @@ use TypiCMS\Models\Base;
 class Contact extends Base
 {
 
+    use \TypiCMS\Presenters\PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\Contacts\Presenters\ContactPresenter';
+
     protected $fillable = array(
         'title',
         'first_name',

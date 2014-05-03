@@ -7,6 +7,9 @@ class Project extends Base
 {
 
     use \Dimsav\Translatable\Translatable;
+    use \TypiCMS\Presenters\PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\Projects\Presenters\ProjectPresenter';
 
     protected $fillable = array(
         'category_id',

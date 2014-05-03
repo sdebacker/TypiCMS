@@ -20,9 +20,9 @@
         @foreach ($models as $model)
             <li id="item_{{ $model->id }}">
                 <div>
-                    {{ $model->checkbox }}
-                    {{ $model->edit }}
-                    {{ $model->status }}
+                    {{ $model->present()->checkbox }}
+                    {{ $model->present()->edit }}
+                    {{ $model->present()->status }}
                     <a href="{{ route('admin.menus.menulinks.index', $model->id) }}">{{ $model->title }} ({{ $model->name }})</a>
                 </div>
             </li>

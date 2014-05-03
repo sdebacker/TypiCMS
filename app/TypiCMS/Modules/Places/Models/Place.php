@@ -7,6 +7,9 @@ class Place extends Base
 {
 
     use \Dimsav\Translatable\Translatable;
+    use \TypiCMS\Presenters\PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\Places\Presenters\PlacePresenter';
 
     protected $fillable = array(
         'title',

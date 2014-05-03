@@ -11,6 +11,9 @@ class News extends Base
 {
 
     use \Dimsav\Translatable\Translatable;
+    use \TypiCMS\Presenters\PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\News\Presenters\NewsPresenter';
 
     protected $dates = array('date');
 

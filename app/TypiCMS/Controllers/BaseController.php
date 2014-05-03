@@ -23,7 +23,6 @@ abstract class BaseController extends Controller
 
     protected $repository;
     protected $form;
-    protected $presenter;
 
     // The cool kids’ way of handling page titles.
     // https://gisglobal.github.com/jonathanmarvens/6017139
@@ -34,7 +33,7 @@ abstract class BaseController extends Controller
         'h1'       => '',
     );
 
-    public function __construct($repository = null, $form = null, $presenter = null)
+    public function __construct($repository = null, $form = null)
     {
         $this->beforeFilter(function () {
             Event::fire('clockwork.controller.start');
@@ -46,7 +45,6 @@ abstract class BaseController extends Controller
 
         $this->repository = $repository;
         $this->form       = $form;
-        $this->presenter  = $presenter;
 
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
 

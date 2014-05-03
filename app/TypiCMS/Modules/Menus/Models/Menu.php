@@ -13,6 +13,9 @@ class Menu extends Base
 {
 
     use \Dimsav\Translatable\Translatable;
+    use \TypiCMS\Presenters\PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\Menus\Presenters\MenuPresenter';
 
     protected $fillable = array(
         'name',

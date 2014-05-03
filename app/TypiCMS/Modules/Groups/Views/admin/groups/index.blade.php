@@ -34,8 +34,8 @@
                     @foreach ($models as $model)
 
                     <tr id="item_{{ $model->id }}">
-                        <td>{{ $model->checkbox }}</td>
-                        <td>{{ $model->edit }}</td>
+                        <td>{{ $model->present()->checkbox }}</td>
+                        <td>{{ $model->present()->edit }}</td>
                         <td>{{ $model->name }}</td>
                         <td>{{ implode(', ', array_keys($model['permissions'])) }}</td>
                     </tr>

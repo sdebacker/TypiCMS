@@ -1,8 +1,8 @@
 <li id="item_{{ $model->id }}">
     <div>
-        {{ $model->checkbox }}
-        {{ $model->edit }}
-        {{ $model->status }}
+        {{ $model->present()->checkbox }}
+        {{ $model->present()->edit }}
+        {{ $model->present()->status }}
         {{ $model->title }}
     </div>
     @if ($model->children)

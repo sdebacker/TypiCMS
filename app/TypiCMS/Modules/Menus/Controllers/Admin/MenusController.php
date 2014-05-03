@@ -9,19 +9,15 @@ use Redirect;
 use TypiCMS\Modules\Menus\Repositories\MenuInterface;
 use TypiCMS\Modules\Menus\Services\Form\MenuForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Menus\Presenters\MenuPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class MenusController extends BaseController
 {
 
-    public function __construct(MenuInterface $menu, MenuForm $menuform, Presenter $presenter)
+    public function __construct(MenuInterface $menu, MenuForm $menuform)
     {
-        parent::__construct($menu, $menuform, $presenter);
+        parent::__construct($menu, $menuform);
         $this->title['parent'] = trans_choice('menus::global.menus', 2);
     }
 
@@ -32,8 +28,6 @@ class MenusController extends BaseController
     public function index()
     {
         $models = $this->repository->getAll(array('translations'), true);
-
-        $models = $this->presenter->collection($models, new MenuPresenter);
 
         $this->layout->content = View::make('menus.admin.index')
             ->withModels($models);
@@ -61,7 +55,6 @@ class MenusController extends BaseController
     public function edit($model)
     {
         $this->title['child'] = trans('menus::global.Edit');
-        $model = $this->presenter->model($model, new MenuPresenter);
         $this->layout->content = View::make('menus.admin.edit')
             ->with('model', $model);
     }

@@ -1,10 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Dashboard\Presenters;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class DashboardPresenter extends AbstractPresenter implements Presentable
+class DashboardPresenter extends Presenter
 {
 
 }

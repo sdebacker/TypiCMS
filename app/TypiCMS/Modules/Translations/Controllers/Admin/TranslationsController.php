@@ -11,19 +11,15 @@ use Illuminate\Support\Collection;
 use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 use TypiCMS\Modules\Translations\Services\Form\TranslationForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Translations\Presenters\TranslationPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class TranslationsController extends BaseController
 {
 
-    public function __construct(TranslationInterface $translation, TranslationForm $translationform, Presenter $presenter)
+    public function __construct(TranslationInterface $translation, TranslationForm $translationform)
     {
-        parent::__construct($translation, $translationform, $presenter);
+        parent::__construct($translation, $translationform);
         $this->title['parent'] = trans_choice('translations::global.translations', 2);
     }
 
@@ -34,8 +30,6 @@ class TranslationsController extends BaseController
     public function index()
     {
         $models = Collection::make($this->repository->getAll(array(), true));
-
-        $models = $this->presenter->collection($models, new TranslationPresenter);
 
         $this->layout->content = View::make('translations.admin.index')
             ->withModels($models);

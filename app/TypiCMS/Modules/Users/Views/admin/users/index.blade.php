@@ -40,12 +40,12 @@
                     @foreach ($models as $model)
 
                     <tr id="item_{{ $model->id }}">
-                        <td>{{ $model->checkbox }}</td>
-                        <td>{{ $model->edit }}</td>
+                        <td>{{ $model->present()->checkbox }}</td>
+                        <td>{{ $model->present()->edit }}</td>
                         <td>{{ $model->first_name }} {{ $model->last_name }}</td>
                         <td><a href="mailto:{{ $model->email }}">{{ $model->email }}</a></td>
-                        <td>{{ $model->superuser }}</td>
-                        <td>{{ $model->status }}</td>
+                        <td>{{ $model->present()->superuser }}</td>
+                        <td>{{ $model->present()->status }}</td>
                     </tr>
 
                     @endforeach

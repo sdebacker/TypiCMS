@@ -35,7 +35,7 @@
                     @foreach ($models as $model)
 
                     <tr id="item_{{ $model->id }}">
-                        <td>{{ $model->checkbox }}</td>
+                        <td>{{ $model->present()->checkbox }}</td>
                         <td>{{ $model->tag }}</td>
                         <td>{{ $model->uses }}</td>
                     </tr>

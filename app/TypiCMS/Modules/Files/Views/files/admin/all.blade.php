@@ -21,9 +21,9 @@
     <div class="clearfix">
     @foreach ($models as $key => $model)
         <span class="thumbnail @if($model->status == 1) online @else offline @endif" id="item_{{ $model->id }}">
-            {{ $model->thumb }}
+            {{ $model->present()->thumb }}
             <div class="caption">
-                <small>{{ $model->status }} {{ $model->filename }}</small>
+                <small>{{ $model->present()->status }} {{ $model->filename }}</small>
                 <div>{{ $model->alt_attribute }}</div>
             </div>
         </span>

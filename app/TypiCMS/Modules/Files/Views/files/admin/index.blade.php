@@ -29,10 +29,10 @@
             <div class="dropzone-previews clearfix sortable sortable-thumbnails">
             @foreach ($models as $key => $model)
                 <a class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.' . $parent->route . '.files.edit', array($model->fileable_id, $model->id)) }}">
-                    {{ $model->checkbox }}
-                    {{ $model->thumb }}
+                    {{ $model->present()->checkbox }}
+                    {{ $model->present()->thumb }}
                     <div class="caption">
-                        <small>{{ $model->status }} {{ $model->filename }}</small>
+                        <small>{{ $model->present()->status }} {{ $model->filename }}</small>
                         <div>{{ $model->alt_attribute }}</div>
                     </div>
                 </a>

@@ -14,10 +14,6 @@ use Notification;
 use TypiCMS\Modules\Users\Repositories\UserInterface;
 use TypiCMS\Modules\Users\Services\Form\UserForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Users\Presenters\UserPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
@@ -30,9 +26,9 @@ class UsersController extends BaseController
      * @param UserInterface $user
      * @param UserForm      $userform
      */
-    public function __construct(UserInterface $user, UserForm $userform, Presenter $presenter)
+    public function __construct(UserInterface $user, UserForm $userform)
     {
-        parent::__construct($user, $userform, $presenter);
+        parent::__construct($user, $userform);
         $this->title['parent'] = trans_choice('users::global.users', 2);
     }
 
@@ -78,8 +74,6 @@ class UsersController extends BaseController
     {
         // Grab all the users
         $models = $this->repository->getAll(array(), true);
-
-        $models = $this->presenter->collection($models, new UserPresenter);
 
         $this->layout->content = View::make('admin.users.index')->withModels($models);
     }

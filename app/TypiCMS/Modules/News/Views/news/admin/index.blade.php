@@ -38,12 +38,12 @@
                     @foreach ($models as $model)
 
                     <tr id="item_{{ $model->id }}">
-                        <td>{{ $model->checkbox }}</td>
-                        <td>{{ $model->edit }}</td>
-                        <td>{{ $model->status }}</td>
-                        <td>{{ $model->dateLocalized }}</td>
+                        <td>{{ $model->present()->checkbox }}</td>
+                        <td>{{ $model->present()->edit }}</td>
+                        <td>{{ $model->present()->status }}</td>
+                        <td>{{ $model->present()->dateLocalized }}</td>
                         <td>{{ $model->title }}</td>
-                        <td>{{ $model->countFiles }}</td>
+                        <td>{{ $model->present()->countFiles }}</td>
                     </tr>
 
                     @endforeach

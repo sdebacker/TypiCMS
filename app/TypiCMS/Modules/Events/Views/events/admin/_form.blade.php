@@ -15,7 +15,7 @@
             <div class="col-xs-8 form-group @if($errors->has('start_date'))has-error@endif">
                 {{ Form::label('start_date', trans('validation.attributes.start_date'), array('class' => 'control-label')) }}
                 <div class="input-group picker-date picker-date-start">
-                    {{ Form::text('start_date', $model->dateOrNow('start_date', 'd.m.Y'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
+                    {{ Form::text('start_date', $model->present()->dateOrNow('start_date', 'd.m.Y'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
                             <i class="fa fa-calendar"></i>
@@ -43,7 +43,7 @@
             <div class="col-xs-8 form-group @if($errors->has('end_date'))has-error@endif">
                 {{ Form::label('end_date', trans('validation.attributes.end_date'), array('class' => 'control-label')) }}
                 <div class="input-group picker-date picker-date-end">
-                    {{ Form::text('end_date', $model->dateOrNow('end_date', 'd.m.Y'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
+                    {{ Form::text('end_date', $model->present()->dateOrNow('end_date', 'd.m.Y'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
                             <i class="fa fa-calendar"></i>

@@ -1,10 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Menus\Presenters;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class MenuPresenter extends AbstractPresenter implements Presentable
+class MenuPresenter extends Presenter
 {
 
     /**
@@ -15,8 +14,8 @@ class MenuPresenter extends AbstractPresenter implements Presentable
     public function checkbox()
     {
         // Disable checkbox when object has menulinks
-        $disabled = $this->object->menulinks->isEmpty() ? '' : ' disabled' ;
+        $disabled = $this->entity->menulinks->isEmpty() ? '' : ' disabled' ;
 
-        return '<input type="checkbox" value="' . $this->object->id . '"' . $disabled . '>';
+        return '<input type="checkbox" value="' . $this->entity->id . '"' . $disabled . '>';
     }
 }

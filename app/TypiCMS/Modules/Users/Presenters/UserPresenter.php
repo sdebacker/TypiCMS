@@ -1,24 +1,23 @@
 <?php
 namespace TypiCMS\Modules\Users\Presenters;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class UserPresenter extends AbstractPresenter implements Presentable
+class UserPresenter extends Presenter
 {
 
     public function activated()
     {
-        return $this->object->isActivated() ? trans('global.Yes') : trans('global.No') ;
+        return $this->entity->isActivated() ? trans('global.Yes') : trans('global.No') ;
     }
 
     public function superUser()
     {
-        return $this->object->isSuperUser() ? trans('global.Yes') : trans('global.No') ;
+        return $this->entity->isSuperUser() ? trans('global.Yes') : trans('global.No') ;
     }
 
     public function status()
     {
-        return $this->object->status;
+        return $this->entity->status;
     }
 }

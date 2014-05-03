@@ -127,9 +127,8 @@ Change website title, and other options trough the settings panel. Settings are 
 
 ## Roadmap
 
-* Enhance user interface
-* Presenters as traits
-* Make packages for each module
+* Improve user interface
+* Make modules as packages
 * Build more tests
 
 ## Contributing

@@ -10,19 +10,15 @@ use Redirect;
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Menulinks\Presenters\MenulinkPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class MenulinksController extends BaseController
 {
 
-    public function __construct(MenulinkInterface $menulink, MenulinkForm $menulinkform, Presenter $presenter)
+    public function __construct(MenulinkInterface $menulink, MenulinkForm $menulinkform)
     {
-        parent::__construct($menulink, $menulinkform, $presenter);
+        parent::__construct($menulink, $menulinkform);
         $this->title['parent'] = Lang::choice('menulinks::global.menulinks', 2);
         // $this->model = $menulink;
     }
@@ -34,8 +30,6 @@ class MenulinksController extends BaseController
     public function index($menu)
     {
         $models = $this->repository->getAllFromMenu(true, $menu->id);
-
-        $models = $this->presenter->collection($models, new MenulinkPresenter);
 
         $this->layout->content = View::make('menulinks.admin.index')
             ->withModels($models)
@@ -70,7 +64,6 @@ class MenulinksController extends BaseController
      */
     public function edit($menu, $model)
     {
-        $model = $this->presenter->model($model, new MenulinkPresenter);
         $this->title['child'] = trans('menulinks::global.Edit');
 
         $this->layout->content = View::make('menulinks.admin.edit')

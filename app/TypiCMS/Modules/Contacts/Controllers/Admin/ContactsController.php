@@ -13,19 +13,15 @@ use TypiCMS;
 use TypiCMS\Modules\Contacts\Repositories\ContactInterface;
 use TypiCMS\Modules\Contacts\Services\Form\ContactForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Contacts\Presenters\ContactPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class ContactsController extends BaseController
 {
 
-    public function __construct(ContactInterface $contact, ContactForm $contactform, Presenter $presenter)
+    public function __construct(ContactInterface $contact, ContactForm $contactform)
     {
-        parent::__construct($contact, $contactform, $presenter);
+        parent::__construct($contact, $contactform);
         $this->title['parent'] = trans_choice('contacts::global.contacts', 2);
     }
 
@@ -43,8 +39,6 @@ class ContactsController extends BaseController
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        $models = $this->presenter->paginator($models, new ContactPresenter);
-
         $this->layout->content = View::make('contacts.admin.index')->withModels($models);
     }
 
@@ -57,7 +51,6 @@ class ContactsController extends BaseController
     {
         $this->title['child'] = trans('contacts::global.New');
         $model = $this->repository->getModel();
-        $model = $this->presenter->model($model, new ContactPresenter);
         $this->layout->content = View::make('contacts.admin.create')
             ->with('model', $model);
     }
@@ -70,7 +63,6 @@ class ContactsController extends BaseController
      */
     public function edit($model)
     {
-        $model = $this->presenter->model($model, new ContactPresenter);
         TypiCMS::setModel($model);
         $this->title['child'] = trans('contacts::global.Edit');
         $this->layout->content = View::make('contacts.admin.edit')

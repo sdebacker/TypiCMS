@@ -8,6 +8,9 @@ class Menulink extends Base
 {
 
     use \Dimsav\Translatable\Translatable;
+    use \TypiCMS\Presenters\PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\Menulinks\Presenters\MenulinkPresenter';
 
     protected $fillable = array(
         'menu_id',

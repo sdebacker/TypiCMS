@@ -1,15 +1,14 @@
 <?php
 namespace TypiCMS\Modules\Menulinks\Presenters;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class MenulinkPresenter extends AbstractPresenter implements Presentable
+class MenulinkPresenter extends Presenter
 {
 
     public function menuclass()
     {
-        return $this->object->menuclass;
+        return $this->entity->menuclass;
     }
 
     /**
@@ -19,7 +18,7 @@ class MenulinkPresenter extends AbstractPresenter implements Presentable
     */
     public function edit()
     {
-        $url = route('admin.menus.menulinks.edit', array($this->object->menu_id, $this->object->id));
+        $url = route('admin.menus.menulinks.edit', array($this->entity->menu_id, $this->entity->id));
         return '<a class="btn btn-default btn-xs" href="' . $url . '">' . trans('global.Edit') . '</a>';
     }
 }

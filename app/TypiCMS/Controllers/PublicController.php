@@ -22,7 +22,6 @@ class PublicController extends Controller
     protected $layout = 'public/master';
 
     protected $repository;
-    protected $presenter;
 
     // The cool kids’ way of handling page titles.
     // https://gist.github.com/jonathanmarvens/6017139
@@ -33,7 +32,7 @@ class PublicController extends Controller
         'child'     => '',
     );
 
-    public function __construct($repository = null, $presenter = null)
+    public function __construct($repository = null)
     {
         $this->beforeFilter(function () {
             Event::fire('clockwork.controller.start');
@@ -44,7 +43,6 @@ class PublicController extends Controller
         });
 
         $this->repository = $repository;
-        $this->presenter  = $presenter;
 
         $modules = TypiCMS::getModules();
 

@@ -1,14 +1,13 @@
 <?php
 namespace TypiCMS\Modules\News\Presenters;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class NewsPresenter extends AbstractPresenter implements Presentable
+class NewsPresenter extends Presenter
 {
 
     public function dateLocalized()
     {
-        return $this->object->date->formatLocalized('%d %B %Y %H:%M');
+        return $this->entity->date->formatLocalized('%d %B %Y %H:%M');
     }
 }

@@ -6,6 +6,10 @@ use TypiCMS\Models\Base;
 class Tag extends Base
 {
 
+    use \TypiCMS\Presenters\PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\Tags\Presenters\TagPresenter';
+
     /**
      * The attributes that are mass assignable.
      *

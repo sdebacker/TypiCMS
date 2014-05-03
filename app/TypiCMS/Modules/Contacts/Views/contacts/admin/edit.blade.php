@@ -1,6 +1,6 @@
 @section('main')
 
-    {{ Form::model( $model->object, array( 'route' => array('admin.contacts.update', $model->id), 'method' => 'patch', 'role' => 'form' ) ) }}
+    {{ Form::model( $model, array( 'route' => array('admin.contacts.update', $model->id), 'method' => 'patch', 'role' => 'form' ) ) }}
 
         @include('contacts.admin._form')
 

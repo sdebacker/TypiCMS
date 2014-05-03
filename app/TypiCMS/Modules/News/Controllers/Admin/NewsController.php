@@ -14,19 +14,15 @@ use TypiCMS;
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 use TypiCMS\Modules\News\Services\Form\NewsForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\News\Presenters\NewsPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class NewsController extends BaseController
 {
 
-    public function __construct(NewsInterface $news, NewsForm $newsform, Presenter $presenter)
+    public function __construct(NewsInterface $news, NewsForm $newsform)
     {
-        parent::__construct($news, $newsform, $presenter);
+        parent::__construct($news, $newsform);
         $this->title['parent'] = Str::title(trans_choice('news::global.news', 2));
     }
 
@@ -44,8 +40,6 @@ class NewsController extends BaseController
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        $models = $this->presenter->paginator($models, new NewsPresenter);
-
         $this->layout->content = View::make('news.admin.index')->withModels($models);
     }
 
@@ -58,7 +52,6 @@ class NewsController extends BaseController
     {
         $this->title['child'] = trans('news::global.New');
         $model = $this->repository->getModel();
-        $model = $this->presenter->model($model, new NewsPresenter);
         $this->layout->content = View::make('news.admin.create')
             ->withModel($model);
     }
@@ -71,7 +64,6 @@ class NewsController extends BaseController
      */
     public function edit($model)
     {
-        $model = $this->presenter->model($model, new NewsPresenter);
         TypiCMS::setModel($model);
         $this->title['child'] = trans('news::global.Edit');
         $this->layout->content = View::make('news.admin.edit')

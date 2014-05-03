@@ -11,19 +11,15 @@ use TypiCMS;
 
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Events\Presenters\EventPresenter;
-
 // Base controller
 use TypiCMS\Controllers\PublicController;
 
 class EventsController extends PublicController
 {
 
-    public function __construct(EventInterface $event, Presenter $presenter)
+    public function __construct(EventInterface $event)
     {
-        parent::__construct($event, $presenter);
+        parent::__construct($event);
         $this->title['parent'] = Str::title(trans_choice('events::global.events', 2));
     }
 
@@ -42,8 +38,6 @@ class EventsController extends PublicController
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        $models = $this->presenter->paginator($models, new EventPresenter);
-
         $this->layout->content = View::make('events.public.index')->withModels($models);
     }
 
@@ -56,8 +50,6 @@ class EventsController extends PublicController
     public function show($slug)
     {
         $model = $this->repository->bySlug($slug);
-
-        $model = $this->presenter->model($model, new EventPresenter);
 
         TypiCMS::setModel($model);
 

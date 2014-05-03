@@ -14,10 +14,6 @@ use TypiCMS;
 use TypiCMS\Modules\Contacts\Repositories\ContactInterface;
 use TypiCMS\Modules\Contacts\Services\Form\ContactForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Contacts\Presenters\ContactPresenter;
-
 // Base controller
 use TypiCMS\Controllers\PublicController;
 
@@ -25,10 +21,10 @@ class ContactsController extends PublicController
 {
     protected $form;
 
-    public function __construct(ContactInterface $contact, Presenter $presenter, ContactForm $contactform)
+    public function __construct(ContactInterface $contact, ContactForm $contactform)
     {
         $this->form = $contactform;
-        parent::__construct($contact, $presenter);
+        parent::__construct($contact);
         $this->title['parent'] = Str::title(trans_choice('contacts::global.contacts', 2));
     }
 

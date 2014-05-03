@@ -13,19 +13,15 @@ use TypiCMS;
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 use TypiCMS\Modules\Events\Services\Form\EventForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Events\Presenters\EventPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class EventsController extends BaseController
 {
 
-    public function __construct(EventInterface $event, EventForm $eventform, Presenter $presenter)
+    public function __construct(EventInterface $event, EventForm $eventform)
     {
-        parent::__construct($event, $eventform, $presenter);
+        parent::__construct($event, $eventform);
         $this->title['parent'] = trans_choice('events::global.events', 2);
     }
 
@@ -43,8 +39,6 @@ class EventsController extends BaseController
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        $models = $this->presenter->paginator($models, new EventPresenter);
-
         $this->layout->content = View::make('events.admin.index')->withModels($models);
     }
 
@@ -57,7 +51,6 @@ class EventsController extends BaseController
     {
         $this->title['child'] = trans('events::global.New');
         $model = $this->repository->getModel();
-        $model = $this->presenter->model($model, new EventPresenter);
         $this->layout->content = View::make('events.admin.create')
             ->with('model', $model);
     }
@@ -70,7 +63,6 @@ class EventsController extends BaseController
      */
     public function edit($model)
     {
-        $model = $this->presenter->model($model, new EventPresenter);
         TypiCMS::setModel($model);
         $this->title['child'] = trans('events::global.Edit');
         $this->layout->content = View::make('events.admin.edit')

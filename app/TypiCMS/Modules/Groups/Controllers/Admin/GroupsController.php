@@ -10,10 +10,6 @@ use Notification;
 use TypiCMS\Modules\Groups\Repositories\GroupInterface;
 use TypiCMS\Modules\Groups\Services\Form\GroupForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Groups\Presenters\GroupPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
@@ -26,9 +22,9 @@ class GroupsController extends BaseController
      * @param Groupnterface $group
      * @param GroupForm     $groupform
      */
-    public function __construct(GroupInterface $group, GroupForm $groupForm, Presenter $presenter)
+    public function __construct(GroupInterface $group, GroupForm $groupForm)
     {
-        parent::__construct($group, $groupForm, $presenter);
+        parent::__construct($group, $groupForm);
         $this->title['parent'] = trans_choice('groups::global.groups', 2);
 
         // Establish Filters
@@ -43,8 +39,6 @@ class GroupsController extends BaseController
     public function index()
     {
         $models = $this->repository->all();
-
-        $models = $this->presenter->collection($models, new GroupPresenter);
 
         $this->layout->content = View::make('admin.groups.index')->withModels($models);
     }

@@ -41,9 +41,9 @@
                     @foreach ($models as $model)
 
                     <tr id="item_{{ $model->id }}">
-                        <td>{{ $model->checkbox }}</td>
-                        <td>{{ $model->edit }}</td>
-                        <td>{{ $model->createdAt }}</td>
+                        <td>{{ $model->present()->checkbox }}</td>
+                        <td>{{ $model->present()->edit }}</td>
+                        <td>{{ $model->present()->createdAt }}</td>
                         <td>{{ $model->title }}</td>
                         <td>{{ $model->first_name }}</td>
                         <td>{{ $model->last_name }}</td>

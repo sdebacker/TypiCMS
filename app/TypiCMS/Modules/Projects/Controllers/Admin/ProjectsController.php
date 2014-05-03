@@ -11,19 +11,15 @@ use Redirect;
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Projects\Presenters\ProjectPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class ProjectsController extends BaseController
 {
 
-    public function __construct(ProjectInterface $project, ProjectForm $projectform, Presenter $presenter)
+    public function __construct(ProjectInterface $project, ProjectForm $projectform)
     {
-        parent::__construct($project, $projectform, $presenter);
+        parent::__construct($project, $projectform);
         $this->title['parent'] = trans_choice('projects::global.projects', 2);
     }
 
@@ -34,8 +30,6 @@ class ProjectsController extends BaseController
     public function index()
     {
         $models = $this->repository->getAll(array('translations', 'files'), true);
-
-        $models = $this->presenter->collection($models, new ProjectPresenter);
 
         $this->layout->content = View::make('projects.admin.index')
             ->withModels($models);
@@ -50,7 +44,6 @@ class ProjectsController extends BaseController
     {
         $this->title['child'] = trans('projects::global.New');
         $model = $this->repository->getModel();
-        $model = $this->presenter->model($model, new ProjectPresenter);
 
         $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
 
@@ -71,8 +64,6 @@ class ProjectsController extends BaseController
     {
 
         $this->title['child'] = trans('projects::global.Edit');
-
-        $model = $this->presenter->model($model, new ProjectPresenter);
 
         $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
 

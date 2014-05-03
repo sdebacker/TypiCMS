@@ -7,6 +7,9 @@ class Category extends Base
 {
 
     use \Dimsav\Translatable\Translatable;
+    use \TypiCMS\Presenters\PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\Categories\Presenters\CategoryPresenter';
 
     protected $fillable = array(
         'position',

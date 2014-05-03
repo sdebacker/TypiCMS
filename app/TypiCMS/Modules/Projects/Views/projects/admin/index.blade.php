@@ -20,11 +20,11 @@
         @foreach ($models as $model)
             <li id="item_{{ $model->id }}">
                 <div>
-                    {{ $model->checkbox }}
-                    {{ $model->edit }}
-                    {{ $model->status }}
+                    {{ $model->present()->checkbox }}
+                    {{ $model->present()->edit }}
+                    {{ $model->present()->status }}
                     <a href="{{ route('admin.projects.edit', $model->id) }}">{{ $model->title }}</a>
-                    <div class="attachments">{{ $model->countFiles }}</div>
+                    <div class="attachments">{{ $model->present()->countFiles }}</div>
                 </div>
             </li>
         @endforeach

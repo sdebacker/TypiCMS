@@ -1,10 +1,10 @@
 <li id="item_{{ $model->id }}">
     <div>
-        {{ $model->checkbox }}
-        {{ $model->edit }}
-        {{ $model->status }}
+        {{ $model->present()->checkbox }}
+        {{ $model->present()->edit }}
+        {{ $model->present()->status }}
         {{ $model->title }}
-        <div class="attachments">{{ $model->countFiles }}</div>
+        <div class="attachments">{{ $model->present()->countFiles }}</div>
     </div>
     @if ($model->children)
         <ul>

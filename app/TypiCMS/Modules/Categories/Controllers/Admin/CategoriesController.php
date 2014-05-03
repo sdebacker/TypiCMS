@@ -9,19 +9,15 @@ use Redirect;
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 use TypiCMS\Modules\Categories\Services\Form\CategoryForm;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Categories\Presenters\CategoryPresenter;
-
 // Base controller
 use TypiCMS\Controllers\BaseController;
 
 class CategoriesController extends BaseController
 {
 
-    public function __construct(CategoryInterface $category, CategoryForm $categoryform, Presenter $presenter)
+    public function __construct(CategoryInterface $category, CategoryForm $categoryform)
     {
-        parent::__construct($category, $categoryform, $presenter);
+        parent::__construct($category, $categoryform);
         $this->title['parent'] = trans_choice('categories::global.categories', 2);
     }
 
@@ -32,8 +28,6 @@ class CategoriesController extends BaseController
     public function index()
     {
         $models = $this->repository->getAll(array('translations', 'projects'), true);
-
-        $models = $this->presenter->collection($models, new CategoryPresenter);
 
         $this->layout->content = View::make('categories.admin.index')->withModels($models);
     }
@@ -47,7 +41,6 @@ class CategoriesController extends BaseController
     {
         $this->title['child'] = trans('categories::global.New');
         $model = $this->repository->getModel();
-        $model = $this->presenter->model($model, new CategoryPresenter);
         $this->layout->content = View::make('categories.admin.create')
             ->with('model', $model);
     }
@@ -60,7 +53,6 @@ class CategoriesController extends BaseController
      */
     public function edit($model)
     {
-        $model = $this->presenter->model($model, new CategoryPresenter);
         $this->title['child'] = trans('categories::global.Edit');
         $this->layout->content = View::make('categories.admin.edit')
             ->with('model', $model);

@@ -1,10 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Contacts\Presenters;
 
-use TypiCMS\Presenters\AbstractPresenter;
-use TypiCMS\Presenters\Presentable;
+use TypiCMS\Presenters\Presenter;
 
-class ContactPresenter extends AbstractPresenter implements Presentable
+class ContactPresenter extends Presenter
 {
 
     /**
@@ -14,7 +13,7 @@ class ContactPresenter extends AbstractPresenter implements Presentable
      */
     public function createdAt()
     {
-        return $this->object->created_at->format('d.m.Y');
+        return $this->entity->created_at->format('d.m.Y');
     }
 
     /**

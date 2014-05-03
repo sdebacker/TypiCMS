@@ -1,13 +1,12 @@
 <?php
 namespace TypiCMS\Modules\Pages\Presenters;
 
-use TypiCMS\Presenters\Presentable;
-use TypiCMS\Presenters\AbstractPresenter;
+use TypiCMS\Presenters\Presenter;
 
-class PagePresenter extends AbstractPresenter implements Presentable
+class PagePresenter extends Presenter
 {
     public function publicUri($lang)
     {
-        return '/' . $this->object->$lang->uri;
+        return '/' . $this->entity->$lang->uri;
     }
 }

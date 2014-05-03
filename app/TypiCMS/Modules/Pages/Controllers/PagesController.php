@@ -11,19 +11,15 @@ use TypiCMS;
 
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 
-// Presenter
-use TypiCMS\Presenters\Presenter;
-use TypiCMS\Modules\Pages\Presenters\PagePresenter;
-
 // Base controller
 use TypiCMS\Controllers\PublicController;
 
 class PagesController extends PublicController
 {
 
-    public function __construct(PageInterface $page, Presenter $presenter)
+    public function __construct(PageInterface $page)
     {
-        parent::__construct($page, $presenter);
+        parent::__construct($page);
         $this->title['parent'] = Str::title(trans_choice('pages::global.pages', 2));
     }
 
@@ -45,8 +41,6 @@ class PagesController extends PublicController
         }
 
         $this->title['parent'] = $model->title;
-
-        $model = $this->presenter->model($model, new PagePresenter);
 
         TypiCMS::setModel($model);
 
