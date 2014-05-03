@@ -10,6 +10,7 @@ Bower and gulp are used for assets management and user interface is build with B
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Modules](#modules)
+- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [Licence](#licence)
@@ -123,6 +124,13 @@ You can call DB translation everywhere with ``` Lang::get('db.Key') ```, ``` tra
 ### Settings
 
 Change website title, and other options trough the settings panel. Settings are saved in database.
+
+## Roadmap
+
+* Enhance user interface
+* Presenters as traits
+* Make packages for each module
+* Build more tests
 
 ## Contributing
 
