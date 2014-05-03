@@ -1,7 +1,12 @@
 # TypiCMS [![Build Status](https://travis-ci.org/sdebacker/TypiCMS.svg?branch=master)](https://travis-ci.org/sdebacker/TypiCMS)
 
-TypiCMS is a starting point for a multilingual content management system build with Laravel 4.1.  
+TypiCMS is a multilingual content management system build with Laravel 4.1.  
 Bower and gulp are used for assets management and user interface is build with Bootstrap 3 with Less.
+
+**Demo**
+
+* [Back-end](http://samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
+* [Front-end](http://samsfactory.com)
 
 ## Table of contents
 
@@ -35,7 +40,7 @@ This kind of urls are managed by the CMS :
 
 - Repositories
 - Cache decorator
-- Form and validation service
+- Form and validation services
 - Presenters
 
 ### Assets
