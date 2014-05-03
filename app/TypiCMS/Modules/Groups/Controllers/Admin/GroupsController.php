@@ -80,7 +80,7 @@ class GroupsController extends BaseController
         } else {
             Notification::error($result['message']);
 
-            return Redirect::action('GroupController@create')
+            return Redirect::route('admin.groups.create')
                 ->withInput()
                 ->withErrors($this->form->errors());
         }
@@ -133,7 +133,7 @@ class GroupsController extends BaseController
         } else {
             Notification::error($result['message']);
 
-            return Redirect::action('GroupController@create')
+            return Redirect::route('admin.groups.edit', $id)
                 ->withInput()
                 ->withErrors($this->form->errors());
         }
