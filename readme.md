@@ -5,8 +5,8 @@ Bower and gulp are used for assets management and user interface is build with B
 
 **Demo**
 
-* [Back-end](http://samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
-* [Front-end](http://samsfactory.com)
+* [Back-end](http://typicms.samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
+* [Front-end](http://typicms.samsfactory.com)
 
 ## Table of contents
 
