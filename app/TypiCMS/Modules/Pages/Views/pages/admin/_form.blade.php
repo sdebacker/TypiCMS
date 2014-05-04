@@ -95,9 +95,15 @@
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="checkbox">
-                        {{ Form::checkbox('is_home') }} @lang('validation.attributes.is_home')
-                    </label>
+                    @if ($model->is_home)
+                        <label class="checkbox text-muted">
+                            {{ Form::checkbox('is_home', null, null, array('disabled', 'disabled')) }} @lang('validation.attributes.is_home')
+                        </label>
+                    @else
+                        <label class="checkbox">
+                            {{ Form::checkbox('is_home') }} @lang('validation.attributes.is_home')
+                        </label>
+                    @endif
                 </div>
                 <div class="form-group">
                     {{ Form::label('template', trans('validation.attributes.template')) }}
