@@ -16,7 +16,7 @@ abstract class Presenter
     /**
      * @param $entity
      */
-    function __construct($entity)
+    public function __construct($entity)
     {
         $this->entity = $entity;
     }
@@ -29,8 +29,7 @@ abstract class Presenter
      */
     public function __get($property)
     {
-        if (method_exists($this, $property))
-        {
+        if (method_exists($this, $property)) {
             return $this->{$property}();
         }
 

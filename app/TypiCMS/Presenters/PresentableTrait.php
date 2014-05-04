@@ -3,7 +3,8 @@ namespace TypiCMS\Presenters;
 
 use TypiCMS\Presenters\PresenterException;
 
-trait PresentableTrait {
+trait PresentableTrait
+{
 
     /**
      * View presenter instance
