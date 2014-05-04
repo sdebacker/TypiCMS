@@ -84,7 +84,6 @@
 
     @include('admin._footer')
 
-    <!-- <a href="{{ TypiCMS::getPublicUrl() }}">{{ TypiCMS::getPublicUrl() }}</a> -->
 </div>
 
 </body>
