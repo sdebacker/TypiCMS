@@ -16,7 +16,7 @@ class UserPresenter extends Presenter
     public function checkbox()
     {
         // Disable checkbox when object has menulinks
-        $disabled = (Sentry::getUser() == $this->entity) ? '' : ' disabled' ;
+        $disabled = (Sentry::getUser()->id == $this->entity->id) ? ' disabled' : '' ;
 
         return '<input type="checkbox" value="' . $this->entity->id . '"' . $disabled . '>';
     }

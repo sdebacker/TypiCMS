@@ -411,7 +411,7 @@ class SentryUser implements UserInterface
         $user = $this->sentry->findUserById($id);
 
         // Cannot delete ourself
-        if ($user == Sentry::getUser()) {
+        if ($user->id != $this->sentry->getUser()->id) {
             return $user->delete() ? true : false ;
         }
 
