@@ -187,7 +187,7 @@ class SentryUser implements UserInterface
         $errors = array();
         try {
             // Create the user
-            $userData = array_except($data, array('_method','_token', 'exit', 'groups', 'password_confirmation'));
+            $userData = array_except($data, array('_method','_token', 'id', 'exit', 'groups', 'password_confirmation'));
             $user = $this->sentry->createUser($userData);
 
             $allGroups = $this->sentry->findAllGroups();
