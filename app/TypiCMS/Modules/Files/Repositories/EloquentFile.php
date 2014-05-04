@@ -29,9 +29,10 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
      * @param  model    $from  related model
      * @param  boolean  $all   get published models or all
      * @param  array    $with  Eager load related models
+     * @param  string   $type  file type : a,v,d,i,o
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPageFrom($page = 1, $limit = 10, $from = null, array $with = array(), $all = false)
+    public function byPageFrom($page = 1, $limit = 10, $from = null, array $with = array(), $all = false, $type = null)
     {
         $result = new StdClass;
         $result->page = $page;
@@ -44,6 +45,9 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
         if ($from) {
             $query->where('fileable_id', $from->id)
                   ->where('fileable_type', get_class($from));
+        }
+        if ($type) {
+            $query->where('type', $type);
         }
 
         $totalItems = $query->count();

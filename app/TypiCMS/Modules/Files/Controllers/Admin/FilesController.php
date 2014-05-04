@@ -31,13 +31,15 @@ class FilesController extends BaseController
     public function index($parent = null)
     {
         $page = Input::get('page');
+        $type = Input::get('type');
+        $filepicker = Input::get('filepicker');
 
         if ($parent) {
             $itemsPerPage = 100;
-            $data = $this->repository->byPageFrom($page, $itemsPerPage, $parent, array('translations'), true);
+            $data = $this->repository->byPageFrom($page, $itemsPerPage, $parent, array('translations'), true, $type);
         } else {
             $itemsPerPage = 10;
-            $data = $this->repository->byPage($page, $itemsPerPage, array('translations'), true);
+            $data = $this->repository->byPageFrom($page, $itemsPerPage, null, array('translations'), true, $type);
         }
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
