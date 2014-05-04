@@ -32,6 +32,7 @@ return array(
     'Home' => 'Home',
     'En ligne/Hors ligne' => 'Online/Offline',
     'No default page found' => 'No default page found',
+    'No file' => 'No file',
     'settings'  => 'settings',
     'admin side' => 'admin side',
     'view website' => 'view website',

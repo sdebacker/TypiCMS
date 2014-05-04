@@ -22,6 +22,7 @@
 <body style="padding-top:15px">
 
     <div class="col-sm-12">
+    @if (count($models))
         <div class="clearfix">
         @foreach ($models as $key => $model)
             <div class="thumbnail" onclick="selectAndClose('/{{ $model->path }}/{{ $model->filename }}')">
@@ -34,6 +35,9 @@
         @endforeach
         </div>
         {{ $models->appends(Input::except('page'))->links() }}
+    @else
+        <p class="text-muted">@lang('global.No file')</p>
+    @endif
     </div>
 
 </body>
