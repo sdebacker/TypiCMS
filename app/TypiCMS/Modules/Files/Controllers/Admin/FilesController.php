@@ -47,6 +47,9 @@ class FilesController extends BaseController
             $this->layout->content = View::make('files.admin.index')
                 ->withModels($models)
                 ->withParent($parent);
+        } else if($filepicker) {
+            return View::make('files.admin.filepicker')
+                ->withModels($models);
         } else {
             $this->layout->content = View::make('files.admin.all')
                 ->withModels($models);
