@@ -19,6 +19,7 @@
         </div>
         <div class="col-sm-3 form-group">
             <label class="checkbox">
+                {{ Form::hidden($lang.'[status]', 0) }}
                 {{ Form::checkbox($lang.'[status]', 1) }} @lang('validation.attributes.online')
             </label>
         </div>
@@ -72,16 +73,19 @@
 </div>
 <div class="form-group">
     <label class="checkbox">
+        {{ Form::hidden('langChooser', 0) }}
         {{ Form::checkbox('langChooser', 1) }} {{ trans('validation.attributes.langChooser') }}
     </label>
 </div>
 <div class="form-group">
     <label class="checkbox">
+        {{ Form::hidden('authPublic', 0) }}
         {{ Form::checkbox('authPublic', 1) }} {{ trans('validation.attributes.authPublic') }}
     </label>
 </div>
 <div class="form-group">
     <label class="checkbox">
+        {{ Form::hidden('register', 0) }}
         {{ Form::checkbox('register', 1) }} {{ trans('validation.attributes.registration allowed') }}
     </label>
 </div>

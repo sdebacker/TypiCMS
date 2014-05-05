@@ -31,14 +31,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
      */
     public function update(array $data)
     {
-        // add checkboxes data
-        foreach (Config::get('app.locales') as $locale) {
-            $data[$locale]['status'] = Input::get($locale.'.status', 0);
-        }
-        $data['rss_enabled']      = Input::get('rss_enabled', 0);
-        $data['comments_enabled'] = Input::get('comments_enabled', 0);
-        $data['is_home']          = Input::get('is_home', 0);
-
         $model = $this->model->find($data['id']);
         $model->fill($data);
         $model->save();

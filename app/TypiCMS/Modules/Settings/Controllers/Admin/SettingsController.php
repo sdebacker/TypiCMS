@@ -38,14 +38,6 @@ class SettingsController extends BaseController
     public function store()
     {
         $data = Input::all();
-        // add checkboxes data
-        $data['langChooser'] = Input::get('langChooser') ? (int) Input::get('langChooser') : null;
-        $data['authPublic']  = Input::get('authPublic') ? (int) Input::get('authPublic') : null;
-        $data['register']    = Input::get('register') ? (int) Input::get('register') : null;
-        foreach (Config::get('app.locales') as $locale) {
-            $data[$locale]['websiteTitle'] = Input::get($locale.'.websiteTitle');
-            $data[$locale]['status'] = Input::get($locale.'.status') ? (int) Input::get($locale.'.status') : null;
-        }
 
         $this->repository->store($data);
 
