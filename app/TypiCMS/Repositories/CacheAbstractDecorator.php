@@ -45,17 +45,17 @@ abstract class CacheAbstractDecorator
      * @param string $value
      * @param array  $with
      */
-    public function getFirstBy($key, $value, array $with = array())
+    public function getFirstBy($key, $value, array $with = array(), $all = false)
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale().'getFirstBy.'.$key.$value);
+        $cacheKey = md5(App::getLocale().'getFirstBy.'.$key.$value.$all);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
         // Item not cached, retrieve it
-        $model = $this->repo->getFirstBy($key, $value, $with);
+        $model = $this->repo->getFirstBy($key, $value, $with, $all);
 
         $this->cache->put($cacheKey, $model);
 
