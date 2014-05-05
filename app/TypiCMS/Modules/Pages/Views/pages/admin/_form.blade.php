@@ -98,6 +98,7 @@
                     @if ($model->is_home)
                         <label class="checkbox text-muted">
                             {{ Form::checkbox('is_home', null, null, array('disabled', 'disabled')) }} @lang('validation.attributes.is_home')
+                            {{ Form::hidden('is_home') }}
                         </label>
                     @else
                         <label class="checkbox">
