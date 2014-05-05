@@ -35,13 +35,15 @@ abstract class BaseController extends Controller
 
     public function __construct($repository = null, $form = null)
     {
-        $this->beforeFilter(function () {
-            Event::fire('clockwork.controller.start');
-        });
+        // Uncomment this if you want to use clockwork
 
-        $this->afterFilter(function () {
-            Event::fire('clockwork.controller.end');
-        });
+        // $this->beforeFilter(function () {
+        //     Event::fire('clockwork.controller.start');
+        // });
+
+        // $this->afterFilter(function () {
+        //     Event::fire('clockwork.controller.end');
+        // });
 
         $this->repository = $repository;
         $this->form       = $form;

@@ -28,32 +28,25 @@ class FilesController extends BaseController
      * List models
      * GET /admin/model
      */
-    public function index($parent = null)
+    public function index()
     {
         $page = Input::get('page');
         $type = Input::get('type');
         $filepicker = Input::get('filepicker');
 
-        if ($parent) {
-            $itemsPerPage = 100;
-            $data = $this->repository->byPageFrom($page, $itemsPerPage, $parent, array('translations'), true, $type);
-        } else {
-            $itemsPerPage = 10;
-            $data = $this->repository->byPageFrom($page, $itemsPerPage, null, array('translations'), true, $type);
-        }
+        $itemsPerPage = 10;
+        $data = $this->repository->byPageFrom($page, $itemsPerPage, null, array('translations'), true, $type);
+
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        if ($parent) {
-            $this->layout->content = View::make('files.admin.index')
-                ->withModels($models)
-                ->withParent($parent);
-        } else if($filepicker) {
+        if ($filepicker) {
             return View::make('files.admin.filepicker')
                 ->withModels($models);
-        } else {
-            $this->layout->content = View::make('files.admin.all')
-                ->withModels($models);
         }
+
+        $this->layout->content = View::make('files.admin.index')
+            ->withModels($models);
+
     }
 
     /**
@@ -61,13 +54,12 @@ class FilesController extends BaseController
      *
      * @return Response
      */
-    public function create($parent)
+    public function create()
     {
         $model = $this->repository->getModel();
         $this->title['child'] = trans('files::global.New');
         $this->layout->content = View::make('files.admin.create')
-            ->withModel($model)
-            ->withParent($parent);
+            ->withModel($model);
     }
 
     /**
@@ -76,12 +68,11 @@ class FilesController extends BaseController
      * @param  int      $id
      * @return Response
      */
-    public function edit($parent, $model)
+    public function edit($model)
     {
         $this->title['child'] = trans('files::global.Edit');
         $this->layout->content = View::make('files.admin.edit')
-            ->withModel($model)
-            ->withParent($parent);
+            ->withModel($model);
     }
 
     /**
@@ -90,9 +81,9 @@ class FilesController extends BaseController
      * @param  int      $id
      * @return Response
      */
-    public function show($parent, $model)
+    public function show($model)
     {
-        return Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id));
+        return Redirect::route('admin.files.edit', array($model->id));
     }
 
     /**
@@ -100,23 +91,28 @@ class FilesController extends BaseController
      *
      * @return Response
      */
-    public function store($parent)
+    public function store()
     {
 
         if ($model = $this->form->save(Input::all())) {
+
             if (Request::ajax()) {
                 echo json_encode(array('id' => $model->id));
                 exit();
             }
 
-            return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
+            if (Input::get('exit')) {
+                return Redirect::route('admin.files.index');
+            }
+            return Redirect::route('admin.files.edit', array($model->id));
+
         }
 
         if (Request::ajax()) {
             return Response::json('error', 400);
         }
 
-        return Redirect::route('admin.' . $parent->route . '.files.create', $parent->id)
+        return Redirect::route('admin.files.create')
             ->withInput()
             ->withErrors($this->form->errors());
 
@@ -128,16 +124,16 @@ class FilesController extends BaseController
      * @param  int      $id
      * @return Response
      */
-    public function update($parent, $model)
+    public function update($model)
     {
 
         Request::ajax() and exit($this->repository->update(Input::all()));
 
         if ($this->form->update(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.' . $parent->route . '.files.index', $parent->id) : Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id)) ;
+            return (Input::get('exit')) ? Redirect::route('admin.files.index') : Redirect::route('admin.files.edit', array($model->id)) ;
         }
 
-        return Redirect::route('admin.' . $parent->route . '.files.edit', array($parent->id, $model->id))
+        return Redirect::route('admin.files.edit', array($model->id))
             ->withInput()
             ->withErrors($this->form->errors());
     }
@@ -159,7 +155,7 @@ class FilesController extends BaseController
      * @param  int      $id
      * @return Response
      */
-    public function destroy($parent, $model)
+    public function destroy($model)
     {
         if ($this->repository->delete($model)) {
             if (! Request::ajax()) {

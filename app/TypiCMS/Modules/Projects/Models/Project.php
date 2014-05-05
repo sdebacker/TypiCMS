@@ -48,14 +48,6 @@ class Project extends Base
     public $direction = 'desc';
 
     /**
-     * Relations
-     */
-    public function files()
-    {
-        return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
-    }
-
-    /**
      * Relation
      */
     public function category()

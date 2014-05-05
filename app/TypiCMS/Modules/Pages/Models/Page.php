@@ -80,11 +80,6 @@ class Page extends Base
         return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
     }
 
-    public function files()
-    {
-        return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
-    }
-
     /**
      * Scope from
      */

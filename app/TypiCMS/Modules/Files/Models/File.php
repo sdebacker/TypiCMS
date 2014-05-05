@@ -14,8 +14,6 @@ class File extends Base
     protected $presenter = 'TypiCMS\Modules\Files\Presenters\FilePresenter';
 
     protected $fillable = array(
-        'fileable_id',
-        'fileable_type',
         'folder_id',
         'user_id',
         'type',
@@ -60,14 +58,6 @@ class File extends Base
      */
     public $order = 'position';
     public $direction = 'asc';
-
-    /**
-     * Polymorphic relation.
-     */
-    public function fileable()
-    {
-        return $this->morphTo();
-    }
 
     /**
      * Observers

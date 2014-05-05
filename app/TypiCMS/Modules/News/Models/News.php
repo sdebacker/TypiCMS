@@ -54,13 +54,10 @@ class News extends Base
     public $direction = 'desc';
 
     /**
-     * Relations
+     * Transform date in Carbon object
+     * 
+     * @param string $value date string
      */
-    public function files()
-    {
-        return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
-    }
-
     public function setDateAttribute($value)
     {
         $this->attributes['date'] = Carbon::parse($value);

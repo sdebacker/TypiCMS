@@ -27,15 +27,15 @@
 		"thomaswelton/laravel-gravatar": "0.0.*",
 		"eluceo/ical": "dev-master",
 		"davejamesmiller/laravel-breadcrumbs": "~2.2.0",
-		"msurguy/honeypot": "dev-master",
-		"itsgoingd/clockwork": "1.*"
+		"msurguy/honeypot": "dev-master"
 	},
 	"require-dev": {
 		"phpspec/phpspec": "2.0.*@dev",
 		"raveren/kint": "dev-master",
 		"mockery/mockery": "0.9.*@dev",
 		"barryvdh/laravel-debugbar": "1.*",
-		"leroy-merlin-br/larasniffer": "dev-master"
+		"leroy-merlin-br/larasniffer": "dev-master",
+		"itsgoingd/clockwork": "1.*"
 	},
 	"autoload": {
 		"classmap": [

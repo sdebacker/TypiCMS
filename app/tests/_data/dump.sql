@@ -187,8 +187,6 @@ INSERT INTO `typi_event_translations` (`id`, `event_id`, `locale`, `status`, `ti
 
 CREATE TABLE IF NOT EXISTS `typi_files` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `fileable_id` int(10) unsigned NOT NULL,
-  `fileable_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `folder_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `type` enum('a','v','d','i','o') COLLATE utf8_unicode_ci NOT NULL,

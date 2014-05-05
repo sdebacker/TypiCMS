@@ -56,18 +56,20 @@ class Event extends Base
     public $direction = 'asc';
 
     /**
-     * Relations
+     * Transform start_date in Carbon object
+     * 
+     * @param string $value date string
      */
-    public function files()
-    {
-        return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
-    }
-
     public function setStartDateAttribute($value)
     {
         $this->attributes['start_date'] = Carbon::parse($value);
     }
 
+    /**
+     * Transform end_date in Carbon object
+     * 
+     * @param string $value date string
+     */
     public function setEndDateAttribute($value)
     {
         $this->attributes['end_date'] = Carbon::parse($value);

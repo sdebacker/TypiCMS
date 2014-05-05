@@ -14,7 +14,7 @@ class FilesControllerTest extends TestCase
         $view = 'files.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/pages/1/files');
+        $response = $this->get('admin/files');
         $files = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');
@@ -23,9 +23,8 @@ class FilesControllerTest extends TestCase
 
     public function testStoreFails()
     {
-        $input = array('fileable_id' => 0);
-        $this->call('POST', 'admin/pages/1/files', $input);
-        $this->assertRedirectedToRoute('admin.pages.files.create', array('page_id' => 1));
+        $this->call('POST', 'admin/1/files', $input);
+        $this->assertRedirectedToRoute('admin.files.create');
         $this->assertSessionHasErrors();
     }
 
@@ -35,9 +34,8 @@ class FilesControllerTest extends TestCase
 
         $object->id = 1;
         File::shouldReceive('create')->once()->andReturn($object);
-        $input = array('fileable_id' => 1, 'fileable_type' => 1);
-        $this->call('POST', 'admin/pages/1/files', $input);
-        $this->assertRedirectedToRoute('admin.pages.files.edit', array('page_id' => 1, 'id' => 1));
+        $this->call('POST', 'admin/files', $input);
+        $this->assertRedirectedToRoute('admin.pages.files.edit', array('id' => 1));
     }
 
     public function testStoreSuccessWithRedirectToList()
@@ -46,9 +44,9 @@ class FilesControllerTest extends TestCase
 
         $object->id = 1;
         File::shouldReceive('create')->once()->andReturn($object);
-        $input = array('fileable_id' => 1, 'fileable_type' => 1, 'exit' => true);
-        $this->call('POST', 'admin/pages/1/files', $input);
-        $this->assertRedirectedToRoute('admin.pages.files.index', array('page_id' => 1));
+        $input = array('exit' => true);
+        $this->call('POST', 'admin/files', $input);
+        $this->assertRedirectedToRoute('admin.files.index');
     }
 
 }
