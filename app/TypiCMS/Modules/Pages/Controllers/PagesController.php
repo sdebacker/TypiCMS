@@ -35,9 +35,14 @@ class PagesController extends PublicController
         }
 
         if (in_array($uri, Config::get('app.locales'))) {
-            $model = $this->repository->getFirstBy('is_home', 1, array('files', 'files.translations'));
+            // Homepage: uri = /en (or other language)
+            $model = $this->repository->getFirstBy('is_home', 1);
         } else {
             $model = $this->repository->byUri($uri);
+        }
+
+        if (! $model) {
+            App::abort('404');
         }
 
         $this->title['parent'] = $model->title;

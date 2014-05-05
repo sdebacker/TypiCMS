@@ -46,11 +46,6 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface
      */
     public function update(array $data)
     {
-        // add checkboxes data
-        foreach (Config::get('app.locales') as $locale) {
-            $data[$locale]['status'] = Input::get($locale.'.status', 0);
-        }
-
         $model = $this->model->find($data['id']);
         $model->fill($data);
         $model->save();

@@ -38,9 +38,14 @@ abstract class RepositoriesAbstract
      * @param string $value
      * @param array  $with
      */
-    public function getFirstBy($key, $value, array $with = array())
+    public function getFirstBy($key, $value, array $with = array(), $all = false)
     {
-        return $this->make($with)->where($key, '=', $value)->first();
+        $query = $this->make($with);
+        if (! $all) {
+            // take only translated items that are online
+            $query = $query->whereHasOnlineTranslation();
+        }
+        return $query->where($key, '=', $value)->first();
     }
 
     /**
@@ -209,11 +214,6 @@ abstract class RepositoriesAbstract
      */
     public function update(array $data)
     {
-        // add checkboxes data
-        foreach (Config::get('app.locales') as $locale) {
-            $data[$locale]['status'] = Input::get($locale.'.status', 0);
-        }
-
         $model = $this->model->find($data['id']);
         $model->fill($data);
         $model->save();

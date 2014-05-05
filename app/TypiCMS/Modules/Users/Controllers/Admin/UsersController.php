@@ -139,8 +139,6 @@ class UsersController extends BaseController
     public function update($id)
     {
         $data = Input::all();
-        // add checkboxes data
-        $data['groups'] = Input::get('groups');
 
         if ($this->form->update(Input::all())) {
             return Redirect::route('admin.users.index');
