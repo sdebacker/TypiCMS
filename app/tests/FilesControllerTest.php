@@ -1,5 +1,6 @@
 <?php
 use TypiCMS\Modules\Files\Models\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FilesControllerTest extends TestCase
 {
@@ -21,21 +22,14 @@ class FilesControllerTest extends TestCase
         $this->assertInstanceOf('Illuminate\Pagination\Paginator', $files);
     }
 
-    public function testStoreFails()
-    {
-        $this->call('POST', 'admin/1/files', $input);
-        $this->assertRedirectedToRoute('admin.files.create');
-        $this->assertSessionHasErrors();
-    }
-
     public function testStoreSuccess()
     {
         $object = new StdClass;
 
         $object->id = 1;
         File::shouldReceive('create')->once()->andReturn($object);
-        $this->call('POST', 'admin/files', $input);
-        $this->assertRedirectedToRoute('admin.pages.files.edit', array('id' => 1));
+        $this->call('POST', 'admin/files');
+        $this->assertRedirectedToRoute('admin.files.edit', array('id' => 1));
     }
 
     public function testStoreSuccessWithRedirectToList()

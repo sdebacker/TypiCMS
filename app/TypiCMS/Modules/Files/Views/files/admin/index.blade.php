@@ -27,7 +27,7 @@
 
             <div class="dropzone-previews clearfix sortable sortable-thumbnails">
             @foreach ($models as $key => $model)
-                <a class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.files.edit', array(null, $model->id)) }}">
+                <a class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.files.edit', $model->id) }}">
                     {{ $model->present()->checkbox }}
                     {{ $model->present()->thumb }}
                     <div class="caption">

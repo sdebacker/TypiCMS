@@ -2,7 +2,6 @@
 Route::bind('projects', function ($value, $route) {
     return TypiCMS\Modules\Projects\Models\Project::where('id', $value)
         ->with('translations')
-        ->files(true)
         ->firstOrFail();
 });
 
