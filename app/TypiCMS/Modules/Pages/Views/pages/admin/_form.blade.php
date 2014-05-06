@@ -39,7 +39,6 @@
 
                 <div class="form-group">
                     <label class="checkbox">
-                        {{ Form::hidden($lang.'[status]', 0) }}
                         {{ Form::checkbox($lang.'[status]', 1, $model->$lang->status) }} @lang('validation.attributes.online')
                     </label>
                 </div>
@@ -87,13 +86,11 @@
             <div class="tab-pane fade in active" id="options">
                 <div class="form-group">
                     <label class="checkbox">
-                        {{ Form::hidden('rss_enabled', 0) }}
                         {{ Form::checkbox('rss_enabled') }} @lang('validation.attributes.rss_enabled')
                     </label>
                 </div>
                 <div class="form-group">
                     <label class="checkbox">
-                        {{ Form::hidden('comments_enabled', 0) }}
                         {{ Form::checkbox('comments_enabled') }} @lang('validation.attributes.comments_enabled')
                     </label>
                 </div>
@@ -105,7 +102,6 @@
                         </label>
                     @else
                         <label class="checkbox">
-                            {{ Form::hidden('is_home', 0) }}
                             {{ Form::checkbox('is_home') }} @lang('validation.attributes.is_home')
                         </label>
                     @endif

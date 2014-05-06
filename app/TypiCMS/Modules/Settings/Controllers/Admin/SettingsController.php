@@ -39,6 +39,14 @@ class SettingsController extends BaseController
     {
         $data = Input::all();
 
+        // add checkboxes data
+        $data['langChooser'] = Input::get('langChooser', 0);
+        $data['authPublic']  = Input::get('authPublic', 0);
+        $data['register']    = Input::get('register', 0);
+        foreach (Config::get('app.locales') as $locale) {
+            $data[$locale]['status'] = Input::get($locale.'.status', 0);
+        }
+
         $this->repository->store($data);
 
         return Redirect::route('admin.settings.index');
