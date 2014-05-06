@@ -40,7 +40,7 @@ class FilesController extends BaseController
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
         if ($filepicker) {
-            return View::make('files.admin.filepicker')
+            $this->layout->content = View::make('files.admin.filepicker')
                 ->withModels($models);
         } else {
             $this->layout->content = View::make('files.admin.index')
