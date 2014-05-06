@@ -1,6 +1,9 @@
 <?php
 namespace TypiCMS\Services\Form;
 
+use Config;
+use Input;
+
 abstract class AbstractForm
 {
 
@@ -41,6 +44,11 @@ abstract class AbstractForm
      */
     public function update(array $input)
     {
+        // add checkboxes data
+        foreach (Config::get('app.locales') as $locale) {
+            $input[$locale]['status'] = Input::get($locale.'.status', 0);
+        }
+
         $inputDot = array_dot($input);
 
         if (! $this->valid($inputDot)) {

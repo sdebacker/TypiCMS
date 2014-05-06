@@ -38,7 +38,6 @@
                 </div>
                 <div class="form-group">
                     <label class="checkbox">
-                        {{ Form::hidden($lang.'[status]', 0) }}
                         {{ Form::checkbox($lang.'[status]', 1, $model->$lang->status) }} @lang('validation.attributes.online')
                     </label>
                 </div>
