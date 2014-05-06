@@ -80,11 +80,6 @@ class Page extends Base
         return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
     }
 
-    public function files()
-    {
-        return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
-    }
-
     /**
      * Scope from
      */
@@ -119,5 +114,15 @@ class Page extends Base
             }
         });
 
+    }
+
+    /**
+     * Define a many-to-many polymorphic relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function files()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Files\Models\File', 'fileable')->withTimestamps();
     }
 }

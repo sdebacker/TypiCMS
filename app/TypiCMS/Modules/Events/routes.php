@@ -2,7 +2,6 @@
 Route::bind('events', function ($value, $route) {
     return TypiCMS\Modules\Events\Models\Event::where('id', $value)
         ->with('translations')
-        ->files(true)
         ->firstOrFail();
 });
 

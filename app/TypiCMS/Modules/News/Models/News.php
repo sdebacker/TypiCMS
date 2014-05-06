@@ -54,15 +54,22 @@ class News extends Base
     public $direction = 'desc';
 
     /**
-     * Relations
+     * Transform date in Carbon object
+     * 
+     * @param string $value date string
      */
-    public function files()
-    {
-        return $this->morphMany('TypiCMS\Modules\Files\Models\File', 'fileable');
-    }
-
     public function setDateAttribute($value)
     {
         $this->attributes['date'] = Carbon::parse($value);
+    }
+
+    /**
+     * Define a many-to-many polymorphic relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function files()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Files\Models\File', 'fileable')->withTimestamps();
     }
 }

@@ -42,10 +42,6 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
 
         $query = $this->make($with);
 
-        if ($from) {
-            $query->where('fileable_id', $from->id)
-                  ->where('fileable_type', get_class($from));
-        }
         if ($type) {
             $query->where('type', $type);
         }
@@ -88,7 +84,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
     public function create(array $data)
     {
         if (isset($data['file']) and $data['file']) {
-            $path = 'uploads/' . str_plural(strtolower(class_basename($data['fileable_type'])));
+            $path = 'uploads/';
             $file = FileUpload::handle($data['file'], $path);
             $data = array_merge($data, $file);
         }
@@ -114,7 +110,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
     public function update(array $data)
     {
         if (isset($data['file']) and $data['file']) {
-            $path = 'uploads/' . str_plural(strtolower(class_basename($data['fileable_type'])));
+            $path = 'uploads/';
             $file = FileUpload::handle($data['file'], $path);
             $data = array_merge($data, $file);
         }

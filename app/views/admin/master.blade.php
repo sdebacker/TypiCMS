@@ -45,11 +45,13 @@
 
 </head>
 
-<body>
+<body class="@yield('bodyClass')">
 
-@if (Sentry::getUser())
-    @include('_navbar')
-@endif
+@section('navbar')
+    @if (Sentry::getUser())
+        @include('_navbar')
+    @endif
+@show
 
 <div class="container-global col-xs-12">
 

@@ -2,7 +2,6 @@
 Route::bind('pages', function ($value, $route) {
     return TypiCMS\Modules\Pages\Models\Page::where('id', $value)
         ->with('translations')
-        ->files(true)
         ->firstOrFail();
 });
 

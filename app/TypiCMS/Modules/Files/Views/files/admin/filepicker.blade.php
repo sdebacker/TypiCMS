@@ -1,14 +1,5 @@
-<!doctype html>
-<html lang="fr">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Choose file</title>
-
-    {{ HTML::style(asset('css/admin.css')) }}
-
+@section('js')
+    {{ HTML::script(asset('js/list.js')) }}
     <script>
         function selectAndClose(image) {
             var TinyMCEWindow = top.tinymce.activeEditor.windowManager;
@@ -16,30 +7,66 @@
             TinyMCEWindow.close();
         }
     </script>
+@stop
 
-</head>
+@section('bodyClass')
+no-padding-top
+@stop
 
-<body style="padding-top:15px">
+@section('navbar')
+@stop
 
-    <div class="col-sm-12">
-    @if (count($models))
-        <div class="clearfix">
-        @foreach ($models as $key => $model)
-            <div class="thumbnail" onclick="selectAndClose('/{{ $model->path }}/{{ $model->filename }}')">
-                {{ $model->present()->thumb }}
-                <div class="caption">
-                    <small>{{ $model->filename }}</small>
-                    <div>{{ $model->alt_attribute }}</div>
-                </div>
+@section('breadcrumbs')
+@stop
+
+@section('h1')
+    <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('files::global.files', $models->getTotal())
+@stop
+
+@section('addButton')
+    <a id="uploaderAddButtonContainer" href="{{ route('admin.files.create') }}"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('files::global.New')) }}</span></a>
+@stop
+
+@section('main')
+
+    <div class="list-form" lang="{{ Config::get('app.locale') }}">
+
+        @section('btn-locales')
+        @stop
+
+        @include('admin._buttons-list')
+
+        {{ Form::open(array('route' => 'admin.files.store', 'files' => true, 'class' => 'dropzone', 'id' => 'dropzone')) }}
+
+            @foreach (Config::get('app.locales') as $locale)
+                {{ Form::hidden($locale.'[status]', 1) }}
+                {{ Form::hidden($locale.'[description]') }}
+                {{ Form::hidden($locale.'[alt_attribute]', '') }}
+                {{ Form::hidden($locale.'[keywords]') }}
+            @endforeach
+
+            <div class="dropzone-previews clearfix sortable sortable-thumbnails">
+            @if (count($models))
+                @foreach ($models as $key => $model)
+                    <div class="thumbnail" id="item_{{ $model->id }}">
+                        {{ $model->present()->checkbox }}
+                        {{ $model->present()->thumb }}
+                        <div class="caption">
+                            <a href="#" class="btn btn-default btn-xs btn-block btn-insert" onclick="selectAndClose('/{{ $model->path }}{{ $model->filename }}')">@lang('files::global.Insert')</a>
+                            <small>{{ $model->filename }}</small>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <p class="text-muted">@lang('global.No file')</p>
+            @endif
             </div>
-        @endforeach
-        </div>
-        {{ $models->appends(Input::except('page'))->links() }}
-    @else
-        <p class="text-muted">@lang('global.No file')</p>
-    @endif
+            <div class="dz-message">@lang('files::global.Drop files to upload')</div>
+
+        {{ Form::close() }}
+
     </div>
 
-</body>
+    {{ $models->appends(Input::except('page'))->links() }}
 
-</html>
+@stop

@@ -89,7 +89,7 @@ abstract class Presenter
     {
         $nbFiles = count($this->entity->files);
         $label = $nbFiles ? 'label-success' : 'label-default' ;
-        $url = route('admin.' . $this->entity->route . '.files.index', $this->entity->id);
+        $url = route('admin.files.index', array('module' => $this->entity->getTable(), 'id' => $this->entity->id));
         $html[] = '<a class="label ' . $label . '" href="' . $url . '">';
         $html[] = $nbFiles;
         $html[] = '</a>';

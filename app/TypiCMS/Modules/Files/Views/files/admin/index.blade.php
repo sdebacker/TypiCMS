@@ -7,7 +7,7 @@
 @stop
 
 @section('addButton')
-    <a id="uploaderAddButtonContainer" href="{{ route('admin.pages.files.create', $parent->id) }}"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('files::global.New')) }}</span></a>
+    <a id="uploaderAddButtonContainer" href="{{ route('admin.files.create') }}"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('files::global.New')) }}</span></a>
 @stop
 
 @section('main')
@@ -16,19 +16,18 @@
 
         @include('admin._buttons-list')
 
-        {{ Form::open(array('route' => array('admin.' . $parent->route . '.files.store', $parent->id), 'files' => true, 'class' => 'dropzone', 'id' => 'dropzone')) }}
+        {{ Form::open(array('route' => 'admin.files.store', 'files' => true, 'class' => 'dropzone', 'id' => 'dropzone')) }}
+
             @foreach (Config::get('app.locales') as $locale)
                 {{ Form::hidden($locale.'[status]', 1) }}
                 {{ Form::hidden($locale.'[description]') }}
                 {{ Form::hidden($locale.'[alt_attribute]', '') }}
                 {{ Form::hidden($locale.'[keywords]') }}
             @endforeach
-            {{ Form::hidden('fileable_id', $parent->id); }}
-            {{ Form::hidden('fileable_type', get_class($parent)); }}
 
             <div class="dropzone-previews clearfix sortable sortable-thumbnails">
             @foreach ($models as $key => $model)
-                <a class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.' . $parent->route . '.files.edit', array($model->fileable_id, $model->id)) }}">
+                <a class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.files.edit', $model->id) }}">
                     {{ $model->present()->checkbox }}
                     {{ $model->present()->thumb }}
                     <div class="caption">

@@ -27,8 +27,7 @@
 		"thomaswelton/laravel-gravatar": "0.0.*",
 		"eluceo/ical": "dev-master",
 		"davejamesmiller/laravel-breadcrumbs": "~2.2.0",
-		"msurguy/honeypot": "dev-master",
-		"itsgoingd/clockwork": "1.*"
+		"msurguy/honeypot": "dev-master"
 	},
 	"require-dev": {
 		"phpspec/phpspec": "2.0.*@dev",

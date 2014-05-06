@@ -15,7 +15,7 @@ function initTinymce(selector) {
             tinymce.activeEditor.windowManager.open({
                 title: 'Choose image',
                 url: '/admin/files?type=i&filepicker=1',
-                width: 832,
+                width: 835,
                 height: 550
             }, {
                 oninsert: function(url) {
