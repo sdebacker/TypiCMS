@@ -6,7 +6,8 @@ function initTinymce(selector) {
         height : 400,
         menubar: false,
         entity_encoding : 'raw',
-        plugins: 'paste,table,nonbreaking,link,code,image',
+        plugins: 'paste,table,nonbreaking,link,code,image,contextmenu',
+        contextmenu: "link image inserttable | cell row column deletetable",
         paste_as_text: true,
         relative_urls: false,
         file_browser_callback: function(field_name, url, type, win) {
@@ -39,7 +40,7 @@ function initTinymce(selector) {
             {title : 'Button (link)', inline : 'a', classes : 'btn btn-default'},
         ],
         content_css : '/css/public.css,/components/tinymce/css/tiny_mce.css',
-        toolbar: 'formatselect | styleselect | bold italic | subscript superscript | bullist numlist outdent indent | link unlink | alignleft aligncenter alignright alignjustify | table | nonbreaking | image | code',
+        toolbar: 'formatselect | styleselect | bold italic | subscript superscript | bullist numlist outdent indent | link unlink | alignleft aligncenter alignright alignjustify | table | nonbreaking | image | code | removeformat',
         language_url: '/components/tinymce/langs/fr.js'
     });
 }
