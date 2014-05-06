@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "649950c8d35cfd08fc8616cb3562df8a3ab7a5ea"
+                "reference": "629c5ba5b419d2730c0823d5c95ae03066b6817f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/649950c8d35cfd08fc8616cb3562df8a3ab7a5ea",
-                "reference": "649950c8d35cfd08fc8616cb3562df8a3ab7a5ea",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/629c5ba5b419d2730c0823d5c95ae03066b6817f",
+                "reference": "629c5ba5b419d2730c0823d5c95ae03066b6817f",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-05-01 22:02:23"
+            "time": "2014-05-06 19:14:32"
         },
         {
             "name": "bkwld/croppa",
@@ -730,22 +730,27 @@
         },
         {
             "name": "jwage/easy-csv",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jwage/easy-csv.git",
-                "reference": "6d712cf34e068f875c19fa439c7dd9d562016532"
+                "reference": "8cd61921473a39a35e5750af22648388177776d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jwage/easy-csv/zipball/6d712cf34e068f875c19fa439c7dd9d562016532",
-                "reference": "6d712cf34e068f875c19fa439c7dd9d562016532",
+                "url": "https://api.github.com/repos/jwage/easy-csv/zipball/8cd61921473a39a35e5750af22648388177776d4",
+                "reference": "8cd61921473a39a35e5750af22648388177776d4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "EasyCSV": "lib/"
@@ -763,14 +768,14 @@
                     "role": "Creator"
                 }
             ],
-            "description": "Easy CSV manipulation for PHP 5.3+",
+            "description": "Easy CSV manipulation for PHP 5.4+",
             "homepage": "http://github.com/jwage/easy-csv",
             "keywords": [
                 "csv",
                 "read",
                 "write"
             ],
-            "time": "2013-02-17 01:03:41"
+            "time": "2014-02-23 18:12:04"
         },
         {
             "name": "laravel/framework",
@@ -1142,16 +1147,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.21",
+            "version": "v1.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "f45ba8bc7962b7356847724989a6949b68d975a2"
+                "reference": "156e66249f48e439a31df2347290bb9ab1d3d242"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/f45ba8bc7962b7356847724989a6949b68d975a2",
-                "reference": "f45ba8bc7962b7356847724989a6949b68d975a2",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/156e66249f48e439a31df2347290bb9ab1d3d242",
+                "reference": "156e66249f48e439a31df2347290bb9ab1d3d242",
                 "shasum": ""
             },
             "require": {
@@ -1189,7 +1194,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-03-26 10:52:02"
+            "time": "2014-05-06 15:47:10"
         },
         {
             "name": "phpseclib/phpseclib",
