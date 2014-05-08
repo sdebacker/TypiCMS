@@ -12,7 +12,7 @@ class FilesControllerTest extends TestCase
     public function testAdminIndex()
     {
         // File::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'files.admin.index';
+        $view = 'files.admin.thumbnails';
         $this->registerNestedView($view);
 
         $response = $this->get('admin/files');
