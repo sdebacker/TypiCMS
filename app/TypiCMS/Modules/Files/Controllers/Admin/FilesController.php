@@ -3,6 +3,7 @@ namespace TypiCMS\Modules\Files\Controllers\Admin;
 
 use View;
 use Input;
+use Config;
 use Request;
 use Redirect;
 use Response;
@@ -25,27 +26,26 @@ class FilesController extends BaseController
     }
 
     /**
-     * List models
-     * GET /admin/model
+     * List files
+     * @return response views
      */
     public function index()
     {
+        $allowedViews = ['index', 'filepicker', 'thumbnails'];
+
         $page = Input::get('page');
         $type = Input::get('type');
-        $filepicker = Input::get('filepicker');
+        $view = Input::get('view', 'thumbnails');
+        $view = ! in_array($view, $allowedViews) ? 'thumbnails' : $view ;
 
-        $itemsPerPage = 10;
+        $itemsPerPage = Config::get('files::admin.itemsPerPage');
+
         $data = $this->repository->byPageFrom($page, $itemsPerPage, null, array('translations'), true, $type);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        if ($filepicker) {
-            $this->layout->content = View::make('files.admin.filepicker')
-                ->withModels($models);
-        } else {
-            $this->layout->content = View::make('files.admin.index')
-                ->withModels($models);
-        }
+        $this->layout->content = View::make('files.admin.' . $view)
+            ->withModels($models);
 
     }
 

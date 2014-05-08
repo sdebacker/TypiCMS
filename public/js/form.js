@@ -14,7 +14,7 @@ function initTinymce(selector) {
         	// Help : http://www.tinymce.com/forum/viewtopic.php?id=30861&p=2
             tinymce.activeEditor.windowManager.open({
                 title: 'Choose image',
-                url: '/admin/files?type=i&filepicker=1',
+                url: '/admin/files?type=i&view=filepicker',
                 width: 835,
                 height: 550
             }, {
