@@ -36,6 +36,24 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
     return implode($th);
 });
 
+/**
+ * Back end buttons in view list 
+ */
+HTML::macro('langButton', function ($locale = null) {
+
+    $inputs = Input::except('locale');
+    $inputs['locale'] = $locale;
+
+    $attributes['class'] = 'btn btn-default btn-xs';
+    if ($locale == Config::get('app.locale')) {
+        $attributes['class'] .= ' active';
+    }
+    $label = trans('global.languages.' . $locale);
+    $attributes['href'] = '?' . http_build_query($inputs);
+
+    return '<a ' . HTML::attributes($attributes) . '>' . $label . '</a>';
+
+});
 HTML::macro('languagesMenu', function (array $langsArray = array(), array $attributes = array()) {
 
     $attributes['role'] = 'menu';
