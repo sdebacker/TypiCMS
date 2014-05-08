@@ -8,13 +8,15 @@ use TypiCMS\Presenters\Presenter;
 class FilePresenter extends Presenter
 {
 
-    public function thumb()
+    public function thumb($size = 'sm')
     {
+        $sizes = ['xs' => 24, 'sm' => 130, 'md' => 200, 'lg' => 400];
+
         if ($this->isImage($this->entity)) {
             $src = Croppa::url(
                 '/'.$this->entity->path.'/'.$this->entity->filename,
-                130,
-                130,
+                $sizes[$size],
+                $sizes[$size],
                 array('quadrant' => 'T')
             );
             return '<img src="' . $src . '" alt="' . $this->entity->alt_attribute . '">';
