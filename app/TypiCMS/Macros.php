@@ -1,21 +1,27 @@
 <?php
+/**
+ * Back end table headers 
+ */
 HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true, $label = true) {
+    $inputs = Input::all();
+
     $order = Input::get('order');
-    if (! $order and $defaultOrder) {
+    if ($defaultOrder and ! $order) { // set default column active
         $order = $field;
     }
     $direction = Input::get('direction', $defaultOrder);
     $th[] = '<th class="' . $field . '">';
     if ($sortable) {
-        $newDirection = 'asc';
-        $iconDir = ' text-muted';
-        if ($order == $field) {
-            if ($direction == 'asc') {
-                $newDirection = 'desc';
+        $inputs['direction'] = 'asc';
+        $iconDir = ' text-muted'; // column not active, gray icons
+        if ($order == $field) { // if this column is active
+            if ($direction == 'asc') { // reverse direction
+                $inputs['direction'] = 'desc';
             }
-            $iconDir = '-' . $newDirection;
+            $iconDir = '-' . $inputs['direction'];
         }
-        $th[] = '<a href="?order=' . $field . '&direction=' . $newDirection . '">';
+        $inputs['order'] = $field;
+        $th[] = '<a href="?' . http_build_query($inputs) . '">';
         $th[] = '<i class="fa fa-sort' . $iconDir . '"></i> ';
     }
     if ($label) {
