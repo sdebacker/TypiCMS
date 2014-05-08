@@ -242,12 +242,6 @@ return array(
         'height' => 'Height',
         'download_count' => 'Download_count',
         'file information' => 'File information',
-
-        'Submit' => 'Submit',
-        'Reset' => 'Reset',
-        'Cancel' => 'Cancel',
-
-        // Files
         'logo' => 'Logo',
         'replace logo' => 'Replace logo',
         'image' => 'Image',
@@ -257,6 +251,12 @@ return array(
         'max' => 'Maximum',
         'KB' => 'KB',
         'MB' => 'MB',
+        'size (px)' => 'Size (px)',
+        'preview' => 'Preview',
+
+        'Submit' => 'Submit',
+        'Reset' => 'Reset',
+        'Cancel' => 'Cancel',
     ),
 
     // Values, for example for select menus

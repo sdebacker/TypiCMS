@@ -251,11 +251,12 @@ return array(
         'max' => 'Maximum',
         'KB' => 'Ko',
         'MB' => 'Mo',
+        'size (px)' => 'Taille (px)',
+        'preview' => 'Prévisualisation',
 
         'Submit' => 'Envoyer',
         'Reset' => 'Reinitialiser',
         'Cancel' => 'Annuler',
-
     ),
 
     // Values, for example for select menus
