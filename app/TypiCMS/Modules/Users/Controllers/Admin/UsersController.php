@@ -326,7 +326,7 @@ class UsersController extends BaseController
                         );
                         $this->repository->authenticate($credentials, false);
 
-                        return Redirect::route('dashboard');
+                        return Redirect::route('root');
                     } catch (Exception $e) {
                         Notification::error($e->getMessage());
 
