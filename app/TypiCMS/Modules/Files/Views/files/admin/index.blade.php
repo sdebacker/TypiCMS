@@ -25,21 +25,49 @@
                 {{ Form::hidden($locale.'[keywords]') }}
             @endforeach
 
-            <div class="dropzone-previews clearfix sortable sortable-thumbnails">
-            @foreach ($models as $key => $model)
-                <a class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.files.edit', $model->id) }}">
-                    {{ $model->present()->checkbox }}
-                    {{ $model->present()->thumb }}
-                    <div class="caption">
-                        <small>{{ $model->present()->status }} {{ $model->filename }}</small>
-                        <div>{{ $model->alt_attribute }}</div>
-                    </div>
-                </a>
-            @endforeach
-            </div>
+            <div class="dropzone-previews"></div>
             <div class="dz-message">@lang('files::global.Drop files to upload')</div>
 
         {{ Form::close() }}
+        <div class="table-responsive">
+
+            <table class="table table-condensed table-main">
+
+                <thead>
+
+                    <tr>
+                        {{ Html::th('checkboxes', null, false, false) }}
+                        {{ Html::th('edit', null, false, false) }}
+                        {{ Html::th('status', null, false) }}
+                        {{ Html::th('position', 'asc') }}
+                        {{ Html::th('preview', null, false) }}
+                        {{ Html::th('filename') }}
+                        {{ Html::th('alt_attribute', null, false) }}
+                        {{ Html::th('size (px)', null, false) }}
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach ($models as $key => $model)
+                    <tr>
+                        <td>{{ $model->present()->checkbox }}</td>
+                        <td>{{ $model->present()->edit }}</td>
+                        <td>{{ $model->present()->status }}</td>
+                        <td>{{ $model->position }}</td>
+                        <td>{{ $model->present()->thumb('xs') }}</td>
+                        <td>{{ $model->filename }}</td>
+                        <td>{{ $model->alt_attribute }}</td>
+                        <td>{{ $model->width }} × {{ $model->height }}</td>
+                    </tr>
+                    @endforeach
+
+                </tbody>
+
+            </table>
+
+        </div>
 
     </div>
 
