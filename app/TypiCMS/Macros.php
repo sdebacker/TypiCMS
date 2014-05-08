@@ -54,6 +54,10 @@ HTML::macro('langButton', function ($locale = null) {
     return '<a ' . HTML::attributes($attributes) . '>' . $label . '</a>';
 
 });
+
+/**
+ * Front end lang switcher 
+ */
 HTML::macro('languagesMenu', function (array $langsArray = array(), array $attributes = array()) {
 
     $attributes['role'] = 'menu';
@@ -72,6 +76,9 @@ HTML::macro('languagesMenu', function (array $langsArray = array(), array $attri
 
 });
 
+/**
+ * Front end menu
+ */
 HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) use (&$builtMenu) {
     // dd($items);
     $menuList = array('<ul ' . HTML::attributes($ulAttr) . '>');
