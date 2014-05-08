@@ -30,7 +30,12 @@ class SlugObserver
         if ($slug) {
             $i = 0;
             // Check uri is unique
-            while ($model::where('slug', $model->slug)->where('id', '!=', $model->id)->where('locale', $model->locale)->first()) {
+            while (
+                $model::where('slug', $model->slug)
+                    ->where('id', '!=', $model->id)
+                    ->where('locale', $model->locale)
+                    ->first()
+                ) {
                 $i++;
                 // increment slug if exists
                 $model->slug = $slug.'-'.$i;
