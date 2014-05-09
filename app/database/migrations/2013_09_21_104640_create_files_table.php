@@ -18,6 +18,7 @@ class CreateFilesTable extends Migration
             $table->increments('id');
 
             $table->integer('folder_id')->unsigned()->default(0);
+            $table->integer('gallery_id')->unsigned()->default(0);
 
             $table->integer('user_id')->unsigned()->default(0);
 
