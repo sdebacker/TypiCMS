@@ -26,13 +26,13 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
      *
      * @param  int      $page  Number of models per page
      * @param  int      $limit Results per page
-     * @param  model    $from  related model
+     * @param  model    $gallery_id  from witch gallery ?
      * @param  boolean  $all   get published models or all
      * @param  array    $with  Eager load related models
      * @param  string   $type  file type : a,v,d,i,o
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPageFrom($page = 1, $limit = 10, $from = null, array $with = array(), $all = false, $type = null)
+    public function byPageFrom($page = 1, $limit = 10, $gallery_id = null, array $with = array(), $all = false, $type = null)
     {
         $result = new StdClass;
         $result->page = $page;
@@ -42,8 +42,12 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
 
         $query = $this->make($with);
 
-        if ($type) {
+        if ($type) { // witch type of files to get (a,v,d,i,o) ?
             $query->where('type', $type);
+        }
+
+        if ($gallery_id) {
+            $query->where('gallery_id', $gallery_id);
         }
 
         $totalItems = $query->count();

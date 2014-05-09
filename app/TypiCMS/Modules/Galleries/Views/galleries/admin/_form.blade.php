@@ -50,7 +50,12 @@
 
     </div>
 
-
-    <iframe class="col-sm-6" height="1000" src="/admin/files?view=gallery&amp;gallery_id={{ $model->id }}" frameborder="0"></iframe>
+    @if ($model->id)
+        <iframe class="col-sm-6" height="1000" src="/admin/files?view=gallery&amp;gallery_id={{ $model->id }}" frameborder="0"></iframe>
+    @else
+        <div class="col-sm-6">
+            <p class="alert alert-info">Create the gallery, then add files</p>
+        </div>
+    @endif
 
 </div>
