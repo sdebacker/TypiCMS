@@ -50,6 +50,7 @@
     <div class="col-sm-6">
 
         {{ Form::hidden('folder_id', 0) }}
+        {{ Form::hidden('gallery_id', Input::get('gallery_id', 0)) }}
         {{ Form::hidden('user_id', 0) }}
         {{ Form::hidden('type') }}
         {{ Form::hidden('position', 0) }}

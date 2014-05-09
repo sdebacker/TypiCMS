@@ -18,6 +18,7 @@
 
         {{ Form::open(array('route' => 'admin.files.store', 'files' => true, 'class' => 'dropzone', 'id' => 'dropzone')) }}
 
+            {{ Form::hidden('gallery_id', Input::get('gallery_id', 0)) }}
             @foreach (Config::get('app.locales') as $locale)
                 {{ Form::hidden($locale.'[status]', 1) }}
                 {{ Form::hidden($locale.'[description]') }}

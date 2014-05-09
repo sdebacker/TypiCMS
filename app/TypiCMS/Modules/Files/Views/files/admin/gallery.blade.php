@@ -2,6 +2,16 @@
     {{ HTML::script(asset('js/list.js')) }}
 @stop
 
+@section('bodyClass')
+no-padding-top
+@stop
+
+@section('navbar')
+@stop
+
+@section('breadcrumbs')
+@stop
+
 @section('h1')
     <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('files::global.files', $models->getTotal())
 @stop
@@ -12,7 +22,10 @@
 
 @section('main')
 
-    <div class="list-form" lang="{{ Config::get('app.locale') }}">
+    <div class="list-form row" lang="{{ Config::get('app.locale') }}">
+
+        @section('btn-locales')
+        @stop
 
         @include('admin._buttons-list')
 
@@ -27,16 +40,20 @@
             @endforeach
 
             <div class="dropzone-previews clearfix sortable sortable-thumbnails">
-            @foreach ($models as $key => $model)
-                <a class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.files.edit', $model->id) }}">
-                    {{ $model->present()->checkbox }}
-                    {{ $model->present()->thumb }}
-                    <div class="caption">
-                        <small>{{ $model->present()->status }} {{ $model->filename }}</small>
-                        <div>{{ $model->alt_attribute }}</div>
+            @if (count($models))
+                @foreach ($models as $key => $model)
+                    <div class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.files.edit', $model->id) }}">
+                        {{ $model->present()->checkbox }}
+                        {{ $model->present()->thumb }}
+                        <div class="caption">
+                            <small>{{ $model->present()->status }} {{ $model->filename }}</small>
+                            <div>{{ $model->alt_attribute }}</div>
+                        </div>
                     </div>
-                </a>
-            @endforeach
+                @endforeach
+            @else
+                <p class="text-muted">@lang('global.No file')</p>
+            @endif
             </div>
             <div class="dz-message">@lang('files::global.Drop files to upload')</div>
 

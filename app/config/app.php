@@ -65,6 +65,7 @@ return array(
 
 	'modules' => array(
 		'Pages'        => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Pages\Models\Page'),
+		'Galleries'    => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Galleries\Models\Gallery'),
 		'Files'        => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Files\Models\File'),
 		'News'         => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\News\Models\News'),
 		'Events'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Events\Models\Event'),

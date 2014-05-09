@@ -31,7 +31,7 @@ class FilesController extends BaseController
      */
     public function index()
     {
-        $allowedViews = ['index', 'filepicker', 'thumbnails'];
+        $allowedViews = ['index', 'filepicker', 'thumbnails', 'gallery'];
 
         $page = Input::get('page');
         $type = Input::get('type');

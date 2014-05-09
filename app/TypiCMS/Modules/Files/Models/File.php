@@ -14,6 +14,7 @@ class File extends Base
     protected $presenter = 'TypiCMS\Modules\Files\Presenters\FilePresenter';
 
     protected $fillable = array(
+        'gallery_id',
         'folder_id',
         'user_id',
         'type',
@@ -58,6 +59,16 @@ class File extends Base
      */
     public $order = 'position';
     public $direction = 'asc';
+
+    /**
+     * One file belongs to one gallery.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function gallery()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Galleries\Models\Gallery');
+    }
 
     /**
      * Observers
