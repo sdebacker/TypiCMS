@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call('EventSeeder');
         $this->call('PlaceSeeder');
         $this->call('TranslationSeeder');
+        $this->call('GallerySeeder');
     }
 
 }

@@ -83,23 +83,6 @@ abstract class Presenter
     }
 
     /**
-    * Files in list
-    *
-    * @return string
-    */
-    public function countFiles()
-    {
-        $nbFiles = count($this->entity->files);
-        $label = $nbFiles ? 'label-success' : 'label-default' ;
-        $url = route('admin.files.index', array('module' => $this->entity->getTable(), 'id' => $this->entity->id));
-        $html[] = '<a class="label ' . $label . '" href="' . $url . '">';
-        $html[] = $nbFiles;
-        $html[] = '</a>';
-
-        return implode("\r\n", $html);
-    }
-
-    /**
      * Get the front end url from the current back end url
      * 
      * @param  string $lang
@@ -109,16 +92,21 @@ abstract class Presenter
     {
         $routeName = $lang . strstr(Route::current()->getName(), '.');
         $routeName = preg_replace('/\.edit$/', '.slug', $routeName);
-        // if model is translated and is online
+        // If model is translated and is online
         if (isset($this->entity->$lang->slug) and $this->entity->$lang->status) {
-            try {
+            try { // Does this public route exists ?
                 return route($routeName, $this->entity->$lang->slug);
             } catch (Exception $e) {
-                return $returnRoute = route('root');
+                return $lang;
             }
         }
+        // If model is offline or there is no translation
         $routeName = substr($routeName, 0, strrpos($routeName, '.'));
-        return route($routeName);
+        try { // Does this public route exists ?
+            return route($routeName);
+        } catch (Exception $e) {
+            return $lang;
+        }
     }
 
     /**

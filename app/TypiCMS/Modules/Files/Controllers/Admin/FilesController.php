@@ -33,14 +33,15 @@ class FilesController extends BaseController
     {
         $allowedViews = ['index', 'filepicker', 'thumbnails', 'gallery'];
 
-        $page = Input::get('page');
-        $type = Input::get('type');
-        $view = Input::get('view', 'thumbnails');
-        $view = ! in_array($view, $allowedViews) ? 'thumbnails' : $view ;
+        $page       = Input::get('page');
+        $type       = Input::get('type');
+        $gallery_id = Input::get('gallery_id');
+        $view       = Input::get('view', 'thumbnails');
+        $view       = ! in_array($view, $allowedViews) ? 'thumbnails' : $view ;
 
         $itemsPerPage = Config::get('files::admin.itemsPerPage');
 
-        $data = $this->repository->byPageFrom($page, $itemsPerPage, null, array('translations'), true, $type);
+        $data = $this->repository->byPageFrom($page, $itemsPerPage, $gallery_id, array('translations'), true, $type);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 

@@ -40,20 +40,16 @@ no-padding-top
             @endforeach
 
             <div class="dropzone-previews clearfix sortable sortable-thumbnails">
-            @if (count($models))
-                @foreach ($models as $key => $model)
-                    <div class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.files.edit', $model->id) }}">
-                        {{ $model->present()->checkbox }}
-                        {{ $model->present()->thumb }}
-                        <div class="caption">
-                            <small>{{ $model->present()->status }} {{ $model->filename }}</small>
-                            <div>{{ $model->alt_attribute }}</div>
-                        </div>
+            @foreach ($models as $key => $model)
+                <div class="thumbnail" id="item_{{ $model->id }}" href="{{ route('admin.files.edit', $model->id) }}">
+                    {{ $model->present()->checkbox }}
+                    {{ $model->present()->thumb }}
+                    <div class="caption">
+                        <small>{{ $model->present()->status }} {{ $model->filename }}</small>
+                        <div>{{ $model->alt_attribute }}</div>
                     </div>
-                @endforeach
-            @else
-                <p class="text-muted">@lang('global.No file')</p>
-            @endif
+                </div>
+            @endforeach
             </div>
             <div class="dz-message">@lang('files::global.Drop files to upload')</div>
 

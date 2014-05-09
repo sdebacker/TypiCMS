@@ -49,18 +49,18 @@
 
     <div class="col-sm-6">
 
-        {{ Form::hidden('folder_id', 0) }}
-        {{ Form::hidden('gallery_id', Input::get('gallery_id', 0)) }}
-        {{ Form::hidden('user_id', 0) }}
+        {{ Form::hidden('folder_id', $model->folder_id ?: 0) }}
+        {{ Form::hidden('gallery_id', $model->gallery_id ?: 0) }}
+        {{ Form::hidden('user_id', $model->user_id ?: 0) }}
         {{ Form::hidden('type') }}
-        {{ Form::hidden('position', 0) }}
+        {{ Form::hidden('position', $model->position ?: 0) }}
         {{ Form::hidden('path') }}
         {{ Form::hidden('filename') }}
         {{ Form::hidden('extension') }}
         {{ Form::hidden('mimetype') }}
         {{ Form::hidden('width') }}
         {{ Form::hidden('height') }}
-        {{ Form::hidden('download_count', 0) }}
+        {{ Form::hidden('download_count', $model->download_count ?: 0) }}
 
         <div class="clearfix well media @if($errors->has('file'))has-error@endif">
             @if(isset($model->filename) and $model->filename)
