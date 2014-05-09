@@ -21,7 +21,7 @@ function enableSortable() {
 
 	if (sortableList.hasClass('sortable-thumbnails')) {
 		handle = 'img,div';
-		items = 'a';
+		items = '.thumbnail';
 		placeholder = false;
 		toleranceElement = false;
 		url = '/admin/files/sort';
