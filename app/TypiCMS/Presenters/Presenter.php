@@ -3,6 +3,8 @@ namespace TypiCMS\Presenters;
 
 use Route;
 
+use Exception;
+
 use Carbon\Carbon;
 
 abstract class Presenter
@@ -109,7 +111,11 @@ abstract class Presenter
         $routeName = preg_replace('/\.edit$/', '.slug', $routeName);
         // if model is translated and is online
         if (isset($this->entity->$lang->slug) and $this->entity->$lang->status) {
-            return route($routeName, $this->entity->$lang->slug);
+            try {
+                return route($routeName, $this->entity->$lang->slug);
+            } catch (Exception $e) {
+                return $returnRoute = route('root');
+            }
         }
         $routeName = substr($routeName, 0, strrpos($routeName, '.'));
         return route($routeName);
