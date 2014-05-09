@@ -82,6 +82,6 @@
 </div>
 
 {{ Form::hidden('menu_id', $menu->id); }}
-{{ Form::hidden('position'); }}
-{{ Form::hidden('parent'); }}
+{{ Form::hidden('position', $model->position ?: 0); }}
+{{ Form::hidden('parent', $model->parent ?: 0); }}
 {{ Form::hidden('id'); }}
