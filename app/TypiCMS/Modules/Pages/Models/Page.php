@@ -115,14 +115,4 @@ class Page extends Base
         });
 
     }
-
-    /**
-     * Define a many-to-many polymorphic relationship.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function files()
-    {
-        return $this->morphToMany('TypiCMS\Modules\Files\Models\File', 'fileable')->withTimestamps();
-    }
 }

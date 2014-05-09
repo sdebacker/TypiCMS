@@ -28,7 +28,6 @@
                         {{ Html::th('status', null, false) }}
                         {{ Html::th('date', 'desc') }}
                         {{ Html::th('title', null, false) }}
-                        {{ Html::th('files', null, false) }}
                     </tr>
 
                 </thead>
@@ -43,7 +42,6 @@
                         <td>{{ $model->present()->status }}</td>
                         <td>{{ $model->present()->dateLocalized }}</td>
                         <td>{{ $model->title }}</td>
-                        <td>{{ $model->present()->countFiles }}</td>
                     </tr>
 
                     @endforeach

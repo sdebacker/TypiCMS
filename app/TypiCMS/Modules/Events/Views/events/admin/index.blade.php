@@ -29,7 +29,6 @@
                         {{ Html::th('start_date', 'asc') }}
                         {{ Html::th('end_date') }}
                         {{ Html::th('title', null, false) }}
-                        {{ Html::th('files', null, false) }}
                     </tr>
 
                 </thead>
@@ -45,7 +44,6 @@
                         <td>{{ $model->present()->startDate }}</td>
                         <td>{{ $model->present()->endDate }}</td>
                         <td>{{ $model->title }}</td>
-                        <td>{{ $model->present()->countFiles }}</td>
                     </tr>
 
                     @endforeach

@@ -59,15 +59,6 @@ class CreateFilesTable extends Migration
 
         });
 
-        Schema::create('fileables', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('file_id')->unsigned();
-            $table->integer('fileable_id')->unsigned();
-            $table->string('fileable_type');
-            $table->timestamps();
-            $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
-        });
-
     }
 
     /**
@@ -77,7 +68,6 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('fileables');
         Schema::drop('file_translations');
         Schema::drop('files');
     }

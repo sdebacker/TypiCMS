@@ -66,7 +66,6 @@
     </div>
 
     <div class="col-sm-6">
-    @include('files.admin._list', array('files' => $model->files))
     </div>
 
 </div>

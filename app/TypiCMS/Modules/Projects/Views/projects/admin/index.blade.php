@@ -24,7 +24,6 @@
                     {{ $model->present()->edit }}
                     {{ $model->present()->status }}
                     <a href="{{ route('admin.projects.edit', $model->id) }}">{{ $model->title }}</a>
-                    <div class="attachments">{{ $model->present()->countFiles }}</div>
                 </div>
             </li>
         @endforeach

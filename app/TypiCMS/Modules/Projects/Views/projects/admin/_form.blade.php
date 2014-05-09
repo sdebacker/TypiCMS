@@ -56,11 +56,6 @@
             <li class="active">
                 <a href="#options" data-target="#options" data-toggle="tab">Options</a>
             </li>
-            @if(isset($model->files))
-            <li>
-                <a href="#images" data-target="#images" data-toggle="tab">Images</a>
-            </li>
-            @endif
         </ul>
 
         <div class="tab-content">
@@ -80,12 +75,6 @@
                 </div>
 
             </div>
-
-            @if(isset($model->files))
-            <div class="tab-pane fade" id="images">
-                @include('files.admin._list', array('files' => $model->files))
-            </div>
-            @endif
 
         </div>
 

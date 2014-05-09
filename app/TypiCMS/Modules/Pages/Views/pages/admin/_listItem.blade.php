@@ -4,7 +4,6 @@
         {{ $model->present()->edit }}
         {{ $model->present()->status }}
         {{ $model->title }}
-        <div class="attachments">{{ $model->present()->countFiles }}</div>
     </div>
     @if ($model->children)
         <ul>

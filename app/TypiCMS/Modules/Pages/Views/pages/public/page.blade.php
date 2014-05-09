@@ -30,6 +30,4 @@
 
     </div>
 
-    @include('files.public._list', array('files' => $model->files))
-
 @stop

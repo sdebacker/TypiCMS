@@ -8,7 +8,6 @@
         </div>
         <p class="summary">{{ nl2br($model->summary) }}</p>
         <div class="body">{{ $model->body }}</div>
-        @include('files.public._list', array('files' => $model->files))
     </article>
 
 @stop

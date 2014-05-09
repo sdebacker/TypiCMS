@@ -29,7 +29,7 @@ class ProjectsController extends BaseController
      */
     public function index()
     {
-        $models = $this->repository->getAll(array('translations', 'files'), true);
+        $models = $this->repository->getAll(array('translations'), true);
 
         $this->layout->content = View::make('projects.admin.index')
             ->withModels($models);
