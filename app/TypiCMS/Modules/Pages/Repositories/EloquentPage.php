@@ -95,7 +95,10 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function getChildren($uri, $all = false)
     {
         $rootUriArray = explode('/', $uri);
-        $uri = $rootUriArray[0].'/'.$rootUriArray[1];
+        $uri = $rootUriArray[0];
+        if (isset($rootUriArray[1])) {
+            $uri .= '/' . $rootUriArray[1];
+        }
 
         $query = $this->model
             ->with('translations')
