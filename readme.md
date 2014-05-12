@@ -15,7 +15,6 @@ Bower and gulp are used for assets management and user interface is build with B
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Configuration](#configuration)
 - [Modules](#modules)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -69,7 +68,14 @@ This kind of urls are managed by the CMS :
 8. Set permissions ``` chmod -R 777 app/storage ``` and ``` chmod -R 777 public/uploads ```
 9. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
 
-## Configuration
+### Bower & Gulp
+
+You need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
+
+1. Install bower packages: ``` bower install ``` (in app/assets/components)
+2. Install Gulp packages: ``` npm install gulp ```
+
+### Configuration
 
 1. Set available locale and default locale in app/config/app.php
 2. Set a new encryption key manually or with ``` php artisan key:generate ```
