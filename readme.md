@@ -61,7 +61,7 @@ This kind of urls are managed by the CMS :
 
 1. Download TypiCMS ``` git clone git://github.com/sdebacker/TypiCMS.git mywebsite```
 2. Enter newly created folder ``` cd mywebsite ```
-3. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md) : ``` Composer install ```
+3. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md) : ``` composer install ```
 4. Fill in your MySQL credentials in env.local.php
 5. Rename env.local.php to .env.local.php : ``` mv env.local.php .env.local.php ```
 6. Create a new database with the name filled in .env.local.php
@@ -141,7 +141,7 @@ Change website title, and other options trough the settings panel. Settings are 
 ## Contributing
 
 TypiCMS needs many improvements, some options are not yet implemented and some code need to be simplified and moved in separate classes.  
-TypiCMS follow [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.
+TypiCMS follows [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.
 
 ## Testing
 
