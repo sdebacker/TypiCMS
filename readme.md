@@ -73,7 +73,7 @@ This kind of urls are managed by the CMS :
 You need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
 
 1. Install bower packages: ``` bower install ``` (in app/assets/components)
-2. Install Gulp packages: ``` npm install gulp ```
+2. Install Gulp packages: ``` npm install ```
 
 ### Configuration
 
