@@ -20,6 +20,7 @@
 
         <div>
             <a href="{{ route('backup') }}" class="btn btn-default"><i class="fa fa-download"></i> {{ trans('settings::global.Backup DB') }}</a>
+            <a href="{{ route('cache.clear') }}" class="btn btn-default"><span class="fa fa-trash-o"></span> {{ trans('settings::global.Clear cache') }}</a>
         </div>
 
         <table class="table table-condensed">

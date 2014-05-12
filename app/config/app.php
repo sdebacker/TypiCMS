@@ -141,7 +141,7 @@ return array(
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 		'Msurguy\Honeypot\HoneypotServiceProvider',
-		// 'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider', // PHP 5.4 only
+		'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider',
 
 		'TypiCMS\Providers\StartProvider',
 		'TypiCMS\Providers\UploadServiceProvider',

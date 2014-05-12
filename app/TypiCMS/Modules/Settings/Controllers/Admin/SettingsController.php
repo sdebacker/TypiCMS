@@ -2,9 +2,18 @@
 namespace TypiCMS\Modules\Settings\Controllers\Admin;
 
 use View;
+use Cache;
 use Input;
 use Config;
+use Response;
 use Redirect;
+use Notification;
+
+use Symfony\Component\Process\Process;
+
+use McCool\DatabaseBackup\BackupProcedure;
+use McCool\DatabaseBackup\Dumpers\MysqlDumper;
+use McCool\DatabaseBackup\Processors\ShellProcessor;
 
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
 
@@ -51,5 +60,43 @@ class SettingsController extends BaseController
 
         return Redirect::route('admin.settings.index');
 
+    }
+
+    /**
+     * Clear app cache
+     * 
+     * @return redirect
+     */
+    public function clearCache()
+    {
+        Cache::flush();
+        Notification::success(trans('settings::global.Cache cleared') . '.');
+        return Redirect::route('admin.settings.index');
+    }
+
+    /**
+     * Backup DB
+     * 
+     * @return File download
+     */
+    public function backup()
+    {
+        // DB info
+        $host = Config::get('database.connections.mysql.host');
+        $username = Config::get('database.connections.mysql.username');
+        $password = Config::get('database.connections.mysql.password');
+        $database = Config::get('database.connections.mysql.database');
+
+        // SQL file
+        $file = storage_path().'/backup/'.$database.'.sql';
+
+        // Export
+        $shellProcessor = new ShellProcessor(new Process(''));
+        $dumper = new MysqlDumper($shellProcessor, $host, 3306, $username, $password, $database, $file);
+        $backup = new BackupProcedure($dumper);
+        $backup->backup();
+
+        // DL File
+        return Response::download($file);
     }
 }

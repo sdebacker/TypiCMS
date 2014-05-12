@@ -11,4 +11,6 @@ return array(
     'Cache' => 'Cache',
     'No' => 'No',
     'Yes' => 'Yes',
+    'Clear cache' => 'Clear cache',
+    'Cache cleared' => 'Cache cleared',
 );
