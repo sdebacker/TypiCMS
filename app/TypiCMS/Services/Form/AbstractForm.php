@@ -73,7 +73,7 @@ abstract class AbstractForm
      *
      * @return boolean
      */
-    protected function valid(array $input)
+    public function valid(array $input)
     {
         return $this->validator->with($input)->passes();
     }
