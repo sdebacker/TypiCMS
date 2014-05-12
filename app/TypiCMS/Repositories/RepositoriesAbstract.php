@@ -168,7 +168,6 @@ abstract class RepositoriesAbstract
 
         $model = $this->make($with)
             ->whereHasOnlineTranslation()
-            ->files()
             ->findOrFail($id);
 
         if (! count($model->translations)) {
