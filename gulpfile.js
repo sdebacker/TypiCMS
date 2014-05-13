@@ -8,6 +8,7 @@ var gulp       = require('gulp'),
     concat     = require('gulp-concat'),
     watch      = require('gulp-watch'),
     bowerFiles = require("gulp-bower-files"),
+    livereload = require("gulp-livereload"),
     plumber    = require("gulp-plumber");
 
 var publicJsFiles = [
@@ -32,7 +33,8 @@ gulp.task('public-less', function () {
     .pipe(less())
     .pipe(csso())
     .pipe(gulp.dest('public/css'))
-    .pipe(notify('Public CSS minified'));
+    .pipe(notify('Public CSS minified'))
+    .pipe(livereload());
 
 });
 
