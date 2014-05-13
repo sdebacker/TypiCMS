@@ -249,6 +249,7 @@ return array(
         'file' => 'File',
         'replace file' => 'Replace file',
         'max' => 'Maximum',
+        'max :size MB' => 'Maximum :size MB',
         'KB' => 'KB',
         'MB' => 'MB',
         'size (px)' => 'Size (px)',
