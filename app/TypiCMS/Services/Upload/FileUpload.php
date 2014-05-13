@@ -33,6 +33,8 @@ class FileUpload
         $input['filesize']  = $file->getClientSize();
         $input['mimetype']  = $file->getClientMimeType();
         $input['filename']  = $fileName . $input['extension'];
+        // Detect and transform Croppa pattern to avoid problem with Croppa::delete()
+        $input['filename']  = preg_replace('#([0-9_]+)x([0-9_]+)#', "$1-$2", $input['filename']);
 
         $fileTypes = Config::get('file.types');
         $input['type'] = $fileTypes[strtolower($file->getClientOriginalExtension())];
