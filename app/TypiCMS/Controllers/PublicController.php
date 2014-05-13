@@ -11,8 +11,6 @@ use Controller;
 
 use TypiCMS;
 
-use TypiCMS\Services\Helpers;
-
 class PublicController extends Controller
 {
 

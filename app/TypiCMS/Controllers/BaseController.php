@@ -11,8 +11,6 @@ use Controller;
 
 use TypiCMS;
 
-use TypiCMS\Services\Helpers;
-
 abstract class BaseController extends Controller
 {
 
