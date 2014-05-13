@@ -33,8 +33,8 @@ gulp.task('public-less', function () {
     .pipe(less())
     .pipe(csso())
     .pipe(gulp.dest('public/css'))
-    .pipe(notify('Public CSS minified'))
-    .pipe(livereload());
+    .pipe(livereload())
+    .pipe(notify('Public CSS minified'));
 
 });
 
