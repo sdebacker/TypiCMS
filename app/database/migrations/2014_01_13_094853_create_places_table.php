@@ -24,7 +24,6 @@ class CreatePlacesTable extends Migration
             $table->string('fax')->nullable();
             $table->string('website')->nullable();
             $table->string('image')->nullable();
-            $table->string('logo')->nullable();
             $table->string('latitude', 30)->nullable();
             $table->string('longitude', 30)->nullable();
             $table->timestamps();

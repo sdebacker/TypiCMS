@@ -242,8 +242,6 @@ return array(
         'height' => 'Height',
         'download_count' => 'Download_count',
         'file information' => 'File information',
-        'logo' => 'Logo',
-        'replace logo' => 'Replace logo',
         'image' => 'Image',
         'replace image' => 'Replace image',
         'file' => 'File',

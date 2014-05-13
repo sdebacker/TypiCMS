@@ -20,7 +20,6 @@ class Place extends Base
         'fax',
         'website',
         'image',
-        'logo',
         'latitude',
         'longitude',
         // Translatable fields

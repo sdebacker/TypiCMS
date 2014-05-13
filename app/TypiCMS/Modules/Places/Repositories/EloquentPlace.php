@@ -130,13 +130,8 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         // Create the model
         $model = $this->model->fill($data);
 
-        if (Input::hasFile('logo')) {
-            $file = FileUpload::handle(Input::file('logo'), 'uploads/places');
-            $model->logo = $file['filename'];
-        }
-
         if (Input::hasFile('image')) {
-            $file = FileUpload::handle(Input::file('image'), 'uploads/places');
+            $file = FileUpload::handle(Input::file('image'), 'uploads/' . $this->model->getTable());
             $model->image = $file['filename'];
         }
 
@@ -161,19 +156,10 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
 
         $model->fill($data);
 
-        if (Input::hasFile('logo')) {
-            // delete prev logo
-            Croppa::delete('/uploads/'.$this->model->getTable().'/'.$model->getOriginal('logo'));
-            $file = FileUpload::handle(Input::file('logo'), 'uploads/places');
-            $model->logo = $file['filename'];
-        } else {
-            $model->logo = $model->getOriginal('logo');
-        }
-
         if (Input::hasFile('image')) {
             // delete prev image
-            Croppa::delete('/uploads/'.$this->model->getTable().'/'.$model->getOriginal('image'));
-            $file = FileUpload::handle(Input::file('image'), 'uploads/places');
+            Croppa::delete('/uploads/' . $this->model->getTable() . '/' . $model->getOriginal('image'));
+            $file = FileUpload::handle(Input::file('image'), 'uploads/' . $this->model->getTable());
             $model->image = $file['filename'];
         } else {
             $model->image = $model->getOriginal('image');
