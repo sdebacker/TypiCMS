@@ -3,7 +3,7 @@ var gulp       = require('gulp'),
     notify     = require('gulp-notify'),
     less       = require('gulp-less'),
     path       = require('path'),
-    csso       = require('gulp-csso'),
+    minifyCSS  = require('gulp-minify-css'),
     uglify     = require('gulp-uglify'),
     concat     = require('gulp-concat'),
     watch      = require('gulp-watch'),
@@ -31,7 +31,7 @@ gulp.task('public-less', function () {
     ])
     .pipe(plumber())
     .pipe(less())
-    .pipe(csso())
+    .pipe(minifyCSS())
     .pipe(gulp.dest('public/css'))
     .pipe(livereload())
     .pipe(notify('Public CSS minified'));
@@ -45,7 +45,7 @@ gulp.task('admin-less', function () {
     ])
     .pipe(plumber())
     .pipe(less())
-    .pipe(csso())
+    .pipe(minifyCSS())
     .pipe(gulp.dest('public/css'))
     .pipe(notify('Admin CSS minified'));
 
