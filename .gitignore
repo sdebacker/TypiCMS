@@ -4,6 +4,7 @@ app/assets/components
 node_modules
 .DS_Store
 .env.local.php
+.idea
 app/tests/_log
 
 app/config/local/cache.php
