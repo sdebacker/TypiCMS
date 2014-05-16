@@ -117,6 +117,7 @@ return array(
         'available' => 'Available',
         'size' => 'Size',
         'slug' => 'Slug',
+        'url' => 'URL',
         'body' => 'Body',
         'meta_keywords' => 'Meta keywords',
         'meta_title' => 'Meta title',
