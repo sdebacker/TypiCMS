@@ -117,6 +117,7 @@ return array(
         'available' => 'Disponible',
         'size' => 'Taille',
         'slug' => 'Slug',
+        'url' => 'URL',
         'body' => 'Corps',
         'meta_keywords' => 'Meta mots clés',
         'meta_title' => 'Meta titre',
@@ -125,6 +126,7 @@ return array(
         'uri' => 'URI',
         'online' => 'En ligne',
         'status' => 'Statut',
+        'generate' => 'Générer',
 
         // Contacts
         'created_at' => 'Créé le',

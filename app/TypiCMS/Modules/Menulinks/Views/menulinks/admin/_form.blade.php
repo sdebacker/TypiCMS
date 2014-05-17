@@ -3,13 +3,13 @@
     {{ HTML::script(asset('js/form.js')) }}
 @stop
 
-<div class="row">
+<div class="form-group">
+    <button class="btn btn-primary" type="submit">@lang('validation.attributes.save')</button>
+    <button class="btn btn-default" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
+    <a href="{{ route('admin.menus.menulinks.index', $menu->id) }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
+</div>
 
-    <div class="form-group col-sm-12">
-        <button class="btn-primary btn" type="submit">@lang('validation.attributes.save')</button>
-        <button class="btn-primary btn" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
-        <a href="{{ route('admin.menus.menulinks.index', $menu->id) }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
-    </div>
+<div class="row">
 
     {{ Form::hidden('id'); }}
 
@@ -24,7 +24,7 @@
             <div class="tab-pane fade @if ($locale == $lang)in active@endif" id="{{ $lang }}">
                 <div class="form-group">
                     {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                    {{ Form::text($lang.'[title]', $model->$lang->title, array('autofocus' => 'autofocus', 'class' => 'input-lg form-control')) }}
+                    {{ Form::text($lang.'[title]', $model->$lang->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
                     {{ Form::label($lang.'[uri]', trans('validation.attributes.uri')) }}

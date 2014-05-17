@@ -1,6 +1,6 @@
-<div class="row">
+@include('admin._buttons-form')
 
-    @include('admin._buttons-form')
+<div class="row">
 
     {{ Form::hidden('id'); }}
     {{ Form::hidden('locale', App::getLocale()); }}

@@ -39,7 +39,7 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
 /**
  * Back end buttons in view list 
  */
-HTML::macro('langButton', function ($locale = null) {
+HTML::macro('langButton', function ($locale = null, $attributes = []) {
 
     $inputs = Input::except('locale');
     $inputs['locale'] = $locale;

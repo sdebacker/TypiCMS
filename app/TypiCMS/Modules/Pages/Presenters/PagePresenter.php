@@ -14,4 +14,22 @@ class PagePresenter extends Presenter
     {
         return '/' . $this->entity->$lang->uri;
     }
+
+    /**
+     * Get Uri truncated
+     * 
+     * @return string URI without last segment
+     */
+    public function parentUri($lang)
+    {
+        $parentUri = $this->entity->$lang->uri ;
+        if (! $parentUri) {
+            return $lang . '/' ;
+        }
+        $parentUri = explode('/', $parentUri);
+        array_pop($parentUri);
+        $parentUri = implode('/', $parentUri) . '/';
+
+        return $parentUri;
+    }
 }

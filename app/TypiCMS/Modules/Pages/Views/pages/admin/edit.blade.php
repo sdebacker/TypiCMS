@@ -1,3 +1,6 @@
+@section('page-header')
+@stop
+
 @section('main')
 
     {{ Form::model( $model, array( 'route' => array('admin.pages.update', $model->id), 'method' => 'patch', 'role' => 'form' ) ) }}

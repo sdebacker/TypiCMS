@@ -2,13 +2,9 @@
     {{ HTML::script('js/checkboxes-permissions.js') }}
 @stop
 
-<div class="row">
-
-    <div class="form-group col-sm-12">
-        <button class="btn-primary btn" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
-        <a href="{{ route('admin.users.index') }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
-    </div>
-
+<div class="form-group">
+    <button class="btn-primary btn" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
+    <a href="{{ route('admin.users.index') }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
 </div>
 
 {{ Form::hidden('activated') }}

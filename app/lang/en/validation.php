@@ -117,6 +117,7 @@ return array(
         'available' => 'Available',
         'size' => 'Size',
         'slug' => 'Slug',
+        'url' => 'URL',
         'body' => 'Body',
         'meta_keywords' => 'Meta keywords',
         'meta_title' => 'Meta title',
@@ -145,6 +146,7 @@ return array(
         'language' => 'Language',
         'message' => 'Message',
         'send' => 'Send',
+        'generate' => 'Generate',
 
         // Pages
         'rss_enabled' => 'Rss enabled',

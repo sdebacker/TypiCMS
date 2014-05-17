@@ -23,8 +23,7 @@
 
 				this.slugField = settings.slugField;
 
-				this.slugGenerateButton = '<span class="input-group-btn"><button class="btn btn-default btn-slug" type="button">Générer</button></span>';
-				$(this.slugField).wrap('<div class="input-group"></div>').before(this.slugGenerateButton);
+				this.slugGenerateButton = $(this.slugField).parent().find('.btn-slug');
 
 				if ( ! $(this).val()) {
 					$(this).keyup( function(){
@@ -35,7 +34,7 @@
 
 				$('.btn-slug').click(function(){
 					var string = $(this).closest('.form-group').prev().find('input').val(),
-						slugField = $(this).parent().next();
+						slugField = $(this).parent().parent().find('input');
 
 					slug = methods.convertToSlug( string );
 					slugField.val(slug);

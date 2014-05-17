@@ -52,6 +52,9 @@ function initTinymce(selector) {
 
     $(function () {
 
+        /**
+         * Slug fields
+         */
         for (var i = 0; i < langues.length; i++) {
             var titleField = $('#' + langues[i] + '\\[title\\]');
             titleField.slug({
@@ -63,10 +66,16 @@ function initTinymce(selector) {
             slugField: '#slug'
         });
 
+        /**
+         * TinyMCE on .editor items
+         */
         if ($('.editor').length) {
             initTinymce('.editor');
         }
 
+        /**
+         * Tags with select2 plugin
+         */
         if ($('#tags').length) {
             var tags = $.getJSON("/admin/tags", function(data){
                 $('#tags').select2({
@@ -76,18 +85,36 @@ function initTinymce(selector) {
             })
         }
 
-        // Set tab in red on validation errors
+        /**
+         * Set button in red on validation errors
+         */
         var firstErrorTabActive = false;
         $('.tab-pane').each(function(index, el) {
             if ($(this).find('.has-error').length) {
+                var tabButton = $('a[data-target="#' + $(this).attr('id') + '"]');
                 if ( ! firstErrorTabActive) {
-                    $('a[href="#' + $(this).attr('id') + '"]').tab('show');
+                    tabButton.tab('show');
                     firstErrorTabActive = true;
                 }
-                $('a[href="#' + $(this).attr('id') + '"]').addClass('text-danger');
+                var dangerClass = 'text-danger';
+                if (tabButton.hasClass('btn')) {
+                    dangerClass = 'btn-danger';
+                }
+                tabButton.addClass(dangerClass);
             };
         });
 
+        /**
+         * Locale switcher : set active button
+         */
+        $('#btn-group-form-locales .btn').click(function(){
+            $(this).parent().children('.active').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        /**
+         * Date and time picker
+         */
         if ($('.picker-date').length) {
             $('.picker-date').datetimepicker({
                 icons: {
