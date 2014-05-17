@@ -144,9 +144,12 @@
                     @endif
                 </div>
 
-                <div class="form-group">
-                    {{ Form::label('template', trans('validation.attributes.template')) }}
+                <div class="form-group @if($errors->has('template'))has-error@endif">
+                    {{ Form::label('template', trans('validation.attributes.template'), array('class' => 'control-label')) }}
                     {{ Form::text('template', null, array('class' => 'form-control')) }}
+                    @if($errors->has('template'))
+                    <span class="help-block">{{ $errors->first('template') }}</span>
+                    @endif
                 </div>
 
                 <div class="form-group">
