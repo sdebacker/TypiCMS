@@ -12,6 +12,7 @@ class TranslationSeeder extends Seeder
             array('id'=>4, 'group'=>'db', 'key'=>'languages.en', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
             array('id'=>5, 'group'=>'db', 'key'=>'languages.nl', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
             array('id'=>6, 'group'=>'db', 'key'=>'Search', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
+            array('id'=>7, 'group'=>'db', 'key'=>'message when contact form is sent', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
         );
 
         $typi_translation_translations = array(
@@ -33,6 +34,9 @@ class TranslationSeeder extends Seeder
             array('translation_id'=>6, 'locale'=>'fr', 'translation'=>'Chercher', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
             array('translation_id'=>6, 'locale'=>'en', 'translation'=>'Search', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
             array('translation_id'=>6, 'locale'=>'nl', 'translation'=>'Zoeken', 'created_at'=>'2014-02-28 22:50:51', 'updated_at'=>'2014-02-28 22:50:51'),
+            array('translation_id'=>7, 'locale'=>'fr', 'translation'=>'Merci', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
+            array('translation_id'=>7, 'locale'=>'en', 'translation'=>'Thank you', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
+            array('translation_id'=>7, 'locale'=>'nl', 'translation'=>'Dank u', 'created_at'=>'2014-05-17 22:50:51', 'updated_at'=>'2014-05-17 22:50:51'),
         );
 
         DB::table('translations')->insert( $typi_translations );
