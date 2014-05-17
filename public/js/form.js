@@ -52,6 +52,9 @@ function initTinymce(selector) {
 
     $(function () {
 
+        /**
+         * Slug fields
+         */
         for (var i = 0; i < langues.length; i++) {
             var titleField = $('#' + langues[i] + '\\[title\\]');
             titleField.slug({
@@ -63,10 +66,16 @@ function initTinymce(selector) {
             slugField: '#slug'
         });
 
+        /**
+         * TinyMCE on .editor items
+         */
         if ($('.editor').length) {
             initTinymce('.editor');
         }
 
+        /**
+         * Tags with select2 plugin
+         */
         if ($('#tags').length) {
             var tags = $.getJSON("/admin/tags", function(data){
                 $('#tags').select2({
@@ -98,6 +107,9 @@ function initTinymce(selector) {
             $(this).addClass('active');
         });
 
+        /**
+         * Date and time picker
+         */
         if ($('.picker-date').length) {
             $('.picker-date').datetimepicker({
                 icons: {
