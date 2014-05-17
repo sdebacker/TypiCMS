@@ -15,7 +15,7 @@
 
         <div class="form-group @if($errors->has('title'))has-error@endif">
             {{ Form::label('title', trans('validation.attributes.title')) }}
-            {{ Form::text('title', null, array('autofocus' => 'autofocus', 'class' => 'input-lg form-control')) }}
+            {{ Form::text('title', null, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
             @if($errors->has('title'))
             <span class="help-block">{{ $errors->first('title') }}</span>
             @endif

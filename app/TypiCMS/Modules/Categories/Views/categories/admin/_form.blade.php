@@ -19,7 +19,7 @@
             <div class="tab-pane fade @if ($locale == $lang)in active@endif" id="{{ $lang }}">
                 <div class="form-group">
                     {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                    {{ Form::text($lang.'[title]', $model->$lang->title, array('autofocus' => 'autofocus', 'class' => 'input-lg form-control')) }}
+                    {{ Form::text($lang.'[title]', $model->$lang->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
                 </div>
                 <div class="form-group @if($errors->has($lang.'.slug'))has-error@endif">
                     {{ Form::label($lang.'[slug]', trans('validation.attributes.slug')) }}
