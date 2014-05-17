@@ -76,15 +76,17 @@ function initTinymce(selector) {
             })
         }
 
-        // Set tab in red on validation errors
+        /**
+         * Set button in red on validation errors
+         */
         var firstErrorTabActive = false;
         $('.tab-pane').each(function(index, el) {
             if ($(this).find('.has-error').length) {
                 if ( ! firstErrorTabActive) {
-                    $('a[href="#' + $(this).attr('id') + '"]').tab('show');
+                    $('a[data-target="#' + $(this).attr('id') + '"]').tab('show');
                     firstErrorTabActive = true;
                 }
-                $('a[href="#' + $(this).attr('id') + '"]').addClass('text-danger');
+                $('a[data-target="#' + $(this).attr('id') + '"]').addClass('btn-danger');
             };
         });
 
