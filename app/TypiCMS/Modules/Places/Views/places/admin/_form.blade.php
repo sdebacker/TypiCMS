@@ -5,9 +5,9 @@
     {{ HTML::script(asset('js/gmaps.admin.js')) }}
 @stop
 
-<div class="row">
+@include('admin._buttons-form')
 
-    @include('admin._buttons-form')
+<div class="row">
 
     {{ Form::hidden('id'); }}
 
