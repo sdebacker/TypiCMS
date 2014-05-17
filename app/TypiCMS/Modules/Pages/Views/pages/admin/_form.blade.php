@@ -153,12 +153,12 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('css', trans('validation.attributes.css')) }}
+                    {{ Form::label('css', trans('validation.attributes.css'), array('class' => 'control-label')) }}
                     {{ Form::textarea('css', null, array('class' => 'form-control')) }}
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('js', trans('validation.attributes.js')) }}
+                    {{ Form::label('js', trans('validation.attributes.js'), array('class' => 'control-label')) }}
                     {{ Form::textarea('js', null, array('class' => 'form-control')) }}
                 </div>
 
