@@ -29,11 +29,13 @@
             {{-- Content --}}
             <div class="tab-pane fade in active" id="content">
 
+                @include('admin._tabs-lang-form', ['target' => 'content'])
+
                 <div class="tab-content">
 
                 @foreach ($locales as $lang)
 
-                    <div class="tab-pane fade in @if ($locale == $lang)in active@endif" id="{{ $lang }}">
+                    <div class="tab-pane fade in @if ($locale == $lang)active@endif" id="content-{{ $lang }}">
 
                         <div class="row">
 
@@ -82,12 +84,14 @@
             {{-- Metadata --}}
             <div class="tab-pane fade in" id="meta">
 
+                @include('admin._tabs-lang-form', ['target' => 'meta'])
+
                 <div class="tab-content">
 
                 {{-- Headers --}}
                 @foreach ($locales as $lang)
 
-                <div class="tab-pane fade in @if ($locale == $lang)in active@endif" id="{{ $lang }}">
+                <div class="tab-pane fade in @if ($locale == $lang)active@endif" id="meta-{{ $lang }}">
 
                     <div class="form-group">
                         {{ Form::label($lang.'[meta_title]', trans('validation.attributes.meta_title')) }}
