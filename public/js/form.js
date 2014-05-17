@@ -91,11 +91,16 @@ function initTinymce(selector) {
         var firstErrorTabActive = false;
         $('.tab-pane').each(function(index, el) {
             if ($(this).find('.has-error').length) {
+                var tabButton = $('a[data-target="#' + $(this).attr('id') + '"]');
                 if ( ! firstErrorTabActive) {
-                    $('a[data-target="#' + $(this).attr('id') + '"]').tab('show');
+                    tabButton.tab('show');
                     firstErrorTabActive = true;
                 }
-                $('a[data-target="#' + $(this).attr('id') + '"]').addClass('btn-danger');
+                var dangerClass = 'text-danger';
+                if (tabButton.hasClass('btn')) {
+                    dangerClass = 'btn-danger';
+                }
+                tabButton.addClass(dangerClass);
             };
         });
 
