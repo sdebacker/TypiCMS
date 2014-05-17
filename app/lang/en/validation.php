@@ -146,6 +146,7 @@ return array(
         'language' => 'Language',
         'message' => 'Message',
         'send' => 'Send',
+        'generate' => 'Generate',
 
         // Pages
         'rss_enabled' => 'Rss enabled',

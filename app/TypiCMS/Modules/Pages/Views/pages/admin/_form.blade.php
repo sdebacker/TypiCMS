@@ -50,7 +50,7 @@
                                     <span class="input-group-addon">{{ $model->present()->parentUri($lang) }}</span>
                                     {{ Form::text($lang.'[slug]', $model->$lang->slug, array('class' => 'form-control')) }}
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger@endif" type="button">Générer</button>
+                                        <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger@endif" type="button">@lang('validation.attributes.generate')</button>
                                     </span>
                                 </div>
                                 @if($errors->has($lang.'.slug'))

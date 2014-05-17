@@ -126,6 +126,7 @@ return array(
         'uri' => 'URI',
         'online' => 'En ligne',
         'status' => 'Statut',
+        'generate' => 'Générer',
 
         // Contacts
         'created_at' => 'Créé le',

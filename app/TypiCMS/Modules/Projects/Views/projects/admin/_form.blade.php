@@ -24,7 +24,12 @@
                 </div>
                 <div class="form-group @if($errors->has($lang.'.slug'))has-error@endif">
                     {{ Form::label($lang.'[slug]', trans('validation.attributes.slug'), array('class' => 'control-label')) }}
-                    {{ Form::text($lang.'[slug]', $model->$lang->slug, array('class' => 'form-control')) }}
+                    <div class="input-group">
+                        {{ Form::text($lang.'[slug]', $model->$lang->slug, array('class' => 'form-control')) }}
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger@endif" type="button">@lang('validation.attributes.generate')</button>
+                        </span>
+                    </div>
                     @if($errors->has($lang.'.slug'))
                     <span class="help-block">{{ $errors->first($lang.'.slug') }}</span>
                     @endif
