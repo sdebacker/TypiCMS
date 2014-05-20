@@ -7,7 +7,6 @@ use HTML;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\Presenter;
 use TypiCMS\Services\ListBuilder;
-use TypiCMS\Modules\Menulinks\Presenters\MenulinkPresenter;
 
 class Menu extends Base
 {
@@ -15,7 +14,7 @@ class Menu extends Base
     use \Dimsav\Translatable\Translatable;
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Menus\Presenters\MenuPresenter';
+    protected $presenter = 'TypiCMS\Modules\Menus\Presenters\ModulePresenter';
 
     protected $fillable = array(
         'name',

@@ -1,9 +1,9 @@
 <?php
-namespace TypiCMS\Modules\Categories\Presenters;
+namespace TypiCMS\Modules\Tags\Presenters;
 
 use TypiCMS\Presenters\Presenter;
 
-class CategoryPresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     /**
@@ -13,9 +13,8 @@ class CategoryPresenter extends Presenter
     */
     public function checkbox()
     {
-        // Disable checkbox when category has projects
-        $disabled = $this->entity->projects->isEmpty() ? '' : ' disabled' ;
-
+        // Disable checkbox when object has menulinks
+        $disabled = $this->entity->uses ? ' disabled' : '' ;
         return '<input type="checkbox" value="' . $this->entity->id . '"' . $disabled . '>';
     }
 }

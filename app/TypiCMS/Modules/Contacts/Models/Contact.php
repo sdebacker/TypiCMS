@@ -8,7 +8,7 @@ class Contact extends Base
 
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Contacts\Presenters\ContactPresenter';
+    protected $presenter = 'TypiCMS\Modules\Contacts\Presenters\ModulePresenter';
 
     protected $fillable = array(
         'title',

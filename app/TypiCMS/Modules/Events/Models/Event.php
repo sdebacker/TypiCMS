@@ -12,7 +12,7 @@ class Event extends Base
     use \Dimsav\Translatable\Translatable;
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Events\Presenters\EventPresenter';
+    protected $presenter = 'TypiCMS\Modules\Events\Presenters\ModulePresenter';
 
     protected $dates = array('start_date', 'end_date');
 

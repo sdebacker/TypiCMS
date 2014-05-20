@@ -13,7 +13,7 @@ class News extends Base
     use \Dimsav\Translatable\Translatable;
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\News\Presenters\NewsPresenter';
+    protected $presenter = 'TypiCMS\Modules\News\Presenters\ModulePresenter';
 
     protected $dates = array('date');
 

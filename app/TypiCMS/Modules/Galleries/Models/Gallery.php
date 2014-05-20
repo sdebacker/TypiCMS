@@ -12,7 +12,7 @@ class Gallery extends Base
     use \Dimsav\Translatable\Translatable;
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Galleries\Presenters\GalleryPresenter';
+    protected $presenter = 'TypiCMS\Modules\Galleries\Presenters\ModulePresenter';
 
     protected $fillable = array(
         // Translatable fields

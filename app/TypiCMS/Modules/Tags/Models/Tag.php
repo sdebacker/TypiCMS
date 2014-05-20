@@ -8,7 +8,7 @@ class Tag extends Base
 
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Tags\Presenters\TagPresenter';
+    protected $presenter = 'TypiCMS\Modules\Tags\Presenters\ModulePresenter';
 
     /**
      * The attributes that are mass assignable.

@@ -3,7 +3,7 @@ namespace TypiCMS\Modules\Pages\Presenters;
 
 use TypiCMS\Presenters\Presenter;
 
-class PagePresenter extends Presenter
+class ModulePresenter extends Presenter
 {
     /**
      * Get public url

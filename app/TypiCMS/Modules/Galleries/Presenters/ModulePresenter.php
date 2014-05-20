@@ -5,7 +5,7 @@ use Route;
 
 use TypiCMS\Presenters\Presenter;
 
-class GalleryPresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     /**

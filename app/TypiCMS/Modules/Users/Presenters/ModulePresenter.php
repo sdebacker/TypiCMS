@@ -5,7 +5,7 @@ use Sentry;
 
 use TypiCMS\Presenters\Presenter;
 
-class UserPresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     /**

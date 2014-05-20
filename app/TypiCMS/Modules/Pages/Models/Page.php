@@ -12,7 +12,7 @@ class Page extends Base
     use \Dimsav\Translatable\Translatable;
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Pages\Presenters\PagePresenter';
+    protected $presenter = 'TypiCMS\Modules\Pages\Presenters\ModulePresenter';
 
     protected $fillable = array(
         'meta_robots_no_index',

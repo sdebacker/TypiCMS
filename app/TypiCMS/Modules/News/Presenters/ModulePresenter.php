@@ -3,7 +3,7 @@ namespace TypiCMS\Modules\News\Presenters;
 
 use TypiCMS\Presenters\Presenter;
 
-class NewsPresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     public function dateLocalized()

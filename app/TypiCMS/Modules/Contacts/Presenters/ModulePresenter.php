@@ -3,7 +3,7 @@ namespace TypiCMS\Modules\Contacts\Presenters;
 
 use TypiCMS\Presenters\Presenter;
 
-class ContactPresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     /**

@@ -5,7 +5,7 @@ use Croppa;
 
 use TypiCMS\Presenters\Presenter;
 
-class FilePresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     public function thumb($size = 'sm')

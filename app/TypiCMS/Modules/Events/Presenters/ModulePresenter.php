@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 use TypiCMS\Presenters\Presenter;
 
-class EventPresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     public function startDate()

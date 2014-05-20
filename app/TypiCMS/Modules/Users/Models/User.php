@@ -8,7 +8,7 @@ class User extends SentryUserModel
 
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Users\Presenters\UserPresenter';
+    protected $presenter = 'TypiCMS\Modules\Users\Presenters\ModulePresenter';
 
     /**
      * The default route for admin side.

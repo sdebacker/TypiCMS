@@ -11,7 +11,7 @@ class File extends Base
     use \Dimsav\Translatable\Translatable;
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Files\Presenters\FilePresenter';
+    protected $presenter = 'TypiCMS\Modules\Files\Presenters\ModulePresenter';
 
     protected $fillable = array(
         'gallery_id',

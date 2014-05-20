@@ -1,9 +1,9 @@
 <?php
-namespace TypiCMS\Modules\Groups\Presenters;
+namespace TypiCMS\Modules\Menus\Presenters;
 
 use TypiCMS\Presenters\Presenter;
 
-class GroupPresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     /**
@@ -14,7 +14,7 @@ class GroupPresenter extends Presenter
     public function checkbox()
     {
         // Disable checkbox when object has menulinks
-        $disabled = $this->entity->id == 1 ? ' disabled' : '' ;
+        $disabled = $this->entity->menulinks->isEmpty() ? '' : ' disabled' ;
 
         return '<input type="checkbox" value="' . $this->entity->id . '"' . $disabled . '>';
     }

@@ -8,7 +8,7 @@ class Group extends SentryGroupModel
 
     use \TypiCMS\Presenters\PresentableTrait;
 
-    protected $presenter = 'TypiCMS\Modules\Groups\Presenters\GroupPresenter';
+    protected $presenter = 'TypiCMS\Modules\Groups\Presenters\ModulePresenter';
 
     /**
      * The default route for admin side.

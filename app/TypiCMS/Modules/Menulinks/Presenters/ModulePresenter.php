@@ -3,7 +3,7 @@ namespace TypiCMS\Modules\Menulinks\Presenters;
 
 use TypiCMS\Presenters\Presenter;
 
-class MenulinkPresenter extends Presenter
+class ModulePresenter extends Presenter
 {
 
     public function menuclass()
