@@ -68,7 +68,7 @@ class TypiCMS
         if ($this->model) {
             return $this->model->present()->publicUri($lang);
         }
-        if ($routeName = Route::current()->getName() != 'root') {
+        if ($routeName = Route::current()->getUri() != '/') {
             $routeName = $lang . strstr(Route::current()->getName(), '.');
             if ($routeName == $lang) {
                 return $lang;

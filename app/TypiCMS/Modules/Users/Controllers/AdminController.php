@@ -48,7 +48,7 @@ class AdminController extends BaseAdminController
             $user = $this->repository->authenticate($credentials, false);
             Notification::success(trans('users::global.Welcome', array('name' => $user->first_name)));
 
-            return Redirect::intended(route('root'));
+            return Redirect::intended('/');
         } catch (Exception $e) {
             Notification::error($e->getMessage());
 
@@ -326,7 +326,7 @@ class AdminController extends BaseAdminController
                         );
                         $this->repository->authenticate($credentials, false);
 
-                        return Redirect::route('root');
+                        return Redirect::to('/');
                     } catch (Exception $e) {
                         Notification::error($e->getMessage());
 
