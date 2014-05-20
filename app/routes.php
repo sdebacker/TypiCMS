@@ -10,12 +10,3 @@ if (Request::segment(1) != 'admin') {
     });
 
 }
-
-/**
- * Public routes.
- */
-
-Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
-    // Lang chooser
-    Route::get('/', array('as' => 'root', 'uses' => 'TypiCMS\Controllers\PublicController@root'));
-});
