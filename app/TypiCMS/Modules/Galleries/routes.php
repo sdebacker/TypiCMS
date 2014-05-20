@@ -6,5 +6,5 @@ Route::bind('galleries', function ($value, $route) {
 });
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource('galleries', 'TypiCMS\Modules\Galleries\Controllers\Admin\GalleriesController');
+    Route::resource('galleries', 'TypiCMS\Modules\Galleries\Controllers\AdminController');
 });

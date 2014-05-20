@@ -6,5 +6,5 @@ Route::bind('news', function ($value, $route) {
 });
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource('news', 'TypiCMS\Modules\News\Controllers\Admin\NewsController');
+    Route::resource('news', 'TypiCMS\Modules\News\Controllers\AdminController');
 });

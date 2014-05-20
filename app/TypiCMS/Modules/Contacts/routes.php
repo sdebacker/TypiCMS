@@ -5,7 +5,7 @@ Route::bind('contacts', function ($value, $route) {
 });
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource('contacts', 'TypiCMS\Modules\Contacts\Controllers\Admin\ContactsController');
+    Route::resource('contacts', 'TypiCMS\Modules\Contacts\Controllers\AdminController');
 });
 
-Route::post('contact-store_', array('as' => 'contacts.index', 'uses' => 'TypiCMS\Modules\Contacts\Controllers\ContactsController@store'));
+Route::post('contact-store_', array('as' => 'contacts.index', 'uses' => 'TypiCMS\Modules\Contacts\Controllers\PublicController@store'));

@@ -6,5 +6,5 @@ Route::bind('events', function ($value, $route) {
 });
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource('events', 'TypiCMS\Modules\Events\Controllers\Admin\EventsController');
+    Route::resource('events', 'TypiCMS\Modules\Events\Controllers\AdminController');
 });
