@@ -73,7 +73,7 @@ abstract class CacheAbstractDecorator
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
-        $cacheKey = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
+        $cacheKey = md5(App::getLocale() . 'byPage.' . $page . $limit. implode($with) . $all . implode(Input::except('page')));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -96,7 +96,7 @@ abstract class CacheAbstractDecorator
      */
     public function getAll(array $with = array(), $all = false)
     {
-        $cacheKey = md5(App::getLocale() . 'all' . implode($with) . $all);
+        $cacheKey = md5(App::getLocale() . 'all' . implode($with) . $all . implode(Input::except('page')));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
