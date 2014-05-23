@@ -4,8 +4,8 @@
 @stop
 
 <div class="form-group">
-    <button class="btn btn-primary" type="submit">@lang('validation.attributes.save')</button>
-    <button class="btn btn-default" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
+    <button class="btn btn-primary" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
+    <button class="btn btn-default" type="submit">@lang('validation.attributes.save')</button>
     <a href="{{ route('admin.menus.menulinks.index', $menu->id) }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
 </div>
 

@@ -16,6 +16,7 @@
     {{ HTML::script(asset('vendor/jquery-legacy/jquery.js')) }}
     {{ HTML::script(asset('vendor/bootstrap/js/dropdown.js')) }}
     {{ HTML::script(asset('vendor/bootstrap/js/collapse.js')) }}
+    {{ HTML::script(asset('vendor/bootstrap/js/alert.js')) }}
     {{ HTML::script(asset('vendor/bootstrap/js/transition.js')) }}
     {{ HTML::script(asset('vendor/fancybox/source/jquery.fancybox.pack.js')) }}
 

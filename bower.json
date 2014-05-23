@@ -61,6 +61,7 @@
       "main": [
         "./js/dropdown.js",
         "./js/collapse.js",
+        "./js/alert.js",
         "./js/tab.js",
         "./js/transition.js"
       ]
