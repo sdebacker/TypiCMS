@@ -105,14 +105,21 @@ class Page extends Base
     {
         parent::boot();
 
-        $self = __CLASS__;
-
-        static::saving(function ($model) use ($self) {
-            // change homepage
-            if (Input::get('is_home')) {
-                $self::where('is_home', 1)->update(array('is_home' => 0));
+        static::creating(function ($model) {
+            // set is_home = 0 on previous homepage
+            if ($model->is_home) {
+                static::where('is_home', 1)
+                    ->update(array('is_home' => 0));
             }
         });
 
+        static::updating(function ($model) {
+            // set is_home = 0 on previous homepage
+            if ($model->is_home) {
+                static::where('is_home', 1)
+                    ->where('id', '!=', $model->id)
+                    ->update(array('is_home' => 0));
+            }
+        });
     }
 }
