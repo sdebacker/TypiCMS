@@ -12,6 +12,9 @@ class ModulePresenter extends Presenter
      */
     public function publicUri($lang)
     {
+        if ($this->entity->is_home) {
+            return '/' . $lang;
+        }
         return '/' . $this->entity->$lang->uri;
     }
 
