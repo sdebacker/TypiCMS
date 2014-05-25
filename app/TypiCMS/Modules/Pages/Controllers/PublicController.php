@@ -6,6 +6,7 @@ use Str;
 use View;
 use Config;
 use Redirect;
+use Notification;
 
 use TypiCMS;
 
@@ -56,8 +57,14 @@ class PublicController extends BasePublicController
         $sideMenu = $this->repository->buildSideList($childrenModels);
 
         $template = ($model->template) ? $model->template : 'page' ;
+        try {
+            $view = View::make('pages.public.' . $template);
+        } catch (\InvalidArgumentException $e) {
+            Notification::error('<b>Error:</b> Template “' . $template . '” not found.');
+            $view = View::make('pages.public.page');
+        }
 
-        $this->layout->content = View::make('pages.public.'.$template)
+        $this->layout->content = $view
             ->with('sideMenu', $sideMenu)
             ->withModel($model);
     }
