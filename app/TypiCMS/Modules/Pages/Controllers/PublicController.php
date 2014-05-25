@@ -70,7 +70,9 @@ class PublicController extends BasePublicController
     }
 
     /**
-     * Show lang chooser, redirect to browser lang or redirect to default lang
+     * Display the lang chooser
+     * or redirect to browser lang
+     * or redirect to default lang
      *
      * @return void
      */
