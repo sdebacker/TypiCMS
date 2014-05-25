@@ -64,6 +64,8 @@
         </nav>
         @show
 
+        @include('public._alert')
+
         @yield('main')
 
         @section('footer')
