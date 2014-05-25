@@ -15,14 +15,4 @@ class ModulePresenter extends Presenter
     {
         return $this->entity->created_at->format('d.m.Y');
     }
-
-    /**
-     * Public uri
-     * 
-     * @return String
-     */
-    public function publicUri($lang)
-    {
-        return '/' . $lang;
-    }
 }
