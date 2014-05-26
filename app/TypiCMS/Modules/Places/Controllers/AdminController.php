@@ -120,17 +120,6 @@ class AdminController extends BaseAdminController
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  int      $id
-     * @return Response
-     */
-    public function sort()
-    {
-        $sort = $this->repository->sort(Input::all());
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  int      $id
