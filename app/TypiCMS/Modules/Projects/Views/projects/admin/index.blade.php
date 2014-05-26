@@ -16,7 +16,7 @@
 
         @include('admin._buttons-list')
 
-        <ul class="list-main sortable">
+        <ul class="list-main">
         @foreach ($models as $model)
             <li id="item_{{ $model->id }}">
                 <div>
