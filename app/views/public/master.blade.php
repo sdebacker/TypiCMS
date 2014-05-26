@@ -40,7 +40,7 @@
 
     <a href="#content" class="sr-only">@lang('db.Skip to content')</a>
 
-@if (Sentry::getUser())
+@if(Sentry::getUser() and Sentry::getUser()->hasAccess('admin'))
     @include('_navbar')
 @endif
 
