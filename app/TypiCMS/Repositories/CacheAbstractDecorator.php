@@ -48,7 +48,7 @@ abstract class CacheAbstractDecorator
     public function getFirstBy($key, $value, array $with = array(), $all = false)
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale().'getFirstBy.'.$key.$value.$all);
+        $cacheKey = md5(App::getLocale() . 'getFirstBy' . $key . $value . implode($with) . $all);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -73,7 +73,7 @@ abstract class CacheAbstractDecorator
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
-        $cacheKey = md5(App::getLocale() . 'byPage.' . $page . $limit. implode($with) . $all . implode(Input::except('page')));
+        $cacheKey = md5(App::getLocale() . 'byPage' . $page . $limit . implode($with) . $all . implode(Input::except('page')));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -119,7 +119,7 @@ abstract class CacheAbstractDecorator
      */
     public function getAllBy($key, $value, array $with = array(), $all = false)
     {
-        $cacheKey = md5(App::getLocale().'getAllBy'.$key.$value.$all);
+        $cacheKey = md5(App::getLocale() . 'getAllBy' . $key . $value . implode($with) . $all);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -143,7 +143,7 @@ abstract class CacheAbstractDecorator
     public function bySlug($slug)
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale().'slug.'.$slug);
+        $cacheKey = md5(App::getLocale() . 'bySlug' . $slug);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -168,7 +168,7 @@ abstract class CacheAbstractDecorator
     public function has($relation, array $with = array())
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale().'has.'.$relation);
+        $cacheKey = md5(App::getLocale() . 'has' . implode($with) . $relation);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
