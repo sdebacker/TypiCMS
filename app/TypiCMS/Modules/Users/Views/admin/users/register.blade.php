@@ -10,7 +10,7 @@
         <h1>@lang('users::global.Register')</h1>
 
         <div class="form-group @if($errors->has('email'))has-error@endif">
-            {{ Form::label('email', trans('validation.attributes.email')) }}
+            {{ Form::label('email', trans('validation.attributes.email'), array('class' => 'control-label')) }}
             {{ Form::email('email', null, array('class' => 'form-control input-lg', 'required' => 'required', 'autofocus' => 'autofocus')) }}
             @if($errors->has('email'))
             <span class="help-block">{{ $errors->first('email') }}</span>
