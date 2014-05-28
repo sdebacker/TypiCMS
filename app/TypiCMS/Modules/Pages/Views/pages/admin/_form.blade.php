@@ -10,13 +10,13 @@
 
 <ul class="nav nav-tabs">
     <li class="active">
-        <a href="#content" data-target="#content" data-toggle="tab">@lang('Content')</a>
+        <a href="#content" data-target="#content" data-toggle="tab">@lang('global.Content')</a>
     </li>
     <li>
-        <a href="#meta" data-target="#meta" data-toggle="tab">@lang('Meta')</a>
+        <a href="#meta" data-target="#meta" data-toggle="tab">@lang('global.Meta')</a>
     </li>
     <li>
-        <a href="#options" data-target="#options" data-toggle="tab">@lang('Options')</a>
+        <a href="#options" data-target="#options" data-toggle="tab">@lang('global.Options')</a>
     </li>
 </ul>
 
