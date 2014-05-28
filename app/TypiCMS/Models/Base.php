@@ -67,6 +67,34 @@ abstract class Base extends Eloquent
     }
 
     /**
+     * Get only online galleries
+     *
+     * @param $query
+     * @return Illuminate\Database\Eloquent\Builder $query
+     */
+    public function scopeWithOnlineGalleries($query)
+    {
+        if (! $this->galleries) {
+            return $query;
+        }
+        return $query->with(
+            array(
+                'galleries.translations',
+                'galleries.files.translations',
+                'galleries' => function ($query) {
+                    $query->whereHas(
+                        'translations',
+                        function ($query) {
+                            $query->where('status', 1);
+                            $query->where('locale', App::getLocale());
+                        }
+                    );
+                }
+            )
+        );
+    }
+
+    /**
      * Order items according to GET value or model value, default is id asc
      *
      * @param $query
