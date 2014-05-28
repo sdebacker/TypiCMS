@@ -34,6 +34,10 @@ abstract class AbstractForm
             return false;
         }
 
+        if (isset($input['galleries'])) {
+            $input['galleries'] = $this->processTags($input['galleries']);
+        }
+
         return $this->repository->create($input);
     }
 
@@ -53,6 +57,10 @@ abstract class AbstractForm
 
         if (! $this->valid($inputDot)) {
             return false;
+        }
+
+        if (isset($input['galleries'])) {
+            $input['galleries'] = $this->processTags($input['galleries']);
         }
 
         return $this->repository->update($input);
