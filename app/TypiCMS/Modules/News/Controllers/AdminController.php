@@ -70,7 +70,7 @@ class AdminController extends BaseAdminController
         TypiCMS::setModel($model);
         $this->title['child'] = trans('news::global.Edit');
 
-        $galleries = implode(', ', $model->galleries->lists('slug'));
+        $galleries = implode(', ', $model->galleries->lists('name'));
 
         $this->layout->content = View::make('news.admin.edit')
             ->withGalleries($galleries)

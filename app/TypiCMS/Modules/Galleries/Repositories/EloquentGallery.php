@@ -17,18 +17,13 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
     }
 
     /**
-     * Get all items’ slug in current language
+     * Get all items name
      * 
-     * @return array with id as key and slug as value
+     * @return array with names
      */
-    public function getSlugs()
+    public function getNames()
     {
-        $galleries = $this->model->with('translations')->get();
-        $galleriesArray = array();
-        foreach ($galleries as $key => $gallery) {
-            $galleriesArray[] = $gallery->slug;
-        }
-        return $galleriesArray;
+        return $this->model->lists('name');
     }
 
     /**
@@ -41,15 +36,8 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
     {
         $filteredGalleries = array();
 
-        foreach ($galleries as $slug) {
-            $found = $this->model->whereHas(
-                'translations',
-                function ($query) use ($slug) {
-                    $query->where('slug', $slug);
-                    $query->where('locale', App::getLocale());
-                }
-            )->first();
-
+        foreach ($galleries as $name) {
+            $found = $this->model->where('name', $name)->first();
             if ($found) {
                 $filteredGalleries[] = $found;
             }

@@ -15,11 +15,11 @@ class Gallery extends Base
     protected $presenter = 'TypiCMS\Modules\Galleries\Presenters\ModulePresenter';
 
     protected $fillable = array(
+        'name',
         // Translatable fields
         'title',
         'slug',
         'status',
-        'summary',
         'body',
     );
 
@@ -32,7 +32,6 @@ class Gallery extends Base
         'title',
         'slug',
         'status',
-        'summary',
         'body',
     );
 
@@ -46,8 +45,8 @@ class Gallery extends Base
     /**
      * lists
      */
-    public $order = 'id';
-    public $direction = 'desc';
+    public $order = 'name';
+    public $direction = 'asc';
 
     /**
      * One gallery has many files.

@@ -33,7 +33,7 @@ class AdminController extends BaseAdminController
     public function index()
     {
         if (Request::ajax()) {
-            $galleries = $this->repository->getSlugs();
+            $galleries = $this->repository->getNames();
             return Response::json($galleries);
         }
 

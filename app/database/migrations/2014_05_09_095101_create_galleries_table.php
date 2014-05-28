@@ -16,6 +16,7 @@ class CreateGalleriesTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
+            $table->string('name');
 
             $table->timestamps();
         });
@@ -33,7 +34,6 @@ class CreateGalleriesTable extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
 
-            $table->text('summary');
             $table->text('body');
 
             $table->timestamps();

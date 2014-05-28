@@ -4,11 +4,11 @@ namespace TypiCMS\Modules\Galleries\Repositories;
 interface GalleryInterface
 {
     /**
-     * Get all items’ slug in current language
+     * Get all items name
      * 
-     * @return array with id as key and slug as value
+     * @return array with names
      */
-    public function getSlugs();
+    public function getNames();
 
     /**
      * Find existing galleries or forget it if they don't exist

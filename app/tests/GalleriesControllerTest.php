@@ -39,7 +39,7 @@ class GalleriesControllerTest extends TestCase
 
         $object->id = 1;
         Gallery::shouldReceive('create')->once()->andReturn($object);
-        $input = array();
+        $input = array('name' => 'test');
         $this->call('POST', 'admin/galleries', $input);
         $this->assertRedirectedToRoute('admin.galleries.edit', array('id' => 1));
     }
@@ -50,7 +50,7 @@ class GalleriesControllerTest extends TestCase
 
         $object->id = 1;
         Gallery::shouldReceive('create')->once()->andReturn($object);
-        $input = array('exit' => true);
+        $input = array('name' => 'test', 'exit' => true);
         $this->call('POST', 'admin/galleries', $input);
         $this->assertRedirectedToRoute('admin.galleries.index');
     }

@@ -17,20 +17,20 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
     }
 
     /**
-     * Get all items’ slug in current language
+     * Get all items name
      * 
-     * @return array with id as key and slug as value
+     * @return array with names
      */
-    public function getSlugs()
+    public function getNames()
     {
-        $cacheKey = md5(App::getLocale() . 'getSlugs');
+        $cacheKey = md5(App::getLocale() . 'getNames');
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
         // Item not cached, retrieve it
-        $models = $this->repo->getSlugs();
+        $models = $this->repo->getNames();
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $models);

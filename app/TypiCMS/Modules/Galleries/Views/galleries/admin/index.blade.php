@@ -26,6 +26,7 @@
                         {{ Html::th('checkboxes', null, false, false) }}
                         {{ Html::th('edit', null, false, false) }}
                         {{ Html::th('status', null, false) }}
+                        {{ Html::th('name', 'asc') }}
                         {{ Html::th('title', null, false) }}
                         {{ Html::th('files', null, false) }}
                     </tr>
@@ -40,6 +41,7 @@
                         <td>{{ $model->present()->checkbox }}</td>
                         <td>{{ $model->present()->edit }}</td>
                         <td>{{ $model->present()->status }}</td>
+                        <td>{{ $model->name }}</td>
                         <td>{{ $model->title }}</td>
                         <td>{{ $model->present()->countFiles }}</td>
                     </tr>
