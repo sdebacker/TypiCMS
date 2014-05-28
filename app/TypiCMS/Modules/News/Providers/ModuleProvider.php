@@ -48,7 +48,10 @@ class ModuleProvider extends ServiceProvider
         $app = $this->app;
 
         $app->bind('TypiCMS\Modules\News\Repositories\NewsInterface', function ($app) {
-            $repository = new EloquentNews(new News);
+            $repository = new EloquentNews(
+                new News,
+                $app->make('TypiCMS\Modules\Galleries\Repositories\GalleryInterface')
+            );
             if (! Config::get('app.cache')) {
                 return $repository;
             }
