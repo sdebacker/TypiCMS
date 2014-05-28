@@ -40,7 +40,7 @@ return array(
     'Mandatory fields' => 'Mandatory fields',
 
     // Tabs
-    'Content' => 'Contenu',
+    'Content' => 'Content',
     'Meta' => 'Meta',
     'Options' => 'Options',
     'Galleries' => 'Galleries',
