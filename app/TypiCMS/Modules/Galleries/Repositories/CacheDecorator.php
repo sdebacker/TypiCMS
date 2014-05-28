@@ -23,7 +23,7 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
      */
     public function getSlugs()
     {
-        $cacheKey = md5(App::getLocale() . 'getAllForAjax');
+        $cacheKey = md5(App::getLocale() . 'getSlugs');
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
