@@ -58,4 +58,14 @@ class Gallery extends Base
     {
         return $this->hasMany('TypiCMS\Modules\Files\Models\File');
     }
+
+    /**
+     * One gallery has many news.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\MorphedByMany
+     */
+    public function news()
+    {
+        return $this->morphedByMany('TypiCMS\Modules\News\Models\News');
+    }
 }

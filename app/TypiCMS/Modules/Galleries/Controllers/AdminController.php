@@ -6,6 +6,7 @@ use Input;
 use Config;
 use Request;
 use Redirect;
+use Response;
 use Paginator;
 
 use TypiCMS;
@@ -31,6 +32,11 @@ class AdminController extends BaseAdminController
      */
     public function index()
     {
+        if (Request::ajax()) {
+            $galleries = $this->repository->getSlugs();
+            return Response::json($galleries);
+        }
+
         $page = Input::get('page');
 
         $itemsPerPage = Config::get('galleries::admin.itemsPerPage');
