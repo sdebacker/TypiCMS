@@ -34,9 +34,9 @@ class Tag extends Base
     public $direction = 'asc';
 
     /**
-     * Define a many-to-many relationship.
+     * Define a many-to-many polymorphic relationship.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphedByMany
      */
     public function projects()
     {

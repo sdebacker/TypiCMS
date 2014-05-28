@@ -16,7 +16,7 @@ class ProjectForm extends AbstractForm
     }
 
     /**
-     * Create a new page
+     * Create a new project
      *
      * @return boolean
      */

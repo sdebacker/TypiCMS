@@ -56,9 +56,9 @@ class Project extends Base
     }
 
     /**
-     * Define a many-to-many relationship.
+     * A project has many tags.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function tags()
     {
