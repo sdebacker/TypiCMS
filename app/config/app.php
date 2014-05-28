@@ -63,24 +63,6 @@ return array(
 	'locales' => array('fr', 'nl', 'en'),
 	'locale' => 'en',
 
-	'modules' => array(
-		'Pages'        => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Pages\Models\Page'),
-		'Galleries'    => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Galleries\Models\Gallery'),
-		'Files'        => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Files\Models\File'),
-		'News'         => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\News\Models\News'),
-		'Events'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Events\Models\Event'),
-		'Categories'   => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Categories\Models\Category'),
-		'Projects'     => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Projects\Models\Project'),
-		'Places'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Places\Models\Place'),
-		'Menus'        => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menus\Models\Menu'),
-		'Menulinks'    => array('menu' => false, 'dashboard' => false, 'model' => 'TypiCMS\Modules\Menulinks\Models\Menulink'),
-		'Tags'         => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Tags\Models\Tag'),
-		'Users'        => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Users\Models\User'),
-		'Groups'       => array('menu' => true , 'dashboard' => true , 'model' => 'TypiCMS\Modules\Groups\Models\Group'),
-		'Translations' => array('menu' => true , 'dashboard' => false, 'model' => 'TypiCMS\Modules\Translations\Models\Translation'),
-		'Contacts'     => array('menu' => true , 'dashboard' => true,  'model' => 'TypiCMS\Modules\Contacts\Models\Contact'),
-	),
-
 	/*
 	|--------------------------------------------------------------------------
 	| Encryption Key

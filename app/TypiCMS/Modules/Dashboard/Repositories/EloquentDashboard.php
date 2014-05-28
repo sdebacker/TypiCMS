@@ -32,7 +32,7 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
     {
 
         // Item not cached, retrieve it
-        $modulesArray = Config::get('app.modules');
+        $modulesArray = Config::get('modules');
         $modulesForDashboard = array();
         foreach ($modulesArray as $module => $property) {
             $lowerName = strtolower($module);

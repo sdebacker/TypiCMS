@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-        @foreach (Config::get('app.modules') as $module => $infos)
+        @foreach (Config::get('modules') as $module => $infos)
             <tr>
                 <td>{{ $module }}
                     <input type="hidden" value="0" name="permissions[admin.{{ strtolower($module) }}.index]">

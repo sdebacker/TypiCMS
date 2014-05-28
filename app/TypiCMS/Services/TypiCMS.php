@@ -170,7 +170,7 @@ class TypiCMS
     {
         $modules = array();
         if (Sentry::getUser()) {
-            foreach (Config::get('app.modules') as $module => $property) {
+            foreach (Config::get('modules') as $module => $property) {
                 if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
                     $modules[$module] = $property;
                 }

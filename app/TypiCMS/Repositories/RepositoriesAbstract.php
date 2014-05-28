@@ -287,7 +287,7 @@ abstract class RepositoriesAbstract
 
     public function getModulesForSelect()
     {
-        $modulesArray = Config::get('app.modules');
+        $modulesArray = Config::get('modules');
         $selectModules = array('' => '');
         foreach ($modulesArray as $module => $property) {
             if ($property['menu']) {
