@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Repositories;
 
+use App;
+
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
@@ -28,7 +30,7 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
         }
 
         // Item not cached, retrieve it
-        $models = $this->repo->getAllForAjax();
+        $models = $this->repo->getSlugs();
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $models);
