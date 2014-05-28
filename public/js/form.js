@@ -86,6 +86,25 @@ function initTinymce(selector) {
         }
 
         /**
+         * Galleries with select2 plugin
+         */
+        if ($('#galleries').length) {
+            var field = $('#select-galleries');
+            var galleries = $.getJSON('/admin/galleries', function(data){
+                field.select2({
+                    tags: data,
+                    tokenSeparators: [',']
+                });
+                field.select2('container').find('ul.select2-choices').sortable({
+                    containment: 'parent',
+                    update: function() { field.select2('onSortEnd'); }
+                });
+            }).fail(function(){
+                console.log('Error while retrieving galleries');
+            });
+        }
+
+        /**
          * Set button in red on validation errors
          */
         var firstErrorTabActive = false;
