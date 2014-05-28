@@ -67,11 +67,7 @@ class AdminController extends BaseAdminController
 
         $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
 
-        $tags = '';
-        $model->tags->each(function ($tag) use (&$tags) {
-            $tags .= $tag->tag.', ';
-        });
-        $tags = substr($tags, 0, -2);
+        $tags = implode(', ', $model->tags->lists('tag'));
 
         $this->layout->content = View::make('projects.admin.edit')
             ->withCategories($categories)
