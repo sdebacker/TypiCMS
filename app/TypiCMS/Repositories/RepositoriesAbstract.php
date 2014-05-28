@@ -12,9 +12,17 @@ use Config;
 use TypiCMS\Services\Helpers;
 use TypiCMS\Modules\Pages\Models\Page;
 
+use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
+
 abstract class RepositoriesAbstract
 {
     protected $model;
+    protected $gallery;
+
+    public function __construct()
+    {
+        $this->gallery = App::make('TypiCMS\Modules\Galleries\Repositories\GalleryInterface');
+    }
 
     public function getModel()
     {
@@ -199,6 +207,8 @@ abstract class RepositoriesAbstract
     public function create(array $data)
     {
         if ($model = $this->model->create($data)) {
+            isset($data['galleries']) and $this->syncGalleries($model, $data['galleries']);
+            
             return $model;
         }
 
@@ -216,6 +226,7 @@ abstract class RepositoriesAbstract
         $model = $this->model->find($data['id']);
         $model->fill($data);
         $model->save();
+        isset($data['galleries']) and $this->syncGalleries($model, $data['galleries']);
 
         return true;
     }
@@ -327,5 +338,29 @@ abstract class RepositoriesAbstract
 
         // Assign set tags to model
         $model->tags()->sync($tagIds);
+    }
+
+    /**
+     * Sync galleries for model
+     *
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  array                               $galleries
+     * @return void
+     */
+    protected function syncGalleries($model, array $galleries)
+    {
+        // Create or add galleries
+        $pivotData = array();
+        if ($galleries) {
+            $position = 0;
+            $found = $this->gallery->findOrForget($galleries);
+            foreach ($found as $gallery) {
+                $position++;
+                $pivotData[$gallery->id] = array('position' => $position);
+            }
+        }
+
+        // Assign set galleries to model
+        $model->galleries()->sync($pivotData);
     }
 }
