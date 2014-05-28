@@ -38,4 +38,12 @@ return array(
     'view website' => 'voir le site',
 
     'Mandatory fields' => 'Champs obligatoires',
+
+    // Tabs
+    'Content' => 'Contenu',
+    'Meta' => 'Meta',
+    'Options' => 'Options',
+    'Galleries' => 'Galeries',
+
+    'Drag and drop to sort' => 'Organisez-les par glisser-déposer',
 );

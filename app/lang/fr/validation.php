@@ -223,6 +223,9 @@ return array(
         'authPublic' => 'Se connecter pour voir le site',
         'registration allowed' => 'Permettre la création de comptes utilisateurs',
 
+        // Galleries
+        'galleries' => 'Galeries',
+
         // Translations
         'key' => 'Clé',
         'translations' => 'Traduction',

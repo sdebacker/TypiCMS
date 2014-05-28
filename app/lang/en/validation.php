@@ -223,6 +223,9 @@ return array(
         'authPublic' => 'Authenticate to view website',
         'registration allowed' => 'Registration allowed',
 
+        // Galleries
+        'galleries' => 'Galleries',
+
         // Translations
         'key' => 'Key',
         'translations' => 'Translations',

@@ -38,4 +38,12 @@ return array(
     'view website' => 'view website',
 
     'Mandatory fields' => 'Mandatory fields',
+
+    // Tabs
+    'Content' => 'Contenu',
+    'Meta' => 'Meta',
+    'Options' => 'Options',
+    'Galleries' => 'Galleries',
+
+    'Drag and drop to sort' => 'Drag and drop to sort',
 );
