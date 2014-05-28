@@ -11,6 +11,7 @@ class EloquentEvent extends RepositoriesAbstract implements EventInterface
     // Class expects an Eloquent model
     public function __construct(Model $model)
     {
+        parent::__construct();
         $this->model = $model;
     }
 }

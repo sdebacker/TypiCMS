@@ -20,6 +20,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     // Class expects an Eloquent model
     public function __construct(Model $model)
     {
+        parent::__construct();
         $this->model = $model;
     }
 
