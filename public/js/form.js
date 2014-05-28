@@ -88,7 +88,7 @@ function initTinymce(selector) {
         /**
          * Galleries with select2 plugin
          */
-        if ($('#galleries').length) {
+        if ($('#select-galleries').length) {
             var field = $('#select-galleries');
             var galleries = $.getJSON('/admin/galleries', function(data){
                 field.select2({
