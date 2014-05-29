@@ -203,9 +203,14 @@ return array(
 		'Gravatar'        => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 		'Breadcrumbs'     => 'DaveJamesMiller\Breadcrumbs\Facade',
 
-		'Menu'            => 'TypiCMS\Modules\Menus\Models\Menu',
 		'FileUpload'      => 'TypiCMS\Facades\FileUpload',
 		'TypiCMS'         => 'TypiCMS\Facades\TypiCMS',
+
+		'Menu'            => 'TypiCMS\Modules\Menus\Models\Menu', // Todo: call interface in place of model
+		'Events'          => 'TypiCMS\Modules\Events\Facades\Facade',
+		'News'            => 'TypiCMS\Modules\News\Facades\Facade',
+		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',
+		'Places'          => 'TypiCMS\Modules\Places\Facades\Facade',
 
 		
 	),
