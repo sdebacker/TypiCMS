@@ -13,7 +13,7 @@ class StartProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('TypiCMS.routes', function ($app) {
+        $this->app->singleton('TypiCMS.routes', function ($app) {
             return $app->make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getForRoutes();
         });
         $this->app->register('TypiCMS\Modules\News\Providers\ModuleProvider');
