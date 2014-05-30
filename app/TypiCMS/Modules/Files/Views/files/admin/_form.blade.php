@@ -30,11 +30,6 @@
                     {{ Form::label($lang.'[keywords]', trans('validation.attributes.keywords')) }}
                     {{ Form::text($lang.'[keywords]', $model->$lang->keywords, array('class' => 'form-control')) }}
                 </div>
-                <div class="form-group">
-                    <label class="checkbox">
-                        {{ Form::checkbox($lang.'[status]', 1, $model->$lang->status) }} @lang('validation.attributes.online')
-                    </label>
-                </div>
             </div>
 
             @endforeach

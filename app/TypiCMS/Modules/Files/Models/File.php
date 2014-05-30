@@ -32,7 +32,6 @@ class File extends Base
         'keywords',
         'description',
         'alt_attribute',
-        'status',
     );
 
     /**
@@ -44,7 +43,6 @@ class File extends Base
         'keywords',
         'description',
         'alt_attribute',
-        'status',
     );
 
     /**

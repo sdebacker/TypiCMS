@@ -20,7 +20,6 @@
 
             {{ Form::hidden('gallery_id', Input::get('gallery_id', 0)) }}
             @foreach (Config::get('app.locales') as $locale)
-                {{ Form::hidden($locale.'[status]', 1) }}
                 {{ Form::hidden($locale.'[description]') }}
                 {{ Form::hidden($locale.'[alt_attribute]', '') }}
                 {{ Form::hidden($locale.'[keywords]') }}
@@ -39,7 +38,6 @@
                     <tr>
                         {{ Html::th('checkboxes', null, false, false) }}
                         {{ Html::th('edit', null, false, false) }}
-                        {{ Html::th('status', null, false) }}
                         {{ Html::th('position', 'asc') }}
                         {{ Html::th('preview', null, false) }}
                         {{ Html::th('filename') }}
@@ -55,7 +53,6 @@
                     <tr>
                         <td>{{ $model->present()->checkbox }}</td>
                         <td>{{ $model->present()->edit }}</td>
-                        <td>{{ $model->present()->status }}</td>
                         <td>{{ $model->position }}</td>
                         <td>{{ $model->present()->thumb('xs') }}</td>
                         <td>{{ $model->filename }}</td>

@@ -20,7 +20,6 @@
 
             {{ Form::hidden('gallery_id', Input::get('gallery_id', 0)) }}
             @foreach (Config::get('app.locales') as $locale)
-                {{ Form::hidden($locale.'[status]', 1) }}
                 {{ Form::hidden($locale.'[description]') }}
                 {{ Form::hidden($locale.'[alt_attribute]', '') }}
                 {{ Form::hidden($locale.'[keywords]') }}
@@ -32,7 +31,7 @@
                     {{ $model->present()->checkbox }}
                     {{ $model->present()->thumb }}
                     <div class="caption">
-                        <small>{{ $model->present()->status }} {{ $model->filename }}</small>
+                        <small>{{ $model->filename }}</small>
                         <div>{{ $model->alt_attribute }}</div>
                     </div>
                 </a>
