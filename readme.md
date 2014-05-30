@@ -37,13 +37,6 @@ This kind of urls are managed by the CMS :
 * /en/parent-pages-slug-en/subpage-slug-en/page-slug-en
 * /fr/parent-pages-slug-fr/subpage-slug-fr/page-slug-fr
 
-### Patterns
-
-- Repositories
-- Cache decorator
-- Form and validation services
-- Presenters
-
 ### Assets
 
 - Gulp
@@ -137,6 +130,12 @@ You can call DB translation everywhere with ``` Lang::get('db.Key') ```, ``` tra
 ### Settings
 
 Change website title, and other options trough the settings panel. Settings are saved in database.
+
+## Facades
+
+Five modules have their own Facade: News, Events, Projects, Places and Menus
+Into your views, you can for example call ```News::latest(3)``` to get the three lastest news.
+Check available methods in each module's repository.
 
 ## Roadmap
 
