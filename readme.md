@@ -16,6 +16,7 @@ Bower and gulp are used for assets management and user interface is build with B
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Modules](#modules)
+- [Facades](#facades)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Testing](#testing)
