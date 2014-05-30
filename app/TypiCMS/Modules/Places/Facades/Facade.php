@@ -1,5 +1,5 @@
 <?php
-namespace TypiCMS\Modules\News\Facades;
+namespace TypiCMS\Modules\Places\Facades;
 
 use Illuminate\Support\Facades\Facade as MainFacade;
 
