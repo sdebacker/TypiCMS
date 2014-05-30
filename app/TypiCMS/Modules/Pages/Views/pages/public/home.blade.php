@@ -16,10 +16,12 @@
                 @foreach ($latestNews as $news)
                 <li>
                     <strong>{{ $news->title }}</strong><br>
-                    <span class="date">{{ $news->present()->dateLocalized }}</span>
+                    <span class="date">{{ $news->present()->dateLocalized }}</span><br>
+                    <a href="{{ route($lang . '.news.slug', $news->slug) }}" class="btn btn-default btn-xs">@lang('db.More')</a>
                 </li>
                 @endforeach
             </ul>
+            <a href="{{ route($lang . '.news') }}" class="btn btn-default btn-xs">@lang('db.All news')</a>
             @endif
 
             @if($incomingEvents = Events::incoming())
@@ -28,10 +30,12 @@
                 @foreach ($incomingEvents as $event)
                 <li>
                     <strong>{{ $event->title }}</strong><br>
-                    <span class="date">{{ $event->present()->dateFromTo }}</span>
+                    <span class="date">{{ $event->present()->dateFromTo }}</span><br>
+                    <a href="{{ route($lang . '.events.slug', $event->slug) }}" class="btn btn-default btn-xs">@lang('db.More')</a>
                 </li>
                 @endforeach
             </ul>
+            <a href="{{ route($lang . '.events') }}" class="btn btn-default btn-xs">@lang('db.All events')</a>
             @endif
 
         </div>
