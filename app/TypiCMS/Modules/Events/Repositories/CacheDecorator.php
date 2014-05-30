@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Events\Repositories;
 
+use App;
+
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
