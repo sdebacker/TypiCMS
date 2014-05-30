@@ -56,12 +56,14 @@ class PublicController extends BasePublicController
         // build side menu
         $sideMenu = $this->repository->buildSideList($childrenModels);
 
-        $template = ($model->template) ? $model->template : 'page' ;
+        $defaultTemplate = 'default';
+
+        $template = $model->template ? $model->template : $defaultTemplate ;
         try {
             $view = View::make('pages.public.' . $template);
         } catch (\InvalidArgumentException $e) {
             Notification::error('<b>Error:</b> Template “' . $template . '” not found.');
-            $view = View::make('pages.public.page');
+            $view = View::make('pages.public.' . $defaultTemplate);
         }
 
         $this->layout->content = $view

@@ -16,18 +16,6 @@
 
 @section('main')
 
-    <div class="row">
-
-        @if($sideMenu)
-        <div class="col-sm-4">
-            {{ $sideMenu }}
-        </div>
-        @endif
-
-        <div class="col-sm-8">
-            {{ $model->body }}
-        </div>
-
-    </div>
+    @yield('page')
 
 @stop

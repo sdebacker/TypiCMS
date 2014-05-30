@@ -164,6 +164,19 @@ abstract class RepositoriesAbstract
     }
 
     /**
+     * Get latest models
+     * 
+     * @param  integer      $number number of items to take
+     * @param  array        $with array of related items
+     * @return Collection
+     */
+    public function latest($number = 10, array $with = array('translations'))
+    {
+        $query = $this->make($with);
+        return $query->whereHasOnlineTranslation()->order()->take($number)->get();
+    }
+
+    /**
      * Get single model by URL
      *
      * @param string  URL slug of model
