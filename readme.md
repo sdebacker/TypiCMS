@@ -147,10 +147,11 @@ Check available methods in each module's repository.
 
 ## Contributing
 
-TypiCMS needs improvements, some features are not yet implemented.
+Feel free to fork and pull request !
+
 TypiCMS follows [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.
 
-Feel free to fork and pull request !
+TypiCMS needs improvements, some features are not yet implemented.
 
 ## Testing
 
