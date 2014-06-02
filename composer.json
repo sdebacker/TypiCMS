@@ -34,7 +34,8 @@
 		"raveren/kint": "dev-master",
 		"mockery/mockery": "0.9.*@dev",
 		"barryvdh/laravel-debugbar": "1.*",
-		"leroy-merlin-br/larasniffer": "dev-master"
+		"leroy-merlin-br/larasniffer": "dev-master",
+		"barryvdh/laravel-ide-helper": "1.*"
 	},
 	"autoload": {
 		"classmap": [
