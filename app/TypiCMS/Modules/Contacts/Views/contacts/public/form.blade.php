@@ -27,7 +27,7 @@
 
             {{-- Title --}}
             <div class="col-sm-2 form-group @if($errors->has('title'))has-error@endif">
-                <i class="validation-mark">*</i>
+                <span class="fa fa-asterisk"></span>
                 {{ Form::label('title', trans('validation.attributes.title')) }}
                 {{ Form::select('title', array('' => '', 'mr' => trans('validation.attributes.mr'), 'mrs' => trans('validation.attributes.mrs')), null, array('class' => 'input-lg form-control')) }}
                 @if($errors->has('title'))
@@ -37,7 +37,7 @@
 
             {{-- First name --}}
             <div class="col-sm-5 form-group @if($errors->has('first_name'))has-error@endif">
-                <i class="validation-mark">*</i>
+                <span class="fa fa-asterisk"></span>
                 {{ Form::label('first_name', trans('validation.attributes.first_name')) }}
                 {{ Form::text('first_name', null, array('class' => 'input-lg form-control')) }}
                 @if($errors->has('first_name'))
@@ -47,7 +47,7 @@
 
             {{-- Last name --}}
             <div class="col-sm-5 form-group @if($errors->has('last_name'))has-error@endif">
-                <i class="validation-mark">*</i>
+                <span class="fa fa-asterisk"></span>
                 {{ Form::label('last_name', trans('validation.attributes.last_name')) }}
                 {{ Form::text('last_name', null, array('class' => 'input-lg form-control')) }}
                 @if($errors->has('last_name'))
@@ -59,7 +59,7 @@
 
         {{-- Email --}}
         <div class="form-group @if($errors->has('email'))has-error@endif">
-            <i class="validation-mark">*</i>
+            <span class="fa fa-asterisk"></span>
             {{ Form::label('email', trans('validation.attributes.email')) }}
             {{ Form::text('email', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('email'))
@@ -150,7 +150,7 @@
 
         {{-- Message --}}
         <div class="form-group @if($errors->has('message'))has-error@endif">
-            <i class="validation-mark">*</i>
+            <span class="fa fa-asterisk"></span>
             {{ Form::label('message', trans('validation.attributes.message')) }}
             {{ Form::textarea('message', null, array('class' => 'input-lg form-control', 'rows' => 5)) }}
             @if($errors->has('message'))
@@ -159,7 +159,7 @@
         </div>
 
         <div class="form-group">
-            <i class="validation-mark">*</i> {{ trans('global.Mandatory fields') }}
+            <span class="fa fa-asterisk"></span> {{ trans('global.Mandatory fields') }}
         </div>
 
         <button class="btn-primary btn btn-block btn-lg" type="submit">@lang('validation.attributes.send')</button>
