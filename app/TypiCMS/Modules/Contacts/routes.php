@@ -21,8 +21,9 @@ if (! App::runningInConsole()) {
 Route::post(
     'contact-store_',
     array(
-        'as' => 'contacts.index',
-        'uses' => 'TypiCMS\Modules\Contacts\Controllers\PublicController@store'
+        'before' => 'csrf',
+        'as'     => 'contacts.index',
+        'uses'   => 'TypiCMS\Modules\Contacts\Controllers\PublicController@store'
     )
 );
 

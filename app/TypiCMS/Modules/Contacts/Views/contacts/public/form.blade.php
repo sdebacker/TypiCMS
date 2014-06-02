@@ -17,7 +17,6 @@
 
     {{ Form::open( array( 'route' => array('contacts.index'), 'method' => 'post', 'role' => 'form' ) ) }}
 
-        {{ Form::hidden('id'); }}
         {{ Form::hidden('locale', App::getLocale()); }}
         {{ Form::hidden('language', App::getLocale()) }}
         

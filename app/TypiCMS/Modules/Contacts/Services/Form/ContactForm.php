@@ -14,4 +14,24 @@ class ContactForm extends AbstractForm
         $this->validator = $validator;
         $this->repository = $contact;
     }
+
+    /**
+     * Sanitize and save contact form
+     *
+     * @return boolean
+     */
+    public function save(array $crap)
+    {
+        $input = array();
+        foreach ($crap as $key => $value) {
+            $input[$key] = e($value);
+        }
+
+        if (! $this->valid($input)) {
+            return false;
+        }
+
+        return $this->repository->create($input);
+    }
+
 }
