@@ -33,5 +33,4 @@ class ContactForm extends AbstractForm
 
         return $this->repository->create($input);
     }
-
 }
