@@ -25,7 +25,7 @@
         <div class="row">
 
             {{-- Title --}}
-            <div class="col-sm-2 form-group @if($errors->has('title'))has-error@endif">
+            <div class="col-sm-2 form-group @if($errors->has('title'))has-error @endif">
                 <span class="fa fa-asterisk"></span>
                 {{ Form::label('title', trans('validation.attributes.title')) }}
                 {{ Form::select('title', array('' => '', 'mr' => trans('validation.attributes.mr'), 'mrs' => trans('validation.attributes.mrs')), null, array('class' => 'input-lg form-control')) }}
@@ -35,7 +35,7 @@
             </div>
 
             {{-- First name --}}
-            <div class="col-sm-5 form-group @if($errors->has('first_name'))has-error@endif">
+            <div class="col-sm-5 form-group @if($errors->has('first_name'))has-error @endif">
                 <span class="fa fa-asterisk"></span>
                 {{ Form::label('first_name', trans('validation.attributes.first_name')) }}
                 {{ Form::text('first_name', null, array('class' => 'input-lg form-control')) }}
@@ -45,7 +45,7 @@
             </div>
 
             {{-- Last name --}}
-            <div class="col-sm-5 form-group @if($errors->has('last_name'))has-error@endif">
+            <div class="col-sm-5 form-group @if($errors->has('last_name'))has-error @endif">
                 <span class="fa fa-asterisk"></span>
                 {{ Form::label('last_name', trans('validation.attributes.last_name')) }}
                 {{ Form::text('last_name', null, array('class' => 'input-lg form-control')) }}
@@ -57,7 +57,7 @@
         </div>
 
         {{-- Email --}}
-        <div class="form-group @if($errors->has('email'))has-error@endif">
+        <div class="form-group @if($errors->has('email'))has-error @endif">
             <span class="fa fa-asterisk"></span>
             {{ Form::label('email', trans('validation.attributes.email')) }}
             {{ Form::text('email', null, array('class' => 'input-lg form-control')) }}
@@ -67,7 +67,7 @@
         </div>
 
         {{-- Website --}}
-        {{-- <div class="form-group @if($errors->has('website'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('website'))has-error @endif">
             {{ Form::label('website', trans('validation.attributes.website')) }}
             {{ Form::text('website', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('website'))
@@ -76,7 +76,7 @@
         </div> --}}
 
         {{-- Company --}}
-        {{-- <div class="form-group @if($errors->has('company'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('company'))has-error @endif">
             {{ Form::label('company', trans('validation.attributes.company')) }}
             {{ Form::text('company', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('company'))
@@ -85,7 +85,7 @@
         </div> --}}
 
         {{-- Address --}}
-        {{-- <div class="form-group @if($errors->has('address'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('address'))has-error @endif">
             {{ Form::label('address', trans('validation.attributes.address')) }}
             {{ Form::text('address', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('address'))
@@ -94,7 +94,7 @@
         </div> --}}
 
         {{-- Postcode --}}
-        {{-- <div class="form-group @if($errors->has('postcode'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('postcode'))has-error @endif">
             {{ Form::label('postcode', trans('validation.attributes.postcode')) }}
             {{ Form::text('postcode', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('postcode'))
@@ -103,7 +103,7 @@
         </div> --}}
 
         {{-- City --}}
-        {{-- <div class="form-group @if($errors->has('city'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('city'))has-error @endif">
             {{ Form::label('city', trans('validation.attributes.city')) }}
             {{ Form::text('city', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('city'))
@@ -112,7 +112,7 @@
         </div> --}}
 
         {{-- Country --}}
-        {{-- <div class="form-group @if($errors->has('country'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('country'))has-error @endif">
             {{ Form::label('country', trans('validation.attributes.country')) }}
             {{ Form::text('country', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('country'))
@@ -121,7 +121,7 @@
         </div> --}}
 
         {{-- Phone --}}
-        {{-- <div class="form-group @if($errors->has('phone'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('phone'))has-error @endif">
             {{ Form::label('phone', trans('validation.attributes.phone')) }}
             {{ Form::text('phone', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('phone'))
@@ -130,7 +130,7 @@
         </div> --}}
 
         {{-- Mobile --}}
-        {{-- <div class="form-group @if($errors->has('mobile'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('mobile'))has-error @endif">
             {{ Form::label('mobile', trans('validation.attributes.mobile')) }}
             {{ Form::text('mobile', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('mobile'))
@@ -139,7 +139,7 @@
         </div> --}}
 
         {{-- Fax --}}
-        {{-- <div class="form-group @if($errors->has('fax'))has-error@endif">
+        {{-- <div class="form-group @if($errors->has('fax'))has-error @endif">
             {{ Form::label('fax', trans('validation.attributes.fax')) }}
             {{ Form::text('fax', null, array('class' => 'input-lg form-control')) }}
             @if($errors->has('fax'))
@@ -148,7 +148,7 @@
         </div> --}}
 
         {{-- Message --}}
-        <div class="form-group @if($errors->has('message'))has-error@endif">
+        <div class="form-group @if($errors->has('message'))has-error @endif">
             <span class="fa fa-asterisk"></span>
             {{ Form::label('message', trans('validation.attributes.message')) }}
             {{ Form::textarea('message', null, array('class' => 'input-lg form-control', 'rows' => 5)) }}

@@ -9,7 +9,7 @@
 
     <h1>@lang('users::global.Log in')</h1>
 
-    <div class="form-group @if($errors->has('email'))has-error@endif">
+    <div class="form-group @if($errors->has('email'))has-error @endif">
         {{ Form::label('email', trans('validation.attributes.email'), array('class' => 'sr-only')) }}
         {{ Form::email('email', null, array('class' => 'form-control input-lg', 'placeholder' => trans('validation.attributes.email'), 'autofocus' => 'autofocus')) }}
         @if($errors->has('email'))
@@ -17,7 +17,7 @@
         @endif
     </div>
 
-    <div class="form-group @if($errors->has('password'))has-error@endif">
+    <div class="form-group @if($errors->has('password'))has-error @endif">
         {{ Form::label('password', trans('validation.attributes.password'), array('class' => 'sr-only')) }}
         {{ Form::password('password', array('class' => 'form-control input-lg', 'placeholder' => trans('validation.attributes.password'))) }}
         @if($errors->has('password'))

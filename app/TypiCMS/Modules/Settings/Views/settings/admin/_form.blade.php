@@ -25,35 +25,35 @@
     </div>
 @endforeach
 
-<div class="form-group @if($errors->has('webmasterEmail'))has-error@endif">
+<div class="form-group @if($errors->has('webmasterEmail'))has-error @endif">
     {{ Form::label('webmasterEmail', trans('validation.attributes.webmasterEmail'), array('class' => 'control-label')) }}
     {{ Form::text('webmasterEmail', null, array('class' => 'form-control')) }}
     @if($errors->has('webmasterEmail'))
     <span class="help-block">{{ $errors->first('webmasterEmail') }}</span>
     @endif
 </div>
-<div class="form-group @if($errors->has('welcomeMessageURL'))has-error@endif">
+<div class="form-group @if($errors->has('welcomeMessageURL'))has-error @endif">
     {{ Form::label('welcomeMessageURL', trans('validation.attributes.welcomeMessageURL'), array('class' => 'control-label')) }}
     {{ Form::text('welcomeMessageURL', null, array('class' => 'form-control')) }}
     @if($errors->has('welcomeMessageURL'))
     <span class="help-block">{{ $errors->first('welcomeMessageURL') }}</span>
     @endif
 </div>
-<div class="form-group @if($errors->has('welcomeMessage'))has-error@endif">
+<div class="form-group @if($errors->has('welcomeMessage'))has-error @endif">
     {{ Form::label('welcomeMessage', trans('validation.attributes.welcomeMessage'), array('class' => 'control-label')) }}
     {{ Form::textarea('welcomeMessage', null, array('class' => 'form-control', 'rows' => '3')) }}
     @if($errors->has('welcomeMessage'))
     <span class="help-block">{{ $errors->first('welcomeMessage') }}</span>
     @endif
 </div>
-<div class="form-group @if($errors->has('adminLocale'))has-error@endif">
+<div class="form-group @if($errors->has('adminLocale'))has-error @endif">
     {{ Form::label('adminLocale', trans('validation.attributes.adminLocale'), array('class' => 'control-label')) }}
     {{ Form::select('adminLocale', array('en' => 'English', 'fr' => 'French'), null, array('class' => 'form-control')) }}
     @if($errors->has('adminLocale'))
     <span class="help-block">{{ $errors->first('adminLocale') }}</span>
     @endif
 </div>
-<div class="form-group @if($errors->has('typekitCode'))has-error@endif">
+<div class="form-group @if($errors->has('typekitCode'))has-error @endif">
     {{ Form::label('typekitCode', trans('validation.attributes.typekitCode'), array('class' => 'control-label')) }}
     {{ Form::text('typekitCode', null, array('class' => 'form-control')) }}
     @if($errors->has('typekitCode'))

@@ -1,4 +1,4 @@
-        <div class="clearfix well media @if($errors->has('image'))has-error@endif">
+        <div class="clearfix well media @if($errors->has('image'))has-error @endif">
             @if($model->image)
             <div class="pull-left">
                 <img class="media-object" src="{{ Croppa::url('/uploads/' . $model->getTable() . '/' . $model->image, 150) }}" alt="">

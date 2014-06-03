@@ -11,7 +11,7 @@
 
         {{-- Title --}}
         <div class="row">
-            <div class="col-xs-6 form-group @if($errors->has('title'))has-error@endif">
+            <div class="col-xs-6 form-group @if($errors->has('title'))has-error @endif">
                 {{ Form::label('title', trans('validation.attributes.title')) }}
                 {{ Form::text('title', null, array('class' => 'form-control')) }}
                 @if($errors->has('title'))
@@ -21,7 +21,7 @@
         </div>
 
         {{-- First name --}}
-        <div class="form-group @if($errors->has('first_name'))has-error@endif">
+        <div class="form-group @if($errors->has('first_name'))has-error @endif">
             {{ Form::label('first_name', trans('validation.attributes.first_name')) }}
             {{ Form::text('first_name', null, array('class' => 'form-control')) }}
             @if($errors->has('first_name'))
@@ -30,7 +30,7 @@
         </div>
 
         {{-- Last name --}}
-        <div class="form-group @if($errors->has('last_name'))has-error@endif">
+        <div class="form-group @if($errors->has('last_name'))has-error @endif">
             {{ Form::label('last_name', trans('validation.attributes.last_name')) }}
             {{ Form::text('last_name', null, array('class' => 'form-control')) }}
             @if($errors->has('last_name'))
@@ -39,7 +39,7 @@
         </div>
 
         {{-- Email --}}
-        <div class="form-group @if($errors->has('email'))has-error@endif">
+        <div class="form-group @if($errors->has('email'))has-error @endif">
             {{ Form::label('email', trans('validation.attributes.email')) }}
             {{ Form::text('email', null, array('class' => 'form-control')) }}
             @if($errors->has('email'))
@@ -48,7 +48,7 @@
         </div>
 
         {{-- Message --}}
-        <div class="form-group @if($errors->has('message'))has-error@endif">
+        <div class="form-group @if($errors->has('message'))has-error @endif">
             {{ Form::label('message', trans('validation.attributes.message')) }}
             {{ Form::textarea('message', null, array('class' => 'form-control', 'rows' => 5)) }}
             @if($errors->has('message'))
@@ -62,7 +62,7 @@
 
         <div class="row">
             {{-- Language --}}
-            <div class="col-xs-6 form-group @if($errors->has('language'))has-error@endif">
+            <div class="col-xs-6 form-group @if($errors->has('language'))has-error @endif">
                 {{ Form::label('language', trans('validation.attributes.language')) }}
                 {{ Form::text('language', null, array('class' => 'form-control')) }}
                 @if($errors->has('language'))
@@ -73,7 +73,7 @@
 
         <div class="row">
             {{-- Website --}}
-            <div class="col-xs-6 form-group @if($errors->has('website'))has-error@endif">
+            <div class="col-xs-6 form-group @if($errors->has('website'))has-error @endif">
                 {{ Form::label('website', trans('validation.attributes.website')) }}
                 {{ Form::text('website', null, array('class' => 'form-control')) }}
                 @if($errors->has('website'))
@@ -82,7 +82,7 @@
             </div>
 
             {{-- Company --}}
-            <div class="col-xs-6 form-group @if($errors->has('company'))has-error@endif">
+            <div class="col-xs-6 form-group @if($errors->has('company'))has-error @endif">
                 {{ Form::label('company', trans('validation.attributes.company')) }}
                 {{ Form::text('company', null, array('class' => 'form-control')) }}
                 @if($errors->has('company'))
@@ -92,7 +92,7 @@
         </div>
 
         {{-- Address --}}
-        <div class="form-group @if($errors->has('address'))has-error@endif">
+        <div class="form-group @if($errors->has('address'))has-error @endif">
             {{ Form::label('address', trans('validation.attributes.address')) }}
             {{ Form::text('address', null, array('class' => 'form-control')) }}
             @if($errors->has('address'))
@@ -102,7 +102,7 @@
 
         <div class="row">
             {{-- Postcode --}}
-            <div class="col-xs-6 form-group @if($errors->has('postcode'))has-error@endif">
+            <div class="col-xs-6 form-group @if($errors->has('postcode'))has-error @endif">
                 {{ Form::label('postcode', trans('validation.attributes.postcode')) }}
                 {{ Form::text('postcode', null, array('class' => 'form-control')) }}
                 @if($errors->has('postcode'))
@@ -111,7 +111,7 @@
             </div>
 
             {{-- City --}}
-            <div class="col-xs-6 form-group @if($errors->has('city'))has-error@endif">
+            <div class="col-xs-6 form-group @if($errors->has('city'))has-error @endif">
                 {{ Form::label('city', trans('validation.attributes.city')) }}
                 {{ Form::text('city', null, array('class' => 'form-control')) }}
                 @if($errors->has('city'))
@@ -121,7 +121,7 @@
         </div>
 
         {{-- Country --}}
-        <div class="form-group @if($errors->has('country'))has-error@endif">
+        <div class="form-group @if($errors->has('country'))has-error @endif">
             {{ Form::label('country', trans('validation.attributes.country')) }}
             {{ Form::text('country', null, array('class' => 'form-control')) }}
             @if($errors->has('country'))
@@ -131,7 +131,7 @@
 
         <div class="row">
             {{-- Phone --}}
-            <div class="col-xs-6 form-group @if($errors->has('phone'))has-error@endif">
+            <div class="col-xs-6 form-group @if($errors->has('phone'))has-error @endif">
                 {{ Form::label('phone', trans('validation.attributes.phone')) }}
                 {{ Form::text('phone', null, array('class' => 'form-control')) }}
                 @if($errors->has('phone'))
@@ -140,7 +140,7 @@
             </div>
 
             {{-- Mobile --}}
-            <div class="col-xs-6 form-group @if($errors->has('mobile'))has-error@endif">
+            <div class="col-xs-6 form-group @if($errors->has('mobile'))has-error @endif">
                 {{ Form::label('mobile', trans('validation.attributes.mobile')) }}
                 {{ Form::text('mobile', null, array('class' => 'form-control')) }}
                 @if($errors->has('mobile'))
@@ -150,7 +150,7 @@
         </div>
 
         {{-- Fax --}}
-        <div class="form-group @if($errors->has('fax'))has-error@endif">
+        <div class="form-group @if($errors->has('fax'))has-error @endif">
             {{ Form::label('fax', trans('validation.attributes.fax')) }}
             {{ Form::text('fax', null, array('class' => 'form-control')) }}
             @if($errors->has('fax'))

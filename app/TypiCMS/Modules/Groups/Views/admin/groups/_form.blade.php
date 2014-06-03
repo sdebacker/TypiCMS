@@ -13,7 +13,7 @@
 
     <div class="col-sm-6">
 
-        <div class=" form-group @if($errors->has('name'))has-error@endif">
+        <div class=" form-group @if($errors->has('name'))has-error @endif">
             {{ Form::label('name', trans('validation.attributes.name'), array('class' => 'control-label')) }}
             {{ Form::text('name', null, array('class' => 'form-control')) }}
             @if($errors->has('name'))

@@ -9,7 +9,7 @@
 
     <h1>@lang('users::global.New password')</h1>
 
-    <div class="form-group @if($errors->has('password'))has-error@endif">
+    <div class="form-group @if($errors->has('password'))has-error @endif">
         {{ Form::label('password', trans('validation.attributes.password'), array('class' => 'inpur-lg control-label')) }}
         {{ Form::password('password', array('class' => 'input-lg form-control', 'autocomplete' => 'off')) }}
         @if($errors->has('password'))
@@ -17,7 +17,7 @@
         @endif
     </div>
 
-    <div class="form-group @if($errors->has('password_confirmation'))has-error@endif">
+    <div class="form-group @if($errors->has('password_confirmation'))has-error @endif">
         {{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation'), array('class' => 'inpur-lg control-label')) }}
         {{ Form::password('password_confirmation', array('class' => 'input-lg form-control', 'autocomplete' => 'off')) }}
         @if($errors->has('password_confirmation'))
