@@ -35,7 +35,7 @@ return array(
 	'providers' => array(
 
 		'Barryvdh\Debugbar\ServiceProvider',
-		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		// 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'LeroyMerlin\LaraSniffer\ServiceProvider',
 
 	),
