@@ -95,6 +95,9 @@ abstract class Presenter
         // If model is translated and is online
         if (isset($this->entity->$lang->slug) and $this->entity->$lang->status) {
             try { // Does this public route exists ?
+                if ($this->entity->category) { // there is a category
+                    return route($routeName, array($this->entity->category->$lang->slug, $this->entity->$lang->slug));
+                }
                 return route($routeName, $this->entity->$lang->slug);
             } catch (Exception $e) {
                 return $lang;
@@ -103,6 +106,9 @@ abstract class Presenter
         // If model is offline or there is no translation
         $routeName = substr($routeName, 0, strrpos($routeName, '.'));
         try { // Does this public route exists ?
+            if ($this->entity->category) { // there is a category
+                return route($routeName, $this->entity->category->$lang->slug);
+            }
             return route($routeName);
         } catch (Exception $e) {
             return $lang;

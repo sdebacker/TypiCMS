@@ -4,6 +4,8 @@ namespace TypiCMS\Modules\Projects\Controllers;
 use Str;
 use View;
 
+use TypiCMS;
+
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 
 // Base controller
@@ -31,6 +33,7 @@ class PublicController extends BasePublicController
 
         if ($category) {
             $models = $this->repository->getAllBy('category_id', $category->id, $relatedModels, false);
+            TypiCMS::setModel($category); // Needed for building lang switcher
         } else {
             $models = $this->repository->getAll($relatedModels, false);
         }
@@ -49,6 +52,8 @@ class PublicController extends BasePublicController
     public function show($category = null, $slug = null)
     {
         $model = $this->repository->bySlug($slug);
+
+        TypiCMS::setModel($model);
 
         $this->title['parent'] = $model->title;
 
