@@ -15,7 +15,7 @@ class ModulePresenter extends Presenter
         if ($this->entity->is_home) {
             return '/' . $lang;
         }
-        return '/' . $this->entity->$lang->uri;
+        return '/' . $this->entity->translate($lang)->uri;
     }
 
     /**
@@ -25,7 +25,7 @@ class ModulePresenter extends Presenter
      */
     public function parentUri($lang)
     {
-        $parentUri = $this->entity->$lang->uri ;
+        $parentUri = $this->entity->translate($lang)->uri ;
         if (! $parentUri) {
             return $lang . '/' ;
         }

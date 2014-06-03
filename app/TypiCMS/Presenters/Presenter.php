@@ -93,12 +93,12 @@ abstract class Presenter
         $routeName = $lang . strstr(Route::current()->getName(), '.');
         $routeName = preg_replace('/\.edit$/', '.slug', $routeName);
         // If model is translated and is online
-        if (isset($this->entity->$lang->slug) and $this->entity->$lang->status) {
+        if (isset($this->entity->translate($lang)->slug) and $this->entity->translate($lang)->status) {
             try { // Does this public route exists ?
                 if ($this->entity->category) { // there is a category
-                    return route($routeName, array($this->entity->category->$lang->slug, $this->entity->$lang->slug));
+                    return route($routeName, array($this->entity->category->translate($lang)->slug, $this->entity->translate($lang)->slug));
                 }
-                return route($routeName, $this->entity->$lang->slug);
+                return route($routeName, $this->entity->translate($lang)->slug);
             } catch (Exception $e) {
                 return $lang;
             }
@@ -107,7 +107,7 @@ abstract class Presenter
         $routeName = substr($routeName, 0, strrpos($routeName, '.'));
         try { // Does this public route exists ?
             if ($this->entity->category) { // there is a category
-                return route($routeName, $this->entity->category->$lang->slug);
+                return route($routeName, $this->entity->category->translate($lang)->slug);
             }
             return route($routeName);
         } catch (Exception $e) {
