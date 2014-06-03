@@ -29,12 +29,12 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => 'samsfactory.com',
-			'username'  => 'samsfactory',
-			'password'  => 'samu2356',
-			'key'       => '',
-			'keyphrase' => '',
-			'root'      => '/var/www/typicms.samsfactory.com',
+			'host'      => getenv('REMOTE_HOST'),
+			'username'  => getenv('REMOTE_USERNAME'),
+			'password'  => getenv('REMOTE_PASSWORD'),
+			'key'       => getenv('REMOTE_KEY'),
+			'keyphrase' => getenv('REMOTE_KEYPHRASE'),
+			'root'      => getenv('REMOTE_ROOT'),
 		),
 
 	),

@@ -15,17 +15,17 @@ return array(
 	*/
 
 	'mailgun' => array(
-		'domain' => '',
-		'secret' => '',
+		'domain' => getenv('MAILGUN_DOMAIN'),
+		'secret' => getenv('MAILGUN_SECRET'),
 	),
 
 	'mandrill' => array(
-		'secret' => '',
+		'secret' => getenv('MANDRILL_SECRET'),
 	),
 
 	'stripe' => array(
 		'model'  => 'User',
-		'secret' => '',
+		'secret' => getenv('STRIPE_SECRET'),
 	),
 
 );
