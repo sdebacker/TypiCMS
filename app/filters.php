@@ -36,8 +36,14 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (Auth::guest()){
+		if (Request::ajax()){
+			return Response::make('Unauthorized', 401);
+		}
+		return Redirect::guest('login');
+	}
 });
+
 
 
 Route::filter('auth.basic', function()
@@ -50,13 +56,20 @@ Route::filter('auth.public', function()
 	if ( ! Config::get('typicms.authPublic')) return;
 
 	if ( ! Sentry::check()) {
+		if (Request::ajax()){
+			return Response::make('Unauthorized', 401);
+		}
 		return Redirect::guest(route('login'));
 	}
 });
 
 Route::filter('auth.admin', function()
 {
-	if ( ! Sentry::check()) {
+	if ( ! Sentry::check())
+	{
+		if (Request::ajax()){
+			return Response::make('Unauthorized', 401);
+		}
 		return Redirect::guest(route('login'));
 	}
 	$route = Route::getCurrentRoute()->getName();
