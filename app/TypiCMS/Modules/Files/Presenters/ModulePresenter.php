@@ -8,7 +8,7 @@ use TypiCMS\Presenters\Presenter;
 class ModulePresenter extends Presenter
 {
 
-    public function thumb($size = 'sm')
+    public function thumb($size = 'sm', $options = array('quadrant' => 'T'))
     {
         $sizes = ['xs' => 24, 'sm' => 130, 'md' => 200, 'lg' => 400];
 
@@ -17,7 +17,7 @@ class ModulePresenter extends Presenter
                 '/'.$this->entity->path.'/'.$this->entity->filename,
                 $sizes[$size],
                 $sizes[$size],
-                array('quadrant' => 'T')
+                $options
             );
             return '<img src="' . $src . '" alt="' . $this->entity->alt_attribute . '">';
         } else {
