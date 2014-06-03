@@ -32,12 +32,12 @@ return array(
 	|--------------------------------------------------------------------------
 	*/
 
-	'providers' => array(
-
+	'providers' => append_config(array(
+	
 		'Barryvdh\Debugbar\ServiceProvider',
-		// 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'LeroyMerlin\LaraSniffer\ServiceProvider',
 
-	),
+	)),
 
 );

@@ -1,8 +1,8 @@
 <?php
 namespace TypiCMS\Services\Form;
 
-use Config;
 use Input;
+use Config;
 
 abstract class AbstractForm
 {

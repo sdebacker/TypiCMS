@@ -3,7 +3,9 @@ Route::model('places', 'TypiCMS\Modules\Places\Models\Place');
 
 if (! App::runningInConsole()) {
     Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
-        foreach (App::make('TypiCMS.routes')['places'] as $lang => $uri) {
+        $routes = app('TypiCMS.routes');
+        foreach (Config::get('app.locales') as $lang) {
+            $uri = (array_key_exists('places', $routes)) ? $routes['places'][$lang] : $lang.'/places' ;
             Route::get(
                 $uri,
                 array(

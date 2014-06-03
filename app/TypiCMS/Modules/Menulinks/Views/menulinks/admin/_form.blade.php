@@ -21,28 +21,28 @@
 
             @foreach ($locales as $lang)
 
-            <div class="tab-pane fade @if ($locale == $lang)in active@endif" id="{{ $lang }}">
+            <div class="tab-pane fade @if ($locale == $lang)in active @endif" id="{{ $lang }}">
                 <div class="form-group">
                     {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                    {{ Form::text($lang.'[title]', $model->$lang->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
+                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
                     {{ Form::label($lang.'[uri]', trans('validation.attributes.uri')) }}
                     <div class="input-group">
                         <span class="input-group-addon">/</span>
-                        {{ Form::text($lang.'[uri]', $model->$lang->uri, array('class' => 'form-control')) }}
+                        {{ Form::text($lang.'[uri]', $model->translate($lang)->uri, array('class' => 'form-control')) }}
                     </div>
                 </div>
-                <div class="form-group @if($errors->has($lang.'.url'))has-error@endif">
+                <div class="form-group @if($errors->has($lang.'.url'))has-error @endif">
                     {{ Form::label($lang.'[url]', trans('validation.attributes.website')) }}
-                    {{ Form::text($lang.'[url]', $model->$lang->url, array('class' => 'form-control', 'placeholder' => 'http://')) }}
+                    {{ Form::text($lang.'[url]', $model->translate($lang)->url, array('class' => 'form-control', 'placeholder' => 'http://')) }}
                     @if($errors->has($lang.'.url'))
                     <span class="help-block">{{ $errors->first($lang.'.url') }}</span>
                     @endif
                 </div>
                 <div class="form-group">
                     <label class="checkbox">
-                        {{ Form::checkbox($lang.'[status]', 1, $model->$lang->status) }} @lang('validation.attributes.online')
+                        {{ Form::checkbox($lang.'[status]', 1, $model->translate($lang)->status) }} @lang('validation.attributes.online')
                     </label>
                 </div>
             </div>
@@ -73,7 +73,7 @@
             </div>
             <div class="col-sm-6">
                 {{ Form::label('class', trans('validation.attributes.class')) }}
-                {{ Form::text('class', $model->$lang->class, array('class' => 'form-control')) }}
+                {{ Form::text('class', $model->translate($lang)->class, array('class' => 'form-control')) }}
             </div>
         </div>
 

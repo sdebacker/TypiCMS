@@ -17,18 +17,18 @@
 
             @foreach ($locales as $lang)
 
-            <div class="tab-pane fade @if ($locale == $lang)in active@endif" id="{{ $lang }}">
+            <div class="tab-pane fade @if ($locale == $lang)in active @endif" id="{{ $lang }}">
                 <div class="form-group">
                     {{ Form::label($lang.'[alt_attribute]', trans('validation.attributes.alt_attribute')) }}
-                    {{ Form::text($lang.'[alt_attribute]', $model->$lang->alt_attribute, array('class' => 'form-control')) }}
+                    {{ Form::text($lang.'[alt_attribute]', $model->translate($lang)->alt_attribute, array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
                     {{ Form::label($lang.'[description]', trans('validation.attributes.description')) }}
-                    {{ Form::textarea($lang.'[description]', $model->$lang->description, array('class' => 'form-control')) }}
+                    {{ Form::textarea($lang.'[description]', $model->translate($lang)->description, array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
                     {{ Form::label($lang.'[keywords]', trans('validation.attributes.keywords')) }}
-                    {{ Form::text($lang.'[keywords]', $model->$lang->keywords, array('class' => 'form-control')) }}
+                    {{ Form::text($lang.'[keywords]', $model->translate($lang)->keywords, array('class' => 'form-control')) }}
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
         {{ Form::hidden('height') }}
         {{ Form::hidden('download_count', $model->download_count ?: 0) }}
 
-        <div class="clearfix well media @if($errors->has('file'))has-error@endif">
+        <div class="clearfix well media @if($errors->has('file'))has-error @endif">
             @if(isset($model->filename) and $model->filename)
             <div class="pull-left">
                 @if (in_array(strtolower($model->extension), array('.jpg', '.jpeg', '.gif', '.png')))
