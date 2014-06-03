@@ -8,3 +8,4 @@ node_modules
 app/tests/_log
 
 app/config/local/cache.php
+_ide_helper.php
