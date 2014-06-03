@@ -6,7 +6,9 @@ Route::bind('contacts', function ($value, $route) {
 
 if (! App::runningInConsole()) {
     Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
-        foreach (App::make('TypiCMS.routes')['contacts'] as $lang => $uri) {
+        $routes = app('TypiCMS.routes');
+        foreach (Config::get('app.locales') as $lang) {
+            $uri = (array_key_exists('contacts', $routes)) ? $routes['contacts'][$lang] : $lang.'/contacts' ;
             Route::get(
                 $uri,
                 array(
