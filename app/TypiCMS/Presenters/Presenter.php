@@ -96,7 +96,13 @@ abstract class Presenter
         if (isset($this->entity->translate($lang)->slug) and $this->entity->translate($lang)->status) {
             try { // Does this public route exists ?
                 if ($this->entity->category) { // there is a category
-                    return route($routeName, array($this->entity->category->translate($lang)->slug, $this->entity->translate($lang)->slug));
+                    return route(
+                        $routeName,
+                        array(
+                            $this->entity->category->translate($lang)->slug,
+                            $this->entity->translate($lang)->slug
+                        )
+                    );
                 }
                 return route($routeName, $this->entity->translate($lang)->slug);
             } catch (Exception $e) {
