@@ -1,12 +1,3 @@
-@section('css')
-    {{ HTML::style(asset('css/gmaps.css')) }}
-@stop
-
-@section('js')
-    {{ HTML::script(asset('//maps.googleapis.com/maps/api/js?sensor=false&amp;language='.Config::get('app.locale'))) }}
-    {{ HTML::script(asset('js/gmaps.js')) }}
-@stop
-
 @section('main')
 
     <h2>{{ Str::title(trans_choice('places::global.places', 2)) }}</h2>

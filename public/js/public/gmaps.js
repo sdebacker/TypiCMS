@@ -1,4 +1,6 @@
-$( document ).ready(function() {
+var $ = require('jquery');
+
+module.exports = function() {
 
 	// Gmaps
 	if ($('#map').length) {
@@ -159,4 +161,4 @@ $( document ).ready(function() {
 		return false;
 	});
 
-});
+}
