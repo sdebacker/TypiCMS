@@ -3,7 +3,7 @@ function initTinymce(selector) {
         element_format : "html",
         selector: selector,
         fix_list_elements : true,
-        height : 400,
+        height : 600,
         menubar: false,
         entity_encoding : 'raw',
         plugins: 'paste,table,nonbreaking,link,code,image,contextmenu',
