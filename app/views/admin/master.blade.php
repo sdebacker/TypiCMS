@@ -15,7 +15,7 @@
 @yield('css')
     {{ HTML::style(asset('css/admin.css')) }}
 
-    {{ HTML::script(asset('vendor/jquery/jquery.js')) }}
+    {{ HTML::script(asset('vendor/jquery/dist/jquery.js')) }}
     {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery-ui.min.js')) }}
     {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.core.min.js')) }}
     {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.mouse.min.js')) }}
