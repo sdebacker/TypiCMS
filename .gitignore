@@ -1,5 +1,6 @@
 /vendor
 public/packages
+public/vendor
 app/assets/components
 node_modules
 .DS_Store
