@@ -6,11 +6,11 @@ var gulp       = require('gulp'),
     minifyCSS  = require('gulp-minify-css'),
     uglify     = require('gulp-uglify'),
     watch      = require('gulp-watch'),
-    bower      = require("gulp-bower-files"),
-    livereload = require("gulp-livereload"),
-    browserify = require("gulp-browserify"),
-    rename     = require("gulp-rename"),
-    plumber    = require("gulp-plumber");
+    bower      = require('gulp-bower-files'),
+    livereload = require('gulp-livereload'),
+    browserify = require('gulp-browserify'),
+    rename     = require('gulp-rename'),
+    plumber    = require('gulp-plumber');
 
 // Compile Less and save to target CSS directory
 gulp.task('public-less', function () {
@@ -63,7 +63,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('bower', function(){
-    bower().pipe(gulp.dest("public/vendor"));
+    bower().pipe(gulp.dest('public/vendor'));
 });
 
 // What tasks does running gulp trigger?
