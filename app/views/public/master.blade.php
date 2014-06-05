@@ -10,7 +10,6 @@
 
     {{ HTML::style(asset('css/public.css')) }}
     {{ HTML::style(asset('vendor/fancybox/source/jquery.fancybox.css')) }}
-    {{ HTML::style(asset('css/gmaps.css')) }}
 
     @yield('css')
 
@@ -99,7 +98,6 @@
 
     @endif
 
-    {{ HTML::script(asset('//maps.googleapis.com/maps/api/js?sensor=false&amp;language='.Config::get('app.locale'))) }}
     {{ HTML::script(asset('js/public/bundle.js')) }}
     
     @yield('js')
