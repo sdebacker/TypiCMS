@@ -67,4 +67,4 @@ gulp.task("bower", function(){
 });
 
 // What tasks does running gulp trigger?
-gulp.task('default', ['bower', 'public-less', 'admin-less', 'public-js', 'watch']);
+gulp.task('default', ['public-less', 'admin-less', 'public-js', 'watch']);
