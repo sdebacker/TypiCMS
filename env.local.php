@@ -1,5 +1,6 @@
 <?php
 return array(
+    'MYSQL_HOST'     => 'localhost',
 	'MYSQL_DATABASE' => 'typicms',
 	'MYSQL_USERNAME' => 'root',
 	'MYSQL_PASSWORD' => '',

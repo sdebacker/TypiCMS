@@ -7,7 +7,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => getenv('MYSQL_HOST'),
 			'database'  => getenv('MYSQL_DATABASE'),
 			'username'  => getenv('MYSQL_USERNAME'),
 			'password'  => getenv('MYSQL_PASSWORD'),
