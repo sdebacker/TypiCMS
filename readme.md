@@ -15,6 +15,8 @@ Bower and gulp are used for assets management and user interface is build with B
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
+  - [Bower & Gulp](#bower--gulp)
+  - [Configuration](#configuration)
 - [Modules](#modules)
 - [Facades](#facades)
 - [Roadmap](#roadmap)
@@ -60,7 +62,9 @@ This kind of urls are managed by the CMS :
 6. Create a new database with the name filled in .env.local.php
 7. Migrate and seed Database : ``` php artisan migrate --seed ```
 8. Set permissions ``` chmod -R 777 app/storage ``` and ``` chmod -R 777 public/uploads ```
-9. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
+9. In development mode you should run ``` php artisan debugbar:publish ``` 
+10. Complete *[Bower & Gulp](#bower--gulp)* section below in order to have all necessary assets
+11. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
 
 ### Bower & Gulp
 
@@ -68,6 +72,7 @@ You need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [
 
 1. Install bower packages (in app/assets/components): ``` bower install ```
 2. Install Gulp packages: ``` npm install ```
+3. Run ``` gulp ``` to compile admin and public assets
 
 ### Configuration
 
