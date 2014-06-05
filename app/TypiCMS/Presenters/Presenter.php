@@ -106,7 +106,10 @@ abstract class Presenter
                 }
                 return route($routeName, $this->entity->translate($lang)->slug);
             } catch (Exception $e) {
-                return $lang;
+                if (Config::get('app.locale_in_url')) {
+                    return $lang;
+                }
+                return '/';
             }
         }
         // If model is offline or there is no translation
@@ -117,7 +120,10 @@ abstract class Presenter
             }
             return route($routeName);
         } catch (Exception $e) {
-            return $lang;
+            if (Config::get('app.locale_in_url')) {
+                return $lang;
+            }
+            return '/';
         }
     }
 

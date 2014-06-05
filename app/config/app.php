@@ -65,6 +65,17 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
+	| Do you want locale as first segment in url ?
+	|--------------------------------------------------------------------------
+	| Only compatible with unilingual sites. Don't set this to true
+	| if you have more than one item in locales array above.
+	|
+	*/
+
+	'locale_in_url' => true,
+
+	/*
+	|--------------------------------------------------------------------------
 	| Application Fallback Locale
 	|--------------------------------------------------------------------------
 	|

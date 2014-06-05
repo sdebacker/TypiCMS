@@ -9,7 +9,14 @@ if (! App::runningInConsole()) {
     Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
         $routes = app('TypiCMS.routes');
         foreach (Config::get('app.locales') as $lang) {
-            $uri = (array_key_exists('galleries', $routes)) ? $routes['galleries'][$lang] : $lang.'/galleries' ;
+            if (array_key_exists('galleries', $routes)) {
+                $uri = $routes['galleries'][$lang];
+            } else {
+                $uri = 'galleries';
+                if (Config::get('app.locale_in_url')) {
+                    $uri = $lang . '/' . $uri;
+                }
+            }
             Route::get(
                 $uri,
                 array(

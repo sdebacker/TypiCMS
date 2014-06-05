@@ -34,7 +34,10 @@ class ModulePresenter extends Presenter
         try { // Does this public route exists ?
             return route($routeName);
         } catch (Exception $e) {
-            return $lang;
+            if (Config::get('app.locale_in_url')) {
+                return $lang;
+            }
+            return '/';
         }
     }
 }

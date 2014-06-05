@@ -70,11 +70,13 @@
     {{ Form::text('googleAnalyticsCode', null, array('class' => 'form-control')) }}
     </div>
 </div>
+@if (Config::get('app.locale_in_url'))
 <div class="form-group">
     <label class="checkbox">
         {{ Form::checkbox('langChooser', 1) }} {{ trans('validation.attributes.langChooser') }}
     </label>
 </div>
+@endif
 <div class="form-group">
     <label class="checkbox">
         {{ Form::checkbox('authPublic', 1) }} {{ trans('validation.attributes.authPublic') }}

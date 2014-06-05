@@ -7,13 +7,17 @@ class ModulePresenter extends Presenter
 {
     /**
      * Get public url
+     * 
      * @param  string $lang
      * @return string       uri
      */
     public function publicUri($lang)
     {
         if ($this->entity->is_home) {
-            return '/' . $lang;
+            if (Config::get('app.locale_in_url')) {
+                return '/' . $lang;
+            }
+            return '/';
         }
         return '/' . $this->entity->translate($lang)->uri;
     }
@@ -25,9 +29,12 @@ class ModulePresenter extends Presenter
      */
     public function parentUri($lang)
     {
-        $parentUri = $this->entity->translate($lang)->uri ;
+        $parentUri = $this->entity->translate($lang)->uri;
         if (! $parentUri) {
-            return $lang . '/' ;
+            if (Config::get('app.locale_in_url')) {
+                return $lang . '/';
+            }
+            return '/';
         }
         $parentUri = explode('/', $parentUri);
         array_pop($parentUri);

@@ -19,15 +19,22 @@ class PageTranslation extends Eloquent
             // Build page's URI
             $model->uri = null;
             if ($model->slug) {
-                $slug = $model->slug;
-                $model->uri = $model->locale.'/'.$slug;
+
+                $model->uri = $model->slug;
+
+                if (Config::get('app.locale_in_url')) {
+                    $model->uri = $model->locale . '/' . $model->uri;
+                }
 
                 $i = 0;
                 // Check uri is unique
                 while ($self::where('uri', $model->uri)->first()) {
                     $i++;
                     // increment uri if exists
-                    $model->uri = $model->locale.'/'.$model->slug.'-'.$i;
+                    $model->uri = $model->slug . '-' . $i;
+                    if (Config::get('app.locale_in_url')) {
+                        $model->uri = $model->locale . '/' . $model->uri;
+                    }
                 }
 
             }

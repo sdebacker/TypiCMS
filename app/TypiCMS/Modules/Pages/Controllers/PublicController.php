@@ -32,10 +32,11 @@ class PublicController extends BasePublicController
     public function uri($uri = null)
     {
         if ($uri == '/') {
-            return $this->root();
-        }
-
-        if (in_array($uri, Config::get('app.locales'))) {
+            if (Config::get('app.locale_in_url')) {
+                return $this->root();
+            }
+            $model = $this->repository->getFirstBy('is_home', 1);
+        } else if (in_array($uri, Config::get('app.locales')) and Config::get('app.locale_in_url')) {
             // Homepage: uri = /en (or other language)
             $model = $this->repository->getFirstBy('is_home', 1);
         } else {
