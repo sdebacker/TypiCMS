@@ -12,14 +12,11 @@ var gulp       = require('gulp'),
     rename     = require("gulp-rename"),
     plumber    = require("gulp-plumber");
 
-// Where do you store your Less files?
-var lessDir = 'app/assets/less';
-
 // Compile Less and save to target CSS directory
 gulp.task('public-less', function () {
 
     return gulp.src([
-            lessDir + '/public.less'
+            'app/assets/less/public/public.less'
         ])
         .pipe(plumber())
         .pipe(less())
@@ -33,7 +30,7 @@ gulp.task('public-less', function () {
 gulp.task('admin-less', function () {
 
     return gulp.src([
-            lessDir + '/admin.less'
+            'app/assets/less/admin/admin.less'
         ])
         .pipe(plumber())
         .pipe(less())
@@ -59,7 +56,8 @@ gulp.task('public-js', function () {
 
 // Keep an eye on Less and JS files for changes…
 gulp.task('watch', function () {
-    gulp.watch(lessDir + '/*.less', ['public-less', 'admin-less']);
+    gulp.watch('app/assets/less/public/**/*.less', ['public-less']);
+    gulp.watch('app/assets/less/admin/**/*.less', ['admin-less']);
     gulp.watch('public/js/public/**/*.js', ['public-js']);
 });
 
