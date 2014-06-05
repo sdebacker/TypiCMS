@@ -6,7 +6,7 @@ var gulp       = require('gulp'),
     minifyCSS  = require('gulp-minify-css'),
     uglify     = require('gulp-uglify'),
     watch      = require('gulp-watch'),
-    bowerFiles = require("gulp-bower-files"),
+    bower      = require("gulp-bower-files"),
     livereload = require("gulp-livereload"),
     browserify = require("gulp-browserify"),
     rename     = require("gulp-rename"),
@@ -62,8 +62,8 @@ gulp.task('watch', function () {
     gulp.watch('public/js/public/**/*.js', ['public-js']);
 });
 
-gulp.task("bower", function(){
-    bowerFiles().pipe(gulp.dest("public/vendor"));
+gulp.task('bower', function(){
+    bower().pipe(gulp.dest("public/vendor"));
 });
 
 // What tasks does running gulp trigger?
