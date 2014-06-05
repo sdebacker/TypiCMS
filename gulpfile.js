@@ -58,6 +58,7 @@ gulp.task('public-js', function () {
 gulp.task('watch', function () {
     gulp.watch('app/assets/less/public/**/*.less', ['public-less']);
     gulp.watch('app/assets/less/admin/**/*.less', ['admin-less']);
+    gulp.watch('app/assets/less/*.less', ['public-less', 'admin-less']);
     gulp.watch('public/js/public/**/*.js', ['public-js']);
 });
 
