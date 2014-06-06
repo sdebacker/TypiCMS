@@ -2,6 +2,7 @@
 namespace TypiCMS\Presenters;
 
 use Route;
+use Config;
 
 use Exception;
 
