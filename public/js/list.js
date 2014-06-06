@@ -140,7 +140,11 @@ function initListForm() {
 			newStatusValue = $(this).hasClass('online') ? 0 : 1 ,
 			data = {};
 		data['id'] = id;
-		data[contentLocale] = {'status' : newStatusValue};
+		if (contentLocale) {
+			data[contentLocale] = {'status' : newStatusValue};
+		} else {
+			data['status'] = newStatusValue;
+		}
 		$(this).removeClass(status).addClass(newStatus);
 		$.ajax({
 			type: 'PATCH',
@@ -168,7 +172,13 @@ function initListForm() {
 				checkbox = $(this),
 				data = {};
 			data['id'] = id;
-			data[contentLocale] = {'status' : 1};
+
+			if (contentLocale) {
+				data[contentLocale] = {'status' : 1};
+			} else {
+				data['status'] = 1;
+			}
+
 			$.ajax({
 				type: 'PATCH',
 				url: url + '/' + id,
@@ -200,7 +210,13 @@ function initListForm() {
 				checkbox = $(this),
 				data = {};
 			data['id'] = id;
-			data[contentLocale] = {'status' : 0};
+
+			if (contentLocale) {
+				data[contentLocale] = {'status' : 0};
+			} else {
+				data['status'] = 0;
+			}
+
 			$.ajax({
 				type: 'PATCH',
 				url: url + '/' + id,
