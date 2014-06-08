@@ -8,6 +8,12 @@ use TypiCMS\Presenters\Presenter;
 class ModulePresenter extends Presenter
 {
 
+    /**
+     * Create thumb
+     * @param  string $size    xs, sm, md, lg
+     * @param  array  $options PHPThumb style option
+     * @return string          html img tag or div with doc icon
+     */
     public function thumb($size = 'sm', $options = array('quadrant' => 'T'))
     {
         $sizes = ['xs' => 24, 'sm' => 130, 'md' => 200, 'lg' => 400];
@@ -25,6 +31,11 @@ class ModulePresenter extends Presenter
         }
     }
 
+    /**
+     * Check if file is an image
+     * @param  Object  $object file object
+     * @return boolean
+     */
     private function isImage($object)
     {
         return in_array(strtolower($object->extension), array('.jpg', '.jpeg', '.gif', '.png'));
