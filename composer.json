@@ -34,12 +34,12 @@
 		"thomaswelton/laravel-gravatar": "~0.0.2"
 	},
 	"require-dev": {
-		"barryvdh/laravel-debugbar": "1.*",
+		"barryvdh/laravel-debugbar": "~1.6",
 		"barryvdh/laravel-ide-helper": "~1.9",
 		"leroy-merlin-br/larasniffer": "~1.0.2",
-		"mockery/mockery": "0.9.*@dev",
-		"phpspec/phpspec": "2.0.*@dev",
-		"raveren/kint": "dev-master"
+		"mockery/mockery": "~0.9",
+		"phpspec/phpspec": "~2.0",
+		"raveren/kint": "~0.9"
 	},
 	"autoload": {
 		"classmap": [
@@ -60,8 +60,8 @@
 			"php artisan clear-compiled"
 		],
 		"post-update-cmd": [
-			"php artisan optimize",
-			"php artisan ide-helper:generate"
+			"php artisan ide-helper:generate",
+			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
 			"php artisan key:generate"
