@@ -1,11 +1,13 @@
 /bootstrap/compiled.php
 /vendor
 public/packages
-public/vendor
 app/assets/components
 node_modules
+.env.*.php
+.env.php
 .DS_Store
-.env.local.php
+Thumbs.db
+
 .idea
 app/tests/_log
 
