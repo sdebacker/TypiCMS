@@ -30,8 +30,9 @@ class PublicController extends BasePublicController
      */
     public function index()
     {
-        $page = Input::get('page');
+        TypiCMS::setModel($this->repository->getModel());
 
+        $page = Input::get('page');
         $itemsPerPage = Config::get('galleries::public.itemsPerPage');
 
         $data = $this->repository->byPage($page, $itemsPerPage, array('translations'));

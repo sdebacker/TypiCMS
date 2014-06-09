@@ -27,6 +27,8 @@ class PublicController extends BasePublicController
      */
     public function index($category = null)
     {
+        TypiCMS::setModel($this->repository->getModel());
+
         $this->title['child'] = '';
 
         $relatedModels = array('translations', 'category', 'category.translations');

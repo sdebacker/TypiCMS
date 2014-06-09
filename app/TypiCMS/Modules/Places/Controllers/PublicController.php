@@ -6,6 +6,8 @@ use View;
 use Request;
 use Response;
 
+use TypiCMS;
+
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 
 // Base controller
@@ -27,6 +29,8 @@ class PublicController extends BasePublicController
      */
     public function index()
     {
+        TypiCMS::setModel($this->repository->getModel());
+
         $this->title['child'] = '';
 
         $places = $this->repository->getAll(array('translations'));
@@ -66,6 +70,8 @@ class PublicController extends BasePublicController
     public function show($slug)
     {
         $model = $this->repository->bySlug($slug);
+
+        TypiCMS::setModel($model);
 
         // dd($model->toJson());
         if (Request::wantsJson()) {

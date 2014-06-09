@@ -65,7 +65,7 @@ class TypiCMS
     */
     private function getTranslatedUrl($lang)
     {
-        if ($this->model) {
+        if ($this->model and $this->model->id) {
             return $this->model->present()->publicUri($lang);
         }
         if ($routeName = Route::current()->getUri() != '/') {
@@ -128,7 +128,12 @@ class TypiCMS
         $url = route('dashboard');
         $title = ucfirst(trans('global.admin side', array(), null, Config::get('typicms.adminLocale')));
         if ($this->model) {
-            $url = route('admin.' . $this->model->route . '.edit', $this->model->id) . '?locale=' . App::getLocale();
+            if (! $this->model->id) {
+                $url = route('admin.' . $this->model->route . '.index');
+            } else {
+                $url = route('admin.' . $this->model->route . '.edit', $this->model->id);
+            }
+            $url .= '?locale=' . App::getLocale();
             // $title = 'Edit ' . $this->model->title;
         }
         return HTML::link($url, $title, $attributes);
