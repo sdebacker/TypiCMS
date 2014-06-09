@@ -10,16 +10,32 @@ use TypiCMS\Presenters\Presenter;
 class ModulePresenter extends Presenter
 {
 
+    /**
+     * Return start_date formated as d.m.Y
+     * 
+     * @return string
+     */
     public function startDate()
     {
         return $this->entity->start_date->format('d.m.Y');
     }
 
+    /**
+     * Return end_date formated as d.m.Y
+     * 
+     * @return string
+     */
     public function endDate()
     {
         return $this->entity->end_date->format('d.m.Y');
     }
 
+    /**
+     * concat start and end date
+     * without repeating common month and year
+     * 
+     * @return string html data
+     */
     public function dateFromTo()
     {
         $sDate = $this->entity->start_date;
