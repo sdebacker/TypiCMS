@@ -31,6 +31,13 @@ if (! App::runningInConsole()) {
                     'uses' => 'TypiCMS\Modules\Events\Controllers\PublicController@show'
                 )
             );
+            Route::get(
+                $uri.'/{slug}/ics',
+                array(
+                    'as' => $lang.'.events.slug.ics',
+                    'uses' => 'TypiCMS\Modules\Events\Controllers\PublicController@ics'
+                )
+            );
         }
     });
 }

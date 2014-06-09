@@ -14,6 +14,7 @@ class TranslationSeeder extends Seeder
             array('id'=>6, 'group'=>'db', 'key'=>'Search', 'created_at'=>'2014-02-28 22:50:19', 'updated_at'=>'2014-02-28 22:50:19'),
             array('id'=>7, 'group'=>'db', 'key'=>'message when contact form is sent', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
             array('id'=>8, 'group'=>'db', 'key'=>'message when errors in form', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
+            array('id'=>9, 'group'=>'db', 'key'=>'Add to calendar', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
         );
 
         $typi_translation_translations = array(
@@ -41,6 +42,9 @@ class TranslationSeeder extends Seeder
             array('translation_id'=>8, 'locale'=>'fr', 'translation'=>'Veuillez s’il vous plaît corriger les erreurs ci-dessous', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
             array('translation_id'=>8, 'locale'=>'en', 'translation'=>'Please correct the errors below', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
             array('translation_id'=>8, 'locale'=>'nl', 'translation'=>'Gelieve de onderstaande fouten te corrigeren', 'created_at'=>'2014-05-17 22:50:51', 'updated_at'=>'2014-05-17 22:50:51'),
+            array('translation_id'=>9, 'locale'=>'fr', 'translation'=>'Ajouter au calendrier', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
+            array('translation_id'=>9, 'locale'=>'en', 'translation'=>'Toevoegen aan Agenda', 'created_at'=>'2014-05-17 22:50:19', 'updated_at'=>'2014-05-17 22:50:19'),
+            array('translation_id'=>9, 'locale'=>'nl', 'translation'=>'Add to calendar', 'created_at'=>'2014-05-17 22:50:51', 'updated_at'=>'2014-05-17 22:50:51'),
         );
 
         DB::table('translations')->insert( $typi_translations );

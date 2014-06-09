@@ -25,6 +25,11 @@ use TypiCMS\Modules\Events\Services\Form\EventFormLaravelValidator;
 // Observers
 use TypiCMS\Observers\SlugObserver;
 
+// Calendar
+use TypiCMS\Modules\Events\Services\Calendar;
+use Eluceo\iCal\Component\Calendar as EluceoCalendar;
+use Eluceo\iCal\Component\Event as EluceoEvent;
+
 class ModuleProvider extends ServiceProvider
 {
 
@@ -61,6 +66,13 @@ class ModuleProvider extends ServiceProvider
             return new EventForm(
                 new EventFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Events\Repositories\EventInterface')
+            );
+        });
+
+        $app->bind('TypiCMS\Modules\Events\Services\Calendar', function ($app) {
+            return new Calendar(
+                new EluceoCalendar('TypiCMS'),
+                new EluceoEvent
             );
         });
 

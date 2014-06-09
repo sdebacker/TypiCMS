@@ -5,9 +5,12 @@ use Str;
 use View;
 use Input;
 use Config;
+use Response;
 use Paginator;
 
 use TypiCMS;
+
+use TypiCMS\Modules\Events\Services\Calendar;
 
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 
@@ -17,10 +20,13 @@ use TypiCMS\Controllers\BasePublicController;
 class PublicController extends BasePublicController
 {
 
-    public function __construct(EventInterface $event)
+    protected $calendar;
+
+    public function __construct(EventInterface $event, Calendar $calendar)
     {
         parent::__construct($event);
         $this->title['parent'] = Str::title(trans_choice('events::global.events', 2));
+        $this->calendar = $calendar;
     }
 
     /**
@@ -57,5 +63,24 @@ class PublicController extends BasePublicController
 
         $this->layout->content = View::make('events.public.show')
             ->withModel($model);
+    }
+
+    /**
+     * Show event.
+     *
+     * @param  int      $id
+     * @return Response
+     */
+    public function ics($slug)
+    {
+        $event = $this->repository->bySlug($slug);
+
+        $this->calendar->add($event);
+
+        $response = Response::make($this->calendar->render(), 200);
+        $response->header('Content-Type', 'text/calendar; charset=utf-8');
+        $response->header('Content-Disposition', 'attachment; filename="' . $event->slug . '.ics"');
+
+        return $response;
     }
 }
