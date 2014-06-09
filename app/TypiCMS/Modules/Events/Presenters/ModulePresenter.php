@@ -48,4 +48,20 @@ class ModulePresenter extends Presenter
         return $dateFromTo;
 
     }
+
+    /**
+     * concat start and end time
+     * 
+     * @return string
+     */
+    public function timeFromTo()
+    {
+        $timeFromTo = $this->entity->start_time;
+        $eTime = $this->entity->end_time;
+        if ($eTime) {
+            $timeFromTo .= ' - ' . $eTime;
+        }
+        return $timeFromTo;
+
+    }
 }
