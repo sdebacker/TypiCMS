@@ -22,7 +22,7 @@
         <span class="help-block">{{ $errors->first('start_date') }}</span>
         @endif
     </div>
-    <div class="col-sm-3 form-group">
+    <div class="col-sm-3 form-group @if($errors->has('start_time'))has-error @endif">
         {{ Form::label('start_time', trans('validation.attributes.start_time'), array('class' => 'control-label')) }}
         <div class="input-group picker-time">
             {{ Form::text('start_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
@@ -32,6 +32,9 @@
                 </button>
             </span>
         </div>
+        @if($errors->has('start_time'))
+        <span class="help-block">{{ $errors->first('start_time') }}</span>
+        @endif
     </div>
 </div>
 
@@ -50,7 +53,7 @@
         <span class="help-block">{{ $errors->first('end_date') }}</span>
         @endif
     </div>
-    <div class="col-sm-3 form-group">
+    <div class="col-sm-3 form-group @if($errors->has('end_time'))has-error @endif">
         {{ Form::label('end_time', trans('validation.attributes.end_time'), array('class' => 'control-label')) }}
         <div class="input-group picker-time">
             {{ Form::text('end_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
@@ -60,6 +63,9 @@
                 </button>
             </span>
         </div>
+        @if($errors->has('end_time'))
+        <span class="help-block">{{ $errors->first('end_time') }}</span>
+        @endif
     </div>
 </div>
 
