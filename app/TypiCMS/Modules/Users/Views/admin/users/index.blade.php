@@ -45,7 +45,7 @@
                         <td>{{ $model->first_name }} {{ $model->last_name }}</td>
                         <td><a href="mailto:{{ $model->email }}">{{ $model->email }}</a></td>
                         <td>{{ $model->present()->superuser }}</td>
-                        <td>{{ $model->present()->status }}</td>
+                        <td>{{ $model->status }}</td>
                     </tr>
 
                     @endforeach
