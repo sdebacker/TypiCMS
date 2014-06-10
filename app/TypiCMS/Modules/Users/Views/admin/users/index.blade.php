@@ -28,7 +28,7 @@
                         {{ Html::th('checkboxes', null, false, false) }}
                         {{ Html::th('edit', null, false, false) }}
                         {{ Html::th('name', null, false) }}
-                        {{ Html::th('email', 'asc') }}
+                        {{ Html::th('email', null, false) }}
                         {{ Html::th('isSuperUser', null, false) }}
                         {{ Html::th('status', null, false) }}
                     </tr>
