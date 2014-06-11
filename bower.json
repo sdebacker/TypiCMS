@@ -9,9 +9,9 @@
     "jquery-ui": "~1.10.*",
     "fancybox": "~2.1.*",
     "flexslider": "*",
-    "select2": "~3.4.*",
     "font-awesome": "~4.1",
-    "eonasdan-bootstrap-datetimepicker": "~3.*"
+    "eonasdan-bootstrap-datetimepicker": "~3.*",
+    "selectize": "~0.10.1"
   },
   "overrides": {
     "alertify.js": {
@@ -30,20 +30,6 @@
         "src/js/locales/bootstrap-datetimepicker.de.js",
         "src/js/locales/bootstrap-datetimepicker.es.js",
         "src/js/locales/bootstrap-datetimepicker.nl.js"
-      ]
-    },
-    "select2": {
-      "main": [
-        "select2.min.js",
-        "select2_locale_fr.js",
-        "select2_locale_nl.js",
-        "select2_locale_de.js",
-        "select2_locale_es.js",
-        "select2.css",
-        "select2-bootstrap.css",
-        "select2.png",
-        "select2x2.png",
-        "select2-spinner.gif"
       ]
     },
     "fancybox": {

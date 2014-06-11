@@ -74,30 +74,38 @@ function initTinymce(selector) {
         }
 
         /**
-         * Tags with select2 plugin
+         * Selectize for tags
          */
         if ($('#tags').length) {
-            var tags = $.getJSON("/admin/tags", function(data){
-                $('#tags').select2({
-                    tags: data,
-                    tokenSeparators: [',']
+            $.getJSON("/admin/tags", function(data){
+                var items = data.map(function(x) { return { item: x }; });
+                $('#tags').selectize({
+                    persist: false,
+                    create: true,
+                    delimiter: ', ',
+                    options: items,
+                    labelField: 'item',
+                    valueField: 'item',
+                    createOnBlur: true
                 });
             })
         }
 
         /**
-         * Galleries with select2 plugin
+         * Selectize for galleries (Todo : use select[multiple])
          */
         if ($('#select-galleries').length) {
-            var field = $('#select-galleries');
-            var galleries = $.getJSON('/admin/galleries', function(data){
-                field.select2({
-                    tags: data,
-                    tokenSeparators: [',']
-                });
-                field.select2('container').find('ul.select2-choices').sortable({
-                    containment: 'parent',
-                    update: function() { field.select2('onSortEnd'); }
+            $.getJSON("/admin/galleries", function(data){
+                var items = data.map(function(x) { return { item: x }; });
+                $('#select-galleries').selectize({
+                    plugins: ['drag_drop'],
+                    persist: false,
+                    create: true,
+                    delimiter: ', ',
+                    options: items,
+                    labelField: 'item',
+                    valueField: 'item',
+                    createOnBlur: true
                 });
             }).fail(function(){
                 console.log('Error while retrieving galleries');

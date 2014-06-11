@@ -10,8 +10,6 @@
     {{ HTML::style(asset('vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')) }}
     {{ HTML::style(asset('vendor/alertify.js/themes/alertify.core.css')) }}
     {{ HTML::style(asset('vendor/alertify.js/themes/alertify.bootstrap.css')) }}
-    {{ HTML::style(asset('vendor/select2/select2.css')) }}
-    {{ HTML::style(asset('vendor/select2/select2-bootstrap.css')) }}
 @yield('css')
     {{ HTML::style(asset('css/admin.css')) }}
 
@@ -22,10 +20,12 @@
     {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.widget.min.js')) }}
     {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.sortable.min.js')) }}
     {{ HTML::script(asset('vendor/alertify.js/lib/alertify.min.js')) }}
-    {{ HTML::script(asset('vendor/select2/select2.min.js')) }}
-@if(Config::get('app.locale') != 'en')
-    {{ HTML::script(asset('vendor/select2/select2_locale_'.Config::get('app.locale').'.js')) }}
-@endif
+
+    {{-- For selectize --}}
+    {{ HTML::script(asset('vendor/sifter/sifter.js')) }}
+    {{ HTML::script(asset('vendor/microplugin/src/microplugin.js')) }}
+    {{ HTML::script(asset('vendor/selectize/dist/js/selectize.js')) }}
+
     {{ HTML::script(asset('vendor/dropzone/downloads/dropzone.min.js')) }}
     {{ HTML::script(asset('vendor/bootstrap/js/tab.js')) }}
     {{ HTML::script(asset('vendor/bootstrap/js/dropdown.js')) }}
