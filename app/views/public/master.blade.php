@@ -9,7 +9,6 @@
     <title>{{ $title }}</title>
 
     {{ HTML::style(asset('css/public.css')) }}
-    {{ HTML::style(asset('vendor/fancybox/source/jquery.fancybox.css')) }}
 
     @yield('css')
 
@@ -100,7 +99,7 @@
 
     @endif
 
-    {{ HTML::script(asset('js/public/bundle.js')) }}
+    {{ HTML::script(asset('js/public/components.min.js')) }}
     
     @yield('js')
 

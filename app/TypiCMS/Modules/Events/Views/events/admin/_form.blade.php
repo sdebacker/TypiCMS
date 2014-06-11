@@ -1,6 +1,6 @@
 @section('js')
     {{ HTML::script(asset('//tinymce.cachefly.net/4.0/tinymce.min.js')) }}
-    {{ HTML::script(asset('js/form.js')) }}
+    {{ HTML::script(asset('js/admin/form.js')) }}
 @stop
 
 @include('admin._buttons-form')

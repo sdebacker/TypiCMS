@@ -1,5 +1,5 @@
 @section('js')
-    {{ HTML::script('js/checkboxes-permissions.js') }}
+    {{ HTML::script('js/admin/checkboxes-permissions.js') }}
 @stop
 
 <div class="form-group">

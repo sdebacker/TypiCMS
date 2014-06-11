@@ -5,43 +5,21 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <title>{{ $title }}</title>
 
-    {{ HTML::style(asset('vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')) }}
-    {{ HTML::style(asset('vendor/alertify.js/themes/alertify.core.css')) }}
-    {{ HTML::style(asset('vendor/alertify.js/themes/alertify.bootstrap.css')) }}
-@yield('css')
+    @yield('css')
     {{ HTML::style(asset('css/admin.css')) }}
 
-    {{ HTML::script(asset('vendor/jquery/dist/jquery.js')) }}
-    {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery-ui.min.js')) }}
-    {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.core.min.js')) }}
-    {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.mouse.min.js')) }}
-    {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.widget.min.js')) }}
-    {{ HTML::script(asset('vendor/jquery-ui/ui/minified/jquery.ui.sortable.min.js')) }}
-    {{ HTML::script(asset('vendor/alertify.js/lib/alertify.min.js')) }}
+    {{ HTML::script(asset('js/admin/components.min.js')) }}
 
-    {{-- For selectize --}}
-    {{ HTML::script(asset('vendor/sifter/sifter.js')) }}
-    {{ HTML::script(asset('vendor/microplugin/src/microplugin.js')) }}
-    {{ HTML::script(asset('vendor/selectize/dist/js/selectize.js')) }}
+    @if(Config::get('app.locale') != 'en')
+        {{ HTML::script(asset('js/datepicker-locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
+    @endif
 
-    {{ HTML::script(asset('vendor/dropzone/downloads/dropzone.min.js')) }}
-    {{ HTML::script(asset('vendor/bootstrap/js/tab.js')) }}
-    {{ HTML::script(asset('vendor/bootstrap/js/dropdown.js')) }}
-    {{ HTML::script(asset('vendor/bootstrap/js/collapse.js')) }}
-    {{ HTML::script(asset('vendor/bootstrap/js/transition.js')) }}
-    {{ HTML::script(asset('vendor/moment/moment.js')) }}
-    {{ HTML::script(asset('vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')) }}
-@if(Config::get('app.locale') != 'en')
-    {{ HTML::script(asset('vendor/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
-@endif
-    {{ HTML::script(asset('components/jquery.mjs.nestedSortable.js')) }}
-    {{ HTML::script(asset('components/jquery.nestedCookie.js')) }}
-    {{ HTML::script(asset('components/jquery.listenhancer.js')) }}
-    {{ HTML::script(asset('components/jquery.slug.js')) }}
-@yield('js')
-    {{ HTML::script(asset('js/general.js')) }}
+    @yield('js')
+
+    {{ HTML::script(asset('js/admin/master.js')) }}
 
 </head>
 

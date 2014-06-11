@@ -1,5 +1,5 @@
 @section('js')
-    {{ HTML::script(asset('js/form.js')) }}
+    {{ HTML::script(asset('js/admin/form.js')) }}
 @stop
 
 <div class="row">

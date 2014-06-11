@@ -1,4 +1,0 @@
-.collapsable-arrow, .collapsable-noArrow { background:no-repeat left bottom; width:13px; height:17px; display:block; float:left; }
-.collapsable-arrow { background-image:url(../images/directory.png); }
-.collapsable-collapsed > .collapsable-arrow { background-image:url(../images/directoryCollapsed.png); }
-.collapsable-collapsed > ul { display: none; }

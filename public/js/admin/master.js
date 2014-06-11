@@ -3,14 +3,6 @@ var lang = $('html').attr('lang'),
 	content = [];
 
 function translate(string) {
-	// alert(string);
-	// alert('content[string]' + content[string]);
-	// return string; // BUG
-	// if (content[string]) {
-	// 	return content[string];
-	// } else {
-	// 	return string;
-	// }
 	return string;
 }
 

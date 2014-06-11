@@ -1,5 +1,5 @@
 @section('js')
-    {{ HTML::script(asset('js/list.js')) }}
+    {{ HTML::script(asset('js/admin/list.js')) }}
 @stop
 
 @section('bodyClass')

@@ -1,5 +1,5 @@
 @section('js')
-    {{ HTML::script(asset('js/list.js')) }}
+    {{ HTML::script(asset('js/admin/list.js')) }}
     <script>
         function selectAndClose(image) {
             var TinyMCEWindow = top.tinymce.activeEditor.windowManager;
