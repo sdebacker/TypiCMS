@@ -44,7 +44,7 @@ class AdminController extends BaseAdminController
         $this->title['child'] = trans('pages::global.New');
         $model = $this->repository->getModel();
         $this->layout->content = View::make('pages.admin.create')
-            ->with('model', $model);
+            ->withModel($model);
     }
 
     /**

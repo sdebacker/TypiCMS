@@ -44,43 +44,6 @@ class AdminController extends BaseAdminController
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        $this->title['child'] = trans('groups::global.New');
-
-        $this->layout->content = View::make('admin.groups.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        // Form Processing
-        $result = $this->form->save(Input::all());
-
-        if ($result['success']) {
-            // Success!
-            Notification::success($result['message']);
-
-            return Redirect::route('admin.groups.index');
-
-        } else {
-            Notification::error($result['message']);
-
-            return Redirect::route('admin.groups.create')
-                ->withInput()
-                ->withErrors($this->form->errors());
-        }
-    }
-
-    /**
      * Display the specified resource.
      *
      * @return Response
@@ -91,6 +54,19 @@ class AdminController extends BaseAdminController
         $group = $this->repository->byId($id);
 
         $this->layout->content = View::make('admin.groups.show')->with('group', $group);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        $this->title['child'] = trans('groups::global.New');
+        $model = $this->repository->getModel();
+        $this->layout->content = View::make('admin.groups.create')
+            ->withModel($model);
     }
 
     /**
@@ -105,7 +81,24 @@ class AdminController extends BaseAdminController
         $group = $this->repository->byId($id);
         $this->layout->content = View::make('admin.groups.edit')
             ->withPermissions($group->getPermissions())
-            ->with('group', $group);
+            ->withModel($group);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
+
+        if ($model = $this->form->save(Input::all())) {
+            return (Input::get('exit')) ? Redirect::route('admin.groups.index') : Redirect::route('admin.groups.edit', $model->id) ;
+        }
+
+        return Redirect::route('admin.groups.create')
+            ->withInput()
+            ->withErrors($this->form->errors());
     }
 
     /**
@@ -115,22 +108,14 @@ class AdminController extends BaseAdminController
      */
     public function update($id)
     {
-        // Form Processing
-        $result = $this->form->update(Input::all());
 
-        if ($result['success']) {
-            // Success!
-            Notification::success($result['message']);
-
-            return Redirect::route('admin.groups.index');
-
-        } else {
-            Notification::error($result['message']);
-
-            return Redirect::route('admin.groups.edit', $id)
-                ->withInput()
-                ->withErrors($this->form->errors());
+        if ($this->form->update(Input::all())) {
+            return (Input::get('exit')) ? Redirect::route('admin.groups.index') : Redirect::route('admin.groups.edit', $id) ;
         }
+
+        return Redirect::route('admin.groups.edit', $id)
+            ->withInput()
+            ->withErrors($this->form->errors());
     }
 
     /**

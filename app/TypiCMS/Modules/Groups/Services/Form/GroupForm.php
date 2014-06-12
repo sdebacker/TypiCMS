@@ -14,4 +14,20 @@ class GroupForm extends AbstractForm
         $this->validator = $validator;
         $this->repository = $group;
     }
+
+    /**
+     * Update an existing user
+     *
+     * @return boolean
+     */
+    public function update(array $input)
+    {
+        $this->validator->setRule('name', 'required|min:4|unique:groups,name,'.$input['id']);
+
+        if (! $this->valid($input)) {
+            return false;
+        }
+
+        return $this->repository->update($input);
+    }
 }

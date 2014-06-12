@@ -6,8 +6,9 @@ use Input;
 use Illuminate\Support\Collection;
 
 use Cartalyst\Sentry\Sentry;
+use TypiCMS\Repositories\RepositoriesAbstract;
 
-class SentryGroup implements GroupInterface
+class SentryGroup extends RepositoriesAbstract implements GroupInterface
 {
 
     protected $sentry;
@@ -21,32 +22,35 @@ class SentryGroup implements GroupInterface
     }
 
     /**
+     * get empty model
+     * @return model
+     */
+    public function getModel()
+    {
+        return $this->sentry->getModel();
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @return Response
      */
-    public function create($data)
+    public function create(array $data)
     {
 
-        $result = array();
+        $errors = array();
         try {
-                // Create the group
-                $group = $this->sentry->createGroup(array(
-                    'name'        => e($data['name']),
-                    'permissions' => $data['permissions'],
-                ));
-
-                   $result['success'] = true;
-                $result['message'] = trans('groups.created');
+            // Create the group
+            $model = $this->sentry->createGroup(array(
+                'name'        => e($data['name']),
+                'permissions' => $data['permissions'],
+            ));
+            return $model;
         } catch (\Cartalyst\Sentry\Users\LoginRequiredException $e) {
-            $result['success'] = false;
-            $result['message'] = trans('groups.loginreq');
         } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
-            $result['success'] = false;
-            $result['message'] = trans('groups.userexists');
         }
 
-        return $result;
+        return false;
     }
 
     /**
@@ -55,7 +59,7 @@ class SentryGroup implements GroupInterface
      * @param  int      $id
      * @return Response
      */
-    public function update($data)
+    public function update(array $data)
     {
 
         try {
@@ -67,27 +71,13 @@ class SentryGroup implements GroupInterface
             $group->permissions = Input::get('permissions');
 
             // Update the group
-            if ($group->save()) {
-                // Group information was updated
-                $result['success'] = true;
-                $result['message'] = trans('groups.updated');
-            } else {
-                // Group information was not updated
-                $result['success'] = false;
-                $result['message'] = trans('groups.updateproblem');
-            }
+            $group->save();
+            return true;
         } catch (\Cartalyst\Sentry\Groups\NameRequiredException $e) {
-            $result['success'] = false;
-            $result['message'] = trans('groups.namereq');
         } catch (\Cartalyst\Sentry\Groups\GroupExistsException $e) {
-            $result['success'] = false;
-            $result['message'] = trans('groups.groupexists');
         } catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
-            $result['success'] = false;
-            $result['message'] = trans('groups.notfound');
         }
-
-        return $result;
+        return false;
     }
 
     /**
@@ -117,7 +107,7 @@ class SentryGroup implements GroupInterface
      * @param  integer $id
      * @return Group
      */
-    public function byId($id)
+    public function byId($id, array $with = array())
     {
         try {
             $group = $this->sentry->findGroupById($id);

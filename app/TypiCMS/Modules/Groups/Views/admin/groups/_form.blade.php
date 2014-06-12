@@ -4,10 +4,7 @@
 
 {{ Form::hidden('id') }}
 
-<div class="form-group">
-    <button class="btn-primary btn" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
-    <a href="{{ route('admin.groups.index') }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
-</div>
+@include('admin._buttons-form')
 
 <div class="row">
 

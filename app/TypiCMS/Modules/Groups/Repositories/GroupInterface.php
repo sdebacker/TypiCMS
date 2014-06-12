@@ -9,7 +9,7 @@ interface GroupInterface
      *
      * @return Response
      */
-    public function create($data);
+    public function create(array $data);
 
     /**
      * Update the specified resource in storage.
@@ -17,7 +17,7 @@ interface GroupInterface
      * @param  int      $id
      * @return Response
      */
-    public function update($id);
+    public function update(array $id);
 
     /**
      * Remove the specified resource from storage.
@@ -33,7 +33,7 @@ interface GroupInterface
      * @param  integer $id
      * @return User
      */
-    public function byId($id);
+    public function byId($id, array $with = array());
 
     /**
      * Return a specific user by a given name
