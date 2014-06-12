@@ -18,6 +18,19 @@ Bower and gulp are used for assets management and user interface is build with B
   - [Bower & Gulp](#bower--gulp)
   - [Configuration](#configuration)
 - [Modules](#modules)
+  - [Pages](#pages)
+  - [Menus](#menus)
+  - [Projects](#projects)
+  - [Categories](#categories)
+  - [Tags](#tags)
+  - [Events](#events)
+  - [News](#news)
+  - [Contacts](#contacts)
+  - [Files](#files)
+  - [Galleries](#galleries)
+  - [User and groups](#users-and-groups)
+  - [Settings](#settings)
+  - [Translations](#translations)
 - [Facades](#facades)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -54,7 +67,7 @@ This kind of urls are managed by the CMS :
 
 ## Installation
 
-1. Download TypiCMS ``` git clone git://github.com/sdebacker/TypiCMS.git mywebsite```
+1. Download TypiCMS ``` git clone https://github.com/sdebacker/TypiCMS.git mywebsite```
 2. Enter newly created folder ``` cd mywebsite ```
 3. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md) : ``` composer install ```
 4. Fill in your MySQL credentials in env.local.php
@@ -63,15 +76,14 @@ This kind of urls are managed by the CMS :
 7. Migrate and seed Database : ``` php artisan migrate --seed ```
 8. Set permissions ``` chmod -R 777 app/storage ``` and ``` chmod -R 777 public/uploads ```
 9. In development mode you should run ``` php artisan debugbar:publish ``` 
-10. Complete *[Bower & Gulp](#bower--gulp)* section below in order to have all necessary assets
-11. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
+10. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
 
 ### Bower & Gulp
 
-You need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
+In order to work with assets, you need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
 
-1. Install bower packages (in app/assets/components): ``` bower install ```
-2. Install Gulp packages: ``` npm install ```
+1. Install bower packages according to bower.json (in app/assets/components): ``` bower install ```
+2. Install Gulp packages according to gulpfile.js (in node_modules): ``` npm install ```
 3. Run ``` gulp ``` to compile admin and public assets
 
 ### Configuration
@@ -110,7 +122,7 @@ Events have starting and ending dates
 
 ### News
 
-Simple news module
+Simple news module with linked files/images galleries.
 
 ### Contacts
 
@@ -118,8 +130,13 @@ Frontend contact form and admin side records management
 
 ### Files
 
-Files module allows you to upload multiple files linked to a resource. It uses [DropzoneJS](http://www.dropzonejs.com).  
+Files module allows you to upload multiple files, it uses [DropzoneJS](http://www.dropzonejs.com).  
 Thumbnails are generated on the fly with [Croppa](https://github.com/BKWLD/croppa).
+
+### Galleries
+
+You can create as many galleries as you want, each gallery has many files.  
+Galleries are linkable to any module item through a polymorphic many to many relation, for now only News module is properly set up to support galleries.
 
 ### Users and groups
 
