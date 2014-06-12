@@ -9,7 +9,7 @@ interface GroupInterface
      *
      * @return Response
      */
-    public function store($data);
+    public function create($data);
 
     /**
      * Update the specified resource in storage.

@@ -25,7 +25,7 @@ class SentryGroup implements GroupInterface
      *
      * @return Response
      */
-    public function store($data)
+    public function create($data)
     {
 
         $result = array();
