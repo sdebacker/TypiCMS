@@ -25,7 +25,9 @@ use Cartalyst\Sentry\Groups\GroupNotFoundException;
 use Cartalyst\Sentry\Throttling\UserSuspendedException;
 use Cartalyst\Sentry\Throttling\UserBannedException;
 
-class SentryUser implements UserInterface
+use TypiCMS\Repositories\RepositoriesAbstract;
+
+class SentryUser extends RepositoriesAbstract implements UserInterface
 {
 
     /**
@@ -40,6 +42,15 @@ class SentryUser implements UserInterface
 
         // Enable the Throttling Feature
         $this->throttleProvider->enable();
+    }
+
+    /**
+     * get empty model
+     * @return model
+     */
+    public function getModel()
+    {
+        return $this->sentry->getModel();
     }
 
     /**
@@ -86,7 +97,7 @@ class SentryUser implements UserInterface
      * @param  int  $id user ID
      * @return User object
      */
-    public function byId($id)
+    public function byId($id, array $with = array())
     {
         try {
             return $this->sentry->findUserById($id);
@@ -184,7 +195,6 @@ class SentryUser implements UserInterface
      */
     public function create(array $data)
     {
-        $errors = array();
         try {
             // Create the user
             $userData = array_except($data, array('_method','_token', 'id', 'exit', 'groups', 'password_confirmation'));
@@ -199,23 +209,14 @@ class SentryUser implements UserInterface
                     $user->removeGroup($group);
                 }
             }
+            return $user;
 
         } catch (LoginRequiredException $e) {
-            exit($e->getMessage());
-            $errors['email'][] = $e->getMessage();
         } catch (PasswordRequiredException $e) {
-            exit($e->getMessage());
-            $errors['password'][] = $e->getMessage();
         } catch (UserExistsException $e) {
-            exit($e->getMessage());
-            $errors['email'][] = $e->getMessage();
         } catch (GroupNotFoundException $e) {
-            exit($e->getMessage());
-            $errors['group'][] = $e->getMessage();
         }
-
-        return $errors ? false : true ;
-
+        return false;
     }
 
     /**

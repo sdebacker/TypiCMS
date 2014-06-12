@@ -20,7 +20,7 @@ interface UserInterface
      * @param  int  $id user ID
      * @return User object
      */
-    public function byId($id);
+    public function byId($id, array $with = array());
 
     /**
      * Retrieve user by login

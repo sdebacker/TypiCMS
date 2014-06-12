@@ -46,7 +46,9 @@ class AdminController extends BaseAdminController
 
         try {
             $user = $this->repository->authenticate($credentials, false);
-            Notification::success(trans('users::global.Welcome', array('name' => $user->first_name)));
+            Notification::success(
+                trans('users::global.Welcome', array('name' => $user->first_name))
+            );
 
             return Redirect::intended('/');
         } catch (Exception $e) {
@@ -85,8 +87,9 @@ class AdminController extends BaseAdminController
     public function create()
     {
         $this->title['child'] = trans('users::global.New');
-
+        $model = $this->repository->getModel();
         $this->layout->content = View::make('admin.users.create')
+            ->withModel($model)
             ->with('selectedGroups', array())
             ->with('groups', $this->repository->getGroups());
     }
@@ -100,14 +103,12 @@ class AdminController extends BaseAdminController
     public function edit($id)
     {
         $this->title['child'] = trans('users::global.Edit');
-
-        $user = $this->repository->byId($id);
-
+        $model = $this->repository->byId($id);
         $this->layout->content = View::make('admin.users.edit')
-            ->withUser($user)
-            ->withPermissions($user->getPermissions())
+            ->withModel($model)
+            ->withPermissions($model->getPermissions())
             ->withGroups($this->repository->getGroups())
-            ->with('selectedGroups', $this->repository->getGroups($user));
+            ->with('selectedGroups', $this->repository->getGroups($model));
 
     }
 
@@ -119,8 +120,8 @@ class AdminController extends BaseAdminController
     public function store()
     {
 
-        if ($this->form->save(Input::all())) {
-            return Redirect::route('admin.users.index');
+        if ($model = $this->form->save(Input::all())) {
+            return (Input::get('exit')) ? Redirect::route('admin.users.index') : Redirect::route('admin.users.edit', $model->id) ;
         }
 
         return Redirect::route('admin.users.create')
@@ -137,10 +138,9 @@ class AdminController extends BaseAdminController
      */
     public function update($id)
     {
-        $data = Input::all();
 
         if ($this->form->update(Input::all())) {
-            return Redirect::route('admin.users.index');
+            return (Input::get('exit')) ? Redirect::route('admin.users.index') : Redirect::route('admin.users.edit', $id) ;
         }
 
         return Redirect::route('admin.users.edit', $id)
