@@ -15,7 +15,14 @@ interface FileInterface
      * @param  string   $type  file type : a,v,d,i,o
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPageFrom($page = 1, $limit = 10, $gallery_id = null, array $with = array(), $all = false, $type = null);
+    public function byPageFrom(
+        $page = 1,
+        $limit = 10,
+        $gallery_id = null,
+        array $with = array(),
+        $all = false,
+        $type = null
+    );
 
     /**
      * Delete model

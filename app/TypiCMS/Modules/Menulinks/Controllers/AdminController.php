@@ -93,7 +93,9 @@ class AdminController extends BaseAdminController
     {
 
         if ($model = $this->form->save(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.menus.menulinks.index', $menu->id) : Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
+            return (Input::get('exit')) ?
+                Redirect::route('admin.menus.menulinks.index', $menu->id) :
+                Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
         }
 
         return Redirect::route('admin.menus.menulinks.create', $menu->id)
@@ -114,7 +116,9 @@ class AdminController extends BaseAdminController
         Request::ajax() and exit($this->repository->update(Input::all()));
 
         if ($this->form->update(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.menus.menulinks.index', $menu->id) : Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
+            return (Input::get('exit')) ?
+                Redirect::route('admin.menus.menulinks.index', $menu->id) :
+                Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
         }
 
         return Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id))

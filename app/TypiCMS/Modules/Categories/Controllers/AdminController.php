@@ -78,7 +78,9 @@ class AdminController extends BaseAdminController
     {
 
         if ($model = $this->form->save(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.categories.index') : Redirect::route('admin.categories.edit', $model->id) ;
+            return Input::get('exit') ?
+                Redirect::route('admin.categories.index') :
+                Redirect::route('admin.categories.edit', $model->id) ;
         }
 
         return Redirect::route('admin.categories.create')
@@ -99,7 +101,9 @@ class AdminController extends BaseAdminController
         Request::ajax() and exit($this->repository->update(Input::all()));
 
         if ($this->form->update(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.categories.index') : Redirect::route('admin.categories.edit', $model->id) ;
+            return Input::get('exit') ?
+                Redirect::route('admin.categories.index') :
+                Redirect::route('admin.categories.edit', $model->id) ;
         }
 
         return Redirect::route('admin.categories.edit', $model->id)

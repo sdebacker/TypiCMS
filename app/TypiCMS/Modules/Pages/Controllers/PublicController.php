@@ -36,7 +36,10 @@ class PublicController extends BasePublicController
                 return $this->root();
             }
             $model = $this->repository->getFirstBy('is_home', 1);
-        } else if (in_array($uri, Config::get('app.locales')) and Config::get('app.locale_in_url')) {
+        } elseif (
+            in_array($uri, Config::get('app.locales')) and
+            Config::get('app.locale_in_url')
+        ) {
             // Homepage: uri = /en (or other language)
             $model = $this->repository->getFirstBy('is_home', 1);
         } else {

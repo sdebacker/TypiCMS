@@ -121,7 +121,9 @@ class AdminController extends BaseAdminController
     {
 
         if ($model = $this->form->save(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.users.index') : Redirect::route('admin.users.edit', $model->id) ;
+            return Input::get('exit') ?
+                Redirect::route('admin.users.index') :
+                Redirect::route('admin.users.edit', $model->id) ;
         }
 
         return Redirect::route('admin.users.create')
@@ -140,7 +142,9 @@ class AdminController extends BaseAdminController
     {
 
         if ($this->form->update(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.users.index') : Redirect::route('admin.users.edit', $id) ;
+            return Input::get('exit') ?
+                Redirect::route('admin.users.index') :
+                Redirect::route('admin.users.edit', $id) ;
         }
 
         return Redirect::route('admin.users.edit', $id)

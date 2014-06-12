@@ -89,7 +89,9 @@ class AdminController extends BaseAdminController
     {
 
         if ($model = $this->form->save(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.contacts.index') : Redirect::route('admin.contacts.edit', $model->id) ;
+            return (Input::get('exit')) ?
+                Redirect::route('admin.contacts.index') :
+                Redirect::route('admin.contacts.edit', $model->id) ;
         }
 
         return Redirect::route('admin.contacts.create')
@@ -110,7 +112,9 @@ class AdminController extends BaseAdminController
         Request::ajax() and exit($this->repository->update(Input::all()));
 
         if ($this->form->update(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.contacts.index') : Redirect::route('admin.contacts.edit', $model->id) ;
+            return (Input::get('exit')) ?
+                Redirect::route('admin.contacts.index') :
+                Redirect::route('admin.contacts.edit', $model->id) ;
         }
 
         return Redirect::route('admin.contacts.edit', $model->id)

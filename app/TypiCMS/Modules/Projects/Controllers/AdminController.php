@@ -95,7 +95,9 @@ class AdminController extends BaseAdminController
     {
 
         if ($model = $this->form->save(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.projects.index') : Redirect::route('admin.projects.edit', $model->id) ;
+            return Input::get('exit') ?
+                Redirect::route('admin.projects.index') :
+                Redirect::route('admin.projects.edit', $model->id) ;
         }
 
         return Redirect::route('admin.projects.create')
@@ -116,7 +118,9 @@ class AdminController extends BaseAdminController
         Request::ajax() and exit($this->repository->update(Input::all()));
 
         if ($this->form->update(Input::all())) {
-            return (Input::get('exit')) ? Redirect::route('admin.projects.index') : Redirect::route('admin.projects.edit', $model->id) ;
+            return Input::get('exit') ?
+                Redirect::route('admin.projects.index') :
+                Redirect::route('admin.projects.edit', $model->id) ;
         }
 
         return Redirect::route('admin.projects.edit', $model->id)

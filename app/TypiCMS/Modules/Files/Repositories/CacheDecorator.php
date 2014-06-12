@@ -29,8 +29,14 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
      * @param  string   $type  file type : a,v,d,i,o
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPageFrom($page = 1, $limit = 10, $gallery_id = null, array $with = array(), $all = false, $type = null)
-    {
+    public function byPageFrom(
+        $page = 1,
+        $limit = 10,
+        $gallery_id = null,
+        array $with = array(),
+        $all = false,
+        $type = null
+    ) {
         $cacheKey = md5(
             App::getLocale() . 'byPageFrom' . $page . $limit . $gallery_id . $all . implode(Input::except('page')) . $type
         );

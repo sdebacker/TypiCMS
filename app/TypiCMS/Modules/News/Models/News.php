@@ -70,6 +70,9 @@ class News extends Base
      */
     public function galleries()
     {
-        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')->withPivot('position')->orderBy('position')->withTimestamps();
+        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
+            ->withPivot('position')
+            ->orderBy('position')
+            ->withTimestamps();
     }
 }
