@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Contacts\Presenters;
 
 use Route;
+use Config;
 use Exception;
 
 use TypiCMS\Presenters\Presenter;

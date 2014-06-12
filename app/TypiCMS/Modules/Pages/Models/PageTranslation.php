@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Pages\Models;
 
+use Config;
 use Eloquent;
 
 class PageTranslation extends Eloquent
