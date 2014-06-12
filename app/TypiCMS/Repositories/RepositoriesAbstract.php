@@ -24,6 +24,10 @@ abstract class RepositoriesAbstract
         $this->gallery = App::make('TypiCMS\Modules\Galleries\Repositories\GalleryInterface');
     }
 
+    /**
+     * get empty model
+     * @return model
+     */
     public function getModel()
     {
         return $this->model;
