@@ -8,7 +8,6 @@ use Config;
 
 use Illuminate\Database\Eloquent\Model;
 
-use TypiCMS\Services\ListBuilder;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentPage extends RepositoriesAbstract implements PageInterface
@@ -132,19 +131,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         $models->nest();
 
         return $models;
-    }
-
-    /**
-     * Build html list
-     *
-     * @param array
-     * @return string
-     */
-    public function buildSideList($models)
-    {
-        $listObject = new ListBuilder($models);
-
-        return $listObject->sideList();
     }
 
     /**

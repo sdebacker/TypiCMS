@@ -73,17 +73,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     }
 
     /**
-     * Build html list
-     *
-     * @param array
-     * @return string
-     */
-    public function buildSideList($models)
-    {
-        return $this->repo->buildSideList($models);
-    }
-
-    /**
      * Get Pages to build routes
      *
      * @return Collection

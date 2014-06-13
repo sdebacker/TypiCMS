@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Pages\Models;
 
+use Request;
+
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 
@@ -71,6 +73,16 @@ class Page extends Base
      * @var array
      */
     public $children = array();
+
+    /**
+     * return 'active' if this is the current page
+     * 
+     * @return string 'active' or ''
+     */
+    public function activeClass()
+    {
+        return Request::is($this->uri) ? 'active' : '';
+    }
 
     /**
      * Relations

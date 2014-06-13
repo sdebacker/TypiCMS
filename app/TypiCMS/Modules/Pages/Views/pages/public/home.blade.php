@@ -6,10 +6,6 @@
 
         <div class="col-sm-4">
 
-            @if($sideMenu)
-                {{ $sideMenu }}
-            @endif
-
             @if($latestNews = News::latest(3))
             <h3>Latest news</h3>
             <ul>

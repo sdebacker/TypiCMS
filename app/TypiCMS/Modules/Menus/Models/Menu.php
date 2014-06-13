@@ -6,7 +6,6 @@ use HTML;
 
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\Presenter;
-use TypiCMS\Services\ListBuilder;
 
 class Menu extends Base
 {

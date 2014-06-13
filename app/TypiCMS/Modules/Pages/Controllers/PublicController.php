@@ -55,10 +55,7 @@ class PublicController extends BasePublicController
         TypiCMS::setModel($model);
 
         // get children pages
-        $childrenModels = $this->repository->getChildren($model->uri);
-
-        // build side menu
-        $sideMenu = $this->repository->buildSideList($childrenModels);
+        $children = $this->repository->getChildren($model->uri);
 
         $defaultTemplate = 'default';
 
@@ -71,7 +68,7 @@ class PublicController extends BasePublicController
         }
 
         $this->layout->content = $view
-            ->with('sideMenu', $sideMenu)
+            ->withChildren($children)
             ->withModel($model);
     }
 

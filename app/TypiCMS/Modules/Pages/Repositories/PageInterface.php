@@ -28,14 +28,6 @@ interface PageInterface
     public function getChildren($uri, $all = false);
 
     /**
-     * Build html list
-     *
-     * @param array
-     * @return string
-     */
-    public function buildSideList($models);
-
-    /**
      * Get Pages to build routes
      *
      * @return Collection
