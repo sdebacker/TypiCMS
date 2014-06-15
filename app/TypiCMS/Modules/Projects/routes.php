@@ -9,7 +9,7 @@ if (! App::runningInConsole()) {
     Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
         $routes = app('TypiCMS.routes');
         foreach (Config::get('app.locales') as $lang) {
-            if (array_key_exists('projects', $routes)) {
+            if (isset($routes['projects'][$lang])) {
                 $uri = $routes['projects'][$lang];
             } else {
                 $uri = 'projects';
