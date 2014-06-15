@@ -3,16 +3,17 @@ namespace TypiCMS\Modules\Pages\Models;
 
 use Request;
 
+use Dimsav\Translatable\Translatable;
+
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
-
-use Input;
+use TypiCMS\Presenters\PresentableTrait;
 
 class Page extends Base
 {
 
-    use \Dimsav\Translatable\Translatable;
-    use \TypiCMS\Presenters\PresentableTrait;
+    use Translatable;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Pages\Presenters\ModulePresenter';
 

@@ -2,11 +2,12 @@
 namespace TypiCMS\Modules\Tags\Models;
 
 use TypiCMS\Models\Base;
+use TypiCMS\Presenters\PresentableTrait;
 
 class Tag extends Base
 {
 
-    use \TypiCMS\Presenters\PresentableTrait;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Tags\Presenters\ModulePresenter';
 

@@ -5,13 +5,16 @@ use Input;
 
 use Carbon\Carbon;
 
+use Dimsav\Translatable\Translatable;
+
 use TypiCMS\Models\Base;
+use TypiCMS\Presenters\PresentableTrait;
 
 class News extends Base
 {
 
-    use \Dimsav\Translatable\Translatable;
-    use \TypiCMS\Presenters\PresentableTrait;
+    use Translatable;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\News\Presenters\ModulePresenter';
 

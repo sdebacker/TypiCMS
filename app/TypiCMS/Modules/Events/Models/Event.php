@@ -1,16 +1,19 @@
 <?php
 namespace TypiCMS\Modules\Events\Models;
 
-use TypiCMS\Models\Base;
-
 use Input;
 use Carbon\Carbon;
+
+use Dimsav\Translatable\Translatable;
+
+use TypiCMS\Models\Base;
+use TypiCMS\Presenters\PresentableTrait;
 
 class Event extends Base
 {
 
-    use \Dimsav\Translatable\Translatable;
-    use \TypiCMS\Presenters\PresentableTrait;
+    use Translatable;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Events\Presenters\ModulePresenter';
 

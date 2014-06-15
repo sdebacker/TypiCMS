@@ -1,16 +1,18 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Models;
 
-use TypiCMS\Models\Base;
-
 use Input;
-use Carbon\Carbon;
+
+use Dimsav\Translatable\Translatable;
+
+use TypiCMS\Models\Base;
+use TypiCMS\Presenters\PresentableTrait;
 
 class Gallery extends Base
 {
 
-    use \Dimsav\Translatable\Translatable;
-    use \TypiCMS\Presenters\PresentableTrait;
+    use Translatable;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Galleries\Presenters\ModulePresenter';
 

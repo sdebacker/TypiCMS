@@ -1,13 +1,16 @@
 <?php
 namespace TypiCMS\Modules\Categories\Models;
 
+use Dimsav\Translatable\Translatable;
+
 use TypiCMS\Models\Base;
+use TypiCMS\Presenters\PresentableTrait;
 
 class Category extends Base
 {
 
-    use \Dimsav\Translatable\Translatable;
-    use \TypiCMS\Presenters\PresentableTrait;
+    use Translatable;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Categories\Presenters\ModulePresenter';
 

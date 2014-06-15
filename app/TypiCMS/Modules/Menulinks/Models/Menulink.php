@@ -1,14 +1,17 @@
 <?php
 namespace TypiCMS\Modules\Menulinks\Models;
 
+use Dimsav\Translatable\Translatable;
+
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
+use TypiCMS\Presenters\PresentableTrait;
 
 class Menulink extends Base
 {
 
-    use \Dimsav\Translatable\Translatable;
-    use \TypiCMS\Presenters\PresentableTrait;
+    use Translatable;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Menulinks\Presenters\ModulePresenter';
 

@@ -2,11 +2,12 @@
 namespace TypiCMS\Modules\Contacts\Models;
 
 use TypiCMS\Models\Base;
+use TypiCMS\Presenters\PresentableTrait;
 
 class Contact extends Base
 {
 
-    use \TypiCMS\Presenters\PresentableTrait;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Contacts\Presenters\ModulePresenter';
 

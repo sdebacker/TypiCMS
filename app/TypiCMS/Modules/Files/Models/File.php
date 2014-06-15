@@ -1,15 +1,18 @@
 <?php
 namespace TypiCMS\Modules\Files\Models;
 
+use Dimsav\Translatable\Translatable;
+
 use Croppa;
 
 use TypiCMS\Models\Base;
+use TypiCMS\Presenters\PresentableTrait;
 
 class File extends Base
 {
 
-    use \Dimsav\Translatable\Translatable;
-    use \TypiCMS\Presenters\PresentableTrait;
+    use Translatable;
+    use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Files\Presenters\ModulePresenter';
 
