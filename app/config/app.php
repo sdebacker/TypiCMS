@@ -150,6 +150,7 @@ return array(
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 		'Msurguy\Honeypot\HoneypotServiceProvider',
 		'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider',
+		'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
 
 		'TypiCMS\Providers\StartProvider',
 		'TypiCMS\Providers\UploadServiceProvider',

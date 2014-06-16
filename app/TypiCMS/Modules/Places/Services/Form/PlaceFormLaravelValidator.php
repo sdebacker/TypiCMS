@@ -17,6 +17,6 @@ class PlaceFormLaravelValidator extends AbstractLaravelValidator
         'email'       => 'email',
         'website'     => 'url',
         'logo'        => 'image|max:500',
-        'image'       => 'image|max:2000',
+        'image'       => 'image|max:2000|image_size:>=500',
     );
 }
