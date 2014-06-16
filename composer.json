@@ -31,9 +31,11 @@
 		"laravel/framework": "~4.2.1",
 		"mccool/database-backup": "~1.0.0",
 		"msurguy/honeypot": "~0.2",
-		"thomaswelton/laravel-gravatar": "~0.0.2"
+		"thomaswelton/laravel-gravatar": "~0.0.2",
+		"cviebrock/image-validator": "~1.0.3"
 	},
 	"require-dev": {
+		"way/generators": "~2.6",
 		"barryvdh/laravel-debugbar": "~1.6",
 		"leroy-merlin-br/larasniffer": "~1.0.2",
 		"mockery/mockery": "~0.9",
