@@ -253,6 +253,20 @@ abstract class CacheAbstractDecorator
         return $bool;
     }
 
+    /**
+     * Build a select menu for a module
+     * 
+     * @param  string  $method     with method to call from the repository ?
+     * @param  boolean $firstEmpty generate an empty item
+     * @param  string  $value      witch field as value ?
+     * @param  string  $key        witch field as key ?
+     * @return array               array with key = $key and value = $value
+     */
+    public function select($method = 'getAll', $firstEmpty = true, $value = 'title', $key = 'id')
+    {
+        return $this->repo->select($method, $firstEmpty, $value, $key);
+    }
+
     public function getModulesForSelect()
     {
         return $this->repo->getModulesForSelect();
