@@ -267,11 +267,31 @@ abstract class CacheAbstractDecorator
         return $this->repo->select($method, $firstEmpty, $value, $key);
     }
 
+    /**
+     * Get all translated pages for a select/options
+     * 
+     * @return array
+     */
+    public function getPagesForSelect()
+    {
+        return $this->repo->getPagesForSelect();
+    }
+
+    /**
+     * Get all modules for a select/options
+     * 
+     * @return array
+     */
     public function getModulesForSelect()
     {
         return $this->repo->getModulesForSelect();
     }
 
+    /**
+     * Delete model and flush cache tags
+     *
+     * @return boolean
+     */
     public function delete($model)
     {
         $bool = $this->repo->delete($model);

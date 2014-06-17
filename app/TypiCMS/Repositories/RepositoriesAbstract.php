@@ -307,6 +307,11 @@ abstract class RepositoriesAbstract
         return $items;
     }
 
+    /**
+     * Get all translated pages for a select/options
+     * 
+     * @return array
+     */
     public function getPagesForSelect()
     {
         $pagesArray = Page::select('pages.id', 'title', 'locale')
@@ -319,6 +324,11 @@ abstract class RepositoriesAbstract
         return $pagesArray;
     }
 
+    /**
+     * Get all modules for a select/options
+     * 
+     * @return array
+     */
     public function getModulesForSelect()
     {
         $modulesArray = Config::get('modules');
@@ -333,7 +343,7 @@ abstract class RepositoriesAbstract
     }
 
     /**
-     * Delete model
+     * Delete model and attached files
      *
      * @return boolean
      */
