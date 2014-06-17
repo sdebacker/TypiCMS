@@ -34,11 +34,11 @@
                 </tr>
                 <tr>
                     <td>@lang('settings::global.System locales')</td>
-                    <td><div class="max-height"><b><?php system('locale -a'); ?></b></div></td>
-                </tr>
-                <tr>
-                    <td>@lang('settings::global.Locales')</td>
-                    <td><b>{{ implode(', ', Config::get('app.locales')); }}</b></td>
+                    <td>
+                        <div class="max-height">
+                            <b><?php try { system('locale -a'); } catch (Exception $e) { echo $e->getMessage(); } ?></b>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>@lang('settings::global.Active locale')</td>
