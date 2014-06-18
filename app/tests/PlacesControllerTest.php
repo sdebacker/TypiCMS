@@ -23,7 +23,7 @@ class PlacesControllerTest extends TestCase
 
     public function testStoreFails()
     {
-        Input::replace($input = ['title' => '', 'slug' => '']); // 19.02.2014 11:04
+        $input = ['title' => '', 'slug' => '']; // 19.02.2014 11:04
         $this->call('POST', 'admin/places', $input);
         $this->assertRedirectedToRoute('admin.places.create');
         $this->assertSessionHasErrors();

@@ -23,7 +23,7 @@ class NewsControllerTest extends TestCase
 
     public function testStoreFails()
     {
-        Input::replace($input = ['date' => '']); // 19.02.2014 11:04
+        $input = ['date' => ''];
         $this->call('POST', 'admin/news', $input);
         $this->assertRedirectedToRoute('admin.news.create');
         $this->assertSessionHasErrors(['date']);
