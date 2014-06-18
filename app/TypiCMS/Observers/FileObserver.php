@@ -18,7 +18,7 @@ class FileObserver
      */
     public function deleted($model)
     {
-        if (! $files = $model->hasFiles()) return;
+        if (! $files = $model->files) return;
 
         foreach ($files as $filename) {
             Croppa::delete('/uploads/' . $model->getTable() . '/' . $model->$filename);
@@ -33,7 +33,7 @@ class FileObserver
      */
     public function saving($model)
     {
-        if (! $files = $model->hasFiles()) return;
+        if (! $files = $model->files) return;
 
         foreach ($files as $filename) {
             if (Input::hasFile($filename)) {
@@ -54,7 +54,7 @@ class FileObserver
      */
     public function updated($model)
     {
-        if (! $files = $model->hasFiles()) return;
+        if (! $files = $model->files) return;
 
         foreach ($files as $filename) {
 

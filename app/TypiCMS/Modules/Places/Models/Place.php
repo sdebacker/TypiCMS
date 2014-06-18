@@ -45,7 +45,7 @@ class Place extends Base
      *
      * @var array
      */
-    protected $files = array(
+    public $files = array(
         'image',
     );
 
