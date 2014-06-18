@@ -58,14 +58,34 @@
 
         @yield('main')
 
+        <div class="partners">
+            @if($partners = Partners::getAll() and count($partners))
+            <h3>
+                <a href="{{ route($lang . '.partners') }}">@lang('db.Partners')</a>
+            </h3>
+            <ul class="list-unstyled">
+                @foreach ($partners as $partner)
+                <li>
+                    <a href="{{ $partner->website }}" title="{{ $partner->title }}" target="_blank">
+                        <img src="{{ $partner->present()->thumb(null, 50, array(), 'logo') }}" alt="">
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+            @endif
+        </div>
+
         @section('footer')
         <div class="row">
+
             <div class="col-sm-4">
                 {{ Menu::build('social', array('id' => 'social')) }}
             </div>
+
             <nav class="col-sm-8" role="navigation">
                 {{ Menu::build('footer') }}
             </nav>
+
         </div>
         @show
 

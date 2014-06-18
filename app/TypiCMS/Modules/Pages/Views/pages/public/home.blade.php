@@ -6,7 +6,7 @@
 
         <div class="col-sm-4">
 
-            @if($latestNews = News::latest(3))
+            @if($latestNews = News::latest(3) and count($latestNews))
             <h3>@lang('db.Latest news')</h3>
             <ul>
                 @foreach ($latestNews as $news)
@@ -20,7 +20,7 @@
             <a href="{{ route($lang . '.news') }}" class="btn btn-default btn-xs">@lang('db.All news')</a>
             @endif
 
-            @if($incomingEvents = Events::incoming())
+            @if($incomingEvents = Events::incoming() and count($incomingEvents))
             <h3>@lang('db.Incoming events')</h3>
             <ul>
                 @foreach ($incomingEvents as $event)
@@ -40,22 +40,6 @@
             {{ $model->body }}
         </div>
 
-    </div>
-
-    <div class="partners">
-        @if($partners = Partners::getAll())
-        <h3>
-            <a href="{{ route($lang . '.partners') }}">@lang('db.Partners')</a>
-        </h3>
-        <ul>
-            @foreach ($partners as $partner)
-            <li>
-                <img src="{{ $partner->present()->thumb(null, 50, array(), 'logo') }}" alt="">
-                <a href="{{ $partner->website }}" target="_blank">{{ $partner->title }}</a>
-            </li>
-            @endforeach
-        </ul>
-        @endif
     </div>
 
 @stop
