@@ -13,4 +13,16 @@ class CacheDecorator extends CacheAbstractDecorator implements MenuInterface
         $this->repo = $repo;
         $this->cache = $cache;
     }
+
+    /**
+     * Build a menu
+     * 
+     * @param  string $name       menu name
+     * @param  array  $attributes html attributes
+     * @return string             html code of a menu
+     */
+    public function build($name, $attributes = array())
+    {
+        return $this->repo->build($name, $attributes);
+    }
 }

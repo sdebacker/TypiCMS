@@ -234,7 +234,7 @@ return array(
 		'FileUpload'      => 'TypiCMS\Facades\FileUpload',
 		'TypiCMS'         => 'TypiCMS\Facades\TypiCMS',
 
-		'Menu'            => 'TypiCMS\Modules\Menus\Models\Menu', // Todo: call interface in place of model
+		'Menu'            => 'TypiCMS\Modules\Menus\Facades\Facade',
 		'Events'          => 'TypiCMS\Modules\Events\Facades\Facade',
 		'News'            => 'TypiCMS\Modules\News\Facades\Facade',
 		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',

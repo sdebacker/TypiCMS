@@ -1,6 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Menus\Repositories;
 
+use App;
+use HTML;
+
 use Illuminate\Database\Eloquent\Model;
 
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -15,17 +18,33 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     }
 
     /**
-     * Get all models
-     *
-     * @param  boolean  $all  Show published or all
-     * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * Build a menu
+     * 
+     * @param  string $name       menu name
+     * @param  array  $attributes html attributes
+     * @return string             html code of a menu
      */
-    public function getAll(array $with = array(), $all = false)
+    public function build($name, $attributes = array())
     {
-        return $this->model->with('translations')
-                           ->with('menulinks')
-                           ->order()
-                           ->get();
+        // check if menu is online
+        $menu = $this->model
+            ->where('name', $name)
+            ->whereHas(
+                'translations',
+                function ($query) {
+                    $query->where('status', 1);
+                    $query->where('locale', App::getLocale());
+                }
+            )
+            ->first();
+        if (! $menu) return '';
+
+        // get items from menu
+        $items = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getMenu($name);
+        $attributes['class'] = $items->getClass();
+        $attributes['id'] = 'nav-' . $name;
+        $attributes['role'] = 'menu';
+
+        return HTML::menu($items, $attributes);
     }
 }

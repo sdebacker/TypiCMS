@@ -12,4 +12,13 @@ interface MenuInterface
      * @return StdClass Object with $items
      */
     public function getAll(array $with = array(), $all = false);
+
+    /**
+     * Build a menu
+     * 
+     * @param  string $name       menu name
+     * @param  array  $attributes html attributes
+     * @return string             html code of a menu
+     */
+    public function build($name, $attributes = array());
 }

@@ -50,33 +50,10 @@ class Menu extends Base
     public $direction = 'asc';
 
     /**
-     * Build a menu
-     *
-     * @return menu html
-     */
-    public static function build($name, $attributes = array())
-    {
-        
-        $items = App::make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getMenu($name);
-        $attributes['class'] = $items->getClass();
-        $attributes['id'] = 'nav-' . $name;
-        $attributes['role'] = 'menu';
-
-        return HTML::menu($items, $attributes);
-    }
-
-    /**
      * Relations
      */
     public function menulinks()
     {
         return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
     }
-
-    /**
-     * Validation rules
-     */
-    public static $rules = array(
-        'name' => 'required',
-    );
 }
