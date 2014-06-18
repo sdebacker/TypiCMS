@@ -1,17 +1,17 @@
 {
   "name": "TypiCMS",
   "dependencies": {
-    "jquery": "~2.0.*",
-    "jquery-legacy": "jquery#1.10",
+    "jquery": "~2.*",
+    "jquery-legacy": "jquery#1.*",
     "alertify.js": "~0.3.*",
     "bootstrap": "~3.1.*",
-    "dropzone": "~3.7.*",
+    "dropzone": "~3.*",
     "jquery-ui": "~1.10.*",
     "fancybox": "~2.1.*",
     "flexslider": "*",
-    "font-awesome": "~4.1",
+    "font-awesome": "~4.*",
     "eonasdan-bootstrap-datetimepicker": "~3.*",
-    "selectize": "~0.10.1"
+    "selectize": "~0.*"
   },
   "overrides": {
     "alertify.js": {
