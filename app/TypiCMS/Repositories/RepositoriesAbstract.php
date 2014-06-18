@@ -52,7 +52,7 @@ abstract class RepositoriesAbstract
      * @param string $value
      * @param array  $with
      */
-    public function getFirstBy($key, $value, array $with = array(), $all = false)
+    public function getFirstBy($key, $value, array $with = array('translations'), $all = false)
     {
         $query = $this->make($with);
         if (! $all) {
@@ -69,7 +69,7 @@ abstract class RepositoriesAbstract
      * @param  int       $id model ID
      * @return stdObject object of model information
      */
-    public function byId($id, array $with = array())
+    public function byId($id, array $with = array('translations'))
     {
         $query = $this->make($with)->where('id', $id);
 
@@ -87,7 +87,7 @@ abstract class RepositoriesAbstract
      * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
     {
         $result = new StdClass;
         $result->page = $page;
@@ -124,7 +124,7 @@ abstract class RepositoriesAbstract
      * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll(array $with = array(), $all = false)
+    public function getAll(array $with = array('translations'), $all = false)
     {
         $query = $this->make($with);
 
@@ -153,7 +153,7 @@ abstract class RepositoriesAbstract
      * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
      */
-    public function getAllBy($key, $value, array $with = array(), $all = false)
+    public function getAllBy($key, $value, array $with = array('translations'), $all = false)
     {
         $query = $this->make($with);
 
@@ -188,7 +188,7 @@ abstract class RepositoriesAbstract
      * @param string  URL slug of model
      * @return object object of model information
      */
-    public function bySlug($slug, array $with = array())
+    public function bySlug($slug, array $with = array('translations'))
     {
         // Find id
         $id = Helpers::getIdFromSlug($this->model->getTable(), $slug);

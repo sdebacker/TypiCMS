@@ -26,7 +26,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
     {
         $cacheKey = md5(App::getLocale().'byPage.'.$page.$limit.$all.implode(Input::except('page')));
 
@@ -49,7 +49,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll(array $with = array(), $all = false)
+    public function getAll(array $with = array('translations'), $all = false)
     {
         // get search string
         $string = Input::get('string');
@@ -74,7 +74,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      * @param string  URL slug of model
      * @return object object of model information
      */
-    public function bySlug($slug)
+    public function bySlug($slug, array $with = array('translations'))
     {
         $cacheKey = md5(App::getLocale().'slug.'.$slug);
 

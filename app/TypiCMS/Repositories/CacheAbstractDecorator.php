@@ -21,10 +21,10 @@ abstract class CacheAbstractDecorator
      * @param  int       $id model ID
      * @return stdObject object of model information
      */
-    public function byId($id)
+    public function byId($id, array $with = array('translations'))
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale().'id.'.$id);
+        $cacheKey = md5(App::getLocale() . 'id.' . implode($with) . $id);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -45,7 +45,7 @@ abstract class CacheAbstractDecorator
      * @param string $value
      * @param array  $with
      */
-    public function getFirstBy($key, $value, array $with = array(), $all = false)
+    public function getFirstBy($key, $value, array $with = array('translations'), $all = false)
     {
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale() . 'getFirstBy' . $key . $value . implode($with) . $all);
@@ -71,7 +71,7 @@ abstract class CacheAbstractDecorator
      * @param  array    $with  Eager load related models
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
     {
         $cacheKey = md5(App::getLocale().'byPage'.$page.$limit.implode($with).$all.implode(Input::except('page')));
 
@@ -94,7 +94,7 @@ abstract class CacheAbstractDecorator
      * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll(array $with = array(), $all = false)
+    public function getAll(array $with = array('translations'), $all = false)
     {
         $cacheKey = md5(App::getLocale() . 'all' . implode($with) . $all . implode(Input::except('page')));
 
@@ -117,7 +117,7 @@ abstract class CacheAbstractDecorator
      * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
      */
-    public function getAllBy($key, $value, array $with = array(), $all = false)
+    public function getAllBy($key, $value, array $with = array('translations'), $all = false)
     {
         $cacheKey = md5(App::getLocale() . 'getAllBy' . $key . $value . implode($with) . $all);
 
@@ -164,10 +164,10 @@ abstract class CacheAbstractDecorator
      * @param string  URL slug of model
      * @return object object of model information
      */
-    public function bySlug($slug)
+    public function bySlug($slug, array $with = array('translations'))
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale() . 'bySlug' . $slug);
+        $cacheKey = md5(App::getLocale() . 'bySlug' . $slug . implode($with));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);

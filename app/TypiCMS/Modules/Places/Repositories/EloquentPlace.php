@@ -30,7 +30,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * @param  boolean  $all   Show published or all
      * @return StdClass Object with $items and $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
     {
         $result = new StdClass;
         $result->page = $page;
@@ -68,7 +68,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll(array $with = array(), $all = false)
+    public function getAll(array $with = array('translations'), $all = false)
     {
         // get search string
         $string = Input::get('string');
@@ -106,7 +106,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * @param  string $slug slug of model
      * @return object model
      */
-    public function bySlug($slug, array $with = array())
+    public function bySlug($slug, array $with = array('translations'))
     {
         $model = $this->model->with('translations')
             ->where('slug', $slug)
