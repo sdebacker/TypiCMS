@@ -7,7 +7,7 @@
         <div class="col-sm-4">
 
             @if($latestNews = News::latest(3))
-            <h3>Latest news</h3>
+            <h3>@lang('db.Latest news')</h3>
             <ul>
                 @foreach ($latestNews as $news)
                 <li>
@@ -21,7 +21,7 @@
             @endif
 
             @if($incomingEvents = Events::incoming())
-            <h3>Incoming events</h3>
+            <h3>@lang('db.Incoming events')</h3>
             <ul>
                 @foreach ($incomingEvents as $event)
                 <li>
@@ -40,6 +40,22 @@
             {{ $model->body }}
         </div>
 
+    </div>
+
+    <div class="partners">
+        @if($partners = Partners::getAll())
+        <h3>
+            <a href="{{ route($lang . '.partners') }}">@lang('db.Partners')</a>
+        </h3>
+        <ul>
+            @foreach ($partners as $partner)
+            <li>
+                <img src="{{ $partner->present()->thumb(null, null, array(), 'logo') }}" alt="">
+                <a href="{{ $partner->website }}" target="_blank">{{ $partner->title }}</a>
+            </li>
+            @endforeach
+        </ul>
+        @endif
     </div>
 
 @stop
