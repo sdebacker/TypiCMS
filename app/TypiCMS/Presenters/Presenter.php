@@ -6,6 +6,8 @@ use Config;
 
 use Exception;
 
+use Croppa;
+
 use Carbon\Carbon;
 
 abstract class Presenter
@@ -139,5 +141,24 @@ abstract class Presenter
     {
         $date = $this->entity->$fieldname ? : Carbon::now() ;
         return $date->format($format);
+    }
+
+    /**
+     * Return a resized or cropped image
+     * 
+     * @param  int $width   width of image, null for auto
+     * @param  int $height  height of image, null for auto
+     * @param  array  $options see Croppa doc for options (https://github.com/BKWLD/croppa)
+     * @return string       img src
+     */
+    public function thumb($width = null, $height = null, array $options = array(), $field = 'image')
+    {
+        $src = Croppa::url(
+            '/uploads/' . $this->entity->getTable() . '/' . $this->entity->$field,
+            $width,
+            $height,
+            $options
+        );
+        return $src;
     }
 }
