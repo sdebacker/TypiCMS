@@ -238,6 +238,7 @@ return array(
 		'Events'          => 'TypiCMS\Modules\Events\Facades\Facade',
 		'News'            => 'TypiCMS\Modules\News\Facades\Facade',
 		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',
+		'Partners'        => 'TypiCMS\Modules\Partners\Facades\Facade',
 		'Places'          => 'TypiCMS\Modules\Places\Facades\Facade',
 
 	),
