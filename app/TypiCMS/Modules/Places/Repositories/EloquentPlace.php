@@ -6,10 +6,7 @@ use StdClass;
 use App;
 use Input;
 use Config;
-use Croppa;
 use Request;
-
-use FileUpload;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -123,58 +120,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
             ->firstOrFail();
 
         return $model;
-
-    }
-
-    /**
-     * Create a new model
-     *
-     * @param array  Data to create a new model
-     * @return boolean
-     */
-    public function create(array $data)
-    {
-        // Create the model
-        $model = $this->model->fill($data);
-
-        if (Input::hasFile('image')) {
-            $file = FileUpload::handle(Input::file('image'), 'uploads/' . $this->model->getTable());
-            $model->image = $file['filename'];
-        }
-
-        $model->save();
-
-        if (! $model) {
-            return false;
-        }
-
-        return $model;
-    }
-
-    /**
-     * Update an existing model
-     *
-     * @param array  Data to update a model
-     * @return boolean
-     */
-    public function update(array $data)
-    {
-        $model = $this->model->find($data['id']);
-
-        $model->fill($data);
-
-        if (Input::hasFile('image')) {
-            // delete prev image
-            Croppa::delete('/uploads/' . $this->model->getTable() . '/' . $model->getOriginal('image'));
-            $file = FileUpload::handle(Input::file('image'), 'uploads/' . $this->model->getTable());
-            $model->image = $file['filename'];
-        } else {
-            $model->image = $model->getOriginal('image');
-        }
-
-        $model->save();
-
-        return true;
 
     }
 }

@@ -30,20 +30,4 @@ interface PlaceInterface
      * @return object model
      */
     public function bySlug($slug);
-
-    /**
-     * Create a new model
-     *
-     * @param array  Data to create a new model
-     * @return boolean
-     */
-    public function create(array $data);
-
-    /**
-     * Update an existing model
-     *
-     * @param array  Data to update a model
-     * @return boolean
-     */
-    public function update(array $data);
 }

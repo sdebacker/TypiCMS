@@ -35,7 +35,19 @@ class Place extends Base
      *
      * @var array
      */
-    public $translatedAttributes = array('info', 'status');
+    public $translatedAttributes = array(
+        'info',
+        'status',
+    );
+
+    /**
+     * List of fields that are file.
+     *
+     * @var array
+     */
+    protected $files = array(
+        'image',
+    );
 
     /**
      * The default route for admin side.

@@ -24,6 +24,7 @@ use TypiCMS\Modules\News\Services\Form\NewsFormLaravelValidator;
 
 // Observers
 use TypiCMS\Observers\SlugObserver;
+use TypiCMS\Observers\FileObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -38,8 +39,9 @@ class ModuleProvider extends ServiceProvider
         Lang::addNamespace('news', __DIR__ . '/../lang');
         Config::addNamespace('news', __DIR__ . '/../config');
 
-        // Slug observer
+        // Observers
         NewsTranslation::observe(new SlugObserver);
+        News::observe(new FileObserver);
     }
 
     public function register()

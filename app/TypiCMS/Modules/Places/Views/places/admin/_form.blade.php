@@ -102,7 +102,7 @@
             </div>
         </div>
 
-        @include('admin._image-fieldset')
+        @include('admin._image-fieldset', ['field' => 'image'])
 
     </div>
 

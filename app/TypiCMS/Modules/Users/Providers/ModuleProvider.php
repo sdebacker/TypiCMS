@@ -7,12 +7,16 @@ use Config;
 
 use Illuminate\Support\ServiceProvider;
 
-// use TypiCMS\Modules\Users\Models\User;
+// Models
+use TypiCMS\Modules\Users\Models\User;
 use TypiCMS\Modules\Users\Repositories\SentryUser;
 
 // Form
 use TypiCMS\Modules\Users\Services\Form\UserForm;
 use TypiCMS\Modules\Users\Services\Form\UserFormLaravelValidator;
+
+// Observers
+use TypiCMS\Observers\FileObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -26,6 +30,9 @@ class ModuleProvider extends ServiceProvider
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('users', __DIR__ . '/../lang');
         Config::addNamespace('users', __DIR__ . '/../config');
+
+        // Observers
+        User::observe(new FileObserver);
     }
 
     public function register()

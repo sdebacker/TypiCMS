@@ -24,6 +24,7 @@ use TypiCMS\Modules\Galleries\Services\Form\GalleryFormLaravelValidator;
 
 // Observers
 use TypiCMS\Observers\SlugObserver;
+use TypiCMS\Observers\FileObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -38,8 +39,9 @@ class ModuleProvider extends ServiceProvider
         Lang::addNamespace('galleries', __DIR__ . '/../lang');
         Config::addNamespace('galleries', __DIR__ . '/../config');
 
-        // Slug observer
+        // Observers
         GalleryTranslation::observe(new SlugObserver);
+        Gallery::observe(new FileObserver);
     }
 
     public function register()

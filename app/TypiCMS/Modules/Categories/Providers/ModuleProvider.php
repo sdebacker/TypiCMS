@@ -24,6 +24,7 @@ use TypiCMS\Modules\Categories\Services\Form\CategoryFormLaravelValidator;
 
 // Observers
 use TypiCMS\Observers\SlugObserver;
+use TypiCMS\Observers\FileObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -38,8 +39,9 @@ class ModuleProvider extends ServiceProvider
         Lang::addNamespace('categories', __DIR__ . '/../lang');
         Config::addNamespace('categories', __DIR__ . '/../config');
 
-        // Slug observer
+        // Observers
         CategoryTranslation::observe(new SlugObserver);
+        Category::observe(new FileObserver);
     }
 
     public function register()

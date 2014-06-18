@@ -27,6 +27,7 @@ use TypiCMS\Modules\Projects\Services\Form\ProjectFormLaravelValidator;
 
 // Observers
 use TypiCMS\Observers\SlugObserver;
+use TypiCMS\Observers\FileObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -41,8 +42,9 @@ class ModuleProvider extends ServiceProvider
         Lang::addNamespace('projects', __DIR__ . '/../lang');
         Config::addNamespace('projects', __DIR__ . '/../config');
 
-        // Slug observer
+        // Observers
         ProjectTranslation::observe(new SlugObserver);
+        Project::observe(new FileObserver);
     }
 
     public function register()

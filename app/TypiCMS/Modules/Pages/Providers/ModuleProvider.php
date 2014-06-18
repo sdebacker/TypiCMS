@@ -21,6 +21,9 @@ use TypiCMS\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Pages\Services\Form\PageForm;
 use TypiCMS\Modules\Pages\Services\Form\PageFormLaravelValidator;
 
+// Observers
+use TypiCMS\Observers\FileObserver;
+
 class ModuleProvider extends ServiceProvider
 {
 
@@ -33,6 +36,9 @@ class ModuleProvider extends ServiceProvider
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('pages', __DIR__ . '/../lang');
         Config::addNamespace('pages', __DIR__ . '/../config');
+
+        // Observers
+        Page::observe(new FileObserver);
     }
 
     public function register()

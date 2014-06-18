@@ -24,6 +24,7 @@ use TypiCMS\Modules\Events\Services\Form\EventFormLaravelValidator;
 
 // Observers
 use TypiCMS\Observers\SlugObserver;
+use TypiCMS\Observers\FileObserver;
 
 // Calendar
 use TypiCMS\Modules\Events\Services\Calendar;
@@ -43,8 +44,9 @@ class ModuleProvider extends ServiceProvider
         Lang::addNamespace('events', __DIR__ . '/../lang');
         Config::addNamespace('events', __DIR__ . '/../config');
 
-        // Slug observer
+        // Observers
         EventTranslation::observe(new SlugObserver);
+        Event::observe(new FileObserver);
     }
 
     public function register()

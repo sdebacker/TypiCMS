@@ -127,4 +127,14 @@ abstract class Base extends Eloquent
         });
 
     }
+
+    /**
+     * Return fields that are files
+     *
+     * @return mixed array() or null
+     */
+    public function hasFiles()
+    {
+        return $this->files;
+    }
 }

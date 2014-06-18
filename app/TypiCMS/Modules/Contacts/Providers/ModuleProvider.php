@@ -21,6 +21,9 @@ use TypiCMS\Services\Cache\LaravelCache;
 use TypiCMS\Modules\Contacts\Services\Form\ContactForm;
 use TypiCMS\Modules\Contacts\Services\Form\ContactFormLaravelValidator;
 
+// Observers
+use TypiCMS\Observers\FileObserver;
+
 class ModuleProvider extends ServiceProvider
 {
 
@@ -33,6 +36,9 @@ class ModuleProvider extends ServiceProvider
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('contacts', __DIR__ . '/../lang');
         Config::addNamespace('contacts', __DIR__ . '/../config');
+
+        // Observers
+        Contact::observe(new FileObserver);
     }
 
     public function register()

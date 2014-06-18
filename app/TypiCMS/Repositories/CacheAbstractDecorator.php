@@ -211,8 +211,8 @@ abstract class CacheAbstractDecorator
     /**
      * Create a new model
      *
-     * @param array  Data to create a new object
-     * @return boolean or model
+     * @param array  Data needed for model creation
+     * @return mixed Model or false on error during save
      */
     public function create(array $data)
     {
@@ -228,7 +228,7 @@ abstract class CacheAbstractDecorator
     /**
      * Update an existing model
      *
-     * @param array  Data to update a model
+     * @param array  Data needed for model update
      * @return boolean
      */
     public function update(array $data)

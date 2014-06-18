@@ -9,6 +9,8 @@ use App;
 use Input;
 use Config;
 
+use FileUpload;
+
 use TypiCMS\Services\Helpers;
 use TypiCMS\Modules\Pages\Models\Page;
 
@@ -219,14 +221,16 @@ abstract class RepositoriesAbstract
     /**
      * Create a new model
      *
-     * @param array  Data to create a new object
-     * @return boolean
+     * @param array  Data needed for model creation
+     * @return mixed Model or false on error during save
      */
     public function create(array $data)
     {
-        if ($model = $this->model->create($data)) {
+        // Create the model
+        $model = $this->model->fill($data);
+
+        if ($model->save()) {
             isset($data['galleries']) and $this->syncGalleries($model, $data['galleries']);
-            
             return $model;
         }
 
@@ -236,17 +240,23 @@ abstract class RepositoriesAbstract
     /**
      * Update an existing model
      *
-     * @param array  Data to update a model
+     * @param array  Data needed for model update
      * @return boolean
      */
     public function update(array $data)
     {
         $model = $this->model->find($data['id']);
+
         $model->fill($data);
-        $model->save();
+
         isset($data['galleries']) and $this->syncGalleries($model, $data['galleries']);
 
-        return true;
+        if ($model->save()) {
+            return true;
+        }
+
+        return false;
+
     }
 
     /**
