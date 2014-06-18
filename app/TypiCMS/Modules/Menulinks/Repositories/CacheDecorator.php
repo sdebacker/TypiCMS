@@ -20,7 +20,7 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     }
 
     /**
-     * Get all models
+     * Get all models for listing on admin side
      *
      * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
@@ -42,40 +42,6 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     }
 
     /**
-     * Build a menu from its name
-     *
-     * @return Menulinks Collection
-     */
-    public function getMenu($name)
-    {
-
-        $cacheKey = md5(App::getLocale() . 'getMenu' . $name . Request::path());
-
-        if ($this->cache->has($cacheKey)) {
-            return $this->cache->get($cacheKey);
-        }
-
-        $models = $this->repo->getMenu($name);
-
-        // Store in cache for next request
-        $this->cache->put($cacheKey, $models);
-
-        return $models;
-
-    }
-
-    /**
-     * Transform collection before building menu
-     *
-     * @param  array
-     * @return string
-     */
-    public function filter(Collection $models)
-    {
-        return $this->repo->filter($models);
-    }
-
-    /**
      * Get Items to build routes
      *
      * @return Array
@@ -94,12 +60,5 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
         $this->cache->put($cacheKey, $models);
 
         return $models;
-    }
-
-    public function getPagesForSelect()
-    {
-        $array = $this->repo->getPagesForSelect();
-
-        return $array;
     }
 }

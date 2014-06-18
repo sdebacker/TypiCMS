@@ -17,8 +17,7 @@ interface MenuInterface
      * Build a menu
      * 
      * @param  string $name       menu name
-     * @param  array  $attributes html attributes
      * @return string             html code of a menu
      */
-    public function build($name, $attributes = array());
+    public function build($name);
 }

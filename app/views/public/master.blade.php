@@ -79,7 +79,7 @@
         <div class="row">
 
             <div class="col-sm-4">
-                {{ Menu::build('social', array('id' => 'social')) }}
+                {{ Menu::build('social') }}
             </div>
 
             <nav class="col-sm-8" role="navigation">

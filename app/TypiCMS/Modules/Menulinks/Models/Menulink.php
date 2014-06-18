@@ -65,15 +65,7 @@ class Menulink extends Base
     public $children = array();
 
     /**
-     * Scope from
-     */
-    public function scopeFrom($query, $relid)
-    {
-        return $query->where('menu_id', $relid);
-    }
-
-    /**
-     * Relation
+     * A menulink can belongs to a page
      */
     public function page()
     {
@@ -81,7 +73,7 @@ class Menulink extends Base
     }
 
     /**
-     * Relation
+     * A menulink belongs to a menu
      */
     public function menu()
     {

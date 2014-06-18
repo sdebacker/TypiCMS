@@ -98,7 +98,7 @@ HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) 
             $aAttr['data-toggle'] = 'dropdown';
         }
         $item->target and $aAttr['target'] = $item->target;
-        $aAttr['href'] = $item->page_uri;
+        $aAttr['href'] = $item->uri;
 
         $menuList[] = '<a ' . HTML::attributes($aAttr) . '>';
         $menuList[] = $item->title;
