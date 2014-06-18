@@ -45,6 +45,11 @@ return array(
         'dashboard' => true,
         'model'     => 'TypiCMS\Modules\Places\Models\Place'
     ],
+    'Partners' => [
+        'menu'      => true,
+        'dashboard' => true,
+        'model'     => 'TypiCMS\Modules\Partners\Models\Partner'
+    ],
     'Menus' => [
         'menu'      => true,
         'dashboard' => false,

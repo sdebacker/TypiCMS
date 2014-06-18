@@ -165,6 +165,9 @@ return array(
         'category_id' => 'Catégorie',
         'info' => 'Informations complémentaires',
 
+        // Partners
+        'logo' => 'Logo',
+
         // Events
         'start_date' => 'Date de début',
         'end_date' => 'Date de fin',
