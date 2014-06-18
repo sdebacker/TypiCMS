@@ -17,7 +17,8 @@ class MenuSeeder extends Seeder
             array('id' => '22','menu_id' => '3','page_id' => '0','parent' => '0','position' => '0','target' => '_blank','module_name' => '','class' => 'fa fa-facebook btn-facebook','created_at' => '2014-02-04 18:30:11','updated_at' => '2014-02-04 18:30:17'),
             array('id' => '23','menu_id' => '3','page_id' => '0','parent' => '0','position' => '0','target' => '_blank','module_name' => '','class' => 'fa fa-twitter btn-twitter','created_at' => '2014-02-04 18:31:35','updated_at' => '2014-02-04 18:31:47'),
             array('id' => '24','menu_id' => '1','page_id' => '0','parent' => '0','position' => '7','target' => '','module_name' => 'places','class' => '','created_at' => '2014-02-04 18:58:20','updated_at' => '2014-02-04 18:59:32'),
-            array('id' => '25','menu_id' => '1','page_id' => '0','parent' => '0','position' => '6','target' => '','module_name' => 'galleries','class' => '','created_at' => '2014-05-09 15:50:51','updated_at' => '2014-05-09 15:50:51')
+            array('id' => '25','menu_id' => '1','page_id' => '0','parent' => '0','position' => '6','target' => '','module_name' => 'galleries','class' => '','created_at' => '2014-05-09 15:50:51','updated_at' => '2014-05-09 15:50:51'),
+            array('id' => '26','menu_id' => '2','page_id' => '0','parent' => '0','position' => '3','target' => '','module_name' => 'partners','class' => '','created_at' => '2014-05-09 15:50:51','updated_at' => '2014-05-09 15:50:51')
         );
 
         $typi_menulink_translations = array(
@@ -56,7 +57,10 @@ class MenuSeeder extends Seeder
             array('id' => '72','menulink_id' => '24','locale' => 'en','status' => '1','title' => 'Addresses','url' => '','uri' => 'en/addresses','created_at' => '2014-02-04 18:58:20','updated_at' => '2014-02-04 18:59:32'),
             array('id' => '73','menulink_id' => '25','locale' => 'fr','status' => '1','title' => 'Galeries','url' => '','uri' => 'fr/galeries','created_at' => '2014-05-09 15:50:51','updated_at' => '2014-05-09 15:51:03'),
             array('id' => '74','menulink_id' => '25','locale' => 'nl','status' => '1','title' => 'Galeries','url' => '','uri' => 'nl/galeries','created_at' => '2014-05-09 15:50:51','updated_at' => '2014-05-09 15:51:05'),
-            array('id' => '75','menulink_id' => '25','locale' => 'en','status' => '1','title' => 'Galleries','url' => '','uri' => 'en/galleries','created_at' => '2014-05-09 15:50:51','updated_at' => '2014-05-09 15:50:51')
+            array('id' => '75','menulink_id' => '25','locale' => 'en','status' => '1','title' => 'Galleries','url' => '','uri' => 'en/galleries','created_at' => '2014-05-09 15:50:51','updated_at' => '2014-05-09 15:50:51'),
+            array('id' => '76','menulink_id' => '26','locale' => 'fr','status' => '1','title' => 'Partenaires','url' => '','uri' => 'fr/partenaires','created_at' => '2014-06-18 15:50:51','updated_at' => '2014-06-18 15:51:03'),
+            array('id' => '77','menulink_id' => '26','locale' => 'nl','status' => '1','title' => 'Partners','url' => '','uri' => 'nl/partners','created_at' => '2014-06-18 15:50:51','updated_at' => '2014-06-18 15:51:05'),
+            array('id' => '78','menulink_id' => '26','locale' => 'en','status' => '1','title' => 'Partners','url' => '','uri' => 'en/partners','created_at' => '2014-06-18 15:50:51','updated_at' => '2014-06-18 15:50:51')
         );
 
         // `typicms`.`typi_menus`
