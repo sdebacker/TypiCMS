@@ -12,6 +12,6 @@ class MenuFormLaravelValidator extends AbstractLaravelValidator
      * @var Array
      */
     protected $rules = array(
-        'name' => 'required|alpha_dash',
+        'name' => 'required|alpha_dash|unique:menus',
     );
 }
