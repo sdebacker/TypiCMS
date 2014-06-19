@@ -26,10 +26,12 @@ Bower and gulp are used for assets management and user interface is build with B
   - [Events](#events)
   - [News](#news)
   - [Contacts](#contacts)
+  - [Partners](#partners)
   - [Files](#files)
   - [Galleries](#galleries)
   - [User and groups](#users-and-groups)
   - [Settings](#settings)
+  - [Blocks](#blocks)
   - [Translations](#translations)
 - [Facades](#facades)
 - [Roadmap](#roadmap)
@@ -102,6 +104,7 @@ Pages are nestable with drag and drop, on drop, uris are generated and saved in 
 ### Menus
 
 Each menu have nestable entries. One entry can be linked to a module, page, URI or URL.
+You can get a menu HTML formated with ``` Menus::build('menuname') ```.
 
 ### Projects
 
@@ -126,7 +129,11 @@ Simple news module with linked files/images galleries.
 
 ### Contacts
 
-Frontend contact form and admin side records management
+Frontend contact form and admin side records management.
+
+### Partners
+
+A partner has a logo, website url, title and body content.
 
 ### Files
 
@@ -142,6 +149,11 @@ Galleries are linkable to any module item through a polymorphic many to many rel
 
 [Sentry 2](https://cartalyst.com/manual/sentry) is used to manage users, groups and permissions.  
 Users registration can be enable through the settings panel (/admin/settings).
+
+### Blocks
+
+Blocks are usefull for custom content to display in your views.
+You can get content of a block with ``` Blocks::build('blockname') ```.
 
 ### Translations
 
