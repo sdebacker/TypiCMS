@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a5e71352691775811e52eb25175c566a",
+    "hash": "9d1c7359b3e90fb4995a1d08db84475b",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -76,16 +76,16 @@
         },
         {
             "name": "bkwld/croppa",
-            "version": "dev-master",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sdebacker/croppa.git",
-                "reference": "6e46e2b2429f36bf44f490db97c7b7aeae50b8be"
+                "url": "https://github.com/BKWLD/croppa.git",
+                "reference": "cb1b410735a16bb5caead74be74502f47a166c9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sdebacker/croppa/zipball/6e46e2b2429f36bf44f490db97c7b7aeae50b8be",
-                "reference": "6e46e2b2429f36bf44f490db97c7b7aeae50b8be",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/cb1b410735a16bb5caead74be74502f47a166c9b",
+                "reference": "cb1b410735a16bb5caead74be74502f47a166c9b",
                 "shasum": ""
             },
             "require": {
@@ -105,6 +105,7 @@
                     "Bkwld\\Croppa": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -114,10 +115,7 @@
                 }
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
-            "support": {
-                "source": "https://github.com/sdebacker/croppa/tree/master"
-            },
-            "time": "2014-06-03 18:38:32"
+            "time": "2014-06-06 16:40:40"
         },
         {
             "name": "cartalyst/sentry",
@@ -268,16 +266,16 @@
         },
         {
             "name": "cviebrock/image-validator",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cviebrock/image-validator.git",
-                "reference": "59341d48c3f2a939b0bc731af20b9a79e25290e5"
+                "reference": "a9ae973f8964e3cd99c665783524aeb53abc43f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cviebrock/image-validator/zipball/59341d48c3f2a939b0bc731af20b9a79e25290e5",
-                "reference": "59341d48c3f2a939b0bc731af20b9a79e25290e5",
+                "url": "https://api.github.com/repos/cviebrock/image-validator/zipball/a9ae973f8964e3cd99c665783524aeb53abc43f9",
+                "reference": "a9ae973f8964e3cd99c665783524aeb53abc43f9",
                 "shasum": ""
             },
             "require": {
@@ -314,7 +312,7 @@
                 "laravel",
                 "validator"
             ],
-            "time": "2014-06-04 20:53:18"
+            "time": "2014-06-18 01:15:15"
         },
         {
             "name": "d11wtq/boris",
@@ -705,16 +703,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "577a69ff7d0a24e9576a2885c3a7afbaadd51ec1"
+                "reference": "095cf4db559bebc78d967890eb93280d8ceb5a08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/577a69ff7d0a24e9576a2885c3a7afbaadd51ec1",
-                "reference": "577a69ff7d0a24e9576a2885c3a7afbaadd51ec1",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/095cf4db559bebc78d967890eb93280d8ceb5a08",
+                "reference": "095cf4db559bebc78d967890eb93280d8ceb5a08",
                 "shasum": ""
             },
             "require": {
@@ -766,7 +764,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-06-08 20:00:20"
+            "time": "2014-06-18 18:22:41"
         },
         {
             "name": "guzzlehttp/streams",
@@ -959,16 +957,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0efc0c962f28c9b5f3ce2da899c7a08a9471b5b1"
+                "reference": "ee370ac91ee0a51303765c870e139b1ecd1e222c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0efc0c962f28c9b5f3ce2da899c7a08a9471b5b1",
-                "reference": "0efc0c962f28c9b5f3ce2da899c7a08a9471b5b1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ee370ac91ee0a51303765c870e139b1ecd1e222c",
+                "reference": "ee370ac91ee0a51303765c870e139b1ecd1e222c",
                 "shasum": ""
             },
             "require": {
@@ -1072,7 +1070,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-06-11 21:33:06"
+            "time": "2014-06-18 05:07:22"
         },
         {
             "name": "mccool/database-backup",
@@ -1329,16 +1327,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.23",
+            "version": "v1.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "c1edbc82aed49ff2bdef0a0f659bf69e3f7b14cc"
+                "reference": "40f552c019956f446553b19f7de2da2f9c74d730"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/c1edbc82aed49ff2bdef0a0f659bf69e3f7b14cc",
-                "reference": "c1edbc82aed49ff2bdef0a0f659bf69e3f7b14cc",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/40f552c019956f446553b19f7de2da2f9c74d730",
+                "reference": "40f552c019956f446553b19f7de2da2f9c74d730",
                 "shasum": ""
             },
             "require": {
@@ -1376,7 +1374,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-05-22 13:59:09"
+            "time": "2014-06-17 08:23:06"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -3203,9 +3201,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "bkwld/croppa": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": [
 
     ],
