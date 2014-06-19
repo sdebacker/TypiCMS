@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call('PlaceSeeder');
         $this->call('TranslationSeeder');
         $this->call('GallerySeeder');
+        $this->call('BlockSeeder');
     }
 
 }
