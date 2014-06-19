@@ -20,6 +20,11 @@ return array(
         'dashboard' => true,
         'model'     => 'TypiCMS\Modules\Files\Models\File'
     ],
+    'Blocks' => [
+        'menu'      => true,
+        'dashboard' => true,
+        'model'     => 'TypiCMS\Modules\Blocks\Models\Block'
+    ],
     'News'  => [
         'menu'      => true,
         'dashboard' => true,
