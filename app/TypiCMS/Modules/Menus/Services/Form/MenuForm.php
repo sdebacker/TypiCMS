@@ -22,17 +22,6 @@ class MenuForm extends AbstractForm
     {
         $this->validator->setRule('name', 'required|unique:menus,name,' . $input['id']);
 
-        // add checkboxes data
-        foreach (Config::get('app.locales') as $locale) {
-            $input[$locale]['status'] = Input::get($locale . '.status', 0);
-        }
-
-        $inputDot = array_dot($input);
-
-        if (! $this->valid($inputDot)) {
-            return false;
-        }
-
-        return $this->repository->update($input);
+        return parent::update($input);
     }
 }
