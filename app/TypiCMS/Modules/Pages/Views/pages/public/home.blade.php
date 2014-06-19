@@ -38,6 +38,9 @@
 
         <div class="col-sm-8">
             {{ $model->body }}
+            <div class="well">
+                {{ Blocks::build('block1') }}
+            </div>
         </div>
 
     </div>

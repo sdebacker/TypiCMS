@@ -59,4 +59,31 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
 
         return $models;
     }
+
+    /**
+     * Get the content of a block
+     * 
+     * @param  string $name unique name of the block
+     * @param  array  $with linked
+     * @return string       html
+     */
+    public function build($name = null, array $with = array('translations'))
+    {
+        $block = $this->make($with)
+            ->where('name', $name)
+            ->whereHas(
+                'translations',
+                function ($query) {
+                    $query->where('status', 1);
+                    $query->where('locale', App::getLocale());
+                }
+            )
+            ->first();
+
+        if (! $block) {
+            return;
+        }
+
+        return $block->body;
+    }
 }

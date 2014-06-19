@@ -240,6 +240,7 @@ return array(
 		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',
 		'Partners'        => 'TypiCMS\Modules\Partners\Facades\Facade',
 		'Places'          => 'TypiCMS\Modules\Places\Facades\Facade',
+		'Blocks'          => 'TypiCMS\Modules\Blocks\Facades\Facade',
 
 	),
 
