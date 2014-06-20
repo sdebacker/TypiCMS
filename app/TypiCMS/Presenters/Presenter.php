@@ -153,12 +153,11 @@ abstract class Presenter
      */
     public function thumb($width = null, $height = null, array $options = array(), $field = 'image')
     {
-        $src = Croppa::url(
-            '/uploads/' . $this->entity->getTable() . '/' . $this->entity->$field,
-            $width,
-            $height,
-            $options
-        );
-        return $src;
+        $file = '/uploads/' . $this->entity->getTable() . '/' . $this->entity->$field;
+        if (! is_file(public_path() . $file)) {
+            return null;
+        }
+       $src = Croppa::url($file, $width, $height, $options);
+       return '<img class="img-responsive" src="' . $src . '" alt="">';
     }
 }

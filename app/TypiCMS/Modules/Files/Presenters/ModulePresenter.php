@@ -14,15 +14,13 @@ class ModulePresenter extends Presenter
      * @param  array  $options PHPThumb style option
      * @return string          html img tag or div with doc icon
      */
-    public function thumb($size = 'sm', $options = array('quadrant' => 'T'))
+    public function thumb($width = 130, $height = 130, array $options = array(), $field = 'filename')
     {
-        $sizes = ['xs' => 24, 'sm' => 130, 'md' => 200, 'lg' => 400];
-
         if ($this->isImage($this->entity)) {
             $src = Croppa::url(
                 '/'.$this->entity->path.'/'.$this->entity->filename,
-                $sizes[$size],
-                $sizes[$size],
+                $width,
+                $height,
                 $options
             );
             return '<img src="' . $src . '" alt="' . $this->entity->alt_attribute . '">';

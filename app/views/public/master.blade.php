@@ -67,7 +67,7 @@
                 @foreach ($partners as $partner)
                 <li>
                     <a href="{{ $partner->website }}" title="{{ $partner->title }}" target="_blank">
-                        <img src="{{ $partner->present()->thumb(null, 50, array(), 'logo') }}" alt="">
+                        {{ $partner->present()->thumb(null, 50, array(), 'logo') }}
                     </a>
                 </li>
                 @endforeach

@@ -41,7 +41,7 @@
                         <td>{{ $model->present()->checkbox }}</td>
                         <td>{{ $model->present()->edit }}</td>
                         <td>{{ $model->present()->status }}</td>
-                        <td><img src="{{ $model->present()->thumb(null, 24, array(), 'logo') }}" height="24" alt=""></td>
+                        <td>{{ $model->present()->thumb(null, 24, array(), 'logo') }}</td>
                         <td>{{ $model->title }}</td>
                         <td><a href="{{ $model->website }}" target="_blank">{{ $model->website }}</a></td>
                     </tr>
