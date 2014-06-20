@@ -288,7 +288,7 @@ abstract class CacheAbstractDecorator
     }
 
     /**
-     * Delete model and flush cache tags
+     * Delete model
      *
      * @return boolean
      */

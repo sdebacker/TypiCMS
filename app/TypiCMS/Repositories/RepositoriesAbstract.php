@@ -353,17 +353,12 @@ abstract class RepositoriesAbstract
     }
 
     /**
-     * Delete model and attached files
+     * Delete model
      *
      * @return boolean
      */
     public function delete($model)
     {
-        if ($model->files) {
-            $model->files->each(function ($file) {
-                $file->delete();
-            });
-        }
         if ($model->delete()) {
             return true;
         }

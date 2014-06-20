@@ -48,4 +48,14 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
     {
         return $this->repo->findOrForget($galleries);
     }
+
+    /**
+     * Delete model and attached files
+     *
+     * @return boolean
+     */
+    public function delete($model)
+    {
+        return $this->repo->delete($model);
+    }
 }

@@ -17,4 +17,11 @@ interface GalleryInterface
      * @return array        Array or Arrayable collection of Tag objects
      */
     public function findOrForget(array $galleries);
+
+    /**
+     * Delete model and attached files
+     *
+     * @return boolean
+     */
+    public function delete($model);
 }

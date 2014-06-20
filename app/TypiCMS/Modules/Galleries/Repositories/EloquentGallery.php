@@ -45,4 +45,23 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
 
         return $filteredGalleries;
     }
+
+    /**
+     * Delete model and attached files
+     *
+     * @return boolean
+     */
+    public function delete($model)
+    {
+        if ($model->files) {
+            $model->files->each(function ($file) {
+                $file->delete();
+            });
+        }
+        if ($model->delete()) {
+            return true;
+        }
+
+        return false;
+    }
 }
