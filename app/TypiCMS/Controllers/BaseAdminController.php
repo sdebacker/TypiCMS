@@ -11,6 +11,8 @@ use Controller;
 
 use TypiCMS;
 
+use Patchwork\Utf8;
+
 abstract class BaseAdminController extends Controller
 {
 
@@ -63,9 +65,9 @@ abstract class BaseAdminController extends Controller
 
     public function getTitle()
     {
-        $title = ucfirst($this->title['parent']);
+        $title = Utf8::ucfirst($this->title['parent']));
         if ($this->title['child']) {
-            $title .= ' – ' . ucfirst($this->title['child']);
+            $title .= ' – ' . Utf8::ucfirst($this->title['child']));
         }
         $title .= ' – ' . $this->applicationName;
 
