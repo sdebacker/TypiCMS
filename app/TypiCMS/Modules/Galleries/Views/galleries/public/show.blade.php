@@ -11,8 +11,8 @@
         @foreach ($model->files as $image)
             <div class="col-xs-4 col-sm-3 col-md-2">
                 <div class="thumbnail">
-                    <a class="fancybox" href="/uploads/{{ $image->filename }}" data-fancybox-group="{{ $model->slug }}">
-                        <img class="img-responsive" src="{{ Croppa::url('/uploads/' . $image->filename, 200, 200) }}" alt="">
+                    <a class="fancybox" href="{{ asset($image->path . $image->filename) }}" data-fancybox-group="{{ $model->slug }}">
+                        {{ $image->present()->thumb(null, 200, array(), 'filename') }}
                     </a>
                 </div>
             </div>
