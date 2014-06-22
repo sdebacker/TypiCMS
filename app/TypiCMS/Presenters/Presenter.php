@@ -157,7 +157,7 @@ abstract class Presenter
         if (! is_file(public_path() . $file)) {
             return null;
         }
-       $src = Croppa::url($file, $width, $height, $options);
-       return '<img class="img-responsive" src="' . $src . '" alt="">';
+        $src = Croppa::url($file, $width, $height, $options);
+        return '<img class="img-responsive" src="' . $src . '" alt="">';
     }
 }
