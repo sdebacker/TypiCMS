@@ -200,7 +200,7 @@ abstract class RepositoriesAbstract
             ->findOrFail($id);
 
         if (! count($model->translations)) {
-            App::abort('404');
+            App::abort(404);
         }
 
         return $model;
