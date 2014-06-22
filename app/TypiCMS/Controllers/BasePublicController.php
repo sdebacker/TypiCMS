@@ -11,6 +11,8 @@ use Controller;
 
 use TypiCMS;
 
+use Patchwork\Utf8;
+
 abstract class BasePublicController extends Controller
 {
 
@@ -56,7 +58,7 @@ abstract class BasePublicController extends Controller
 
         $instance = $this;
         View::composer($this->layout, function ($view) use ($instance) {
-            $view->with('title', (implode(' ', $instance->title) . ' – ' . $instance->applicationName));
+            $view->with('title', (Utf8::ucfirst(implode(' ', $instance->title)) . ' – ' . $instance->applicationName));
         });
 
         View::share('modules', $modules);
