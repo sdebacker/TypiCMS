@@ -183,10 +183,11 @@ abstract class RepositoriesAbstract
     }
 
     /**
-     * Get single model by URL
-     *
-     * @param string  URL slug of model
-     * @return object object of model information
+     * Get single model by Slug
+     * 
+     * @param  string $slug slug
+     * @param  array  $with related tables
+     * @return mixed
      */
     public function bySlug($slug, array $with = array('translations'))
     {
