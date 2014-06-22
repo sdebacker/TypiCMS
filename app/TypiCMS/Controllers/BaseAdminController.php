@@ -37,14 +37,6 @@ abstract class BaseAdminController extends Controller
     {
         // Uncomment this if you want to use clockwork
 
-        // $this->beforeFilter(function () {
-        //     Event::fire('clockwork.controller.start');
-        // });
-
-        // $this->afterFilter(function () {
-        //     Event::fire('clockwork.controller.end');
-        // });
-
         $this->repository = $repository;
         $this->form       = $form;
 

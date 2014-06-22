@@ -34,14 +34,6 @@ abstract class BasePublicController extends Controller
 
     public function __construct($repository = null)
     {
-        $this->beforeFilter(function () {
-            Event::fire('clockwork.controller.start');
-        });
-
-        $this->afterFilter(function () {
-            Event::fire('clockwork.controller.end');
-        });
-
         $this->repository = $repository;
 
         $modules = TypiCMS::getModules();
