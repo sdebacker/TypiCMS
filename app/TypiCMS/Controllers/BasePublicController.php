@@ -38,14 +38,6 @@ abstract class BasePublicController extends Controller
 
         $modules = TypiCMS::getModules();
 
-        // Set locale (taken from URL)
-        $firstSegment = Request::segment(1);
-        if (in_array($firstSegment, Config::get('app.locales'))) {
-            App::setLocale($firstSegment);
-        }
-        // Not very reliable, need to be refactored
-        setlocale(LC_ALL, App::getLocale() . '_' . ucfirst(App::getLocale()));
-
         $this->applicationName = Config::get('typicms.' . App::getLocale() . '.websiteTitle');
 
         $instance = $this;
