@@ -2,6 +2,7 @@
 namespace TypiCMS\Services;
 
 use DB;
+use App;
 use Route;
 use Sentry;
 use Config;
@@ -32,6 +33,7 @@ class Helpers
         return DB::table($module)
                 ->join($translationsTable, $module . '.id', '=', $translationsTable . '.' . $moduleSingular . '_id')
                 ->where('slug', $slug)
+                ->where('locale', App::getLocale())
                 ->pluck($module . '.id');
     }
 
