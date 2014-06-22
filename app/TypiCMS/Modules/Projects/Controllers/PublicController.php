@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Projects\Controllers;
 
+use App;
 use Str;
 use View;
 
@@ -54,6 +55,9 @@ class PublicController extends BasePublicController
     public function show($category = null, $slug = null)
     {
         $model = $this->repository->bySlug($slug);
+        if ($category->id != $model->category_id) {
+            App::abort(404);
+        }
 
         TypiCMS::setModel($model);
 
