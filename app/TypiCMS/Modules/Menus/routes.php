@@ -5,6 +5,13 @@ Route::bind('menus', function ($value, $route) {
         ->firstOrFail();
 });
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource('menus', 'TypiCMS\Modules\Menus\Controllers\AdminController');
-});
+Route::group(
+    array(
+        'before'    => 'auth.admin',
+        'namespace' => 'TypiCMS\Modules\Menus\Controllers',
+        'prefix'    => 'admin',
+    ),
+    function () {
+        Route::resource('menus', 'AdminController');
+    }
+);

@@ -6,38 +6,37 @@ Route::bind('galleries', function ($value, $route) {
 });
 
 if (! App::runningInConsole()) {
-    Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
-        $routes = app('TypiCMS.routes');
-        foreach (Config::get('app.locales') as $lang) {
-            if (isset($routes['galleries'][$lang])) {
-                $uri = $routes['galleries'][$lang];
-            } else {
-                $uri = 'galleries';
-                if (Config::get('app.locale_in_url')) {
-                    $uri = $lang . '/' . $uri;
+    Route::group(
+        array(
+            'before'    => 'auth.public|cache',
+            'after'     => 'cache',
+            'namespace' => 'TypiCMS\Modules\Galleries\Controllers',
+        ),
+        function () {
+            $routes = app('TypiCMS.routes');
+            foreach (Config::get('app.locales') as $lang) {
+                if (isset($routes['galleries'][$lang])) {
+                    $uri = $routes['galleries'][$lang];
+                } else {
+                    $uri = 'galleries';
+                    if (Config::get('app.locale_in_url')) {
+                        $uri = $lang . '/' . $uri;
+                    }
                 }
+                Route::get($uri, array('as' => $lang.'.galleries', 'uses' => 'PublicController@index'));
+                Route::get($uri.'/{slug}', array('as' => $lang.'.galleries.slug', 'uses' => 'PublicController@show'));
             }
-            Route::get(
-                $uri,
-                array(
-                    'as' => $lang.'.galleries',
-                    'uses' => 'TypiCMS\Modules\Galleries\Controllers\PublicController@index'
-                )
-            );
-            Route::get(
-                $uri.'/{slug}',
-                array(
-                    'as' => $lang.'.galleries.slug',
-                    'uses' => 'TypiCMS\Modules\Galleries\Controllers\PublicController@show'
-                )
-            );
         }
-    });
+    );
 }
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource(
-        'galleries',
-        'TypiCMS\Modules\Galleries\Controllers\AdminController'
-    );
-});
+Route::group(
+    array(
+        'before'    => 'auth.admin',
+        'namespace' => 'TypiCMS\Modules\Galleries\Controllers',
+        'prefix'    => 'admin',
+    ),
+    function () {
+        Route::resource('galleries', 'AdminController');
+    }
+);

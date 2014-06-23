@@ -1,10 +1,11 @@
 <?php
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::get(
-        '/',
-        array(
-            'as' => 'dashboard',
-            'uses' => 'TypiCMS\Modules\Dashboard\Controllers\AdminController@index'
-        )
-    );
-});
+Route::group(
+    array(
+        'before'    => 'auth.admin',
+        'namespace' => 'TypiCMS\Modules\Dashboard\Controllers',
+        'prefix'    => 'admin',
+    ),
+    function () {
+        Route::get('/', array( 'as' => 'dashboard', 'uses' => 'AdminController@index'));
+    }
+);

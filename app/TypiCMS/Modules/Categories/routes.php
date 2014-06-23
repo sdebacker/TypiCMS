@@ -15,16 +15,14 @@ if (Request::segment(1) != 'admin') {
 
 }
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource(
-        'categories',
-        'TypiCMS\Modules\Categories\Controllers\AdminController'
-    );
-    Route::post(
-        'categories/sort',
-        array(
-            'as' => 'admin.categories.sort',
-            'uses' => 'TypiCMS\Modules\Categories\Controllers\AdminController@sort'
-        )
-    );
-});
+Route::group(
+    array(
+        'before'    => 'auth.admin',
+        'namespace' => 'TypiCMS\Modules\Categories\Controllers',
+        'prefix'    => 'admin',
+    ),
+    function () {
+        Route::resource('categories', 'AdminController');
+        Route::post('categories/sort', array('as' => 'admin.categories.sort', 'uses' => 'AdminController@sort'));
+    }
+);

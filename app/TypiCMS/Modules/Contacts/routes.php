@@ -5,26 +5,27 @@ Route::bind('contacts', function ($value, $route) {
 });
 
 if (! App::runningInConsole()) {
-    Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
-        $routes = app('TypiCMS.routes');
-        foreach (Config::get('app.locales') as $lang) {
-            if (isset($routes['contacts'][$lang])) {
-                $uri = $routes['contacts'][$lang];
-            } else {
-                $uri = 'contacts';
-                if (Config::get('app.locale_in_url')) {
-                    $uri = $lang . '/' . $uri;
+    Route::group(
+        array(
+            'before'    => 'auth.public|cache',
+            'after'     => 'cache',
+            'namespace' => 'TypiCMS\Modules\Contacts\Controllers',
+        ),
+        function () {
+            $routes = app('TypiCMS.routes');
+            foreach (Config::get('app.locales') as $lang) {
+                if (isset($routes['contacts'][$lang])) {
+                    $uri = $routes['contacts'][$lang];
+                } else {
+                    $uri = 'contacts';
+                    if (Config::get('app.locale_in_url')) {
+                        $uri = $lang . '/' . $uri;
+                    }
                 }
+                Route::get($uri, array('as' => $lang.'.contacts', 'uses' => 'PublicController@index'));
             }
-            Route::get(
-                $uri,
-                array(
-                    'as' => $lang.'.contacts',
-                    'uses' => 'TypiCMS\Modules\Contacts\Controllers\PublicController@index'
-                )
-            );
         }
-    });
+    );
 }
 
 Route::post(
@@ -36,6 +37,13 @@ Route::post(
     )
 );
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource('contacts', 'TypiCMS\Modules\Contacts\Controllers\AdminController');
-});
+Route::group(
+    array(
+        'before'    => 'auth.admin',
+        'namespace' => 'TypiCMS\Modules\Contacts\Controllers',
+        'prefix'    => 'admin',
+    ),
+    function () {
+        Route::resource('contacts', 'AdminController');
+    }
+);

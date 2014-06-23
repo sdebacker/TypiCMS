@@ -5,24 +5,25 @@ Route::bind('pages', function ($value, $route) {
         ->firstOrFail();
 });
 
-Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function () {
-    Route::resource(
-        'pages',
-        'TypiCMS\Modules\Pages\Controllers\AdminController'
-    );
-    Route::post(
-        'pages/sort',
-        array(
-            'as' => 'admin.pages.sort',
-            'uses' => 'TypiCMS\Modules\Pages\Controllers\AdminController@sort'
-        )
-    );
-});
+Route::group(
+    array(
+        'before'    => 'auth.admin',
+        'namespace' => 'TypiCMS\Modules\Pages\Controllers',
+        'prefix'    => 'admin',
+    ),
+    function () {
+        Route::resource('pages', 'AdminController');
+        Route::post('pages/sort', array('as' => 'admin.pages.sort', 'uses' => 'AdminController@sort'));
+    }
+);
 
-Route::group(array('before' => 'auth.public|cache', 'after' => 'cache'), function () {
-    Route::get(
-        '{uri}',
-        'TypiCMS\Modules\Pages\Controllers\PublicController@uri'
-    )
-    ->where('uri', '(.*)');
-});
+Route::group(
+    array(
+        'before'    => 'auth.public|cache',
+        'after'     => 'cache',
+        'namespace' => 'TypiCMS\Modules\Pages\Controllers',
+    ),
+    function () {
+        Route::get('{uri}', 'PublicController@uri')->where('uri', '(.*)');
+    }
+);
