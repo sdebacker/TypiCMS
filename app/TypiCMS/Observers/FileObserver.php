@@ -18,11 +18,11 @@ class FileObserver
      */
     public function deleted($model)
     {
-        if (! $attachements = $model->attachements) {
+        if (! $attachments = $model->attachments) {
             return;
         }
 
-        foreach ($attachements as $fieldname) {
+        foreach ($attachments as $fieldname) {
             Croppa::delete('/uploads/' . $model->getTable() . '/' . $model->$fieldname);
         }
     }
@@ -35,11 +35,11 @@ class FileObserver
      */
     public function saving($model)
     {
-        if (! $attachements = $model->attachements) {
+        if (! $attachments = $model->attachments) {
             return;
         }
 
-        foreach ($attachements as $fieldname) {
+        foreach ($attachments as $fieldname) {
             if (Input::hasFile($fieldname)) {
                 // delete prev image
                 $file = FileUpload::handle(Input::file($fieldname), 'uploads/' . $model->getTable());
@@ -58,11 +58,11 @@ class FileObserver
      */
     public function updated($model)
     {
-        if (! $attachements = $model->attachements) {
+        if (! $attachments = $model->attachments) {
             return;
         }
 
-        foreach ($attachements as $fieldname) {
+        foreach ($attachments as $fieldname) {
 
             // Nothing to do if file did not change
             if ($model->getOriginal($fieldname) == $model->$fieldname) {

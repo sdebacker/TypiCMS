@@ -45,7 +45,7 @@ class Place extends Base
      *
      * @var array
      */
-    public $attachements = array(
+    public $attachments = array(
         'image',
     );
 
