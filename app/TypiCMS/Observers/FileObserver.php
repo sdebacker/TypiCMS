@@ -18,12 +18,12 @@ class FileObserver
      */
     public function deleted($model)
     {
-        if (! $files = $model->files) {
+        if (! $attachements = $model->attachements) {
             return;
         }
 
-        foreach ($files as $filename) {
-            Croppa::delete('/uploads/' . $model->getTable() . '/' . $model->$filename);
+        foreach ($attachements as $fieldname) {
+            Croppa::delete('/uploads/' . $model->getTable() . '/' . $model->$fieldname);
         }
     }
 
@@ -35,17 +35,17 @@ class FileObserver
      */
     public function saving($model)
     {
-        if (! $files = $model->files) {
+        if (! $attachements = $model->attachements) {
             return;
         }
 
-        foreach ($files as $filename) {
-            if (Input::hasFile($filename)) {
+        foreach ($attachements as $fieldname) {
+            if (Input::hasFile($fieldname)) {
                 // delete prev image
-                $file = FileUpload::handle(Input::file($filename), 'uploads/' . $model->getTable());
-                $model->$filename = $file['filename'];
+                $file = FileUpload::handle(Input::file($fieldname), 'uploads/' . $model->getTable());
+                $model->$fieldname = $file['filename'];
             } else {
-                $model->$filename = $model->getOriginal($filename);
+                $model->$fieldname = $model->getOriginal($fieldname);
             }
         }
     }
@@ -58,18 +58,18 @@ class FileObserver
      */
     public function updated($model)
     {
-        if (! $files = $model->files) {
+        if (! $attachements = $model->attachements) {
             return;
         }
 
-        foreach ($files as $filename) {
+        foreach ($attachements as $fieldname) {
 
             // Nothing to do if file did not change
-            if ($model->getOriginal($filename) == $model->filename) {
+            if ($model->getOriginal($fieldname) == $model->$fieldname) {
                 return;
             }
 
-            Croppa::delete('/uploads/' . $model->getTable() . '/' . $model->getOriginal($filename));
+            Croppa::delete('/uploads/' . $model->getTable() . '/' . $model->getOriginal($fieldname));
 
         }
     }

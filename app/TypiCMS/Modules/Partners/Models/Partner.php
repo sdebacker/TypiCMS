@@ -42,7 +42,7 @@ class Partner extends Base
      *
      * @var array
      */
-    public $files = array(
+    public $attachements = array(
         'logo',
     );
 
