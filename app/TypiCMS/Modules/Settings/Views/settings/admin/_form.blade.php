@@ -48,7 +48,7 @@
 </div>
 <div class="form-group @if($errors->has('adminLocale'))has-error @endif">
     {{ Form::label('adminLocale', trans('validation.attributes.adminLocale'), array('class' => 'control-label')) }}
-    {{ Form::select('adminLocale', Lang::get('global.languages'), null, array('class' => 'form-control')) }}
+    {{ Form::select('adminLocale', array_combine($locales, $locales), null, array('class' => 'form-control')) }}
     @if($errors->has('adminLocale'))
     <span class="help-block">{{ $errors->first('adminLocale') }}</span>
     @endif
