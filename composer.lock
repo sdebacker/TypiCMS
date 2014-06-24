@@ -398,16 +398,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v4.1",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "b30361c227d44821a63434d67a48db131620d603"
+                "reference": "a06747f0531d028e13b7fbc82bc826fd2205ce5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/b30361c227d44821a63434d67a48db131620d603",
-                "reference": "b30361c227d44821a63434d67a48db131620d603",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/a06747f0531d028e13b7fbc82bc826fd2205ce5a",
+                "reference": "a06747f0531d028e13b7fbc82bc826fd2205ce5a",
                 "shasum": ""
             },
             "require": {
@@ -446,7 +446,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2014-06-10 11:01:59"
+            "time": "2014-06-20 14:23:43"
         },
         {
             "name": "edvinaskrucas/notification",
