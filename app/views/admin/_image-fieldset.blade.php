@@ -1,7 +1,13 @@
         <div class="clearfix well media @if($errors->has($field))has-error @endif">
             @if($model->$field)
             <div class="pull-left">
-                <img class="media-object" src="{{ Croppa::url('/uploads/' . $model->getTable() . '/' . $model->$field, 150) }}" alt="">
+                <?php 
+                    $file = '/uploads/' . $model->getTable() . '/' . $model->$field; 
+                    if(!is_file(public_path() . $file)){
+                        $file = '/uploads/img-not-found.png';
+                    }
+                ?>
+                <img class="media-object" src="{{ Croppa::url($file, 150) }}" alt="">
             </div>
             @endif
             <div class="media-body">
