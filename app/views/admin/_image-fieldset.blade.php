@@ -1,7 +1,7 @@
         <div class="clearfix well media @if($errors->has($field))has-error @endif">
             @if($model->$field)
             <div class="pull-left">
-                <img class="media-object" src="{{ Croppa::url('/uploads/' . $model->getTable() . '/' . $model->$field, 150) }}" alt="">
+                {{ $model->present()->thumb(150, 150, ['resize']) }}
             </div>
             @endif
             <div class="media-body">
