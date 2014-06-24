@@ -1,7 +1,7 @@
         <div class="clearfix well media @if($errors->has($field))has-error @endif">
             @if($model->$field)
             <div class="pull-left">
-                {{ $model->present()->thumb(150, 150, ['resize']) }}
+                {{ $model->present()->thumb(150, 150, ['resize'], $field) }}
             </div>
             @endif
             <div class="media-body">
