@@ -27,6 +27,22 @@ class TypiCMS
     }
 
     /**
+    * Return online public locales
+    *
+    * @return array
+    */
+    public function getPublicLocales()
+    {
+        $locales = Config::get('app.locales');
+        foreach ($locales as $key => $locale) {
+            if (! Config::get('typicms.' . $locale . '.status')) {
+                unset($locales[$key]);
+            }
+        }
+        return $locales;
+    }
+
+    /**
     * Build languages menu
     *
     * @param array $attributes
@@ -34,7 +50,8 @@ class TypiCMS
     */
     public function languagesMenu(array $attributes = array())
     {
-        $langsArray = $this->buildLangsArray(Config::get('app.locales'));
+        $locales = $this->getPublicLocales();
+        $langsArray = $this->buildLangsArray($locales);
         return HTML::languagesMenu($langsArray, $attributes);
     }
 

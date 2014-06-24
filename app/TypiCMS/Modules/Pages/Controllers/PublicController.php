@@ -81,7 +81,7 @@ class PublicController extends BasePublicController
      */
     public function root()
     {
-        $locales = Config::get('app.locales');
+        $locales = TypiCMS::getPublicLocales();
 
         // If we don’t want the lang chooser, redirect to browser language
         if (! Config::get('typicms.langChooser')) {

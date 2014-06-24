@@ -87,6 +87,14 @@ Route::filter('users.register', function()
 	}
 });
 
+Route::filter('isPublicLocaleOnline', function()
+{
+	$locale = Config::get('app.locale');
+	if ( ! Config::get('typicms.' . $locale . '.status')) {
+		App::abort(404);
+	}
+});
+
 
 /*
 |--------------------------------------------------------------------------
