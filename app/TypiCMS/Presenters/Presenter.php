@@ -146,10 +146,11 @@ abstract class Presenter
     /**
      * Return a resized or cropped image
      * 
-     * @param  int $width   width of image, null for auto
-     * @param  int $height  height of image, null for auto
-     * @param  array  $options see Croppa doc for options (https://github.com/BKWLD/croppa)
-     * @return string       img src
+     * @param  int $width      width of image, null for auto
+     * @param  int $height     height of image, null for auto
+     * @param  array $options  see Croppa doc for options (https://github.com/BKWLD/croppa)
+     * @param  string $field   field name
+     * @return string          HTML markup of an image
      */
     public function thumb($width = null, $height = null, array $options = array(), $field = 'image')
     {
