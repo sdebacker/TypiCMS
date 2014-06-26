@@ -23,7 +23,7 @@ class ModulePresenter extends Presenter
                 $height,
                 $options
             );
-            return '<img src="' . $src . '" alt="' . $this->entity->alt_attribute . '">';
+            return '<img class="img-responsive" src="' . $src . '" alt="' . $this->entity->alt_attribute . '">';
         } else {
             return '<div class="text-center doc"><i class="text-center fa fa-file-text-o"></i></div>';
         }
