@@ -9,8 +9,6 @@ use App;
 use Input;
 use Config;
 
-use FileUpload;
-
 use TypiCMS\Services\Helpers;
 use TypiCMS\Modules\Pages\Models\Page;
 

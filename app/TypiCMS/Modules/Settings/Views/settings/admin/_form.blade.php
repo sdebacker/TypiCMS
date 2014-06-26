@@ -60,15 +60,9 @@
     <span class="help-block">{{ $errors->first('typekitCode') }}</span>
     @endif
 </div>
-<div class="row">
-    <div class="col-sm-6 form-group">
-    {{ Form::label('googleAnalyticsUniversalCode', trans('validation.attributes.googleAnalyticsUniversalCode'), array('class' => 'control-label')) }}
-    {{ Form::text('googleAnalyticsUniversalCode', null, array('class' => 'form-control')) }}
-    </div>
-    <div class="col-sm-6 form-group">
+<div class="form-group">
     {{ Form::label('googleAnalyticsCode', trans('validation.attributes.googleAnalyticsCode'), array('class' => 'control-label')) }}
     {{ Form::text('googleAnalyticsCode', null, array('class' => 'form-control')) }}
-    </div>
 </div>
 @if (Config::get('app.locale_in_url'))
 <div class="form-group">

@@ -217,8 +217,7 @@ return array(
         // Settings
         'webmasterEmail' => 'Email du webmaster',
         'typekitCode' => 'Code Typekit',
-        'googleAnalyticsUniversalCode' => 'Google Analytics Universal',
-        'googleAnalyticsCode' => 'Google Analytics Classic',
+        'googleAnalyticsCode' => 'Code Google Analytics',
         'langChooser' => 'Page de choix de langue',
         'welcomeMessage' => 'Message d’accueil de l’interface d’administration',
         'adminLocale' => 'Langue de l’interface d’administration',

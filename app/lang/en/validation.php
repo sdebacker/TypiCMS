@@ -217,7 +217,6 @@ return array(
         // Settings
         'webmasterEmail' => 'Webmaster email',
         'typekitCode' => 'Typekit Code',
-        'googleAnalyticsUniversalCode' => 'Google Analytics Universal Code',
         'googleAnalyticsCode' => 'Google Analytics Code',
         'langChooser' => 'Lang chooser',
         'welcomeMessage' => 'Administration welcome message',
