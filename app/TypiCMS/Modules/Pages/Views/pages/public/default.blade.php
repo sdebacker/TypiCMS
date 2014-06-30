@@ -17,6 +17,7 @@
 
         <div class="col-sm-8">
             {{ $model->body }}
+            @include('public._galleries')
         </div>
 
     </div>

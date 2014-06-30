@@ -33,6 +33,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     {
         $model = $this->model->find($data['id']);
         $model->fill($data);
+
+        $this->syncGalleries($model, $data);
+
         $model->save();
 
         $this->urisAndSlugs = $this->getAllUris();
@@ -79,6 +82,12 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function byUri($uri)
     {
         $model = $this->model
+            ->with(
+                'galleries',
+                'galleries.translations',
+                'galleries.files',
+                'galleries.files.translations'
+            )
             ->where('is_home', 0)
             ->whereHas('translations', function ($q) use ($uri) {
                 $q->where('uri', $uri);

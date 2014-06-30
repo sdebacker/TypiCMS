@@ -10,20 +10,23 @@
 
 <ul class="nav nav-tabs">
     <li class="active">
-        <a href="#content" data-target="#content" data-toggle="tab">@lang('global.Content')</a>
+        <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('global.Content')</a>
     </li>
     <li>
-        <a href="#meta" data-target="#meta" data-toggle="tab">@lang('global.Meta')</a>
+        <a href="#tab-galleries" data-target="#tab-galleries" data-toggle="tab">@lang('global.Galleries')</a>
     </li>
     <li>
-        <a href="#options" data-target="#options" data-toggle="tab">@lang('global.Options')</a>
+        <a href="#tab-meta" data-target="#tab-meta" data-toggle="tab">@lang('global.Meta')</a>
+    </li>
+    <li>
+        <a href="#tab-options" data-target="#tab-options" data-toggle="tab">@lang('global.Options')</a>
     </li>
 </ul>
 
 <div class="tab-content">
 
-    {{-- Content --}}
-    <div class="tab-pane fade in active" id="content">
+    {{-- Main tab --}}
+    <div class="tab-pane fade in active" id="tab-main">
 
         @include('admin._tabs-lang-form', ['target' => 'content'])
 
@@ -77,8 +80,15 @@
 
     </div>
 
-    {{-- Metadata --}}
-    <div class="tab-pane fade in" id="meta">
+    {{-- Galleries tab --}}
+    <div class="tab-pane fade in" id="tab-galleries">
+
+        @include('admin._galleries-fieldset')
+
+    </div>
+
+    {{-- Metadata tab --}}
+    <div class="tab-pane fade in" id="tab-meta">
 
         @include('admin._tabs-lang-form', ['target' => 'meta'])
 
@@ -113,7 +123,7 @@
     </div>
 
     {{-- Options --}}
-    <div class="tab-pane fade in" id="options">
+    <div class="tab-pane fade in" id="tab-options">
 
         <div class="form-group">
             <label class="checkbox">

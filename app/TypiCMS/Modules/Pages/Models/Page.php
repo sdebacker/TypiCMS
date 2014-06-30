@@ -112,6 +112,19 @@ class Page extends Base
     }
 
     /**
+     * A page has many galleries.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function galleries()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
+            ->withPivot('position')
+            ->orderBy('position')
+            ->withTimestamps();
+    }
+
+    /**
      * Observers
      */
     public static function boot()
