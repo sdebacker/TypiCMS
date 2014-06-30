@@ -92,7 +92,7 @@ function initTinymce(selector) {
         }
 
         /**
-         * Selectize for select multiple
+         * Selectize for galleries
          */
         $('select#galleries').selectize({
             plugins: ['drag_drop'],
