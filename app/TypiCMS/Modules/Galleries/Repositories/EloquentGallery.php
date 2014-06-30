@@ -27,26 +27,6 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
     }
 
     /**
-     * Find existing galleries or forget it if they don't exist
-     *
-     * @param  array $galleries  Array of strings, each representing a tag
-     * @return array        Array or Arrayable collection of Tag objects
-     */
-    public function findOrForget(array $galleries)
-    {
-        $filteredGalleries = array();
-
-        foreach ($galleries as $name) {
-            $found = $this->model->where('name', $name)->first();
-            if ($found) {
-                $filteredGalleries[] = $found;
-            }
-        }
-
-        return $filteredGalleries;
-    }
-
-    /**
      * Delete model and attached files
      *
      * @return boolean

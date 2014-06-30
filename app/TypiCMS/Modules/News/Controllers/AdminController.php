@@ -5,7 +5,6 @@ use Str;
 use View;
 use Input;
 use Config;
-use Session;
 use Request;
 use Redirect;
 use Paginator;
@@ -53,9 +52,7 @@ class AdminController extends BaseAdminController
     {
         $this->title['child'] = trans('news::global.New');
         $model = $this->repository->getModel();
-        $galleries = Session::getOldInput('galleries');
         $this->layout->content = View::make('news.admin.create')
-            ->withGalleries($galleries)
             ->withModel($model);
     }
 
@@ -69,11 +66,7 @@ class AdminController extends BaseAdminController
     {
         TypiCMS::setModel($model);
         $this->title['child'] = trans('news::global.Edit');
-
-        $galleries = implode(', ', $model->galleries->lists('name'));
-
         $this->layout->content = View::make('news.admin.edit')
-            ->withGalleries($galleries)
             ->withModel($model);
     }
 

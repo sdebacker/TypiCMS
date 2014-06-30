@@ -39,17 +39,6 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
     }
 
     /**
-     * Find existing galleries or forget it if they don't exist
-     *
-     * @param  array $galleries  Array of strings, each representing a tag
-     * @return array        Array or Arrayable collection of Tag objects
-     */
-    public function findOrForget(array $galleries)
-    {
-        return $this->repo->findOrForget($galleries);
-    }
-
-    /**
      * Delete model and attached files
      *
      * @return boolean

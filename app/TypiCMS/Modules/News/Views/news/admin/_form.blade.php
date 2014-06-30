@@ -10,17 +10,17 @@
 
 <ul class="nav nav-tabs">
     <li class="active">
-        <a href="#content" data-target="#content" data-toggle="tab">@lang('global.Content')</a>
+        <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('global.Content')</a>
     </li>
     <li>
-        <a href="#meta" data-target="#galleries" data-toggle="tab">@lang('global.Galleries')</a>
+        <a href="#tab-galleries" data-target="#tab-galleries" data-toggle="tab">@lang('global.Galleries')</a>
     </li>
 </ul>
 
 <div class="tab-content">
 
-    {{-- Content --}}
-    <div class="tab-pane fade in active" id="content">
+    {{-- Main tab --}}
+    <div class="tab-pane fade in active" id="tab-main">
 
         <div class="form-group @if($errors->has('date'))has-error @endif">
             {{ Form::label('date', trans('validation.attributes.date'), array('class' => 'control-label')) }}
@@ -81,8 +81,8 @@
 
     </div>
 
-    {{-- Galleries --}}
-    <div class="tab-pane fade in active" id="galleries">
+    {{-- Galleries tab --}}
+    <div class="tab-pane fade in" id="tab-galleries">
 
         @include('admin._galleries-fieldset')
 

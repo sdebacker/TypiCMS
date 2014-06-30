@@ -229,7 +229,8 @@ abstract class RepositoriesAbstract
         $model = $this->model->fill($data);
 
         if ($model->save()) {
-            isset($data['galleries']) and $this->syncGalleries($model, $data['galleries']);
+            ! isset($data['galleries']) and $data['galleries'] = array();
+            $this->syncGalleries($model, $data['galleries']);
             return $model;
         }
 
@@ -248,7 +249,8 @@ abstract class RepositoriesAbstract
 
         $model->fill($data);
 
-        isset($data['galleries']) and $this->syncGalleries($model, $data['galleries']);
+        ! isset($data['galleries']) and $data['galleries'] = array();
+        $this->syncGalleries($model, $data['galleries']);
 
         if ($model->save()) {
             return true;
@@ -372,10 +374,14 @@ abstract class RepositoriesAbstract
      *
      * @param  \Illuminate\Database\Eloquent\Model $model
      * @param  array                               $tags
-     * @return void
+     * @return mixed false or void
      */
     protected function syncTags($model, array $tags)
     {
+        if (! method_exists($model, 'tags')) {
+            return false;
+        }
+
         // Create or add tags
         $tagIds = array();
 
@@ -395,22 +401,22 @@ abstract class RepositoriesAbstract
      *
      * @param  \Illuminate\Database\Eloquent\Model $model
      * @param  array                               $galleries
-     * @return void
+     * @return mixed false or void
      */
     protected function syncGalleries($model, array $galleries)
     {
-        // Create or add galleries
-        $pivotData = array();
-        if ($galleries) {
-            $position = 0;
-            $found = $this->gallery->findOrForget($galleries);
-            foreach ($found as $gallery) {
-                $position++;
-                $pivotData[$gallery->id] = array('position' => $position);
-            }
+        if (! method_exists($model, 'galleries')) {
+            return false;
         }
 
-        // Assign set galleries to model
+        // add galleries
+        $pivotData = array();
+        $position = 0;
+        foreach ($galleries as $id) {
+            $pivotData[$id] = ['position' => $position++];
+        }
+
+        // Sync galleries
         $model->galleries()->sync($pivotData);
     }
 }

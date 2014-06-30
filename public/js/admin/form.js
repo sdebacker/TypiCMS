@@ -92,25 +92,12 @@ function initTinymce(selector) {
         }
 
         /**
-         * Selectize for galleries (Todo : use select[multiple])
+         * Selectize for select multiple
          */
-        if ($('#select-galleries').length) {
-            $.getJSON("/admin/galleries", function(data){
-                var items = data.map(function(x) { return { item: x }; });
-                $('#select-galleries').selectize({
-                    plugins: ['drag_drop'],
-                    persist: false,
-                    create: true,
-                    delimiter: ', ',
-                    options: items,
-                    labelField: 'item',
-                    valueField: 'item',
-                    createOnBlur: true
-                });
-            }).fail(function(){
-                console.log('Error while retrieving galleries');
-            });
-        }
+        $('select#galleries').selectize({
+            plugins: ['drag_drop'],
+            createOnBlur: true
+        });
 
         /**
          * Set button in red on validation errors

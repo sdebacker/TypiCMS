@@ -32,11 +32,6 @@ class AdminController extends BaseAdminController
      */
     public function index()
     {
-        if (Request::ajax()) {
-            $galleries = $this->repository->getNames();
-            return Response::json($galleries);
-        }
-
         $page = Input::get('page');
 
         $itemsPerPage = Config::get('galleries::admin.itemsPerPage');
@@ -114,7 +109,6 @@ class AdminController extends BaseAdminController
      */
     public function update($model)
     {
-
         Request::ajax() and exit($this->repository->update(Input::all()));
 
         if ($this->form->update(Input::all())) {
