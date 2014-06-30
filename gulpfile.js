@@ -47,7 +47,8 @@ gulp.task('admin-less', function () {
 gulp.task('fonts', function () {
 
     return gulp.src([
-            'app/assets/components/font-awesome/fonts/*'
+            'app/assets/components/font-awesome/fonts/*',
+            'app/assets/components/flexslider/fonts/*'
         ])
         .pipe(gulp.dest('public/fonts'));
 
