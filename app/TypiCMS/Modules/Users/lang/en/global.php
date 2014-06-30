@@ -16,11 +16,13 @@ return array(
     'Welcome' => 'Welcome',
     'You are logged out' => 'You are logged out',
     'Your account has been created, you can now log in' => 'Your account has been created, you can now log in',
-    'Your account has been created, check your email for the confirmation link' => 'Your account has been created, check your email for the confirmation link',
+    'Your account has been created, check your email for the confirmation link' =>
+        'Your account has been created, check your email for the confirmation link',
     'Your account has been activated, you can now log in' => 'Your account has been activated, you can now log in',
     'An email was sent with password reset information' => 'An email was sent with password reset information',
     'Your password has been changed' => 'Your password has been changed',
-    'There was a problem, please contact the system administrator' => 'There was a problem, please contact the system administrator',
+    'There was a problem, please contact the system administrator' =>
+        'There was a problem, please contact the system administrator',
     'This password reset token is invalid' => 'This password reset token is invalid',
     'User does not exist' => 'User does not exist',
     'Thank you' => 'Thank you',

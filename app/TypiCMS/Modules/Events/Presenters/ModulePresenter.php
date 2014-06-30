@@ -43,7 +43,10 @@ class ModulePresenter extends Presenter
         $dateFormat = '%d %B %Y';
         $sDateFormat = $dateFormat;
         if ($sDate == $eDate) {
-            return ucfirst(trans('events::global.on')) . ' <time datetime="' . $sDate . '">' . $sDate->formatLocalized($dateFormat) . '</time>';
+            return ucfirst(trans('events::global.on')) .
+                ' <time datetime="' . $sDate . '">' .
+                $sDate->formatLocalized($dateFormat) .
+                '</time>';
         }
         if ($sDate->format('Y') == $eDate->format('Y')) {
             $sDateFormat = '%d %B';

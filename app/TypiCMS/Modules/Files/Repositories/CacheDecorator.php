@@ -38,7 +38,14 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
         $type = null
     ) {
         $cacheKey = md5(
-            App::getLocale() . 'byPageFrom' . $page . $limit . $gallery_id . $all . implode(Input::except('page')) . $type
+            App::getLocale() .
+            'byPageFrom' .
+            $page .
+            $limit .
+            $gallery_id .
+            $all .
+            implode(Input::except('page')) .
+            $type
         );
 
         if ($this->cache->has($cacheKey)) {

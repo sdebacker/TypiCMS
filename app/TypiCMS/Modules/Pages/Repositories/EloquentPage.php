@@ -200,7 +200,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
                 if ($this->urisAndSlugs[$id][$locale]['slug']) {
 
                     if (isset($this->urisAndSlugs[$parent][$locale]['uri'])) {
-                        $uri = $this->urisAndSlugs[$parent][$locale]['uri'] . '/' . $this->urisAndSlugs[$id][$locale]['slug'];
+                        $uri = $this->urisAndSlugs[$parent][$locale]['uri'] .
+                            '/' .
+                            $this->urisAndSlugs[$id][$locale]['slug'];
                     } else {
                         $uri = $this->urisAndSlugs[$id][$locale]['slug'];
                         if (Config::get('app.locale_in_url')) {

@@ -16,18 +16,23 @@ return array(
     'Welcome' => 'Bienvenue :name',
     'You are logged out' => 'Vous êtes déconnecté',
     'Your account has been created, you can now log in' => 'Votre compte a été créé, vous pouvez vous connecter.',
-    'Your account has been created, check your email for the confirmation link' => 'Votre compte a été créé, un lien de confirmation vous a été envoyé.',
-    'Your account has been activated, you can now log in' => 'Votre compte a été activé, vous pouvez vous connecter.',
-    'An email was sent with password reset information' => 'Les instructions de changement de mot de passe vous ont été envoyées par email.',
+    'Your account has been created, check your email for the confirmation link' =>
+        'Votre compte a été créé, un lien de confirmation vous a été envoyé.',
+    'Your account has been activated, you can now log in' =>
+        'Votre compte a été activé, vous pouvez vous connecter.',
+    'An email was sent with password reset information' =>
+        'Les instructions de changement de mot de passe vous ont été envoyées par email.',
     'Your password has been changed' => 'Votre mot de passe a été changé.',
-    'There was a problem, please contact the system administrator' => 'Une erreur s’est produite, veuillez contacter le webmaster.',
+    'There was a problem, please contact the system administrator' =>
+        'Une erreur s’est produite, veuillez contacter le webmaster.',
     'This password reset token is invalid' => 'Ce code de réinitialisation n’est pas valide.',
     'User does not exist' => 'Cet utilisateur n’existe pas.',
     'Thank you' => 'Merci',
     'To reset your password' => 'Pour réinitialiser votre mot de passe',
     'click here' => 'cliquer ici',
     'Or point your browser to this address:' => 'Ou bien rendez-vous à cette adresse&nbsp;:',
-    'To reset your password, complete this form:' => 'Pour réinitialiser votre mot de passe, complétez ce formulaire&nbsp;:',
+    'To reset your password, complete this form:' =>
+        'Pour réinitialiser votre mot de passe, complétez ce formulaire&nbsp;:',
     'To activate your account' => 'Pour activer votre compte',
     'Password Reset Confirmation' => 'Confirmation pour la réinitialisation de votre mot de passe.',
     'Account:' => 'Compte&nbsp;:',

@@ -39,7 +39,13 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
         $query = $this->model->select(
             'id',
             'tag',
-            DB::raw("(SELECT COUNT(*) FROM `" . DB::getTablePrefix() . "taggables` WHERE `tag_id` = `" . DB::getTablePrefix() . "tags`.`id`) AS 'uses'")
+            DB::raw(
+                "(SELECT COUNT(*) FROM `" .
+                DB::getTablePrefix() .
+                "taggables` WHERE `tag_id` = `" .
+                DB::getTablePrefix() .
+                "tags`.`id`) AS 'uses'"
+            )
         )
         ->order();
 
