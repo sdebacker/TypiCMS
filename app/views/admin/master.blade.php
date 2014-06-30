@@ -17,6 +17,8 @@
         {{ HTML::script(asset('js/datepicker-locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
     @endif
 
+    {{ HTML::script(asset('js/admin/components-custom.min.js')) }}
+
     @yield('js')
 
     {{ HTML::script(asset('js/admin/master.js')) }}

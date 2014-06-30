@@ -7,11 +7,12 @@ var gulp       = require('gulp'),
     minifyCSS  = require('gulp-minify-css'),
     uglify     = require('gulp-uglify'),
     watch      = require('gulp-watch'),
-    bower      = require('gulp-bower-files'),
+    bowerFiles = require('gulp-bower-files'),
     livereload = require('gulp-livereload'),
     browserify = require('gulp-browserify'),
     rename     = require('gulp-rename'),
-    plumber    = require('gulp-plumber');
+    plumber    = require('gulp-plumber'),
+    filter     = require('gulp-filter');
 
 // Compile Less and save to css directory
 gulp.task('public-less', function () {
@@ -91,46 +92,33 @@ gulp.task('public-js', function () {
 
 });
 
-gulp.task('admin-js', function () {
+gulp.task('components-js', function () {
 
-    return gulp.src([
-            'app/assets/components/jquery/jquery.js',
-            // jQuery-ui
-            'app/assets/components/jquery-ui/ui/jquery-ui.js',
-            'app/assets/components/jquery-ui/ui/jquery.ui.core.js',
-            'app/assets/components/jquery-ui/ui/jquery.ui.mouse.js',
-            'app/assets/components/jquery-ui/ui/jquery.ui.widget.js',
-            'app/assets/components/jquery-ui/ui/jquery.ui.sortable.js',
-            // Alertify
-            'app/assets/components/alertify.js/lib/alertify.js',
-            // Fancybox
-            'app/assets/components/fancybox/source/jquery.fancybox.js',
-            // Bootstrap
-            'app/assets/components/bootstrap/js/dropdown.js',
-            'app/assets/components/bootstrap/js/collapse.js',
-            'app/assets/components/bootstrap/js/alert.js',
-            'app/assets/components/bootstrap/js/tab.js',
-            'app/assets/components/bootstrap/js/transition.js',
-            // Selectize
-            'app/assets/components/sifter/sifter.js',
-            'app/assets/components/microplugin/src/microplugin.js',
-            'app/assets/components/selectize/dist/js/selectize.js',
-            // Dropzone
-            'app/assets/components/dropzone/downloads/dropzone.js',
-            // Date & Time Picker
-            'app/assets/components/moment/moment.js',
-            'app/assets/components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
-            // Other
-            'public/components/jquery.mjs.nestedSortable.js',
-            'public/components/jquery.nestedCookie.js',
-            'public/components/jquery.listenhancer.js',
-            'public/components/jquery.slug.js'
-        ])
+    var jsFilter = filter('**/*.js');
+
+    return bowerFiles()
+        .pipe(jsFilter)
         .pipe(concat('bundle.js'))
         .pipe(uglify())
-        .pipe(rename('public/js/admin/components.min.js'))
-        .pipe(gulp.dest('./'))
-        .pipe(notify('Admin JS minified'));
+        .pipe(rename('components.min.js'))
+        .pipe(gulp.dest('public/js/admin/'))
+        .pipe(notify('Bower js files minified'));
+
+});
+
+gulp.task('components-custom-js', function () {
+
+    return gulp.src([
+            'app/assets/js/admin/jquery.mjs.nestedSortable.js',
+            'app/assets/js/admin/jquery.nestedCookie.js',
+            'app/assets/js/admin/jquery.slug.js',
+            'app/assets/js/admin/jquery.listenhancer.js'
+        ])
+        .pipe(concat('components-custom.js'))
+        .pipe(uglify())
+        .pipe(rename('components-custom.min.js'))
+        .pipe(gulp.dest('public/js/admin/'))
+        .pipe(notify('Custom js plugins minified'));
 
 });
 
@@ -140,13 +128,18 @@ gulp.task('watch', function () {
     gulp.watch('app/assets/less/admin/**/*.less', ['admin-less']);
     gulp.watch('app/assets/less/*.less', ['public-less', 'admin-less']);
     gulp.watch('public/js/public/**/*.js', ['public-js']);
-    gulp.watch('public/js/admin/**/*.js', ['admin-js']);
+    gulp.watch('public/js/admin/**/*.js', ['components-js', 'components-custom-js']);
 });
 
-// gulp.task('bower', function(){
-//     bower().pipe(gulp.dest('public/vendor'));
-// });
-
 // What tasks does running gulp trigger?
-// gulp.task('default', ['public-less', 'admin-less', 'public-js', 'admin-js', 'fonts', 'datepicker-locales', 'fancybox-img', 'watch']);
-gulp.task('default', ['public-less', 'admin-less', 'public-js', 'fonts', 'datepicker-locales', 'fancybox-img', 'watch']);
+gulp.task('default', [
+    'public-less',
+    'admin-less',
+    'public-js',
+    'components-js',
+    'components-custom-js',
+    'fonts',
+    'datepicker-locales',
+    'fancybox-img',
+    'watch'
+]);

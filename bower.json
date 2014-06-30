@@ -2,7 +2,6 @@
   "name": "TypiCMS",
   "dependencies": {
     "jquery": "~2.*",
-    "jquery-legacy": "jquery#1.*",
     "alertify.js": "~0.3.*",
     "bootstrap": "~3.1.*",
     "dropzone": "~3.*",
@@ -14,72 +13,32 @@
     "selectize": "~0.*"
   },
   "overrides": {
-    "alertify.js": {
-      "main": [
-        "themes/alertify.bootstrap.css",
-        "themes/alertify.default.css",
-        "themes/alertify.core.css",
-        "lib/alertify.min.js"
-      ]
-    },
-    "eonasdan-bootstrap-datetimepicker": {
-      "main": [
-        "build/css/bootstrap-datetimepicker.min.css",
-        "build/js/bootstrap-datetimepicker.min.js",
-        "src/js/locales/bootstrap-datetimepicker.fr.js",
-        "src/js/locales/bootstrap-datetimepicker.de.js",
-        "src/js/locales/bootstrap-datetimepicker.es.js",
-        "src/js/locales/bootstrap-datetimepicker.nl.js"
-      ]
-    },
     "fancybox": {
       "main": [
-        "source/jquery.fancybox.css",
-        "source/jquery.fancybox.pack.js",
-        "source/fancybox_loading.gif",
-        "source/fancybox_loading@2x.gif",
-        "source/fancybox_overlay.png",
-        "source/fancybox_sprite.png",
-        "source/fancybox_sprite@2x.png",
-        "source/blank.gif"
+        "source/jquery.fancybox.js"
       ]
     },
     "bootstrap": {
       "main": [
-        "./js/dropdown.js",
-        "./js/collapse.js",
-        "./js/alert.js",
-        "./js/tab.js",
-        "./js/transition.js"
+        "js/dropdown.js",
+        "js/collapse.js",
+        "js/alert.js",
+        "js/tab.js",
+        "js/transition.js"
       ]
     },
     "jquery-ui": {
       "main": [
-        "ui/minified/jquery-ui.min.js",
-        "ui/minified/jquery.ui.core.min.js",
-        "ui/minified/jquery.ui.mouse.min.js",
-        "ui/minified/jquery.ui.widget.min.js",
-        "ui/minified/jquery.ui.sortable.min.js"
+        "ui/jquery-ui.js",
+        "ui/jquery.ui.core.js",
+        "ui/jquery.ui.mouse.js",
+        "ui/jquery.ui.widget.js",
+        "ui/jquery.ui.sortable.js"
       ]
     },
     "flexslider": {
       "main": [
-        "jquery.flexslider-min.js",
-        "flexslider.css",
-        "fonts/flexslider-icon.eot",
-        "fonts/flexslider-icon.svg",
-        "fonts/flexslider-icon.ttf",
-        "fonts/flexslider-icon.woff",
-        "images/bg_play_pause.png"
-      ]
-    },
-    "font-awesome": {
-      "main": [
-        "fonts/fontawesome-webfont.eot",
-        "fonts/fontawesome-webfont.svg",
-        "fonts/fontawesome-webfont.ttf",
-        "fonts/fontawesome-webfont.woff",
-        "fonts/FontAwesome.otf"
+        "jquery.flexslider.js"
       ]
     }
   }
