@@ -241,6 +241,7 @@ return array(
 		'Partners'        => 'TypiCMS\Modules\Partners\Facades\Facade',
 		'Places'          => 'TypiCMS\Modules\Places\Facades\Facade',
 		'Blocks'          => 'TypiCMS\Modules\Blocks\Facades\Facade',
+		'Galleries'       => 'TypiCMS\Modules\Galleries\Facades\Facade',
 
 	),
 
