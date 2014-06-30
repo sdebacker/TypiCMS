@@ -168,7 +168,7 @@ Change website title, and other options trough the settings panel. Settings are 
 
 ## Facades
 
-Five modules have their own Facade: News, Events, Projects, Places and Menus.
+Modules that have their own Facade: News, Events, Projects, Places, Partners, Galleries, Blocks and Menus.
 
 In your views, you can call for example ```News::latest(3)``` to get the three latest news.
 Check available methods in each module's repository.
