@@ -34,8 +34,8 @@ abstract class AbstractForm
             return false;
         }
 
-        if (isset($input['galleries'])) {
-            $input['galleries'] = $this->processTags($input['galleries']);
+        if (isset($input['tags'])) {
+            $input['tags'] = $this->processTags($input['tags']);
         }
 
         return $this->repository->create($input);
@@ -59,8 +59,8 @@ abstract class AbstractForm
             return false;
         }
 
-        if (isset($input['galleries'])) {
-            $input['galleries'] = $this->processTags($input['galleries']);
+        if (isset($input['tags'])) {
+            $input['tags'] = $this->processTags($input['tags']);
         }
 
         return $this->repository->update($input);
@@ -95,6 +95,10 @@ abstract class AbstractForm
      */
     protected function processTags($tags)
     {
+        if (! $tags) {
+            return array();
+        }
+
         $tags = explode(',', $tags);
 
         foreach ($tags as $key => $tag) {
