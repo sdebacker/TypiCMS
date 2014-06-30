@@ -96,7 +96,7 @@ gulp.task('components-js', function () {
 
     var jsFilter = filter('**/*.js');
 
-    return bowerFiles()
+    return bowerFiles({checkExistence: true})
         .pipe(jsFilter)
         .pipe(concat('bundle.js'))
         .pipe(uglify())
@@ -127,8 +127,8 @@ gulp.task('watch', function () {
     gulp.watch('app/assets/less/public/**/*.less', ['public-less']);
     gulp.watch('app/assets/less/admin/**/*.less', ['admin-less']);
     gulp.watch('app/assets/less/*.less', ['public-less', 'admin-less']);
-    gulp.watch('public/js/public/**/*.js', ['public-js']);
-    gulp.watch('public/js/admin/**/*.js', ['components-js', 'components-custom-js']);
+    gulp.watch('app/assets/js/public/**/*.js', ['public-js']);
+    gulp.watch('app/assets/js/admin/**/*.js', ['components-js', 'components-custom-js']);
 });
 
 // What tasks does running gulp trigger?

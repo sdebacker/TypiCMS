@@ -40,6 +40,9 @@
       "main": [
         "jquery.flexslider.js"
       ]
+    },
+    "font-awesome": {
+      "ignore": true
     }
   }
 }
