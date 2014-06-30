@@ -41,7 +41,7 @@
         </div>
         <div class="form-group @if($errors->has($lang.'.website'))has-error @endif">
             {{ Form::label($lang.'[website]', trans('validation.attributes.website'), array('class' => 'control-label')) }}
-            {{ Form::text($lang.'[website]', null, array('class' => 'form-control', 'placeholder' => 'http://')) }}
+            {{ Form::text($lang.'[website]', $model->translate($lang)->website, array('class' => 'form-control', 'placeholder' => 'http://')) }}
             @if($errors->has($lang.'.website'))
             <span class="help-block">{{ $errors->first($lang.'.website') }}</span>
             @endif
