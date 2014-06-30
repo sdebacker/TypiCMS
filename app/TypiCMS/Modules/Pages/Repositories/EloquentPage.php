@@ -82,12 +82,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function byUri($uri)
     {
         $model = $this->model
-            ->with(
-                'galleries',
-                'galleries.translations',
-                'galleries.files',
-                'galleries.files.translations'
-            )
+            ->withOnlineGalleries()
             ->where('is_home', 0)
             ->whereHas('translations', function ($q) use ($uri) {
                 $q->where('uri', $uri);
