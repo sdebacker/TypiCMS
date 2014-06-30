@@ -7,8 +7,8 @@
         @if($children)
         <div class="col-sm-4">
             <ul class="list-main nested sortable">
-            @foreach ($children as $model)
-                @include('pages.public._listItem', array('model' => $model))
+            @foreach ($children as $child)
+                @include('pages.public._listItem', array('child' => $child))
             @endforeach
             </ul>
         </div>

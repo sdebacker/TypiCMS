@@ -1,11 +1,11 @@
-<li id="page_{{ $model->id }}" class="{{ $model->activeClass() }}">
-    <a href="/{{ $model->uri }}">
-        {{ $model->title }}
+<li id="page_{{ $child->id }}" class="{{ $child->activeClass() }}">
+    <a href="/{{ $child->uri }}">
+        {{ $child->title }}
     </a>
-    @if ($model->children)
+    @if ($child->children)
         <ul>
-            @foreach ($model->children as $submodel)
-                @include('pages.public._listItem', array('model' => $submodel))
+            @foreach ($child->children as $childPage)
+                @include('pages.public._listItem', array('child' => $childPage))
             @endforeach
         </ul>
     @endif
