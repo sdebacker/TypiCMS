@@ -312,7 +312,9 @@ abstract class RepositoriesAbstract
     public function select($method = 'getAll', $firstEmpty = true, $value = 'title', $key = 'id')
     {
         $items = $this->$method()->lists($value, $key);
-        $firstEmpty and array_unshift($items, '');
+        if ($firstEmpty) {
+            $items = ['' => ''] + $items;
+        }
         return $items;
     }
 
