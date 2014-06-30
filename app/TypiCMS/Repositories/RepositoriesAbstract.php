@@ -309,7 +309,7 @@ abstract class RepositoriesAbstract
      * @param  string  $key        witch field as key ?
      * @return array               array with key = $key and value = $value
      */
-    public function select($method = 'getAll', $firstEmpty = true, $value = 'title', $key = 'id')
+    public function select($method = 'getAll', $firstEmpty = false, $value = 'title', $key = 'id')
     {
         $items = $this->$method()->lists($value, $key);
         if ($firstEmpty) {
