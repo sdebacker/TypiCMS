@@ -31,6 +31,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
             'menulinks',
             'menulinks.translations',
             'menulinks.page',
+            'menulinks.page.translations',
         ];
         $menu = $this->make($with)
             ->where('name', $name)
