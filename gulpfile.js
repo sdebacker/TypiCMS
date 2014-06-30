@@ -148,4 +148,4 @@ gulp.task('watch', function () {
 
 // What tasks does running gulp trigger?
 // gulp.task('default', ['public-less', 'admin-less', 'public-js', 'admin-js', 'fonts', 'datepicker-locales', 'fancybox-img', 'watch']);
-gulp.task('default', ['public-less', 'public-js', 'admin-js', 'fonts', 'datepicker-locales', 'fancybox-img', 'watch']);
+gulp.task('default', ['public-less', 'admin-less', 'public-js', 'fonts', 'datepicker-locales', 'fancybox-img', 'watch']);
