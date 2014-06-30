@@ -229,8 +229,7 @@ abstract class RepositoriesAbstract
         $model = $this->model->fill($data);
 
         if ($model->save()) {
-            ! isset($data['galleries']) and $data['galleries'] = array();
-            $this->syncGalleries($model, $data['galleries']);
+            $this->syncGalleries($model, $data);
             return $model;
         }
 
@@ -249,8 +248,7 @@ abstract class RepositoriesAbstract
 
         $model->fill($data);
 
-        ! isset($data['galleries']) and $data['galleries'] = array();
-        $this->syncGalleries($model, $data['galleries']);
+        $this->syncGalleries($model, $data);
 
         if ($model->save()) {
             return true;
@@ -403,16 +401,18 @@ abstract class RepositoriesAbstract
      * @param  array                               $galleries
      * @return mixed false or void
      */
-    protected function syncGalleries($model, array $galleries)
+    protected function syncGalleries($model, array $data)
     {
         if (! method_exists($model, 'galleries')) {
             return false;
         }
 
+        ! isset($data['galleries']) and $data['galleries'] = array();
+
         // add galleries
         $pivotData = array();
         $position = 0;
-        foreach ($galleries as $id) {
+        foreach ($data['galleries'] as $id) {
             $pivotData[$id] = ['position' => $position++];
         }
 
