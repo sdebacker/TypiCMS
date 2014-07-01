@@ -4,12 +4,22 @@ namespace TypiCMS\Providers;
 use App;
 use Config;
 use Request;
+use Artisan;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Filesystem\Filesystem;
+
+use TypiCMS\Commands\TypiCMSInstall;
+use TypiCMS\Commands\CacheKeyPrefixGenerateCommand;
 
 class StartProvider extends ServiceProvider
 {
 
+    public function boot()
+    {
+        $this->commands('command.typicms');
+        $this->commands('command.cacheprefix');
+    }
     /**
      * Register the service provider.
      *
@@ -17,6 +27,17 @@ class StartProvider extends ServiceProvider
      */
     public function register()
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Bind commands.
+        |--------------------------------------------------------------------------|
+        */
+        $this->app->bind('command.typicms', function() {
+            return new TypiCMSInstall;
+        });
+        $this->app->bind('command.cacheprefix', function() {
+            return new CacheKeyPrefixGenerateCommand(new Filesystem);
+        });
 
         /*
         |--------------------------------------------------------------------------
