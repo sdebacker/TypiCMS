@@ -162,6 +162,10 @@ abstract class RepositoriesAbstract
 
         $query->where($key, $value);
 
+        // Query ORDER BY
+        $query = $query->order();
+
+        // Get
         $models = $query->get();
 
         return $models;
