@@ -31,7 +31,7 @@ abstract class CacheAbstractDecorator
         }
 
         // Item not cached, retrieve it
-        $model = $this->repo->byId($id);
+        $model = $this->repo->byId($id, $with);
 
         $this->cache->put($cacheKey, $model);
 
@@ -174,7 +174,7 @@ abstract class CacheAbstractDecorator
         }
 
         // Item not cached, retrieve it
-        $model = $this->repo->bySlug($slug);
+        $model = $this->repo->bySlug($slug, $with);
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $model);
