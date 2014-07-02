@@ -56,9 +56,6 @@ class Install extends Command
         // Set cache key prefix
         $this->call('cache:prefix', array('prefix' => $dbName));
 
-        // Generate Laravel encryption key
-        $this->call('key:generate');
-
         // Composer install
         if (function_exists('system')) {
             system('npm install');
