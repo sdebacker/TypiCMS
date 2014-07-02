@@ -279,6 +279,8 @@ Feel free to fork and pull request !
 TypiCMS follows [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.  
 TypiCMS needs improvements, some features are not yet implemented.  
 
+Thanks to [elvendor](elvendor) and [jekjek](jekjek) for their contributions !
+
 ## Testing
 
 Some admin controllers are actually tested, more tests needed.
