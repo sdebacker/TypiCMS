@@ -78,7 +78,7 @@ class Install extends Command
         $this->call('debugbar:publish');
 
         // Done
-        $this->line('Done. Enjoy TypiCMS !');
+        $this->line('Done. Enjoy TypiCMS!');
         
     }
 
