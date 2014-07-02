@@ -58,6 +58,15 @@ class Install extends Command {
 
 		// Set cache key prefix
 		$this->call('cms:cacheprefix', array('prefix' => $dbName));
+
+		// Composer install
+		if (function_exists('system')) {
+			system('composer install');
+			system('npm install');
+			system('bower install');
+		} else {
+			$this->info('you can now run composer install, npm install and bower install');
+		}
 		
 	}
 
