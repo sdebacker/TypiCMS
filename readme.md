@@ -68,27 +68,22 @@ This kind of urls are managed by the CMS :
 
 1. Install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com)
 2. Create an empty MySQL database
-3. Download TypiCMS 
+3. Create a new project 
    
    ```
-   git clone https://github.com/sdebacker/TypiCMS.git mywebsite
+   composer create-project sdebacker/typicms mywebsite
    ```
 4. Enter newly created folder
    
    ```
    cd mywebsite
    ```
-5. Composer install
-
-   ```
-   composer install
-   ```
-6. Initialise TypiCMS
+5. Initialise TypiCMS
 
    ```
    php artisan typicms:install
    ```
-7. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
+6. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
 
 ### Manual installation
 
