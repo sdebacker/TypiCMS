@@ -13,7 +13,7 @@ class CacheKeyPrefix extends Command {
 	 *
 	 * @var string
 	 */
-	protected $name = 'cms:cacheprefix';
+	protected $name = 'cache:prefix';
 
 	/**
 	 * The console command description.

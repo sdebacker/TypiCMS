@@ -16,14 +16,14 @@ class Database extends Command {
      *
      * @var string
      */
-    protected $name = 'cms:database';
+    protected $name = 'typicms:database';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = "Set database credentials in env.local.php";
+    protected $description = "Set database credentials in env.php";
 
     /**
      * Create a new key generator command.
@@ -51,7 +51,7 @@ class Database extends Command {
         $dbUserName = $this->ask('What is your MySQL username?');
         $dbPassword = $this->secret('What is your MySQL password?');
 
-        // Replace DB credentials taken from env.local.php file
+        // Replace DB credentials taken from env.php file
         $keys = ['MYSQL_DATABASE', 'MYSQL_USERNAME', 'MYSQL_PASSWORD'];
         $search = [
             "'$keys[0]' => ''",
@@ -66,7 +66,7 @@ class Database extends Command {
         $contents = str_replace($search, $replace, $contents, $count);
 
         if ($count != 3) {
-            $this->error("Error on writing credentials to env.local.php.");
+            $this->error("Error on writing credentials to .env.php.");
             exit();
         }
 
@@ -108,7 +108,7 @@ class Database extends Command {
      */
     protected function getKeyFile()
     {
-        $contents = $this->files->get($path = "env.local.php");
+        $contents = $this->files->get($path = "env.php");
         return array($path, $contents);
     }
 
