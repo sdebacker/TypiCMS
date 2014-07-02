@@ -8,6 +8,8 @@ TypiCMS is a multilingual content management system built with [Laravel 4.2](htt
 * [Back-end](http://typicms.samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
 * [Front-end](http://typicms.samsfactory.com)
 
+![TypiCMS screenshot](http://typicms.samsfactory.com/uploads/pages/TypiCMS-screenshot-o.png)
+
 ## Table of contents
 
 - [Features](#features)
@@ -83,7 +85,12 @@ This kind of urls are managed by the CMS :
    ```
    php artisan typicms:install
    ```
-6. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
+6. Go to http://mywebsite.local/admin and log in:
+
+   ```
+   email: admin@example.com
+   password: admin
+   ```
 
 ### Manual installation
 
@@ -135,7 +142,10 @@ This kind of urls are managed by the CMS :
     ```
     php artisan debugbar:publish
     ``` 
-12. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
+12. Go to http://mywebsite.local/admin and log in:
+    
+    * email: ```admin@example.com```
+    * password: ```admin```
 
 ### Bower & Gulp
 
