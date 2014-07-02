@@ -34,6 +34,7 @@ TypiCMS is a multilingual content management system built with [Laravel 4.2](htt
   - [Blocks](#blocks)
   - [Translations](#translations)
 - [Facades](#facades)
+- [Artisan commands](#artisan-commands)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Testing](#testing)
@@ -238,6 +239,17 @@ Modules that have their own Facade: News, Events, Projects, Places, Partners, Ga
 
 In your views, you can call for example ```News::latest(3)``` to get the three latest news.
 Check available methods in each module's repository.
+
+## Artisan commands
+
+Commands are located in app/TypiCMS/Commands
+
+* php artisan typicms:install
+  Initialisation of TypiCMS
+* php artisan cache:prefix yourprefix
+  set cache key prefix in app/config/cache.php
+* php artisan typicms:database
+  Initial migration and seed
 
 ## Roadmap
 
