@@ -13,7 +13,8 @@ Bower and gulp are used for assets management and user interface is build with B
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
-  - [Bower & Gulp](#bower--gulp)
+  - [Quick installation](#quick-installation)
+  - [Manual installation](#manual-installation)
   - [Configuration](#configuration)
 - [Modules](#modules)
   - [Pages](#pages)
@@ -66,6 +67,8 @@ This kind of urls are managed by the CMS :
 - Memcached or APC
 
 ## Installation
+
+### Quick installation
 
 1. Create an empty MySQL database
 2. Download TypiCMS 
@@ -141,21 +144,21 @@ This kind of urls are managed by the CMS :
 
 In order to work on assets, you need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
 
-13. Install bower packages according to bower.json (directory app/assets/components)
+1. Install bower packages according to bower.json (directory app/assets/components)
     
-    ```
-    bower install
-    ```
-14. Install Gulp packages according to gulpfile.js (directory node_modules)
+   ```
+   bower install
+   ```
+2. Install Gulp packages according to gulpfile.js (directory node_modules)
     
-    ```
-    npm install
-    ```
-15. Compile admin and public assets
+   ```
+   npm install
+   ```
+3. Compile admin and public assets
     
-    ```
-    gulp
-    ```
+   ```
+   gulp
+   ```
 
 ### Configuration
 
