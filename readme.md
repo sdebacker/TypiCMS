@@ -244,12 +244,23 @@ Check available methods in each module's repository.
 
 Commands are located in app/TypiCMS/Commands
 
-* php artisan typicms:install
-  Initialisation of TypiCMS
-* php artisan cache:prefix yourprefix
-  set cache key prefix in app/config/cache.php
-* php artisan typicms:database
-  Initial migration and seed
+* Initialisation of TypiCMS
+
+   ```
+   php artisan typicms:install
+   ```
+  
+* set cache key prefix in app/config/cache.php
+
+   ```
+   php artisan cache:prefix yourprefix
+   ```
+
+* Initial migration and seed
+
+  ```
+  php artisan typicms:database
+  ```
 
 ## Roadmap
 
