@@ -4,12 +4,24 @@ namespace TypiCMS\Providers;
 use App;
 use Config;
 use Request;
+use Artisan;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Filesystem\Filesystem;
+
+use TypiCMS\Commands\Install;
+use TypiCMS\Commands\CacheKeyPrefix;
+use TypiCMS\Commands\Database;
 
 class StartProvider extends ServiceProvider
 {
 
+    public function boot()
+    {
+        $this->commands('command.install');
+        $this->commands('command.cachekeyprefix');
+        $this->commands('command.database');
+    }
     /**
      * Register the service provider.
      *
@@ -17,6 +29,20 @@ class StartProvider extends ServiceProvider
      */
     public function register()
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Bind commands.
+        |--------------------------------------------------------------------------|
+        */
+        $this->app->bind('command.install', function () {
+            return new Install(new Filesystem);
+        });
+        $this->app->bind('command.cachekeyprefix', function () {
+            return new CacheKeyPrefix(new Filesystem);
+        });
+        $this->app->bind('command.database', function () {
+            return new Database(new Filesystem);
+        });
 
         /*
         |--------------------------------------------------------------------------

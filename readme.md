@@ -1,20 +1,20 @@
 # TypiCMS [![Build Status](https://travis-ci.org/sdebacker/TypiCMS.svg?branch=master)](https://travis-ci.org/sdebacker/TypiCMS)
 
-TypiCMS is a multilingual content management system built with Laravel 4.2.  
-Bower and gulp are used for assets management and user interface is build with Bootstrap 3 with Less.
+TypiCMS is a multilingual content management system built with [Laravel 4.2](http://laravel.com).  
+[Bower](http://bower.io) and [gulp](http://gulpjs.com) are used for assets management and user interface is build with [Bootstrap 3](http://getbootstrap.com) with Less.
 
 **Demo**
 
 * [Back-end](http://typicms.samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
 * [Front-end](http://typicms.samsfactory.com)
 
-![TypiCMS screenshot](http://typicms.samsfactory.com/uploads/pages/TypiCMS-screenshot-o.png)
-
 ## Table of contents
 
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
+  - [Quick installation](#quick-installation)
+  - [Manual installation](#manual-installation)
   - [Bower & Gulp](#bower--gulp)
   - [Configuration](#configuration)
 - [Modules](#modules)
@@ -34,6 +34,7 @@ Bower and gulp are used for assets management and user interface is build with B
   - [Blocks](#blocks)
   - [Translations](#translations)
 - [Facades](#facades)
+- [Artisan commands](#artisan-commands)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Testing](#testing)
@@ -55,12 +56,6 @@ This kind of urls are managed by the CMS :
 * /en/parent-pages-slug-en/subpage-slug-en/page-slug-en
 * /fr/parent-pages-slug-fr/subpage-slug-fr/page-slug-fr
 
-### Assets
-
-- Gulp
-- Bower
-- Bootstrap 3
-
 ## Requirements
 
 - PHP >= 5.4.0
@@ -69,31 +64,103 @@ This kind of urls are managed by the CMS :
 
 ## Installation
 
-1. Download TypiCMS ``` git clone https://github.com/sdebacker/TypiCMS.git mywebsite```
-2. Enter newly created folder ``` cd mywebsite ```
-3. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md) : ``` composer install ```
-4. Fill in your MySQL credentials in env.local.php
-5. Rename env.local.php to .env.local.php : ``` mv env.local.php .env.local.php ```
-6. Create a new database with the name filled in .env.local.php
-7. Migrate and seed Database : ``` php artisan migrate --seed ```
-8. Set permissions ``` chmod -R 777 app/storage ``` and ``` chmod -R 777 public/uploads ```
-9. In development mode you should run ``` php artisan debugbar:publish ``` 
-10. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
+### Quick installation
+
+1. Install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com)
+2. Create an empty MySQL database
+3. Download TypiCMS 
+   
+   ```
+   git clone https://github.com/sdebacker/TypiCMS.git mywebsite
+   ```
+4. Enter newly created folder
+   
+   ```
+   cd mywebsite
+   ```
+
+5. Install
+
+   ```
+   php artisan typicms:install
+   ```
+
+### Manual installation
+
+1. Create an empty database
+2. Download TypiCMS
+   
+   ```
+   git clone https://github.com/sdebacker/TypiCMS.git mywebsite
+   ```
+3. Enter newly created folder
+   
+   ```
+   cd mywebsite
+   ```
+4. Set a new encryption key
+   
+   ```
+   php artisan key:generate
+   ```
+5. Change cache prefix in app/config/cache.php
+
+   ```
+   php artisan cache:prefix yourCachePrefix
+   ```
+6. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md)
+
+   ```
+   composer install
+   ```
+7. Fill in your database credentials in env.local.php
+8. Rename env.local.php to .env.local.php
+   
+   ```
+   mv env.local.php .env.local.php
+   ```
+9. Migrate and seed Database
+   
+   ```
+   php artisan migrate --seed
+   ```
+10. Set permissions
+    
+    ```
+    chmod -R 777 app/storage
+    chmod -R 777 public/uploads
+    ```
+11. In development mode you should run
+    
+    ```
+    php artisan debugbar:publish
+    ``` 
+12. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
 
 ### Bower & Gulp
 
-In order to work with assets, you need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
+In order to work on assets, you need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
 
-1. Install bower packages according to bower.json (in app/assets/components): ``` bower install ```
-2. Install Gulp packages according to gulpfile.js (in node_modules): ``` npm install ```
-3. Run ``` gulp ``` to compile admin and public assets
+1. Install bower packages according to bower.json (directory app/assets/components)
+    
+   ```
+   bower install
+   ```
+2. Install Gulp packages according to gulpfile.js (directory node_modules)
+    
+   ```
+   npm install
+   ```
+3. Compile admin and public assets
+    
+   ```
+   gulp
+   ```
 
 ### Configuration
 
-1. Set available locale and default locale in app/config/app.php
-2. Set a new encryption key manually or with ``` php artisan key:generate ```
-3. Change cache prefix in app/config/cache.php
-4. Cache driver is set to memcached, you can change it to apc in app/config/cache.php
+1. Set available locales and default locale in app/config/app.php
+2. Cache driver is set to memcached, you can change it to apc in app/config/cache.php
 
 ## Modules
 
@@ -173,6 +240,28 @@ Modules that have their own Facade: News, Events, Projects, Places, Partners, Ga
 In your views, you can call for example ```News::latest(3)``` to get the three latest news.
 Check available methods in each module's repository.
 
+## Artisan commands
+
+Commands are located in app/TypiCMS/Commands
+
+* Initialisation of TypiCMS
+
+  ```
+  php artisan typicms:install
+  ```
+
+* Set cache key prefix in app/config/cache.php
+
+  ```
+  php artisan cache:prefix yourCachePrefix
+  ```
+
+* Initial migration and seed
+
+  ```
+  php artisan typicms:database
+  ```
+
 ## Roadmap
 
 * Improve user interface
@@ -191,4 +280,4 @@ Some admin controllers are actually tested, more tests needed.
 
 ## License
 
-TypiCMS is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+TypiCMS is an open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
