@@ -106,7 +106,7 @@ This kind of urls are managed by the CMS :
 5. Change cache prefix in app/config/cache.php
 
    ```
-   php artisan cache:prefix yourprefix
+   php artisan cache:prefix yourCachePrefix
    ```
 6. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md)
 
@@ -253,7 +253,7 @@ Commands are located in app/TypiCMS/Commands
 * Set cache key prefix in app/config/cache.php
 
   ```
-  php artisan cache:prefix yourprefix
+  php artisan cache:prefix yourCachePrefix
   ```
 
 * Initial migration and seed
