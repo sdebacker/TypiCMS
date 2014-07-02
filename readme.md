@@ -246,15 +246,15 @@ Commands are located in app/TypiCMS/Commands
 
 * Initialisation of TypiCMS
 
-   ```
-   php artisan typicms:install
-   ```
-  
-* set cache key prefix in app/config/cache.php
+  ```
+  php artisan typicms:install
+  ```
 
-   ```
-   php artisan cache:prefix yourprefix
-   ```
+* Set cache key prefix in app/config/cache.php
+
+  ```
+  php artisan cache:prefix yourprefix
+  ```
 
 * Initial migration and seed
 
