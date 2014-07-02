@@ -6,12 +6,8 @@
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Typi Design",
-			"email": "info@typidesign.be"
-		},
-		{
 			"name": "Samuel De Backer",
-			"email": "info@typidesign.be",
+			"email": "samuel@typidesign.be",
 			"role": "Developer"
 		}
 	],
