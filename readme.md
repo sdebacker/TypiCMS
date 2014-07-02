@@ -78,12 +78,17 @@ This kind of urls are managed by the CMS :
    ```
    cd mywebsite
    ```
+5. Composer install
 
-5. Install
+   ```
+   composer install
+   ```
+6. Initialise TypiCMS
 
    ```
    php artisan typicms:install
    ```
+7. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
 
 ### Manual installation
 
