@@ -86,11 +86,9 @@ This kind of urls are managed by the CMS :
    php artisan typicms:install
    ```
 6. Go to http://mywebsite.local/admin and log in:
-
-   ```
-   email: admin@example.com
-   password: admin
-   ```
+    
+   * email: ```admin@example.com```
+   * password: ```admin```
 
 ### Manual installation
 
@@ -143,11 +141,9 @@ This kind of urls are managed by the CMS :
     php artisan debugbar:publish
     ``` 
 12. Go to http://mywebsite.local/admin and log in:
-
-    ```
-    email: admin@example.com
-    password: admin
-    ```
+    
+    * email: ```admin@example.com```
+    * password: ```admin```
 
 ### Bower & Gulp
 
