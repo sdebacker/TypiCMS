@@ -1,7 +1,7 @@
 # TypiCMS [![Build Status](https://travis-ci.org/sdebacker/TypiCMS.svg?branch=master)](https://travis-ci.org/sdebacker/TypiCMS)
 
 TypiCMS is a multilingual content management system built with Laravel 4.2.  
-Bower and gulp are used for assets management and user interface is build with Bootstrap 3 with Less.
+[Bower](http://bower.io) and [gulp](http://gulpjs.com) are used for assets management and user interface is build with [Bootstrap 3](http://getbootstrap.com) with Less.
 
 **Demo**
 
@@ -54,12 +54,6 @@ This kind of urls are managed by the CMS :
 
 * /en/parent-pages-slug-en/subpage-slug-en/page-slug-en
 * /fr/parent-pages-slug-fr/subpage-slug-fr/page-slug-fr
-
-### Assets
-
-- Gulp
-- Bower
-- Bootstrap 3
 
 ## Requirements
 
