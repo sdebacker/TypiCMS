@@ -107,7 +107,7 @@ This kind of urls are managed by the CMS :
 
    ```
    php artisan cache:prefix yourprefix
-   ``
+   ```
 6. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md)
 
    ```
