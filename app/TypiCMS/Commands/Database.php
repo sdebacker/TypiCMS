@@ -1,6 +1,9 @@
 <?php
 namespace TypiCMS\Commands;
 
+use DB;
+use Schema;
+
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -72,20 +75,18 @@ class Database extends Command {
         $this->laravel['config']['database.connections.mysql.username'] = $dbUserName;
         $this->laravel['config']['database.connections.mysql.password'] = $dbPassword;
 
+        $this->error($this->laravel['config']['local.database.connections.mysql.database']);
+
         // Migrate DB
-        $this->call('migrate', array('--seed'));
-
-        // If migration succeeds, write credentials to env.local.php
-        $this->files->put($path, $contents);
-
-        // Move env.local.php to .env.local.php
-        if ($this->laravel->environment('local')) {
-            $this->files->move($path, '.env.local.php');
-        } else {
-            $this->files->move($path, '.env.php');
+        if (! Schema::hasTable('migrations')) {
+            $this->call('migrate');
+            $this->call('db:seed');
         }
-        
 
+        // Write to .env.php
+        $env = $this->laravel->environment();
+        $newPath = $env == 'production' ? '.env.php' : '.env.'.$env.'.php' ;
+        $this->files->put($newPath, $contents);
     }
 
     /**
