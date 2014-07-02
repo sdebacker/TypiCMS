@@ -61,7 +61,6 @@ class Install extends Command
 
         // Composer install
         if (function_exists('system')) {
-            system('composer install');
             system('npm install');
             $this->info('npm packages installed');
             system('bower install');
