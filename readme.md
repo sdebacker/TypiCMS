@@ -71,19 +71,20 @@ This kind of urls are managed by the CMS :
 
 ### Quick installation
 
-1. Create an empty MySQL database
-2. Download TypiCMS 
+1. Install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com)
+2. Create an empty MySQL database
+3. Download TypiCMS 
    
    ```
    git clone https://github.com/sdebacker/TypiCMS.git mywebsite
    ```
-3. Enter newly created folder
+4. Enter newly created folder
    
    ```
    cd mywebsite
    ```
 
-4. Install
+5. Install
 
    ```
    php artisan typicms:install
