@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
 
-class CacheKeyPrefixGenerateCommand extends Command {
+class CacheKeyPrefix extends Command {
 
 	/**
 	 * The console command name.
@@ -74,9 +74,7 @@ class CacheKeyPrefixGenerateCommand extends Command {
 	 */
 	protected function getKeyFile()
 	{
-		$env = $this->option('env') ? $this->option('env').'/' : '';
-
-		$contents = $this->files->get($path = $this->laravel['path']."/config/{$env}cache.php");
+		$contents = $this->files->get($path = $this->laravel['path']."/config/cache.php");
 
 		return array($path, $contents);
 	}
