@@ -1,6 +1,6 @@
 # TypiCMS [![Build Status](https://travis-ci.org/sdebacker/TypiCMS.svg?branch=master)](https://travis-ci.org/sdebacker/TypiCMS)
 
-TypiCMS is a multilingual content management system built with Laravel 4.2.  
+TypiCMS is a multilingual content management system built with [Laravel 4.2](http://laravel.com).  
 [Bower](http://bower.io) and [gulp](http://gulpjs.com) are used for assets management and user interface is build with [Bootstrap 3](http://getbootstrap.com) with Less.
 
 **Demo**
