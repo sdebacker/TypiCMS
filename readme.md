@@ -15,6 +15,7 @@ Bower and gulp are used for assets management and user interface is build with B
 - [Installation](#installation)
   - [Quick installation](#quick-installation)
   - [Manual installation](#manual-installation)
+  - [Bower & Gulp](#bower--gulp)
   - [Configuration](#configuration)
 - [Modules](#modules)
   - [Pages](#pages)
@@ -140,7 +141,7 @@ This kind of urls are managed by the CMS :
     ``` 
 12. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
 
-#### Bower & Gulp
+### Bower & Gulp
 
 In order to work on assets, you need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
 
