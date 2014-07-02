@@ -79,7 +79,7 @@ class Database extends Command {
         $this->files->put($path, $contents);
 
         // Move env.local.php to .env.local.php
-        if ($this->laravel->environment('locdal')) {
+        if ($this->laravel->environment('local')) {
             $this->files->move($path, '.env.local.php');
         } else {
             $this->files->move($path, '.env.php');
