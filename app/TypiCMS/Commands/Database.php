@@ -63,8 +63,8 @@ class Database extends Command {
         $contents = str_replace($search, $replace, $contents, $count);
 
         if ($count != 3) {
-            $this->error("There was a problem setting Credentials for database [$dbName].");
-            return false;
+            $this->error("Error on writing credentials to env.local.php.");
+            exit();
         }
 
         // Set DB credentials to laravel config
