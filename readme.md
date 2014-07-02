@@ -280,4 +280,4 @@ Some admin controllers are actually tested, more tests needed.
 
 ## License
 
-TypiCMS is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+TypiCMS is an open-source software licensed under the [MIT license](http://opensource.org/licenses/MIT).
