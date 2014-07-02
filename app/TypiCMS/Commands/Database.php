@@ -82,6 +82,8 @@ class Database extends Command
         if (! Schema::hasTable('migrations')) {
             $this->call('migrate');
             $this->call('db:seed');
+        } else {
+            $this->error('A migrations table was found in database ['.$dbName.'], no migrate and seed were done.');
         }
 
         // Write to .env.php
