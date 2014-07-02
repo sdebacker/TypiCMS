@@ -6,7 +6,8 @@ use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class Install extends Command {
+class Install extends Command
+{
 
     /**
      * The console command name.
@@ -118,5 +119,4 @@ class Install extends Command {
             // array('example', null, InputOption::VALUE_OPTIONAL, 'An example option.', null),
         );
     }
-
 }

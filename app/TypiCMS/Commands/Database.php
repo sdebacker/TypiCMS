@@ -9,7 +9,8 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
 
-class Database extends Command {
+class Database extends Command
+{
 
     /**
      * The console command name.
@@ -111,5 +112,4 @@ class Database extends Command {
         $contents = $this->files->get($path = "env.php");
         return array($path, $contents);
     }
-
 }

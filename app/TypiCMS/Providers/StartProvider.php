@@ -34,13 +34,13 @@ class StartProvider extends ServiceProvider
         | Bind commands.
         |--------------------------------------------------------------------------|
         */
-        $this->app->bind('command.install', function() {
+        $this->app->bind('command.install', function () {
             return new Install(new Filesystem);
         });
-        $this->app->bind('command.cachekeyprefix', function() {
+        $this->app->bind('command.cachekeyprefix', function () {
             return new CacheKeyPrefix(new Filesystem);
         });
-        $this->app->bind('command.database', function() {
+        $this->app->bind('command.database', function () {
             return new Database(new Filesystem);
         });
 
