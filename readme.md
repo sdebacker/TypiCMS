@@ -8,8 +8,6 @@ Bower and gulp are used for assets management and user interface is build with B
 * [Back-end](http://typicms.samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
 * [Front-end](http://typicms.samsfactory.com)
 
-![TypiCMS screenshot](http://typicms.samsfactory.com/uploads/pages/TypiCMS-screenshot-o.png)
-
 ## Table of contents
 
 - [Features](#features)
@@ -69,20 +67,79 @@ This kind of urls are managed by the CMS :
 
 ## Installation
 
-1. Download TypiCMS ``` git clone https://github.com/sdebacker/TypiCMS.git mywebsite```
-2. Enter newly created folder ``` cd mywebsite ```
-3. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md) : ``` composer install ```
-4. Fill in your MySQL credentials in env.local.php
-5. Rename env.local.php to .env.local.php : ``` mv env.local.php .env.local.php ```
-6. Create a new database with the name filled in .env.local.php
-7. Migrate and seed Database : ``` php artisan migrate --seed ```
-8. Set permissions ``` chmod -R 777 app/storage ``` and ``` chmod -R 777 public/uploads ```
-9. In development mode you should run ``` php artisan debugbar:publish ``` 
-10. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
+1. Create an empty MySQL database
+2. Download TypiCMS 
+   
+   ```
+   git clone https://github.com/sdebacker/TypiCMS.git mywebsite
+   ```
+3. Enter newly created folder
+   
+   ```
+   cd mywebsite
+   ```
+
+4. Install
+
+   ```
+   php artisan typicms:install
+   ```
+
+### Manual installation
+
+1. Create an empty database
+2. Download TypiCMS
+   
+   ```
+   git clone https://github.com/sdebacker/TypiCMS.git mywebsite
+   ```
+3. Enter newly created folder
+   
+   ```
+   cd mywebsite
+   ```
+4. Set a new encryption key
+   
+   ```
+   php artisan key:generate
+   ```
+5. Change cache prefix in app/config/cache.php
+
+   ```
+   php artisan cache:prefix yourprefix
+   ``
+6. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md)
+
+   ```
+   composer install
+   ```
+7. Fill in your database credentials in env.local.php
+8. Rename env.local.php to .env.local.php
+   
+   ```
+   mv env.local.php .env.local.php
+   ```
+9. Migrate and seed Database
+   
+   ```
+   php artisan migrate --seed
+   ```
+10. Set permissions
+    
+    ```
+    chmod -R 777 app/storage
+    chmod -R 777 public/uploads
+    ```
+11. In development mode you should run
+    
+    ```
+    php artisan debugbar:publish
+    ``` 
+12. Go to http://mywebsite.local/admin and log in with admin@example.com as email and admin as password.
 
 ### Bower & Gulp
 
-In order to work with assets, you need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
+In order to work on assets, you need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
 
 1. Install bower packages according to bower.json (in app/assets/components): ``` bower install ```
 2. Install Gulp packages according to gulpfile.js (in node_modules): ``` npm install ```
@@ -90,10 +147,8 @@ In order to work with assets, you need to install [Node.js](http://nodejs.org), 
 
 ### Configuration
 
-1. Set available locale and default locale in app/config/app.php
-2. Set a new encryption key manually or with ``` php artisan key:generate ```
-3. Change cache prefix in app/config/cache.php
-4. Cache driver is set to memcached, you can change it to apc in app/config/cache.php
+1. Set available locales and default locale in app/config/app.php
+2. Cache driver is set to memcached, you can change it to apc in app/config/cache.php
 
 ## Modules
 
