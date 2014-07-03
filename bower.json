@@ -10,7 +10,8 @@
     "flexslider": "*",
     "font-awesome": "~4.*",
     "eonasdan-bootstrap-datetimepicker": "~3.*",
-    "selectize": "~0.*"
+    "selectize": "~0.*",
+    "pickadate": "~3.5.2"
   },
   "overrides": {
     "fancybox": {
