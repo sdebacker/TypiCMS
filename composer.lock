@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "96c36aa2adf601c18dae08504efdcaeb",
+    "hash": "b0f0159d19dab0ee467aa1af28445b03",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -859,6 +859,55 @@
             "time": "2013-04-30 19:58:08"
         },
         {
+            "name": "jenssegers/rollbar",
+            "version": "v1.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/laravel-rollbar.git",
+                "reference": "e0a3139b085aadb615a338f1b3ce2d8bef7db367"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/laravel-rollbar/zipball/e0a3139b085aadb615a338f1b3ce2d8bef7db367",
+                "reference": "e0a3139b085aadb615a338f1b3ce2d8bef7db367",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*",
+                "php": ">=5.3",
+                "rollbar/rollbar": "0.9.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "*",
+                "orchestra/testbench": "2.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Rollbar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "http://jenssegers.be"
+                }
+            ],
+            "description": "Rollbar error monitoring integration for Laravel projects",
+            "keywords": [
+                "error",
+                "laravel",
+                "logging",
+                "monitoring",
+                "rollbar"
+            ],
+            "time": "2014-06-15 14:09:33"
+        },
+        {
             "name": "jeremeamia/SuperClosure",
             "version": "1.0.1",
             "source": {
@@ -1554,6 +1603,48 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "rollbar/rollbar",
+            "version": "v0.9.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rollbar/rollbar-php.git",
+                "reference": "30f7c591e38071b0e425fb8239cb2fc0c1dcf0cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/30f7c591e38071b0e425fb8239cb2fc0c1dcf0cf",
+                "reference": "30f7c591e38071b0e425fb8239cb2fc0c1dcf0cf",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "rollbar.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brian Rue",
+                    "email": "brian@rollbar.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monitors errors and exceptions and reports them to Rollbar",
+            "homepage": "http://github.com/rollbar/rollbar-php",
+            "keywords": [
+                "debugging",
+                "errors",
+                "exceptions",
+                "logging",
+                "monitoring"
+            ],
+            "time": "2014-06-24 22:20:49"
         },
         {
             "name": "stack/builder",

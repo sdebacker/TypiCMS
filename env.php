@@ -21,4 +21,6 @@ return array(
 
     'AWS_KEY'          => '',
     'AWS_SECRET'       => '',
+    
+    'ROLLBAR_TOKEN'    => '',
 );

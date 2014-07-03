@@ -67,7 +67,7 @@ abstract class Base extends Eloquent
     }
 
     /**
-     * Get only online galleries
+     * Get online galleries
      *
      * @param $query
      * @return Illuminate\Database\Eloquent\Builder $query
@@ -123,6 +123,7 @@ abstract class Base extends Eloquent
 
         static::saved(function ($model) {
             $module = ucfirst($model->getTable());
+            \Debugbar::info($module.' saved observer');
             Cache::tags($module)->flush();
         });
 

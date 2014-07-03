@@ -24,7 +24,8 @@
 		"mccool/database-backup": "~1.0.1",
 		"msurguy/honeypot": "~0.2",
 		"thomaswelton/laravel-gravatar": "~0.0.2",
-		"cviebrock/image-validator": "~1.0.3"
+		"cviebrock/image-validator": "~1.0.3",
+		"jenssegers/rollbar": "*"
 	},
 	"require-dev": {
 		"way/generators": "~2.6",

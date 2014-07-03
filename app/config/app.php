@@ -151,6 +151,7 @@ return array(
 		'Msurguy\Honeypot\HoneypotServiceProvider',
 		'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider',
 		'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
+		'Jenssegers\Rollbar\RollbarServiceProvider',
 
 		'TypiCMS\Providers\StartProvider',
 		'TypiCMS\Providers\UploadServiceProvider',
