@@ -50,7 +50,7 @@ class PublicController extends BasePublicController
      */
     public function show($slug)
     {
-        $model = $this->repository->bySlug($slug);
+        $model = $this->repository->bySlug($slug, ['translations', 'files', 'files.translations']);
 
         TypiCMS::setModel($model);
 
