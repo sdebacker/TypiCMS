@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9d1c7359b3e90fb4995a1d08db84475b",
+    "hash": "96c36aa2adf601c18dae08504efdcaeb",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -957,16 +957,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.4",
+            "version": "v4.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ee370ac91ee0a51303765c870e139b1ecd1e222c"
+                "reference": "2e73cd58ee42919166a51897b965e1135b85048c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ee370ac91ee0a51303765c870e139b1ecd1e222c",
-                "reference": "ee370ac91ee0a51303765c870e139b1ecd1e222c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2e73cd58ee42919166a51897b965e1135b85048c",
+                "reference": "2e73cd58ee42919166a51897b965e1135b85048c",
                 "shasum": ""
             },
             "require": {
@@ -1070,7 +1070,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-06-18 05:07:22"
+            "time": "2014-06-29 00:16:51"
         },
         {
             "name": "mccool/database-backup",
@@ -2601,16 +2601,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.6.4",
+            "version": "v1.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "98c2716eddc5aaaf15e842df30f2662e1786e123"
+                "reference": "23e17f9c939d85b3880ed65109040fc5c2b8562f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/98c2716eddc5aaaf15e842df30f2662e1786e123",
-                "reference": "98c2716eddc5aaaf15e842df30f2662e1786e123",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/23e17f9c939d85b3880ed65109040fc5c2b8562f",
+                "reference": "23e17f9c939d85b3880ed65109040fc5c2b8562f",
                 "shasum": ""
             },
             "require": {
@@ -2649,7 +2649,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-06-15 20:27:23"
+            "time": "2014-06-24 08:55:57"
         },
         {
             "name": "leroy-merlin-br/larasniffer",
@@ -2852,16 +2852,16 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "1aade5766ddf4f28fdcf0a34d6ed642393d6c43d"
+                "reference": "61712147412cb647b6cb68b19833a60bfda759a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/1aade5766ddf4f28fdcf0a34d6ed642393d6c43d",
-                "reference": "1aade5766ddf4f28fdcf0a34d6ed642393d6c43d",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/61712147412cb647b6cb68b19833a60bfda759a1",
+                "reference": "61712147412cb647b6cb68b19833a60bfda759a1",
                 "shasum": ""
             },
             "require": {
@@ -2921,7 +2921,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2014-03-19 14:23:43"
+            "time": "2014-07-01 14:09:19"
         },
         {
             "name": "phpspec/prophecy",
