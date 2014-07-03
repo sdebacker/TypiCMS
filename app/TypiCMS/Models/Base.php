@@ -123,7 +123,6 @@ abstract class Base extends Eloquent
 
         static::saved(function ($model) {
             $module = ucfirst($model->getTable());
-            \Debugbar::info($module.' saved observer');
             Cache::tags($module)->flush();
         });
 
