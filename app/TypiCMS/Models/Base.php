@@ -74,7 +74,7 @@ abstract class Base extends Eloquent
      */
     public function scopeWithOnlineGalleries($query)
     {
-        if (! $this->galleries) {
+        if (! method_exists($this, 'galleries')) {
             return $query;
         }
         return $query->with(
