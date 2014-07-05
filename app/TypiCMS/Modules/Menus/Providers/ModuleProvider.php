@@ -57,6 +57,18 @@ class ModuleProvider extends ServiceProvider
             );
         });
 
+        /*
+        |--------------------------------------------------------------------------
+        | Get all menus.
+        |--------------------------------------------------------------------------|
+        */
+        // $this->app->singleton('TypiCMS.menus', function ($app) {
+        //     return $app->make('TypiCMS\Modules\Menus\Repositories\MenuInterface')->getAllMenus();
+        // });
+        $this->app['TypiCMS.menus'] = $this->app->share(function ($app) {
+            return $app->make('TypiCMS\Modules\Menus\Repositories\MenuInterface')->getAllMenus();
+        });
+
         $app->before(function ($request, $response) {
             require __DIR__ . '/../breadcrumbs.php';
         });

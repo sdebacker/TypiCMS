@@ -17,25 +17,24 @@ class CacheDecorator extends CacheAbstractDecorator implements MenuInterface
     }
 
     /**
-     * Get a menu by its name for public side
-     * 
-     * @param  string $name menu name
-     * @return Model
+     * Get all menus
+     *
+     * @return array with key = menu name and value = menu model
      */
-    public function getByName($name)
+    public function getAllMenus()
     {
-        $cacheKey = md5(App::getLocale() . 'build' . $name);
+        $cacheKey = md5(App::getLocale() . 'getAllMenus');
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
-        $models = $this->repo->getByName($name);
+        $array = $this->repo->getAllMenus();
 
         // Store in cache for next request
-        $this->cache->put($cacheKey, $models);
+        $this->cache->put($cacheKey, $array);
 
-        return $models;
+        return $array;
     }
 
     /**
@@ -46,6 +45,17 @@ class CacheDecorator extends CacheAbstractDecorator implements MenuInterface
      */
     public function build($name)
     {
-        return $this->repo->build($name);
+        $cacheKey = md5(App::getLocale() . 'build' . $name);
+
+        if ($this->cache->has($cacheKey)) {
+            return $this->cache->get($cacheKey);
+        }
+
+        $menu = $this->repo->build($name);
+
+        // Store in cache for next request
+        $this->cache->put($cacheKey, $menu);
+
+        return $menu;
     }
 }
