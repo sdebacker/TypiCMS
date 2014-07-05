@@ -45,17 +45,6 @@ class CacheDecorator extends CacheAbstractDecorator implements MenuInterface
      */
     public function build($name)
     {
-        $cacheKey = md5(App::getLocale() . 'build' . $name);
-
-        if ($this->cache->has($cacheKey)) {
-            return $this->cache->get($cacheKey);
-        }
-
-        $menu = $this->repo->build($name);
-
-        // Store in cache for next request
-        $this->cache->put($cacheKey, $menu);
-
-        return $menu;
+        return $this->repo->build($name);
     }
 }
