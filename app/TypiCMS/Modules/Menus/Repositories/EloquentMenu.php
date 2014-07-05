@@ -48,6 +48,32 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     }
 
     /**
+     * Get all menus
+     *
+     * @return StdClass Object with $items
+     */
+    public function getAllMenus()
+    {
+        $with = [
+            'menulinks',
+            'menulinks.translations',
+            'menulinks.page',
+            'menulinks.page.translations',
+        ];
+        $menus = $this->make($with)
+            ->whereHas(
+                'translations',
+                function ($query) {
+                    $query->where('status', 1);
+                    $query->where('locale', App::getLocale());
+                }
+            )
+            ->get();
+
+        return $menus;
+    }
+
+    /**
      * Build a menu
      * 
      * @param  string $name       menu name
@@ -55,7 +81,12 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
      */
     public function build($name)
     {
-        $menu = App::make('TypiCMS\Modules\Menus\Repositories\MenuInterface')->getByName($name);
+
+        $menus = App::make('TypiCMS.menus');
+
+        $menu = $menus->filter(function($item) use ($name) {
+            return $item->name == $name;
+        })->first();
 
         if (! $menu) {
             return null;
