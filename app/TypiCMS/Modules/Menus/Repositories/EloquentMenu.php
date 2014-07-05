@@ -5,6 +5,8 @@ use App;
 use HTML;
 use Config;
 use Request;
+use Notification;
+use ErrorException;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -55,9 +57,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     public function getAllMenus()
     {
         $with = [
-            'menulinks',
             'menulinks.translations',
-            'menulinks.page',
             'menulinks.page.translations',
         ];
         $menus = $this->make($with)
@@ -70,7 +70,12 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
             )
             ->get();
 
-        return $menus;
+        $menusArray = array();
+        foreach ($menus as $menu) {
+            $menusArray[$menu->name] = $menu;
+        }
+
+        return $menusArray;
     }
 
     /**
@@ -81,12 +86,14 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
      */
     public function build($name)
     {
-
-        $menus = App::make('TypiCMS.menus');
-
-        $menu = $menus->filter(function($item) use ($name) {
-            return $item->name == $name;
-        })->first();
+        try {
+            $menu = App::make('TypiCMS.menus')[$name];
+        } catch (ErrorException $e) {
+            Notification::error(
+                trans('menus::global.No menu found with name “:name”', ['name' => $name])
+            );
+            return;
+        }
 
         if (! $menu) {
             return null;
