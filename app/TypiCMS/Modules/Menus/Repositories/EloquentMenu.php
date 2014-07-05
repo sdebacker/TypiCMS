@@ -22,37 +22,9 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     }
 
     /**
-     * Get a menu by its name for public side
-     * 
-     * @param  string $name menu name
-     * @return Model
-     */
-    public function getByName($name)
-    {
-        $with = [
-            'menulinks',
-            'menulinks.translations',
-            'menulinks.page',
-            'menulinks.page.translations',
-        ];
-        $menu = $this->make($with)
-            ->where('name', $name)
-            ->whereHas(
-                'translations',
-                function ($query) {
-                    $query->where('status', 1);
-                    $query->where('locale', App::getLocale());
-                }
-            )
-            ->first();
-
-        return $menu;
-    }
-
-    /**
      * Get all menus
      *
-     * @return StdClass Object with $items
+     * @return array with key = menu name and value = menu model
      */
     public function getAllMenus()
     {
@@ -82,7 +54,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
      * Build a menu
      * 
      * @param  string $name       menu name
-     * @return string             html code of a menu
+     * @return mixed null or string (html code of a menu)
      */
     public function build($name)
     {
@@ -92,7 +64,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
             Notification::error(
                 trans('menus::global.No menu found with name “:name”', ['name' => $name])
             );
-            return;
+            return null;
         }
 
         if (! $menu) {

@@ -5,13 +5,11 @@ interface MenuInterface
 {
 
     /**
-     * Get all models
+     * Get all menus
      *
-     * @param  boolean  $all  Show published or all
-     * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return array with key = menu name and value = menu model
      */
-    public function getAll(array $with = array(), $all = false);
+    public function getAllMenus();
 
     /**
      * Build a menu
