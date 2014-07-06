@@ -46,6 +46,14 @@ interface CacheInterface
     public function has($key);
 
     /**
+     * Set tags
+     *
+     * @param array    tags
+     * @return bool If cache item exists
+     */
+    public function addTags($tags);
+
+    /**
      * Flush cache for tags
      *
      * @param string    Cache tags
