@@ -49,7 +49,7 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
     public function create(array $data)
     {
         $model = $this->repo->create($data);
-        $this->cache->flush('Translations', 'Dashboard', 'Tags');
+        $this->cache->flush('translations', 'dashboard', 'tags');
 
         return $model;
     }
@@ -63,7 +63,7 @@ class CacheDecorator extends CacheAbstractDecorator implements TranslationInterf
     public function update(array $data)
     {
         $bool = $this->repo->update($data);
-        $this->cache->flush('Translations', 'Tags');
+        $this->cache->flush('translations', 'tags');
 
         return $bool;
     }
