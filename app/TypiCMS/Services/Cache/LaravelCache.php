@@ -9,13 +9,13 @@ class LaravelCache implements CacheInterface
 {
 
     protected $cache;
-    protected $cachekey;
+    protected $tags;
     protected $minutes;
 
-    public function __construct(CacheManager $cache, $cachekey, $minutes = null)
+    public function __construct(CacheManager $cache, $tags, $minutes = null)
     {
         $this->cache = $cache;
-        $this->cachekey = $cachekey;
+        $this->tags = is_array($tags) ? $tags : [$tags];
         $this->minutes = $minutes;
     }
 
@@ -27,7 +27,7 @@ class LaravelCache implements CacheInterface
      */
     public function get($key)
     {
-        return $this->cache->tags($this->cachekey)->get($key);
+        return $this->cache->tags($this->tags)->get($key);
     }
 
     /**
@@ -44,7 +44,7 @@ class LaravelCache implements CacheInterface
             $minutes = $this->minutes;
         }
 
-        return $this->cache->tags($this->cachekey)->put($key, $value, $minutes);
+        return $this->cache->tags($this->tags)->put($key, $value, $minutes);
     }
 
     /**
@@ -82,7 +82,22 @@ class LaravelCache implements CacheInterface
      */
     public function has($key)
     {
-        return $this->cache->tags($this->cachekey)->has($key);
+        return $this->cache->tags($this->tags)->has($key);
+    }
+
+    /**
+     * Set tags
+     *
+     * @param array    tags
+     * @return bool If cache item exists
+     */
+    public function addTags($tags = null)
+    {
+        if (! $tags) {
+            return false;
+        }
+        $tags = is_array($tags) ? $tags : func_get_args();
+        $this->tags = array_merge($this->tags, $tags);
     }
 
     /**
@@ -96,7 +111,7 @@ class LaravelCache implements CacheInterface
         if ($tags) {
             $tags = is_array($tags) ? $tags : func_get_args();
         } else {
-            $tags = array($this->cachekey);
+            $tags = $this->tags;
         }
 
         return $this->cache->tags($tags)->flush();

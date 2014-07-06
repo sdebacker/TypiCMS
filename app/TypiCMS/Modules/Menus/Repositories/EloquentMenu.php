@@ -44,6 +44,15 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
 
         $menusArray = array();
         foreach ($menus as $menu) {
+
+            // remove offline items from each menu
+            $menu->menulinks = $menu->menulinks->filter(function($menulink)
+            {
+                if ($menulink->status == 1) {
+                    return true;
+                }
+            });
+
             $menusArray[$menu->name] = $menu;
         }
 

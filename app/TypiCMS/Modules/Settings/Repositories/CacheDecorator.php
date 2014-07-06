@@ -47,10 +47,8 @@ class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
      */
     public function store(array $data)
     {
-        $bool = $this->repo->store($data);
         $this->cache->flush();
-
-        return $bool;
+        return $this->repo->store($data);
     }
 
     /**

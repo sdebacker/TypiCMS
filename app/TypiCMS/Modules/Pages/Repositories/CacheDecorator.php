@@ -94,20 +94,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     }
 
     /**
-     * Sort models
-     *
-     * @param array  Data to update Pages
-     * @return boolean
-     */
-    public function sort(array $data)
-    {
-        $bool = $this->repo->sort($data);
-        $this->cache->flush('pages', 'menulinks');
-
-        return $bool;
-    }
-
-    /**
      * Update pages uris
      *
      * @param  int  $id
