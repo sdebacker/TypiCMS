@@ -51,7 +51,7 @@ interface CacheInterface
      * @param array    tags
      * @return bool If cache item exists
      */
-    public function addTags($tags);
+    public function addTags($tags = null);
 
     /**
      * Flush cache for tags

@@ -91,8 +91,11 @@ class LaravelCache implements CacheInterface
      * @param array    tags
      * @return bool If cache item exists
      */
-    public function addTags($tags)
+    public function addTags($tags = null)
     {
+        if (! $tags) {
+            return false;
+        }
         $tags = is_array($tags) ? $tags : func_get_args();
         $this->tags = array_merge($this->tags, $tags);
     }
