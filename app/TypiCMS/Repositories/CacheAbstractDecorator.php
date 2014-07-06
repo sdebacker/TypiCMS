@@ -216,13 +216,9 @@ abstract class CacheAbstractDecorator
      */
     public function create(array $data)
     {
-        $model = $this->repo->create($data);
-        if ($model) {
-            $this->cache->flush();
-            $this->cache->flush('dashboard');
-        }
-
-        return $model;
+        $this->cache->flush();
+        $this->cache->flush('dashboard');
+        return $this->repo->create($data);
     }
 
     /**
@@ -233,10 +229,8 @@ abstract class CacheAbstractDecorator
      */
     public function update(array $data)
     {
-        $bool = $this->repo->update($data);
         $this->cache->flush();
-
-        return $bool;
+        return $this->repo->update($data);
     }
 
     /**
@@ -247,10 +241,8 @@ abstract class CacheAbstractDecorator
      */
     public function sort(array $data)
     {
-        $bool = $this->repo->sort($data);
         $this->cache->flush();
-
-        return $bool;
+        $this->repo->sort($data);
     }
 
     /**
@@ -294,11 +286,9 @@ abstract class CacheAbstractDecorator
      */
     public function delete($model)
     {
-        $bool = $this->repo->delete($model);
         $this->cache->flush();
         $this->cache->flush('dashboard');
-
-        return $bool;
+        return $this->repo->delete($model);
     }
 
     /**

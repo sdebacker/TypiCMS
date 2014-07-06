@@ -13,32 +13,4 @@ class CacheDecorator extends CacheAbstractDecorator implements ProjectInterface
         $this->repo = $repo;
         $this->cache = $cache;
     }
-
-    /**
-     * Create a new model
-     *
-     * @param array  Data to create a new object
-     * @return boolean
-     */
-    public function create(array $data)
-    {
-        $model = $this->repo->create($data);
-        $this->cache->flush('projects', 'dashboard', 'tags');
-
-        return $model;
-    }
-
-    /**
-     * Update an existing model
-     *
-     * @param array  Data to update a model
-     * @return boolean
-     */
-    public function update(array $data)
-    {
-        $bool = $this->repo->update($data);
-        $this->cache->flush('projects', 'tags');
-
-        return $bool;
-    }
 }
