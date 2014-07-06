@@ -57,7 +57,7 @@ class ModuleProvider extends ServiceProvider
             if (! Config::get('app.cache')) {
                 return $repository;
             }
-            $laravelCache = new LaravelCache($app['cache'], 'News', 10);
+            $laravelCache = new LaravelCache($app['cache'], 'news', 10);
 
             return new CacheDecorator($repository, $laravelCache);
         });
