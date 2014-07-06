@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b0f0159d19dab0ee467aa1af28445b03",
+    "hash": "d071e6a87109094ef4e7b43267a72563",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -500,16 +500,16 @@
         },
         {
             "name": "eluceo/ical",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eluceo/iCal.git",
-                "reference": "cce1ab065149ee3a48030d29d7fe5bd3109d7d7b"
+                "reference": "db02a891cfcff21a319c159d2054bb02e6d537fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eluceo/iCal/zipball/cce1ab065149ee3a48030d29d7fe5bd3109d7d7b",
-                "reference": "cce1ab065149ee3a48030d29d7fe5bd3109d7d7b",
+                "url": "https://api.github.com/repos/eluceo/iCal/zipball/db02a891cfcff21a319c159d2054bb02e6d537fb",
+                "reference": "db02a891cfcff21a319c159d2054bb02e6d537fb",
                 "shasum": ""
             },
             "require": {
@@ -549,7 +549,7 @@
                 "ics",
                 "php calendar"
             ],
-            "time": "2014-05-15 14:31:07"
+            "time": "2014-07-06 11:20:39"
         },
         {
             "name": "filp/whoops",
@@ -1427,22 +1427,24 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "0.3.6",
+            "version": "0.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "76c9692908a6c25601df2db373043fcbb335332e"
+                "reference": "8b8c62f278e363b75ddcacaf5803710232fbd3e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/76c9692908a6c25601df2db373043fcbb335332e",
-                "reference": "76c9692908a6c25601df2db373043fcbb335332e",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8b8c62f278e363b75ddcacaf5803710232fbd3e4",
+                "reference": "8b8c62f278e363b75ddcacaf5803710232fbd3e4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.0.0"
             },
             "require-dev": {
+                "phing/phing": "2.7.*",
+                "phpunit/phpunit": "4.0.*",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -1461,7 +1463,8 @@
                     "Crypt": "phpseclib/",
                     "File": "phpseclib/",
                     "Math": "phpseclib/",
-                    "Net": "phpseclib/"
+                    "Net": "phpseclib/",
+                    "System": "phpseclib/"
                 },
                 "files": [
                     "phpseclib/Crypt/Random.php"
@@ -1517,7 +1520,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-02-23 01:03:22"
+            "time": "2014-07-05 16:36:21"
         },
         {
             "name": "predis/predis",
