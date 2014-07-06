@@ -219,7 +219,7 @@ abstract class CacheAbstractDecorator
         $model = $this->repo->create($data);
         if ($model) {
             $this->cache->flush();
-            $this->cache->flush('Dashboard');
+            $this->cache->flush('dashboard');
         }
 
         return $model;
@@ -296,7 +296,7 @@ abstract class CacheAbstractDecorator
     {
         $bool = $this->repo->delete($model);
         $this->cache->flush();
-        $this->cache->flush('Dashboard');
+        $this->cache->flush('dashboard');
 
         return $bool;
     }

@@ -107,22 +107,4 @@ abstract class Base extends Eloquent
 
         return $query->orderBy($order, $direction);
     }
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::created(function ($model) {
-            Cache::tags('Dashboard')->flush();
-        });
-
-        static::deleted(function ($model) {
-            Cache::tags('Dashboard', $model->getTable())->flush();
-        });
-
-        static::saved(function ($model) {
-            Cache::tags($model->getTable())->flush();
-        });
-
-    }
 }
