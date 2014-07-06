@@ -117,13 +117,11 @@ abstract class Base extends Eloquent
         });
 
         static::deleted(function ($model) {
-            $module = ucfirst($model->getTable());
-            Cache::tags('Dashboard', $module)->flush();
+            Cache::tags('Dashboard', $model->getTable())->flush();
         });
 
         static::saved(function ($model) {
-            $module = ucfirst($model->getTable());
-            Cache::tags($module)->flush();
+            Cache::tags($model->getTable())->flush();
         });
 
     }
