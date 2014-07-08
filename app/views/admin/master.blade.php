@@ -33,38 +33,48 @@
     @endif
 @show
 
-<div class="container-global col-xs-12">
+<div class="container-fluid">
 
-    @yield('menu')
+    <div class="row">
 
-    <script type="text/javascript">
-        {{ Notification::showError('alertify.error(\':message\');') }}
-        {{ Notification::showInfo('alertify.log(\':message\');') }}
-        {{ Notification::showSuccess('alertify.success(\':message\');') }}
-    </script>
+        @section('sidebar')
+            @include('admin._sidebar')
+        @show
 
-    
-    @section('breadcrumbs')
-    {{ Breadcrumbs::renderIfExists() }}
-    @show
+        <div class="@section('mainClass')col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main @show">
 
-    @section('page-header')
-    <div class="page-header">
-        <h1>
-        @yield('addButton')
-            @section('h1')
-            {{ $h1 }}
+            <script type="text/javascript">
+                {{ Notification::showError('alertify.error(\':message\');') }}
+                {{ Notification::showInfo('alertify.log(\':message\');') }}
+                {{ Notification::showSuccess('alertify.success(\':message\');') }}
+            </script>
+
+            
+            @section('breadcrumbs')
+            {{ Breadcrumbs::renderIfExists() }}
             @show
-        @yield('titleSmall')
-        </h1>
+
+            @section('page-header')
+            <div class="page-header">
+                <h1>
+                @yield('addButton')
+                    @section('h1')
+                    {{ $h1 }}
+                    @show
+                @yield('titleSmall')
+                </h1>
+            </div>
+            @show
+
+            @yield('buttons')
+
+            @yield('main')
+
+        </div>
+
+        @include('admin._footer')
+
     </div>
-    @show
-
-    @yield('buttons')
-
-    @yield('main')
-
-    @include('admin._footer')
 
 </div>
 
