@@ -235,8 +235,8 @@ return array(
 		'FileUpload'      => 'TypiCMS\Facades\FileUpload',
 		'TypiCMS'         => 'TypiCMS\Facades\TypiCMS',
 
-		'Menu'            => 'TypiCMS\Modules\Menus\Facades\Facade',
 		'Pages'           => 'TypiCMS\Modules\Pages\Facades\Facade',
+		'Menus'           => 'TypiCMS\Modules\Menus\Facades\Facade',
 		'Events'          => 'TypiCMS\Modules\Events\Facades\Facade',
 		'News'            => 'TypiCMS\Modules\News\Facades\Facade',
 		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',

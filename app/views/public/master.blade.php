@@ -50,7 +50,7 @@
 
         @section('mainMenu')
         <nav role="navigation">
-            {{ Menu::build('main') }}
+            {{ Menus::build('main') }}
         </nav>
         @show
 
@@ -79,11 +79,11 @@
         <div class="row">
 
             <div class="col-sm-4">
-                {{ Menu::build('social') }}
+                {{ Menus::build('social') }}
             </div>
 
             <nav class="col-sm-8" role="navigation">
-                {{ Menu::build('footer') }}
+                {{ Menus::build('footer') }}
             </nav>
 
         </div>
