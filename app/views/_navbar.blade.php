@@ -12,16 +12,6 @@
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>{{ TypiCMS::otherSideLink() }}</li>
-                    @if ($modules)
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        @foreach ($modules as $module => $property)
-                            <li><a href="{{ route('admin.'.strtolower($module).'.index') }}">{{ Str::title(trans(strtolower($module) . '::global.name', array(), null, Config::get('typicms.adminLocale'))) }}</a></li>
-                        @endforeach
-                        </ul>
-                    </li>
-                    @endif
                     <li class="dropdown">
                         <a href="{{ route('admin.users.index') }}" class="dropdown-toggle" data-toggle="dropdown">{{ Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name }} <b class="caret"></b></a>
                         <div class="dropdown-menu dropdown-user">

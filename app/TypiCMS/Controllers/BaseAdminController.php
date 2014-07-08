@@ -42,15 +42,12 @@ abstract class BaseAdminController extends Controller
 
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
 
-        $modules = TypiCMS::getModules();
-
         $instance = $this;
         View::composer($this->layout, function ($view) use ($instance) {
             $view->with('title', $instance->getTitle());
             $view->with('h1', $instance->getH1());
         });
 
-        View::share('modules', $modules);
         View::share('locales', Config::get('app.locales'));
         View::share('locale', Config::get('app.locale'));
     }
