@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="{{ Config::get('app.locale') }}">
 
 <head>
 
@@ -35,13 +35,13 @@
 
 <div class="container-fluid">
 
-    <div class="row">
+    <div class="row row-offcanvas row-offcanvas-left">
 
         @section('sidebar')
             @include('admin._sidebar')
         @show
 
-        <div class="@section('mainClass')col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main @show">
+        <div class="@section('mainClass')col-xs-12 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main @show">
 
             <script type="text/javascript">
                 {{ Notification::showError('alertify.error(\':message\');') }}
@@ -49,6 +49,9 @@
                 {{ Notification::showSuccess('alertify.success(\':message\');') }}
             </script>
 
+            <p class="pull-left visible-xs btn-toggle-offcanvas">
+                <button class="btn btn-link" data-toggle="offcanvas"><span class="fa fa-bars fa-lg"></span> <span class="sr-only">@lang('global.Toggle navigation')</span></button>
+            </p>
             
             @section('breadcrumbs')
             {{ Breadcrumbs::renderIfExists() }}

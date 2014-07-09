@@ -1,24 +1,27 @@
 /* Sidebar */
 .sidebar {
-  display: none;
+  // display: none;
+  background-color: #333;
+  border-right: 1px solid #000;
+  bottom: 0;
+  position: fixed;
+  top: 51px;
+  left: 0;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  z-index: 1000;
+  padding: 21px 15px;
   @media (min-width: @screen-sm-min) {
-    position: fixed;
-    top: 51px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
     padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #333;
-    border-right: 1px solid #000;
   }
 }
 .sidebar-panel {
+  @media (min-width: @screen-sm-min) {
+    margin-left: -20px;
+  }
   margin-right: -21px; /* 20px padding + 1px border */
   margin-bottom: 20px;
-  margin-left: -20px;
 }
 
 .sidebar-title {

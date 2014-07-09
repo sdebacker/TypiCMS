@@ -9,10 +9,15 @@
 @import '../../components/alertify.js/themes/alertify.bootstrap.css';
 @import '../../components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css';
 @import 'sidebar';
+@import 'offcanvas';
 
 body { padding-top: 50px; }
 
 .main {
+  min-height: 1100px;
+  @media (min-width: @screen-sm-min) {
+    min-height: 0;
+  }
   padding: 25px;
   .page-header {
     margin-top: 0;

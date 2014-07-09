@@ -71,6 +71,11 @@ function translate(string) {
             }
         };
 
+        // Offcanvas
+        $('[data-toggle="offcanvas"]').click(function () {
+            $('.row-offcanvas').toggleClass('active')
+        });
+
     });
 
 }( window.jQuery || window.ender );

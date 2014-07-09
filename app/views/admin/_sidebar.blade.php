@@ -1,4 +1,4 @@
-<div class="col-sm-3 col-md-2 sidebar">
+<div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas" id="sidebar" role="navigation">
     <div class="sidebar-panel">
         <ul class="nav nav-sidebar">
             <li class="@if (Request::path() == 'admin')active @endif">
