@@ -14,9 +14,11 @@ return [
     'Groups',
     'Menus',
     'News' ,
+    'Pages',
     'Partners',
     'Places',
     'Projects',
+    'Tags',
     'Translations',
     'Users',
 ];
