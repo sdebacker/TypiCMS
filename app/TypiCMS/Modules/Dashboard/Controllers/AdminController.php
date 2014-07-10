@@ -28,11 +28,8 @@ class AdminController extends BaseAdminController
 
         $this->title['child'] = trans('dashboard::global.Dashboard');
 
-        $modules = $this->repository->getModulesList();
-
         $this->layout->content = View::make('dashboard.admin.dashboard')
             ->with('welcomeMessage', $this->repository->getWelcomeMessage())
-            ->withModules($modules)
             ->withMenus($menus);
     }
 }

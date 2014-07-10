@@ -40,6 +40,7 @@ gulp.task('admin-less', function () {
         .pipe(minifyCSS())
         .pipe(rename('admin.css'))
         .pipe(gulp.dest('public/css'))
+        .pipe(livereload())
         .pipe(notify('Admin CSS minified'));
 
 });

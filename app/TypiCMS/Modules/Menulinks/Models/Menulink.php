@@ -24,6 +24,7 @@ class Menulink extends Base
         'module_name',
         'restricted_to',
         'class',
+        'icon_class',
         'link_type',
         // Translatable fields
         'title',

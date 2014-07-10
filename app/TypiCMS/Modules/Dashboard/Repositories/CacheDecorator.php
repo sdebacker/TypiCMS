@@ -32,21 +32,4 @@ class CacheDecorator extends CacheAbstractDecorator implements DashboardInterfac
 
         return $message;
     }
-
-    public function getModulesList()
-    {
-        // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale().'DashboardModules');
-
-        if ($this->cache->has($cacheKey)) {
-            return $this->cache->get($cacheKey);
-        }
-
-        $modules = $this->repo->getModulesList();
-
-        // Store in cache for next request
-        $this->cache->put($cacheKey, $modules);
-
-        return $modules;
-    }
 }

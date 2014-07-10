@@ -191,6 +191,7 @@ return array(
         'module_name' => 'Module',
         'target' => 'Cible',
         'class' => 'Class',
+        'icon_class' => 'Class d’icône',
         'restricted_to' => 'Restreint à',
         'link_type' => 'Type de lien',
 

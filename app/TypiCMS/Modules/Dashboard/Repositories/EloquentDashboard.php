@@ -27,23 +27,4 @@ class EloquentDashboard extends RepositoriesAbstract implements DashboardInterfa
 
         return $welcomeMessage;
     }
-
-    public function getModulesList()
-    {
-
-        // Item not cached, retrieve it
-        $modulesArray = Config::get('modules');
-        $modulesForDashboard = array();
-        foreach ($modulesArray as $module => $property) {
-            $lowerName = strtolower($module);
-            if ($property['dashboard'] and Sentry::getUser()->hasAccess('admin.' . $lowerName . '.index')) {
-                $modulesForDashboard[$module]['name'] = $module;
-                $modulesForDashboard[$module]['route'] = $lowerName;
-                $modulesForDashboard[$module]['title'] = Str::title(trans($lowerName . '::global.name'));
-                $modulesForDashboard[$module]['count'] = DB::table($lowerName)->count();
-            }
-        }
-
-        return $modulesForDashboard;
-    }
 }

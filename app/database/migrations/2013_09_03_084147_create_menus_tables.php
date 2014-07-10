@@ -50,6 +50,7 @@ class CreateMenusTables extends Migration
             $table->string('target', 10)->nullable();
             $table->string('module_name', 50)->nullable();
             $table->string('class')->nullable();
+            $table->string('icon_class')->nullable();
 
             $table->timestamps();
 

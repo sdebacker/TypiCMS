@@ -18,4 +18,12 @@ interface MenuInterface
      * @return string             html code of a menu
      */
     public function build($name);
+
+    /**
+     * Get a menu
+     * 
+     * @param  string $name       menu name
+     * @return Collection         nested collection
+     */
+    public function getMenu($name);
 }

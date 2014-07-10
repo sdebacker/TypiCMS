@@ -46,8 +46,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
         foreach ($menus as $menu) {
 
             // remove offline items from each menu
-            $menu->menulinks = $menu->menulinks->filter(function($menulink)
-            {
+            $menu->menulinks = $menu->menulinks->filter(function ($menulink) {
                 if ($menulink->status == 1) {
                     return true;
                 }
@@ -60,12 +59,12 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     }
 
     /**
-     * Build a menu
+     * Get a menu
      * 
      * @param  string $name       menu name
-     * @return mixed null or string (html code of a menu)
+     * @return Collection         nested collection
      */
-    public function build($name)
+    public function getMenu($name)
     {
         try {
             $menu = App::make('TypiCMS.menus')[$name];
@@ -91,6 +90,19 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
 
         $menu->menulinks->nest();
 
+        return $menu;
+    }
+
+    /**
+     * Build a menu
+     * 
+     * @param  string $name       menu name
+     * @return mixed null or string (html code of a menu)
+     */
+    public function build($name)
+    {
+        $menu = $this->getMenu($name);
+
         $attributes = [
             'class' => $menu->class,
             'id' => 'nav-' . $name,
@@ -111,6 +123,10 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     public function setUri($menulink)
     {
         $uri = $menulink->uri;
+
+        if (! $uri and $menulink->module_name) {
+            $uri = 'admin/' . $menulink->module_name;
+        }
 
         if ($menulink->page) {
             if ($menulink->page->is_home) {

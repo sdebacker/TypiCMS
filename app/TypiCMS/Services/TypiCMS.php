@@ -171,10 +171,9 @@ class TypiCMS
     }
 
     /**
-    * Build admin or public link
+    * Check if we are on backend
     *
-    * @param array $attributes
-    * @return string
+    * @return boolean true if we are on backend
     */
     public function isAdmin()
     {
@@ -182,25 +181,5 @@ class TypiCMS
             return true;
         }
         return false;
-    }
-
-    
-    /**
-    * Build admin or public link
-    *
-    * @param array $attributes
-    * @return string
-    */
-    public function getModules()
-    {
-        $modules = array();
-        if (Sentry::getUser()) {
-            foreach (Config::get('modules') as $module => $property) {
-                if ($property['menu'] and Sentry::getUser()->hasAccess('admin.' . strtolower($module) . '.index')) {
-                    $modules[$module] = $property;
-                }
-            }
-        }
-        return $modules;
     }
 }

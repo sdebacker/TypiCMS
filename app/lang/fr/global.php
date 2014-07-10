@@ -45,5 +45,7 @@ return array(
     'Options' => 'Options',
     'Galleries' => 'Galeries',
 
+    'Toggle navigation' => 'Menu',
+
     'Drag and drop to sort' => 'Organisez-les par glisser-déposer',
 );

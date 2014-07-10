@@ -55,26 +55,29 @@
 
     <div class="col-sm-6">
 
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('page_id', trans('validation.attributes.page_id')) }}
-                {{ Form::select('page_id', $selectPages, null, array('class' => 'form-control')) }}
-            </div>
-            <div class="col-sm-6 form-group">
-                {{ Form::label('module_name', trans('validation.attributes.module_name')) }}
-                {{ Form::select('module_name', $selectModules, null, array('class' => 'form-control')) }}
-            </div>
+        <div class="form-group">
+            {{ Form::label('page_id', trans('validation.attributes.page_id')) }}
+            {{ Form::select('page_id', $selectPages, null, array('class' => 'form-control')) }}
         </div>
 
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                {{ Form::label('target', trans('validation.attributes.target')) }}
-                {{ Form::select('target', array('' => trans('validation.values.Active tab'), '_blank' => trans('validation.values.New tab')), null, array('class' => 'form-control')) }}
-            </div>
-            <div class="col-sm-6">
-                {{ Form::label('class', trans('validation.attributes.class')) }}
-                {{ Form::text('class', $model->translate($lang)->class, array('class' => 'form-control')) }}
-            </div>
+        <div class="form-group">
+            {{ Form::label('module_name', trans('validation.attributes.module_name')) }}
+            {{ Form::select('module_name', $selectModules, null, array('class' => 'form-control')) }}
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('target', trans('validation.attributes.target')) }}
+            {{ Form::select('target', array('' => trans('validation.values.Active tab'), '_blank' => trans('validation.values.New tab')), null, array('class' => 'form-control')) }}
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('class', trans('validation.attributes.class')) }}
+            {{ Form::text('class', $model->translate($lang)->class, array('class' => 'form-control')) }}
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('icon_class', trans('validation.attributes.icon_class')) }}
+            {{ Form::text('icon_class', $model->translate($lang)->icon_class, array('class' => 'form-control')) }}
         </div>
 
     </div>

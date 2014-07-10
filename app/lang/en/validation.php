@@ -191,6 +191,7 @@ return array(
         'module_name' => 'Module name',
         'target' => 'Target',
         'class' => 'Class',
+        'icon_class' => 'Icon class',
         'restricted_to' => 'Restricted to',
         'link_type' => 'Link type',
 

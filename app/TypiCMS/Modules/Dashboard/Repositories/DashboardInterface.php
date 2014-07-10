@@ -10,11 +10,4 @@ interface DashboardInterface
      * @return string formatted as html
      */
     public function getWelcomeMessage();
-
-    /**
-     * Retrieve list of modules from config
-     *
-     * @return array
-     */
-    public function getModulesList();
 }

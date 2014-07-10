@@ -348,10 +348,8 @@ abstract class RepositoriesAbstract
     {
         $modulesArray = Config::get('modules');
         $selectModules = array('' => '');
-        foreach ($modulesArray as $module => $property) {
-            if ($property['menu']) {
-                $selectModules[strtolower($module)] = Str::title(trans(strtolower($module) . '::global.name'));
-            }
+        foreach ($modulesArray as $module) {
+            $selectModules[strtolower($module)] = Str::title(trans(strtolower($module) . '::global.name'));
         }
 
         return $selectModules;

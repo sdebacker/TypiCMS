@@ -401,6 +401,45 @@ class SentryUser extends RepositoriesAbstract implements UserInterface
     }
 
     /**
+     * Update current user preferences
+     *
+     * @return mixed
+     */
+    public function updatePreferences(array $data)
+    {
+        $user = $this->sentry->getUser();
+
+        // get preferences of current user
+        $prefs = $user->preferences;
+
+        // convert to array
+        $prefsArray = (array) json_decode($prefs, true);
+
+        // add data
+        $prefsArray = array_merge($prefsArray, $data);
+
+        // convert to json
+        $prefs = json_encode($prefsArray);
+
+        // save preferences
+        $user->preferences = $prefs;
+        $user->save();
+    }
+
+    /**
+     * Get current user preferences
+     *
+     * @return array
+     */
+    public function getPreferences()
+    {
+        if ($this->sentry->getUser()) {
+            return json_decode($this->sentry->getUser()->preferences, true);
+        }
+        return array();
+    }
+
+    /**
      * Update a user
      *
      * @param  int     $id

@@ -133,6 +133,20 @@ interface UserInterface
     public function logout();
 
     /**
+     * Update current user preferences
+     *
+     * @return mixed
+     */
+    public function updatePreferences(array $data);
+
+    /**
+     * Get current user preferences
+     *
+     * @return array
+     */
+    public function getPreferences();
+
+    /**
      * Update a user
      *
      * @param  int     $id

@@ -36,8 +36,6 @@ abstract class BasePublicController extends Controller
     {
         $this->repository = $repository;
 
-        $modules = TypiCMS::getModules();
-
         $this->applicationName = Config::get('typicms.' . App::getLocale() . '.websiteTitle');
 
         $instance = $this;
@@ -45,9 +43,7 @@ abstract class BasePublicController extends Controller
             $view->withTitle(Utf8::ucfirst(implode(' ', $instance->title)) . ' – ' . $instance->applicationName);
         });
 
-        View::share('modules', $modules);
         View::share('lang', App::getLocale());
-
     }
 
     /**

@@ -1,5 +1,9 @@
 @section('page-header')
 @stop
+@section('sidebar')
+@stop
+@section('mainClass')
+@stop
 
 @section('main')
 

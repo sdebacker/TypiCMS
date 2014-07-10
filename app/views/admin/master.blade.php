@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="{{ Config::get('app.locale') }}">
 
 <head>
 
@@ -33,38 +33,52 @@
     @endif
 @show
 
-<div class="container-global col-xs-12">
+<div class="container-fluid">
 
-    @yield('menu')
+    <div class="row row-offcanvas row-offcanvas-left">
 
-    <script type="text/javascript">
-        {{ Notification::showError('alertify.error(\':message\');') }}
-        {{ Notification::showInfo('alertify.log(\':message\');') }}
-        {{ Notification::showSuccess('alertify.success(\':message\');') }}
-    </script>
+        @section('sidebar')
+            @include('admin._sidebar')
+        @show
 
-    
-    @section('breadcrumbs')
-    {{ Breadcrumbs::renderIfExists() }}
-    @show
+        <div class="@section('mainClass')col-xs-12 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main @show">
 
-    @section('page-header')
-    <div class="page-header">
-        <h1>
-        @yield('addButton')
-            @section('h1')
-            {{ $h1 }}
+            <script type="text/javascript">
+                {{ Notification::showError('alertify.error(\':message\');') }}
+                {{ Notification::showInfo('alertify.log(\':message\');') }}
+                {{ Notification::showSuccess('alertify.success(\':message\');') }}
+            </script>
+
+            @section('page-header')
+
+            <p class="pull-left visible-xs btn-toggle-offcanvas">
+                <button class="btn btn-link" data-toggle="offcanvas"><span class="fa fa-bars fa-lg"></span> <span class="sr-only">@lang('global.Toggle navigation')</span></button>
+            </p>
+            
+            @section('breadcrumbs')
+            {{ Breadcrumbs::renderIfExists() }}
             @show
-        @yield('titleSmall')
-        </h1>
+
+            <div class="page-header">
+                <h1>
+                @yield('addButton')
+                    @section('h1')
+                    {{ $h1 }}
+                    @show
+                @yield('titleSmall')
+                </h1>
+            </div>
+            @show
+
+            @yield('buttons')
+
+            @yield('main')
+
+        </div>
+
+        @include('admin._footer')
+
     </div>
-    @show
-
-    @yield('buttons')
-
-    @yield('main')
-
-    @include('admin._footer')
 
 </div>
 
