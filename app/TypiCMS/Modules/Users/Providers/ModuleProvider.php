@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Users\Providers;
 
+use App;
 use Lang;
 use View;
 use Config;
@@ -30,6 +31,10 @@ class ModuleProvider extends ServiceProvider
         View::addLocation(__DIR__ . '/../Views');
         Lang::addNamespace('users', __DIR__ . '/../lang');
         Config::addNamespace('users', __DIR__ . '/../config');
+
+        // Add user preferences to Config
+        $prefs = App::make('TypiCMS\Modules\Users\Repositories\UserInterface')->getPreferences();
+        Config::set('current_user', $prefs);
 
         // Observers
         User::observe(new FileObserver);

@@ -66,5 +66,7 @@ Route::group(
     ),
     function () {
         Route::resource('users', 'AdminController');
+        // Update preferences
+        Route::post('users/current/updatepreferences', 'AdminController@postUpdatePreferences');
     }
 );

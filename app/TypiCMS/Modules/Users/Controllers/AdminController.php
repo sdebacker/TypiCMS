@@ -352,4 +352,13 @@ class AdminController extends BaseAdminController
         return Redirect::route('login');
 
     }
+
+    /**
+     * Update User's preferences
+     */
+    public function postUpdatePreferences()
+    {
+        $input = Input::all();
+        $user = $this->repository->updatePreferences($input);
+    }
 }

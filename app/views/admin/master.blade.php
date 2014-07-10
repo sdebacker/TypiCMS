@@ -49,6 +49,8 @@
                 {{ Notification::showSuccess('alertify.success(\':message\');') }}
             </script>
 
+            @section('page-header')
+
             <p class="pull-left visible-xs btn-toggle-offcanvas">
                 <button class="btn btn-link" data-toggle="offcanvas"><span class="fa fa-bars fa-lg"></span> <span class="sr-only">@lang('global.Toggle navigation')</span></button>
             </p>
@@ -57,7 +59,6 @@
             {{ Breadcrumbs::renderIfExists() }}
             @show
 
-            @section('page-header')
             <div class="page-header">
                 <h1>
                 @yield('addButton')
