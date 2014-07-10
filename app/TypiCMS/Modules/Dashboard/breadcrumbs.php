@@ -3,5 +3,5 @@
 // Dashboard
 
 Breadcrumbs::register('dashboard', function ($breadcrumbs) {
-    $breadcrumbs->push(trans('global.Home'), route('dashboard'));
+    $breadcrumbs->push(trans('dashboard::global.name'), route('dashboard'));
 });

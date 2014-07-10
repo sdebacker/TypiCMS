@@ -61,11 +61,11 @@
 
             <div class="page-header">
                 <h1>
-                @yield('addButton')
+                    @yield('addButton')
                     @section('h1')
                     {{ $h1 }}
                     @show
-                @yield('titleSmall')
+                    @yield('titleSmall')
                 </h1>
             </div>
             @show

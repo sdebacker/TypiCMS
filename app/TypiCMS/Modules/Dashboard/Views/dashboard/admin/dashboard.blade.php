@@ -1,4 +1,4 @@
-@section('breadcrumbs') @stop
+@section('h1') @stop
 
 @section('main')
 
