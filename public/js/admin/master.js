@@ -12,6 +12,8 @@ function translate(string) {
 
     $(function () {
 
+        FastClick.attach(document.body);
+
         var dropZoneTemplate = '<div class="thumbnail dz-preview dz-file-preview">\
                 <div class="dz-details">\
                     <div class="thumb-container">\
