@@ -235,15 +235,16 @@ return array(
 		'FileUpload'      => 'TypiCMS\Facades\FileUpload',
 		'TypiCMS'         => 'TypiCMS\Facades\TypiCMS',
 
-		'Pages'           => 'TypiCMS\Modules\Pages\Facades\Facade',
-		'Menus'           => 'TypiCMS\Modules\Menus\Facades\Facade',
+		'Blocks'          => 'TypiCMS\Modules\Blocks\Facades\Facade',
+		'Categories'      => 'TypiCMS\Modules\Categories\Facades\Facade',
 		'Events'          => 'TypiCMS\Modules\Events\Facades\Facade',
+		'Galleries'       => 'TypiCMS\Modules\Galleries\Facades\Facade',
+		'Menus'           => 'TypiCMS\Modules\Menus\Facades\Facade',
 		'News'            => 'TypiCMS\Modules\News\Facades\Facade',
-		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',
+		'Pages'           => 'TypiCMS\Modules\Pages\Facades\Facade',
 		'Partners'        => 'TypiCMS\Modules\Partners\Facades\Facade',
 		'Places'          => 'TypiCMS\Modules\Places\Facades\Facade',
-		'Blocks'          => 'TypiCMS\Modules\Blocks\Facades\Facade',
-		'Galleries'       => 'TypiCMS\Modules\Galleries\Facades\Facade',
+		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',
 
 	),
 
