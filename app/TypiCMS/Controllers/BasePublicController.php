@@ -43,12 +43,12 @@ abstract class BasePublicController extends Controller
             $view->withTitle(Utf8::ucfirst(implode(' ', $instance->title)) . ' – ' . $instance->applicationName);
         });
 
-        $bodyClass = App::getLocale();
+        $bodyClass = ['lang-' . App::getLocale(), $repository->getModel()->getTable()];
         if (Sentry::getUser()) {
-            $bodyClass .= ' has-navbar';
+            $bodyClass[] = 'has-navbar';
         }
         View::share('lang', App::getLocale());
-        View::share('bodyClass', $bodyClass);
+        View::share('bodyClass', implode(' ', $bodyClass));
     }
 
     /**
