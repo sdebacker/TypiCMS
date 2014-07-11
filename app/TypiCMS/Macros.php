@@ -101,6 +101,9 @@ HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) 
         $aAttr['href'] = $item->uri;
 
         $menuList[] = '<a ' . HTML::attributes($aAttr) . '>';
+        if ($item->icon_class) {
+            $menuList[] = '<span class="'.$item->icon_class.'"></span>';
+        }
         $menuList[] = $item->title;
         $item->children and $menuList[] = '<span class="caret"></span>';
         $menuList[] = '</a>';

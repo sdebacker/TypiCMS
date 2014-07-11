@@ -180,6 +180,7 @@ Pages are nestable with drag and drop, on drop, uris are generated and saved in 
 
 Each menu have nestable entries. One entry can be linked to a module, page, URI or URL.
 You can get a menu HTML formated with ``` Menus::build('menuname') ```.
+An icon can easily be added to a menu item by filling icon class field.
 
 ### Projects
 
