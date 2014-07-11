@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body class="@section('bodyClass'){{ $bodyClass }}@show">
 
     <a href="#content" class="sr-only">@lang('db.Skip to content')</a>
 
