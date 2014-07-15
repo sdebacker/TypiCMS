@@ -10,12 +10,14 @@
 @stop
 
 @section('bodyClass')
-no-padding-top
 @stop
-
 @section('navbar')
 @stop
-
+@section('sidebar')
+@stop
+@section('mainClass')
+col-xs-12
+@stop
 @section('breadcrumbs')
 @stop
 

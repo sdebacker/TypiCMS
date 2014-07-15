@@ -25,7 +25,7 @@
 
 </head>
 
-<body class="@yield('bodyClass')">
+<body class="@section('bodyClass')has-navbar @show">
 
 @section('navbar')
     @if (Sentry::getUser())
