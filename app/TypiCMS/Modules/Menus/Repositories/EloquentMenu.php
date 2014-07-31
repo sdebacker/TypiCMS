@@ -101,7 +101,9 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
      */
     public function build($name)
     {
-        $menu = $this->getMenu($name);
+        if (! $menu = $this->getMenu($name)) {
+            return null;
+        }
 
         $attributes = [
             'class' => $menu->class,
