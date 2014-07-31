@@ -14,7 +14,7 @@
     {{ HTML::script(asset('js/components.min.js')) }}
 
     @if(Config::get('app.locale') != 'en')
-        {{ HTML::script(asset('js/datepicker-locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
+        {{ HTML::script(asset('js/pickadate-locales/' . Config::get('app.locale') . '_' . strtoupper(Config::get('app.locale')) . '.js')) }}
     @endif
 
     {{ HTML::script(asset('js/admin/components-admin.min.js')) }}

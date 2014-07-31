@@ -10,28 +10,14 @@
 <div class="row">
     <div class="col-sm-4 form-group @if($errors->has('start_date'))has-error @endif">
         {{ Form::label('start_date', trans('validation.attributes.start_date'), array('class' => 'control-label')) }}
-        <div class="input-group picker-date picker-date-start">
-            {{ Form::text('start_date', $model->present()->dateOrNow('start_date', 'd.m.Y'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <i class="fa fa-calendar"></i>
-                </button>
-            </span>
-        </div>
+        {{ Form::text('start_date', $model->present()->dateOrNow('start_date', 'd.m.Y'), array('class' => 'datepicker form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
         @if($errors->has('start_date'))
         <span class="help-block">{{ $errors->first('start_date') }}</span>
         @endif
     </div>
     <div class="col-sm-3 form-group @if($errors->has('start_time'))has-error @endif">
         {{ Form::label('start_time', trans('validation.attributes.start_time'), array('class' => 'control-label')) }}
-        <div class="input-group picker-time">
-            {{ Form::text('start_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <i class="fa fa-clock-o"></i>
-                </button>
-            </span>
-        </div>
+        {{ Form::text('start_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
         @if($errors->has('start_time'))
         <span class="help-block">{{ $errors->first('start_time') }}</span>
         @endif
@@ -41,28 +27,14 @@
 <div class="row">
     <div class="col-sm-4 form-group @if($errors->has('end_date'))has-error @endif">
         {{ Form::label('end_date', trans('validation.attributes.end_date'), array('class' => 'control-label')) }}
-        <div class="input-group picker-date picker-date-end">
-            {{ Form::text('end_date', $model->present()->dateOrNow('end_date', 'd.m.Y'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <i class="fa fa-calendar"></i>
-                </button>
-            </span>
-        </div>
+        {{ Form::text('end_date', $model->present()->dateOrNow('end_date', 'd.m.Y'), array('class' => 'datepicker form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
         @if($errors->has('end_date'))
         <span class="help-block">{{ $errors->first('end_date') }}</span>
         @endif
     </div>
     <div class="col-sm-3 form-group @if($errors->has('end_time'))has-error @endif">
         {{ Form::label('end_time', trans('validation.attributes.end_time'), array('class' => 'control-label')) }}
-        <div class="input-group picker-time">
-            {{ Form::text('end_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <i class="fa fa-clock-o"></i>
-                </button>
-            </span>
-        </div>
+        {{ Form::text('end_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
         @if($errors->has('end_time'))
         <span class="help-block">{{ $errors->first('end_time') }}</span>
         @endif

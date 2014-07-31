@@ -55,15 +55,14 @@ gulp.task('fonts', function () {
 
 });
 
-// Publish datepicker locales
-gulp.task('datepicker-locales', function () {
+// Publish pickadate locales
+gulp.task('pickadate-locales', function () {
 
     return gulp.src([
-            'app/assets/components/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.fr.js',
-            'app/assets/components/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.nl.js',
-            'app/assets/components/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.de.js',
+            'app/assets/components/pickadate/lib/translations/fr_FR.js',
+            'app/assets/components/pickadate/lib/translations/nl_NL.js',
         ])
-        .pipe(gulp.dest('public/js/datepicker-locales'));
+        .pipe(gulp.dest('public/js/pickadate-locales'));
 
 });
 
@@ -122,7 +121,7 @@ gulp.task('default', [
     'js-components',
     'js-admin',
     'fonts',
-    'datepicker-locales',
+    'pickadate-locales',
     'fancybox-img',
     'watch'
 ]);

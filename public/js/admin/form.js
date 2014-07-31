@@ -127,55 +127,25 @@ function initTinymce(selector) {
         });
 
         /**
-         * Date and time picker
+         * Date picker
          */
-        if ($('.picker-date').length) {
-            $('.picker-date').datetimepicker({
-                icons: {
-                    time: "fa fa-clock-o",
-                    date: "fa fa-calendar",
-                    up: "fa fa-arrow-up",
-                    down: "fa fa-arrow-down"
-                },
-                format: 'DD.MM.YYYY',
-                pickTime: false,
-                language: lang
+        if ($('.datepicker').length) {
+            $('.datepicker').pickadate({
+                editable: true,
+                // formatSubmit: 'yyyy-mm-dd',
+                format: 'dd.mm.yyyy'
             });
-            $('.picker-date-start').on('dp.change', function (e) {
-                $('.picker-date-end').data('DateTimePicker').setMinDate(e.date);
-            });
-            $('.picker-date-end').on('dp.change', function (e) {
-                $('.picker-date-start').data('DateTimePicker').setMaxDate(e.date);
-            });
-        };
+        }
 
-        if ($('.picker-datetime').length) {
-            $('.picker-datetime').datetimepicker({
-                icons: {
-                    time: "fa fa-clock-o",
-                    date: "fa fa-calendar",
-                    up: "fa fa-arrow-up",
-                    down: "fa fa-arrow-down"
-                },
-                format: 'DD.MM.YYYY HH:mm',
-                useSeconds: false,
-                language: lang
+        /**
+         * Time picker
+         */
+        if ($('.timepicker').length) {
+            $('.timepicker').pickatime({
+                editable: true,
+                format: 'HH:i'
             });
-        };
-
-        if ($('.picker-time').length) {
-            $('.picker-time').datetimepicker({
-                icons: {
-                    time: "fa fa-clock-o",
-                    date: "fa fa-calendar",
-                    up: "fa fa-arrow-up",
-                    down: "fa fa-arrow-down"
-                },
-                format: 'HH:mm',
-                pickDate: false,
-                language: lang
-            });
-        };
+        }
 
     });
 
