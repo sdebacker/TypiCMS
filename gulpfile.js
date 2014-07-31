@@ -7,7 +7,7 @@ var gulp       = require('gulp'),
     minifyCSS  = require('gulp-minify-css'),
     uglify     = require('gulp-uglify'),
     watch      = require('gulp-watch'),
-    bowerFiles = require('gulp-bower-files'),
+    bowerFiles = require('main-bower-files'),
     livereload = require('gulp-livereload'),
     browserify = require('gulp-browserify'),
     rename     = require('gulp-rename'),
@@ -97,7 +97,7 @@ gulp.task('components-js', function () {
 
     var jsFilter = filter('**/*.js');
 
-    return bowerFiles({checkExistence: true})
+    return gulp.src(bowerFiles({checkExistence: true}))
         .pipe(jsFilter)
         .pipe(concat('bundle.js'))
         .pipe(uglify())
