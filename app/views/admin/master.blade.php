@@ -11,13 +11,13 @@
     @yield('css')
     {{ HTML::style(asset('css/admin.css')) }}
 
-    {{ HTML::script(asset('js/admin/components.min.js')) }}
+    {{ HTML::script(asset('js/components.min.js')) }}
 
     @if(Config::get('app.locale') != 'en')
         {{ HTML::script(asset('js/datepicker-locales/bootstrap-datetimepicker.'.Config::get('app.locale').'.js')) }}
     @endif
 
-    {{ HTML::script(asset('js/admin/components-custom.min.js')) }}
+    {{ HTML::script(asset('js/admin/components-admin.min.js')) }}
 
     @yield('js')
 

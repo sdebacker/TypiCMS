@@ -9,13 +9,12 @@ var gulp       = require('gulp'),
     watch      = require('gulp-watch'),
     bowerFiles = require('main-bower-files'),
     livereload = require('gulp-livereload'),
-    browserify = require('gulp-browserify'),
     rename     = require('gulp-rename'),
     plumber    = require('gulp-plumber'),
     filter     = require('gulp-filter');
 
 // Compile Less and save to css directory
-gulp.task('public-less', function () {
+gulp.task('less-public', function () {
 
     return gulp.src([
             'app/assets/less/public/master.less'
@@ -30,7 +29,7 @@ gulp.task('public-less', function () {
 
 });
 
-gulp.task('admin-less', function () {
+gulp.task('less-admin', function () {
 
     return gulp.src([
             'app/assets/less/admin/master.less'
@@ -79,35 +78,19 @@ gulp.task('fancybox-img', function () {
 
 });
 
-// Minify and save to target JS directory
-gulp.task('public-js', function () {
-
-    return gulp.src('app/assets/js/public/main.js')
-        .pipe(browserify({
-            debug: true
-        }))
-        .pipe(uglify())
-        .pipe(rename('public/js/public/components.min.js'))
-        .pipe(gulp.dest('./'))
-        .pipe(notify('Public JS minified'));
-
-});
-
-gulp.task('components-js', function () {
-
-    var jsFilter = filter('**/*.js');
+gulp.task('js-components', function () {
 
     return gulp.src(bowerFiles({checkExistence: true}))
-        .pipe(jsFilter)
-        .pipe(concat('bundle.js'))
+        .pipe(filter('**/*.js'))
+        .pipe(concat('components.js'))
         .pipe(uglify())
         .pipe(rename('components.min.js'))
-        .pipe(gulp.dest('public/js/admin/'))
+        .pipe(gulp.dest('public/js/'))
         .pipe(notify('Bower js files minified'));
 
 });
 
-gulp.task('components-custom-js', function () {
+gulp.task('js-admin', function () {
 
     return gulp.src([
             'app/assets/js/admin/jquery.mjs.nestedSortable.js',
@@ -115,9 +98,9 @@ gulp.task('components-custom-js', function () {
             'app/assets/js/admin/jquery.slug.js',
             'app/assets/js/admin/jquery.listenhancer.js'
         ])
-        .pipe(concat('components-custom.js'))
+        .pipe(concat('components-admin.js'))
         .pipe(uglify())
-        .pipe(rename('components-custom.min.js'))
+        .pipe(rename('components-admin.min.js'))
         .pipe(gulp.dest('public/js/admin/'))
         .pipe(notify('Custom js plugins minified'));
 
@@ -125,20 +108,19 @@ gulp.task('components-custom-js', function () {
 
 // Keep an eye on Less and JS files for changes…
 gulp.task('watch', function () {
-    gulp.watch('app/assets/less/public/**/*.less', ['public-less']);
-    gulp.watch('app/assets/less/admin/**/*.less', ['admin-less']);
-    gulp.watch('app/assets/less/*.less', ['public-less', 'admin-less']);
+    gulp.watch('app/assets/less/public/**/*.less', ['less-public']);
+    gulp.watch('app/assets/less/admin/**/*.less', ['less-admin']);
+    gulp.watch('app/assets/less/*.less', ['less-public', 'less-admin']);
     gulp.watch('app/assets/js/public/**/*.js', ['public-js']);
-    gulp.watch('app/assets/js/admin/**/*.js', ['components-js', 'components-custom-js']);
+    gulp.watch('app/assets/js/admin/**/*.js', ['js-admin']);
 });
 
 // What tasks does running gulp trigger?
 gulp.task('default', [
-    'public-less',
-    'admin-less',
-    'public-js',
-    'components-js',
-    'components-custom-js',
+    'less-public',
+    'less-admin',
+    'js-components',
+    'js-admin',
     'fonts',
     'datepicker-locales',
     'fancybox-img',
