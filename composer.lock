@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b291e8a50eab3ca48171555a4c427609",
+    "hash": "2ef119984952a6f289c8bd077b4b4489",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -450,16 +450,16 @@
         },
         {
             "name": "edvinaskrucas/notification",
-            "version": "2.1.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/edvinaskrucas/notification.git",
-                "reference": "01de145305f752d3d5902a83449fde1da7401d2e"
+                "reference": "d7800e4d56db5f8f6da7b724c89fd080beec1837"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edvinaskrucas/notification/zipball/01de145305f752d3d5902a83449fde1da7401d2e",
-                "reference": "01de145305f752d3d5902a83449fde1da7401d2e",
+                "url": "https://api.github.com/repos/edvinaskrucas/notification/zipball/d7800e4d56db5f8f6da7b724c89fd080beec1837",
+                "reference": "d7800e4d56db5f8f6da7b724c89fd080beec1837",
                 "shasum": ""
             },
             "require": {
@@ -496,7 +496,7 @@
                 "messages",
                 "notifications"
             ],
-            "time": "2014-07-28 06:13:35"
+            "time": "2014-07-29 13:44:05"
         },
         {
             "name": "eluceo/ical",

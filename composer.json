@@ -16,7 +16,7 @@
 		"cartalyst/sentry": "~2.1",
 		"davejamesmiller/laravel-breadcrumbs": "~2.2.1",
 		"dimsav/laravel-translatable": "~4.0",
-		"edvinaskrucas/notification": "~2.0",
+		"edvinaskrucas/notification": "3.*",
 		"eluceo/ical": "~0.1",
 		"guzzlehttp/guzzle": "~4.0",
 		"jwage/easy-csv": "~0.0.2",
