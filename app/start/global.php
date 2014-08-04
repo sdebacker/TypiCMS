@@ -101,28 +101,3 @@ require app_path().'/filters.php';
 |--------------------------------------------------------------------------|
 */
 require app_path().'/TypiCMS/Macros.php';
-
-/*
-|--------------------------------------------------------------------------
-| Save locale in session and set app locale on admin side.
-|--------------------------------------------------------------------------|
-*/
-if (Request::segment(1) == 'admin') {
-
-	// If we have a query string like ?locale=xx
-	if (Input::get('locale')) {
-
-		// locale is present in app.locales config ?
-		if (in_array(Input::get('locale'), Config::get('app.locales'))) {
-
-			// Store locale in session
-			Session::put('locale', Input::get('locale'));
-
-		}
-
-	}
-
-	// Set locale for admin
-	Config::set('app.locale', Session::get('locale', Config::get('app.locale')));
-	Lang::setLocale(Config::get('typicms.adminLocale'));
-}

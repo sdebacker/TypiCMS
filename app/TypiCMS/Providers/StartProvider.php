@@ -46,22 +46,6 @@ class StartProvider extends ServiceProvider
 
         /*
         |--------------------------------------------------------------------------
-        | Set app locale on public side.
-        |--------------------------------------------------------------------------|
-        */
-        if (Request::segment(1) != 'admin') {
-
-            $firstSegment = Request::segment(1);
-            if (in_array($firstSegment, Config::get('app.locales'))) {
-                Config::set('app.locale', $firstSegment);
-            }
-            // Not very reliable, need to be refactored
-            setlocale(LC_ALL, App::getLocale() . '_' . ucfirst(App::getLocale()));
-
-        }
-
-        /*
-        |--------------------------------------------------------------------------
         | Get custom routes for public side modules.
         |--------------------------------------------------------------------------|
         */

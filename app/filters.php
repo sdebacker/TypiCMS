@@ -91,14 +91,46 @@ Route::filter('users.register', function()
 });
 
 /**
- * Locale is online ?
+ * Set App and system locale on public side
  */
-Route::filter('isPublicLocaleOnline', function()
+Route::filter('publicSide', function($route)
 {
-	$locale = Config::get('app.locale');
+	$locale = Request::segment(1);
+
 	if ( ! Config::get('typicms.' . $locale . '.status')) {
 		App::abort(404);
 	}
+
+	Config::set('app.locale', $locale);
+
+	// Not very reliable, need to be refactored
+	setlocale(LC_ALL, App::getLocale() . '_' . ucfirst(App::getLocale()));
+
+});
+
+/**
+ * Set App and Translator locale on public side
+ */
+Route::filter('adminSide', function()
+{
+	// If we have a query string like ?locale=xx
+	if (Input::get('locale')) {
+
+		// locale is present in app.locales config ?
+		if (in_array(Input::get('locale'), Config::get('app.locales'))) {
+
+			// Store locale in session
+			Session::put('locale', Input::get('locale'));
+
+		}
+
+	}
+
+	// Set app.locale
+	Config::set('app.locale', Session::get('locale', Config::get('app.locale')));
+
+	// Set Translator locale
+	Lang::setLocale(Config::get('typicms.adminLocale'));
 });
 
 /*
