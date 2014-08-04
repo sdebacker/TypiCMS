@@ -112,7 +112,7 @@ if (Request::segment(1) == 'admin') {
 	// If we have a query string like ?locale=xx
 	if (Input::get('locale')) {
 
-		// If locale is managed by the app
+		// locale is present in app.locales config ?
 		if (in_array(Input::get('locale'), Config::get('app.locales'))) {
 
 			// Store locale in session
@@ -124,5 +124,5 @@ if (Request::segment(1) == 'admin') {
 
 	// Set locale for admin
 	Config::set('app.locale', Session::get('locale', Config::get('app.locale')));
-
+	Lang::setLocale(Config::get('typicms.adminLocale'));
 }
