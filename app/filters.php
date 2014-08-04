@@ -80,6 +80,9 @@ Route::filter('auth.admin', function()
 	}
 });
 
+/**
+ * User registration allowed ?
+ */
 Route::filter('users.register', function()
 {
 	if ( ! Config::get('typicms.register')) {
@@ -87,6 +90,9 @@ Route::filter('users.register', function()
 	}
 });
 
+/**
+ * Locale is online ?
+ */
 Route::filter('isPublicLocaleOnline', function()
 {
 	$locale = Config::get('app.locale');
@@ -94,7 +100,6 @@ Route::filter('isPublicLocaleOnline', function()
 		App::abort(404);
 	}
 });
-
 
 /*
 |--------------------------------------------------------------------------
