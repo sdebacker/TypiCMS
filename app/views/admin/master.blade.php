@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ Config::get('app.locale') }}">
+<html lang="{{ Config::get('typicms.adminLocale') }}">
 
 <head>
 
