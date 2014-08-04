@@ -77,19 +77,7 @@ function initListForm() {
     var listForm = $('.list-form'),
         contentLocale = listForm.attr('lang'),
         switches = $('.switch').css('cursor', 'pointer'),
-        btnToolbar = listForm.children('.btn-toolbar'),
-        buttonGroup = $('<div>', {
-            class: 'btn-group'
-        });
-        buttonGroup.prependTo(btnToolbar);
-        btnToolbar.append('<div class="btn-group"><button class="btn btn-danger btn-xs" id="btnDelete">Supprimer</button></div>');
-
-    if ($('.list-form .switch').length) {
-        buttonGroup.append('<button class="btn btn-default btn-xs" id="btnOnline">En ligne</button>');
-        buttonGroup.append('<button class="btn btn-default btn-xs" id="btnOffline">Hors ligne</button>');
-    };
-
-    var btnDelete = $('#btnDelete'),
+        btnDelete = $('#btnDelete'),
         btnOnline = $('#btnOnline'),
         btnOffline = $('#btnOffline'),
         nbElementItem = $('#nb_elements');
