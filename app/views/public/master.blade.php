@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="{{ Config::get('app.locale') }}">
 
 <head>
 
