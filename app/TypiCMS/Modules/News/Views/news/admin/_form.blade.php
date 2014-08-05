@@ -24,19 +24,11 @@
 
         <div class="form-group @if($errors->has('date'))has-error @endif">
             {{ Form::label('date', trans('validation.attributes.date'), array('class' => 'control-label')) }}
-            <div class="input-group picker-datetime col-md-6">
-                {{ Form::text('date', $model->present()->dateOrNow('date', 'd.m.Y H:i'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
-                        <i class="fa fa-calendar"></i>
-                    </button>
-                </span>
-            </div>
+            {{ Form::text('date', $model->present()->dateOrNow('date', 'd.m.Y H:i'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
             @if($errors->has('date'))
             <span class="help-block">{{ $errors->first('date') }}</span>
             @endif
         </div>
-
         @include('admin._tabs-lang-form', ['target' => 'content'])
 
         <div class="tab-content">
