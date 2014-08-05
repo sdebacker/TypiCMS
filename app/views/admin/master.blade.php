@@ -13,8 +13,8 @@
 
     {{ HTML::script(asset('js/components.min.js')) }}
 
-    @if(Config::get('app.locale') != 'en')
-        {{ HTML::script(asset('js/pickadate-locales/' . Config::get('app.locale') . '_' . strtoupper(Config::get('app.locale')) . '.js')) }}
+    @if(Config::get('typicms.adminLocale') != 'en')
+        {{ HTML::script(asset('js/pickadate-locales/' . Config::get('typicms.adminLocale') . '_' . strtoupper(Config::get('typicms.adminLocale')) . '.js')) }}
     @endif
 
     {{ HTML::script(asset('js/admin/components-admin.min.js')) }}
