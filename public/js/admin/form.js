@@ -35,6 +35,7 @@ function initTinymce(selector) {
         // statusbar: false,
         block_formats : "Paragraph=p;Code=pre;Blockquote=blockquote;Header 2=h2;Header 3=h3;Header 4=h4;Header 5=h5;Header 6=h6",
         style_formats : [
+            { title : 'Small text', inline: 'small' },
             { title : 'Image Left', selector : 'img', styles : { 'float': 'left', 'margin': '0 20px 20px 0' } },
             { title : 'Image Right', selector : 'img', styles : { 'float': 'right', 'margin': '0 0 20px 20px' } },
             { title : 'File (link)', selector : 'a', classes : 'file' },
