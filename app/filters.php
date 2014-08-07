@@ -99,7 +99,7 @@ Route::filter('publicSide', function($route)
 	if ( ! Config::get('typicms.' . $locale . '.status')) {
 		App::abort(404);
 	}
-	Config::set('app.locale', $locale);
+	App::setLocale($locale);
 	// Not very reliable, need to be refactored
 	setlocale(LC_ALL, App::getLocale() . '_' . ucfirst(App::getLocale()));
 
