@@ -35,10 +35,22 @@ function translate(string) {
             $('#dropzone').trigger('click');
         });
 
+        var acceptedFiles = [
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+            'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+            'application/vnd.openxmlformats-officedocument.presentationml.slide',
+            'application/pdf',
+            'image/jpeg',
+            'image/gif',
+            'image/png'
+        ];
+
         Dropzone.options.dropzone = {
             clickable: true,
             maxFilesize: 2, // MB
-            acceptedFiles: 'application/pdf,image/jpeg,image/gif,image/png',
+            acceptedFiles: acceptedFiles.join(),
             previewTemplate: dropZoneTemplate,
             previewsContainer: '.dropzone-previews',
             thumbnailWidth: 130,
