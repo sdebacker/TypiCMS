@@ -409,7 +409,9 @@ abstract class RepositoriesAbstract
             return false;
         }
 
-        ! isset($data['galleries']) and $data['galleries'] = array();
+        if (! isset($data['galleries'])) {
+            return false;
+        }
 
         // add galleries
         $pivotData = array();
