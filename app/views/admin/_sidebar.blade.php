@@ -3,7 +3,8 @@
         <ul class="nav nav-sidebar">
             <li class="@if (Request::path() == 'admin')active @endif">
                 <a href="{{ route('dashboard') }}">
-                    <span class="fa fa-dashboard fa-fw"></span>  @lang('dashboard::global.name')
+                    <span class="icon fa fa-dashboard fa-fw"></span>
+                    <div>@lang('dashboard::global.name')</div>
                 </a>
             </li>
         </ul>

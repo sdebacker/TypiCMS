@@ -4,14 +4,16 @@
     <div class="panel-collapse collapse @if(! Config::get('current_user.menus_'.$name.'_collapsed'))in @endif" id="{{ $name }}">
         <ul class="nav nav-sidebar {{ $menu->class }}">
             @foreach ($menu->menulinks as $menulink)
-                <li role="menuitem" class="{{ $menulink->class }}">
-                    <a href="{{ $menulink->uri }}">
-                        @if ($menulink->icon_class)
-                            <span class="{{ $menulink->icon_class }}"></span> 
-                        @endif
+            <li role="menuitem" class="{{ $menulink->class }}">
+                <a href="{{ $menulink->uri }}">
+                    @if ($menulink->icon_class)
+                        <span class="icon {{ $menulink->icon_class }}"></span>
+                    @endif
+                    <div>
                         {{ $menulink->translate(Config::get('typicms.adminLocale'))->title }}
-                    </a>
-                </li>
+                    </div>
+                </a>
+            </li>
             @endforeach
         </ul>
     </div>
