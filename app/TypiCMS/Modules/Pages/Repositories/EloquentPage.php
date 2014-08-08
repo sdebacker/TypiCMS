@@ -34,7 +34,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         $model = $this->model->find($data['id']);
         $model->fill($data);
 
-        $this->syncGalleries($model, $data);
+        $this->syncRelation($model, $data, 'galleries');
 
         $model->save();
 

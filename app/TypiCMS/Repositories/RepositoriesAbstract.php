@@ -233,7 +233,7 @@ abstract class RepositoriesAbstract
         $model = $this->model->fill($data);
 
         if ($model->save()) {
-            $this->syncGalleries($model, $data);
+            $this->syncRelation($model, $data, 'galleries');
             return $model;
         }
 
@@ -252,7 +252,7 @@ abstract class RepositoriesAbstract
 
         $model->fill($data);
 
-        $this->syncGalleries($model, $data);
+        $this->syncRelation($model, $data, 'galleries');
 
         if ($model->save()) {
             return true;
@@ -397,30 +397,31 @@ abstract class RepositoriesAbstract
     }
 
     /**
-     * Sync galleries for model
+     * Sync related items for model
      *
      * @param  \Illuminate\Database\Eloquent\Model $model
-     * @param  array                               $galleries
-     * @return mixed false or void
+     * @param  array                               $data
+     * @param  string                              $table
+     * @return void
      */
-    protected function syncGalleries($model, array $data)
+    protected function syncRelation($model, array $data, $table = null)
     {
-        if (! method_exists($model, 'galleries')) {
+        if (! method_exists($model, $table)) {
             return false;
         }
 
-        if (! isset($data['galleries'])) {
+        if (! isset($data[$table])) {
             return false;
         }
 
-        // add galleries
+        // add related items
         $pivotData = array();
         $position = 0;
-        foreach ($data['galleries'] as $id) {
+        foreach ($data[$table] as $id) {
             $pivotData[$id] = ['position' => $position++];
         }
 
-        // Sync galleries
-        $model->galleries()->sync($pivotData);
+        // Sync related items
+        $model->$table()->sync($pivotData);
     }
 }
