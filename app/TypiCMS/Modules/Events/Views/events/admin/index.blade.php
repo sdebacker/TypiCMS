@@ -26,8 +26,8 @@
                         {{ Html::th('checkboxes', null, false, false) }}
                         {{ Html::th('edit', null, false, false) }}
                         {{ Html::th('status', null, false) }}
-                        {{ Html::th('start_date', 'asc') }}
-                        {{ Html::th('end_date') }}
+                        {{ Html::th('start_date') }}
+                        {{ Html::th('end_date', 'desc') }}
                         {{ Html::th('title', null, false) }}
                     </tr>
 
