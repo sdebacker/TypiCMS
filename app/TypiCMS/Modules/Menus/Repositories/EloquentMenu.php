@@ -29,6 +29,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     public function getAllMenus()
     {
         $with = [
+            'translations',
             'menulinks.translations',
             'menulinks.page.translations',
         ];
