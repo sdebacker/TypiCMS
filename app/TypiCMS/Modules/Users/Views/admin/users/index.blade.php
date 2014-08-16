@@ -3,7 +3,7 @@
 @stop
 
 @section('h1')
-    <span id="nb_elements">{{ count($models) }}</span> @choice('users::global.users', count($models))
+    <span id="nb_elements">{{ $models->count() }}</span> @choice('users::global.users', $models->count())
 @stop
 
 @section('addButton')

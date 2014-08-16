@@ -2,7 +2,7 @@
 
     <h2>{{ Str::title(trans_choice('news::global.news', $models->getTotal())) }}</h2>
 
-    @if (count($models))
+    @if ($models->count())
     <ul>
         @foreach ($models as $model)
         <li>

@@ -6,7 +6,7 @@
 
         <div class="col-sm-4">
 
-            @if($latestNews = News::latest(3) and count($latestNews))
+            @if($latestNews = News::latest(3) and $latestNews->count())
             <h3>@lang('db.Latest news')</h3>
             <ul>
                 @foreach ($latestNews as $news)
@@ -20,7 +20,7 @@
             <a href="{{ route($lang . '.news') }}" class="btn btn-default btn-xs">@lang('db.All news')</a>
             @endif
 
-            @if($incomingEvents = Events::incoming() and count($incomingEvents))
+            @if($incomingEvents = Events::incoming() and $incomingEvents->count())
             <h3>@lang('db.Incoming events')</h3>
             <ul>
                 @foreach ($incomingEvents as $event)

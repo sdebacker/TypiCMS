@@ -2,7 +2,7 @@
 
     <h2>{{ Str::title(trans_choice('galleries::global.galleries', 2)) }}</h2>
 
-    @if (count($models))
+    @if ($models->count())
     <ul>
         @foreach ($models as $model)
         <li>
