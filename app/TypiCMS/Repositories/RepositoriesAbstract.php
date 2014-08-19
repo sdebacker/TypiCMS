@@ -9,7 +9,6 @@ use App;
 use Input;
 use Config;
 
-use TypiCMS\Services\Helpers;
 use TypiCMS\Modules\Pages\Models\Page;
 
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
@@ -194,7 +193,7 @@ abstract class RepositoriesAbstract
     public function bySlug($slug, array $with = array('translations'))
     {
         // Find id
-        $id = Helpers::getIdFromSlug($this->model->getTable(), $slug);
+        $id = getIdFromSlug($this->model->getTable(), $slug);
 
         $model = $this->make($with)
             ->whereHasOnlineTranslation()

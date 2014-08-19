@@ -1,4 +1,4 @@
-<li id="page_{{ $child->id }}" class="{{ $child->activeClass() }}">
+<li id="page_{{ $child->id }}" class="{{ activeClass($child->uri) }}">
     <a href="/{{ $child->uri }}">
         {{ $child->title }}
     </a>

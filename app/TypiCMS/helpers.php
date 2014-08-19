@@ -1,19 +1,17 @@
 <?php
-namespace TypiCMS\Services;
-
-use DB;
-use App;
-use Route;
-use Sentry;
-use Config;
-use Request;
-
-class Helpers
-{
-    public function __construct()
+if (! function_exists('activeClass')) {
+    /**
+     * return 'active' if this is the current page
+     * 
+     * @return string 'active' or ''
+     */
+    function activeClass($uri)
     {
+        return Request::is($uri) ? 'active' : '';
     }
+}
 
+if (! function_exists('getIdFromSlug')) {
     /**
      * I have slug, give me id.
      *
@@ -21,7 +19,7 @@ class Helpers
      * @param  string  $slug
      * @return integer
      */
-    public static function getIdFromSlug($module = null, $slug = null)
+    function getIdFromSlug($module = null, $slug = null)
     {
         if (! $module or ! $slug) {
             return false;
@@ -36,7 +34,9 @@ class Helpers
                 ->where('locale', App::getLocale())
                 ->pluck($module . '.id');
     }
+}
 
+if (! function_exists('getSlugsFromId')) {
     /**
      * I have id, give me slugs.
      *
@@ -44,7 +44,7 @@ class Helpers
      * @param  int    $id
      * @return Array
      */
-    public static function getSlugsFromId($module = null, $id = null)
+    function getSlugsFromId($module = null, $id = null)
     {
         if (! $module or ! $id) {
             return false;

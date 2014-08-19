@@ -76,16 +76,6 @@ class Page extends Base
     public $children = array();
 
     /**
-     * return 'active' if this is the current page
-     * 
-     * @return string 'active' or ''
-     */
-    public function activeClass()
-    {
-        return Request::is($this->uri) ? 'active' : '';
-    }
-
-    /**
      * Relations
      */
     public function menulinks()
