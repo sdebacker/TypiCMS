@@ -201,6 +201,7 @@ return array(
         'icon_class' => 'Class d’icône',
         'restricted_to' => 'Restreint à',
         'link_type' => 'Type de lien',
+        'has_categories' => 'Afficher les catégories',
 
         // Users
         'first_name' => 'Prénom',

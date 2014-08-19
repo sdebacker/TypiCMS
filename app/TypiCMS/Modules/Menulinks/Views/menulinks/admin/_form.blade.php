@@ -66,6 +66,12 @@
         </div>
 
         <div class="form-group">
+            <label class="checkbox">
+                {{ Form::checkbox('has_categories') }} @lang('validation.attributes.has_categories')
+            </label>
+        </div>
+
+        <div class="form-group">
             {{ Form::label('target', trans('validation.attributes.target')) }}
             {{ Form::select('target', array('' => trans('validation.values.Active tab'), '_blank' => trans('validation.values.New tab')), null, array('class' => 'form-control')) }}
         </div>

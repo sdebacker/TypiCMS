@@ -26,6 +26,7 @@ class Menulink extends Base
         'class',
         'icon_class',
         'link_type',
+        'has_categories',
         // Translatable fields
         'title',
         'uri',

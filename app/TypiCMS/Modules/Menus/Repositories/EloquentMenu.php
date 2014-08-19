@@ -5,6 +5,7 @@ use App;
 use HTML;
 use Config;
 use Request;
+use Categories;
 use Notification;
 use ErrorException;
 
@@ -80,18 +81,28 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
             return null;
         }
 
-        $menu->menulinks->each(function ($menulink) {
-            $menulink->uri = $this->setUri($menulink);
-            $menulink->class = $this->setClass($menulink);
-        });
-
-        $menu->menulinks->sortBy(function ($menulink) {
-            return $menulink->position;
-        });
+        $menu->menulinks = $this->prepare($menu->menulinks);
 
         $menu->menulinks->nest();
 
         return $menu;
+    }
+
+    public function prepare($items = null)
+    {
+        $items->each(function ($item) {
+            if ($item->has_categories) {
+                $item->children = $this->prepare(Categories::getAllForMenu($item->uri));
+            }
+            $item->uri = $this->setUri($item);
+            $item->class = $this->setClass($item);
+        });
+
+        $items->sortBy(function ($item) {
+            return $item->position;
+        });
+
+        return $items;
     }
 
     /**

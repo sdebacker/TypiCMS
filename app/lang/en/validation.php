@@ -194,6 +194,7 @@ return array(
         'icon_class' => 'Icon class',
         'restricted_to' => 'Restricted to',
         'link_type' => 'Link type',
+        'has_categories' => 'Show categories',
 
         // Users
         'first_name' => 'First name',
