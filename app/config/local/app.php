@@ -36,6 +36,7 @@ return array(
 	
 		'Barryvdh\Debugbar\ServiceProvider',
 		'LeroyMerlin\LaraSniffer\ServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
 
 	)),
 
