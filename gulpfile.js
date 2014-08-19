@@ -10,17 +10,20 @@ var gulp       = require('gulp'),
     bowerFiles = require('main-bower-files'),
     livereload = require('gulp-livereload'),
     rename     = require('gulp-rename'),
-    plumber    = require('gulp-plumber'),
     filter     = require('gulp-filter');
 
+function swallowError (error) {
+    console.log(error.toString());
+    this.emit('end');
+}
 // Compile Less and save to css directory
 gulp.task('less-public', function () {
 
     return gulp.src([
             'app/assets/less/public/master.less'
         ])
-        .pipe(plumber())
         .pipe(less())
+        .on('error', swallowError)
         .pipe(minifyCSS())
         .pipe(rename('public.css'))
         .pipe(gulp.dest('public/css'))
@@ -34,8 +37,8 @@ gulp.task('less-admin', function () {
     return gulp.src([
             'app/assets/less/admin/master.less'
         ])
-        .pipe(plumber())
         .pipe(less())
+        .on('error', swallowError)
         .pipe(minifyCSS())
         .pipe(rename('admin.css'))
         .pipe(gulp.dest('public/css'))
@@ -114,8 +117,8 @@ gulp.task('watch', function () {
     gulp.watch('app/assets/js/admin/**/*.js', ['js-admin']);
 });
 
-// What tasks does running gulp trigger?
-gulp.task('default', [
+// launch all
+gulp.task('all', [
     'less-public',
     'less-admin',
     'js-components',
@@ -125,3 +128,6 @@ gulp.task('default', [
     'fancybox-img',
     'watch'
 ]);
+
+// What tasks does running gulp trigger?
+gulp.task('default', ['watch']);
