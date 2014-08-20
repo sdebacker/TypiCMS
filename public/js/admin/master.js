@@ -41,6 +41,9 @@ function translate(string) {
             'application/vnd.openxmlformats-officedocument.presentationml.presentation',
             'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
             'application/vnd.openxmlformats-officedocument.presentationml.slide',
+            'application/msword', // doc
+            'application/vnd.ms-powerpoint', // ppt
+            'application/vnd.ms-excel', // xls
             'application/pdf',
             'image/jpeg',
             'image/gif',
