@@ -61,7 +61,7 @@ if (! function_exists('getSlugsFromId')) {
     }
 }
 
-if ( ! function_exists('array_indent')) {
+if (! function_exists('array_indent')) {
     /**
      * Indent values of an array with spaces. One with keys and the other with values.
      *
