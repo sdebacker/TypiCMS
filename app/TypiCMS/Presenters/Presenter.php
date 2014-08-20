@@ -162,4 +162,27 @@ abstract class Presenter
         $src = Croppa::url($file, $width, $height, $options);
         return '<img class="img-responsive" src="' . $src . '" alt="">';
     }
+
+    /**
+     * Return an icon and file name
+     * 
+     * @param  int $size       size of the icon
+     * @param  string $field   field name
+     * @return string          HTML markup of an image
+     */
+    public function icon($size = 2, $field = 'document')
+    {
+        $uploadDir = '/uploads';
+        $file = $uploadDir . '/' . $this->entity->getTable() . '/' . $this->entity->$field;
+        if (! is_file(public_path() . $file)) {
+            $file = $uploadDir . '/img-not-found.png';
+        }
+        $html = '<div class="doc">';
+        $html .= '<span class="text-center fa fa-file-text-o fa-' . $size . 'x"></span>';
+        $html .= '<a href="' . $file . '">';
+        $html .= $this->entity->$field;
+        $html .= '</a>';
+        $html .= '</div>';
+        return $html;
+    }
 }
