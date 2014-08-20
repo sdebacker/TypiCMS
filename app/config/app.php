@@ -152,6 +152,7 @@ return array(
 		'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider',
 		'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
 		'Jenssegers\Rollbar\RollbarServiceProvider',
+		'Roumen\Sitemap\SitemapServiceProvider',
 
 		'TypiCMS\Providers\StartProvider',
 		'TypiCMS\Providers\UploadServiceProvider',

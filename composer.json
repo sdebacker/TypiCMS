@@ -25,7 +25,8 @@
 		"msurguy/honeypot": "~0.2",
 		"thomaswelton/laravel-gravatar": "~0.0.2",
 		"cviebrock/image-validator": "~1.0.3",
-		"jenssegers/rollbar": "*"
+		"jenssegers/rollbar": "*",
+		"roumen/sitemap": "2.4.*"
 	},
 	"require-dev": {
 		"way/generators": "~2.6",

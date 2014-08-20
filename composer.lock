@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "43bb2a805b994b94ce410f7338ea5607",
+    "hash": "55fca0c71cdcb4d59e31231e49c37260",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1655,6 +1655,53 @@
                 "monitoring"
             ],
             "time": "2014-07-30 18:17:09"
+        },
+        {
+            "name": "roumen/sitemap",
+            "version": "v2.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RoumenDamianoff/laravel-sitemap.git",
+                "reference": "802533a6fa580edb0682e9f234abb8fb6913a209"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/802533a6fa580edb0682e9f234abb8fb6913a209",
+                "reference": "802533a6fa580edb0682e9f234abb8fb6913a209",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Roumen\\Sitemap": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roumen Damianoff",
+                    "email": "roumen@dawebs.com",
+                    "homepage": "http://roumen.it",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple sitemap generator for Laravel.",
+            "homepage": "http://roumen.it/projects/laravel-sitemap",
+            "keywords": [
+                "Sitemap",
+                "laravel"
+            ],
+            "time": "2014-07-09 13:16:53"
         },
         {
             "name": "stack/builder",
