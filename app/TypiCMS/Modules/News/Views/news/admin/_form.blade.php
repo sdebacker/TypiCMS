@@ -25,9 +25,7 @@
         <div class="form-group @if($errors->has('date'))has-error @endif">
             {{ Form::label('date', trans('validation.attributes.date'), array('class' => 'control-label')) }}
             {{ Form::text('date', $model->present()->dateOrNow('date', 'd.m.Y H:i'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
-            @if($errors->has('date'))
-            <span class="help-block">{{ $errors->first('date') }}</span>
-            @endif
+            {{ $errors->first('date', '<p class="help-block">:message</p>') }}
         </div>
         @include('admin._tabs-lang-form', ['target' => 'content'])
 
@@ -36,21 +34,21 @@
         @foreach ($locales as $lang)
 
             <div class="tab-pane fade @if($locale == $lang)in active @endif" id="content-{{ $lang }}">
-                <div class="form-group">
-                    {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
-                </div>
-                <div class="form-group @if($errors->has($lang.'.slug'))has-error @endif">
-                    {{ Form::label($lang.'[slug]', trans('validation.attributes.slug'), array('class' => 'control-label')) }}
-                    <div class="input-group">
-                        {{ Form::text($lang.'[slug]', $model->translate($lang)->slug, array('class' => 'form-control')) }}
-                        <span class="input-group-btn">
-                            <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger @endif" type="button">@lang('validation.attributes.generate')</button>
-                        </span>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
+                        {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
                     </div>
-                    @if($errors->has($lang.'.slug'))
-                    <span class="help-block">{{ $errors->first($lang.'.slug') }}</span>
-                    @endif
+                    <div class="col-md-6 form-group @if($errors->has($lang.'.slug'))has-error @endif">
+                        {{ Form::label($lang.'[slug]', trans('validation.attributes.slug'), array('class' => 'control-label')) }}
+                        <div class="input-group">
+                            {{ Form::text($lang.'[slug]', $model->translate($lang)->slug, array('class' => 'form-control')) }}
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger @endif" type="button">@lang('validation.attributes.generate')</button>
+                            </span>
+                        </div>
+                        {{ $errors->first($lang.'.slug', '<p class="help-block">:message</p>') }}
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="checkbox">

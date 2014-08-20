@@ -29,9 +29,7 @@
                         <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger @endif" type="button">@lang('validation.attributes.generate')</button>
                     </span>
                 </div>
-                @if($errors->has($lang.'.slug'))
-                <span class="help-block">{{ $errors->first($lang.'.slug') }}</span>
-                @endif
+                {{ $errors->first($lang.'.slug', '<p class="help-block">:message</p>') }}
             </div>
         </div>
         <div class="form-group">
@@ -42,9 +40,7 @@
         <div class="form-group @if($errors->has($lang.'.website'))has-error @endif">
             {{ Form::label($lang.'[website]', trans('validation.attributes.website'), array('class' => 'control-label')) }}
             {{ Form::text($lang.'[website]', $model->translate($lang)->website, array('class' => 'form-control', 'placeholder' => 'http://')) }}
-            @if($errors->has($lang.'.website'))
-            <span class="help-block">{{ $errors->first($lang.'.website') }}</span>
-            @endif
+            {{ $errors->first($lang.'.website', '<p class="help-block">:message</p>') }}
         </div>
         <div class="form-group">
             {{ Form::label($lang.'[body]', trans('validation.attributes.body')) }}

@@ -10,9 +10,7 @@
 <div class="form-group @if($errors->has('key'))has-error @endif">
     {{ Form::label('key', trans('validation.attributes.key'), array('class' => 'control-label')) }}
     {{ Form::text('key', null, array('class' => 'form-control', 'autofocus')) }}
-    @if($errors->has('key'))
-    <span class="help-block">{{ $errors->first('key') }}</span>
-    @endif
+    {{ $errors->first('key', '<p class="help-block">:message</p>') }}
 </div>
 
 {{ Form::label('translations', trans('validation.attributes.translations'), array('class' => 'control-label')) }}
@@ -22,8 +20,6 @@
             <span class="input-group-addon">{{ strtoupper($lang) }}</span>
             {{ Form::text($lang.'[translation]', $model->translate($lang)->translation, array('class' => 'form-control')) }}
         </div>
-        @if($errors->has($lang.'.translation'))
-        <span class="help-block">{{ $errors->first($lang.'.translation') }}</span>
-        @endif
+        {{ $errors->first($lang.'.translation', '<p class="help-block">:message</p>') }}
     </div>
 @endforeach

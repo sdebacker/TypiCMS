@@ -28,37 +28,27 @@
 <div class="form-group @if($errors->has('webmasterEmail'))has-error @endif">
     {{ Form::label('webmasterEmail', trans('validation.attributes.webmasterEmail'), array('class' => 'control-label')) }}
     {{ Form::text('webmasterEmail', null, array('class' => 'form-control')) }}
-    @if($errors->has('webmasterEmail'))
-    <span class="help-block">{{ $errors->first('webmasterEmail') }}</span>
-    @endif
+    {{ $errors->first('webmasterEmail', '<p class="help-block">:message</p>') }}
 </div>
 <div class="form-group @if($errors->has('welcomeMessageURL'))has-error @endif">
     {{ Form::label('welcomeMessageURL', trans('validation.attributes.welcomeMessageURL'), array('class' => 'control-label')) }}
     {{ Form::text('welcomeMessageURL', null, array('class' => 'form-control')) }}
-    @if($errors->has('welcomeMessageURL'))
-    <span class="help-block">{{ $errors->first('welcomeMessageURL') }}</span>
-    @endif
+    {{ $errors->first('welcomeMessageURL', '<p class="help-block">:message</p>') }}
 </div>
 <div class="form-group @if($errors->has('welcomeMessage'))has-error @endif">
     {{ Form::label('welcomeMessage', trans('validation.attributes.welcomeMessage'), array('class' => 'control-label')) }}
     {{ Form::textarea('welcomeMessage', null, array('class' => 'form-control', 'rows' => '3')) }}
-    @if($errors->has('welcomeMessage'))
-    <span class="help-block">{{ $errors->first('welcomeMessage') }}</span>
-    @endif
+    {{ $errors->first('welcomeMessage', '<p class="help-block">:message</p>') }}
 </div>
 <div class="form-group @if($errors->has('adminLocale'))has-error @endif">
     {{ Form::label('adminLocale', trans('validation.attributes.adminLocale'), array('class' => 'control-label')) }}
     {{ Form::select('adminLocale', array_combine($locales, $locales), null, array('class' => 'form-control')) }}
-    @if($errors->has('adminLocale'))
-    <span class="help-block">{{ $errors->first('adminLocale') }}</span>
-    @endif
+    {{ $errors->first('adminLocale', '<p class="help-block">:message</p>') }}
 </div>
 <div class="form-group @if($errors->has('typekitCode'))has-error @endif">
     {{ Form::label('typekitCode', trans('validation.attributes.typekitCode'), array('class' => 'control-label')) }}
     {{ Form::text('typekitCode', null, array('class' => 'form-control')) }}
-    @if($errors->has('typekitCode'))
-    <span class="help-block">{{ $errors->first('typekitCode') }}</span>
-    @endif
+    {{ $errors->first('typekitCode', '<p class="help-block">:message</p>') }}
 </div>
 <div class="form-group">
     {{ Form::label('googleAnalyticsCode', trans('validation.attributes.googleAnalyticsCode'), array('class' => 'control-label')) }}

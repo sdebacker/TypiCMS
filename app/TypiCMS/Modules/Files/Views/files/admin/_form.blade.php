@@ -54,12 +54,13 @@
         {{ Form::hidden('download_count', $model->download_count ?: 0) }}
 
         <div class="clearfix well media @if($errors->has('file'))has-error @endif">
+            <!-- There is a file -->
             @if(isset($model->filename) and $model->filename)
-            <div class="pull-left">
-                @if (in_array(strtolower($model->extension), array('.jpg', '.jpeg', '.gif', '.png')))
-                <img class="media-object" src="{{ Croppa::url('/' . $model->path . '/' . $model->filename, 150) }}" alt="{{ $model->alt_attribute }}">
+            <div>
+                @if ($model->type == 'i')
+                {{ $model->present()->thumb(null, 100, [], 'filename') }}
                 @else
-                <i class="text-center fa fa-file-text-o"></i>
+                {{ $model->present()->icon(2, 'filename') }}
                 @endif
             </div>
             <div class="media-body">
@@ -71,6 +72,7 @@
                 </span>
             </div>
             @else
+            <!-- No file -->
             {{ Form::label('file', trans('validation.attributes.file'), array('class' => 'control-label')) }}
             {{ Form::file('file') }}
             <span class="help-block">
@@ -78,9 +80,7 @@
                 @lang('validation.attributes.MB')
             </span>
             @endif
-            @if($errors->has('file'))
-            <span class="help-block">{{ $errors->first('file') }}</span>
-            @endif
+            {{ $errors->first('file', '<p class="help-block">:message</p>') }}
         </div>
 
         <table class="table table-condensed">

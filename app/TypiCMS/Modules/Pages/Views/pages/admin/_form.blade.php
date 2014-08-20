@@ -37,12 +37,10 @@
             <div class="tab-pane fade in @if ($locale == $lang)active @endif" id="content-{{ $lang }}">
 
                 <div class="row">
-
                     <div class="col-md-6 form-group">
                         {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
                         {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
                     </div>
-
                     <div class="col-md-6 form-group @if($errors->has($lang.'.slug'))has-error @endif">
                         {{ Form::label($lang.'[slug]', trans('validation.attributes.url'), array('class' => 'control-label')) }}
                         <div class="input-group">
@@ -52,11 +50,8 @@
                                 <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger @endif" type="button">@lang('validation.attributes.generate')</button>
                             </span>
                         </div>
-                        @if($errors->has($lang.'.slug'))
-                        <span class="help-block">{{ $errors->first($lang.'.slug') }}</span>
-                        @endif
+                        {{ $errors->first($lang.'.slug', '<p class="help-block">:message</p>') }}
                     </div>
-
                 </div>
 
                 {{ Form::hidden($lang.'[uri]') }}
@@ -153,9 +148,7 @@
         <div class="form-group @if($errors->has('template'))has-error @endif">
             {{ Form::label('template', trans('validation.attributes.template'), array('class' => 'control-label')) }}
             {{ Form::text('template', null, array('class' => 'form-control')) }}
-            @if($errors->has('template'))
-            <span class="help-block">{{ $errors->first('template') }}</span>
-            @endif
+            {{ $errors->first('template', '<p class="help-block">:message</p>') }}
         </div>
 
         <div class="form-group">

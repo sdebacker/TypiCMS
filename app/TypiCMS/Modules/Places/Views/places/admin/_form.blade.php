@@ -16,9 +16,7 @@
         <div class="form-group @if($errors->has('title'))has-error @endif">
             {{ Form::label('title', trans('validation.attributes.title')) }}
             {{ Form::text('title', null, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
-            @if($errors->has('title'))
-            <span class="help-block">{{ $errors->first('title') }}</span>
-            @endif
+            {{ $errors->first('title', '<p class="help-block">:message</p>') }}
         </div>
         <div class="form-group @if($errors->has('slug'))has-error @endif">
             {{ Form::label('slug', trans('validation.attributes.slug'), array('class' => 'control-label')) }}
@@ -28,9 +26,7 @@
                     <button class="btn btn-default btn-slug @if($errors->has('slug'))btn-danger @endif" type="button">@lang('validation.attributes.generate')</button>
                 </span>
             </div>
-            @if($errors->has('slug'))
-            <span class="help-block">{{ $errors->first('slug') }}</span>
-            @endif
+            {{ $errors->first('slug', '<p class="help-block">:message</p>') }}
         </div>
 
         <div class="row">
@@ -67,16 +63,12 @@
             <div class="col-sm-6 form-group @if($errors->has('email'))has-error @endif">
                 {{ Form::label('email', trans('validation.attributes.email'), array('class' => 'control-label')) }}
                 {{ Form::text('email', null, array('class' => 'form-control')) }}
-                @if($errors->has('email'))
-                <span class="help-block">{{ $errors->first('email') }}</span>
-                @endif
+                {{ $errors->first('email', '<p class="help-block">:message</p>') }}
             </div>
             <div class="col-sm-6 form-group @if($errors->has('website'))has-error @endif">
                 {{ Form::label('website', trans('validation.attributes.website'), array('class' => 'control-label')) }}
                 {{ Form::text('website', null, array('class' => 'form-control')) }}
-                @if($errors->has('website'))
-                <span class="help-block">{{ $errors->first('website') }}</span>
-                @endif
+                {{ $errors->first('website', '<p class="help-block">:message</p>') }}
             </div>
         </div>
 

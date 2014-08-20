@@ -13,9 +13,7 @@
         <div class=" form-group @if($errors->has('name'))has-error @endif">
             {{ Form::label('name', trans('validation.attributes.name'), array('class' => 'control-label')) }}
             {{ Form::text('name', null, array('class' => 'form-control')) }}
-            @if($errors->has('name'))
-            <span class="help-block">{{ $errors->first('name') }}</span>
-            @endif
+            {{ $errors->first('name', '<p class="help-block">:message</p>') }}
         </div>
 
     </div>

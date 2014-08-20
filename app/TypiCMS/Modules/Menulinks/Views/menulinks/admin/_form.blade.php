@@ -36,9 +36,7 @@
                 <div class="form-group @if($errors->has($lang.'.url'))has-error @endif">
                     {{ Form::label($lang.'[url]', trans('validation.attributes.website')) }}
                     {{ Form::text($lang.'[url]', $model->translate($lang)->url, array('class' => 'form-control', 'placeholder' => 'http://')) }}
-                    @if($errors->has($lang.'.url'))
-                    <span class="help-block">{{ $errors->first($lang.'.url') }}</span>
-                    @endif
+                    {{ $errors->first($lang.'.url', '<p class="help-block">:message</p>') }}
                 </div>
                 <div class="form-group">
                     <label class="checkbox">

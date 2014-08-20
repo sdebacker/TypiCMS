@@ -14,9 +14,7 @@
         <div class="form-group @if($errors->has('name'))has-error @endif">
             {{ Form::label('name', trans('validation.attributes.name'), array('class' => 'control-label')) }}
             {{ Form::text('name', null, array('class' => 'form-control')) }}
-            @if($errors->has('name'))
-            <span class="help-block">{{ $errors->first('name') }}</span>
-            @endif
+            {{ $errors->first('name', '<p class="help-block">:message</p>') }}
         </div>
 
 
@@ -39,9 +37,7 @@
                             <button class="btn btn-default btn-slug @if($errors->has($lang.'.slug'))btn-danger @endif" type="button">@lang('validation.attributes.generate')</button>
                         </span>
                     </div>
-                    @if($errors->has($lang.'.slug'))
-                    <span class="help-block">{{ $errors->first($lang.'.slug') }}</span>
-                    @endif
+                    {{ $errors->first($lang.'.slug', '<p class="help-block">:message</p>') }}
                 </div>
                 <div class="form-group">
                     <label class="checkbox">
