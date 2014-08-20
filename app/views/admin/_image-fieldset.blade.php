@@ -10,8 +10,6 @@
                 <span class="help-block">
                     @lang('validation.attributes.max :size MB', array('size' => 2))
                 </span>
-                @if($errors->has($field))
-                <span class="help-block">{{ $errors->first($field) }}</span>
-                @endif
+                {{ $errors->first($field, '<p class="help-block">:message</p>') }}
             </div>
         </div>
