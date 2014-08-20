@@ -29,6 +29,7 @@ return array(
     'View' => 'View',
     'Sort' => 'Sort',
     'Edit' => 'Edit',
+    'Not found' => 'Not found',
 
     'Yes' => 'Yes',
     'No' => 'No',
