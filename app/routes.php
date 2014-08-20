@@ -1,10 +1,10 @@
 <?php
 /* 
- * Route filter "publicSide"
+ * Route filter "isLocaleOnline"
  */
 foreach (Config::get('app.locales') as $locale) {
-    Route::when($locale, 'publicSide');
-    Route::when($locale . '/*', 'publicSide');
+    Route::when($locale, 'isLocaleOnline');
+    Route::when($locale . '/*', 'isLocaleOnline');
 }
 
 /**

@@ -91,18 +91,14 @@ Route::filter('users.register', function()
 });
 
 /**
- * Set App and system locale on public side
+ * Throw a 404 if website in this language is not online
  */
-Route::filter('publicSide', function($route)
+Route::filter('isLocaleOnline', function($route)
 {
 	$locale = Request::segment(1);
 	if ( ! Config::get('typicms.' . $locale . '.status')) {
 		App::abort(404);
 	}
-	App::setLocale($locale);
-	// Not very reliable, need to be refactored
-	setlocale(LC_ALL, App::getLocale() . '_' . ucfirst(App::getLocale()));
-
 });
 
 /**
