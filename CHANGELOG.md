@@ -1,12 +1,13 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.4.7 - 2014-08-xx
+## 1.4.7 - 2014-08-20
 
 ### Added
 - New gulp task: all.
 - Default gulp task now only launch watching of less/js files.
 - CHANGELOG.md file.
+- .doc, .xls and .ppt are uploadable.
 
 ### Deprecated
 - Nothing.
@@ -16,6 +17,7 @@ All notable changes to TypiCMS will be documented in this file.
 
 ### Fixed
 - Nothing.
+- Small changes in forms.
 
 ## 1.4.6 - 2014-08-19
 
