@@ -328,11 +328,15 @@ abstract class RepositoriesAbstract
      */
     public function getPagesForSelect()
     {
-        $pagesArray = Page::select('pages.id', 'title', 'locale')
+        $pages = Page::select('pages.id', 'title', 'locale', 'parent')
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
             ->where('locale', Config::get('typicms.adminLocale'))
-            ->lists('id', 'title');
-        $pagesArray = array_merge(array('' => '0'), $pagesArray);
+            ->order()
+            ->get();
+
+        $pagesArray = array_indent($pages);
+
+        $pagesArray = array_merge(['' => '0'], $pagesArray);
         $pagesArray = array_flip($pagesArray);
 
         return $pagesArray;

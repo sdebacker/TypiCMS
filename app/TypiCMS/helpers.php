@@ -60,3 +60,28 @@ if (! function_exists('getSlugsFromId')) {
                 ->lists('slug', 'locale');
     }
 }
+
+if ( ! function_exists('array_indent')) {
+    /**
+     * Indent values of an array with spaces. One with keys and the other with values.
+     *
+     * @param  array  $array['title' = string, 'id' => int, 'parent' => int]
+     * @return array  $array['title' = string, 'id' => int]
+     */
+    function array_indent($array)
+    {
+        $parent = 0;
+        foreach ($array as $item) {
+            $indent = '';
+            if ($item->parent) {
+                $indent = '&nbsp;&nbsp;&nbsp;&nbsp;';
+                if ($parent and $parent < $item->parent) {
+                    $indent .= $indent;
+                }
+            }
+            $parent = $item->parent;
+            $items[$indent . $item->title] = $item->id;
+        }
+        return $items;
+    }
+}
