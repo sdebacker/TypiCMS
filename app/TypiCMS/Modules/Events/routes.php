@@ -8,8 +8,7 @@ Route::bind('events', function ($value, $route) {
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'public.auth|cache',
-            'after'     => 'cache',
+            'before'    => 'public.auth',
             'namespace' => 'TypiCMS\Modules\Events\Controllers',
         ),
         function () {

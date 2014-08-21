@@ -4,8 +4,7 @@ Route::model('places', 'TypiCMS\Modules\Places\Models\Place');
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'public.auth|cache',
-            'after'     => 'cache',
+            'before'    => 'public.auth',
             'namespace' => 'TypiCMS\Modules\Places\Controllers',
         ),
         function () {

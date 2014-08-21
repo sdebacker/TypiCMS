@@ -18,8 +18,7 @@ Route::group(
 
 Route::group(
     array(
-        'before'    => 'public.auth|cache',
-        'after'     => 'cache',
+        'before'    => 'public.auth',
         'namespace' => 'TypiCMS\Modules\Pages\Controllers',
     ),
     function () {

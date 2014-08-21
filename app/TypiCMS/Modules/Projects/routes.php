@@ -8,8 +8,7 @@ Route::bind('projects', function ($value, $route) {
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'public.auth|cache',
-            'after'     => 'cache',
+            'before'    => 'public.auth',
             'namespace' => 'TypiCMS\Modules\Projects\Controllers',
         ),
         function () {
