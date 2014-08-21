@@ -85,7 +85,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
             ->where('is_home', 0)
             ->whereHas('translations', function ($q) use ($uri) {
                 $q->where('uri', $uri);
-                $q->where('status', 1);
+                if (! Input::get('preview')) {
+                    $q->where('status', 1);
+                }
             })
             ->withOnlineGalleries()
             ->firstOrFail();

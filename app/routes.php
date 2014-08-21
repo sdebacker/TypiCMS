@@ -10,5 +10,5 @@ foreach (Config::get('app.locales') as $locale) {
 /**
  * Route filter admin side
  */
-Route::when('admin', 'adminSide');
-Route::when('admin/*', 'adminSide');
+Route::when('admin', 'admin');
+Route::when('admin/*', 'admin');

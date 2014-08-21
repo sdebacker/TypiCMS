@@ -104,7 +104,7 @@ Route::filter('isLocaleOnline', function($route)
 /**
  * Set App and Translator locale on public side
  */
-Route::filter('adminSide', function()
+Route::filter('admin', function()
 {
 	// If we have a query string like ?locale=xx
 	if (Input::get('locale')) {
