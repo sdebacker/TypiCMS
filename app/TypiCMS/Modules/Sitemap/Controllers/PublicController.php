@@ -52,12 +52,15 @@ class PublicController extends Controller
                             $url = URL::to($item->uri);
                         } else {
                             $model = $module::getModel();
-                            if (Route::has($locale . '.' . strtolower($module) . '.categories.slug')) {
+                            if (Route::has($locale . '.' . $item->getTable() . '.categories.slug')) {
                                 // Module with category
-                                $url = route($locale . '.' . strtolower($module) . '.categories.slug', [$item->category->slug, $item->slug]);
+                                $url = route(
+                                    $locale . '.' . $item->getTable() . '.categories.slug',
+                                    [$item->category->slug, $item->slug]
+                                );
                             } else {
                                  // Module without category
-                                $url = route($locale . '.' . strtolower($module) . '.slug', $item->slug);
+                                $url = route($locale . '.' . $item->getTable() . '.slug', $item->slug);
                             }
                         }
                         $sitemap->add($url, $item->updated_at);
