@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55fca0c71cdcb4d59e31231e49c37260",
+    "hash": "94bcccfd719f3deff6c51e2deff99266",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -398,16 +398,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v4.2.1",
+            "version": "v4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "a06747f0531d028e13b7fbc82bc826fd2205ce5a"
+                "reference": "6abe7c7fca6db7580602fd27545a95881befa8e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/a06747f0531d028e13b7fbc82bc826fd2205ce5a",
-                "reference": "a06747f0531d028e13b7fbc82bc826fd2205ce5a",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/6abe7c7fca6db7580602fd27545a95881befa8e6",
+                "reference": "6abe7c7fca6db7580602fd27545a95881befa8e6",
                 "shasum": ""
             },
             "require": {
@@ -435,8 +435,7 @@
                 {
                     "name": "Dimitrios Savvopoulos",
                     "email": "ds@dimsav.com",
-                    "homepage": "http://dimsav.com",
-                    "role": "Developer"
+                    "homepage": "http://dimsav.com"
                 }
             ],
             "description": "A Laravel package for multilingual models",
@@ -446,7 +445,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2014-06-20 14:23:43"
+            "time": "2014-08-21 08:38:28"
         },
         {
             "name": "edvinaskrucas/notification",
