@@ -2,6 +2,10 @@
     {{ HTML::script('js/admin/checkboxes-permissions.js') }}
 @stop
 
+@section('titleLeftButton')
+    @include('admin._button-back', ['table' => $model->route])
+@stop
+
 @include('admin._buttons-form')
 
 {{ Form::hidden('activated') }}

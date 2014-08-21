@@ -4,6 +4,7 @@ return array(
     'users' => 'user|users',
     'New' => 'New user',
     'Edit' => 'Edit user',
+    'Back' => 'Back to users',
     'Register' => 'Register',
     'Reset password' => 'Reset password',
     'Log in' => 'Log in',

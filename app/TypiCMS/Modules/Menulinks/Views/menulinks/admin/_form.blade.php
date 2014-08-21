@@ -3,10 +3,15 @@
     {{ HTML::script(asset('js/admin/form.js')) }}
 @stop
 
+@section('titleLeftButton')
+    <a href="{{ route('admin.menus.menulinks.index', $menu->id) }}" title="{{ trans('menulinks::global.Back') }}">
+        <span class="text-muted fa fa-arrow-circle-left"></span><span class="sr-only">{{ trans('menulinks::global.Back') }}</span>
+    </a>
+@stop
+
 <div class="form-group">
     <button class="btn btn-primary" value="true" id="exit" name="exit" type="submit">@lang('validation.attributes.save and exit')</button>
     <button class="btn btn-default" type="submit">@lang('validation.attributes.save')</button>
-    <a href="{{ route('admin.menus.menulinks.index', $menu->id) }}" class="btn btn-default">@lang('validation.attributes.exit')</a>
 </div>
 
 <div class="row">

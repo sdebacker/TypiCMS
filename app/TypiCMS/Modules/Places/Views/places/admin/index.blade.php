@@ -6,8 +6,8 @@
     <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('places::global.places', $models->getTotal())
 @stop
 
-@section('addButton')
-    <a href="{{ route('admin.places.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('places::global.New')) }}</span></a>
+@section('titleLeftButton')
+    <a href="{{ route('admin.places.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('places::global.New')) }}</span></a>
 @stop
 
 @section('main')

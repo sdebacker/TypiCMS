@@ -4,4 +4,5 @@ return array(
     'galleries' => 'galerie|galeries',
     'New'  => 'Nouvelle galerie',
     'Edit' => 'Modifier la galerie',
+    'Back' => 'Retour à la liste des galeries',
 );

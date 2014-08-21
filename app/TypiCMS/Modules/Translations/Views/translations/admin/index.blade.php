@@ -6,8 +6,8 @@
     <span id="nb_elements">{{ $models->count() }}</span> @choice('translations::global.translations', $models->count())
 @stop
 
-@section('addButton')
-    <a href="{{ route('admin.translations.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('translations::global.New')) }}</span></a>
+@section('titleLeftButton')
+    <a href="{{ route('admin.translations.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('translations::global.New')) }}</span></a>
 @stop
 
 @section('main')

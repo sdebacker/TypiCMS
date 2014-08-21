@@ -4,4 +4,5 @@ return array(
     'places' => 'adresse|adresses',
     'New'  => 'Nouvelle adresse',
     'Edit' => 'Modifier l’adresse',
+    'Back' => 'Retour à la liste des adresses',
 );

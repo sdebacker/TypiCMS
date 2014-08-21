@@ -4,6 +4,10 @@
 
 {{ Form::hidden('id') }}
 
+@section('titleLeftButton')
+    @include('admin._button-back', ['table' => $model->route])
+@stop
+
 @include('admin._buttons-form')
 
 <div class="row">

@@ -4,4 +4,5 @@ return array(
     'translations' => 'translation|translations',
     'New'  => 'New translation',
     'Edit' => 'Edit translation',
+    'Back' => 'Back to translations',
 );

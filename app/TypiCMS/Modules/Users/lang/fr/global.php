@@ -4,6 +4,7 @@ return array(
     'users' => 'utilisateur|utilisateurs',
     'New'  => 'Nouvel utilisateur',
     'Edit' => 'Modifier l’utilisateur',
+    'Back' => 'Retour à la liste des utilisateurs',
     'Register' => 'Créer un compte',
     'Reset password' => 'Réinitialiser le mot de passe',
     'Log in' => 'Connexion',

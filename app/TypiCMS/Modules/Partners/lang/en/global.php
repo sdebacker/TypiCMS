@@ -4,4 +4,5 @@ return array(
     'partners' => 'partner|partners',
     'New'  => 'New partner',
     'Edit' => 'Edit partner',
+    'Back' => 'Back to partners',
 );

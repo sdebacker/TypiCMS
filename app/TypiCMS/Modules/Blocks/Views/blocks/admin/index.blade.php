@@ -6,8 +6,8 @@
     <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('blocks::global.blocks', $models->getTotal())
 @stop
 
-@section('addButton')
-    <a href="{{ route('admin.blocks.create') }}" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('blocks::global.New')) }}</span></a>
+@section('titleLeftButton')
+    <a href="{{ route('admin.blocks.create') }}" class="btn-add"><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('blocks::global.New')) }}</span></a>
 @stop
 
 @section('main')

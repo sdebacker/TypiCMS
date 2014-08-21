@@ -51,28 +51,26 @@
 
             @section('page-header')
 
-            @section('btn-offcanvas')
-            <p class="pull-left visible-xs btn-toggle-offcanvas">
-                <button class="btn btn-link" data-toggle="offcanvas"><span class="fa fa-bars fa-lg"></span> <span class="sr-only">@lang('global.Toggle navigation')</span></button>
-            </p>
-            @show
-            
-            @section('breadcrumbs')
-            {{ Breadcrumbs::renderIfExists() }}
-            @show
+                @section('btn-offcanvas')
+                <p class="pull-left visible-xs btn-toggle-offcanvas">
+                    <button class="btn btn-link" data-toggle="offcanvas"><span class="fa fa-bars fa-lg"></span> <span class="sr-only">@lang('global.Toggle navigation')</span></button>
+                </p>
+                @show
+                
+                @section('breadcrumbs')
+                {{-- Breadcrumbs::renderIfExists() --}}
+                @show
 
-            <div class="page-header">
-                <h1>
-                    @yield('addButton')
-                    @section('h1')
-                    {{ $h1 }}
-                    @show
-                    @yield('titleSmall')
-                </h1>
-            </div>
+                <div class="page-header">
+                    <h1>
+                        @yield('titleLeftButton')
+                        @section('h1')
+                        {{ $h1 }}
+                        @show
+                        @yield('titleSmall')
+                    </h1>
+                </div>
             @show
-
-            @yield('buttons')
 
             @yield('main')
 

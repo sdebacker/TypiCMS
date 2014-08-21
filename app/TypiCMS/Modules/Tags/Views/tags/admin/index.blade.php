@@ -6,8 +6,8 @@
     <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('tags::global.tags', $models->getTotal())
 @stop
 
-@section('addButton')
-    <!-- <a href="{{ route('admin.tags.create') }}" class=""><i class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('tags::global.New')) }}</span></a> -->
+@section('titleLeftButton')
+    <!-- <a href="{{ route('admin.tags.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('tags::global.New')) }}</span></a> -->
 @stop
 
 @section('main')

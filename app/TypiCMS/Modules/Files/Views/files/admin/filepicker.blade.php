@@ -25,7 +25,7 @@ col-xs-12
     <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('files::global.files', $models->getTotal())
 @stop
 
-@section('addButton')
+@section('titleLeftButton')
     <a id="uploaderAddButtonContainer" href="{{ route('admin.files.create') }}"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('files::global.New')) }}</span></a>
 @stop
 
