@@ -22,7 +22,6 @@ App::after(function($request, $response)
 	//
 });
 
-
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
@@ -36,36 +35,23 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()){
-		if (Request::ajax()){
+	if (Auth::guest())
+	{
+		if (Request::ajax())
+		{
 			return Response::make('Unauthorized', 401);
 		}
-		return Redirect::guest('login');
+		else
+		{
+			return Redirect::guest('login');
+		}
 	}
 });
+
 
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();
-});
-
-/*
-|--------------------------------------------------------------------------
-| Cache Filter
-|--------------------------------------------------------------------------
-*/
-
-Route::filter('cache', function($route, $request, $response = null)
-{
-	// Barbarian cache disabled for the moment.
-	// if ( ! Sentry::check() and Config::get('app.cache') ) { // no cache if connected
-	// 	$key = 'route-'.Str::slug(Request::fullUrl());
-	// 	if (is_null($response) && Cache::section('public')->has($key)) {
-	// 		return Cache::section('public')->get($key);
-	// 	} else if ( ! is_null($response) && ! Cache::section('public')->has($key)) {
-	// 		Cache::section('public')->put($key, $response->getContent(), 30);
-	// 	}
-	// }
 });
 
 /*
