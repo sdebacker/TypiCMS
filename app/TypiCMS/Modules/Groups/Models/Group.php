@@ -18,4 +18,14 @@ class Group extends SentryGroupModel
      * @var string
      */
     public $route = 'groups';
+
+    /**
+     * Get public uri
+     * 
+     * @return void
+     */
+    public function getPublicUri($preview = false)
+    {
+        return null;
+    }
 }

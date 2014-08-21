@@ -27,7 +27,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
      */
     public function getModel()
     {
-        return $this->sentry->getModel();
+        return $this->sentry->getGroupProvider()->createModel();
     }
 
     /**

@@ -2,6 +2,7 @@
 namespace TypiCMS\Models;
 
 use App;
+use Route;
 use Cache;
 use Input;
 use Mockery;
@@ -22,6 +23,35 @@ abstract class Base extends Eloquent
         App::instance($repo, $mock);
 
         return call_user_func_array(array($mock, 'shouldReceive'), func_get_args());
+    }
+
+    /**
+     * Get public uri
+     * 
+     * @return mixed string or void
+     */
+    public function getPublicUri($preview = false)
+    {
+        if ($preview and ! $this->id) {
+            return null;
+        }
+        $parameters = [$this->slug];
+        $route['lang'] = App::getlocale();
+        $route['table'] = $this->getTable();
+        if (method_exists($this, 'category')) {
+            if ($this->category) {
+                array_unshift($parameters, $this->category->slug);
+                $route['category'] = 'categories';
+            }
+        }
+        $route['suffix'] = 'slug';
+
+        $routeName = implode('.', $route);
+        // d(route('fr.news.slug', [null]));
+        if (Route::has($routeName)) {
+            return route($routeName, $parameters);
+        }
+        return null;
     }
 
     /**

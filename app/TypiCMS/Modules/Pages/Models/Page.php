@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Pages\Models;
 
+use App;
+use Config;
 use Request;
 
 use Dimsav\Translatable\Translatable;
@@ -74,6 +76,24 @@ class Page extends Base
      * @var array
      */
     public $children = array();
+
+    /**
+     * Get public uri
+     * 
+     * @return string
+     */
+    public function getPublicUri($preview = false)
+    {
+        if ($this->is_home) {
+            if (Config::get('app.locale_in_url')) {
+                return '/' . App::getLocale();
+            }
+            return '/';
+        }
+        if ($this->uri) {
+            return '/' . $this->uri;
+        }
+    }
 
     /**
      * Relations

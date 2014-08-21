@@ -1,6 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Categories\Models;
 
+use App;
+use Route;
+
 use Dimsav\Translatable\Translatable;
 
 use TypiCMS\Models\Base;
@@ -45,6 +48,28 @@ class Category extends Base
      */
     public $order = 'position';
     public $direction = 'asc';
+
+    /**
+     * Get public uri
+     * 
+     * @return mixed string or void
+     */
+    public function getPublicUri($preview = false)
+    {
+        if ($preview and ! $this->id) {
+            return null;
+        }
+        $parameters = [$this->slug];
+        $route['lang'] = App::getlocale();
+        $route['table'] = 'projects';
+        $route['suffix'] = 'categories';
+
+        $routeName = implode('.', $route);
+        if (Route::has($routeName)) {
+            return route($routeName, $parameters);
+        }
+        return null;
+    }
 
     /**
      * Relations

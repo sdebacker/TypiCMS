@@ -24,4 +24,14 @@ class User extends SentryUserModel
      */
     public static $order = 'email';
     public static $direction = 'asc';
+
+    /**
+     * Get public uri
+     * 
+     * @return void
+     */
+    public function getPublicUri($preview = false)
+    {
+        return null;
+    }
 }
