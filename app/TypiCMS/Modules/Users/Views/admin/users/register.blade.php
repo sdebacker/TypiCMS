@@ -15,7 +15,7 @@
 
         <div class="form-group @if($errors->has('email'))has-error @endif">
             {{ Form::label('email', trans('validation.attributes.email'), array('class' => 'control-label')) }}
-            {{ Form::email('email', null, array('class' => 'form-control input-lg', 'required' => 'required', 'autofocus' => 'autofocus')) }}
+            {{ Form::email('email', null, array('class' => 'form-control input-lg', 'required' => 'required', 'autofocus')) }}
             @if($errors->has('email'))
             <span class="help-block">{{ $errors->first('email') }}</span>
             @endif
@@ -39,14 +39,14 @@
 
         <div class="form-group @if($errors->has('password'))has-error @endif">
             {{ Form::label('password', trans('validation.attributes.password'), array('class' => 'control-label')) }}
-            {{ Form::password('password', array('class' => 'input-lg form-control', 'autocomplete' => 'off')) }}
+            {{ Form::password('password', array('class' => 'form-control input-lg', 'autocomplete' => 'off')) }}
             @if($errors->has('password'))
             <span class="help-block">{{ $errors->first('password') }}</span>
             @endif
         </div>
         <div class="form-group @if($errors->has('password_confirmation'))has-error @endif">
             {{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation'), array('class' => 'control-label')) }}
-            {{ Form::password('password_confirmation', array('class' => 'input-lg form-control', 'autocomplete' => 'off')) }}
+            {{ Form::password('password_confirmation', array('class' => 'form-control input-lg', 'autocomplete' => 'off')) }}
             @if($errors->has('password_confirmation'))
             <span class="help-block">{{ $errors->first('password_confirmation') }}</span>
             @endif

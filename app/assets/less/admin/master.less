@@ -36,8 +36,19 @@
   }
 }
 
-.container-xs-center { max-width: 380px; margin: 0 auto; padding: 15px 25px; border: 1px solid @input-border; .border-top-radius(@border-radius-large); .border-bottom-radius(@border-radius-large); .box-shadow(0 2px 5px @gray-lighter);
+.container-xs-center {
+  margin: 0 auto;
   h1 { margin-bottom: 30px; }
+  padding: 0 25px;
+  @media (min-width: @screen-sm-min) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-width: 380px;
+    border: 1px solid @input-border;
+    .border-top-radius(@border-radius-large);
+    .border-bottom-radius(@border-radius-large);
+    .box-shadow(0 2px 5px @gray-lighter);
+  }
   .form-action { margin-top: 30px; }
 }
 
