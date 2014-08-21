@@ -7,9 +7,11 @@ All notable changes to TypiCMS will be documented in this file.
 - Sitemap generator.
 - Classes for route filters: Public, Admin and Users.
 - Cleaner layout on small screens for login/register/… form views.
+- Back button in forms on admin side.
 
 ### Removed
 - Method byUri is now getFirstByUri.
+- Breadcrumb in admin.
 
 ## 1.4.7 - 2014-08-20
 
