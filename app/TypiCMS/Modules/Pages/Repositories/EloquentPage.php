@@ -74,12 +74,12 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     }
 
     /**
-     * Get page by uri
+     * Get a page by its uri
      *
      * @param  string                      $uri
      * @return TypiCMS\Modules\Models\Page $model
      */
-    public function byUri($uri)
+    public function getFirstByUri($uri)
     {
         $model = $this->make(['translations'])
             ->where('is_home', 0)

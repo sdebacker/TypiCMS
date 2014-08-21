@@ -43,7 +43,7 @@ class PublicController extends BasePublicController
             // Homepage: uri = /en (or other language)
             $model = $this->repository->getFirstBy('is_home', 1);
         } else {
-            $model = $this->repository->byUri($uri);
+            $model = $this->repository->getFirstByUri($uri);
         }
 
         if (! $model) {
