@@ -35,9 +35,10 @@ TypiCMS is a multilingual content management system built with [Laravel 4.2](htt
   - [Files](#files)
   - [Galleries](#galleries)
   - [User and groups](#users-and-groups)
-  - [Settings](#settings)
   - [Blocks](#blocks)
   - [Translations](#translations)
+  - [Sitemap](#sitemap)
+  - [Settings](#settings)
 - [Facades](#facades)
 - [Artisan commands](#artisan-commands)
 - [Roadmap](#roadmap)
@@ -240,6 +241,11 @@ Translations can be store in database through the admin panel (/admin/translatio
 Each cell of the translation table is editable in place.
 
 You can call DB translation everywhere with ``` Lang::get('db.Key') ```, ``` trans('db.Key') ``` or ``` @lang('db.Key') ```.
+
+### Sitemap
+
+Route sitemap.xml generate a sitemap file in xml format.  
+Configure modules to add to the site map in app/config/sitemap.php file.
 
 ### Settings
 
