@@ -6,7 +6,12 @@
 */
 return [
     'modules' => [
-        'Events',
         'Pages',
+        'Partners',
+        'Places',
+        'Projects',
+        'Events',
+        'Galleries',
+        'News' ,
     ]
 ];
