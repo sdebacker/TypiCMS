@@ -8,7 +8,7 @@ Route::bind('news', function ($value, $route) {
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'auth.public|cache',
+            'before'    => 'public.auth|cache',
             'after'     => 'cache',
             'namespace' => 'TypiCMS\Modules\News\Controllers',
         ),
@@ -32,7 +32,6 @@ if (! App::runningInConsole()) {
 
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\News\Controllers',
         'prefix'    => 'admin',
     ),

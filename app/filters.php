@@ -49,77 +49,6 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
-Route::filter('auth.public', function()
-{
-	if ( ! Config::get('typicms.authPublic')) return;
-
-	if ( ! Sentry::check()) {
-		if (Request::ajax()){
-			return Response::make('Unauthorized', 401);
-		}
-		return Redirect::guest(route('login'));
-	}
-});
-
-Route::filter('auth.admin', function()
-{
-	if ( ! Sentry::check())
-	{
-		if (Request::ajax()){
-			return Response::make('Unauthorized', 401);
-		}
-		return Redirect::guest(route('login'));
-	}
-	$route = Route::getCurrentRoute()->getName();
-	$user = Sentry::getUser();
-	// Debugbar::addMessage($user->getPermissions(), 'users permissions');
-	// Debugbar::addMessage($user->getMergedPermissions(), 'users merged permissions');
-	// Debugbar::addMessage($route, 'route');
-	if ( ! $user->hasAccess($route)) {
-		App::abort(403);
-	}
-});
-
-/**
- * User registration allowed ?
- */
-Route::filter('users.register', function()
-{
-	if ( ! Config::get('typicms.register')) {
-		App::abort(404);
-	}
-});
-
-/**
- * Throw a 404 if website in this language is not online
- */
-Route::filter('isLocaleOnline', function($route)
-{
-	$locale = Request::segment(1);
-	if ( ! Config::get('typicms.' . $locale . '.status')) {
-		App::abort(404);
-	}
-});
-
-/**
- * Set App and Translator locale on public side
- */
-Route::filter('admin', function()
-{
-	// If we have a query string like ?locale=xx
-	if (Input::get('locale')) {
-		// locale is present in app.locales config ?
-		if (in_array(Input::get('locale'), Config::get('app.locales'))) {
-			// Store locale in session
-			Session::put('locale', Input::get('locale'));
-		}
-	}
-	// Set app.locale
-	Config::set('app.locale', Session::get('locale', Config::get('app.locale')));
-	// Set Translator locale
-	Lang::setLocale(Config::get('typicms.adminLocale'));
-});
-
 /*
 |--------------------------------------------------------------------------
 | Cache Filter
@@ -138,19 +67,6 @@ Route::filter('cache', function($route, $request, $response = null)
 	// 	}
 	// }
 });
-
-
-/*
-|--------------------------------------------------------------------------
-| Cache Clear Filter
-|--------------------------------------------------------------------------
-*/
-
-Route::filter('cache.clear', function()
-{
-	Cache::flush();
-});
-
 
 /*
 |--------------------------------------------------------------------------

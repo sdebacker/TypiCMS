@@ -4,7 +4,7 @@
  */
 Route::group(
     array(
-        'before' => 'users.register',
+        'before' => 'users.mayRegister',
         'namespace' => 'TypiCMS\Modules\Users\Controllers',
     ),
     function () {
@@ -60,7 +60,6 @@ Route::group(
  */
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\Users\Controllers',
         'prefix'    => 'admin',
     ),

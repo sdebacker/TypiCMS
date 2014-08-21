@@ -7,7 +7,6 @@ Route::bind('translations', function ($value, $route) {
 
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\Translations\Controllers',
         'prefix'    => 'admin',
     ),

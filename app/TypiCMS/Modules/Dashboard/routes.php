@@ -1,7 +1,6 @@
 <?php
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\Dashboard\Controllers',
         'prefix'    => 'admin',
     ),

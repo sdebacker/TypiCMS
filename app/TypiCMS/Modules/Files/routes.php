@@ -3,7 +3,6 @@ Route::model('files', 'TypiCMS\Modules\Files\Models\File');
 
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\Files\Controllers',
         'prefix'    => 'admin',
     ),

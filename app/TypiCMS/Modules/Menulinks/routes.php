@@ -3,7 +3,6 @@ Route::model('menulinks', 'TypiCMS\Modules\Menulinks\Models\Menulink');
 
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\Menulinks\Controllers',
         'prefix'    => 'admin',
     ),

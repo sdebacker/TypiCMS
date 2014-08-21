@@ -18,7 +18,6 @@ if (Request::segment(1) != 'admin') {
 
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\Categories\Controllers',
         'prefix'    => 'admin',
     ),

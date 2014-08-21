@@ -4,7 +4,7 @@ Route::model('partners', 'TypiCMS\Modules\Partners\Models\Partner');
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'auth.public|cache',
+            'before'    => 'public.auth|cache',
             'after'     => 'cache',
             'namespace' => 'TypiCMS\Modules\Partners\Controllers',
         ),
@@ -28,7 +28,6 @@ if (! App::runningInConsole()) {
 
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\Partners\Controllers',
         'prefix'    => 'admin',
     ),

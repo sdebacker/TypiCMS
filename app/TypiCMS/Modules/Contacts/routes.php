@@ -7,7 +7,7 @@ Route::bind('contacts', function ($value, $route) {
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'auth.public|cache',
+            'before'    => 'public.auth|cache',
             'after'     => 'cache',
             'namespace' => 'TypiCMS\Modules\Contacts\Controllers',
         ),
@@ -39,7 +39,6 @@ Route::post(
 
 Route::group(
     array(
-        'before'    => 'auth.admin',
         'namespace' => 'TypiCMS\Modules\Contacts\Controllers',
         'prefix'    => 'admin',
     ),
