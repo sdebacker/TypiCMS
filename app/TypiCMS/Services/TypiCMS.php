@@ -112,7 +112,7 @@ class TypiCMS
         array_pop($routeArray);
         $route = implode('.', $routeArray);
 
-        if (Route::getRoutes()->hasNamedRoute($route)) {
+        if (Route::has($route)) {
             return route($route);
         }
         if (Config::get('app.locale_in_url')) {
