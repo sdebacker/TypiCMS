@@ -8,6 +8,7 @@ All notable changes to TypiCMS will be documented in this file.
 - Classes for route filters: Public, Admin and Users.
 - Cleaner layout on small screens for login/register/… form views.
 - Back button in forms on admin side.
+- Preview button on edit form.
 
 ### Removed
 - Method byUri is now getFirstByUri.
