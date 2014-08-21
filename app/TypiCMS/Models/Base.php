@@ -59,7 +59,9 @@ abstract class Base extends Eloquent
         return $query->whereHas(
             'translations',
             function ($query) {
-                $query->where('status', 1);
+                if (! Input::get('preview')) {
+                    $query->where('status', 1);
+                }
                 $query->where('locale', App::getLocale());
                 $query->where('slug', '!=', '');
             }

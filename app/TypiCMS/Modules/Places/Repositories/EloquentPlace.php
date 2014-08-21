@@ -113,7 +113,9 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
             ->whereHas(
                 'translations',
                 function ($query) {
-                    $query->where('status', 1);
+                    if (! Input::get('preview')) {
+                        $query->where('status', 1);
+                    }
                     $query->where('locale', '=', App::getLocale());
                 }
             )
