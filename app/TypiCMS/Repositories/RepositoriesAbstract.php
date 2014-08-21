@@ -134,14 +134,20 @@ abstract class RepositoriesAbstract
         $query = $query->order();
 
         // Get
-        $models = $query->get();
+        return $query->get();
+    }
 
-        // Nesting
-        if (property_exists($this->model, 'children')) {
-            $models->nest();
-        }
-
-        return $models;
+    /**
+     * Get all models and nest
+     *
+     * @param  boolean                    $all  Show published or all
+     * @param  array                      $with Eager load related models
+     * @return \TypiCMS\NestedCollection  with $items
+     */
+    public function getAllNested(array $with = array('translations'), $all = false)
+    {
+        // Get
+        return $this->getAll($with, $all)->nest();
     }
 
     /**

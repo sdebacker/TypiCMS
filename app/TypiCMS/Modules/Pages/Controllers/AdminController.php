@@ -28,7 +28,7 @@ class AdminController extends BaseAdminController
      */
     public function index()
     {
-        $models = $this->repository->getAll(array('translations'), true);
+        $models = $this->repository->getAllNested(array('translations'), true);
 
         $this->layout->content = View::make('pages.admin.index')
             ->withModels($models);
