@@ -52,11 +52,6 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
         // Get
         $models = $query->get();
 
-        // Nesting
-        if (property_exists($this->model, 'children')) {
-            $models->nest();
-        }
-
         return $models;
     }
 

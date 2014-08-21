@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.8.8 - 2014-08-
+
+### Added
+- Sitemap generator.
+
 ## 1.4.7 - 2014-08-20
 
 ### Added
