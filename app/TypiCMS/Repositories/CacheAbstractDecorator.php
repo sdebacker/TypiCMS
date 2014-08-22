@@ -24,7 +24,7 @@ abstract class CacheAbstractDecorator
     public function byId($id, array $with = array('translations'))
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale() . 'id.' . implode($with) . $id);
+        $cacheKey = md5(App::getLocale() . 'id.' . implode($with) . $id . implode(Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -48,7 +48,7 @@ abstract class CacheAbstractDecorator
     public function getFirstBy($key, $value, array $with = array('translations'), $all = false)
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale() . 'getFirstBy' . $key . $value . implode($with) . $all);
+        $cacheKey = md5(App::getLocale() . 'getFirstBy' . $key . $value . implode($with) . $all . implode(Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -143,7 +143,7 @@ abstract class CacheAbstractDecorator
      */
     public function getAllBy($key, $value, array $with = array('translations'), $all = false)
     {
-        $cacheKey = md5(App::getLocale() . 'getAllBy' . $key . $value . implode($with) . $all);
+        $cacheKey = md5(App::getLocale() . 'getAllBy' . $key . $value . implode($with) . $all . implode(Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -167,7 +167,7 @@ abstract class CacheAbstractDecorator
      */
     public function latest($number = 10, array $with = array('translations'))
     {
-        $cacheKey = md5(App::getLocale() . 'latest' . $number . implode($with));
+        $cacheKey = md5(App::getLocale() . 'latest' . $number . implode($with) . implode(Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -183,15 +183,16 @@ abstract class CacheAbstractDecorator
     }
 
     /**
-     * Get single model by URL
+     * Get single model by slug
      *
-     * @param string  URL slug of model
+     * @param  string $slug of model
+     * @param  array  $with
      * @return object object of model information
      */
     public function bySlug($slug, array $with = array('translations'))
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale() . 'bySlug' . $slug . implode($with));
+        $cacheKey = md5(App::getLocale() . 'bySlug' . $slug . implode($with) . implode(Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -208,10 +209,10 @@ abstract class CacheAbstractDecorator
     }
 
     /**
-     * Get single model by URL
+     * Return all results that have a required relationship
      *
-     * @param string  URL slug of model
-     * @return object object of model information
+     * @param string $relation
+     * @param array  $with
      */
     public function has($relation, array $with = array())
     {

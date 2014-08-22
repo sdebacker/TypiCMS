@@ -218,6 +218,7 @@ abstract class RepositoriesAbstract
      * Return all results that have a required relationship
      *
      * @param string $relation
+     * @param array  $with
      */
     public function has($relation, array $with = array())
     {
