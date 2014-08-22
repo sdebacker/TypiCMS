@@ -74,6 +74,8 @@ abstract class Base extends Eloquent
         // Route name
         $route['lang'] = $lang;
         $route['table'] = $this->getTable();
+
+        // if there is a category
         if (method_exists($this, 'category')) {
             if ($this->category) {
                 array_unshift($parameters, $this->category->translate($lang)->slug);

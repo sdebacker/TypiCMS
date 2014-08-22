@@ -63,7 +63,7 @@ class Category extends Base
         }
         $route['lang'] = $lang;
         $route['table'] = 'projects';
-        $route['suffix'] = 'categories';
+        $route['category'] = 'categories';
 
         $routeName = implode('.', $route);
         if (Route::has($routeName)) {
