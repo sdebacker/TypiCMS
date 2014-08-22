@@ -1,4 +1,6 @@
-
+/**
+ * Fancyboxes
+ */
 $(".fancybox").fancybox({
     prevEffect: 'fade',
     nextEffect: 'fade',
@@ -6,4 +8,7 @@ $(".fancybox").fancybox({
     closeEffect: 'elastic'
 });
 
-$(".slider").flexslider();
+/**
+ * Flexliders
+ */
+$('.slider').flexslider();
