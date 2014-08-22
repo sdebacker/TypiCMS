@@ -57,10 +57,10 @@ class Category extends Base
     public function getPublicUri($preview = false, $index = false, $lang = null)
     {
         $lang = $lang ? : App::getlocale() ;
-        if ($preview and ! $this->id) {
-            return null;
-        }
         $parameters = [$this->translate($lang)->slug];
+        if (! $preview and ! $this->translate($lang)->status) {
+            $parameters = [null];
+        }
         $route['lang'] = $lang;
         $route['table'] = 'projects';
         $route['suffix'] = 'categories';
