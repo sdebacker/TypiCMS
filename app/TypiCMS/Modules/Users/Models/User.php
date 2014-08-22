@@ -30,7 +30,7 @@ class User extends SentryUserModel
      * 
      * @return void
      */
-    public function getPublicUri($preview = false)
+    public function getPublicUri($preview = false, $index = false, $lang = null)
     {
         return null;
     }

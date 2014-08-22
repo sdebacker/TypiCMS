@@ -8,6 +8,8 @@ use Request;
 use Session;
 use Redirect;
 
+use TypiCMS;
+
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
 
@@ -62,6 +64,8 @@ class AdminController extends BaseAdminController
      */
     public function edit($model)
     {
+
+        TypiCMS::setModel($model);
 
         $this->title['child'] = trans('projects::global.Edit');
 

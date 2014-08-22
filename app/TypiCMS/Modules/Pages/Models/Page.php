@@ -82,16 +82,17 @@ class Page extends Base
      * 
      * @return string
      */
-    public function getPublicUri($preview = false)
+    public function getPublicUri($preview = false, $index = false, $lang = null)
     {
+        $lang = $lang ? : App::getlocale() ;
         if ($this->is_home) {
             if (Config::get('app.locale_in_url')) {
-                return '/' . App::getLocale();
+                return '/' . $lang;
             }
             return '/';
         }
-        if ($this->uri) {
-            return '/' . $this->uri;
+        if ($this->translate($lang)->uri) {
+            return '/' . $this->translate($lang)->uri;
         }
     }
 

@@ -26,21 +26,48 @@ abstract class Base extends Eloquent
     }
 
     /**
-     * Get public uri
+     * Get preview uri
      * 
-     * @return mixed string or void
+     * @return mixed string or null
      */
-    public function getPublicUri($preview = false)
+    public function previewUri()
     {
-        if ($preview and ! $this->id) {
+        if (! $this->id) {
             return null;
         }
-        $parameters = [$this->slug];
-        $route['lang'] = App::getlocale();
+        return $this->getPublicUri(true) . '?preview=true';
+    }
+
+    /**
+     * Get public uri
+     * 
+     * @return mixed string or null
+     */
+    public function getPublicUriIndex()
+    {
+        $uri = $this->getPublicUri(false, true);
+        return $uri;
+    }
+
+    /**
+     * Get public uri
+     * 
+     * @return mixed string or null
+     */
+    public function getPublicUri($preview = false, $index = false, $lang = null)
+    {
+        $lang = $lang ? : App::getlocale() ;
+        $parameters = array();
+        if (! $index) {
+            $parameters[] = $this->translate($lang)->slug;
+        } else {
+            $parameters[] = null;
+        }
+        $route['lang'] = $lang;
         $route['table'] = $this->getTable();
         if (method_exists($this, 'category')) {
             if ($this->category) {
-                array_unshift($parameters, $this->category->slug);
+                array_unshift($parameters, $this->category->translate($lang)->slug);
                 $route['category'] = 'categories';
             }
         }

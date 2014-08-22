@@ -7,22 +7,6 @@ use TypiCMS\Presenters\Presenter;
 
 class ModulePresenter extends Presenter
 {
-    /**
-     * Get public url
-     * 
-     * @param  string $lang
-     * @return string       uri
-     */
-    public function publicUri($lang)
-    {
-        if ($this->entity->is_home) {
-            if (Config::get('app.locale_in_url')) {
-                return '/' . $lang;
-            }
-            return '/';
-        }
-        return '/' . $this->entity->translate($lang)->uri;
-    }
 
     /**
      * Get Uri truncated

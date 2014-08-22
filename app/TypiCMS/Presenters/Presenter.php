@@ -86,51 +86,6 @@ abstract class Presenter
     }
 
     /**
-     * Get the front end url from the current back end url
-     * 
-     * @param  string $lang
-     * @return string url
-     */
-    public function publicUri($lang)
-    {
-        $routeName = $lang . strstr(Route::current()->getName(), '.');
-        $routeName = preg_replace('/\.edit$/', '.slug', $routeName);
-        // If model is translated and is online
-        if (isset($this->entity->translate($lang)->slug) and $this->entity->translate($lang)->status) {
-            try { // Does this public route exists ?
-                if ($this->entity->category) { // there is a category
-                    return route(
-                        $routeName,
-                        array(
-                            $this->entity->category->translate($lang)->slug,
-                            $this->entity->translate($lang)->slug
-                        )
-                    );
-                }
-                return route($routeName, $this->entity->translate($lang)->slug);
-            } catch (Exception $e) {
-                if (Config::get('app.locale_in_url')) {
-                    return $lang;
-                }
-                return '/';
-            }
-        }
-        // If model is offline or there is no translation
-        $routeName = substr($routeName, 0, strrpos($routeName, '.'));
-        try { // Does this public route exists ?
-            if ($this->entity->category) { // there is a category
-                return route($routeName, $this->entity->category->translate($lang)->slug);
-            }
-            return route($routeName);
-        } catch (Exception $e) {
-            if (Config::get('app.locale_in_url')) {
-                return $lang;
-            }
-            return '/';
-        }
-    }
-
-    /**
      * Return resource's date or curent date if empty
      * 
      * @param  string $fieldname

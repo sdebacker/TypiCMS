@@ -83,7 +83,7 @@ class TypiCMS
     private function getTranslatedUrl($lang)
     {
         if ($this->model and $this->model->id) {
-            return $this->model->present()->publicUri($lang);
+            return $this->model->getPublicUri(false, false, $lang);
         }
         if ($routeName = Route::current()->getUri() != '/') {
             $routeName = $lang . strstr(Route::current()->getName(), '.');
@@ -96,17 +96,13 @@ class TypiCMS
     }
 
     /**
-    * Get url from model
+    * Get public url when no model loaded
     *
-    * @param string $lang
     * @return string
     */
-    public function getPublicUrl($lang = null)
+    public function getPublicUrl()
     {
-        $lang = $lang ?: Config::get('app.locale') ;
-        if ($this->model) {
-            return $this->model->present()->publicUri($lang);
-        }
+        $lang = Config::get('app.locale');
         $routeArray = explode('.', Route::current()->getName());
         $routeArray[0] = $lang;
         array_pop($routeArray);
@@ -129,7 +125,16 @@ class TypiCMS
     */
     public function publicLink(array $attributes = array())
     {
-        $url = $this->getPublicUrl();
+        if ($this->model) {
+            // If model is translated and is online
+            if ($this->model->slug and $this->model->status) {
+                $url = $this->model->getPublicUri();
+            } else {
+                $url = $this->model->getPublicUriIndex();
+            }
+        } else {
+            $url = $this->getPublicUrl();
+        }
         $title = ucfirst(trans('global.view website', array(), null, Config::get('typicms.adminLocale')));
         return HTML::link($url, $title, $attributes);
     }

@@ -54,13 +54,14 @@ class Category extends Base
      * 
      * @return mixed string or void
      */
-    public function getPublicUri($preview = false)
+    public function getPublicUri($preview = false, $index = false, $lang = null)
     {
+        $lang = $lang ? : App::getlocale() ;
         if ($preview and ! $this->id) {
             return null;
         }
-        $parameters = [$this->slug];
-        $route['lang'] = App::getlocale();
+        $parameters = [$this->translate($lang)->slug];
+        $route['lang'] = $lang;
         $route['table'] = 'projects';
         $route['suffix'] = 'categories';
 
