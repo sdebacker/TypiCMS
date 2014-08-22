@@ -12,8 +12,22 @@ function translate(string) {
 
     $(function () {
 
+        /**
+         * FastClick
+         */
         FastClick.attach(document.body);
 
+        /**
+         * Fancybox
+         */
+        $('.btn-preview').fancybox({
+            width: 1200,
+            type: 'iframe'
+        });
+
+        /**
+         * Dropzone multi-upload
+         */
         var dropZoneTemplate = '<div class="thumbnail dz-preview dz-file-preview">\
                 <div class="dz-details">\
                     <div class="thumb-container">\

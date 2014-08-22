@@ -3,6 +3,7 @@ namespace TypiCMS\Controllers;
 
 use App;
 use View;
+use Input;
 use Sentry;
 use Config;
 use Controller;
@@ -40,7 +41,7 @@ abstract class BasePublicController extends Controller
         });
 
         $bodyClass = ['lang-' . App::getLocale(), $repository->getModel()->getTable()];
-        if (Sentry::getUser()) {
+        if (Sentry::getUser() and ! Input::get('preview')) {
             $bodyClass[] = 'has-navbar';
         }
         View::share('lang', App::getLocale());

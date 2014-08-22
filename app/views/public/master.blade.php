@@ -28,7 +28,7 @@
 
     <a href="#content" class="sr-only">@lang('db.Skip to content')</a>
 
-@if(Sentry::getUser() and Sentry::getUser()->hasAccess('admin'))
+@if(Sentry::getUser() and Sentry::getUser()->hasAccess('admin') and ! Input::get('preview'))
     @include('_navbar')
 @endif
 
@@ -106,6 +106,9 @@
 
     {{ HTML::script(asset('js/components.min.js')) }}
     {{ HTML::script(asset('js/public/master.js')) }}
+    @if (Input::get('preview'))
+    {{ HTML::script(asset('js/public/previewmode.js')) }}
+    @endif
     
     @yield('js')
 

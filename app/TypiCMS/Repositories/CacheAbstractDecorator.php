@@ -48,7 +48,7 @@ abstract class CacheAbstractDecorator
     public function getFirstBy($key, $value, array $with = array('translations'), $all = false)
     {
         // Build the cache key, unique per model slug
-        $cacheKey = md5(App::getLocale() . 'getFirstBy' . $key . $value . implode($with) . $all . implode(Input::all()));
+        $cacheKey = md5(App::getLocale().'getFirstBy'.$key.$value.implode($with).$all.implode(Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
