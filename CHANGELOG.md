@@ -9,6 +9,7 @@ All notable changes to TypiCMS will be documented in this file.
 - Cleaner layout on small screens for login/register/… form views.
 - Back button in forms on admin side.
 - Preview button on edit form.
+- Admin UI enhanced on mobile.
 
 ### Removed
 - Method byUri is now getFirstByUri.
