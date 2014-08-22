@@ -3,13 +3,9 @@ namespace TypiCMS\Controllers;
 
 use App;
 use View;
-use Event;
 use Sentry;
 use Config;
-use Request;
 use Controller;
-
-use TypiCMS;
 
 use Patchwork\Utf8;
 
