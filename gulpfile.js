@@ -130,4 +130,4 @@ gulp.task('all', [
 ]);
 
 // What tasks does running gulp trigger?
-gulp.task('default', ['watch']);
+gulp.task('default', ['less-public', 'less-admin', 'watch']);
