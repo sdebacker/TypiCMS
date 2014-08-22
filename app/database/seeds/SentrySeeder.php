@@ -11,8 +11,8 @@ class SentrySeeder extends Seeder
                 Sentry::getUserProvider()->create(array(
                         'email'       => 'admin@example.com',
                         'password'    => 'admin',
-                        'first_name'  => 'Typi',
-                        'last_name'   => 'Design',
+                        'first_name'  => 'Demo',
+                        'last_name'   => 'User',
                         'permissions' => (array) json_decode('{"superuser":1}'),
                         'activated'   => 1,
                 ));
