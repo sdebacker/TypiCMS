@@ -11,7 +11,8 @@
     "font-awesome": "~4.*",
     "selectize": "~0.*",
     "pickadate": "~3.5.2",
-    "fastclick": "~1.0.2"
+    "fastclick": "~1.0.2",
+    "jsurl": "*"
   },
   "overrides": {
     "fancybox": {
@@ -51,6 +52,11 @@
     },
     "font-awesome": {
       "ignore": true
+    },
+    "jsurl": {
+      "main": [
+        "url.js"
+      ]
     }
   }
 }
