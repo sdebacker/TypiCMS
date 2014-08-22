@@ -102,6 +102,14 @@ class TypiCMS
     */
     public function getPublicUrl()
     {
+        if ($this->model) {
+            // If model is online
+            if ($this->model->status) {
+                return $this->model->getPublicUri();
+            } else {
+                return $this->model->getPublicUriIndex();
+            }
+        }
         $lang = Config::get('app.locale');
         $routeArray = explode('.', Route::current()->getName());
         $routeArray[0] = $lang;
@@ -125,16 +133,7 @@ class TypiCMS
     */
     public function publicLink(array $attributes = array())
     {
-        if ($this->model) {
-            // If model is translated and is online
-            if ($this->model->slug and $this->model->status) {
-                $url = $this->model->getPublicUri();
-            } else {
-                $url = $this->model->getPublicUriIndex();
-            }
-        } else {
-            $url = $this->getPublicUrl();
-        }
+        $url = $this->getPublicUrl();
         $title = ucfirst(trans('global.view website', array(), null, Config::get('typicms.adminLocale')));
         return HTML::link($url, $title, $attributes);
     }

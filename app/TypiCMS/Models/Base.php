@@ -35,7 +35,7 @@ abstract class Base extends Eloquent
         if (! $this->id) {
             return null;
         }
-        return $this->getPublicUri(true) . '?preview=true';
+        return $this->getPublicUri(true);
     }
 
     /**
@@ -57,12 +57,21 @@ abstract class Base extends Eloquent
     public function getPublicUri($preview = false, $index = false, $lang = null)
     {
         $lang = $lang ? : App::getlocale() ;
-        $parameters = array();
-        if (! $index) {
-            $parameters[] = $this->translate($lang)->slug;
-        } else {
-            $parameters[] = null;
+
+        // Route parameters
+        $parameters = [$this->translate($lang)->slug];
+
+        // If index of module is asked
+        if ($index) {
+            $parameters = [null];
         }
+
+        // If modele is offline and we are not in preview mode
+        if (! $preview and ! $this->translate($lang)->status) {
+            $parameters = [null];
+        }
+
+        // Route name
         $route['lang'] = $lang;
         $route['table'] = $this->getTable();
         if (method_exists($this, 'category')) {
@@ -72,9 +81,9 @@ abstract class Base extends Eloquent
             }
         }
         $route['suffix'] = 'slug';
-
         $routeName = implode('.', $route);
-        // d(route('fr.news.slug', [null]));
+
+        // Does route exists ?
         if (Route::has($routeName)) {
             return route($routeName, $parameters);
         }

@@ -4,8 +4,6 @@
 
 {{ Form::hidden('id') }}
 
-{{ $model->route }}
-
 @section('titleLeftButton')
     @include('admin._button-back', ['table' => $model->route])
 @stop

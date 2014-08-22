@@ -85,11 +85,9 @@ class Page extends Base
     public function getPublicUri($preview = false, $index = false, $lang = null)
     {
         $lang = $lang ? : App::getlocale() ;
-        if ($this->is_home) {
-            if (Config::get('app.locale_in_url')) {
-                return '/' . $lang;
-            }
-            return '/';
+        $indexUri = Config::get('app.locale_in_url') ? '/'.$lang : '/' ;
+        if ($index or $this->is_home) {
+            return $indexUri;
         }
         if ($this->translate($lang)->uri) {
             return '/' . $this->translate($lang)->uri;
