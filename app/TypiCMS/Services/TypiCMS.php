@@ -102,14 +102,6 @@ class TypiCMS
     */
     public function getPublicUrl()
     {
-        if ($this->model) {
-            // If model is online
-            if ($this->model->status) {
-                return $this->model->getPublicUri();
-            } else {
-                return $this->model->getPublicUriIndex();
-            }
-        }
         $lang = Config::get('app.locale');
         $routeArray = explode('.', Route::current()->getName());
         $routeArray[0] = $lang;

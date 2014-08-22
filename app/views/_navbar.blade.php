@@ -11,7 +11,11 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>{{ TypiCMS::otherSideLink() }}</li>
+                    <li>
+                        @section('otherSideLink')
+                        {{ TypiCMS::otherSideLink() }}
+                        @show
+                    </li>
                     <li class="dropdown">
                         <a href="{{ route('admin.users.index') }}" class="dropdown-toggle" data-toggle="dropdown">{{ Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name }} <b class="caret"></b></a>
                         <div class="dropdown-menu dropdown-user">

@@ -66,7 +66,6 @@ class AdminController extends BaseAdminController
     public function edit($model)
     {
         $this->title['child'] = trans('places::global.Edit');
-        TypiCMS::setModel($model);
         $this->layout->content = View::make('places.admin.edit')
             ->withModel($model);
     }

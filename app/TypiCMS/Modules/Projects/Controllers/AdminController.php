@@ -64,9 +64,6 @@ class AdminController extends BaseAdminController
      */
     public function edit($model)
     {
-
-        TypiCMS::setModel($model);
-
         $this->title['child'] = trans('projects::global.Edit');
 
         $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
