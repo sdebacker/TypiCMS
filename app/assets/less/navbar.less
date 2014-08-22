@@ -1,10 +1,11 @@
 // User Dropdown box
-.dropdown-user {
+.navbar-nav .open .dropdown-user {
   font-size: 14px;
   min-width: 300px;
   padding: 10px;
   right: -10px;
   left: auto;
+  background-color: #fff;
   .img { margin-right: 10px; }
   .info {
     margin-left: 110px;
@@ -22,4 +23,21 @@
   font-size: 14px;
   line-height: 22px;
   padding: 15px;
+  text-align: center;
+  float: none;
+  display: block;
+  @media (min-width: @screen-sm-min) {
+    font-size: 18px;
+    line-height: 20px;
+    text-align: left;
+    float: left;
+  }
+}
+.navbar-toggle {
+  padding: 6px 8px;
+}
+.navbar-toggle-left {
+  float: left;
+  margin-left: 15px;
+  margin-right: 0;
 }

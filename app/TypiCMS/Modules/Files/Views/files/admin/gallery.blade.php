@@ -9,9 +9,6 @@ no-padding-top
 @section('navbar')
 @stop
 
-@section('btn-offcanvas')
-@stop
-
 @section('breadcrumbs')
 @stop
 
