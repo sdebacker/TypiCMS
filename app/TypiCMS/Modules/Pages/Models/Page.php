@@ -86,9 +86,16 @@ class Page extends Base
     {
         $lang = $lang ? : App::getlocale() ;
         $indexUri = Config::get('app.locale_in_url') ? '/'.$lang : '/' ;
+
         if ($index or $this->is_home) {
             return $indexUri;
         }
+        
+        // If model is offline and we are not in preview mode
+        if (! $preview and ! $this->translate($lang)->status) {
+            return $indexUri;
+        }
+
         if ($this->translate($lang)->uri) {
             return '/' . $this->translate($lang)->uri;
         }
