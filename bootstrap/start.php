@@ -24,7 +24,7 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment( function () {
+$env = $app->detectEnvironment(function () {
 
     // Defined in the server configuration
     if (isset($_SERVER['APP_ENVIRONMENT'])) {
@@ -36,6 +36,7 @@ $env = $app->detectEnvironment( function () {
     }
  
 });
+
 /*
 |--------------------------------------------------------------------------
 | Bind Paths
