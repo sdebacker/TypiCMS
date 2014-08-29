@@ -8,6 +8,13 @@ use Input;
 use Mockery;
 use Eloquent;
 
+/**
+ * @method string order($query)
+ * @method string whereHasOnlineTranslation($query)
+ * @method string files($query, $all)
+ * @method string order($query)
+ * @method string withOnlineGalleries($query)
+ */
 abstract class Base extends Eloquent
 {
 
