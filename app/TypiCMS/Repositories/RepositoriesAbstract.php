@@ -153,8 +153,8 @@ abstract class RepositoriesAbstract
     /**
      * Get all models with categories
      *
-     * @param  boolean  $all Show published or all
-     * @return StdClass Object with $items
+     * @param  boolean                                  $all Show published or all
+     * @return \Illuminate\Database\Eloquent\Collection Object with $items
      */
     public function getAllBy($key, $value, array $with = array('translations'), $all = false)
     {
@@ -181,7 +181,7 @@ abstract class RepositoriesAbstract
      * 
      * @param  integer      $number number of items to take
      * @param  array        $with array of related items
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function latest($number = 10, array $with = array('translations'))
     {
@@ -219,6 +219,7 @@ abstract class RepositoriesAbstract
      *
      * @param string $relation
      * @param array  $with
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function has($relation, array $with = array())
     {
