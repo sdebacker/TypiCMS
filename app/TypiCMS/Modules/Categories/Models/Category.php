@@ -61,6 +61,7 @@ class Category extends Base
         if (! $preview and ! $this->translate($lang)->status) {
             $parameters = [null];
         }
+        $route = array();
         $route['lang'] = $lang;
         $route['table'] = 'projects';
         $route['category'] = 'categories';

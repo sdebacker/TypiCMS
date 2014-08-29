@@ -71,6 +71,8 @@ abstract class Base extends Eloquent
             $parameters = [null];
         }
 
+        $route = array();
+
         // Route name
         $route['lang'] = $lang;
         $route['table'] = $this->getTable();

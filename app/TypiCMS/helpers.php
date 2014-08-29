@@ -71,6 +71,7 @@ if (! function_exists('array_indent')) {
     function array_indent($array)
     {
         $parent = 0;
+        $items = [];
         foreach ($array as $item) {
             $indent = '';
             if ($item->parent) {

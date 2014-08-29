@@ -334,6 +334,7 @@ class SentryUser extends RepositoriesAbstract implements UserInterface
             $user = $this->sentry->register($input, $noConfirmation);
 
             // Get the activation code & prep data for email
+            $data = array();
             $data['activationCode'] = $user->GetActivationCode();
             $data['email'] = $input['email'];
             $data['firstName'] = $input['first_name'];

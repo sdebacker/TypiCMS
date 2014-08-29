@@ -250,6 +250,7 @@ class AdminController extends BaseAdminController
         try {
             $email = Input::get('email');
             $user = $this->repository->findUserByLogin($email);
+            $data = array();
             $data['resetCode'] = $this->repository->getResetPasswordCode($user);
             $data['userId'] = $this->repository->getId($user);
             $data['email'] = $email;
@@ -286,6 +287,7 @@ class AdminController extends BaseAdminController
 
                 return Redirect::route('login');
             }
+            $data = array();
             $data['id'] = $userId;
             $data['resetCode'] = $resetCode;
 

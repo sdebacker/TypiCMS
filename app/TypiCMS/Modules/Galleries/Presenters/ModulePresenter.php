@@ -17,6 +17,7 @@ class ModulePresenter extends Presenter
     {
         $nbFiles = $this->entity->files->count();
         $label = $nbFiles ? 'label-success' : 'label-default' ;
+        $html = array();
         $html[] = '<span class="label ' . $label . '">';
         $html[] = $nbFiles;
         $html[] = '</span>';
