@@ -2,7 +2,7 @@
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
-    protected $nestedViewData = array();
+    protected $nestedViewsData = array();
 
     public function __call($method, $args)
     {
