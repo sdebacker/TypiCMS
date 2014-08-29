@@ -44,7 +44,7 @@ class Calendar
         $this->iEvent->setSummary($model->title);
         $this->iEvent->setUseTimezone(true);
         // add it to the calendar
-        $this->iCalendar->addEvent($this->iEvent);
+        $this->iCalendar->addComponent($this->iEvent);
     }
 
     /**
