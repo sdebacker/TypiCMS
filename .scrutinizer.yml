@@ -1,0 +1,10 @@
+filter:
+    excluded_paths:
+        - app/tests/*
+        - app/views/*
+        - app/config/*
+        - app/database/*
+tools:
+    php_mess_detector: true
+    php_sim: true
+    php_cs_fixer: true
