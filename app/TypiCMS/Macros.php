@@ -10,6 +10,7 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
         $order = $field;
     }
     $direction = Input::get('direction', $defaultOrder);
+    $th = array();
     $th[] = '<th class="' . $field . '">';
     if ($sortable) {
         $inputs['direction'] = 'asc';
