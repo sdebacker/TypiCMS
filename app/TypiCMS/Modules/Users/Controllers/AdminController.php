@@ -197,7 +197,7 @@ class AdminController extends BaseAdminController
         try {
 
             $input = Input::except('password_confirmation');
-            $user = $this->repository->register($input, $noConfirmation);
+            $this->repository->register($input, $noConfirmation);
             $message = 'Your account has been created, ';
             $message .= $noConfirmation ? 'you can now log in' : 'check your email for the confirmation link' ;
             Notification::success(trans('users::global.'.$message));
@@ -361,6 +361,6 @@ class AdminController extends BaseAdminController
     public function postUpdatePreferences()
     {
         $input = Input::all();
-        $user = $this->repository->updatePreferences($input);
+        $this->repository->updatePreferences($input);
     }
 }

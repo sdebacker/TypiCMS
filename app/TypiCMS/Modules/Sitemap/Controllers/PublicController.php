@@ -51,7 +51,6 @@ class PublicController extends Controller
                         if ($module == 'Pages') {
                             $url = URL::to($item->uri);
                         } else {
-                            $model = $module::getModel();
                             if (Route::has($locale . '.' . $item->getTable() . '.categories.slug')) {
                                 // Module with category
                                 $url = route(

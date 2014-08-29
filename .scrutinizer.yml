@@ -9,5 +9,4 @@ tools:
     php_pdepend: true
     php_analyzer: true
     php_mess_detector: true
-    php_sim: true
     php_cs_fixer: true

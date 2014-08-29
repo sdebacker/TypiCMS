@@ -65,7 +65,7 @@ class EloquentSetting implements SettingInterface
                 $model->group_name = $group_name;
                 $model->key_name = $key_name;
                 $model->value = $value;
-                $save = $model->save();
+                $model->save();
             }
         }
 
