@@ -25,7 +25,7 @@ class CacheDecorator extends CacheAbstractDecorator implements BlockInterface
      */
     public function getAll(array $with = array(), $all = false)
     {
-        $cacheKey = md5(App::getLocale() . 'all' . $all . implode($with));
+        $cacheKey = md5(App::getLocale() . 'all' . $all . implode('.', $with));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -49,7 +49,7 @@ class CacheDecorator extends CacheAbstractDecorator implements BlockInterface
      */
     public function build($name = null, array $with = array('translations'))
     {
-        $cacheKey = md5(App::getLocale() . 'build' . $name . implode($with));
+        $cacheKey = md5(App::getLocale() . 'build' . $name . implode('.', $with));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);

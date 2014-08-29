@@ -51,7 +51,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      */
     public function getAll(array $with = array('translations'), $all = false)
     {
-        $cacheKey = md5(App::getLocale() . 'all' . $all . implode($with) . implode(Input::all()));
+        $cacheKey = md5(App::getLocale() . 'all' . $all . implode('.', $with) . implode(Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
@@ -73,7 +73,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      */
     public function bySlug($slug, array $with = array('translations'))
     {
-        $cacheKey = md5(App::getLocale() . 'bySlug' . $slug . implode($with) . implode(Input::all()));
+        $cacheKey = md5(App::getLocale() . 'bySlug' . $slug . implode('.', $with) . implode(Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);

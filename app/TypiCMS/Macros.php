@@ -33,7 +33,7 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
     $th[] = '</th>';
     $th[] = "\r\n";
 
-    return implode($th);
+    return implode('', $th);
 });
 
 /**
