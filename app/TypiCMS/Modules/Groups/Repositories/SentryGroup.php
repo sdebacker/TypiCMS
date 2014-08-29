@@ -38,7 +38,6 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     public function create(array $data)
     {
 
-        $errors = array();
         try {
             // Create the group
             $model = $this->sentry->createGroup(array(
