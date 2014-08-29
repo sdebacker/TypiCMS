@@ -14,7 +14,7 @@ class NewsControllerTest extends TestCase
         $view = 'news.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/news');
+        $this->get('admin/news');
         $news = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

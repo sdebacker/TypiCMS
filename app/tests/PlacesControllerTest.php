@@ -14,7 +14,7 @@ class PlacesControllerTest extends TestCase
         $view = 'places.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/places');
+        $this->get('admin/places');
         $places = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

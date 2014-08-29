@@ -15,7 +15,7 @@ class FilesControllerTest extends TestCase
         $view = 'files.admin.thumbnails';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/files');
+        $this->get('admin/files');
         $files = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

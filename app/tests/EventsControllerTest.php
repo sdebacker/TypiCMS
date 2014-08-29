@@ -14,7 +14,7 @@ class EventsControllerTest extends TestCase
         $view = 'events.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/events');
+        $this->get('admin/events');
         $events = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

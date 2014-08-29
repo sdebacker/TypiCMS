@@ -14,7 +14,7 @@ class BlocksControllerTest extends TestCase
         $view = 'blocks.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/blocks');
+        $this->get('admin/blocks');
         $blocks = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

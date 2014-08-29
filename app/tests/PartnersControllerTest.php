@@ -14,7 +14,7 @@ class PartnersControllerTest extends TestCase
         $view = 'partners.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/partners');
+        $this->get('admin/partners');
         $partners = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

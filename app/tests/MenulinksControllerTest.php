@@ -14,7 +14,7 @@ class MenulinksControllerTest extends TestCase
         $view = 'menulinks.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/menus/1/menulinks');
+        $this->get('admin/menus/1/menulinks');
         $menulinks = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

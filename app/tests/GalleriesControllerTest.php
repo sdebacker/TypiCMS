@@ -14,7 +14,7 @@ class GalleriesControllerTest extends TestCase
         $view = 'galleries.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/galleries');
+        $this->get('admin/galleries');
         $galleries = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

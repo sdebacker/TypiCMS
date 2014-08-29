@@ -15,7 +15,7 @@ class ContactsControllerTest extends TestCase
         $view = 'contacts.admin.index';
         $this->registerNestedView($view);
 
-        $response = $this->get('admin/contacts');
+        $this->get('admin/contacts');
         $contacts = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');
