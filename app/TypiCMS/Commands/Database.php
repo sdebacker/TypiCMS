@@ -24,6 +24,13 @@ class Database extends Command
     protected $description = "Set database credentials in env.php";
 
     /**
+     * The filesystem instance.
+     *
+     * @var \Illuminate\Filesystem\Filesystem
+     */
+    protected $files;
+
+    /**
      * Create a new key generator command.
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files

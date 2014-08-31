@@ -23,6 +23,13 @@ class CacheKeyPrefix extends Command
     protected $description = "Set the application cache key prefix";
 
     /**
+     * The filesystem instance.
+     *
+     * @var \Illuminate\Filesystem\Filesystem
+     */
+    protected $files;
+
+    /**
      * Create a new key generator command.
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files

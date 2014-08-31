@@ -22,6 +22,13 @@ class Install extends Command
     protected $description = 'Installation of TypiCMS: initial Laravel setup, composer, bower, npm';
 
     /**
+     * The filesystem instance.
+     *
+     * @var \Illuminate\Filesystem\Filesystem
+     */
+    protected $files;
+
+    /**
      * Create a new key generator command.
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
