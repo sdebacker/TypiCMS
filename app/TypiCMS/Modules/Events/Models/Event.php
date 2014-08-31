@@ -1,11 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Events\Models;
 
-use Input;
 use Carbon\Carbon;
-
 use Dimsav\Translatable\Translatable;
-
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
 
@@ -60,7 +57,7 @@ class Event extends Base
 
     /**
      * Transform start_date in Carbon object
-     * 
+     *
      * @param string $value date string
      */
     public function setStartDateAttribute($value)
@@ -70,7 +67,7 @@ class Event extends Base
 
     /**
      * Transform end_date in Carbon object
-     * 
+     *
      * @param string $value date string
      */
     public function setEndDateAttribute($value)

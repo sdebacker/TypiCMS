@@ -1,10 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Events\Presenters;
 
-use Route;
-
-use Carbon\Carbon;
-
 use TypiCMS\Presenters\Presenter;
 
 class ModulePresenter extends Presenter
@@ -12,7 +8,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Return start_date formated as d.m.Y
-     * 
+     *
      * @return string
      */
     public function startDate()
@@ -22,7 +18,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Return end_date formated as d.m.Y
-     * 
+     *
      * @return string
      */
     public function endDate()
@@ -33,7 +29,7 @@ class ModulePresenter extends Presenter
     /**
      * concat start and end date
      * without repeating common month and year
-     * 
+     *
      * @return string html data
      */
     public function dateFromTo()
@@ -70,7 +66,7 @@ class ModulePresenter extends Presenter
 
     /**
      * concat start and end time
-     * 
+     *
      * @return string
      */
     public function timeFromTo()

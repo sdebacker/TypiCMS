@@ -1,13 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Menus\Models;
 
-use App;
-use HTML;
-
 use Dimsav\Translatable\Translatable;
-
 use TypiCMS\Models\Base;
-use TypiCMS\Presenters\Presenter;
 use TypiCMS\Presenters\PresentableTrait;
 
 class Menu extends Base

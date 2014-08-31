@@ -30,7 +30,6 @@ interface PageInterface
     /**
      * Retrieve children pages
      *
-     * @param  int        $id model ID
      * @return Collection
      */
     public function getChildren($uri, $all = false);

@@ -1,8 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Translations\Providers;
 
-use App;
-
 use Illuminate\Translation\TranslationServiceProvider as LaravelTranslationServiceProvider;
 
 // Loaders

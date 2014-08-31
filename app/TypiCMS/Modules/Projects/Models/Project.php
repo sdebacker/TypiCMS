@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Projects\Models;
 
 use Dimsav\Translatable\Translatable;
-
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
 

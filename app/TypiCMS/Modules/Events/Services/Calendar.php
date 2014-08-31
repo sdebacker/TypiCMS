@@ -17,7 +17,7 @@ class Calendar
 
     /**
      * add an event to the calendar
-     * 
+     *
      * @param $model
      */
     public function add($model)
@@ -49,7 +49,7 @@ class Calendar
 
     /**
      * Render .ics calendar
-     * 
+     *
      * @param $model
      */
     public function render()

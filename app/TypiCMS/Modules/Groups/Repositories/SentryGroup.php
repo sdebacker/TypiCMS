@@ -2,9 +2,7 @@
 namespace TypiCMS\Modules\Groups\Repositories;
 
 use Input;
-
 use Illuminate\Support\Collection;
-
 use Cartalyst\Sentry\Sentry;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -55,8 +53,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     /**
      * Update the specified resource in storage.
      *
-     * @param  int      $id
-     * @return Response
+     * @return boolean
      */
     public function update(array $data)
     {
@@ -83,7 +80,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
      * Remove the specified resource from storage.
      *
      * @param  int      $id
-     * @return Response
+     * @return boolean
      */
     public function destroy($id)
     {
@@ -137,7 +134,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     /**
      * Return all the registered groups
      *
-     * @return stdObject Collection of groups
+     * @return Collection Collection of groups
      */
     public function all()
     {

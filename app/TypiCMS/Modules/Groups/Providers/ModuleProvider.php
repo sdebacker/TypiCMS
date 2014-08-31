@@ -4,9 +4,7 @@ namespace TypiCMS\Modules\Groups\Providers;
 use Lang;
 use View;
 use Config;
-
 use Illuminate\Support\ServiceProvider;
-
 use TypiCMS\Modules\Groups\Repositories\SentryGroup;
 
 // Form

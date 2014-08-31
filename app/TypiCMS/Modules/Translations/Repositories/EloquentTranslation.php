@@ -1,11 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Translations\Repositories;
 
-use App;
 use Config;
-
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentTranslation extends RepositoriesAbstract implements TranslationInterface

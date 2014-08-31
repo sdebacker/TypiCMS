@@ -17,7 +17,7 @@ use Response;
 */
 class AdminFilter
 {
-    
+
     // Set App and Translator locale
     public function setLocale()
     {

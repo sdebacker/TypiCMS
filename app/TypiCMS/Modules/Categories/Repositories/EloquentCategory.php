@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Categories\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
@@ -48,7 +47,7 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
      * Get all categories and prepare for menu
      *
      * @param  string $uri
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getAllForMenu($uri = '')
     {

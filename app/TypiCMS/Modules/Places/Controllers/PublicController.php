@@ -5,9 +5,7 @@ use Str;
 use View;
 use Request;
 use Response;
-
 use TypiCMS;
-
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 
 // Base controller
@@ -64,7 +62,6 @@ class PublicController extends BasePublicController
     /**
      * Show place.
      *
-     * @param  int      $id
      * @return Response
      */
     public function show($slug)

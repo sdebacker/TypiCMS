@@ -6,7 +6,6 @@ use View;
 use Config;
 use Request;
 use Controller;
-
 use Patchwork\Utf8;
 
 abstract class BaseAdminController extends Controller

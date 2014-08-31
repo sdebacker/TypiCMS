@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Blocks\Repositories;
 
 use App;
-
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
@@ -42,7 +41,7 @@ class CacheDecorator extends CacheAbstractDecorator implements BlockInterface
 
     /**
      * Get the content of a block
-     * 
+     *
      * @param  string $name unique name of the block
      * @param  array  $with linked
      * @return string       html

@@ -1,10 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Repositories;
 
-use App;
-
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
@@ -18,7 +15,7 @@ class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
 
     /**
      * Get all items name
-     * 
+     *
      * @return array with names
      */
     public function getNames()

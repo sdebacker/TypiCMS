@@ -1,6 +1,6 @@
 <?php
 /**
- * Back end table headers 
+ * Back end table headers
  */
 HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true, $label = true) {
     $inputs = Input::all();
@@ -38,7 +38,7 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
 });
 
 /**
- * Back end buttons in view list 
+ * Back end buttons in view list
  */
 HTML::macro('langButton', function ($locale = null, $attributes = []) {
 
@@ -57,7 +57,7 @@ HTML::macro('langButton', function ($locale = null, $attributes = []) {
 });
 
 /**
- * Front end lang switcher 
+ * Front end lang switcher
  */
 HTML::macro('languagesMenu', function (array $langsArray = array(), array $attributes = array()) {
 

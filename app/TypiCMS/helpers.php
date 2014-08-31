@@ -2,7 +2,7 @@
 if (! function_exists('activeClass')) {
     /**
      * return 'active' if this is the current page
-     * 
+     *
      * @return string 'active' or ''
      */
     function activeClass($uri)
@@ -65,7 +65,6 @@ if (! function_exists('array_indent')) {
     /**
      * Indent values of an array with spaces. One with keys and the other with values.
      *
-     * @param  array  $array['title' = string, 'id' => int, 'parent' => int]
      * @return array  $array['title' = string, 'id' => int]
      */
     function array_indent($array)

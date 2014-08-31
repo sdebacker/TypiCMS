@@ -3,10 +3,8 @@ namespace TypiCMS\Modules\Files\Repositories;
 
 use App;
 use Input;
-
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
-use Illuminate\Database\Eloquent\Model;
 
 class CacheDecorator extends CacheAbstractDecorator implements FileInterface
 {

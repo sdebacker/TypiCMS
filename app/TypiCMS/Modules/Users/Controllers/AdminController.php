@@ -10,7 +10,6 @@ use Request;
 use Redirect;
 use Exception;
 use Notification;
-
 use TypiCMS\Modules\Users\Repositories\UserInterface;
 use TypiCMS\Modules\Users\Services\Form\UserForm;
 

@@ -1,11 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Projects\Repositories;
 
-use Input;
-use Config;
-
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
 

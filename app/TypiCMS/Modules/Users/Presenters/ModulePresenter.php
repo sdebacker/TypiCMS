@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Users\Presenters;
 
 use Sentry;
-
 use TypiCMS\Presenters\Presenter;
 
 class ModulePresenter extends Presenter
@@ -23,7 +22,7 @@ class ModulePresenter extends Presenter
 
     /**
      * check if user is activated
-     * 
+     *
      * @return string translated 'yes' or 'no'
      */
     public function activated()
@@ -33,7 +32,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Is user superuser ?
-     * 
+     *
      * @return string translated 'yes' or 'no'
      */
     public function superUser()

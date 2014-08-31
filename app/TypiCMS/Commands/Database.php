@@ -2,7 +2,6 @@
 namespace TypiCMS\Commands;
 
 use Schema;
-
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;

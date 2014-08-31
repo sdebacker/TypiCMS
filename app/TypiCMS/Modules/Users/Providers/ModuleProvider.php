@@ -5,7 +5,6 @@ use App;
 use Lang;
 use View;
 use Config;
-
 use Illuminate\Support\ServiceProvider;
 
 // Models

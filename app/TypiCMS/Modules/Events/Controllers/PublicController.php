@@ -7,11 +7,8 @@ use Input;
 use Config;
 use Response;
 use Paginator;
-
 use TypiCMS;
-
 use TypiCMS\Modules\Events\Services\Calendar;
-
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 
 // Base controller
@@ -51,7 +48,6 @@ class PublicController extends BasePublicController
     /**
      * Show event.
      *
-     * @param  int      $id
      * @return Response
      */
     public function show($slug)
@@ -69,7 +65,6 @@ class PublicController extends BasePublicController
     /**
      * Show event.
      *
-     * @param  int      $id
      * @return Response
      */
     public function ics($slug)

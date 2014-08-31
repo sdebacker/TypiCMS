@@ -2,15 +2,11 @@
 namespace TypiCMS\Repositories;
 
 use StdClass;
-
 use DB;
 use Str;
 use App;
-use Input;
 use Config;
-
 use TypiCMS\Modules\Pages\Models\Page;
-
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 
 abstract class RepositoriesAbstract
@@ -25,7 +21,7 @@ abstract class RepositoriesAbstract
 
     /**
      * get empty model
-     * @return model
+     * @return \Illuminate\Database\Eloquent\Model
      */
     public function getModel()
     {
@@ -178,7 +174,7 @@ abstract class RepositoriesAbstract
 
     /**
      * Get latest models
-     * 
+     *
      * @param  integer      $number number of items to take
      * @param  array        $with array of related items
      * @return \Illuminate\Database\Eloquent\Collection
@@ -191,7 +187,7 @@ abstract class RepositoriesAbstract
 
     /**
      * Get single model by Slug
-     * 
+     *
      * @param  string $slug slug
      * @param  array  $with related tables
      * @return mixed
@@ -313,7 +309,7 @@ abstract class RepositoriesAbstract
 
     /**
      * Build a select menu for a module
-     * 
+     *
      * @param  string  $method     with method to call from the repository ?
      * @param  boolean $firstEmpty generate an empty item
      * @param  string  $value      witch field as value ?
@@ -331,7 +327,7 @@ abstract class RepositoriesAbstract
 
     /**
      * Get all translated pages for a select/options
-     * 
+     *
      * @return array
      */
     public function getPagesForSelect()
@@ -352,7 +348,7 @@ abstract class RepositoriesAbstract
 
     /**
      * Get all modules for a select/options
-     * 
+     *
      * @return array
      */
     public function getModulesForSelect()
@@ -385,7 +381,7 @@ abstract class RepositoriesAbstract
      *
      * @param  \Illuminate\Database\Eloquent\Model $model
      * @param  array                               $tags
-     * @return mixed false or void
+     * @return false|null false or void
      */
     protected function syncTags($model, array $tags)
     {
@@ -413,7 +409,7 @@ abstract class RepositoriesAbstract
      * @param  \Illuminate\Database\Eloquent\Model $model
      * @param  array                               $data
      * @param  string                              $table
-     * @return void
+     * @return false|null
      */
     protected function syncRelation($model, array $data, $table = null)
     {

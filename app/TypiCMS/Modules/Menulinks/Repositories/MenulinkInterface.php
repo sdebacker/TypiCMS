@@ -1,8 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Menulinks\Repositories;
 
-use Illuminate\Support\Collection;
-
 interface MenulinkInterface
 {
 

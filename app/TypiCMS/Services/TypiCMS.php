@@ -7,8 +7,6 @@ use Route;
 use Config;
 use Request;
 
-use Sentry;
-
 /**
 * LangSwitcher
 */

@@ -7,7 +7,6 @@ use Input;
 use Sentry;
 use Config;
 use Controller;
-
 use Patchwork\Utf8;
 
 abstract class BasePublicController extends Controller

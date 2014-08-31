@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Files\Presenters;
 
 use Croppa;
-
 use TypiCMS\Presenters\Presenter;
 
 class ModulePresenter extends Presenter
@@ -10,7 +9,6 @@ class ModulePresenter extends Presenter
 
     /**
      * Create thumb
-     * @param  string $size    xs, sm, md, lg
      * @param  array  $options PHPThumb style option
      * @return string          html img tag or div with doc icon
      */
@@ -31,7 +29,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Return an icon and file name
-     * 
+     *
      * @param  int $size       size of the icon
      * @param  string $field   field name
      * @return string          HTML markup of an image

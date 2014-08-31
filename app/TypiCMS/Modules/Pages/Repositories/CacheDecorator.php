@@ -3,7 +3,6 @@ namespace TypiCMS\Modules\Pages\Repositories;
 
 use App;
 use Input;
-
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
@@ -54,7 +53,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     /**
      * Retrieve children pages
      *
-     * @param  int        $id model ID
      * @return Collection
      */
     public function getChildren($uri, $all = false)

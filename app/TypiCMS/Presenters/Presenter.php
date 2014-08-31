@@ -1,13 +1,7 @@
 <?php
 namespace TypiCMS\Presenters;
 
-use Route;
-use Config;
-
-use Exception;
-
 use Croppa;
-
 use Carbon\Carbon;
 
 abstract class Presenter
@@ -87,7 +81,7 @@ abstract class Presenter
 
     /**
      * Return resource's date or curent date if empty
-     * 
+     *
      * @param  string $fieldname
      * @param  string $format date format
      * @return Carbon
@@ -100,7 +94,7 @@ abstract class Presenter
 
     /**
      * Return a resized or cropped image
-     * 
+     *
      * @param  int $width      width of image, null for auto
      * @param  int $height     height of image, null for auto
      * @param  array $options  see Croppa doc for options (https://github.com/BKWLD/croppa)
@@ -120,7 +114,7 @@ abstract class Presenter
 
     /**
      * Return an icon and file name
-     * 
+     *
      * @param  int $size       size of the icon
      * @param  string $field   field name
      * @return string          HTML markup of an image

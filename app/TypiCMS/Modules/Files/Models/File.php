@@ -2,9 +2,7 @@
 namespace TypiCMS\Modules\Files\Models;
 
 use Dimsav\Translatable\Translatable;
-
 use Croppa;
-
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
 

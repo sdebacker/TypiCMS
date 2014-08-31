@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Pages\Presenters;
 
 use Config;
-
 use TypiCMS\Presenters\Presenter;
 
 class ModulePresenter extends Presenter
@@ -10,7 +9,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Get Uri truncated
-     * 
+     *
      * @return string URI without last segment
      */
     public function parentUri($lang)

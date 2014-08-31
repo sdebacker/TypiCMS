@@ -4,7 +4,6 @@ namespace TypiCMS\Modules\Projects\Providers;
 use Lang;
 use View;
 use Config;
-
 use Illuminate\Support\ServiceProvider;
 
 // Tags

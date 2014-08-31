@@ -4,7 +4,6 @@ namespace TypiCMS\Modules\Dashboard\Providers;
 use Lang;
 use View;
 use Config;
-
 use Illuminate\Support\ServiceProvider;
 
 // Repo

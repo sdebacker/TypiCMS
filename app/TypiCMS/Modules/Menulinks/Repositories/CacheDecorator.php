@@ -2,10 +2,6 @@
 namespace TypiCMS\Modules\Menulinks\Repositories;
 
 use App;
-use Request;
-
-use Illuminate\Support\Collection;
-
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 

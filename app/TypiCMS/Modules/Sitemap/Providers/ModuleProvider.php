@@ -1,8 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Sitemap\Providers;
 
-use Config;
-
 use Illuminate\Support\ServiceProvider;
 
 class ModuleProvider extends ServiceProvider

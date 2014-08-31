@@ -8,9 +8,7 @@ use Request;
 use Categories;
 use Notification;
 use ErrorException;
-
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentMenu extends RepositoriesAbstract implements MenuInterface
@@ -62,7 +60,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
 
     /**
      * Get a menu
-     * 
+     *
      * @param  string $name       menu name
      * @return Collection         nested collection
      */
@@ -107,7 +105,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
 
     /**
      * Build a menu
-     * 
+     *
      * @param  string $name       menu name
      * @return mixed null or string (html code of a menu)
      */
@@ -130,7 +128,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
      * 1. Uri = menulink->uri or
      * 2. if page linke, take the uri of the page or
      * 3. if url field filled, take it
-     * 
+     *
      * @param Model   $menulink
      * @return string uri
      */
@@ -162,7 +160,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
 
     /**
      * Take the classes from field and add active if needed
-     * 
+     *
      * @param Model   $menulink
      * @return string classes
      */

@@ -9,7 +9,7 @@ use Config;
 */
 class UsersFilter
 {
-    
+
     /**
      * User registration allowed ?
      */

@@ -2,7 +2,6 @@
 namespace TypiCMS\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
 use TypiCMS\Services\Upload\FileUpload;
 
 class UploadServiceProvider extends ServiceProvider

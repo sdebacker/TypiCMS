@@ -2,14 +2,10 @@
 namespace TypiCMS\Modules\Places\Repositories;
 
 use StdClass;
-
 use App;
 use Input;
-use Config;
 use Request;
-
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
@@ -66,7 +62,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return \Illuminate\Database\Eloquent\Collection Object with $items
      */
     public function getAll(array $with = array('translations'), $all = false)
     {
