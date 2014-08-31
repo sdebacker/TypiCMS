@@ -26,7 +26,7 @@ class CacheDecorator extends CacheAbstractDecorator implements EventInterface
      */
     public function incoming($number = 10, array $with = array('translations'))
     {
-        $cacheKey = md5(App::getLocale() . 'incoming' . $number . implode('.', $with) . implode(Input::all()));
+        $cacheKey = md5(App::getLocale().'incoming'.$number.implode('.', $with).implode('.', Input::all()));
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
