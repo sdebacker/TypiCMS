@@ -4,11 +4,8 @@ namespace TypiCMS\Providers;
 use App;
 use Config;
 use Request;
-use Artisan;
-
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Filesystem\Filesystem;
-
 use TypiCMS\Commands\Install;
 use TypiCMS\Commands\CacheKeyPrefix;
 use TypiCMS\Commands\Database;

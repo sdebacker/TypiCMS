@@ -2,12 +2,9 @@
 namespace TypiCMS\Modules\Tags\Repositories;
 
 use StdClass;
-
 use DB;
 use Str;
-
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentTag extends RepositoriesAbstract implements TagInterface

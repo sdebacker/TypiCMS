@@ -5,7 +5,6 @@ use Str;
 use Config;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-
 use Notification;
 
 /**

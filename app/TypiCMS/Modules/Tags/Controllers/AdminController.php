@@ -6,7 +6,6 @@ use Input;
 use Config;
 use Request;
 use Paginator;
-
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
 use TypiCMS\Modules\Tags\Services\Form\TagForm;
 
@@ -44,7 +43,6 @@ class AdminController extends BaseAdminController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function destroy($model)

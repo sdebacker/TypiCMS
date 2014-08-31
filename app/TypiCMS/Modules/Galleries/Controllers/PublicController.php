@@ -6,9 +6,7 @@ use View;
 use Input;
 use Config;
 use Paginator;
-
 use TypiCMS;
-
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 
 // Base controller
@@ -45,7 +43,6 @@ class PublicController extends BasePublicController
     /**
      * Show gallery.
      *
-     * @param  int      $id
      * @return Response
      */
     public function show($slug)

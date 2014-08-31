@@ -3,9 +3,7 @@ namespace TypiCMS\Modules\Pages\Services\Form;
 
 use Input;
 use Config;
-
 use TypiCMS\Services\Form\AbstractForm;
-
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 

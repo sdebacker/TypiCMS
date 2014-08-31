@@ -4,14 +4,10 @@ namespace TypiCMS\Modules\Users\Repositories;
 // Part of this code come from https://github.com/brunogaspar/laravel4-starter-kit
 
 use Mail;
-use Input;
 use Exception;
-
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-
 use Cartalyst\Sentry\Sentry;
-
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use Cartalyst\Sentry\Users\UserAlreadyActivatedException;
 use Cartalyst\Sentry\Users\LoginRequiredException;
@@ -19,12 +15,9 @@ use Cartalyst\Sentry\Users\PasswordRequiredException;
 use Cartalyst\Sentry\Users\WrongPasswordException;
 use Cartalyst\Sentry\Users\UserNotActivatedException;
 use Cartalyst\Sentry\Users\UserExistsException;
-
 use Cartalyst\Sentry\Groups\GroupNotFoundException;
-
 use Cartalyst\Sentry\Throttling\UserSuspendedException;
 use Cartalyst\Sentry\Throttling\UserBannedException;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class SentryUser extends RepositoriesAbstract implements UserInterface
@@ -58,7 +51,7 @@ class SentryUser extends RepositoriesAbstract implements UserInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return Collection Object with $items
      */
     public function getAll(array $with = array(), $all = false)
     {
@@ -260,8 +253,7 @@ class SentryUser extends RepositoriesAbstract implements UserInterface
      * Authenticate a user
      *
      * @param  array   $credentials
-     * @param  boolean $id
-     * @return User    Model
+     * @return null|\Cartalyst\Sentry\Users\UserInterface    Model
      */
     public function authenticate($credentials, $remember = false)
     {
@@ -292,9 +284,7 @@ class SentryUser extends RepositoriesAbstract implements UserInterface
     /**
      * Log a user in
      *
-     * @param  array   $credentials
-     * @param  boolean $id
-     * @return Sentry  User
+     * @return boolean  User
      */
     public function login($user, $remember = false)
     {

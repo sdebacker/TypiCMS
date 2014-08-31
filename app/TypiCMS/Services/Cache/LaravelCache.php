@@ -2,7 +2,6 @@
 namespace TypiCMS\Services\Cache;
 
 use StdClass;
-
 use Illuminate\Cache\CacheManager;
 
 class LaravelCache implements CacheInterface
@@ -12,6 +11,9 @@ class LaravelCache implements CacheInterface
     protected $tags;
     protected $minutes;
 
+    /**
+     * @param integer $minutes
+     */
     public function __construct(CacheManager $cache, $tags, $minutes = null)
     {
         $this->cache = $cache;
@@ -57,7 +59,7 @@ class LaravelCache implements CacheInterface
      * @param mixed     The actual items for this page
      * @param string    Cache item key
      * @param integer   The number of minutes to store the item
-     * @return mixed $items variable returned for convenience
+     * @return \stdClass $items variable returned for convenience
      */
     public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes = null)
     {
@@ -89,7 +91,7 @@ class LaravelCache implements CacheInterface
      * Set tags
      *
      * @param array    tags
-     * @return bool If cache item exists
+     * @return false|null If cache item exists
      */
     public function addTags($tags = null)
     {

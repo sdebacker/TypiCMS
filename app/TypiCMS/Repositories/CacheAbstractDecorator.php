@@ -160,7 +160,7 @@ abstract class CacheAbstractDecorator
 
     /**
      * Get latest models
-     * 
+     *
      * @param  integer      $number number of items to take
      * @param  array        $with array of related items
      * @return Collection
@@ -262,7 +262,7 @@ abstract class CacheAbstractDecorator
      * Sort models
      *
      * @param array  Data to update Pages
-     * @return boolean
+     * @return boolean|null
      */
     public function sort(array $data)
     {
@@ -272,7 +272,7 @@ abstract class CacheAbstractDecorator
 
     /**
      * Build a select menu for a module
-     * 
+     *
      * @param  string  $method     with method to call from the repository ?
      * @param  boolean $firstEmpty generate an empty item
      * @param  string  $value      witch field as value ?
@@ -286,7 +286,7 @@ abstract class CacheAbstractDecorator
 
     /**
      * Get all translated pages for a select/options
-     * 
+     *
      * @return array
      */
     public function getPagesForSelect()
@@ -296,7 +296,7 @@ abstract class CacheAbstractDecorator
 
     /**
      * Get all modules for a select/options
-     * 
+     *
      * @return array
      */
     public function getModulesForSelect()

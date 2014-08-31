@@ -5,12 +5,9 @@ use App;
 use Str;
 use View;
 use Input;
-use Config;
 use Session;
 use Redirect;
-
 use TypiCMS;
-
 use TypiCMS\Modules\Contacts\Repositories\ContactInterface;
 use TypiCMS\Modules\Contacts\Services\Form\ContactForm;
 

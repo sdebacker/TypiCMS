@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Menulinks\Models;
 
 use Dimsav\Translatable\Translatable;
-
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 use TypiCMS\Presenters\PresentableTrait;
@@ -85,7 +84,7 @@ class Menulink extends Base
     /**
      * Custom collection
      *
-     * @return InvoiceCollection object
+     * @return NestedCollection object
      */
     public function newCollection(array $models = array())
     {

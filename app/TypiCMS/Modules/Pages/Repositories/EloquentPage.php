@@ -2,12 +2,9 @@
 namespace TypiCMS\Modules\Pages\Repositories;
 
 use DB;
-use App;
 use Input;
 use Config;
-
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentPage extends RepositoriesAbstract implements PageInterface
@@ -97,7 +94,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     /**
      * Retrieve children pages
      *
-     * @param  int        $id model ID
      * @return Collection
      */
     public function getChildren($uri, $all = false)

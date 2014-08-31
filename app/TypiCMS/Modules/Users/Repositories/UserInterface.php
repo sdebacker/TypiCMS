@@ -9,7 +9,7 @@ interface UserInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return \Illuminate\Support\Collection Object with $items
      */
     public function getAll(array $with = array(), $all = false);
 
@@ -18,7 +18,7 @@ interface UserInterface
      * regardless of status
      *
      * @param  int  $id user ID
-     * @return User object
+     * @return \Cartalyst\Sentry\Users\UserInterface object
      */
     public function byId($id, array $with = array());
 
@@ -27,7 +27,7 @@ interface UserInterface
      * regardless of status
      *
      * @param  int  $login
-     * @return User object
+     * @return \Cartalyst\Sentry\Users\UserInterface object
      */
     public function findUserByLogin($login);
 
@@ -94,7 +94,6 @@ interface UserInterface
      * Authenticate a user
      *
      * @param  array   $credentials
-     * @param  boolean $id
      * @return boolean
      */
     public function authenticate($credentials, $remember = false);
@@ -102,9 +101,7 @@ interface UserInterface
     /**
      * Log a user in
      *
-     * @param  array   $credentials
-     * @param  boolean $id
-     * @return Sentry  User
+     * @return boolean  User
      */
     public function login($user, $remember = false);
 

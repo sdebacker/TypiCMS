@@ -8,15 +8,11 @@ use Config;
 use Response;
 use Redirect;
 use Notification;
-
 use Symfony\Component\Process\Process;
-
 use McCool\DatabaseBackup\BackupProcedure;
 use McCool\DatabaseBackup\Dumpers\MysqlDumper;
 use McCool\DatabaseBackup\Processors\ShellProcessor;
-
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
-
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController
@@ -64,7 +60,7 @@ class AdminController extends BaseAdminController
 
     /**
      * Clear app cache
-     * 
+     *
      * @return redirect
      */
     public function clearCache()
@@ -76,7 +72,7 @@ class AdminController extends BaseAdminController
 
     /**
      * Backup DB
-     * 
+     *
      * @return File download
      */
     public function backup()

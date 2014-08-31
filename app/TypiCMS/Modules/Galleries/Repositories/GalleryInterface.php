@@ -5,7 +5,7 @@ interface GalleryInterface
 {
     /**
      * Get all items name
-     * 
+     *
      * @return array with names
      */
     public function getNames();

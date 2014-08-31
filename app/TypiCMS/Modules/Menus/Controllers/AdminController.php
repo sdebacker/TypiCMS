@@ -5,7 +5,6 @@ use View;
 use Input;
 use Request;
 use Redirect;
-
 use TypiCMS\Modules\Menus\Repositories\MenuInterface;
 use TypiCMS\Modules\Menus\Services\Form\MenuForm;
 
@@ -49,7 +48,6 @@ class AdminController extends BaseAdminController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int      $id
      * @return Response
      */
     public function edit($model)
@@ -62,7 +60,6 @@ class AdminController extends BaseAdminController
     /**
      * Show resource.
      *
-     * @param  int      $id
      * @return Response
      */
     public function show($model)
@@ -93,7 +90,6 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function update($model)
@@ -115,7 +111,6 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function sort()
@@ -126,7 +121,6 @@ class AdminController extends BaseAdminController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function destroy($model)

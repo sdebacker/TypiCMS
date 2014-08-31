@@ -14,7 +14,7 @@ interface BlockInterface
 
     /**
      * Get the content of a block
-     * 
+     *
      * @param  string $name unique name of the block
      * @param  array  $with linked
      * @return string       html

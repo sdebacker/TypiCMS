@@ -6,7 +6,7 @@ interface EventInterface
 
     /**
      * Get incomings events
-     * 
+     *
      * @param  integer      $number number of items to take
      * @param  array        $with array of related items
      * @return Collection

@@ -3,9 +3,7 @@ namespace TypiCMS\Modules\Partners\Controllers;
 
 use Str;
 use View;
-
 use TypiCMS;
-
 use TypiCMS\Modules\Partners\Repositories\PartnerInterface;
 
 // Base controller
@@ -40,7 +38,6 @@ class PublicController extends BasePublicController
     /**
      * Show news.
      *
-     * @param  int      $id
      * @return Response
      */
     public function show($slug)

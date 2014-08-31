@@ -33,7 +33,6 @@ class MixedLoader implements LoaderInterface
     /**
      * Load the messages strictly for the given locale.
      *
-     * @param  Language $language
      * @param  string   $group
      * @param  string   $namespace
      * @return array
@@ -52,9 +51,9 @@ class MixedLoader implements LoaderInterface
     /**
      * Load the messages from DB strictly for the given locale.
      *
-     * @param  Language $language
      * @param  string   $group
      * @param  string   $namespace
+     * @param string $locale
      * @return array
      */
     public function loadFromDB($locale, $group, $namespace = null)

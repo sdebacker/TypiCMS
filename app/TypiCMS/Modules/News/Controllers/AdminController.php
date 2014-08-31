@@ -8,9 +8,7 @@ use Config;
 use Request;
 use Redirect;
 use Paginator;
-
 use TypiCMS;
-
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 use TypiCMS\Modules\News\Services\Form\NewsForm;
 
@@ -59,7 +57,6 @@ class AdminController extends BaseAdminController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int      $id
      * @return Response
      */
     public function edit($model)
@@ -72,7 +69,6 @@ class AdminController extends BaseAdminController
     /**
      * Show resource.
      *
-     * @param  int      $id
      * @return Response
      */
     public function show($model)
@@ -103,7 +99,6 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function update($model)
@@ -125,7 +120,6 @@ class AdminController extends BaseAdminController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function destroy($model)

@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Places\Services\Form;
 
 use TypiCMS\Services\Form\AbstractForm;
-
 use TypiCMS\Services\Validation\ValidableInterface;
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 

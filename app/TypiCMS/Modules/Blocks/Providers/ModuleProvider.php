@@ -4,7 +4,6 @@ namespace TypiCMS\Modules\Blocks\Providers;
 use Lang;
 use View;
 use Config;
-
 use Illuminate\Support\ServiceProvider;
 
 // Model

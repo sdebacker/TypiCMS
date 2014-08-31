@@ -2,11 +2,8 @@
 namespace TypiCMS\Modules\Blocks\Repositories;
 
 use StdClass;
-
 use App;
-
 use Illuminate\Database\Eloquent\Model;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentBlock extends RepositoriesAbstract implements BlockInterface

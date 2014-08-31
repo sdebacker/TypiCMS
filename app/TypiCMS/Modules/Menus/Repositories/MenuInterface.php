@@ -13,7 +13,7 @@ interface MenuInterface
 
     /**
      * Build a menu
-     * 
+     *
      * @param  string $name       menu name
      * @return string             html code of a menu
      */
@@ -21,7 +21,7 @@ interface MenuInterface
 
     /**
      * Get a menu
-     * 
+     *
      * @param  string $name       menu name
      * @return Collection         nested collection
      */

@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Galleries\Repositories;
 
 use App;
-
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
@@ -18,7 +17,7 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
 
     /**
      * Get all items name
-     * 
+     *
      * @return array with names
      */
     public function getNames()

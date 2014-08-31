@@ -3,10 +3,7 @@ namespace TypiCMS\Modules\Pages\Models;
 
 use App;
 use Config;
-use Request;
-
 use Dimsav\Translatable\Translatable;
-
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 use TypiCMS\Presenters\PresentableTrait;
@@ -79,7 +76,7 @@ class Page extends Base
 
     /**
      * Get public uri
-     * 
+     *
      * @return string
      */
     public function getPublicUri($preview = false, $index = false, $lang = null)
@@ -90,7 +87,7 @@ class Page extends Base
         if ($index or $this->is_home) {
             return $indexUri;
         }
-        
+
         // If model is offline and we are not in preview mode
         if (! $preview and ! $this->translate($lang)->status) {
             return $indexUri;
@@ -120,7 +117,7 @@ class Page extends Base
     /**
      * Custom collection
      *
-     * @return InvoiceCollection object
+     * @return NestedCollection object
      */
     public function newCollection(array $models = array())
     {

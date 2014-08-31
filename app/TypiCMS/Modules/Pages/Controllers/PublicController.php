@@ -7,9 +7,7 @@ use View;
 use Config;
 use Redirect;
 use Notification;
-
 use TypiCMS;
-
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 
 // Base controller
@@ -27,7 +25,7 @@ class PublicController extends BasePublicController
     /**
      * Page uri : lang/slug
      *
-     * @return void
+     * @return \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition|null
      */
     public function uri($uri = null)
     {

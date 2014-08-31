@@ -2,9 +2,7 @@
 namespace TypiCMS\Observers;
 
 use Input;
-
 use Croppa;
-
 use FileUpload;
 
 class FileObserver
@@ -12,7 +10,7 @@ class FileObserver
 
     /**
      * On delete, unlink files and thumbs
-     * 
+     *
      * @param  model $model eloquent
      * @return mixed false or void
      */
@@ -29,7 +27,7 @@ class FileObserver
 
     /**
      * On save, upload files
-     * 
+     *
      * @param  model $model eloquent
      * @return mixed false or void
      */
@@ -52,7 +50,7 @@ class FileObserver
 
     /**
      * On update, delete previous file if changed
-     * 
+     *
      * @param  model $model eloquent
      * @return mixed false or void
      */

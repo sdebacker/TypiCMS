@@ -13,7 +13,7 @@ use Redirect;
 */
 class PublicFilter
 {
-    
+
     public function checkLocale()
     {
 

@@ -3,9 +3,7 @@ namespace TypiCMS\Modules\Categories\Models;
 
 use App;
 use Route;
-
 use Dimsav\Translatable\Translatable;
-
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
 
@@ -52,7 +50,7 @@ class Category extends Base
     /**
      * Get public uri
      * 
-     * @return mixed string or void
+     * @return string|null string or void
      */
     public function getPublicUri($preview = false, $index = false, $lang = null)
     {

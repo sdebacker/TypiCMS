@@ -1,12 +1,8 @@
 <?php
 namespace TypiCMS\Modules\News\Models;
 
-use Input;
-
 use Carbon\Carbon;
-
 use Dimsav\Translatable\Translatable;
-
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
 
@@ -58,7 +54,7 @@ class News extends Base
 
     /**
      * Transform date in Carbon object
-     * 
+     *
      * @param string $value date string
      */
     public function setDateAttribute($value)

@@ -1,11 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Dashboard\Repositories;
 
-use DB;
-use Str;
 use Config;
-use Sentry;
-
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentDashboard extends RepositoriesAbstract implements DashboardInterface

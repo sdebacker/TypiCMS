@@ -3,9 +3,7 @@ namespace TypiCMS\Modules\Categories\Controllers;
 
 use Str;
 use View;
-
 use TypiCMS\Controllers\BasePublicController;
-
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 
 class PublicController extends BasePublicController
@@ -35,7 +33,6 @@ class PublicController extends BasePublicController
     /**
      * Show resource.
      *
-     * @param  int      $id
      * @return Response
      */
     public function show($category = null, $slug = null)

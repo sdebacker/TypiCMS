@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Translations\Models;
 
 use Dimsav\Translatable\Translatable;
-
 use TypiCMS\Models\Base;
 
 class Translation extends Base

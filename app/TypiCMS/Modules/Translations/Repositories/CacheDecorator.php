@@ -2,8 +2,6 @@
 namespace TypiCMS\Modules\Translations\Repositories;
 
 use App;
-use Request;
-
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 

@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Dashboard\Repositories;
 
 use App;
-
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 

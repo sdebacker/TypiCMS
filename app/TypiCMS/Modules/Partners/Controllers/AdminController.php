@@ -8,7 +8,6 @@ use Request;
 use TypiCMS;
 use Redirect;
 use Paginator;
-
 use TypiCMS\Modules\Partners\Repositories\PartnerInterface;
 use TypiCMS\Modules\Partners\Services\Form\PartnerForm;
 
@@ -60,7 +59,6 @@ class AdminController extends BaseAdminController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int      $id
      * @return Response
      */
     public function edit($model)
@@ -73,7 +71,6 @@ class AdminController extends BaseAdminController
     /**
      * Show resource.
      *
-     * @param  int      $id
      * @return Response
      */
     public function show($model)
@@ -104,7 +101,6 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function update($model)
@@ -125,7 +121,6 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function sort()
@@ -136,7 +131,6 @@ class AdminController extends BaseAdminController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int      $id
      * @return Response
      */
     public function destroy($model)

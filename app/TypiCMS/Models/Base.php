@@ -14,8 +14,8 @@ use Eloquent;
  * @method string order($query)
  * @method string withOnlineGalleries($query)
  */
-abstract class Base extends Eloquent {
-
+abstract class Base extends Eloquent
+{
     /**
      * For testing
      */
@@ -32,7 +32,7 @@ abstract class Base extends Eloquent {
 
     /**
      * Get preview uri
-     * 
+     *
      * @return null|string string or null
      */
     public function previewUri()
@@ -45,7 +45,7 @@ abstract class Base extends Eloquent {
 
     /**
      * Get public uri
-     * 
+     *
      * @return string|null string or null
      */
     public function getPublicUriIndex()
@@ -56,7 +56,7 @@ abstract class Base extends Eloquent {
 
     /**
      * Get public uri
-     * 
+     *
      * @return string|null string or null
      */
     public function getPublicUri($preview = false, $index = false, $lang = null)
