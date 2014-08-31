@@ -17,3 +17,20 @@ tools:
                 - app/TypiCMS/Modules/*/Views/*
         config:
             level: psr2
+            fixers:
+                indentation:          true
+                linefeed:             true
+                trailing_spaces:      true
+                unused_use:           true
+                phpdoc_params:        true
+                visibility:           true
+                return:               true
+                short_tag:            true
+                braces:               true
+                include:              true
+                php_closing_tag:      true
+                extra_empty_lines:    true
+                controls_spaces:      true
+                elseif:               true
+                eof_ending:           true
+
