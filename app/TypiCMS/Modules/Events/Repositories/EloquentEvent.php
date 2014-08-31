@@ -16,7 +16,7 @@ class EloquentEvent extends RepositoriesAbstract implements EventInterface
 
     /**
      * Get incomings events
-     * 
+     *
      * @param  integer      $number number of items to take
      * @param  array        $with array of related items
      * @return \Illuminate\Database\Eloquent\Collection

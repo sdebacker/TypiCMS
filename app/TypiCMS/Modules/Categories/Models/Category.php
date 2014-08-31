@@ -49,7 +49,7 @@ class Category extends Base
 
     /**
      * Get public uri
-     * 
+     *
      * @return string|null string or void
      */
     public function getPublicUri($preview = false, $index = false, $lang = null)
