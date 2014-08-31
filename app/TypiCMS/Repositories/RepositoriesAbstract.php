@@ -117,9 +117,9 @@ abstract class RepositoriesAbstract
     /**
      * Get all models
      *
-     * @param  array                                   $with Eager load related models
-     * @param  boolean                                 $all  Show published or all
-     * @return \Illuminate\Database\Eloquent\Collection Object with $items
+     * @param  array       $with Eager load related models
+     * @param  boolean     $all  Show published or all
+     * @return \Illuminate\Database\Eloquent\Collection|\TypiCMS\NestedCollection
      */
     public function getAll(array $with = array('translations'), $all = false)
     {

@@ -1,10 +1,8 @@
 <?php
 namespace TypiCMS\Commands;
 
-use DB;
 use Schema;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
@@ -107,7 +105,7 @@ class Database extends Command
     /**
      * Get the key file and contents.
      *
-     * @return array
+     * @return string[]
      */
     protected function getKeyFile()
     {

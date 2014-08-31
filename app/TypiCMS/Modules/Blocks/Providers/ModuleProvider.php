@@ -9,7 +9,6 @@ use Illuminate\Support\ServiceProvider;
 
 // Model
 use TypiCMS\Modules\Blocks\Models\Block;
-use TypiCMS\Modules\Blocks\Models\BlockTranslation;
 
 // Repo
 use TypiCMS\Modules\Blocks\Repositories\EloquentBlock;

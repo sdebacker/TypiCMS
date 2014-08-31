@@ -3,8 +3,6 @@ namespace TypiCMS\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 
 class Install extends Command
 {
@@ -76,12 +74,12 @@ class Install extends Command
 
         // Done
         $this->line('Done. Enjoy TypiCMS!');
-        
+
     }
 
     /**
      * Check that env.php exists
-     * 
+     *
      * @return void      exit if env.php is not found
      */
     public function checkThatEnvTemplateExists()
@@ -90,29 +88,5 @@ class Install extends Command
             $this->error('No env.php template found.');
             exit();
         }
-    }
-
-    /**
-     * Get the console command arguments.
-     *
-     * @return array
-     */
-    protected function getArguments()
-    {
-        return array(
-            // array('example', InputArgument::REQUIRED, 'An example argument.'),
-        );
-    }
-
-    /**
-     * Get the console command options.
-     *
-     * @return array
-     */
-    protected function getOptions()
-    {
-        return array(
-            // array('example', null, InputOption::VALUE_OPTIONAL, 'An example option.', null),
-        );
     }
 }

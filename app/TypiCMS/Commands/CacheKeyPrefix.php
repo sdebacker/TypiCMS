@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
@@ -71,7 +70,7 @@ class CacheKeyPrefix extends Command
     /**
      * Get the key file and contents.
      *
-     * @return array
+     * @return string[]
      */
     protected function getKeyFile()
     {

@@ -3,7 +3,6 @@ namespace TypiCMS\Models;
 
 use App;
 use Route;
-use Cache;
 use Input;
 use Mockery;
 use Eloquent;
@@ -34,7 +33,7 @@ abstract class Base extends Eloquent {
     /**
      * Get preview uri
      * 
-     * @return mixed string or null
+     * @return null|string string or null
      */
     public function previewUri()
     {
@@ -47,7 +46,7 @@ abstract class Base extends Eloquent {
     /**
      * Get public uri
      * 
-     * @return mixed string or null
+     * @return string|null string or null
      */
     public function getPublicUriIndex()
     {
@@ -58,7 +57,7 @@ abstract class Base extends Eloquent {
     /**
      * Get public uri
      * 
-     * @return mixed string or null
+     * @return string|null string or null
      */
     public function getPublicUri($preview = false, $index = false, $lang = null)
     {

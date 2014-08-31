@@ -4,12 +4,6 @@ namespace TypiCMS\Modules\Blocks\Repositories;
 use StdClass;
 
 use App;
-use Input;
-use Config;
-use Croppa;
-use Request;
-
-use FileUpload;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -57,7 +51,7 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
 
     /**
      * Get the content of a block
-     * 
+     *
      * @param  string $name unique name of the block
      * @param  array  $with linked
      * @return string       html
