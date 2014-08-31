@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.8.8 - 2014-08-
+## 1.4.8 - 2014-08-
 
 ### Added
 - Sitemap generator.
@@ -10,6 +10,7 @@ All notable changes to TypiCMS will be documented in this file.
 - Back button in forms on admin side.
 - Preview button on edit form.
 - Admin UI enhanced on mobile.
+- Scrutinizer
 
 ### Removed
 - Method byUri is now getFirstByUri.
