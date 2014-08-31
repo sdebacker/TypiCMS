@@ -14,8 +14,7 @@ use Eloquent;
  * @method string order($query)
  * @method string withOnlineGalleries($query)
  */
-abstract class Base extends Eloquent
-{
+abstract class Base extends Eloquent {
     /**
      * For testing
      */
