@@ -11,8 +11,6 @@ use Paginator;
 use TypiCMS;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 use TypiCMS\Modules\Galleries\Services\Form\GalleryForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

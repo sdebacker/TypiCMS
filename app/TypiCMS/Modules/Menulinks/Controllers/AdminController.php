@@ -8,8 +8,6 @@ use Request;
 use Redirect;
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

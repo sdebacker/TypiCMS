@@ -8,8 +8,6 @@ use Config;
 use Paginator;
 use TypiCMS;
 use TypiCMS\Modules\News\Repositories\NewsInterface;
-
-// Base controller
 use TypiCMS\Controllers\BasePublicController;
 
 class PublicController extends BasePublicController

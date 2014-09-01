@@ -8,8 +8,6 @@ use Config;
 use Paginator;
 use TypiCMS;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
-
-// Base controller
 use TypiCMS\Controllers\BasePublicController;
 
 class PublicController extends BasePublicController

@@ -12,8 +12,6 @@ use Exception;
 use Notification;
 use TypiCMS\Modules\Users\Repositories\UserInterface;
 use TypiCMS\Modules\Users\Services\Form\UserForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

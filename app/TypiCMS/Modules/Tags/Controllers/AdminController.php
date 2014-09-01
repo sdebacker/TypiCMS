@@ -8,8 +8,6 @@ use Request;
 use Paginator;
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
 use TypiCMS\Modules\Tags\Services\Form\TagForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

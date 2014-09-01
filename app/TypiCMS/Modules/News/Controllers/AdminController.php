@@ -11,8 +11,6 @@ use Paginator;
 use TypiCMS;
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 use TypiCMS\Modules\News\Services\Form\NewsForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

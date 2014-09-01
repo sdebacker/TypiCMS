@@ -7,8 +7,6 @@ use Request;
 use Redirect;
 use TypiCMS\Modules\Groups\Repositories\GroupInterface;
 use TypiCMS\Modules\Groups\Services\Form\GroupForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

@@ -10,8 +10,6 @@ use Paginator;
 use TypiCMS;
 use TypiCMS\Modules\Contacts\Repositories\ContactInterface;
 use TypiCMS\Modules\Contacts\Services\Form\ContactForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

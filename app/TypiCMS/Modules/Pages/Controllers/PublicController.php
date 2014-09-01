@@ -9,8 +9,6 @@ use Redirect;
 use Notification;
 use TypiCMS;
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
-
-// Base controller
 use TypiCMS\Controllers\BasePublicController;
 
 class PublicController extends BasePublicController

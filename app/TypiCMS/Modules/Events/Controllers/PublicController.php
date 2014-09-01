@@ -10,8 +10,6 @@ use Paginator;
 use TypiCMS;
 use TypiCMS\Modules\Events\Services\Calendar;
 use TypiCMS\Modules\Events\Repositories\EventInterface;
-
-// Base controller
 use TypiCMS\Controllers\BasePublicController;
 
 class PublicController extends BasePublicController

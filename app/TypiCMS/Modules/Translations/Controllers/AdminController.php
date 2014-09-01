@@ -8,8 +8,6 @@ use Redirect;
 use Illuminate\Support\Collection;
 use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 use TypiCMS\Modules\Translations\Services\Form\TranslationForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

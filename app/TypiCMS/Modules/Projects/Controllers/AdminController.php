@@ -10,8 +10,6 @@ use Redirect;
 use TypiCMS;
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

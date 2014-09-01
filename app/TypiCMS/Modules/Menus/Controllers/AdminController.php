@@ -7,8 +7,6 @@ use Request;
 use Redirect;
 use TypiCMS\Modules\Menus\Repositories\MenuInterface;
 use TypiCMS\Modules\Menus\Services\Form\MenuForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

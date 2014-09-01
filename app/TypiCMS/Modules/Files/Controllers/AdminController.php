@@ -11,8 +11,6 @@ use Paginator;
 use Notification;
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 use TypiCMS\Modules\Files\Services\Form\FileForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

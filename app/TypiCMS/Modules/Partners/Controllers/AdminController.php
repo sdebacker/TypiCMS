@@ -10,8 +10,6 @@ use Redirect;
 use Paginator;
 use TypiCMS\Modules\Partners\Repositories\PartnerInterface;
 use TypiCMS\Modules\Partners\Services\Form\PartnerForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

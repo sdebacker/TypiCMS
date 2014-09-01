@@ -6,8 +6,6 @@ use Str;
 use View;
 use TypiCMS;
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
-
-// Base controller
 use TypiCMS\Controllers\BasePublicController;
 
 class PublicController extends BasePublicController

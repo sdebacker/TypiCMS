@@ -5,8 +5,6 @@ use Str;
 use View;
 use TypiCMS;
 use TypiCMS\Modules\Blocks\Repositories\BlockInterface;
-
-// Base controller
 use TypiCMS\Controllers\BasePublicController;
 
 class PublicController extends BasePublicController

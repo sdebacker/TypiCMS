@@ -10,8 +10,6 @@ use Paginator;
 use TypiCMS;
 use TypiCMS\Modules\Events\Repositories\EventInterface;
 use TypiCMS\Modules\Events\Services\Form\EventForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

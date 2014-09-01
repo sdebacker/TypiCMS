@@ -8,8 +8,6 @@ use Request;
 use Redirect;
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 use TypiCMS\Modules\Pages\Services\Form\PageForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

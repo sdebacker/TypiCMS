@@ -10,8 +10,6 @@ use Redirect;
 use Paginator;
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
 use TypiCMS\Modules\Places\Services\Form\PlaceForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController

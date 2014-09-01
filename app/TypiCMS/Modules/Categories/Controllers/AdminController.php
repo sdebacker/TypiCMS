@@ -7,8 +7,6 @@ use Request;
 use Redirect;
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 use TypiCMS\Modules\Categories\Services\Form\CategoryForm;
-
-// Base controller
 use TypiCMS\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController
