@@ -9,7 +9,7 @@
                 @foreach ($gallery->files as $file)
                 <li class="col-xs-4 col-sm-3 col-md-2">
                     @if ($file->type == 'i')
-                    <a class="thumbnail fancybox" href="/{{ $file->path . $file->filename }}" rel="{{ $gallery->name }}">
+                    <a class="thumbnail fancybox" href="/{{ $file->path . $file->filename }}" title="{{ $file->description }}" rel="{{ $gallery->name }}">
                         <img src="{{ Croppa::url('/' . $file->path . $file->filename, 400, 400) }}" width="200" height="200" alt="{{ $file->alt_attribute }}">
                     </a>
                     @else
