@@ -16,21 +16,21 @@ abstract class AbstractLaravelValidator implements ValidableInterface
     /**
      * Validation data key => value array
      *
-     * @var Array
+     * @var array
      */
     protected $data = array();
 
     /**
      * Validation errors
      *
-     * @var Array
+     * @var array
      */
     protected $errors = array();
 
     /**
      * Validation rules
      *
-     * @var Array
+     * @var array
      */
     protected $rules = array();
 
@@ -42,7 +42,7 @@ abstract class AbstractLaravelValidator implements ValidableInterface
     /**
      * Set data to validate
      *
-     * @return \TypiCMS\Services\Validation\AbstractLaravelValidator
+     * @return $this
      */
     public function with(array $data)
     {
@@ -54,7 +54,7 @@ abstract class AbstractLaravelValidator implements ValidableInterface
     /**
      * Validation passes or fails
      *
-     * @return Boolean
+     * @return boolean
      */
     public function passes()
     {
@@ -82,7 +82,7 @@ abstract class AbstractLaravelValidator implements ValidableInterface
     /**
      * getRules
      *
-     * @return $this->rules array
+     * @return array
      */
     public function getRules()
     {
@@ -92,8 +92,8 @@ abstract class AbstractLaravelValidator implements ValidableInterface
     /**
      * setRule
      *
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param string $value
      * @return $this
      */
     public function setRule($key, $value)
