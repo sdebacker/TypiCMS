@@ -7,12 +7,6 @@ use Input;
 use Mockery;
 use Eloquent;
 
-/**
- * @method Eloquent scopeFiles($query, $all)
- * @method Eloquent scopeWhereHasOnlineTranslation($query)
- * @method Eloquent scopeWithOnlineGalleries($query)
- * @method Eloquent scopeOrder($query)
- */
 abstract class Base extends Eloquent
 {
     /**

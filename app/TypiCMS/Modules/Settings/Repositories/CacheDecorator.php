@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Settings\Repositories;
 
-use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
 class CacheDecorator implements SettingInterface
