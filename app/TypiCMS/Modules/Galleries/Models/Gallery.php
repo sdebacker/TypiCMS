@@ -54,7 +54,7 @@ class Gallery extends Base
      */
     public function files()
     {
-        return $this->hasMany('TypiCMS\Modules\Files\Models\File');
+        return $this->hasMany('TypiCMS\Modules\Files\Models\File')->order();
     }
 
     /**
