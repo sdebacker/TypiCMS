@@ -49,9 +49,22 @@ class Install extends Command
      */
     public function fire()
     {
-        $this->checkThatEnvTemplateExists();
+        $defaultEnvironmentFile = 'bootstrap/environment.local.php';
+        $environmentFile = 'bootstrap/environment.php';
 
         $this->line('Welcome to TypiCMS');
+
+        if (! $this->files->exists($environmentFile) and $this->files->exists($defaultEnvironmentFile)) {
+            // move default environment file so current environment will be local.
+            $this->files->move($defaultEnvironmentFile, $environmentFile);
+            // set environment to local
+            $this->laravel['env'] = 'local';
+            $this->line('----------------------');
+            $this->info('Environment set to local');
+            $this->line('----------------------');
+        }
+
+        $this->checkThatEnvTemplateExists();
 
         // Ask for database name
         $dbName = $this->ask('What is your database name? ');
