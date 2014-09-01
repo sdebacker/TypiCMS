@@ -96,10 +96,6 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
             $item->class = $this->setClass($item);
         });
 
-        $items->sortBy(function ($item) {
-            return $item->position;
-        });
-
         return $items;
     }
 
