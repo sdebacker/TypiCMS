@@ -76,6 +76,6 @@ class Category extends Base
      */
     public function projects()
     {
-        return $this->hasMany('TypiCMS\Modules\Projects\Models\Project');
+        return $this->hasMany('TypiCMS\Modules\Projects\Models\Project')->order();
     }
 }
