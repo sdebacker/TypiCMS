@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Groups\Repositories;
 
-interface GroupInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface GroupInterface extends RepositoryInterface
 {
 
     /**

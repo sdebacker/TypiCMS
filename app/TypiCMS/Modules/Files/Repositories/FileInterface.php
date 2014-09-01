@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Files\Repositories;
 
-interface FileInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface FileInterface extends RepositoryInterface
 {
 
     /**

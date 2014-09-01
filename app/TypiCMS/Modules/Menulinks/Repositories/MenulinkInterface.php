@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Menulinks\Repositories;
 
-interface MenulinkInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface MenulinkInterface extends RepositoryInterface
 {
 
     /**

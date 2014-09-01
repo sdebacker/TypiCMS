@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Partners\Repositories;
 
-interface PartnerInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface PartnerInterface extends RepositoryInterface
 {
 }

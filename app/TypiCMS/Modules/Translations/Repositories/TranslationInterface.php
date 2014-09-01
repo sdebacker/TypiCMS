@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Translations\Repositories;
 
-interface TranslationInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface TranslationInterface extends RepositoryInterface
 {
 
     /**

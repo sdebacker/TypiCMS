@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Tags\Repositories;
 
-interface TagInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface TagInterface extends RepositoryInterface
 {
 
     /**

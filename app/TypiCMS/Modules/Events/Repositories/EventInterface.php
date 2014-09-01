@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Events\Repositories;
 
-interface EventInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface EventInterface extends RepositoryInterface
 {
 
     /**

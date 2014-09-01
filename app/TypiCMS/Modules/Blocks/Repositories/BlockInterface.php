@@ -1,8 +1,11 @@
 <?php
 namespace TypiCMS\Modules\Blocks\Repositories;
 
-interface BlockInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface BlockInterface extends RepositoryInterface
 {
+
     /**
      * Get all models
      *

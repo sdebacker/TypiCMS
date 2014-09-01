@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\News\Repositories;
 
-interface NewsInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface NewsInterface extends RepositoryInterface
 {
 
 }

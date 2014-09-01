@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Contacts\Repositories;
 
-interface ContactInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface ContactInterface extends RepositoryInterface
 {
 
 }
