@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
@@ -87,13 +88,12 @@ class Install extends Command
     /**
      * Check that env.php exists
      *
-     * @return void      exit if env.php is not found
+     * @return void      Exception if env.php is not found
      */
     public function checkThatEnvTemplateExists()
     {
         if (! $this->files->exists('env.php')) {
-            $this->error('No env.php template found.');
-            exit();
+            throw new Exception('No env.php template found.');
         }
     }
 }

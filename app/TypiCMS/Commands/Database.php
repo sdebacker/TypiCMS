@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Commands;
 
+use Exception;
 use Schema;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -71,8 +72,7 @@ class Database extends Command
         $contents = str_replace($search, $replace, $contents, $count);
 
         if ($count != 3) {
-            $this->error("Error on writing credentials to .env.php.");
-            exit();
+            throw new Exception('Error while writing credentials to .env.php.');
         }
 
         // Set DB credentials to laravel config
