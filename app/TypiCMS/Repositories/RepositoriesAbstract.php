@@ -6,16 +6,10 @@ use DB;
 use Str;
 use App;
 use Config;
-use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Modules\Pages\Models\Page;
 use TypiCMS\Repositories\RepositoryInterface;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 
-/**
- * @method Builder whereHasOnlineTranslation($query)
- * @method Builder withOnlineGalleries($query)
- * @method Builder order($query)
- */
 abstract class RepositoriesAbstract implements RepositoryInterface
 {
     protected $model;
