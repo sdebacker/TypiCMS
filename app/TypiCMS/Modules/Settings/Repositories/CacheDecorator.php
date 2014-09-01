@@ -4,7 +4,7 @@ namespace TypiCMS\Modules\Settings\Repositories;
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
-class CacheDecorator extends CacheAbstractDecorator implements SettingInterface
+class CacheDecorator implements SettingInterface
 {
 
     // Class expects a repo and a cache interface
