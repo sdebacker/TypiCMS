@@ -85,7 +85,7 @@ This kind of urls are managed by the CMS :
    ```
    cd mywebsite
    ```
-5. Initialise TypiCMS
+5. DB Migrate and seed, npm install, bower install and chmod dirs
 
    ```
    php artisan typicms:install
