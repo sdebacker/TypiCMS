@@ -17,7 +17,7 @@ abstract class AbstractForm
     /**
      * Repository
      *
-     * @var RepositoryInterface
+     * @var \TypiCMS\Repositories\RepositoryInterface
      */
     protected $repository;
 
