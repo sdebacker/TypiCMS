@@ -10,7 +10,9 @@ var gulp       = require('gulp'),
     bowerFiles = require('main-bower-files'),
     livereload = require('gulp-livereload'),
     rename     = require('gulp-rename'),
-    filter     = require('gulp-filter');
+    filter     = require('gulp-filter'),
+    imagemin   = require('gulp-imagemin'),
+    prefix     = require('gulp-autoprefixer');
 
 function swallowError (error) {
     console.log(error.toString());
@@ -24,6 +26,7 @@ gulp.task('less-public', function () {
         ])
         .pipe(less())
         .on('error', swallowError)
+        .pipe(prefix())
         .pipe(minifyCSS())
         .pipe(rename('public.css'))
         .pipe(gulp.dest('public/css'))
@@ -39,12 +42,22 @@ gulp.task('less-admin', function () {
         ])
         .pipe(less())
         .on('error', swallowError)
+        .pipe(prefix())
         .pipe(minifyCSS())
         .pipe(rename('admin.css'))
         .pipe(gulp.dest('public/css'))
         .pipe(livereload())
         .pipe(notify('Admin CSS minified'));
 
+});
+
+gulp.task('img', function () {
+    return gulp.src('app/assets/img/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}]
+        }))
+        .pipe(gulp.dest('public/img'));
 });
 
 // Publish fonts
