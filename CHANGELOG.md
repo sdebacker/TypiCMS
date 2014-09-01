@@ -1,9 +1,14 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.4.10 - 2014-09-01
+
+### Fixed
+- missing bootstrap/environment.local.php.
+
 ## 1.4.9 - 2014-09-01
 
-### Added
+### Fixed
 - Environment (bootstrap/environment.php or $_ENV('APP_ENVIRONMENT').
 - Install command updated.
 
