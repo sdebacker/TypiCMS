@@ -71,16 +71,22 @@ class Install extends Command
 
         // Set database credentials in env.local.php and migrate
         $this->call('typicms:database', array('database' => $dbName));
+        $this->line('----------------------');
 
         // Set cache key prefix
         $this->call('cache:prefix', array('prefix' => $dbName));
+        $this->line('----------------------');
 
         // Composer install
         if (function_exists('system')) {
+            $this->info('Running npm install...');
             system('npm install');
             $this->info('npm packages installed');
+            $this->line('----------------------');
+            $this->info('Running bower install...');
             system('bower install');
             $this->info('Bower packages installed');
+            $this->line('----------------------');
             system('chmod -R 777 app/storage');
             $this->info('app/storage is now writable');
             system('chmod -R 777 public/uploads');
@@ -94,6 +100,7 @@ class Install extends Command
         $this->call('debugbar:publish');
 
         // Done
+        $this->line('----------------------');
         $this->line('Done. Enjoy TypiCMS!');
 
     }
