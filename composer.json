@@ -12,28 +12,28 @@
 		}
 	],
 	"require": {
-		"bkwld/croppa": "~3.2.1",
-		"cartalyst/sentry": "~2.1",
-		"davejamesmiller/laravel-breadcrumbs": "~2.2.1",
-		"dimsav/laravel-translatable": "~4.0",
+		"bkwld/croppa": "3.4.*",
+		"cartalyst/sentry": "2.*",
+		"davejamesmiller/laravel-breadcrumbs": "2.2.*",
+		"dimsav/laravel-translatable": "4.*",
 		"edvinaskrucas/notification": "3.*",
-		"eluceo/ical": "~0.1",
-		"guzzlehttp/guzzle": "~4.0",
-		"jwage/easy-csv": "~0.0.2",
-		"laravel/framework": "~4.2.1",
-		"mccool/database-backup": "~1.0.1",
-		"msurguy/honeypot": "~0.2",
-		"thomaswelton/laravel-gravatar": "~0.0.2",
-		"cviebrock/image-validator": "~1.0.3",
-		"jenssegers/rollbar": "*",
+		"eluceo/ical": "0.*",
+		"guzzlehttp/guzzle": "4.*",
+		"jwage/easy-csv": "0.0.*",
+		"laravel/framework": "4.2.*",
+		"mccool/database-backup": "1.0.*",
+		"msurguy/honeypot": "0.*",
+		"thomaswelton/laravel-gravatar": "0.*",
+		"cviebrock/image-validator": "1.0.*",
+		"jenssegers/rollbar": "1.*",
 		"roumen/sitemap": "2.4.*"
 	},
 	"require-dev": {
-		"way/generators": "~2.6",
-		"barryvdh/laravel-debugbar": "~1.6",
-		"mockery/mockery": "~0.9",
-		"phpspec/phpspec": "~2.0",
-		"raveren/kint": "~0.9"
+		"way/generators": "2.*",
+		"barryvdh/laravel-debugbar": "1.*",
+		"mockery/mockery": "0.*",
+		"phpspec/phpspec": "2.*",
+		"raveren/kint": "0.*"
 	},
 	"autoload": {
 		"classmap": [

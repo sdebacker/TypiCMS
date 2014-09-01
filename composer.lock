@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f996db56514477a7fd643d1a2346c5ad",
+    "hash": "355cadd5ca767f55c2a855abaef943c7",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -76,16 +76,16 @@
         },
         {
             "name": "bkwld/croppa",
-            "version": "3.2.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BKWLD/croppa.git",
-                "reference": "cb1b410735a16bb5caead74be74502f47a166c9b"
+                "reference": "688259916d34dcb73ee67538dbbfbd9558e414ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/cb1b410735a16bb5caead74be74502f47a166c9b",
-                "reference": "cb1b410735a16bb5caead74be74502f47a166c9b",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/688259916d34dcb73ee67538dbbfbd9558e414ba",
+                "reference": "688259916d34dcb73ee67538dbbfbd9558e414ba",
                 "shasum": ""
             },
             "require": {
@@ -94,6 +94,7 @@
                 "weotch/phpthumb": "~1.0"
             },
             "require-dev": {
+                "mikey179/vfsstream": "~1.3",
                 "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
@@ -115,7 +116,7 @@
                 }
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
-            "time": "2014-06-06 16:40:40"
+            "time": "2014-08-06 17:30:41"
         },
         {
             "name": "cartalyst/sentry",
@@ -2637,16 +2638,16 @@
         },
         {
             "name": "thomaswelton/laravel-gravatar",
-            "version": "0.0.2",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thomaswelton/laravel-gravatar.git",
-                "reference": "98fa03d5e1e67d361a6fece16465c64e2b935ce5"
+                "reference": "24b080a95a57373a63f18144bc7fbd455d5b73f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thomaswelton/laravel-gravatar/zipball/98fa03d5e1e67d361a6fece16465c64e2b935ce5",
-                "reference": "98fa03d5e1e67d361a6fece16465c64e2b935ce5",
+                "url": "https://api.github.com/repos/thomaswelton/laravel-gravatar/zipball/24b080a95a57373a63f18144bc7fbd455d5b73f6",
+                "reference": "24b080a95a57373a63f18144bc7fbd455d5b73f6",
                 "shasum": ""
             },
             "require": {
@@ -2668,7 +2669,6 @@
                 {
                     "name": "ThomasWelton",
                     "email": "thomaswelton@me.com",
-                    "homepage": "https://github.com/thomaswelton",
                     "role": "Developer"
                 }
             ],
@@ -2679,7 +2679,7 @@
                 "laravel",
                 "laravel4"
             ],
-            "time": "2014-03-02 19:52:06"
+            "time": "2014-07-21 16:35:56"
         },
         {
             "name": "weotch/phpthumb",
