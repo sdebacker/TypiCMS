@@ -96,9 +96,6 @@ class Install extends Command
             $this->line('and run composer install, npm install and bower install.');
         }
 
-        // publish debugbar
-        $this->call('debugbar:publish');
-
         // Done
         $this->line('----------------------');
         $this->line('Done. Enjoy TypiCMS!');
