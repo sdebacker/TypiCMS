@@ -42,7 +42,7 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
             $limit .
             $gallery_id .
             $all .
-            implode(Input::except('page')) .
+            implode('.', Input::except('page')) .
             $type
         );
 
