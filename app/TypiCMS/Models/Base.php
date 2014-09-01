@@ -8,11 +8,10 @@ use Mockery;
 use Eloquent;
 
 /**
- * @method string order($query)
- * @method string whereHasOnlineTranslation($query)
- * @method string files($query, $all)
- * @method string order($query)
- * @method string withOnlineGalleries($query)
+ * @method Eloquent scopeFiles($query, $all)
+ * @method Eloquent scopeWhereHasOnlineTranslation($query)
+ * @method Eloquent scopeWithOnlineGalleries($query)
+ * @method Eloquent scopeOrder($query)
  */
 abstract class Base extends Eloquent
 {
