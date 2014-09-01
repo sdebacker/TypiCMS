@@ -7,9 +7,10 @@ use Str;
 use App;
 use Config;
 use TypiCMS\Modules\Pages\Models\Page;
+use TypiCMS\Repositories\RepositoryInterface;
 use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 
-abstract class RepositoriesAbstract
+abstract class RepositoriesAbstract implements RepositoryInterface
 {
     protected $model;
     protected $gallery;

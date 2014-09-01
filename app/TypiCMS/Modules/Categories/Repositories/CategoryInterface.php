@@ -1,7 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Categories\Repositories;
 
-interface CategoryInterface
+use TypiCMS\Repositories\RepositoryInterface;
+
+interface CategoryInterface extends RepositoryInterface
 {
 
     /**

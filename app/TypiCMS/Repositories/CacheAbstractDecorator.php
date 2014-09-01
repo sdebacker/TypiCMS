@@ -3,8 +3,9 @@ namespace TypiCMS\Repositories;
 
 use App;
 use Input;
+use TypiCMS\Repositories\RepositoryInterface;
 
-abstract class CacheAbstractDecorator
+abstract class CacheAbstractDecorator implements RepositoryInterface
 {
     protected $repo;
     protected $cache;
@@ -12,6 +13,16 @@ abstract class CacheAbstractDecorator
     public function getModel()
     {
         return $this->repo->getModel();
+    }
+
+    /**
+     * Make a new instance of the entity to query on
+     *
+     * @param array $with
+     */
+    public function make(array $with = array())
+    {
+        return $this->repo->make($with);
     }
 
     /**
