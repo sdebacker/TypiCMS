@@ -43,7 +43,7 @@ function initTinymce(selector) {
         ],
         content_css : '/css/public.css,/components/tinymce/css/tiny_mce.css',
         toolbar: 'formatselect | styleselect | bold italic | subscript superscript | bullist numlist outdent indent | link unlink | alignleft aligncenter alignright alignjustify | table | nonbreaking | image | code | removeformat',
-        language_url: '/components/tinymce/langs/fr.js'
+        language_url: '/components/tinymce/langs/' + lang + '.js'
     });
 }
 
