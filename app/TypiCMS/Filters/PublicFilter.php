@@ -9,8 +9,8 @@ use Request;
 use Redirect;
 
 /**
-* Public filter
-*/
+ * Public filter
+ */
 class PublicFilter
 {
 
