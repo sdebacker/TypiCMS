@@ -29,18 +29,4 @@ class PublicFilter
         }
 
     }
-
-    public function auth()
-    {
-        if (! Config::get('typicms.authPublic')) {
-            return;
-        }
-
-        if (! Sentry::check()) {
-            if (Request::ajax()) {
-                return Response::make('Unauthorized', 401);
-            }
-            return Redirect::guest(route('login'));
-        }
-    }
 }

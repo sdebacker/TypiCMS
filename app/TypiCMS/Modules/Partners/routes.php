@@ -4,7 +4,7 @@ Route::model('partners', 'TypiCMS\Modules\Partners\Models\Partner');
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'public.auth',
+            'before'    => 'visitor.publicAccess',
             'namespace' => 'TypiCMS\Modules\Partners\Controllers',
         ),
         function () {

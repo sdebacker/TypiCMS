@@ -27,6 +27,17 @@ class UsersFilter
     }
 
     /**
+     * Visitor is allowed to visit public website ?
+     */
+    public function publicAccess()
+    {
+        if (! Config::get('typicms.authPublic')) {
+            return;
+        }
+        return $this->auth();
+    }
+
+    /**
      * User is logged in ?
      */
     public function auth()

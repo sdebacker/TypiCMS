@@ -7,7 +7,7 @@ Route::bind('contacts', function ($value, $route) {
 if (! App::runningInConsole()) {
     Route::group(
         array(
-            'before'    => 'public.auth',
+            'before'    => 'visitor.publicAccess',
             'namespace' => 'TypiCMS\Modules\Contacts\Controllers',
         ),
         function () {

@@ -4,7 +4,7 @@
  */
 Route::group(
     array(
-        'before' => 'users.mayRegister',
+        'before' => 'visitor.mayRegister',
         'namespace' => 'TypiCMS\Modules\Users\Controllers',
     ),
     function () {
