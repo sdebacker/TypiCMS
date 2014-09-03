@@ -85,17 +85,6 @@ gulp.task('fonts', function () {
 
 });
 
-// Publish TinyMCE
-gulp.task('tinymce', function () {
-
-    var destDir = 'public/js/admin';
-
-    return gulp.src('app/assets/components/tinymce/tinymce.min.js')
-        .pipe(newer(destDir))
-        .pipe(gulp.dest(destDir));
-
-});
-
 // Publish pickadate locales
 gulp.task('pickadate-locales', function () {
 
@@ -190,7 +179,6 @@ gulp.task('default', [
     'less-admin',
     'js-public',
     'js-admin',
-    'tinymce',
     'fonts',
     'pickadate-locales',
     'fancybox-img',
