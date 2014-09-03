@@ -43,7 +43,7 @@ function initTinymce(selector) {
         ],
         content_css : '/css/public.css,/components/tinymce/css/tiny_mce.css',
         toolbar: 'formatselect | styleselect | bold italic | subscript superscript | bullist numlist outdent indent | link unlink | alignleft aligncenter alignright alignjustify | table | nonbreaking | image | code | removeformat',
-        language_url: '/components/tinymce/langs/' + lang + '.js'
+        language_url: '/components/tinymce/langs/' + TypiCMS.adminLocale + '.js'
     });
 }
 
@@ -56,10 +56,10 @@ function initTinymce(selector) {
         /**
          * Slug fields
          */
-        for (var i = 0; i < langues.length; i++) {
-            var titleField = $('#' + langues[i] + '\\[title\\]');
+        for (var i = 0; i < TypiCMS.locales.length; i++) {
+            var titleField = $('#' + TypiCMS.locales[i] + '\\[title\\]');
             titleField.slug({
-                slugField: '#' + langues[i] + '\\[slug\\]'
+                slugField: '#' + TypiCMS.locales[i] + '\\[slug\\]'
             });
         };
         var titleField = $('#title');

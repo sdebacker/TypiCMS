@@ -2,6 +2,10 @@ function cleanUrl () {
     return document.URL.split('?')[0];
 }
 
+function translate(string) {
+    return string;
+}
+
 function enableSortable() {
     // Sorting avec imbrication
     var sortableList = $('.sortable'),
