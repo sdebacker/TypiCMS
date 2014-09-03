@@ -12,24 +12,28 @@ var gulp       = require('gulp'),
     rename     = require('gulp-rename'),
     filter     = require('gulp-filter'),
     imagemin   = require('gulp-imagemin'),
+    newer      = require('gulp-newer'),
     prefix     = require('gulp-autoprefixer');
 
 function swallowError (error) {
     console.log(error.toString());
     this.emit('end');
 }
+
 // Compile Less and save to css directory
 gulp.task('less-public', function () {
 
-    return gulp.src([
-            'app/assets/less/public/master.less'
-        ])
+    var destDir = 'public/css/',
+        destFile = 'public.css';
+
+    return gulp.src('app/assets/less/public/master.less')
+        .pipe(newer(destDir + destFile))
         .pipe(less())
         .on('error', swallowError)
         .pipe(prefix())
         .pipe(minifyCSS())
-        .pipe(rename('public.css'))
-        .pipe(gulp.dest('public/css'))
+        .pipe(rename(destFile))
+        .pipe(gulp.dest(destDir))
         .pipe(livereload())
         .pipe(notify('Public CSS minified'));
 
@@ -37,65 +41,94 @@ gulp.task('less-public', function () {
 
 gulp.task('less-admin', function () {
 
-    return gulp.src([
-            'app/assets/less/admin/master.less'
-        ])
+    var destDir = 'public/css/',
+        destFile = 'admin.css';
+
+    return gulp.src('app/assets/less/admin/master.less')
+        .pipe(newer(destDir + destFile))
         .pipe(less())
         .on('error', swallowError)
         .pipe(prefix())
         .pipe(minifyCSS())
-        .pipe(rename('admin.css'))
-        .pipe(gulp.dest('public/css'))
+        .pipe(rename(destFile))
+        .pipe(gulp.dest(destDir))
         .pipe(livereload())
         .pipe(notify('Admin CSS minified'));
 
 });
 
 gulp.task('img', function () {
+
+    var destDir = 'public/img';
+
     return gulp.src('app/assets/img/*')
+        .pipe(newer(destDir))
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}]
         }))
-        .pipe(gulp.dest('public/img'));
+        .pipe(gulp.dest(destDir));
+
 });
 
 // Publish fonts
 gulp.task('fonts', function () {
 
+    var destDir = 'public/fonts';
+
     return gulp.src([
             'app/assets/components/font-awesome/fonts/*',
             'app/assets/components/flexslider/fonts/*'
         ])
-        .pipe(gulp.dest('public/fonts'));
+        .pipe(newer(destDir))
+        .pipe(gulp.dest(destDir));
+
+});
+
+// Publish TinyMCE
+gulp.task('tinymce', function () {
+
+    var destDir = 'public/js/admin';
+
+    return gulp.src('app/assets/components/tinymce/tinymce.min.js')
+        .pipe(newer(destDir))
+        .pipe(gulp.dest(destDir));
 
 });
 
 // Publish pickadate locales
 gulp.task('pickadate-locales', function () {
 
+    var destDir = 'public/js/pickadate-locales';
+
     return gulp.src([
             'app/assets/components/pickadate/lib/translations/fr_FR.js',
             'app/assets/components/pickadate/lib/translations/nl_NL.js',
         ])
-        .pipe(gulp.dest('public/js/pickadate-locales'));
+        .pipe(newer(destDir))
+        .pipe(gulp.dest(destDir));
 
 });
 
 // Publish Fancybox images
 gulp.task('fancybox-img', function () {
 
+    var destDir = 'public/components/fancybox/source';
+
     return gulp.src([
             'app/assets/components/fancybox/source/*.gif',
             'app/assets/components/fancybox/source/*.png'
         ])
-        .pipe(gulp.dest('public/components/fancybox/source'));
+        .pipe(newer(destDir))
+        .pipe(gulp.dest(destDir));
 
 });
 
 gulp.task('js-admin', function () {
 
-    var files = bowerFiles({checkExistence: true});
+    var destDir = 'public/js/admin/',
+        destFile = 'components.min.js',
+        files = bowerFiles({checkExistence: true});
     
     files.push(path.resolve() + '/app/assets/js/admin/*');
 
@@ -104,17 +137,20 @@ gulp.task('js-admin', function () {
             '**/*.js',
             '!tinymce*'
         ]))
+        .pipe(newer(destDir + destFile))
         .pipe(concat('components.js'))
         .pipe(uglify())
-        .pipe(rename('components.min.js'))
-        .pipe(gulp.dest('public/js/admin/'))
+        .pipe(rename(destFile))
+        .pipe(gulp.dest(destDir))
         .pipe(notify('js-admin done'));
 
 });
 
 gulp.task('js-public', function () {
 
-    var files = bowerFiles({checkExistence: true});
+    var destDir = 'public/js/admin/',
+        destFile = 'components.min.js',
+        files = bowerFiles({checkExistence: true});
 
     return gulp.src(files)
         .pipe(filter([
@@ -130,10 +166,11 @@ gulp.task('js-public', function () {
             '!lib/fastclick.js',
             '!dropzone*'
         ]))
+        .pipe(newer(destDir + destFile))
         .pipe(concat('components.js'))
         .pipe(uglify())
-        .pipe(rename('components.min.js'))
-        .pipe(gulp.dest('public/js/public'))
+        .pipe(rename(destFile))
+        .pipe(gulp.dest(destDir))
         .pipe(notify('js-public done'));
 
 });
@@ -147,17 +184,15 @@ gulp.task('watch', function () {
     gulp.watch('app/assets/js/admin/**/*.js', ['js-admin']);
 });
 
-// launch all
-gulp.task('all', [
+// What tasks does running gulp trigger?
+gulp.task('default', [
     'less-public',
     'less-admin',
     'js-public',
     'js-admin',
+    'tinymce',
     'fonts',
     'pickadate-locales',
     'fancybox-img',
     'watch'
 ]);
-
-// What tasks does running gulp trigger?
-gulp.task('default', ['less-public', 'less-admin', 'watch']);
