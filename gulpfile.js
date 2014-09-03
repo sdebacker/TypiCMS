@@ -93,31 +93,56 @@ gulp.task('fancybox-img', function () {
 
 });
 
-gulp.task('js-components', function () {
+gulp.task('js-admin', function () {
 
-    return gulp.src(bowerFiles({checkExistence: true}))
-        .pipe(filter('**/*.js'))
+    var files = bowerFiles({checkExistence: true});
+    
+    files.push(
+        path.resolve() + '/app/assets/js/offcanvas.js',
+        path.resolve() + '/app/assets/js/admin/jquery.mjs.nestedSortable.js',
+        path.resolve() + '/app/assets/js/admin/jquery.nestedCookie.js',
+        path.resolve() + '/app/assets/js/admin/jquery.slug.js',
+        path.resolve() + '/app/assets/js/admin/jquery.listenhancer.js'
+    );
+
+    return gulp.src(files)
+        .pipe(filter([
+            '**/*.js',
+            '!tinymce*'
+        ]))
         .pipe(concat('components.js'))
         .pipe(uglify())
         .pipe(rename('components.min.js'))
-        .pipe(gulp.dest('public/js/'))
-        .pipe(notify('Bower js files minified'));
+        .pipe(gulp.dest('public/js/admin/'))
+        .pipe(notify('js-admin done'));
 
 });
 
-gulp.task('js-admin', function () {
+gulp.task('js-public', function () {
 
-    return gulp.src([
-            'app/assets/js/admin/jquery.mjs.nestedSortable.js',
-            'app/assets/js/admin/jquery.nestedCookie.js',
-            'app/assets/js/admin/jquery.slug.js',
-            'app/assets/js/admin/jquery.listenhancer.js'
-        ])
-        .pipe(concat('components-admin.js'))
+    var files = bowerFiles({checkExistence: true});
+    
+    files.push(path.resolve() + '/app/assets/js/offcanvas.js');
+
+    return gulp.src(files)
+        .pipe(filter([
+            '**/*.js',
+            '!tinymce*',
+            '!jquery-ui*',
+            '!jquery.ui*',
+            '!picker*',
+            '!sifter*',
+            '!microplugin*',
+            '!alertify*',
+            '!selectize*',
+            '!lib/fastclick.js',
+            '!dropzone*'
+        ]))
+        .pipe(concat('components.js'))
         .pipe(uglify())
-        .pipe(rename('components-admin.min.js'))
-        .pipe(gulp.dest('public/js/admin/'))
-        .pipe(notify('Custom js plugins minified'));
+        .pipe(rename('components.min.js'))
+        .pipe(gulp.dest('public/js/public'))
+        .pipe(notify('js-public done'));
 
 });
 
@@ -126,7 +151,7 @@ gulp.task('watch', function () {
     gulp.watch('app/assets/less/public/**/*.less', ['less-public']);
     gulp.watch('app/assets/less/admin/**/*.less', ['less-admin']);
     gulp.watch('app/assets/less/*.less', ['less-public', 'less-admin']);
-    gulp.watch('app/assets/js/public/**/*.js', ['public-js']);
+    gulp.watch('app/assets/js/public/**/*.js', ['js-public']);
     gulp.watch('app/assets/js/admin/**/*.js', ['js-admin']);
 });
 
@@ -134,7 +159,7 @@ gulp.task('watch', function () {
 gulp.task('all', [
     'less-public',
     'less-admin',
-    'js-components',
+    'js-public',
     'js-admin',
     'fonts',
     'pickadate-locales',

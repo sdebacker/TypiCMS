@@ -11,13 +11,11 @@
     @yield('css')
     {{ HTML::style(asset('css/admin.css')) }}
 
-    {{ HTML::script(asset('js/components.min.js')) }}
+    {{ HTML::script(asset('js/admin/components.min.js')) }}
 
     @if(Config::get('typicms.adminLocale') != 'en')
         {{ HTML::script(asset('js/pickadate-locales/' . Config::get('typicms.adminLocale') . '_' . strtoupper(Config::get('typicms.adminLocale')) . '.js')) }}
     @endif
-
-    {{ HTML::script(asset('js/admin/components-admin.min.js')) }}
 
     @yield('js')
 

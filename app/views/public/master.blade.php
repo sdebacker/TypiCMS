@@ -104,7 +104,7 @@
 
     @endif
 
-    {{ HTML::script(asset('js/components.min.js')) }}
+    {{ HTML::script(asset('js/public/components.min.js')) }}
     {{ HTML::script(asset('js/public/master.js')) }}
     @if (Input::get('preview'))
     {{ HTML::script(asset('js/public/previewmode.js')) }}
