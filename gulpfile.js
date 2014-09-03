@@ -97,13 +97,7 @@ gulp.task('js-admin', function () {
 
     var files = bowerFiles({checkExistence: true});
     
-    files.push(
-        path.resolve() + '/app/assets/js/offcanvas.js',
-        path.resolve() + '/app/assets/js/admin/jquery.mjs.nestedSortable.js',
-        path.resolve() + '/app/assets/js/admin/jquery.nestedCookie.js',
-        path.resolve() + '/app/assets/js/admin/jquery.slug.js',
-        path.resolve() + '/app/assets/js/admin/jquery.listenhancer.js'
-    );
+    files.push(path.resolve() + '/app/assets/js/admin/*');
 
     return gulp.src(files)
         .pipe(filter([
@@ -121,8 +115,6 @@ gulp.task('js-admin', function () {
 gulp.task('js-public', function () {
 
     var files = bowerFiles({checkExistence: true});
-    
-    files.push(path.resolve() + '/app/assets/js/offcanvas.js');
 
     return gulp.src(files)
         .pipe(filter([
