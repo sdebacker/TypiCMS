@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.4.11 - 2014
+
+### Added
+- gulp plugins : imagemin, autoprefixer, newer.
+
+### Removed
+- gulp task 'all'.
+
 ## 1.4.10 - 2014-09-01
 
 ### Fixed
