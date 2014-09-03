@@ -56,15 +56,17 @@
     div { margin-left: 30px; }
     &:hover,
     &:focus {
-      text-shadow: 0 1px 0px rgba(255,255,255,.5);
-      color: #333;
+      background-color: #333;
+      color: #fff;
       transition: all .2s;
-      .icon { color: #333; }
+      .icon { color: #fff; transition: all .2s; }
     }
     &:active {
+      transition: all 0s;
+      background-color: #ddd;
       text-shadow: 0 0 30px rgba(0,0,0,.9);
       color: #000;
-      .icon { color: #000; }
+      .icon { color: #000; transition: all 0s; }
     }
   }
   > .active > a,
@@ -72,7 +74,7 @@
   > .active > a:focus {
     text-shadow: 0 -1px 0px rgba(0,0,0,.5);
     color: #fff;
-    background-color: #428bca;
+    background-color: @brand-primary;
     .icon { color: #eee; }
   }
 }
