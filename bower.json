@@ -12,7 +12,8 @@
     "selectize": "~0.*",
     "pickadate": "~3.5.2",
     "fastclick": "~1.0.2",
-    "jsurl": "*"
+    "jsurl": "*",
+    "tinymce": "~4.1.4"
   },
   "overrides": {
     "fancybox": {
