@@ -137,7 +137,7 @@ gulp.task('js-admin', function () {
 
 gulp.task('js-public', function () {
 
-    var destDir = 'public/js/admin/',
+    var destDir = 'public/js/public/',
         destFile = 'components.min.js',
         files = bowerFiles({checkExistence: true});
 
