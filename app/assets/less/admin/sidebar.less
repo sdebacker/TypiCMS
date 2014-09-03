@@ -61,14 +61,12 @@
       transition: all .2s;
       .icon { color: #fff; transition: all .2s; }
     }
-    @media (min-width: @screen-md-min) {
-      &:active {
-        transition: all 0s;
-        background-color: #ddd;
-        text-shadow: 0 0 30px rgba(0,0,0,.9);
-        color: #000;
-        .icon { color: #000; transition: all 0s; }
-      }
+    &:active {
+      transition: all 0s;
+      background-color: #ddd;
+      text-shadow: 0 0 30px rgba(0,0,0,.9);
+      color: #000;
+      .icon { color: #000; transition: all 0s; }
     }
   }
   > .active > a,
