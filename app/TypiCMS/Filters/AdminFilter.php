@@ -5,6 +5,7 @@ use Lang;
 use Input;
 use Config;
 use Session;
+use JavaScript;
 
 /**
 * Public filter
@@ -27,5 +28,10 @@ class AdminFilter
         Config::set('app.locale', Session::get('locale', Config::get('app.locale')));
         // Set Translator locale to typicms.adminLocale config
         Lang::setLocale(Config::get('typicms.adminLocale'));
+        // Set Locales to JS.
+        JavaScript::put([
+            'adminLocale' => Config::get('typicms.adminLocale'),
+            'locales'     => Config::get('app.locales'),
+        ]);
     }
 }

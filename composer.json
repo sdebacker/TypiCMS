@@ -26,7 +26,8 @@
 		"thomaswelton/laravel-gravatar": "0.*",
 		"cviebrock/image-validator": "1.0.*",
 		"jenssegers/rollbar": "1.*",
-		"roumen/sitemap": "2.4.*"
+		"roumen/sitemap": "2.4.*",
+		"laracasts/utilities": "1.*"
 	},
 	"require-dev": {
 		"way/generators": "2.*",

@@ -154,6 +154,7 @@ return array(
 		'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
 		'Jenssegers\Rollbar\RollbarServiceProvider',
 		'Roumen\Sitemap\SitemapServiceProvider',
+		'Laracasts\Utilities\UtilitiesServiceProvider',
 
 		'TypiCMS\Providers\StartProvider',
 		'TypiCMS\Providers\UploadServiceProvider',
