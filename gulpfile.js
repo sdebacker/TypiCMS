@@ -27,7 +27,6 @@ gulp.task('less-public', function () {
         destFile = 'public.css';
 
     return gulp.src('app/assets/less/public/master.less')
-        .pipe(newer(destDir + destFile))
         .pipe(less())
         .on('error', swallowError)
         .pipe(prefix())
@@ -45,7 +44,6 @@ gulp.task('less-admin', function () {
         destFile = 'admin.css';
 
     return gulp.src('app/assets/less/admin/master.less')
-        .pipe(newer(destDir + destFile))
         .pipe(less())
         .on('error', swallowError)
         .pipe(prefix())
