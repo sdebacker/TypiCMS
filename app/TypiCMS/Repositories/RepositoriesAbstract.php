@@ -1,14 +1,13 @@
 <?php
 namespace TypiCMS\Repositories;
 
+use Illuminate\Database\Eloquent\Model;
 use StdClass;
 use DB;
 use Str;
 use App;
 use Config;
 use TypiCMS\Modules\Pages\Models\Page;
-use TypiCMS\Repositories\RepositoryInterface;
-use TypiCMS\Modules\Galleries\Repositories\GalleryInterface;
 
 abstract class RepositoriesAbstract implements RepositoryInterface
 {
@@ -22,7 +21,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
 
     /**
      * get empty model
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return Model
      */
     public function getModel()
     {
@@ -61,7 +60,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * regardless of status
      *
      * @param  int       $id model ID
-     * @return stdObject object of model information
+     * @return Model
      */
     public function byId($id, array $with = array('translations'))
     {
@@ -380,7 +379,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Sync tags for model
      *
-     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  Model $model
      * @param  array                               $tags
      * @return false|null false or void
      */
@@ -407,7 +406,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Sync related items for model
      *
-     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @param  Model $model
      * @param  array                               $data
      * @param  string                              $table
      * @return false|null
