@@ -47,8 +47,8 @@
                     </div>
                     {{ $errors->first($lang.'.slug', '<p class="help-block">:message</p>') }}
                 </div>
-                <div class="form-group">
-                    <label class="checkbox">
+                <div class="checkbox">
+                    <label>
                         {{ Form::checkbox($lang.'[status]', 1, $model->translate($lang)->status) }} @lang('validation.attributes.online')
                     </label>
                 </div>

@@ -28,7 +28,7 @@ function enableTableCheckboxes() {
 						table.find('tbody ' + selector + ':nth-child(' + col + ')' + selector2 + ' input:checkbox:not(:disabled)').prop('checked', checkedStatus);
 					})
 				;
-				table.find(selectorHeadingCells + ':eq(' + index + ')' + selectorHeadingCells2).wrapInner('<label class="checkbox" />').children('label').prepend(checkbox);
+				table.find(selectorHeadingCells + ':eq(' + index + ')' + selectorHeadingCells2).wrapInner('<label />').wrapInner('<div class="checkbox" />').find('label').prepend(checkbox);
 			}
 		});
 	};

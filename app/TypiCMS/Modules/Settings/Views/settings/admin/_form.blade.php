@@ -17,8 +17,8 @@
                 {{ Form::text($lang.'[websiteTitle]', null, array('class' => 'form-control')) }}
             </div>
         </div>
-        <div class="col-sm-3 form-group">
-            <label class="checkbox">
+        <div class="col-sm-3 checkbox">
+            <label>
                 {{ Form::checkbox($lang.'[status]', 1) }} @lang('validation.attributes.online')
             </label>
         </div>
@@ -55,19 +55,19 @@
     {{ Form::text('googleAnalyticsCode', null, array('class' => 'form-control')) }}
 </div>
 @if (Config::get('app.locale_in_url'))
-<div class="form-group">
-    <label class="checkbox">
+<div class="checkbox">
+    <label>
         {{ Form::checkbox('langChooser', 1) }} {{ trans('validation.attributes.langChooser') }}
     </label>
 </div>
 @endif
-<div class="form-group">
-    <label class="checkbox">
+<div class="checkbox">
+    <label>
         {{ Form::checkbox('authPublic', 1) }} {{ trans('validation.attributes.authPublic') }}
     </label>
 </div>
-<div class="form-group">
-    <label class="checkbox">
+<div class="checkbox">
+    <label>
         {{ Form::checkbox('register', 1) }} {{ trans('validation.attributes.registration allowed') }}
     </label>
 </div>

@@ -63,8 +63,8 @@
 
                 {{ Form::hidden($lang.'[uri]') }}
 
-                <div class="form-group">
-                    <label class="checkbox">
+                <div class="checkbox">
+                    <label>
                         {{ Form::checkbox($lang.'[status]', 1, $model->translate($lang)->status) }} @lang('validation.attributes.online')
                     </label>
                 </div>
@@ -127,26 +127,26 @@
     {{-- Options --}}
     <div class="tab-pane fade in" id="tab-options">
 
-        <div class="form-group">
-            <label class="checkbox">
+        <div class="checkbox">
+            <label>
                 {{ Form::checkbox('rss_enabled') }} @lang('validation.attributes.rss_enabled')
             </label>
         </div>
 
-        <div class="form-group">
-            <label class="checkbox">
+        <div class="checkbox">
+            <label>
                 {{ Form::checkbox('comments_enabled') }} @lang('validation.attributes.comments_enabled')
             </label>
         </div>
 
-        <div class="form-group">
+        <div class="checkbox">
             @if ($model->is_home)
-                <label class="checkbox text-muted">
+                <label class="text-muted">
                     {{ Form::checkbox('is_home', null, null, array('disabled', 'disabled')) }} @lang('validation.attributes.is_home')
                     {{ Form::hidden('is_home') }}
                 </label>
             @else
-                <label class="checkbox">
+                <label>
                     {{ Form::checkbox('is_home') }} @lang('validation.attributes.is_home')
                 </label>
             @endif

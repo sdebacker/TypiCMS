@@ -43,8 +43,8 @@
 
             <fieldset class="col-sm-6" id="{{ $lang }}">
                 <legend>{{ trans('global.languages.'.$lang) }}</legend>
-                <div class="form-group">
-                    <label class="checkbox">
+                <div class="checkbox">
+                    <label>
                         {{ Form::checkbox($lang.'[status]', 1, $model->translate($lang)->status) }} @lang('validation.attributes.online')
                     </label>
                 </div>

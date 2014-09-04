@@ -24,8 +24,8 @@
 @foreach ($locales as $lang)
 
     <div class="tab-pane fade @if($locale == $lang)in active @endif" id="content-{{ $lang }}">
-        <div class="form-group">
-            <label class="checkbox">
+        <div class="checkbox">
+            <label>
                 {{ Form::checkbox($lang.'[status]', 1, $model->translate($lang)->status) }} @lang('validation.attributes.online')
             </label>
         </div>
