@@ -139,6 +139,8 @@ gulp.task('js-public', function () {
         destFile = 'components.min.js',
         files = bowerFiles({checkExistence: true});
 
+    files.push(path.resolve() + '/app/assets/js/public/*');
+
     return gulp.src(files)
         .pipe(filter([
             '**/*.js',
@@ -149,6 +151,7 @@ gulp.task('js-public', function () {
             '!sifter*',
             '!microplugin*',
             '!selectize*',
+            '!alertify*',
             '!lib/fastclick.js',
             '!dropzone*'
         ]))
@@ -176,6 +179,7 @@ gulp.task('default', [
     'less-admin',
     'js-public',
     'js-admin',
+    'img',
     'fonts',
     'pickadate-locales',
     'fancybox-img',
