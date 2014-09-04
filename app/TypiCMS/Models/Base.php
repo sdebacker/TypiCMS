@@ -10,6 +10,16 @@ use Eloquent;
 abstract class Base extends Eloquent
 {
     /**
+     * Translate method
+     * @param  string $lang
+     * @return $this
+     */
+    public function translate($lang = null)
+    {
+        return $this;
+    }
+
+    /**
      * For testing
      */
     public static function shouldReceive()
@@ -135,6 +145,8 @@ abstract class Base extends Eloquent
                     $query->where('slug', '!=', '');
                 }
             );
+        } else {
+            return $query->where('status', 1)->where('slug', '!=', '');
         }
     }
 
