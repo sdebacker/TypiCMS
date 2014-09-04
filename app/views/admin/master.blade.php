@@ -37,12 +37,6 @@
 
         <div class="@section('mainClass')col-xs-12 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main @show">
 
-            <script type="text/javascript">
-                {{ Notification::showError('alertify.error(\':message\');') }}
-                {{ Notification::showInfo('alertify.log(\':message\');') }}
-                {{ Notification::showSuccess('alertify.success(\':message\');') }}
-            </script>
-
             @section('page-header')
                 
                 @section('breadcrumbs')
@@ -65,6 +59,12 @@
         </div>
 
         @include('admin._footer')
+
+        <script type="text/javascript">
+            {{ Notification::showError('alertify.error(\':message\');') }}
+            {{ Notification::showInfo('alertify.log(\':message\');') }}
+            {{ Notification::showSuccess('alertify.success(\':message\');') }}
+        </script>
 
     </div>
 
