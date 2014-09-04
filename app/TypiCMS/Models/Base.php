@@ -124,16 +124,18 @@ abstract class Base extends Eloquent
      */
     public function scopeWhereHasOnlineTranslation($query)
     {
-        return $query->whereHas(
-            'translations',
-            function ($query) {
-                if (! Input::get('preview')) {
-                    $query->where('status', 1);
+        if (method_exists($this, 'translations')) {
+            return $query->whereHas(
+                'translations',
+                function ($query) {
+                    if (! Input::get('preview')) {
+                        $query->where('status', 1);
+                    }
+                    $query->where('locale', App::getLocale());
+                    $query->where('slug', '!=', '');
                 }
-                $query->where('locale', App::getLocale());
-                $query->where('slug', '!=', '');
-            }
-        );
+            );
+        }
     }
 
     /**
