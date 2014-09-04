@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "665184bc50d6b449b62dcec392b428ef",
+    "hash": "6601ed363aba0ddc2773e99a57fb723b",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -399,16 +399,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v4.3",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "6abe7c7fca6db7580602fd27545a95881befa8e6"
+                "reference": "46f2284c7f8b9c2ec02fc30c952b9bf32f29c3e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/6abe7c7fca6db7580602fd27545a95881befa8e6",
-                "reference": "6abe7c7fca6db7580602fd27545a95881befa8e6",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/46f2284c7f8b9c2ec02fc30c952b9bf32f29c3e7",
+                "reference": "46f2284c7f8b9c2ec02fc30c952b9bf32f29c3e7",
                 "shasum": ""
             },
             "require": {
@@ -446,7 +446,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2014-08-21 08:38:28"
+            "time": "2014-09-04 19:04:56"
         },
         {
             "name": "edvinaskrucas/notification",
@@ -2764,16 +2764,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.7.0",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "fc9cdb53f657c978f3a17bbac84035b83e47baf0"
+                "reference": "c092d6a79be56280935a57170cce1e626f5e8105"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/fc9cdb53f657c978f3a17bbac84035b83e47baf0",
-                "reference": "fc9cdb53f657c978f3a17bbac84035b83e47baf0",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c092d6a79be56280935a57170cce1e626f5e8105",
+                "reference": "c092d6a79be56280935a57170cce1e626f5e8105",
                 "shasum": ""
             },
             "require": {
@@ -2811,7 +2811,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-09-03 09:22:14"
+            "time": "2014-09-04 12:50:52"
         },
         {
             "name": "maximebf/debugbar",
