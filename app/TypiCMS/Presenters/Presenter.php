@@ -42,9 +42,14 @@ abstract class Presenter
     */
     public function status()
     {
-        $class = ($this->entity->status) ? 'online' : 'offline' ;
+        $class  = 'off';
+        $status = 'Offline';
+        if ($this->entity->status) {
+            $class  = 'on';
+            $status = 'Online';
+        }
 
-        return '<span class="switch ' . $class . '">' . trans('global.En ligne/Hors ligne') . '</span>';
+        return '<span class="switch fa fa-fw fa-toggle-' . $class . '"><i class="sr-only">' . trans('global.' . $status) . '</i></span>';
     }
 
     /**

@@ -82,8 +82,7 @@ function initListForm() {
         contentLocale = listForm.attr('lang'),
         switches = $('.switch').css('cursor', 'pointer'),
         btnDelete = $('#btnDelete'),
-        btnOnline = $('#btnOnline'),
-        btnOffline = $('#btnOffline'),
+        btnOnOff = $('#btnOnline, #btnOffline'),
         nbElementItem = $('#nb_elements');
 
     // Enable delete checkboxes
@@ -124,73 +123,47 @@ function initListForm() {
 
     });
 
-    // Enable online button
+    var statuses = [
+        { 'class': 'fa-toggle-off', 'label': 'offline' },
+        { 'class': 'fa-toggle-on', 'label': 'online' },
+    ];
+
+    /**
+     * Enable online / offline switches
+     */
     switches.click(function(){
         var id = $(this).closest('li,tr').attr('id').split('_')[1],
-            status = $(this).hasClass('online') ? 'online' : 'offline' ,
-            newStatus = $(this).hasClass('online') ? 'offline' : 'online' ,
-            newStatusValue = $(this).hasClass('online') ? 0 : 1 ,
+            oldStatus = $(this).hasClass(statuses[0].class) ? 0 : 1 ,
+            newStatus = Math.abs(oldStatus - 1),
             data = {};
         data['id'] = id;
         if (contentLocale) {
-            data[contentLocale] = {'status' : newStatusValue};
+            data[contentLocale] = {'status' : newStatus};
         } else {
-            data['status'] = newStatusValue;
+            data['status'] = newStatus;
         }
-        $(this).removeClass(status).addClass(newStatus);
+        $(this).removeClass(statuses[oldStatus].class).addClass(statuses[newStatus].class);
         $.ajax({
             type: 'PATCH',
             url: document.URL.split('?')[0] + '/' + id,
             data: data
         }).done(function(){
-            alertify.success('Item set ' + newStatus + '.');
+            alertify.success('Item set ' + statuses[newStatus].label + '.');
         }).fail(function(){
-            alertify.error('Item couldn’t be set ' + newStatus + '.');
+            alertify.error('Item couldn’t be set ' + statuses[newStatus].label + '.');
         });
     });
 
 
-    // Enable online checkboxes
-    btnOnline.click(function(){
-        var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
-            nombreElementsTraites = 0,
-            nombreElementsSelectionnes = checkedCheckboxes.length,
-            url = cleanUrl();
-
-
-        checkedCheckboxes.each(function(){
-            var id = $(this).val(),
-                statusSwitch = $('#item_' + id + ' .switch'),
-                checkbox = $(this),
-                data = {};
-            data['id'] = id;
-
-            if (contentLocale) {
-                data[contentLocale] = {'status' : 1};
-            } else {
-                data['status'] = 1;
-            }
-
-            $.ajax({
-                type: 'PATCH',
-                url: url + '/' + id,
-                data: data
-            }).done(function(){
-                statusSwitch.removeClass('offline').addClass('online');
-                checkbox.prop({'checked':false});
-                nombreElementsTraites++;
-                if (nombreElementsSelectionnes == nombreElementsTraites) {
-                    alertify.success(nombreElementsSelectionnes + ' items set online.');
-                    $(':checkbox').change();
-                }
-            }).fail(function(){
-                alertify.error('Item couldn’t be set online.');
-            });
-        });
-    });
-
-    // Enable offline checkboxes
-    btnOffline.click(function(){
+    /**
+     * Enable online / offline submit buttons
+     */
+    btnOnOff.click(function(){
+        console.log(this.id);
+        var newStatus = 0;
+        if (this.id == 'btnOnline') {
+            newStatus = 1;
+        }
         var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
             nombreElementsTraites = 0,
             nombreElementsSelectionnes = checkedCheckboxes.length,
@@ -199,14 +172,20 @@ function initListForm() {
         checkedCheckboxes.each(function(){
             var id = $(this).val(),
                 statusSwitch = $('#item_' + id + ' .switch'),
+                oldStatus = statusSwitch.hasClass(statuses[0].class) ? 0 : 1,
                 checkbox = $(this),
                 data = {};
             data['id'] = id;
 
+            if (oldStatus == newStatus) {
+                nombreElementsSelectionnes--;
+                checkbox.prop({'checked':false});
+            }
+
             if (contentLocale) {
-                data[contentLocale] = {'status' : 0};
+                data[contentLocale] = {'status' : newStatus};
             } else {
-                data['status'] = 0;
+                data['status'] = newStatus;
             }
 
             $.ajax({
@@ -214,15 +193,15 @@ function initListForm() {
                 url: url + '/' + id,
                 data: data
             }).done(function(){
-                statusSwitch.removeClass('online').addClass('offline');
+                statusSwitch.removeClass(statuses[oldStatus].class).addClass(statuses[newStatus].class);
                 checkbox.prop({'checked':false});
                 nombreElementsTraites++;
                 if (nombreElementsSelectionnes == nombreElementsTraites) {
-                    alertify.success(nombreElementsSelectionnes + ' items set offline.');
+                    alertify.success(nombreElementsSelectionnes + ' items set ' + statuses[newStatus].label + '.');
                     $(':checkbox').change();
                 }
             }).fail(function(){
-                alertify.error('Item couldn’t be set offline.');
+                alertify.error('Item couldn’t be set ' + statuses[newStatus].label + '.');
             });
         });
     });

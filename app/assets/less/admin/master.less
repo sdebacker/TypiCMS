@@ -105,25 +105,23 @@ h1 { margin-top: 0; }
     }
   }
   form { display: inline-block; }
-  .switch {
-    display: inline-block;
-    width: 22px;
-    text-indent: -9999px;
-    background: no-repeat url(../../../img/switch-xs.png);
-    margin-left: 5px;
-  }
-  .switch.offline {
-    background-position: 0 -22px;
-  }
 }
 
+// Online offline switch
+.switch {
+  font-size: 20px !important;
+  color: @brand-primary;
+}
+.switch.fa-toggle-off {
+  color: @gray-light;
+}
+
+// table
 .table-main {
   th { white-space: nowrap; }
-  .switch { display: inline-block; width: 22px; text-indent: -9999px; background: no-repeat 0 2px url(../../../img/switch-xs.png); margin-left: 5px; }
-  .switch.offline { background-position: 0 -20px; }
   .checkboxes { width: 30px; }
   .edit { width: 50px; }
-  .status { width: 70px; }
+  .status { width: 50px; }
   .date,
   .start_date,
   .end_date { width: 160px; }

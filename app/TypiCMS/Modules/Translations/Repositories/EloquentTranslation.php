@@ -90,18 +90,4 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
 
         return true;
     }
-
-    /**
-     * Delete model
-     *
-     * @return boolean
-     */
-    public function delete($model)
-    {
-        if ($model->delete()) {
-            return true;
-        }
-
-        return false;
-    }
 }

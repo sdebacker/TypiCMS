@@ -54,7 +54,7 @@
                         <td>{{ $model->present()->checkbox }}</td>
                         <td>{{ $model->present()->edit }}</td>
                         <td>{{ $model->position }}</td>
-                        <td>{{ $model->present()->thumb(null, 24) }}</td>
+                        <td>{{ $model->present()->thumb(null, 22) }}</td>
                         <td>{{ $model->filename }}</td>
                         <td>{{ $model->alt_attribute }}</td>
                         <td>{{ $model->width }} × {{ $model->height }}</td>
