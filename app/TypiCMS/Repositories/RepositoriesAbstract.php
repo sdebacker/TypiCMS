@@ -1,12 +1,12 @@
 <?php
 namespace TypiCMS\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
-use StdClass;
 use DB;
 use Str;
 use App;
 use Config;
+use StdClass;
+use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Modules\Pages\Models\Page;
 
 abstract class RepositoriesAbstract implements RepositoryInterface
