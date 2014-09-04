@@ -148,7 +148,6 @@ gulp.task('js-public', function () {
             '!picker*',
             '!sifter*',
             '!microplugin*',
-            '!alertify*',
             '!selectize*',
             '!lib/fastclick.js',
             '!dropzone*'
