@@ -18,7 +18,6 @@ class AdminController extends BaseAdminController
     {
         parent::__construct($menulink, $menulinkform);
         $this->title['parent'] = Lang::choice('menulinks::global.menulinks', 2);
-        // $this->model = $menulink;
     }
 
     /**

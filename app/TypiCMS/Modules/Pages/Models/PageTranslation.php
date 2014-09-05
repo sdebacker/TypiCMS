@@ -50,7 +50,6 @@ class PageTranslation extends Eloquent
             if ($model->slug != $original['slug']) {
 
                 // Update page URI
-                // $slug = $model->slug;
                 $array = explode('/', $model->uri);
                 array_pop($array);
                 $array[] = $model->slug;

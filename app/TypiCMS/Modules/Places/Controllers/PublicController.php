@@ -68,7 +68,6 @@ class PublicController extends BasePublicController
 
         TypiCMS::setModel($model);
 
-        // dd($model->toJson());
         if (Request::wantsJson()) {
             return Response::json($model, 200);
         }

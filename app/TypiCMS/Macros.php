@@ -80,7 +80,7 @@ HTML::macro('languagesMenu', function (array $langsArray = array(), array $attri
  * Front end menu
  */
 HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) use (&$builtMenu) {
-    // dd($items);
+
     $menuList = array('<ul ' . HTML::attributes($ulAttr) . '>');
 
     foreach ($items as $item) {

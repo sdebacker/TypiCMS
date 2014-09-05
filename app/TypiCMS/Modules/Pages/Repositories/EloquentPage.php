@@ -58,7 +58,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         $pages = DB::table('page_translations')
                    ->select('page_id', 'locale', 'uri', 'slug')
                    ->get();
-        // var_dump($pages);
         $urisAndSlugs = array();
         foreach ($pages as $page) {
             $urisAndSlugs[$page->page_id][$page->locale] = array(

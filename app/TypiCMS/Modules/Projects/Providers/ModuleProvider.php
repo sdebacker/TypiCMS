@@ -6,9 +6,6 @@ use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
 
-// Tags
-use TypiCMS\Modules\Tags\Models\TagInterface;
-
 // Models
 use TypiCMS\Modules\Projects\Models\Project;
 use TypiCMS\Modules\Projects\Models\ProjectTranslation;

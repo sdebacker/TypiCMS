@@ -145,7 +145,6 @@ class TypiCMS
                 $url = route('admin.' . $this->model->route . '.edit', $this->model->id);
             }
             $url .= '?locale=' . App::getLocale();
-            // $title = 'Edit ' . $this->model->title;
         }
         return HTML::link($url, $title, $attributes);
     }
