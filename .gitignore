@@ -6,7 +6,6 @@ app/assets/components
 node_modules
 .env.*.php
 .env.php
-.DS_Store
 Thumbs.db
 
 .idea
