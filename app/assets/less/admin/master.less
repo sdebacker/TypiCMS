@@ -134,14 +134,26 @@ h1 { margin-top: 0; }
 }
 
 .sortable {
-  .disclose { position: absolute; left: -15px; top: 9px; width: 10px; height: 10px; display: inline-block; background-repeat: no-repeat; }
-  .mjs-nestedSortable-branch .disclose { cursor: pointer; }
+  .disclose {
+    position: absolute;
+    left: -15px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    color: @gray-light;
+    font-family: FontAwesome;
+    display: inline-block;
+    font-size: 18px;
+  }
+  .mjs-nestedSortable-branch .disclose {
+    cursor: pointer;
+  }
   li { position: relative;
     div { cursor: move; display: block; }
   }
   li.mjs-nestedSortable-collapsed > ul { display: none; }
-  li.mjs-nestedSortable-collapsed > div > .disclose { background-image: url(../../../img/directoryCollapsed.png); }
-  li.mjs-nestedSortable-expanded > div > .disclose { background-image: url(../../../img/directory.png); }
+  li.mjs-nestedSortable-collapsed > div > .disclose::before { content: '\f0da'; }
+  li.mjs-nestedSortable-expanded > div > .disclose::before { content: '\f0d7'; }
   li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div { background: #fafafa; }
   
   li.ui-sortable-helper { border-color: transparent; }
