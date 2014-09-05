@@ -152,7 +152,7 @@ gulp.task('js-public', function () {
             '!microplugin*',
             '!selectize*',
             '!alertify*',
-            '!lib/fastclick.js',
+            '!fastclick*',
             '!dropzone*'
         ]))
         .pipe(newer(destDir + destFile))
