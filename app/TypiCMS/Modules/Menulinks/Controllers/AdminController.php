@@ -6,6 +6,7 @@ use View;
 use Input;
 use Request;
 use Redirect;
+use Response;
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
 use TypiCMS\Controllers\BaseAdminController;
@@ -107,7 +108,9 @@ class AdminController extends BaseAdminController
     public function update($menu, $model)
     {
 
-        Request::ajax() and exit($this->repository->update(Input::all()));
+        if (Request::ajax()) {
+            return Response::json($this->repository->update(Input::all()));
+        }
 
         if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ?

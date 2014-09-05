@@ -7,6 +7,7 @@ use Config;
 use Request;
 use TypiCMS;
 use Redirect;
+use Response;
 use Paginator;
 use TypiCMS\Modules\Blocks\Repositories\BlockInterface;
 use TypiCMS\Modules\Blocks\Services\Form\BlockForm;
@@ -103,7 +104,9 @@ class AdminController extends BaseAdminController
      */
     public function update($model)
     {
-        Request::ajax() and exit($this->repository->update(Input::all()));
+        if (Request::ajax()) {
+            return Response::json($this->repository->update(Input::all()));
+        }
 
         if ($this->form->update(Input::all())) {
             return Input::get('exit') ?

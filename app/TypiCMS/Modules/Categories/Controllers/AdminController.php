@@ -5,6 +5,7 @@ use View;
 use Input;
 use Request;
 use Redirect;
+use Response;
 use TypiCMS\Modules\Categories\Repositories\CategoryInterface;
 use TypiCMS\Modules\Categories\Services\Form\CategoryForm;
 use TypiCMS\Controllers\BaseAdminController;
@@ -92,7 +93,9 @@ class AdminController extends BaseAdminController
     public function update($model)
     {
 
-        Request::ajax() and exit($this->repository->update(Input::all()));
+        if (Request::ajax()) {
+            return Response::json($this->repository->update(Input::all()));
+        }
 
         if ($this->form->update(Input::all())) {
             return Input::get('exit') ?

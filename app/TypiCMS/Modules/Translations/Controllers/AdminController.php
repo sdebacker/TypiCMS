@@ -5,6 +5,7 @@ use View;
 use Input;
 use Request;
 use Redirect;
+use Response;
 use Illuminate\Support\Collection;
 use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 use TypiCMS\Modules\Translations\Services\Form\TranslationForm;
@@ -94,7 +95,9 @@ class AdminController extends BaseAdminController
     public function update($model)
     {
 
-        Request::ajax() and exit($this->repository->update(Input::all()));
+        if (Request::ajax()) {
+            return Response::json($this->repository->update(Input::all()));
+        }
 
         if ($this->form->update(Input::all())) {
             return Input::get('exit') ?
