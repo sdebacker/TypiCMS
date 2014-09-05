@@ -93,8 +93,7 @@ class AdminController extends BaseAdminController
         if ($model = $this->form->save(Input::all())) {
 
             if (Request::ajax()) {
-                echo json_encode(array('id' => $model->id));
-                exit();
+                return Response::json(['id' => $model->id]);
             }
 
             if (Input::get('exit')) {

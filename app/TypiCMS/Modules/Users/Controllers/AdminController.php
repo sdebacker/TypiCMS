@@ -281,7 +281,6 @@ class AdminController extends BaseAdminController
             $user = $this->repository->byId($userId);
             if (! $this->repository->checkResetPasswordCode($user, $resetCode)) {
                 Notification::error(trans('users::global.This password reset token is invalid'));
-
                 return Redirect::route('login');
             }
             $data = array();
@@ -292,7 +291,8 @@ class AdminController extends BaseAdminController
                 ->with($data);
 
         } catch (Exception $e) {
-            exit('users::global.User does not exist');
+            Notification::error(trans('users::global.User does not exist'));
+            return Redirect::route('login');
         }
 
     }
