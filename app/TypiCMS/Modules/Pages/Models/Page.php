@@ -144,7 +144,7 @@ class Page extends Base
     {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::creating(function (Page $model) {
             // set is_home = 0 on previous homepage
             if ($model->is_home) {
                 static::where('is_home', 1)
@@ -152,7 +152,7 @@ class Page extends Base
             }
         });
 
-        static::updating(function ($model) {
+        static::updating(function (Page $model) {
             // set is_home = 0 on previous homepage
             if ($model->is_home) {
                 static::where('is_home', 1)

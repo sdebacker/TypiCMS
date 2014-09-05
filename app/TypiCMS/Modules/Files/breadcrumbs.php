@@ -24,8 +24,10 @@ foreach ($modulesWithFiles as $module) {
     });
 
     Breadcrumbs::register('admin.' . $module . '.files.edit', function (
-        \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
-        $model, $file) use ($module) {
+            \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+            $model,
+            \TypiCMS\Modules\Files\Models\File $file
+        ) use ($module) {
         $breadcrumbs->parent('admin.' . $module . '.files.index', $model);
         $breadcrumbs->push($file->filename, route('admin.' . $module . '.index'));
     });

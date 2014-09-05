@@ -2,13 +2,15 @@
 namespace TypiCMS\Modules\Menus\Repositories;
 
 use App;
-use HTML;
-use Config;
-use Request;
 use Categories;
-use Notification;
+use Config;
 use ErrorException;
+use HTML;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Notification;
+use Request;
+use TypiCMS\Modules\Menulinks\Models\Menulink;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentMenu extends RepositoriesAbstract implements MenuInterface
@@ -34,7 +36,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
         $menus = $this->make($with)
             ->whereHas(
                 'translations',
-                function ($query) {
+                function (Builder $query) {
                     $query->where('status', 1);
                     $query->where('locale', App::getLocale());
                 }
@@ -45,7 +47,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
         foreach ($menus as $menu) {
 
             // remove offline items from each menu
-            $menu->menulinks = $menu->menulinks->filter(function ($menulink) {
+            $menu->menulinks = $menu->menulinks->filter(function (Menulink $menulink) {
                 if ($menulink->status == 1) {
                     return true;
                 }
@@ -60,8 +62,8 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     /**
      * Get a menu
      *
-     * @param  string $name       menu name
-     * @return Collection         nested collection
+     * @param  string $name menu name
+     * @return Model  $menu nested collection
      */
     public function getMenu($name)
     {

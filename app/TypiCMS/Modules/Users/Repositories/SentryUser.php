@@ -3,21 +3,22 @@ namespace TypiCMS\Modules\Users\Repositories;
 
 // Part of this code come from https://github.com/brunogaspar/laravel4-starter-kit
 
-use Mail;
-use Exception;
-use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Model;
+use Cartalyst\Sentry\Groups\GroupNotFoundException;
 use Cartalyst\Sentry\Sentry;
-use Cartalyst\Sentry\Users\UserNotFoundException;
-use Cartalyst\Sentry\Users\UserAlreadyActivatedException;
+use Cartalyst\Sentry\Throttling\UserBannedException;
+use Cartalyst\Sentry\Throttling\UserSuspendedException;
 use Cartalyst\Sentry\Users\LoginRequiredException;
 use Cartalyst\Sentry\Users\PasswordRequiredException;
-use Cartalyst\Sentry\Users\WrongPasswordException;
-use Cartalyst\Sentry\Users\UserNotActivatedException;
+use Cartalyst\Sentry\Users\UserAlreadyActivatedException;
 use Cartalyst\Sentry\Users\UserExistsException;
-use Cartalyst\Sentry\Groups\GroupNotFoundException;
-use Cartalyst\Sentry\Throttling\UserSuspendedException;
-use Cartalyst\Sentry\Throttling\UserBannedException;
+use Cartalyst\Sentry\Users\UserNotActivatedException;
+use Cartalyst\Sentry\Users\UserNotFoundException;
+use Cartalyst\Sentry\Users\WrongPasswordException;
+use Exception;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Collection;
+use Mail;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class SentryUser extends RepositoriesAbstract implements UserInterface
@@ -332,8 +333,8 @@ class SentryUser extends RepositoriesAbstract implements UserInterface
             $data['userId'] = $user->getId();
 
             // send email with link to activate.
-            Mail::send('emails.auth.welcome', $data, function ($m) use ($data) {
-                $m->to($data['email'])->subject('Welcome to Typi CMS');
+            Mail::send('emails.auth.welcome', $data, function (Message $message) use ($data) {
+                $message->to($data['email'])->subject('Welcome to Typi CMS');
             });
 
             return true;

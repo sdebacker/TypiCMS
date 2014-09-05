@@ -1,9 +1,10 @@
 <?php
 namespace TypiCMS\Modules\Blocks\Repositories;
 
-use StdClass;
 use App;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use StdClass;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentBlock extends RepositoriesAbstract implements BlockInterface
@@ -29,7 +30,7 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
             // take only translated items that are online
             $query->whereHas(
                 'translations',
-                function ($query) {
+                function (Builder $query) {
                     $query->where('status', 1);
                     $query->where('locale', App::getLocale());
                 }
@@ -58,7 +59,7 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
             ->where('name', $name)
             ->whereHas(
                 'translations',
-                function ($query) {
+                function (Builder $query) {
                     $query->where('status', 1);
                     $query->where('locale', App::getLocale());
                 }

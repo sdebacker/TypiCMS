@@ -2,17 +2,18 @@
 namespace TypiCMS\Modules\Users\Controllers;
 
 use App;
-use Mail;
-use View;
-use Input;
 use Config;
-use Request;
-use Redirect;
 use Exception;
+use Illuminate\Mail\Message;
+use Input;
+use Mail;
 use Notification;
+use Redirect;
+use Request;
+use TypiCMS\Controllers\BaseAdminController;
 use TypiCMS\Modules\Users\Repositories\UserInterface;
 use TypiCMS\Modules\Users\Services\Form\UserForm;
-use TypiCMS\Controllers\BaseAdminController;
+use View;
 
 class AdminController extends BaseAdminController
 {
@@ -253,10 +254,10 @@ class AdminController extends BaseAdminController
             $data['email'] = $email;
 
             // Email the reset code to the user
-            Mail::send('emails.auth.reset', $data, function ($m) use ($data) {
+            Mail::send('emails.auth.reset', $data, function (Message $message) use ($data) {
                 $subject  = '[' . Config::get('typicms.' . App::getLocale() . '.websiteTitle') . '] ';
                 $subject .= trans('users::global.Password Reset Confirmation');
-                $m->to($data['email'])->subject($subject);
+                $message->to($data['email'])->subject($subject);
             });
 
             Notification::success(trans('users::global.An email was sent with password reset information'));

@@ -5,6 +5,8 @@ use DB;
 use Input;
 use Config;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentPage extends RepositoriesAbstract implements PageInterface
@@ -78,10 +80,10 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     {
         $model = $this->make(['translations'])
             ->where('is_home', 0)
-            ->whereHas('translations', function ($q) use ($uri) {
-                $q->where('uri', $uri);
+            ->whereHas('translations', function (Builder $query) use ($uri) {
+                $query->where('uri', $uri);
                 if (! Input::get('preview')) {
-                    $q->where('status', 1);
+                    $query->where('status', 1);
                 }
             })
             ->withOnlineGalleries()

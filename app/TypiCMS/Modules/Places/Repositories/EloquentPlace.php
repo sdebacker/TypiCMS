@@ -1,11 +1,12 @@
 <?php
 namespace TypiCMS\Modules\Places\Repositories;
 
-use StdClass;
 use App;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Input;
 use Request;
-use Illuminate\Database\Eloquent\Model;
+use StdClass;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
@@ -74,7 +75,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
             // take only translated items that are online
             $query->whereHas(
                 'translations',
-                function ($query) {
+                function (Builder $query) {
                     $query->where('status', 1);
                     $query->where('locale', '=', App::getLocale());
                 }
@@ -99,7 +100,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * Get single model by slug
      *
      * @param  string $slug slug of model
-     * @return object model
+     * @return Model  $model
      */
     public function bySlug($slug, array $with = array('translations'))
     {
@@ -107,7 +108,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
             ->where('slug', $slug)
             ->whereHas(
                 'translations',
-                function ($query) {
+                function (Builder $query) {
                     if (! Input::get('preview')) {
                         $query->where('status', 1);
                     }

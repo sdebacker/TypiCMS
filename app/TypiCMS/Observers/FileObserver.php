@@ -4,6 +4,7 @@ namespace TypiCMS\Observers;
 use Input;
 use Croppa;
 use FileUpload;
+use Illuminate\Database\Eloquent\Model;
 
 class FileObserver
 {
@@ -11,10 +12,10 @@ class FileObserver
     /**
      * On delete, unlink files and thumbs
      *
-     * @param  model $model eloquent
+     * @param  Model $model eloquent
      * @return mixed false or void
      */
-    public function deleted($model)
+    public function deleted(Model $model)
     {
         if (! $attachments = $model->attachments) {
             return;
@@ -28,10 +29,10 @@ class FileObserver
     /**
      * On save, upload files
      *
-     * @param  model $model eloquent
+     * @param  Model $model eloquent
      * @return mixed false or void
      */
-    public function saving($model)
+    public function saving(Model $model)
     {
         if (! $attachments = $model->attachments) {
             return;
@@ -51,10 +52,10 @@ class FileObserver
     /**
      * On update, delete previous file if changed
      *
-     * @param  model $model eloquent
+     * @param  Model $model eloquent
      * @return mixed false or void
      */
-    public function updated($model)
+    public function updated(Model $model)
     {
         if (! $attachments = $model->attachments) {
             return;

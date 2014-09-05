@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Categories\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use TypiCMS\Modules\Categories\Models\Category;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
@@ -29,12 +30,12 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
 
         // Sorting of collection
         $desc = ($this->model->direction == 'desc') ? true : false ;
-        $categories = $categories->sortBy(function ($model) {
+        $categories = $categories->sortBy(function (Model $model) {
             return $model->{$this->model->order};
         }, null, $desc);
 
         $array = array('' => '');
-        $categories->each(function ($category) use (&$array) {
+        $categories->each(function (Category $category) use (&$array) {
             $array[$category->id] = $category->title;
         });
 
