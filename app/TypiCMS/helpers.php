@@ -21,7 +21,7 @@ if (! function_exists('getIdFromSlug')) {
      */
     function getIdFromSlug($module = null, $slug = null)
     {
-        if (! $module or ! $slug) {
+        if (! $module || ! $slug) {
             return false;
         }
 
@@ -46,7 +46,7 @@ if (! function_exists('getSlugsFromId')) {
      */
     function getSlugsFromId($module = null, $id = null)
     {
-        if (! $module or ! $id) {
+        if (! $module || ! $id) {
             return false;
         }
 
