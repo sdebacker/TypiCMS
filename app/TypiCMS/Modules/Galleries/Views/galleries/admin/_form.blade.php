@@ -21,7 +21,7 @@
 
         <div class="form-group @if($errors->has('name'))has-error @endif">
             {{ Form::label('name', trans('validation.attributes.name'), array('class' => 'control-label')) }}
-            {{ Form::text('name', null, array('class' => 'form-control')) }}
+            {{ Form::text('name', null, array('autofocus', 'class' => 'form-control')) }}
             {{ $errors->first('name', '<p class="help-block">:message</p>') }}
         </div>
 
@@ -35,7 +35,7 @@
             <div class="tab-pane fade @if ($locale == $lang)in active @endif" id="{{ $lang }}">
                 <div class="form-group">
                     {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
+                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group @if($errors->has($lang.'.slug'))has-error @endif">
                     {{ Form::label($lang.'[slug]', trans('validation.attributes.slug'), array('class' => 'control-label')) }}
