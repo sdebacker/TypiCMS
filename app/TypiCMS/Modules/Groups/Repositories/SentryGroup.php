@@ -1,9 +1,13 @@
 <?php
 namespace TypiCMS\Modules\Groups\Repositories;
 
-use Input;
-use Illuminate\Support\Collection;
+use Cartalyst\Sentry\Groups\GroupExistsException;
+use Cartalyst\Sentry\Groups\GroupNotFoundException;
+use Cartalyst\Sentry\Groups\NameRequiredException;
 use Cartalyst\Sentry\Sentry;
+use Cartalyst\Sentry\Users\LoginRequiredException;
+use Cartalyst\Sentry\Users\UserExistsException;
+use Illuminate\Support\Collection;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class SentryGroup extends RepositoriesAbstract implements GroupInterface
@@ -43,8 +47,8 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
                 'permissions' => $data['permissions'],
             ));
             return $model;
-        } catch (\Cartalyst\Sentry\Users\LoginRequiredException $e) {
-        } catch (\Cartalyst\Sentry\Users\UserExistsException $e) {
+        } catch (LoginRequiredException $e) {
+        } catch (UserExistsException $e) {
         }
 
         return false;
@@ -69,9 +73,9 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
             // Update the group
             $group->save();
             return true;
-        } catch (\Cartalyst\Sentry\Groups\NameRequiredException $e) {
-        } catch (\Cartalyst\Sentry\Groups\GroupExistsException $e) {
-        } catch (\Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
+        } catch (NameRequiredException $e) {
+        } catch (GroupExistsException $e) {
+        } catch (GroupNotFoundException $e) {
         }
         return false;
     }
@@ -79,7 +83,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int      $id
+     * @param  int $id
      * @return boolean
      */
     public function destroy($id)
@@ -90,7 +94,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
 
             // Delete the group
             $group->delete();
-        } catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
+        } catch (GroupNotFoundException $e) {
             return false;
         }
 
@@ -107,7 +111,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     {
         try {
             $group = $this->sentry->findGroupById($id);
-        } catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
+        } catch (GroupNotFoundException $e) {
             return false;
         }
 
@@ -124,7 +128,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     {
         try {
             $group = $this->sentry->findGroupByName($name);
-        } catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
+        } catch (GroupNotFoundException $e) {
             return false;
         }
 
