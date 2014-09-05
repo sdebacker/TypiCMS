@@ -43,6 +43,8 @@ class CacheDecorator extends CacheAbstractDecorator implements GalleryInterface
      */
     public function delete($model)
     {
+        $this->cache->flush();
+        $this->cache->flush('dashboard');
         return $this->repo->delete($model);
     }
 }
