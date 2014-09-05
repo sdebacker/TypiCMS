@@ -40,7 +40,9 @@
             @section('page-header')
                 
                 @section('breadcrumbs')
-                {{-- Breadcrumbs::renderIfExists() --}}
+                    @if (Config::get('typicms.breadcrumb'))
+                        {{ Breadcrumbs::renderIfExists() }}
+                    @endif
                 @show
 
                 <div class="page-header">
