@@ -1,4 +1,4 @@
 <?php
 return array (
-    'itemsPerPage' => 5,
+    'itemsPerPage' => 25,
 );
