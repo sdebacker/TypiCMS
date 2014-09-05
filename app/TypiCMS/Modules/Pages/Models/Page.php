@@ -84,7 +84,7 @@ class Page extends Base
         $lang = $lang ? : App::getlocale() ;
         $indexUri = Config::get('app.locale_in_url') ? '/'.$lang : '/' ;
 
-        if ($index or $this->is_home) {
+        if ($index || $this->is_home) {
             return $indexUri;
         }
 
