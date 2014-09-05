@@ -24,7 +24,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * @param  int      $page  Number of models per page
      * @param  int      $limit Results per page
      * @param  boolean  $all   Show published or all
-     * @return StdClass Object with $items and $totalItems for pagination
+     * @return StdClass Object with $items && $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
     {
@@ -42,13 +42,13 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
             ->skip($limit * ($page - 1))
             ->take($limit);
 
-        ! $all and $query->where('status', 1);
+        ! $all && $query->where('status', 1);
         $query->order();
         $models = $query->get();
 
         // Build query to get totalItems
         $queryTotal = $this->model;
-        ! $all and $queryTotal->where('status', 1);
+        ! $all && $queryTotal->where('status', 1);
 
         // Put items and totalItems in StdClass
         $result->totalItems = $queryTotal->count();
@@ -87,7 +87,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
             $query->where('longitude', '!=', '');
         }
 
-        $string and $query->where('title', 'LIKE', '%'.$string.'%');
+        $string && $query->where('title', 'LIKE', '%'.$string.'%');
 
         $query->order();
 

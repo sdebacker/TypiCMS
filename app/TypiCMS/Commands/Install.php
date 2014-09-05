@@ -54,7 +54,7 @@ class Install extends Command
 
         $this->line('Welcome to TypiCMS');
 
-        if (! $this->files->exists($environmentFile) and $this->files->exists($defaultEnvironmentFile)) {
+        if (! $this->files->exists($environmentFile) && $this->files->exists($defaultEnvironmentFile)) {
             // move default environment file so current environment will be local.
             $this->files->move($defaultEnvironmentFile, $environmentFile);
             // set environment to local

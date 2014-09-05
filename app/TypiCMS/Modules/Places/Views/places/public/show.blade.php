@@ -61,7 +61,7 @@
             </p>
         </div>
         <div class="col-sm-8">
-            @if($model->latitude and $model->longitude)
+            @if($model->latitude && $model->longitude)
                 <div id="map" class="map map-fancybox"></div>
             @endif
         </div>

@@ -115,11 +115,11 @@ abstract class Base extends Eloquent
             array('files' => function ($query) use ($all) {
                 $query->with(array('translations' => function ($query) use ($all) {
                     $query->where('locale', App::getLocale());
-                    ! $all and $query->where('status', 1);
+                    ! $all && $query->where('status', 1);
                 }));
                 $query->whereHas('translations', function ($query) use ($all) {
                     $query->where('locale', App::getLocale());
-                    ! $all and $query->where('status', 1);
+                    ! $all && $query->where('status', 1);
                 });
                 $query->orderBy('position', 'asc');
             })

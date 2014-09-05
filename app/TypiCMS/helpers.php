@@ -75,7 +75,7 @@ if (! function_exists('array_indent')) {
             $indent = '';
             if ($item->parent) {
                 $indent = '&nbsp;&nbsp;&nbsp;&nbsp;';
-                if ($parent and $parent < $item->parent) {
+                if ($parent && $parent < $item->parent) {
                     $indent .= $indent;
                 }
             }

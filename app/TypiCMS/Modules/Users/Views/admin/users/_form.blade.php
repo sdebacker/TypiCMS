@@ -67,7 +67,7 @@
         <div class="checkbox">
             <label>
                 {{ Form::hidden('activated', 0) }}
-                {{ Form::checkbox('activated', 1, isset($user) and $user->isActivated()) }} Activé
+                {{ Form::checkbox('activated', 1, isset($user) && $user->isActivated()) }} Activé
             </label>
         </div>
 
@@ -99,7 +99,7 @@
 <div class="checkbox">
     <label>
         {{ Form::hidden('permissions[superuser]', 0) }}
-        {{ Form::checkbox('permissions[superuser]', 1, isset($permissions['superuser']) and $permissions['superuser']) }} Superuser ?
+        {{ Form::checkbox('permissions[superuser]', 1, isset($permissions['superuser']) && $permissions['superuser']) }} Superuser ?
     </label>
 </div>
 @include('admin._permissions-form')

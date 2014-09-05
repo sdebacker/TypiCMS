@@ -24,7 +24,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
      * @param  boolean  $all   get published models or all
      * @param  array    $with  Eager load related models
      * @param  string   $type  file type : a,v,d,i,o
-     * @return StdClass Object with $items and $totalItems for pagination
+     * @return StdClass Object with $items && $totalItems for pagination
      */
     public function byPageFrom(
         $page = 1,
@@ -87,7 +87,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
      */
     public function create(array $data)
     {
-        if (isset($data['file']) and $data['file']) {
+        if (isset($data['file']) && $data['file']) {
             $path = 'uploads/';
             $file = FileUpload::handle($data['file'], $path);
             $data = array_merge($data, $file);
@@ -113,7 +113,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
      */
     public function update(array $data)
     {
-        if (isset($data['file']) and $data['file']) {
+        if (isset($data['file']) && $data['file']) {
             $path = 'uploads/';
             $file = FileUpload::handle($data['file'], $path);
             $data = array_merge($data, $file);

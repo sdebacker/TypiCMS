@@ -82,7 +82,7 @@ class PublicController extends BasePublicController
         // If we don’t want the lang chooser, redirect to browser language
         if (! Config::get('typicms.langChooser')) {
             $locale = substr(getenv('HTTP_ACCEPT_LANGUAGE'), 0, 2);
-            ! in_array($locale, $locales) and $locale = Config::get('app.locale');
+            ! in_array($locale, $locales) && $locale = Config::get('app.locale');
             return Redirect::to($locale);
         }
 

@@ -40,7 +40,7 @@
                             <strong>{{ $place->title }}</strong>
                         </div>
                         <div class="col-xs-3 btns">
-                        @if ($place->latitude and $place->longitude)
+                        @if ($place->latitude && $place->longitude)
                             <a class="btn-map" href="" title="{{ trans('db.Show on map') }}"><i class="fa fa-map-marker"></i><span class="sr-only">{{ trans('db.Show on map') }}</span></a>
                         @endif
                         <a href="{{ route($lang.'.places.slug', array($place->slug)) }}" title="{{ trans('db.More') }}" class="fancybox" data-fancybox-type="iframe"><span class="glyphicon glyphicon-plus"></span><span class="sr-only">{{ trans('db.More') }}</span></a>

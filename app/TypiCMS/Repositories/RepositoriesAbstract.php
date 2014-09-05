@@ -78,7 +78,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param  int      $limit Results per page
      * @param  boolean  $all   get published models or all
      * @param  array    $with  Eager load related models
-     * @return StdClass Object with $items and $totalItems for pagination
+     * @return StdClass Object with $items && $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
     {
@@ -274,7 +274,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     public function sort(array $data)
     {
 
-        if (isset($data['nested']) and $data['nested']) {
+        if (isset($data['nested']) && $data['nested']) {
 
             $position = 0;
 

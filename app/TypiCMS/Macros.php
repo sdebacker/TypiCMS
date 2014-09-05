@@ -86,7 +86,7 @@ HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) 
     foreach ($items as $item) {
 
         $liAttr = array();
-        $item->class and $liAttr['class'] = $item->class;
+        $item->class && $liAttr['class'] = $item->class;
         $liAttr['role'] = 'menuitem';
 
         // item
@@ -97,7 +97,7 @@ HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) 
             $aAttr['class'] = 'dropdown-toggle';
             $aAttr['data-toggle'] = 'dropdown';
         }
-        $item->target and $aAttr['target'] = $item->target;
+        $item->target && $aAttr['target'] = $item->target;
         $aAttr['href'] = $item->uri;
 
         $menuList[] = '<a ' . HTML::attributes($aAttr) . '>';
@@ -105,7 +105,7 @@ HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) 
             $menuList[] = '<span class="'.$item->icon_class.'"></span>';
         }
         $menuList[] = $item->title;
-        $item->children and $menuList[] = '<span class="caret"></span>';
+        $item->children && $menuList[] = '<span class="caret"></span>';
         $menuList[] = '</a>';
 
         // nested list

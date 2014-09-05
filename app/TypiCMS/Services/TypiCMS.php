@@ -80,7 +80,7 @@ class TypiCMS
     */
     private function getTranslatedUrl($lang)
     {
-        if ($this->model and $this->model->id) {
+        if ($this->model && $this->model->id) {
             return $this->model->getPublicUri(false, false, $lang);
         }
         if ($routeName = Route::current()->getUri() != '/') {

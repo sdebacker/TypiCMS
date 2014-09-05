@@ -59,7 +59,7 @@
 
         <div class="clearfix well media @if($errors->has('file'))has-error @endif">
             <!-- There is a file -->
-            @if(isset($model->filename) and $model->filename)
+            @if(isset($model->filename) && $model->filename)
             <div>
                 @if ($model->type == 'i')
                 {{ $model->present()->thumb(null, 100, [], 'filename') }}
