@@ -8,6 +8,7 @@ use Cartalyst\Sentry\Sentry;
 use Cartalyst\Sentry\Users\LoginRequiredException;
 use Cartalyst\Sentry\Users\UserExistsException;
 use Illuminate\Support\Collection;
+use Input;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class SentryGroup extends RepositoriesAbstract implements GroupInterface
