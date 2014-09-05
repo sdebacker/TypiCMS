@@ -9,7 +9,6 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 class EloquentFile extends RepositoriesAbstract implements FileInterface
 {
 
-    // Class expects an Eloquent model
     public function __construct(Model $model)
     {
         $this->model = $model;

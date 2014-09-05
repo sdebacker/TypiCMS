@@ -8,7 +8,6 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
 {
 
-    // Class expects an Eloquent model
     public function __construct(Model $model)
     {
         $this->model = $model;

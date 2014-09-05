@@ -10,7 +10,6 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 class EloquentTag extends RepositoriesAbstract implements TagInterface
 {
 
-    // Class expects an Eloquent model
     public function __construct(Model $model)
     {
         $this->model = $model;

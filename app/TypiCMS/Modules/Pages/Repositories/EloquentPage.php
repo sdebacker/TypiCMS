@@ -13,7 +13,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     protected $urisAndSlugs = array();
     protected $flatUris = array();
 
-    // Class expects an Eloquent model
     public function __construct(Model $model)
     {
         parent::__construct();

@@ -7,7 +7,6 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 class EloquentGallery extends RepositoriesAbstract implements GalleryInterface
 {
 
-    // Class expects an Eloquent model
     public function __construct(Model $model)
     {
         $this->model = $model;

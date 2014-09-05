@@ -8,7 +8,6 @@ use TypiCMS\Services\Cache\CacheInterface;
 class CacheDecorator extends CacheAbstractDecorator implements TranslationInterface
 {
 
-    // Class expects a repo and a cache interface
     public function __construct(TranslationInterface $repo, CacheInterface $cache)
     {
         $this->repo = $repo;

@@ -8,7 +8,6 @@ use TypiCMS\Services\Cache\CacheInterface;
 class CacheDecorator extends CacheAbstractDecorator implements BlockInterface
 {
 
-    // Class expects a repo and a cache interface
     public function __construct(BlockInterface $repo, CacheInterface $cache)
     {
         $this->repo = $repo;

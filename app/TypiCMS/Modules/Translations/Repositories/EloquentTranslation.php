@@ -8,7 +8,6 @@ use TypiCMS\Repositories\RepositoriesAbstract;
 class EloquentTranslation extends RepositoriesAbstract implements TranslationInterface
 {
 
-    // Class expects an Eloquent model
     public function __construct(Model $model)
     {
         $this->model = $model;
