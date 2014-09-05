@@ -7,6 +7,9 @@ All notable changes to TypiCMS will be documented in this file.
 - Gulp plugins : imagemin, autoprefixer, newer.
 - Bootstrap 3.2.
 
+### Changed
+- In admin interface, alerts are now on right bottom of screen.
+
 ### Removed
 - Gulp task 'all'.
 
