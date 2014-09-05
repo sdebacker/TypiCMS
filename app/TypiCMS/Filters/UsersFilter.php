@@ -2,14 +2,14 @@
 namespace TypiCMS\Filters;
 
 use App;
-use Config;
-use Request;
-use Redirect;
-use Response;
-use Notification;
-use Sentry;
-use Cartalyst\Sentry\Users\UserNotFoundException;
 use Cartalyst\Sentry\Groups\GroupNotFoundException;
+use Cartalyst\Sentry\Users\UserNotFoundException;
+use Config;
+use Notification;
+use Redirect;
+use Request;
+use Response;
+use Sentry;
 
 /**
 * Users and visitors related filters
@@ -54,7 +54,7 @@ class UsersFilter
     /**
      * User has access to a route ?
      */
-    public function hasAccess($route, $request, $value = null)
+    public function hasAccess(\Illuminate\Routing\Route $route, $request, $value = null)
     {
         $value = ($value) ? : $route->getName() ;
         try {

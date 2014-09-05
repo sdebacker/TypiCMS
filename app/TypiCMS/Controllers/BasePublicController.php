@@ -35,7 +35,7 @@ abstract class BasePublicController extends Controller
         $this->applicationName = Config::get('typicms.' . App::getLocale() . '.websiteTitle');
 
         $instance = $this;
-        View::composer($this->layout, function ($view) use ($instance) {
+        View::composer($this->layout, function (\Illuminate\View\View $view) use ($instance) {
             $view->withTitle(Utf8::ucfirst(implode(' ', $instance->title)) . ' – ' . $instance->applicationName);
         });
 

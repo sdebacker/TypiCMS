@@ -1,12 +1,12 @@
 <?php
 namespace TypiCMS\Controllers;
 
-use Lang;
-use View;
 use Config;
-use Request;
 use Controller;
+use Lang;
 use Patchwork\Utf8;
+use Request;
+use View;
 
 abstract class BaseAdminController extends Controller
 {
@@ -38,7 +38,7 @@ abstract class BaseAdminController extends Controller
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
 
         $instance = $this;
-        View::composer($this->layout, function ($view) use ($instance) {
+        View::composer($this->layout, function (\Illuminate\View\View $view) use ($instance) {
             $view->with('title', $instance->getTitle());
             $view->with('h1', $instance->getH1());
         });

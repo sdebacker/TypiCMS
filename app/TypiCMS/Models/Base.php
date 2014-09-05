@@ -2,10 +2,11 @@
 namespace TypiCMS\Models;
 
 use App;
-use Route;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Input;
 use Mockery;
-use Eloquent;
+use Route;
 
 abstract class Base extends Eloquent
 {
@@ -105,19 +106,19 @@ abstract class Base extends Eloquent
     /**
      * Attach files to model
      *
-     * @param $query
-     * @param boolean All : all models or online models
-     * @return Illuminate\Database\Eloquent\Builder $query
+     * @param  Builder $query
+     * @param  boolean $all : all models or online models
+     * @return Builder $query
      */
-    public function scopeFiles($query, $all = false)
+    public function scopeFiles(Builder $query, $all = false)
     {
         return $query->with(
-            array('files' => function ($query) use ($all) {
-                $query->with(array('translations' => function ($query) use ($all) {
+            array('files' => function (Builder $query) use ($all) {
+                $query->with(array('translations' => function (Builder $query) use ($all) {
                     $query->where('locale', App::getLocale());
                     ! $all && $query->where('status', 1);
                 }));
-                $query->whereHas('translations', function ($query) use ($all) {
+                $query->whereHas('translations', function (Builder $query) use ($all) {
                     $query->where('locale', App::getLocale());
                     ! $all && $query->where('status', 1);
                 });
@@ -129,15 +130,15 @@ abstract class Base extends Eloquent
     /**
      * Get models that have online non empty translation
      *
-     * @param $query
-     * @return Illuminate\Database\Eloquent\Builder $query
+     * @param  Builder $query
+     * @return Builder $query
      */
-    public function scopeWhereHasOnlineTranslation($query)
+    public function scopeWhereHasOnlineTranslation(Builder $query)
     {
         if (method_exists($this, 'translations')) {
             return $query->whereHas(
                 'translations',
-                function ($query) {
+                function (Builder $query) {
                     if (! Input::get('preview')) {
                         $query->where('status', 1);
                     }
@@ -153,10 +154,10 @@ abstract class Base extends Eloquent
     /**
      * Get online galleries
      *
-     * @param $query
-     * @return Illuminate\Database\Eloquent\Builder $query
+     * @param  Builder $query
+     * @return Builder $query
      */
-    public function scopeWithOnlineGalleries($query)
+    public function scopeWithOnlineGalleries(Builder $query)
     {
         if (! method_exists($this, 'galleries')) {
             return $query;
@@ -165,10 +166,10 @@ abstract class Base extends Eloquent
             array(
                 'galleries.translations',
                 'galleries.files.translations',
-                'galleries' => function ($query) {
+                'galleries' => function (Builder $query) {
                     $query->whereHas(
                         'translations',
-                        function ($query) {
+                        function (Builder $query) {
                             $query->where('status', 1);
                             $query->where('locale', App::getLocale());
                         }
@@ -181,10 +182,10 @@ abstract class Base extends Eloquent
     /**
      * Order items according to GET value or model value, default is id asc
      *
-     * @param $query
-     * @return Illuminate\Database\Eloquent\Builder $query
+     * @param  Builder $query
+     * @return Builder $query
      */
-    public function scopeOrder($query)
+    public function scopeOrder(Builder $query)
     {
         $order = Input::get('order', $this->order) ? : 'id' ;
         $direction = Input::get('direction', $this->direction) ? : 'asc' ;
