@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Blocks\Models\Block;
@@ -39,7 +40,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Blocks\Repositories\BlockInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Blocks\Repositories\BlockInterface', function (Application $app) {
             $repository = new EloquentBlock(new Block);
             if (! Config::get('app.cache')) {
                 return $repository;
@@ -49,7 +50,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Blocks\Services\Form\BlockForm', function ($app) {
+        $app->bind('TypiCMS\Modules\Blocks\Services\Form\BlockForm', function (Application $app) {
             return new BlockForm(
                 new BlockFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Blocks\Repositories\BlockInterface')

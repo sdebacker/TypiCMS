@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Models
 use TypiCMS\Modules\News\Models\News;
@@ -48,7 +49,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\News\Repositories\NewsInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\News\Repositories\NewsInterface', function (Application $app) {
             $repository = new EloquentNews(new News);
             if (! Config::get('app.cache')) {
                 return $repository;
@@ -58,7 +59,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\News\Services\Form\NewsForm', function ($app) {
+        $app->bind('TypiCMS\Modules\News\Services\Form\NewsForm', function (Application $app) {
             return new NewsForm(
                 new NewsFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\News\Repositories\NewsInterface')

@@ -6,6 +6,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Models
 use TypiCMS\Modules\Users\Models\User;
@@ -44,13 +45,13 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function (Application $app) {
             return new SentryUser(
                 $app['sentry']
             );
         });
 
-        $app->bind('TypiCMS\Modules\Users\Services\Form\UserForm', function ($app) {
+        $app->bind('TypiCMS\Modules\Users\Services\Form\UserForm', function (Application $app) {
             return new UserForm(
                 new UserFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Users\Repositories\UserInterface')

@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Menus\Models\Menu;
@@ -39,7 +40,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Menus\Repositories\MenuInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Menus\Repositories\MenuInterface', function (Application $app) {
             $repository = new EloquentMenu(new Menu);
             if (! Config::get('app.cache')) {
                 return $repository;
@@ -49,7 +50,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Menus\Services\Form\MenuForm', function ($app) {
+        $app->bind('TypiCMS\Modules\Menus\Services\Form\MenuForm', function (Application $app) {
             return new MenuForm(
                 new MenuFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Menus\Repositories\MenuInterface')

@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Translations\Models\Translation;
@@ -39,7 +40,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Translations\Repositories\TranslationInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Translations\Repositories\TranslationInterface', function (Application $app) {
             $repository = new EloquentTranslation(
                 new Translation
             );
@@ -51,7 +52,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Translations\Services\Form\TranslationForm', function ($app) {
+        $app->bind('TypiCMS\Modules\Translations\Services\Form\TranslationForm', function (Application $app) {
             return new TranslationForm(
                 new TranslationFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Translations\Repositories\TranslationInterface')

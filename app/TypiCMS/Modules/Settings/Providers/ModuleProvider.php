@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Settings\Models\Setting;
@@ -35,7 +36,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Settings\Repositories\SettingInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Settings\Repositories\SettingInterface', function (Application $app) {
             $repository = new EloquentSetting(new Setting);
             if (! Config::get('app.cache')) {
                 return $repository;

@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Files\Models\File;
@@ -45,7 +46,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Files\Repositories\FileInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Files\Repositories\FileInterface', function (Application $app) {
             $repository = new EloquentFile(new File);
             if (! Config::get('app.cache')) {
                 return $repository;
@@ -55,7 +56,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Files\Services\Form\FileForm', function ($app) {
+        $app->bind('TypiCMS\Modules\Files\Services\Form\FileForm', function (Application $app) {
             return new FileForm(
                 new FileFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Files\Repositories\FileInterface')

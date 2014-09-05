@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Partners\Models\Partner;
@@ -48,7 +49,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Partners\Repositories\PartnerInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Partners\Repositories\PartnerInterface', function (Application $app) {
             $repository = new EloquentPartner(new Partner);
             if (! Config::get('app.cache')) {
                 return $repository;
@@ -58,7 +59,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Partners\Services\Form\PartnerForm', function ($app) {
+        $app->bind('TypiCMS\Modules\Partners\Services\Form\PartnerForm', function (Application $app) {
             return new PartnerForm(
                 new PartnerFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Partners\Repositories\PartnerInterface')

@@ -6,6 +6,7 @@ use Config;
 use Request;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Application;
 use TypiCMS\Commands\Install;
 use TypiCMS\Commands\CacheKeyPrefix;
 use TypiCMS\Commands\Database;
@@ -62,7 +63,7 @@ class StartProvider extends ServiceProvider
         | Get custom routes for public side modules.
         |--------------------------------------------------------------------------|
         */
-        $this->app->singleton('TypiCMS.routes', function ($app) {
+        $this->app->singleton('TypiCMS.routes', function (Application $app) {
             return $app->make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getForRoutes();
         });
 

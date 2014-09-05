@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Models
 use TypiCMS\Modules\Galleries\Models\Gallery;
@@ -46,7 +47,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Galleries\Repositories\GalleryInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Galleries\Repositories\GalleryInterface', function (Application $app) {
             $repository = new EloquentGallery(new Gallery);
             if (! Config::get('app.cache')) {
                 return $repository;
@@ -56,7 +57,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Galleries\Services\Form\GalleryForm', function ($app) {
+        $app->bind('TypiCMS\Modules\Galleries\Services\Form\GalleryForm', function (Application $app) {
             return new GalleryForm(
                 new GalleryFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Galleries\Repositories\GalleryInterface')

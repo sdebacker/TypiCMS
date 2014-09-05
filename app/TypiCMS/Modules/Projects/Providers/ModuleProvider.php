@@ -5,6 +5,7 @@ use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
 
 // Models
 use TypiCMS\Modules\Projects\Models\Project;
@@ -48,7 +49,7 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        $app->bind('TypiCMS\Modules\Projects\Repositories\ProjectInterface', function ($app) {
+        $app->bind('TypiCMS\Modules\Projects\Repositories\ProjectInterface', function (Application $app) {
             $repository = new EloquentProject(
                 new Project,
                 $app->make('TypiCMS\Modules\Tags\Repositories\TagInterface')
@@ -61,7 +62,7 @@ class ModuleProvider extends ServiceProvider
             return new CacheDecorator($repository, $laravelCache);
         });
 
-        $app->bind('TypiCMS\Modules\Projects\Services\Form\ProjectForm', function ($app) {
+        $app->bind('TypiCMS\Modules\Projects\Services\Form\ProjectForm', function (Application $app) {
             return new ProjectForm(
                 new ProjectFormLaravelValidator($app['validator']),
                 $app->make('TypiCMS\Modules\Projects\Repositories\ProjectInterface')
