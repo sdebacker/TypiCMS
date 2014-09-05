@@ -56,7 +56,7 @@ class Category extends Base
     {
         $lang = $lang ? : App::getlocale() ;
         $parameters = [$this->translate($lang)->slug];
-        if (! $preview and ! $this->translate($lang)->status) {
+        if (! $preview && ! $this->translate($lang)->status) {
             $parameters = [null];
         }
         $route = array();

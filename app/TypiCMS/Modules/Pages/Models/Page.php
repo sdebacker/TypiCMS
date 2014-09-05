@@ -89,7 +89,7 @@ class Page extends Base
         }
 
         // If model is offline and we are not in preview mode
-        if (! $preview and ! $this->translate($lang)->status) {
+        if (! $preview && ! $this->translate($lang)->status) {
             return $indexUri;
         }
 

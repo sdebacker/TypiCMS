@@ -24,7 +24,7 @@ class PublicFilter
         }
 
         // Throw a 404 if in preview mode without admin user connected
-        if (Input::get('preview') and ! Sentry::check()) {
+        if (Input::get('preview') && ! Sentry::check()) {
             return Redirect::to(Request::path());
         }
 

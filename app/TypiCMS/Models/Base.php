@@ -75,7 +75,7 @@ abstract class Base extends Eloquent
         }
 
         // If model is offline and we are not in preview mode
-        if (! $preview and ! $this->translate($lang)->status) {
+        if (! $preview && ! $this->translate($lang)->status) {
             $parameters = [null];
         }
 

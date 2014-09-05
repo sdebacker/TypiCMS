@@ -5,7 +5,7 @@
 HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true, $label = true) {
     $inputs = Input::all();
     $order = Input::get('order');
-    if ($defaultOrder and ! $order) { // set default column active
+    if ($defaultOrder && ! $order) { // set default column active
         $order = $field;
     }
     $direction = Input::get('direction', $defaultOrder);

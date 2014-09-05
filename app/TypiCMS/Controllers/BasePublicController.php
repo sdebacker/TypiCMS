@@ -40,7 +40,7 @@ abstract class BasePublicController extends Controller
         });
 
         $bodyClass = ['lang-' . App::getLocale(), $repository->getModel()->getTable()];
-        if (Sentry::getUser() and ! Input::get('preview')) {
+        if (Sentry::getUser() && ! Input::get('preview')) {
             $bodyClass[] = 'has-navbar';
         }
         View::share('lang', App::getLocale());
