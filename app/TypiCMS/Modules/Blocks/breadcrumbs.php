@@ -7,7 +7,10 @@ Breadcrumbs::register('admin.blocks.index', function (\DaveJamesMiller\Breadcrum
     $breadcrumbs->push(Str::title(trans('blocks::global.name')), route('admin.blocks.index'));
 });
 
-Breadcrumbs::register('admin.blocks.edit', function (\DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs, $block) {
+Breadcrumbs::register('admin.blocks.edit', function (
+        \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+        \TypiCMS\Modules\Blocks\Models\Block $block
+    ) {
     $breadcrumbs->parent('admin.blocks.index');
     $breadcrumbs->push($block->name, route('admin.blocks.edit', $block->id));
 });

@@ -7,7 +7,10 @@ Breadcrumbs::register('admin.news.index', function (\DaveJamesMiller\Breadcrumbs
     $breadcrumbs->push(Str::title(trans('news::global.name')), route('admin.news.index'));
 });
 
-Breadcrumbs::register('admin.news.edit', function (\DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs, $news) {
+Breadcrumbs::register('admin.news.edit', function (
+        \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+        \TypiCMS\Modules\News\Models\News $news
+    ) {
     $breadcrumbs->parent('admin.news.index');
     $breadcrumbs->push($news->title, route('admin.news.edit', $news->id));
 });

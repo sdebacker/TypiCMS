@@ -7,7 +7,10 @@ Breadcrumbs::register('admin.menus.index', function (\DaveJamesMiller\Breadcrumb
     $breadcrumbs->push(Str::title(trans('menus::global.name')), route('admin.menus.index'));
 });
 
-Breadcrumbs::register('admin.menus.edit', function (\DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs, $menu) {
+Breadcrumbs::register('admin.menus.edit', function (
+        \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+        \TypiCMS\Modules\Menus\Models\Menu $menu
+    ) {
     $breadcrumbs->parent('admin.menus.index');
     $breadcrumbs->push($menu->title, route('admin.menus.edit', $menu->id));
 });

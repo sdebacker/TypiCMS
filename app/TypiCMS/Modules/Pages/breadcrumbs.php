@@ -7,7 +7,10 @@ Breadcrumbs::register('admin.pages.index', function (\DaveJamesMiller\Breadcrumb
     $breadcrumbs->push(Str::title(trans('pages::global.name')), route('admin.pages.index'));
 });
 
-Breadcrumbs::register('admin.pages.edit', function (\DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs, $page) {
+Breadcrumbs::register('admin.pages.edit', function (
+        \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+        \TypiCMS\Modules\Pages\Models\Page $page
+    ) {
     $breadcrumbs->parent('admin.pages.index');
     $breadcrumbs->push($page->title, route('admin.pages.edit', $page->id));
 });

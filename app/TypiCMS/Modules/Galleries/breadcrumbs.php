@@ -7,7 +7,10 @@ Breadcrumbs::register('admin.galleries.index', function (\DaveJamesMiller\Breadc
     $breadcrumbs->push(Str::title(trans('galleries::global.name')), route('admin.galleries.index'));
 });
 
-Breadcrumbs::register('admin.galleries.edit', function (\DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs, $gallery) {
+Breadcrumbs::register('admin.galleries.edit', function (
+        \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+        \TypiCMS\Modules\Galleries\Models\Gallery $gallery
+    ) {
     $breadcrumbs->parent('admin.galleries.index');
     $breadcrumbs->push($gallery->title, route('admin.galleries.edit', $gallery->id));
 });

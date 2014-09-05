@@ -12,7 +12,10 @@ $modulesWithFiles = array('pages', 'events', 'news', 'projects');
 
 foreach ($modulesWithFiles as $module) {
 
-    Breadcrumbs::register('admin.' . $module . '.files.index', function (\DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs, $model) use ($module) {
+    Breadcrumbs::register('admin.' . $module . '.files.index', function (
+            \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+            \TypiCMS\Modules\Files\Models\File $model
+        ) use ($module) {
         $breadcrumbs->parent('admin.' . $module . '.edit', $model);
         $breadcrumbs->push(
             Str::title(trans_choice('files::global.files', 2)),
@@ -20,7 +23,9 @@ foreach ($modulesWithFiles as $module) {
         );
     });
 
-    Breadcrumbs::register('admin.' . $module . '.files.edit', function (\DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs, $model, $file) use ($module) {
+    Breadcrumbs::register('admin.' . $module . '.files.edit', function (
+        \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+        $model, $file) use ($module) {
         $breadcrumbs->parent('admin.' . $module . '.files.index', $model);
         $breadcrumbs->push($file->filename, route('admin.' . $module . '.index'));
     });

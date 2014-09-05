@@ -7,7 +7,10 @@ Breadcrumbs::register('admin.categories.index', function (\DaveJamesMiller\Bread
     $breadcrumbs->push(Str::title(trans('categories::global.name')), route('admin.categories.index'));
 });
 
-Breadcrumbs::register('admin.categories.edit', function (\DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs, $project) {
+Breadcrumbs::register('admin.categories.edit', function (
+        \DaveJamesMiller\Breadcrumbs\Generator $breadcrumbs,
+        \TypiCMS\Modules\Categories\Models\Category $project
+    ) {
     $breadcrumbs->parent('admin.categories.index');
     $breadcrumbs->push($project->title, route('admin.categories.edit', $project->id));
 });
