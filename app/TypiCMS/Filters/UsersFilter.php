@@ -5,6 +5,7 @@ use App;
 use Config;
 use Request;
 use Redirect;
+use Response;
 use Notification;
 use Sentry;
 use Cartalyst\Sentry\Users\UserNotFoundException;
