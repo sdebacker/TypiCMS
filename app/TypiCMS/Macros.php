@@ -4,7 +4,6 @@
  */
 HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true, $label = true) {
     $inputs = Input::all();
-
     $order = Input::get('order');
     if ($defaultOrder and ! $order) { // set default column active
         $order = $field;
@@ -16,10 +15,10 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
         $inputs['direction'] = 'asc';
         $iconDir = ' text-muted'; // column not active, gray icons
         if ($order == $field) { // if this column is active
+            $iconDir = '-' . $direction;
             if ($direction == 'asc') { // reverse direction
                 $inputs['direction'] = 'desc';
             }
-            $iconDir = '-' . $inputs['direction'];
         }
         $inputs['order'] = $field;
         $th[] = '<a href="?' . http_build_query($inputs) . '">';
