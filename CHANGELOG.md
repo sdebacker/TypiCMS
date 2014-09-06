@@ -12,6 +12,7 @@ All notable changes to TypiCMS will be documented in this file.
 
 ### Removed
 - Gulp task 'all'.
+- functions getIdFromSlug and getSlugFromId
 
 ## 1.4.10 - 2014-09-01
 
