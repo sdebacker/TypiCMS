@@ -347,7 +347,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
             ->order()
             ->get();
 
-        $pagesArray = TypiCMS::array_indent($pages);
+        $pagesArray = TypiCMS::arrayIndent($pages);
 
         $pagesArray = array_merge(['' => '0'], $pagesArray);
         $pagesArray = array_flip($pagesArray);

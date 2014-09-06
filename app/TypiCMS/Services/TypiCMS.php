@@ -181,7 +181,7 @@ class TypiCMS
      *
      * @return array
      */
-    public function array_indent($array)
+    public function arrayIndent($array)
     {
         $parent = 0;
         $items = [];
