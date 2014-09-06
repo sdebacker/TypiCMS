@@ -1,4 +1,4 @@
-<li id="page_{{ $child->id }}" class="{{ activeClass($child->uri) }}">
+<li id="page_{{ $child->id }}" class="{{ Request::is($child->uri) ? 'active' : '' }}">
     <a href="/{{ $child->uri }}">
         {{ $child->title }}
     </a>

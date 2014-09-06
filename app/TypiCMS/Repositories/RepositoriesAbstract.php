@@ -4,10 +4,13 @@ namespace TypiCMS\Repositories;
 use DB;
 use Str;
 use App;
+use Input;
 use Config;
 use StdClass;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Modules\Pages\Models\Page;
+use TypiCMS;
 
 abstract class RepositoriesAbstract implements RepositoryInterface
 {
@@ -194,13 +197,19 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function bySlug($slug, array $with = array('translations'))
     {
-        // Find id
-        $id = getIdFromSlug($this->model->getTable(), $slug);
-
         $model = $this->make($with)
-            ->whereHasOnlineTranslation()
+            ->whereHas(
+                'translations',
+                function (Builder $query) use ($slug) {
+                    if (! Input::get('preview')) {
+                        $query->where('status', 1);
+                    }
+                    $query->where('locale', App::getLocale());
+                    $query->where('slug', '=', $slug);
+                }
+            )
             ->withOnlineGalleries()
-            ->findOrFail($id);
+            ->firstOrFail();
 
         if (! count($model->translations)) {
             App::abort(404);
@@ -338,7 +347,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
             ->order()
             ->get();
 
-        $pagesArray = array_indent($pages);
+        $pagesArray = TypiCMS::array_indent($pages);
 
         $pagesArray = array_merge(['' => '0'], $pagesArray);
         $pagesArray = array_flip($pagesArray);
