@@ -59,8 +59,6 @@ class UsersFilter
         $value = ($value) ? : $route->getName() ;
         try {
             $user = Sentry::getUser();
-            // \Debugbar::addMessage($user->getPermissions(), 'users permissions');
-            // \Debugbar::addMessage($user->getMergedPermissions(), 'users merged permissions');
             if( ! $user->hasAccess($value)) {
                 App::abort(403);
             }

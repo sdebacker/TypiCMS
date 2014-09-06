@@ -101,13 +101,14 @@ require app_path().'/filters.php';
 |--------------------------------------------------------------------------
 */
 
-// if (extension_loaded('newrelic')) {
-// 	newrelic_set_appname('');
-// }
+if (extension_loaded('newrelic')) {
+	newrelic_set_appname('');
+}
 
 /*
 |--------------------------------------------------------------------------
 | HTML macros.
 |--------------------------------------------------------------------------|
 */
+
 require app_path().'/TypiCMS/Macros.php';
