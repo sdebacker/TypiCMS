@@ -1,14 +1,19 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.4.11 - 2014
+## 1.4.11 - 2014-09-07
 
 ### Added
 - Gulp plugins : imagemin, autoprefixer, newer.
 - Bootstrap 3.2.
+- Code quality improved, now has SensioLabsInsight Platinum Medal
 
 ### Changed
 - In admin interface, alerts are now on right bottom of screen.
+- No more interface element in png format.
+
+### Fixed
+- Cache problem with galleries.
 
 ### Removed
 - Gulp task 'all'.
