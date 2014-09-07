@@ -3,6 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/sdebacker/typicms/v/stable.svg)](https://packagist.org/packages/sdebacker/typicms)
 [![License](https://poser.pugx.org/sdebacker/typicms/license.svg)](https://packagist.org/packages/sdebacker/typicms)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sdebacker/TypiCMS/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sdebacker/TypiCMS/?branch=master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5c96a56f-2006-4911-bf7c-d9afad35db5a/mini.png)](https://insight.sensiolabs.com/projects/5c96a56f-2006-4911-bf7c-d9afad35db5a)
 
 TypiCMS is a multilingual content management system built with [Laravel 4.2](http://laravel.com).  
 [Bower](http://bower.io) and [gulp](http://gulpjs.com) are used for assets management and user interface is build with [Bootstrap 3](http://getbootstrap.com) with Less.
