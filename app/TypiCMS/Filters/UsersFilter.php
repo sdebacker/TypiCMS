@@ -54,8 +54,11 @@ class UsersFilter
     /**
      * User has access to a route ?
      */
-    public function hasAccess(\Illuminate\Routing\Route $route, $request, $value = null)
-    {
+    public function hasAccess(
+        \Illuminate\Routing\Route $route,
+        \Illuminate\Http\Request $request,
+        $value = 'chose'
+    ) {
         $value = ($value) ? : $route->getName() ;
         try {
             $user = Sentry::getUser();
@@ -63,7 +66,7 @@ class UsersFilter
                 App::abort(403);
             }
         } catch (UserNotFoundException $e) {
-            Notification::error($e->getMessage());
+            Notification::error($e->getMessage() . '\n' .  $request->fullUrl());
             return Redirect::guest(route('login'));
         }
     }
