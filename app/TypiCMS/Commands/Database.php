@@ -51,7 +51,7 @@ class Database extends Command
      */
     public function fire()
     {
-        list($path, $contents) = $this->getKeyFile();
+        $contents = $this->getKeyFile();
 
         $dbName = $this->argument('database');
         $dbUserName = $this->ask('What is your MySQL username?');
@@ -111,11 +111,10 @@ class Database extends Command
     /**
      * Get the key file and contents.
      *
-     * @return string[]
+     * @return string
      */
     protected function getKeyFile()
     {
-        $contents = $this->files->get($path = "env.php");
-        return array($path, $contents);
+        return $this->files->get($path = "env.php");
     }
 }
