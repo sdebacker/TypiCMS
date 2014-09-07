@@ -500,16 +500,16 @@
         },
         {
             "name": "eluceo/ical",
-            "version": "0.1.3",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/markuspoerschke/iCal.git",
-                "reference": "99ac40c4b34521a107e8088a5e785e67d3b7387f"
+                "reference": "1e541a5e841ec09a65b2be73960cdec08b5fd467"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/markuspoerschke/iCal/zipball/99ac40c4b34521a107e8088a5e785e67d3b7387f",
-                "reference": "99ac40c4b34521a107e8088a5e785e67d3b7387f",
+                "url": "https://api.github.com/repos/markuspoerschke/iCal/zipball/1e541a5e841ec09a65b2be73960cdec08b5fd467",
+                "reference": "1e541a5e841ec09a65b2be73960cdec08b5fd467",
                 "shasum": ""
             },
             "require": {
@@ -541,7 +541,7 @@
                 }
             ],
             "description": "The eluceo/iCal package offers a abstraction layer for creating iCalendars. You can easily create iCal files by using PHP object instead of typing your *.ics file by hand. The output will follow RFC 2445 as best as possible.",
-            "homepage": "https://github.com/eluceo/iCal",
+            "homepage": "https://github.com/markuspoerschke/iCal",
             "keywords": [
                 "calendar",
                 "iCalendar",
@@ -549,7 +549,7 @@
                 "ics",
                 "php calendar"
             ],
-            "time": "2014-08-11 14:33:47"
+            "time": "2014-09-03 06:50:17"
         },
         {
             "name": "filp/whoops",
@@ -2764,16 +2764,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.7.2",
+            "version": "v1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "c092d6a79be56280935a57170cce1e626f5e8105"
+                "reference": "ab1afe09d35d59fb81d470e21c91a21b846e9c32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c092d6a79be56280935a57170cce1e626f5e8105",
-                "reference": "c092d6a79be56280935a57170cce1e626f5e8105",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/ab1afe09d35d59fb81d470e21c91a21b846e9c32",
+                "reference": "ab1afe09d35d59fb81d470e21c91a21b846e9c32",
                 "shasum": ""
             },
             "require": {
@@ -2791,7 +2791,10 @@
             "autoload": {
                 "psr-4": {
                     "Barryvdh\\Debugbar\\": "src/"
-                }
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2811,7 +2814,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-09-04 12:50:52"
+            "time": "2014-09-05 15:08:45"
         },
         {
             "name": "maximebf/debugbar",
