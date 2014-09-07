@@ -115,6 +115,6 @@ class Database extends Command
      */
     protected function getKeyFile()
     {
-        return $this->files->get($path = "env.php");
+        return $this->files->get('env.php');
     }
 }
