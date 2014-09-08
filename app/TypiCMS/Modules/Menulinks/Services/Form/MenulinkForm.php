@@ -24,6 +24,6 @@ class MenulinkForm extends AbstractForm
     {
         // add checkboxes data
         $input['has_categories'] = Input::get('has_categories', 0);
-        parent::update($input);
+        return parent::update($input);
     }
 }
