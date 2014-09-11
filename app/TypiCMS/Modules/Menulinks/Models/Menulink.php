@@ -6,6 +6,24 @@ use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 use TypiCMS\Presenters\PresentableTrait;
 
+/**
+ * @property string $name
+ * @property string $menu_id
+ * @property string $page_id
+ * @property string $parent
+ * @property string $position
+ * @property string $target
+ * @property string $module_name
+ * @property string $restricted_to
+ * @property string $class
+ * @property string $icon_class
+ * @property string $link_type
+ * @property string $has_categories
+ * @property string $title
+ * @property string $uri
+ * @property string $url
+ * @property string $status
+ */
 class Menulink extends Base
 {
 
