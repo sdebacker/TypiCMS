@@ -5,12 +5,6 @@ use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
 
-/**
- * @property string $name
- * @property string $class
- * @property string $title
- * @property string $status
- */
 class Menu extends Base
 {
 

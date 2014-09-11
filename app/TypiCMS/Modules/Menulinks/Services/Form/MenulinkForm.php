@@ -18,7 +18,7 @@ class MenulinkForm extends AbstractForm
     /**
      * Update an existing item
      *
-     * @return boolean|null
+     * @return boolean
      */
     public function update(array $input)
     {
