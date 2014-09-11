@@ -138,10 +138,12 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
         }
 
         if ($menulink->page) {
+            $uri = $menulink->page->uri;
             if ($menulink->page->is_home) {
-                $uri = Config::get('app.locale');
-            } else {
-                $uri = $menulink->page->uri;
+                $uri = '';
+                if (Config::get('app.locale_in_url')) {
+                    $uri = Config::get('app.locale');
+                }
             }
         }
 
