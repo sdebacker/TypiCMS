@@ -30,8 +30,6 @@ abstract class BaseAdminController extends Controller
 
     public function __construct($repository = null, $form = null)
     {
-        // Uncomment this if you want to use clockwork
-
         $this->repository = $repository;
         $this->form       = $form;
 
