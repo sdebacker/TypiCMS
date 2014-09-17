@@ -98,6 +98,30 @@ abstract class Presenter
     }
 
     /**
+     * Return a resized src or cropped image
+     *
+     * @param  int $width      width of image, null for auto
+     * @param  int $height     height of image, null for auto
+     * @param  array $options  see Croppa doc for options (https://github.com/BKWLD/croppa)
+     * @param  string $field   field name
+     * @return string          HTML markup of an image
+     */
+    public function thumbSrc($width = null, $height = null, array $options = array(), $field = 'image')
+    {
+        $uploadDir = '/uploads';
+        $file = $uploadDir . '/' . $this->entity->getTable() . '/' . $this->entity->$field;
+        if (! is_file(public_path() . $file)) {
+            $file = $this->imgNotFound();
+        }
+        $src = $file;
+        if ($width || $height) {
+            $src = Croppa::url($file, $width, $height, $options);
+        }
+        return $src;
+        return '<img class="img-responsive" src="' . $src . '" alt="">';
+    }
+
+    /**
      * Return a resized or cropped image
      *
      * @param  int $width      width of image, null for auto
@@ -108,13 +132,18 @@ abstract class Presenter
      */
     public function thumb($width = null, $height = null, array $options = array(), $field = 'image')
     {
-        $uploadDir = '/uploads';
-        $file = $uploadDir . '/' . $this->entity->getTable() . '/' . $this->entity->$field;
-        if (! is_file(public_path() . $file)) {
-            $file = $uploadDir . '/img-not-found.png';
-        }
-        $src = Croppa::url($file, $width, $height, $options);
+        $src = $this->thumbSrc($width, $height, $options, $field);
         return '<img class="img-responsive" src="' . $src . '" alt="">';
+    }
+
+    /**
+     * Get default image when not found
+     * @param  string $file
+     * @return string
+     */
+    public function imgNotFound($file = '/uploads/img-not-found.png')
+    {
+        return $file;
     }
 
     /**
