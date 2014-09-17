@@ -2,7 +2,7 @@
 /bootstrap/environment.php
 /vendor
 public/packages
-app/assets/components
+bower_components
 node_modules
 .env.*.php
 .env.php

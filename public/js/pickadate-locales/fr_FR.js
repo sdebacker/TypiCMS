@@ -5,7 +5,7 @@ jQuery.extend( jQuery.fn.pickadate.defaults, {
     monthsShort: [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec' ],
     weekdaysFull: [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi' ],
     weekdaysShort: [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam' ],
-    today: 'Aujourd’hui',
+    today: 'Aujourd\'hui',
     clear: 'Effacer',
     close: 'Fermer',
     firstDay: 1,

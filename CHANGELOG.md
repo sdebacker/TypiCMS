@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.4.12 - 2014
+
+### Changed
+- bower_components back in its default place, please remove app/assets/components and run bower intall again.
+
 ## 1.4.11 - 2014-09-07
 
 ### Added

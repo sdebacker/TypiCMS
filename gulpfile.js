@@ -75,8 +75,8 @@ gulp.task('fonts', function () {
     var destDir = 'public/fonts';
 
     return gulp.src([
-            'app/assets/components/font-awesome/fonts/*',
-            'app/assets/components/flexslider/fonts/*'
+            'bower_components/font-awesome/fonts/*',
+            'bower_components/flexslider/fonts/*'
         ])
         .pipe(newer(destDir))
         .pipe(gulp.dest(destDir));
@@ -89,8 +89,8 @@ gulp.task('pickadate-locales', function () {
     var destDir = 'public/js/pickadate-locales';
 
     return gulp.src([
-            'app/assets/components/pickadate/lib/translations/fr_FR.js',
-            'app/assets/components/pickadate/lib/translations/nl_NL.js',
+            'bower_components/pickadate/lib/translations/fr_FR.js',
+            'bower_components/pickadate/lib/translations/nl_NL.js',
         ])
         .pipe(newer(destDir))
         .pipe(gulp.dest(destDir));
@@ -103,8 +103,8 @@ gulp.task('fancybox-img', function () {
     var destDir = 'public/components/fancybox/source';
 
     return gulp.src([
-            'app/assets/components/fancybox/source/*.gif',
-            'app/assets/components/fancybox/source/*.png'
+            'bower_components/fancybox/source/*.gif',
+            'bower_components/fancybox/source/*.png'
         ])
         .pipe(newer(destDir))
         .pipe(gulp.dest(destDir));
