@@ -50,7 +50,7 @@
                             <span class="sr-only" ng-hide="model.status == '0'">{{ 'Offline' }}</span>
                         </div>
                     </td>
-                    <td>{{ model.date | date:'dd.MM.yyyy HH:m' }}</td>
+                    <td>{{ model.date | dateFromMySQL:'dd.MM.yyyy H:m' }}</td>
                     <td>
                         <!-- Image -->
                         <img class="img-responsive" ng-src="{{ model.thumb }}" alt="">

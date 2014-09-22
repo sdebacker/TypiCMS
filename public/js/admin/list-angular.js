@@ -87,6 +87,16 @@
         }
     });
 
+    typicms.filter('dateFromMySQL', function(dateFilter) {
+        return function(date, format) {
+            if (! date) {
+                return;
+            }
+            date = new Date(date.replace(/-/g, '/'));
+            return dateFilter(date, format);
+        };
+    });
+
     typicms.factory('API', ['$location', '$resource', function($location, $resource) {
         var moduleName = $location.path().split("/")[2];
         return $resource('/api/v1/' + moduleName + '/:id', null,
@@ -123,9 +133,6 @@
             $scope.models = all;
             //copy the references (you could clone ie angular.copy but then have to go through a dirty checking for the matches)
             $scope.displayedModels = [].concat($scope.models);
-            angular.forEach($scope.displayedModels, function (item) {
-                item.date = new Date(item.date.replace(/-/g, '/'));
-            });
         });
 
         $scope.toggleStatus = function(model) {
