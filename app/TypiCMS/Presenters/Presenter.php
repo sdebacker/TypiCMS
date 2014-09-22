@@ -118,7 +118,6 @@ abstract class Presenter
             $src = Croppa::url($file, $width, $height, $options);
         }
         return $src;
-        return '<img class="img-responsive" src="' . $src . '" alt="">';
     }
 
     /**
