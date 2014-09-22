@@ -38,3 +38,10 @@ Route::group(
         Route::resource('news', 'AdminController');
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'news',
+        'TypiCMS\Modules\News\Controllers\ApiController'
+    );
+});
