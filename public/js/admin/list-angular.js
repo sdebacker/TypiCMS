@@ -147,8 +147,13 @@
             });
         };
 
-        $scope.delete = function(model) {
-            if (! confirm('Supprimer « ' + model.title + ' » ?')) { return false; };
+        $scope.delete = function(model, title) {
+            if (! title) {
+                title = model.title;
+            }
+            if (! confirm('Supprimer « ' + title + ' » ?')) {
+                return false;
+            }
             var index = $scope.models.indexOf(model);
             API.delete({'id':model.id}, function(model) {
                 if (index !== -1) {
