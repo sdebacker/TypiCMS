@@ -78,7 +78,6 @@
                 copy_of_input[i]['orig'] = input[i];
             }
             var normalized_filtered = filterFilter(copy_of_input, expression, comparator);
-            console.log(normalized_filtered);
             var normalized_filtered_orig = [];
             angular.forEach(normalized_filtered, function(obj, i) {
                 normalized_filtered_orig.push(obj.orig)
@@ -98,7 +97,8 @@
     });
 
     typicms.factory('API', ['$location', '$resource', function($location, $resource) {
-        var moduleName = $location.path().split("/")[2];
+        // var moduleName = $location.path().split("/")[2]; // ok when in HTML5 route mode
+        var moduleName = $location.absUrl().split("/")[4];
         return $resource('/api/v1/' + moduleName + '/:id', null,
             {
                 'update': { method:'PUT' }
@@ -141,6 +141,26 @@
             model.status = status;
             API.update({'id':model.id}, model).$promise.then(function() {
                 alertify.success('Item is ' + statuses[status] + '.');
+            },
+            function(reason) {
+                alertify.error('Error ' + reason.status + ' ' + reason.statusText);
+            });
+        };
+
+        $scope.toggleHomepage = function(model) {
+            var index = $scope.models.indexOf(model),
+                homepage = Math.abs(model.homepage - 1);
+            model.homepage = homepage;
+            API.update({'id':model.id}, model).$promise.then(function() {
+            },
+            function(reason) {
+                alertify.error('Error ' + reason.status + ' ' + reason.statusText);
+            });
+        };
+
+        $scope.changePosition = function(model) {
+            var index = $scope.models.indexOf(model);
+            API.update({'id':model.id}, model).$promise.then(function() {
             },
             function(reason) {
                 alertify.error('Error ' + reason.status + ' ' + reason.statusText);
