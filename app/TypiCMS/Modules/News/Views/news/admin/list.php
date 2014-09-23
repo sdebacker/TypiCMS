@@ -1,4 +1,4 @@
-<div class="list-form" ng-app="typicms" ng-controller="ModelsController">
+<div class="list-form" ng-app="typicms" ng-controller="ListController">
 
     <h1>
         <a href="/admin/news/create" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only">{{ 'New' }}</span></a>
@@ -50,7 +50,7 @@
                             <span class="sr-only" ng-hide="model.status == '0'">{{ 'Offline' }}</span>
                         </div>
                     </td>
-                    <td>{{ model.date | dateFromMySQL:'dd.MM.yyyy H:m' }}</td>
+                    <td>{{ model.date | dateFromMySQL:'dd.MM.yyyy HH:mm' }}</td>
                     <td>
                         <!-- Image -->
                         <img class="img-responsive" ng-src="{{ model.thumb }}" alt="">
