@@ -6,7 +6,7 @@
     ];
 
     var typicms = angular.module('typicms', ['ngResource', 'smart-table'],function($locationProvider){
-        $locationProvider.html5Mode(true);
+        // $locationProvider.html5Mode(true);
     });
 
     // Tell smart-table to use betterOrderBy function in place of angular default
