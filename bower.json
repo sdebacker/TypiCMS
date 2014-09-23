@@ -16,7 +16,8 @@
     "angular": "~1.2.25",
     "angular-resource": "~1.2",
     "angular-smart-table": "~1.3.0",
-    "angular-translate": "~2.3.0"
+    "angular-translate": "~2.3.0",
+    "angular-i18n": "~1.2.25"
   },
   "overrides": {
     "fancybox": {
@@ -55,6 +56,9 @@
       ]
     },
     "font-awesome": {
+      "ignore": true
+    },
+    "angular-i18n": {
       "ignore": true
     },
     "jsurl": {

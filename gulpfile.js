@@ -84,6 +84,20 @@ gulp.task('fonts', function () {
 
 });
 
+// Publish angular locales
+gulp.task('angular-locales', function () {
+
+    var destDir = 'public/js/angular-locales';
+
+    return gulp.src([
+            'bower_components/angular-i18n/angular-locale_fr-fr.js',
+            'bower_components/angular-i18n/angular-locale_nl-nl.js'
+        ])
+        .pipe(newer(destDir))
+        .pipe(gulp.dest(destDir));
+
+});
+
 // Publish pickadate locales
 gulp.task('pickadate-locales', function () {
 
@@ -129,7 +143,7 @@ gulp.task('js-admin', function () {
         .pipe(newer(destDir + destFile))
         .pipe(concat('components.js'))
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(rename(destFile))
         .pipe(gulp.dest(destDir))
         .pipe(notify('js-admin done'));
@@ -187,6 +201,7 @@ gulp.task('default', [
     'img',
     'fonts',
     'pickadate-locales',
+    'angular-locales',
     'fancybox-img',
     'watch'
 ]);
