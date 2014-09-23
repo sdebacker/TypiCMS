@@ -153,6 +153,24 @@ abstract class Base extends Eloquent
     }
 
     /**
+     * Join translations
+     *
+     * @param  Builder $query
+     * @return Builder $query
+     */
+    public function scopeJoinTranslations(Builder $query)
+    {
+        if (method_exists($this, 'translations')) {
+            $translationTable = str_plural(snake_case(class_basename($this->getTranslationModelName()))); // TODO: move this to a separate method
+            $query->select()
+                ->addSelect($this->getTable() . '.id as id')
+                ->where('locale', App::getLocale());
+            return $query->join($translationTable, $this->getTable() . '.id', '=', $translationTable . '.' . $this->getRelationKey());
+        }
+        return $query;
+    }
+
+    /**
      * Get online galleries
      *
      * @param  Builder $query
