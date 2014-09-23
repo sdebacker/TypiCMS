@@ -1,4 +1,5 @@
 angular.module('typicms').filter('betterFilter', function(filterFilter) {
+
     return function(input, expression, comparator) {
 
         for (var index in expression) {
@@ -23,4 +24,5 @@ angular.module('typicms').filter('betterFilter', function(filterFilter) {
         })
         return normalized_filtered_orig;
     }
+
 });
