@@ -1,5 +1,7 @@
 (function (angular) {
 
+    var lang = $('html').attr('lang');
+
     angular.module('typicms', ['ngResource', 'smart-table', 'pascalprecht.translate'], function($locationProvider){
         // $locationProvider.html5Mode(true);
     }).config(['$translateProvider', function ($translateProvider) {
@@ -34,7 +36,7 @@
             'CREATE': 'Créer',
         });
 
-        $translateProvider.preferredLanguage('fr');
+        $translateProvider.preferredLanguage(lang);
 
     }]);
 
