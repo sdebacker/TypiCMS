@@ -14,7 +14,11 @@
 
             $scope.toggleStatus = function(model) {
                 var index = $scope.models.indexOf(model),
-                    status = Math.abs(model.status - 1);
+                    status = Math.abs(model.status - 1)
+                    statuses = [
+                        'offline',
+                        'online'
+                    ];
                 model.status = status;
                 $api.update({'id':model.id}, model).$promise.then(function() {
                     alertify.success('Item is ' + statuses[status] + '.');
