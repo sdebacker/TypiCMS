@@ -24,14 +24,7 @@ abstract class BaseApiController extends Controller
      */
     public function index()
     {
-        $model = $this->repository->getModel();
-        $translationTable = str_plural(snake_case(class_basename($model->getTranslationModelName())));
-        $models = $model
-            ->select()
-            ->addSelect($model->getTable() . '.id as id')
-            ->join($translationTable, $model->getTable() . '.id', '=', $translationTable . '.' . $model->getRelationKey())
-            ->where('locale', App::getLocale())
-            ->get();
+        $models = $this->repository->getAll();
         return Response::json($models, 200);
     }
 

@@ -120,9 +120,11 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param  boolean     $all  Show published or all
      * @return \Illuminate\Database\Eloquent\Collection|\TypiCMS\NestedCollection
      */
-    public function getAll(array $with = array('translations'), $all = false)
+    public function getAll(array $with = array(), $all = false)
     {
         $query = $this->make($with);
+
+        $query->joinTranslations();
 
         if (! $all) {
             // take only translated items that are online
