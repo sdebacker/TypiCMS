@@ -13,7 +13,8 @@ var gulp       = require('gulp'),
     filter     = require('gulp-filter'),
     imagemin   = require('gulp-imagemin'),
     newer      = require('gulp-newer'),
-    prefix     = require('gulp-autoprefixer');
+    prefix     = require('gulp-autoprefixer')
+    ngAnnotate = require('gulp-ng-annotate');
 
 function swallowError (error) {
     console.log(error.toString());
@@ -118,6 +119,7 @@ gulp.task('js-admin', function () {
         files = bowerFiles({checkExistence: true});
     
     files.push(path.resolve() + '/app/assets/js/admin/*');
+    files.push(path.resolve() + '/app/assets/typicms/**/*.js');
 
     return gulp.src(files)
         .pipe(filter([
@@ -126,6 +128,7 @@ gulp.task('js-admin', function () {
         ]))
         .pipe(newer(destDir + destFile))
         .pipe(concat('components.js'))
+        .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(rename(destFile))
         .pipe(gulp.dest(destDir))
@@ -153,6 +156,7 @@ gulp.task('js-public', function () {
             '!selectize*',
             '!alertify*',
             '!fastclick*',
+            '!angular*',
             '!dropzone*'
         ]))
         .pipe(newer(destDir + destFile))
@@ -171,6 +175,7 @@ gulp.task('watch', function () {
     gulp.watch('app/assets/less/*.less', ['less-public', 'less-admin']);
     gulp.watch('app/assets/js/public/**/*.js', ['js-public']);
     gulp.watch('app/assets/js/admin/**/*.js', ['js-admin']);
+    gulp.watch('app/assets/typicms/**/*.js', ['js-admin']);
 });
 
 // What tasks does running gulp trigger?
