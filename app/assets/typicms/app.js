@@ -7,8 +7,9 @@
     }).config(['$translateProvider', function ($translateProvider) {
 
         $translateProvider.translations('en', {
-            'NEWS': 'news',
-            'NEWS_MANY': 'news',
+            'NEW': 'New',
+            'NEWS': '{{value}} news',
+            'NEWS_MANY': '{{value}} news',
             'STATUS': 'Status',
             'DATE': 'Date',
             'IMAGE': 'Image',
@@ -22,8 +23,9 @@
         });
 
         $translateProvider.translations('fr', {
-            'NEWS': 'actualité',
-            'NEWS_MANY': 'actualités',
+            'NEW': 'Nouveau',
+            'NEWS': '{{value}} actualité',
+            'NEWS_MANY': '{{value}} actualités',
             'STATUS': 'Statut',
             'DATE': 'Date',
             'IMAGE': 'Image',
