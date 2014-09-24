@@ -41,4 +41,14 @@ class Contact extends Base
      */
     public $order = 'created_at';
     public $direction = 'desc';
+
+    /**
+     * Get title attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getTitleAttribute($value)
+    {
+        return $value;
+    }
 }
