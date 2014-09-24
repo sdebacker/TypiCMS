@@ -1,10 +1,11 @@
 (function (angular) {
 
-    angular.module('typicms').controller('ListController', ['$scope', '$api',
+    angular.module('typicms').controller('ListController', ['$scope', '$location','$api',
 
-        function ($scope, $api) {
+        function ($scope, $location, $api) {
 
-            $scope.itemsByPage = 50;
+            $scope.itemsByPage = 3;
+            $scope.url = $location.absUrl().split('?')[0];
 
             $api.query().$promise.then(function(all) {
                 $scope.models = all;
