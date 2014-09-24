@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: TypiCMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Samuel De Backer <sdebacker@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.9\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+msgid "Date"
+msgstr "Date"
+
+#: /Users/samuel/Sites/typicms/public/views/partials/btnDelete.html
+msgid "Delete"
+msgstr "Delete"
+
+#: /Users/samuel/Sites/typicms/public/views/partials/btnEdit.html
+msgid "Edit"
+msgstr "Edit"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+msgid "Image"
+msgstr "Image"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+msgid "New"
+msgstr "New"
+
+#: /Users/samuel/Sites/typicms/public/views/partials/btnStatus.html
+msgid "Offline"
+msgstr "Offline"
+
+#: /Users/samuel/Sites/typicms/public/views/partials/btnStatus.html
+msgid "Online"
+msgstr "Online"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+msgid "Search"
+msgstr "Search"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+msgid "Status"
+msgstr "Status"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+msgid "Title"
+msgstr "Title"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+msgid "{{ models.length }} news"
+msgid_plural "{{ models.length }} news_many"
+msgstr[0] "{{ models.length }} news"
+msgstr[1] "{{ models.length }} news"
