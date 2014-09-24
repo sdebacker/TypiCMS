@@ -2,59 +2,58 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: TypiCMS\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Samuel De Backer <sdebacker@gmail.com>\n"
-"Language-Team: Typi Design <info@typidesign.be>\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "X-Generator: Poedit 1.6.9\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
 msgid "Date"
-msgstr "Date"
+msgstr "Datum"
 
 #: /Users/samuel/Sites/typicms/public/views/partials/btnDelete.html
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "Uitwissen"
 
 #: /Users/samuel/Sites/typicms/public/views/partials/btnEdit.html
 msgid "Edit"
-msgstr "Modifier"
+msgstr "Verwijden"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
 msgid "Image"
-msgstr "Image"
+msgstr "Beeld"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
 msgid "New"
-msgstr "Nouveau"
+msgstr "Nieuw"
 
 #: /Users/samuel/Sites/typicms/public/views/partials/btnStatus.html
 msgid "Offline"
-msgstr "Hors ligne"
+msgstr "Offline"
 
 #: /Users/samuel/Sites/typicms/public/views/partials/btnStatus.html
 msgid "Online"
-msgstr "En ligne"
+msgstr "Online"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
 msgid "Search"
-msgstr "Chercher"
+msgstr "Zoeken"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
 msgid "Status"
-msgstr "Statut"
+msgstr "Status"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
 msgid "Title"
-msgstr "Titre"
+msgstr "Titel"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
 msgid "{{ models.length }} news"
 msgid_plural "{{ models.length }} news_many"
-msgstr[0] "{{ models.length }} actualité"
-msgstr[1] "{{ models.length }} actualités"
+msgstr[0] "{{ models.length }} nieuw"
+msgstr[1] "{{ models.length }} nieuws"
