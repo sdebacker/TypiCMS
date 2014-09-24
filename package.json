@@ -5,6 +5,7 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.7",
+    "gulp-angular-gettext": "^0.3.1",
     "gulp-autoprefixer": "0.0.10",
     "gulp-concat": "^2.3.4",
     "gulp-filter": "^1.0.0",

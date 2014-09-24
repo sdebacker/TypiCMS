@@ -4,7 +4,7 @@
 
         function ($scope, $location, $api) {
 
-            $scope.itemsByPage = 3;
+            $scope.itemsByPage = 25;
             $scope.url = $location.absUrl().split('?')[0];
 
             $api.query().$promise.then(function(all) {

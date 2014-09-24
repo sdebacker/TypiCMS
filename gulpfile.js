@@ -14,7 +14,8 @@ var gulp       = require('gulp'),
     imagemin   = require('gulp-imagemin'),
     newer      = require('gulp-newer'),
     prefix     = require('gulp-autoprefixer')
-    ngAnnotate = require('gulp-ng-annotate');
+    ngAnnotate = require('gulp-ng-annotate')
+    gettext    = require('gulp-angular-gettext');
 
 function swallowError (error) {
     console.log(error.toString());
@@ -180,6 +181,27 @@ gulp.task('js-public', function () {
         .pipe(gulp.dest(destDir))
         .pipe(notify('js-public done'));
 
+});
+
+gulp.task('pot', function () {
+    return gulp.src([
+            'public/views/partials/**/*.html',
+            'app/TypiCMS/Modules/**/Views/**/admin/*.php',
+            'app/assets/typicms/**/*.js'
+        ])
+        .pipe(gettext.extract('template.pot', {
+            // options to pass to angular-gettext-tools...
+        }))
+        .pipe(gulp.dest('po/'));
+});
+
+gulp.task('translations', function () {
+    return gulp.src('po/**/*.po')
+        .pipe(gettext.compile({
+            // options to pass to angular-gettext-tools...
+            format: 'json'
+        }))
+        .pipe(gulp.dest('public/languages/'));
 });
 
 // Keep an eye on Less and JS files for changes…

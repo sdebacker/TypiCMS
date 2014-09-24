@@ -1,8 +1,8 @@
 <div ng-app="typicms" ng-cloak ng-controller="ListController">
 
     <h1>
-        <a href="{{ url }}/create" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only">{{ 'NEW' | translate }}</span></a>
-        <span translate="{{ models.length <= 1 ? 'NEWS' : 'NEWS_MANY' }}" translate-values="{value:models.length}"></span>
+        <a href="{{ url }}/create" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only" translate>New</span></a>
+        <span translate translate-n="{{ models.length }}" translate-plural="{{ models.length }} news_many">{{ models.length }} news</span>
     </h1>
 
     <div class="table-responsive">
@@ -12,15 +12,15 @@
                 <tr>
                     <th class="delete"></th>
                     <th class="edit"></th>
-                    <th st-sort="status" class="status st-sort">{{ 'STATUS' | translate }}</th>
-                    <th st-sort="date" st-sort-default="reverse" class="date st-sort">{{ 'DATE' | translate }}</th>
-                    <th st-sort="image" class="image st-sort">{{ 'IMAGE' | translate }}</th>
-                    <th st-sort="title" class="title st-sort">{{ 'TITLE' | translate }}</th>
+                    <th st-sort="status" class="status st-sort" translate>Status</th>
+                    <th st-sort="date" st-sort-default="reverse" class="date st-sort" translate>Date</th>
+                    <th st-sort="image" class="image st-sort" translate>Image</th>
+                    <th st-sort="title" class="title st-sort" translate>Title</th>
                 </tr>
                 <tr>
                     <td colspan="5"></td>
                     <td>
-                        <input st-search="'title'" class="form-control" placeholder="{{ 'SEARCH' | translate }}…" type="text">
+                        <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
                     </th>
                 </tr>
             </thead>
