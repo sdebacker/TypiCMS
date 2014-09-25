@@ -1,18 +1,26 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
+"Project-Id-Version: TypiCMS\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Samuel De Backer <sdebacker@gmail.com>\n"
 "Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.9\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nl\n"
 
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
+msgid "Address"
+msgstr "Adres"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
+msgid "Category"
+msgstr "Categorie"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 msgid "Date"
 msgstr "Datum"
 
@@ -24,11 +32,23 @@ msgstr "Uitwissen"
 msgid "Edit"
 msgstr "Verwijden"
 
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+msgid "End date"
+msgstr "Einddatum"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
 msgid "Image"
 msgstr "Beeld"
 
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
 msgid "New"
 msgstr "Nieuw"
 
@@ -40,20 +60,65 @@ msgstr "Offline"
 msgid "Online"
 msgstr "Online"
 
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
 msgid "Search"
 msgstr "Zoeken"
 
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+msgid "Start date"
+msgstr "Startdatum"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
 msgid "Status"
 msgstr "Status"
 
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
 msgid "Title"
 msgstr "Titel"
 
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/list.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
+msgid "Website"
+msgstr "Website"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+msgid "{{ models.length }} event"
+msgid_plural "{{ models.length }} events"
+msgstr[0] "{{ models.length }} evenement"
+msgstr[1] "{{ models.length }} evenementen"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 msgid "{{ models.length }} news"
 msgid_plural "{{ models.length }} news_many"
 msgstr[0] "{{ models.length }} nieuw"
 msgstr[1] "{{ models.length }} nieuws"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
+msgid "{{ models.length }} partner"
+msgid_plural "{{ models.length }} partners"
+msgstr[0] "{{ models.length }} partner"
+msgstr[1] "{{ models.length }} partners"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
+msgid "{{ models.length }} place"
+msgid_plural "{{ models.length }} places"
+msgstr[0] "{{ models.length }} adres"
+msgstr[1] "{{ models.length }} adres"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
+msgid "{{ models.length }} project"
+msgid_plural "{{ models.length }} projects"
+msgstr[0] "{{ models.length }} project"
+msgstr[1] "{{ models.length }} projecten"
