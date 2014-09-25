@@ -40,9 +40,9 @@ abstract class BaseAdminController extends Controller
     {
         $this->repository = $repository;
 
-        $this->module = $this->repository->getModel()->getTable();
+        $this->module = Request::segment(2);
 
-        $this->route = $this->repository->getModel()->route;
+        $this->route = Request::segment(2);
 
         $this->form = $form;
 
