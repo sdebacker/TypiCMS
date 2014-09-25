@@ -48,3 +48,10 @@ Route::group(
         Route::resource('events', 'AdminController');
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'events',
+        'TypiCMS\Modules\Events\Controllers\ApiController'
+    );
+});

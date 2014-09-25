@@ -19,7 +19,7 @@
                     <th st-sort="title" class="title st-sort" translate>Title</th>
                 </tr>
                 <tr>
-                    <td colspan="5"></td>
+                    <td colspan="6"></td>
                     <td>
                         <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
                     </th>

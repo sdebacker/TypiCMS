@@ -1,8 +1,8 @@
 <?php
-namespace TypiCMS\Modules\News\Controllers;
+namespace TypiCMS\Modules\Menulinks\Controllers;
 
 use TypiCMS\Controllers\BaseApiController;
-use TypiCMS\Modules\News\Repositories\NewsInterface as Repository;
+use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface as Repository;
 
 class ApiController extends BaseApiController
 {

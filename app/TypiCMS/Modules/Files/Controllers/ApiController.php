@@ -1,8 +1,8 @@
 <?php
-namespace TypiCMS\Modules\News\Controllers;
+namespace TypiCMS\Modules\Files\Controllers;
 
 use TypiCMS\Controllers\BaseApiController;
-use TypiCMS\Modules\News\Repositories\NewsInterface as Repository;
+use TypiCMS\Modules\Files\Repositories\FileInterface as Repository;
 
 class ApiController extends BaseApiController
 {

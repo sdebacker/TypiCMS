@@ -38,3 +38,10 @@ Route::group(
         Route::resource('galleries', 'AdminController');
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'galleries',
+        'TypiCMS\Modules\Galleries\Controllers\ApiController'
+    );
+});
