@@ -74,7 +74,8 @@ class AdminController extends BaseAdminController
         // Grab all the users
         $models = $this->repository->getAll(array(), true);
 
-        $this->layout->content = View::make('admin.users.index')->withModels($models);
+        $this->layout->content = View::make('admin.index')
+            ->withModels($models);
     }
 
     /**
@@ -86,7 +87,7 @@ class AdminController extends BaseAdminController
     {
         $this->title['child'] = trans('users::global.New');
         $model = $this->repository->getModel();
-        $this->layout->content = View::make('admin.users.create')
+        $this->layout->content = View::make('admin.create')
             ->withModel($model)
             ->with('selectedGroups', array())
             ->with('groups', $this->repository->getGroups());
@@ -102,7 +103,7 @@ class AdminController extends BaseAdminController
     {
         $this->title['child'] = trans('users::global.Edit');
         $model = $this->repository->byId($id);
-        $this->layout->content = View::make('admin.users.edit')
+        $this->layout->content = View::make('admin.edit')
             ->withModel($model)
             ->withPermissions($model->getPermissions())
             ->withGroups($this->repository->getGroups())

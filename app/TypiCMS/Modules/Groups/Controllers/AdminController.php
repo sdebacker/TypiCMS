@@ -36,20 +36,8 @@ class AdminController extends BaseAdminController
     {
         $models = $this->repository->all();
 
-        $this->layout->content = View::make('admin.groups.index')->withModels($models);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        //Show a group and its permissions.
-        $group = $this->repository->byId($id);
-
-        $this->layout->content = View::make('admin.groups.show')->with('group', $group);
+        $this->layout->content = View::make('admin.index')
+            ->withModels($models);
     }
 
     /**
@@ -61,7 +49,7 @@ class AdminController extends BaseAdminController
     {
         $this->title['child'] = trans('groups::global.New');
         $model = $this->repository->getModel();
-        $this->layout->content = View::make('admin.groups.create')
+        $this->layout->content = View::make('admin.create')
             ->withModel($model);
     }
 
@@ -75,7 +63,7 @@ class AdminController extends BaseAdminController
         $this->title['child'] = trans('groups::global.Edit');
 
         $group = $this->repository->byId($id);
-        $this->layout->content = View::make('admin.groups.edit')
+        $this->layout->content = View::make('admin.edit')
             ->withPermissions($group->getPermissions())
             ->withModel($group);
     }
