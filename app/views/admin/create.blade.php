@@ -1,7 +1,7 @@
 @section('main')
 
     <h1>
-        @include('admin._button-back', ['table' => $model->route])
+        @include('admin._button-back', ['table' => $model->getTable()])
         @lang($module . '::global.New')
     </h1>
 
