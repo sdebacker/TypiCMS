@@ -34,7 +34,7 @@ class AdminController extends BaseAdminController
         $data = $this->repository->byPage($page, $itemsPerPage, array(), true);
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        $this->layout->content = View::make('tags.admin.index')
+        $this->layout->content = View::make('admin.index')
             ->withModels($models);
     }
 }

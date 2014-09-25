@@ -84,11 +84,28 @@ class File extends Base
 
     }
 
+    /**
+     * get translated title
+     * @todo add title field for image
+     */
+    public function getTitleAttribute($value)
+    {
+        return $value;
+    }
+
+    /**
+     * get translated alt attribute
+     * @return string alt attribute
+     */
     public function getAltAttributeAttribute()
     {
         return $this->alt_attribute;
     }
 
+    /**
+     * get translated description
+     * @return string description
+     */
     public function getDescriptionAttribute()
     {
         return $this->description;

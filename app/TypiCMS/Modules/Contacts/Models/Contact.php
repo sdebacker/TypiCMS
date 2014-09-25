@@ -29,6 +29,8 @@ class Contact extends Base
         'message',
     );
 
+    protected $appends = [];
+
     /**
      * The default route for admin side.
      *
