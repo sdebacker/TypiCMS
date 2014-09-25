@@ -36,6 +36,8 @@ class Partner extends Base
         'body',
     );
 
+    protected $appends = ['status', 'title', 'website'];
+
     /**
      * List of fields that are file.
      *
@@ -57,4 +59,14 @@ class Partner extends Base
      */
     public $order = 'id';
     public $direction = 'desc';
+
+    /**
+     * Get attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getWebsiteAttribute($value)
+    {
+        return $this->website;
+    }
 }

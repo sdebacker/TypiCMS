@@ -60,7 +60,7 @@ class Project extends Base
     }
 
     /**
-     * Get title attribute from translation table
+     * Get name of the category from category table
      * and append it to main model attributes
      * @return string title
      */
