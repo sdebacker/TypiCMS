@@ -13,8 +13,8 @@
                     <th class="delete"></th>
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort" translate>Status</th>
-                    <th st-sort="date" st-sort-default="reverse" class="date st-sort" translate>Date</th>
                     <th st-sort="image" class="image st-sort" translate>Image</th>
+                    <th st-sort="date" st-sort-default="reverse" class="date st-sort" translate>Date</th>
                     <th st-sort="title" class="title st-sort" translate>Title</th>
                 </tr>
                 <tr>
@@ -30,8 +30,8 @@
                     <td typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td typi-btn-status></td>
-                    <td>{{ model.date | dateFromMySQL:'short' }}</td>
                     <td typi-thumb-list-item></td>
+                    <td>{{ model.date | dateFromMySQL:'short' }}</td>
                     <td>{{ model.title }}</td>
                 </tr>
             </tbody>
