@@ -21,7 +21,7 @@
                     <td colspan="5"></td>
                     <td>
                         <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                    </th>
+                    </td>
                 </tr>
             </thead>
 

@@ -21,10 +21,10 @@
                     <td colspan="4"></td>
                     <td>
                         <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                    </th>
+                    </td>
                     <td>
                         <input st-search="'website'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                    </th>
+                    </td>
                 </tr>
             </thead>
 

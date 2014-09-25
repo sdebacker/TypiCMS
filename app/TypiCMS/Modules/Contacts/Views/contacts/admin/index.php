@@ -21,16 +21,16 @@
                     <td colspan="2"></td>
                     <td>
                         <input st-search="'first_name'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                    </th>
+                    </td>
                     <td>
                         <input st-search="'last_name'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                    </th>
+                    </td>
                     <td>
                         <input st-search="'email'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                    </th>
+                    </td>
                     <td>
                         <input st-search="'message'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                    </th>
+                    </td>
                 </tr>
             </thead>
 
