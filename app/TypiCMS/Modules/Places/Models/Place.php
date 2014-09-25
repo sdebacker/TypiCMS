@@ -39,6 +39,8 @@ class Place extends Base
         'status',
     );
 
+    protected $appends = ['status'];
+
     /**
      * List of fields that are file.
      *
