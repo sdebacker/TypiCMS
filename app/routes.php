@@ -23,3 +23,5 @@ foreach (Config::get('app.locales') as $locale) {
  */
 Route::when('admin',   'admin.setLocale|user.auth|user.hasAccess');
 Route::when('admin/*', 'admin.setLocale|user.auth|user.hasAccess');
+Route::when('api',     'user.auth');
+Route::when('api/*',   'user.auth');

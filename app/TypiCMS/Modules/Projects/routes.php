@@ -49,3 +49,10 @@ Route::group(
         Route::post('projects/sort', array('as' => 'admin.projects.sort', 'uses' => 'AdminController@sort'));
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'projects',
+        'TypiCMS\Modules\Projects\Controllers\ApiController'
+    );
+});

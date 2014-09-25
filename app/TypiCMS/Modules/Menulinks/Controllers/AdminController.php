@@ -122,28 +122,4 @@ class AdminController extends BaseAdminController
             ->withErrors($this->form->errors());
 
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @return Response
-     */
-    public function sort()
-    {
-        $this->repository->sort(Input::all());
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return Response
-     */
-    public function destroy($menu, $model)
-    {
-        if ($this->repository->delete($model)) {
-            if (! Request::ajax()) {
-                return Redirect::back();
-            }
-        }
-    }
 }

@@ -4,7 +4,6 @@ namespace TypiCMS\Modules\Tags\Controllers;
 use Config;
 use Input;
 use Paginator;
-use Redirect;
 use Request;
 use TypiCMS\Controllers\BaseAdminController;
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
@@ -37,19 +36,5 @@ class AdminController extends BaseAdminController
 
         $this->layout->content = View::make('tags.admin.index')
             ->withModels($models);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return Response
-     */
-    public function destroy($model)
-    {
-        if ($this->repository->delete($model)) {
-            if (! Request::ajax()) {
-                return Redirect::back();
-            }
-        }
     }
 }

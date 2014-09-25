@@ -35,3 +35,10 @@ Route::group(
         Route::post('places/sort', array('as' => 'admin.places.sort', 'uses' => 'AdminController@sort'));
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'places',
+        'TypiCMS\Modules\Places\Controllers\ApiController'
+    );
+});

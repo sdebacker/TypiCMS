@@ -23,6 +23,8 @@ abstract class BaseAdminController extends Controller
     protected $layout = 'admin/master';
 
     protected $repository;
+    protected $module;
+    protected $route;
     protected $form;
 
     // The cool kids’ way of handling page titles.
@@ -37,6 +39,11 @@ abstract class BaseAdminController extends Controller
     public function __construct($repository = null, $form = null)
     {
         $this->repository = $repository;
+
+        $this->module = $this->repository->getModel()->getTable();
+
+        $this->route = $this->repository->getModel()->route;
+
         $this->form       = $form;
 
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
@@ -48,6 +55,7 @@ abstract class BaseAdminController extends Controller
 
         View::share('locales', Config::get('app.locales'));
         View::share('locale', Config::get('app.locale'));
+        View::share('module', $this->module);
     }
 
     public function getTitle()
@@ -82,9 +90,9 @@ abstract class BaseAdminController extends Controller
     {
         $page = Input::get('page');
 
-        $itemsPerPage = Config::get('news::admin.itemsPerPage');
+        $itemsPerPage = Config::get($this->module . '::admin.itemsPerPage');
 
-        $data = $this->repository->byPage($page, $itemsPerPage, array('translations'), true);
+        $data = $this->repository->byPage($page, $itemsPerPage, ['translations'], true);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
@@ -121,7 +129,7 @@ abstract class BaseAdminController extends Controller
      */
     public function show($model)
     {
-        return Redirect::route('admin.news.edit', $model->id);
+        return Redirect::route('admin.' . $this->module . '.edit', $model->id);
     }
 
     /**
@@ -134,11 +142,11 @@ abstract class BaseAdminController extends Controller
 
         if ($model = $this->form->save(Input::all())) {
             return Input::get('exit') ?
-                Redirect::route('admin.news.index') :
-                Redirect::route('admin.news.edit', $model->id) ;
+                Redirect::route('admin.' . $this->module . '.index') :
+                Redirect::route('admin.' . $this->module . '.edit', $model->id) ;
         }
 
-        return Redirect::route('admin.news.create')
+        return Redirect::route('admin.' . $this->module . '.create')
             ->withInput()
             ->withErrors($this->form->errors());
 
@@ -158,11 +166,11 @@ abstract class BaseAdminController extends Controller
 
         if ($this->form->update(Input::all())) {
             return Input::get('exit') ?
-                Redirect::route('admin.news.index') :
-                Redirect::route('admin.news.edit', $model->id) ;
+                Redirect::route('admin.' . $this->module . '.index') :
+                Redirect::route('admin.' . $this->module . '.edit', $model->id) ;
         }
 
-        return Redirect::route('admin.news.edit', $model->id)
+        return Redirect::route('admin.' . $this->module . '.edit', $model->id)
             ->withInput()
             ->withErrors($this->form->errors());
     }
@@ -179,5 +187,15 @@ abstract class BaseAdminController extends Controller
                 return Redirect::back();
             }
         }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @return Response
+     */
+    public function sort()
+    {
+        $this->repository->sort(Input::all());
     }
 }

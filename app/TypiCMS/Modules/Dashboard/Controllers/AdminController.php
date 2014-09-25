@@ -22,12 +22,7 @@ class AdminController extends BaseAdminController
      */
     public function index()
     {
-        $menus = Menu::with('translations')->get();
-
-        $this->title['child'] = trans('dashboard::global.Dashboard');
-
         $this->layout->content = View::make('dashboard.admin.dashboard')
-            ->with('welcomeMessage', $this->repository->getWelcomeMessage())
-            ->withMenus($menus);
+            ->with('welcomeMessage', $this->repository->getWelcomeMessage());
     }
 }

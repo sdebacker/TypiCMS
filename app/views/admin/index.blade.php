@@ -1,5 +1,5 @@
 @section('main')
 
-@include('news.admin.list')
+@include($module . '.admin.index')
 
 @stop

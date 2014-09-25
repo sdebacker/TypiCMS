@@ -22,8 +22,9 @@ abstract class BaseApiController extends Controller
      * Get models
      * @return Response
      */
-    public function index()
+    public function index($module)
     {
+        var_dump($module);
         $models = $this->repository->getAll([], true);
         return Response::json($models, 200);
     }
