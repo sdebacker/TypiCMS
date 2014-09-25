@@ -3,9 +3,15 @@ namespace TypiCMS\Controllers;
 
 use Config;
 use Controller;
+use Input;
 use Lang;
+use Paginator;
 use Patchwork\Utf8;
+use Redirect;
 use Request;
+use Response;
+use Str;
+use TypiCMS;
 use View;
 
 abstract class BaseAdminController extends Controller
@@ -38,7 +44,6 @@ abstract class BaseAdminController extends Controller
         $instance = $this;
         View::composer($this->layout, function (\Illuminate\View\View $view) use ($instance) {
             $view->with('title', $instance->getTitle());
-            $view->with('h1', $instance->getH1());
         });
 
         View::share('locales', Config::get('app.locales'));
@@ -56,11 +61,6 @@ abstract class BaseAdminController extends Controller
         return $title;
     }
 
-    public function getH1()
-    {
-        return $this->title['h1'] ? : $this->title['child'] ;
-    }
-
     /**
      * Setup the layout used by the controller.
      *
@@ -71,6 +71,113 @@ abstract class BaseAdminController extends Controller
         if (! is_null($this->layout)) {
             $layout = Request::ajax() ? 'admin/ajax' : $this->layout;
             $this->layout = View::make($layout);
+        }
+    }
+
+    /**
+     * List models
+     * GET /admin/model
+     */
+    public function index()
+    {
+        $page = Input::get('page');
+
+        $itemsPerPage = Config::get('news::admin.itemsPerPage');
+
+        $data = $this->repository->byPage($page, $itemsPerPage, array('translations'), true);
+
+        $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
+
+        $this->layout->content = View::make('admin.index')->withModels($models);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        $model = $this->repository->getModel();
+        $this->layout->content = View::make('admin.create')
+            ->withModel($model);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @return Response
+     */
+    public function edit($model)
+    {
+        $this->layout->content = View::make('admin.edit')
+            ->withModel($model);
+    }
+
+    /**
+     * Show resource.
+     *
+     * @return Response
+     */
+    public function show($model)
+    {
+        return Redirect::route('admin.news.edit', $model->id);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
+
+        if ($model = $this->form->save(Input::all())) {
+            return Input::get('exit') ?
+                Redirect::route('admin.news.index') :
+                Redirect::route('admin.news.edit', $model->id) ;
+        }
+
+        return Redirect::route('admin.news.create')
+            ->withInput()
+            ->withErrors($this->form->errors());
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @return Response
+     */
+    public function update($model)
+    {
+
+        if (Request::ajax()) {
+            return Response::json($this->repository->update(Input::all()));
+        }
+
+        if ($this->form->update(Input::all())) {
+            return Input::get('exit') ?
+                Redirect::route('admin.news.index') :
+                Redirect::route('admin.news.edit', $model->id) ;
+        }
+
+        return Redirect::route('admin.news.edit', $model->id)
+            ->withInput()
+            ->withErrors($this->form->errors());
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return Response
+     */
+    public function destroy($model)
+    {
+        if ($this->repository->delete($model)) {
+            if (! Request::ajax()) {
+                return Redirect::back();
+            }
         }
     }
 }
