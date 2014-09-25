@@ -20,6 +20,10 @@ msgstr "Adres"
 msgid "Category"
 msgstr "Categorie"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
+msgid "Content"
+msgstr "Inhoud"
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 msgid "Date"
 msgstr "Datum"
@@ -44,6 +48,11 @@ msgstr "Einddatum"
 msgid "Image"
 msgstr "Beeld"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
+msgid "Name"
+msgstr "Naam"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
@@ -60,6 +69,7 @@ msgstr "Offline"
 msgid "Online"
 msgstr "Online"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
@@ -72,6 +82,7 @@ msgstr "Zoeken"
 msgid "Start date"
 msgstr "Startdatum"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
@@ -92,6 +103,12 @@ msgstr "Titel"
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
 msgid "Website"
 msgstr "Website"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
+msgid "{{ models.length }} content block"
+msgid_plural "{{ models.length }} content blocks"
+msgstr[0] "{{ models.length }} inhoudsblok"
+msgstr[1] "{{ models.length }} contentblokken"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 msgid "{{ models.length }} event"
