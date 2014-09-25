@@ -5,6 +5,7 @@ use Illuminate\Support\Collection;
 use TypiCMS\Controllers\BaseAdminController;
 use TypiCMS\Modules\Translations\Repositories\TranslationInterface;
 use TypiCMS\Modules\Translations\Services\Form\TranslationForm;
+use View;
 
 class AdminController extends BaseAdminController
 {

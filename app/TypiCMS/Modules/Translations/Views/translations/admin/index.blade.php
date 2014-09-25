@@ -2,15 +2,12 @@
     {{ HTML::script(asset('js/admin/list.js')) }}
 @stop
 
-@section('h1')
-    <span id="nb_elements">{{ $models->count() }}</span> @choice('translations::global.translations', $models->count())
-@stop
-
-@section('titleLeftButton')
-    <a href="{{ route('admin.translations.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('translations::global.New')) }}</span></a>
-@stop
-
 @section('main')
+
+    <h1>
+        <a href="{{ route('admin.translations.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('translations::global.New')) }}</span></a>
+        <span id="nb_elements">{{ $models->count() }}</span> @choice('translations::global.translations', $models->count())
+    </h1>
 
     <div class="list-form" lang="{{ Config::get('app.locale') }}">
 
