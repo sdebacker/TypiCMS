@@ -36,6 +36,8 @@ class Project extends Base
         'body',
     );
 
+    protected $appends = ['status', 'title', 'category_name'];
+
     /**
      * The default route for admin side.
      *
@@ -58,12 +60,15 @@ class Project extends Base
     }
 
     /**
-     * A project has many tags.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     * Get title attribute from translation table
+     * and append it to main model attributes
+     * @return string title
      */
-    public function tags()
+    public function getCategoryNameAttribute($value)
     {
-        return $this->morphToMany('TypiCMS\Modules\Tags\Models\Tag', 'taggable')->withTimestamps();
+        if ($this->category) {
+            return $this->category->title;
+        }
+        return null;
     }
 }

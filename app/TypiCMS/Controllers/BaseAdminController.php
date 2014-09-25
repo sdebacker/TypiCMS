@@ -44,7 +44,7 @@ abstract class BaseAdminController extends Controller
 
         $this->route = $this->repository->getModel()->route;
 
-        $this->form       = $form;
+        $this->form = $form;
 
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
 
@@ -56,6 +56,7 @@ abstract class BaseAdminController extends Controller
         View::share('locales', Config::get('app.locales'));
         View::share('locale', Config::get('app.locale'));
         View::share('module', $this->module);
+        View::share('route', $this->route);
     }
 
     public function getTitle()

@@ -61,17 +61,4 @@ class News extends Base
     {
         $this->attributes['date'] = Carbon::parse($value);
     }
-
-    /**
-     * A news has many galleries.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
-    public function galleries()
-    {
-        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
-            ->withPivot('position')
-            ->orderBy('position')
-            ->withTimestamps();
-    }
 }

@@ -235,4 +235,27 @@ abstract class Base extends Eloquent
     {
         return $this->status;
     }
+
+    /**
+     * A model has many tags.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function tags()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Tags\Models\Tag', 'taggable')->withTimestamps();
+    }
+
+    /**
+     * A model has many galleries.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function galleries()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
+            ->withPivot('position')
+            ->orderBy('position')
+            ->withTimestamps();
+    }
 }

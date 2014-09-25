@@ -25,14 +25,9 @@ class AdminController extends BaseAdminController
      */
     public function create()
     {
-        $this->title['child'] = trans('projects::global.New');
         $model = $this->repository->getModel();
-
-        $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
-
         $tags = Session::getOldInput('tags');
-        $this->layout->content = View::make('projects.admin.create')
-            ->withCategories($categories)
+        $this->layout->content = View::make('admin.create')
             ->withTags($tags)
             ->withModel($model);
     }
@@ -44,14 +39,8 @@ class AdminController extends BaseAdminController
      */
     public function edit($model)
     {
-        $this->title['child'] = trans('projects::global.Edit');
-
-        $categories = App::make('TypiCMS\Modules\Categories\Repositories\CategoryInterface')->getAllForSelect();
-
         $tags = implode(', ', $model->tags->lists('tag'));
-
-        $this->layout->content = View::make('projects.admin.edit')
-            ->withCategories($categories)
+        $this->layout->content = View::make('admin.edit')
             ->withTags($tags)
             ->withModel($model);
     }

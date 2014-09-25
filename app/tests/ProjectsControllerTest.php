@@ -18,7 +18,7 @@ class ProjectsControllerTest extends TestCase
         $projects = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $projects);
+        $this->assertInstanceOf('Illuminate\Pagination\Paginator', $projects);
     }
 
     public function testStoreFails()
