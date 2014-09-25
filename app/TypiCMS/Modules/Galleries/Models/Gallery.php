@@ -34,6 +34,8 @@ class Gallery extends Base
         'body',
     );
 
+    protected $appends = ['status', 'title', 'files_count'];
+
     /**
      * The default route for admin side.
      *
@@ -75,5 +77,15 @@ class Gallery extends Base
     public function pages()
     {
         return $this->morphedByMany('TypiCMS\Modules\Pages\Models\Page');
+    }
+
+    /**
+     * Get status attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getFilesCountAttribute()
+    {
+        return $this->files->count();
     }
 }

@@ -1,61 +1,53 @@
-@section('js')
-    {{ HTML::script(asset('js/admin/list.js')) }}
-@stop
+<div ng-app="typicms" ng-cloak ng-controller="ListController">
 
-@section('h1')
-    <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('galleries::global.galleries', $models->getTotal())
-@stop
+    <h1>
+        <a href="{{ url }}/create" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only" translate>New</span></a>
+        <span translate translate-n="{{ models.length }}" translate-plural="{{ models.length }} galleries">{{ models.length }} gallery</span>
+    </h1>
 
-@section('titleLeftButton')
-    <a href="{{ route('admin.galleries.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('galleries::global.New')) }}</span></a>
-@stop
+    <div class="table-responsive">
 
-@section('main')
+        <table st-table="displayedModels" st-safe-src="models" st-order st-filter class="table table-condensed table-main">
+            <thead>
+                <tr>
+                    <th class="delete"></th>
+                    <th class="edit"></th>
+                    <th st-sort="status" class="status st-sort" translate>Status</th>
+                    <th st-sort="name" st-sort-default class="name st-sort" translate>Name</th>
+                    <th st-sort="title" class="title st-sort" translate>Content</th>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>
+                        <input st-search="'name'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                    </th>
+                    <td>
+                        <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                    </th>
+                </tr>
+            </thead>
 
-    <div class="list-form" lang="{{ Config::get('app.locale') }}">
-
-        @include('admin._buttons-list')
-
-        <div class="table-responsive">
-
-            <table class="table table-condensed table-main">
-
-                <thead>
-
-                    <tr>
-                        {{ Html::th('checkboxes', null, false, false) }}
-                        {{ Html::th('edit', null, false, false) }}
-                        {{ Html::th('status', null, false) }}
-                        {{ Html::th('name', 'asc') }}
-                        {{ Html::th('title', null, false) }}
-                        {{ Html::th('files', null, false) }}
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    @foreach ($models as $model)
-
-                    <tr id="item_{{ $model->id }}">
-                        <td>{{ $model->present()->checkbox }}</td>
-                        <td>{{ $model->present()->edit }}</td>
-                        <td>{{ $model->present()->status }}</td>
-                        <td>{{ $model->name }}</td>
-                        <td>{{ $model->title }}</td>
-                        <td>{{ $model->present()->countFiles }}</td>
-                    </tr>
-
-                    @endforeach
-
-                </tbody>
-
-            </table>
-
-        </div>
+            <tbody>
+                <tr ng-repeat="model in displayedModels">
+                    <td typi-btn-delete></td>
+                    <td typi-btn-edit></td>
+                    <td typi-btn-status></td>
+                    <td>{{ model.name }}</td>
+                    <td>{{ model.title }}</td>
+                    <td>
+                        <span class="label label-default">
+                            {{ model.files_count }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="8" typi-pagination></td>
+                </tr>
+            </tfoot>
+        </table>
 
     </div>
 
-    {{ $models->appends(Input::except('page'))->links() }}
-
-@stop
+</div>
