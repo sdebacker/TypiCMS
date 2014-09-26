@@ -18,6 +18,8 @@ class Partner extends Base
         // Translatable fields
         'title',
         'slug',
+        'position',
+        'homepage',
         'status',
         'website',
         'body',
@@ -57,8 +59,8 @@ class Partner extends Base
     /**
      * lists
      */
-    public $order = 'id';
-    public $direction = 'desc';
+    public $order = 'position';
+    public $direction = 'asc';
 
     /**
      * Get attribute from translation table

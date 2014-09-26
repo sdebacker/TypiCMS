@@ -14,11 +14,13 @@
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort" translate>Status</th>
                     <th st-sort="image" class="image st-sort" translate>Image</th>
+                    <th st-sort="position" st-sort-default class="position st-sort">Position</th>
+                    <th st-sort="homepage" class="homepage st-sort">Home</th>
                     <th st-sort="title" class="title st-sort" translate>Title</th>
                     <th st-sort="website" class="website st-sort" translate>Website</th>
                 </tr>
                 <tr>
-                    <td colspan="4"></td>
+                    <td colspan="6"></td>
                     <td>
                         <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
@@ -34,6 +36,10 @@
                     <td typi-btn-edit></td>
                     <td typi-btn-status></td>
                     <td typi-thumb-list-item></td>
+                    <td>
+                        <input class="form-control input-sm" min="1" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="changePosition(model)">
+                    </td>
+                    <td>{{ model.homepage }}</td>
                     <td>{{ model.title }}</td>
                     <td>{{ model.website }}</td>
                 </tr>

@@ -167,6 +167,7 @@ return array(
 
         // Partners
         'logo' => 'Logo',
+        'homepage' => 'On homepage',
 
         // Events
         'start_date' => 'Start date',

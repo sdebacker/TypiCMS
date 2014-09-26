@@ -174,6 +174,7 @@ return array(
 
         // Partners
         'logo' => 'Logo',
+        'homepage' => 'Sur la page d’accueil',
 
         // Events
         'start_date' => 'Date de début',

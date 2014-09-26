@@ -18,7 +18,7 @@
                     <th st-sort="category_name" class="category st-sort" translate>Category</th>
                 </tr>
                 <tr>
-                    <td colspan="4"></td>
+                    <td colspan="6"></td>
                     <td>
                         <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>

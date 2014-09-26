@@ -21,6 +21,22 @@
 
 <div class="tab-content">
 
+<div class="checkbox">
+    <label>
+        {{ Form::checkbox('homepage', 1, $model->homepage) }} @lang('validation.attributes.homepage')
+    </label>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 form-group @if($errors->has('position'))has-error @endif">
+        {{ Form::label('position', trans('validation.attributes.position')) }}
+        {{ Form::text('position', null, array('class' => 'form-control')) }}
+        @if($errors->has('position'))
+        <span class="help-block">{{ $errors->first('position') }}</span>
+        @endif
+    </div>
+</div>
+
 @foreach ($locales as $lang)
 
     <div class="tab-pane fade @if($locale == $lang)in active @endif" id="content-{{ $lang }}">

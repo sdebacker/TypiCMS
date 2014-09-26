@@ -14,7 +14,7 @@
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort" translate>Status</th>
                     <th st-sort="image" class="image st-sort" translate>Image</th>
-                    <th st-sort="title" class="title st-sort" translate>Title</th>
+                    <th st-sort="title" st-sort-default class="title st-sort" translate>Title</th>
                     <th st-sort="address" class="address st-sort" translate>Address</th>
                     <th st-sort="website" class="website st-sort" translate>Website</th>
                 </tr>

@@ -78,8 +78,7 @@ abstract class BaseAdminController extends Controller
     protected function setupLayout()
     {
         if (! is_null($this->layout)) {
-            $layout = Request::ajax() ? 'admin/ajax' : $this->layout;
-            $this->layout = View::make($layout);
+            $this->layout = View::make($this->layout);
         }
     }
 
@@ -89,15 +88,7 @@ abstract class BaseAdminController extends Controller
      */
     public function index()
     {
-        $page = Input::get('page');
-
-        $itemsPerPage = Config::get($this->module . '::admin.itemsPerPage');
-
-        $data = $this->repository->byPage($page, $itemsPerPage, [], true);
-
-        $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
-
-        $this->layout->content = View::make('admin.index')->withModels($models);
+        $this->layout->content = View::make('admin.index');
     }
 
     /**
