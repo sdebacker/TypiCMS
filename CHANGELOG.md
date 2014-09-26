@@ -6,6 +6,11 @@ All notable changes to TypiCMS will be documented in this file.
 ### Changed
 - bower_components back in its default place, please remove app/assets/components and run bower intall again.
 
+### Added
+- Angular JS for lists in admin
+- Manual position for partners
+- A partner can be visible on homepage or not
+
 ## 1.4.11 - 2014-09-07
 
 ### Added
