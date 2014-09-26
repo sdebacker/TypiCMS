@@ -1,11 +1,11 @@
 <?php
 namespace TypiCMS\Modules\Contacts\Controllers;
 
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Contacts\Repositories\ContactInterface;
 use TypiCMS\Modules\Contacts\Services\Form\ContactForm;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(ContactInterface $contact, ContactForm $contactform)

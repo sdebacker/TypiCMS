@@ -1,12 +1,12 @@
 <?php
 namespace TypiCMS\Modules\Menus\Controllers;
 
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Menus\Repositories\MenuInterface;
 use TypiCMS\Modules\Menus\Services\Form\MenuForm;
 use View;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(MenuInterface $menu, MenuForm $menuform)

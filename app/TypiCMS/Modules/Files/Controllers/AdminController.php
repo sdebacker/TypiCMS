@@ -7,12 +7,12 @@ use Paginator;
 use Redirect;
 use Request;
 use Response;
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 use TypiCMS\Modules\Files\Services\Form\FileForm;
 use View;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(FileInterface $file, FileForm $fileform)

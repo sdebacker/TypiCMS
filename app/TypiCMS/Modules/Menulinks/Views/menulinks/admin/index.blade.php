@@ -12,6 +12,11 @@
 
 @section('main')
 
+    <h1>
+        <a href="{{ route('admin.menus.menulinks.create', $menu->id) }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('menulinks::global.New')) }}</span></a>
+        <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('menulinks::global.menulinks', $models->getTotal())
+    </h1>
+
     <div class="list-form" lang="{{ Config::get('app.locale') }}">
 
         @include('admin._buttons-list')

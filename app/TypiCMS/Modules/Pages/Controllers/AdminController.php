@@ -1,12 +1,12 @@
 <?php
 namespace TypiCMS\Modules\Pages\Controllers;
 
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 use TypiCMS\Modules\Pages\Services\Form\PageForm;
 use View;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(PageInterface $page, PageForm $pageform)

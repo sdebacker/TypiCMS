@@ -9,9 +9,9 @@ use Redirect;
 use Response;
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminNestedController;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminNestedController
 {
 
     public function __construct(MenulinkInterface $menulink, MenulinkForm $menulinkform)
@@ -24,13 +24,13 @@ class AdminController extends BaseAdminController
      * List models
      * GET /admin/model
      */
-    public function index($parent = null)
+    public function index($menu = null)
     {
-        $models = $this->repository->getAllFromMenu(true, $parent->id);
+        $models = $this->repository->getAllFromMenu(true, $menu->id);
 
-        $this->layout->content = View::make('menulinks.admin.index')
+        $this->layout->content = View::make('admin.index')
             ->withModels($models)
-            ->withMenu($parent);
+            ->withMenu($menu);
     }
 
     /**
@@ -38,7 +38,7 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function create($parent = null)
+    public function create($menu = null)
     {
         $model = $this->repository->getModel();
         $this->title['child'] = trans('menulinks::global.New');
@@ -47,7 +47,7 @@ class AdminController extends BaseAdminController
         $selectModules = $this->repository->getModulesForSelect();
 
         $this->layout->content = View::make('menulinks.admin.create')
-            ->withMenu($parent)
+            ->withMenu($menu)
             ->with('selectPages', $selectPages)
             ->with('selectModules', $selectModules)
             ->withModel($model);
@@ -58,12 +58,12 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function edit($parent = null, $model)
+    public function edit($menu = null, $model)
     {
         $this->title['child'] = trans('menulinks::global.Edit');
 
         $this->layout->content = View::make('menulinks.admin.edit')
-            ->withMenu($parent)
+            ->withMenu($menu)
             ->with('selectPages', $this->repository->getPagesForSelect())
             ->with('selectModules', $this->repository->getModulesForSelect())
             ->withModel($model);
@@ -74,9 +74,9 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function show($parent = null, $model)
+    public function show($menu = null, $model)
     {
-        return Redirect::route('admin.menus.menulinks.edit', array($parent->id, $model->id));
+        return Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]);
     }
 
     /**
@@ -84,16 +84,16 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function store($parent = null)
+    public function store($menu = null)
     {
 
         if ($model = $this->form->save(Input::all())) {
             return (Input::get('exit')) ?
-                Redirect::route('admin.menus.menulinks.index', $parent->id) :
-                Redirect::route('admin.menus.menulinks.edit', array($parent->id, $model->id)) ;
+                Redirect::route('admin.menus.menulinks.index', $menu->id) :
+                Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]) ;
         }
 
-        return Redirect::route('admin.menus.menulinks.create', $parent->id)
+        return Redirect::route('admin.menus.menulinks.create', $menu->id)
             ->withInput()
             ->withErrors($this->form->errors());
 
@@ -104,7 +104,7 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function update($parent = null, $model)
+    public function update($menu = null, $model)
     {
 
         if (Request::ajax()) {
@@ -113,11 +113,11 @@ class AdminController extends BaseAdminController
 
         if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ?
-                Redirect::route('admin.menus.menulinks.index', $parent->id) :
-                Redirect::route('admin.menus.menulinks.edit', array($parent->id, $model->id)) ;
+                Redirect::route('admin.menus.menulinks.index', $menu->id) :
+                Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]) ;
         }
 
-        return Redirect::route('admin.menus.menulinks.edit', array($parent->id, $model->id))
+        return Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id])
             ->withInput()
             ->withErrors($this->form->errors());
 

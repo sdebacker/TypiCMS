@@ -4,12 +4,12 @@ namespace TypiCMS\Modules\Projects\Controllers;
 use App;
 use Response;
 use Session;
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
 use View;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(ProjectInterface $project, ProjectForm $projectform)

@@ -1,11 +1,11 @@
 <?php
 namespace TypiCMS\Modules\Blocks\Controllers;
 
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Blocks\Repositories\BlockInterface;
 use TypiCMS\Modules\Blocks\Services\Form\BlockForm;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(BlockInterface $block, BlockForm $blockform)

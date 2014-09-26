@@ -4,9 +4,9 @@ namespace TypiCMS\Modules\Dashboard\Controllers;
 use View;
 use TypiCMS\Modules\Menus\Models\Menu;
 use TypiCMS\Modules\Dashboard\Repositories\DashboardInterface;
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(DashboardInterface $dashboard)

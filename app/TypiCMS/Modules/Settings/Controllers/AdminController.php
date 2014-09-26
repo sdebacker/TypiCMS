@@ -13,9 +13,9 @@ use McCool\DatabaseBackup\BackupProcedure;
 use McCool\DatabaseBackup\Dumpers\MysqlDumper;
 use McCool\DatabaseBackup\Processors\ShellProcessor;
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(SettingInterface $setting)
