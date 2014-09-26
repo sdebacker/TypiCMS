@@ -129,14 +129,14 @@ class MenuSeeder extends Seeder
 
         // `typicms`.`typi_menus`
         $typi_menus = array(
-            array('id' => '1','name' => 'main','class' => 'nav-main nav nav-pills','created_at' => '2013-09-03 22:05:21','updated_at' => '2014-02-17 16:25:05'),
-            array('id' => '2','name' => 'footer','class' => 'nav-footer nav nav-pills pull-right','created_at' => '2013-09-03 22:05:42','updated_at' => '2014-02-17 16:24:59'),
-            array('id' => '3','name' => 'social','class' => 'nav-social list-unstyled','created_at' => '2014-02-04 18:27:18','updated_at' => '2014-02-17 16:25:21'),
-            array('id' => '4','name' => 'admin-applications','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:01:46','updated_at' => '2014-07-08 22:01:46'),
-            array('id' => '5','name' => 'admin-content','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:02:42','updated_at' => '2014-07-08 22:02:42'),
-            array('id' => '6','name' => 'admin-system','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:03:58','updated_at' => '2014-07-08 22:03:58'),
-            array('id' => '7','name' => 'admin-users','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:04:51','updated_at' => '2014-07-08 22:04:51'),
-            array('id' => '8','name' => 'admin-media','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:19:53','updated_at' => '2014-07-08 22:19:53'),
+            array('id' => '1','side' => 'Front office','name' => 'main','class' => 'nav-main nav nav-pills','created_at' => '2013-09-03 22:05:21','updated_at' => '2014-02-17 16:25:05'),
+            array('id' => '2','side' => 'Front office','name' => 'footer','class' => 'nav-footer nav nav-pills pull-right','created_at' => '2013-09-03 22:05:42','updated_at' => '2014-02-17 16:24:59'),
+            array('id' => '3','side' => 'Front office','name' => 'social','class' => 'nav-social list-unstyled','created_at' => '2014-02-04 18:27:18','updated_at' => '2014-02-17 16:25:21'),
+            array('id' => '4','side' => 'Back office','name' => 'applications','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:01:46','updated_at' => '2014-07-08 22:01:46'),
+            array('id' => '5','side' => 'Back office','name' => 'content','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:02:42','updated_at' => '2014-07-08 22:02:42'),
+            array('id' => '6','side' => 'Back office','name' => 'system','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:03:58','updated_at' => '2014-07-08 22:03:58'),
+            array('id' => '7','side' => 'Back office','name' => 'users','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:04:51','updated_at' => '2014-07-08 22:04:51'),
+            array('id' => '8','side' => 'Back office','name' => 'media','class' => 'nav nav-sidebar','created_at' => '2014-07-08 22:19:53','updated_at' => '2014-07-08 22:19:53'),
         );
 
         // `typicms`.`typi_menu_translations`

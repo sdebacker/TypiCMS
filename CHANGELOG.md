@@ -12,6 +12,11 @@ All notable changes to TypiCMS will be documented in this file.
 - Manual position for partners: field position:integer added
 - A partner can be visible on homepage or not: fields homepage:boolean added 
 - Field 'image' added to tables pages, news, categories, events, projects
+- Field 'side' in menus table
+
+### Removed
+- removed 'title' field from menu_translations table
+- removed 'rss_enabled' and 'comments_enabled' fields from 'pages' table
 
 ## 1.4.11 - 2014-09-07
 

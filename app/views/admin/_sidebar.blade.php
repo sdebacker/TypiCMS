@@ -9,9 +9,9 @@
             </li>
         </ul>
     </div>
-    @include('admin._sidebar-menu', ['name' => 'admin-applications'])
-    @include('admin._sidebar-menu', ['name' => 'admin-content'])
-    @include('admin._sidebar-menu', ['name' => 'admin-media'])
-    @include('admin._sidebar-menu', ['name' => 'admin-system'])
-    @include('admin._sidebar-menu', ['name' => 'admin-users'])
+    @include('admin._sidebar-menu', ['name' => 'applications'])
+    @include('admin._sidebar-menu', ['name' => 'content'])
+    @include('admin._sidebar-menu', ['name' => 'media'])
+    @include('admin._sidebar-menu', ['name' => 'system'])
+    @include('admin._sidebar-menu', ['name' => 'users'])
 </div>

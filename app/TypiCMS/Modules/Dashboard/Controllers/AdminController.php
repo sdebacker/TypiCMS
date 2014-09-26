@@ -20,7 +20,7 @@ class AdminController extends BaseAdminController
      *
      * @return void
      */
-    public function index()
+    public function index($parent = null)
     {
         $this->layout->content = View::make('dashboard.admin.dashboard')
             ->with('welcomeMessage', $this->repository->getWelcomeMessage());

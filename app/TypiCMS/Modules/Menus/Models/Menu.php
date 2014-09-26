@@ -18,6 +18,7 @@ class Menu extends Base
         'class',
         // Translatable fields
         'title',
+        'side',
         'status',
     );
 
