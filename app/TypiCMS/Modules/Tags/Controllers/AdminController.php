@@ -23,7 +23,7 @@ class AdminController extends BaseAdminController
      * List models
      * GET /admin/tags
      */
-    public function index()
+    public function index($parent = null)
     {
         if (Request::ajax()) {
             return $this->repository->getAll(array(), true);

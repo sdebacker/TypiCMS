@@ -24,13 +24,13 @@ class AdminController extends BaseAdminController
      * List models
      * GET /admin/model
      */
-    public function index($menu)
+    public function index($parent = null)
     {
-        $models = $this->repository->getAllFromMenu(true, $menu->id);
+        $models = $this->repository->getAllFromMenu(true, $parent->id);
 
         $this->layout->content = View::make('menulinks.admin.index')
             ->withModels($models)
-            ->withMenu($menu);
+            ->withMenu($parent);
     }
 
     /**
@@ -38,7 +38,7 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function create($menu)
+    public function create($parent = null)
     {
         $model = $this->repository->getModel();
         $this->title['child'] = trans('menulinks::global.New');
@@ -47,7 +47,7 @@ class AdminController extends BaseAdminController
         $selectModules = $this->repository->getModulesForSelect();
 
         $this->layout->content = View::make('menulinks.admin.create')
-            ->withMenu($menu)
+            ->withMenu($parent)
             ->with('selectPages', $selectPages)
             ->with('selectModules', $selectModules)
             ->withModel($model);
@@ -58,12 +58,12 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function edit($menu, $model)
+    public function edit($parent = null, $model)
     {
         $this->title['child'] = trans('menulinks::global.Edit');
 
         $this->layout->content = View::make('menulinks.admin.edit')
-            ->withMenu($menu)
+            ->withMenu($parent)
             ->with('selectPages', $this->repository->getPagesForSelect())
             ->with('selectModules', $this->repository->getModulesForSelect())
             ->withModel($model);
@@ -74,9 +74,9 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function show($menu, $model)
+    public function show($parent = null, $model)
     {
-        return Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id));
+        return Redirect::route('admin.menus.menulinks.edit', array($parent->id, $model->id));
     }
 
     /**
@@ -84,16 +84,16 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function store($menu)
+    public function store($parent = null)
     {
 
         if ($model = $this->form->save(Input::all())) {
             return (Input::get('exit')) ?
-                Redirect::route('admin.menus.menulinks.index', $menu->id) :
-                Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
+                Redirect::route('admin.menus.menulinks.index', $parent->id) :
+                Redirect::route('admin.menus.menulinks.edit', array($parent->id, $model->id)) ;
         }
 
-        return Redirect::route('admin.menus.menulinks.create', $menu->id)
+        return Redirect::route('admin.menus.menulinks.create', $parent->id)
             ->withInput()
             ->withErrors($this->form->errors());
 
@@ -104,7 +104,7 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function update($menu, $model)
+    public function update($parent = null, $model)
     {
 
         if (Request::ajax()) {
@@ -113,11 +113,11 @@ class AdminController extends BaseAdminController
 
         if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ?
-                Redirect::route('admin.menus.menulinks.index', $menu->id) :
-                Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
+                Redirect::route('admin.menus.menulinks.index', $parent->id) :
+                Redirect::route('admin.menus.menulinks.edit', array($parent->id, $model->id)) ;
         }
 
-        return Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id))
+        return Redirect::route('admin.menus.menulinks.edit', array($parent->id, $model->id))
             ->withInput()
             ->withErrors($this->form->errors());
 

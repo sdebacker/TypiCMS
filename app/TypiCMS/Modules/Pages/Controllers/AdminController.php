@@ -19,7 +19,7 @@ class AdminController extends BaseAdminController
      * List models
      * GET /admin/model
      */
-    public function index()
+    public function index($parent = null)
     {
         $models = $this->repository->getAllNested(array('translations'), true);
 

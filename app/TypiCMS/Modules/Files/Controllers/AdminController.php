@@ -25,7 +25,7 @@ class AdminController extends BaseAdminController
      * List files
      * @return response views
      */
-    public function index()
+    public function index($parent = null)
     {
         $allowedViews = ['index', 'filepicker', 'thumbnails', 'gallery'];
 
