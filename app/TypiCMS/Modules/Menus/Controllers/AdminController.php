@@ -19,7 +19,7 @@ class AdminController extends AdminSimpleController
      * List models
      * GET /admin/model
      */
-    public function index($parent = null)
+    public function index()
     {
         $models = $this->repository->getAll(array('translations'), true);
 

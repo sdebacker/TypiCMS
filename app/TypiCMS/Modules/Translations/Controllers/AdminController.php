@@ -20,7 +20,7 @@ class AdminController extends AdminSimpleController
      * List models
      * GET /admin/model
      */
-    public function index($parent = null)
+    public function index()
     {
         $models = Collection::make($this->repository->getAll([], true));
 

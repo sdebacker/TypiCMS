@@ -1,8 +1,6 @@
-@section('h1')
-    {{ ucfirst(trans('global.settings')) }}
-@stop
-
 @section('main')
+
+<h1>{{ ucfirst(trans('global.settings')) }}</h1>
 
 <div class="row">
 

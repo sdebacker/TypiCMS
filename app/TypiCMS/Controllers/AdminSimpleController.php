@@ -38,7 +38,7 @@ abstract class AdminSimpleController extends BaseAdminController
      * List models
      * GET /admin/model
      */
-    public function index($parent = null)
+    public function index()
     {
         $this->layout->content = View::make('admin.index');
     }
