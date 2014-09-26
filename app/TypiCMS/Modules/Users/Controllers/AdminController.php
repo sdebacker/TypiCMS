@@ -32,7 +32,7 @@ class AdminController extends BaseAdminController
 
     public function getLogin()
     {
-        $this->layout->content = View::make('admin.users.login');
+        $this->layout->content = View::make('users.admin.login');
     }
 
     public function postLogin()
@@ -174,7 +174,7 @@ class AdminController extends BaseAdminController
     public function getRegister()
     {
         // Show the register form
-        $this->layout->content = View::make('admin.users.register');
+        $this->layout->content = View::make('users.admin.register');
     }
 
     /**
@@ -235,7 +235,7 @@ class AdminController extends BaseAdminController
     public function getResetpassword()
     {
         // Show the reset password form
-        $this->layout->content = View::make('admin.users.reset');
+        $this->layout->content = View::make('users.admin.reset');
     }
 
     public function postResetpassword()
@@ -289,7 +289,7 @@ class AdminController extends BaseAdminController
             $data['id'] = $userId;
             $data['resetCode'] = $resetCode;
 
-            $this->layout->content = View::make('admin.users.newpassword')
+            $this->layout->content = View::make('users.admin.newpassword')
                 ->with($data);
 
         } catch (Exception $e) {
