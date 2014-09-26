@@ -5,11 +5,13 @@ All notable changes to TypiCMS will be documented in this file.
 
 ### Changed
 - bower_components back in its default place, please remove app/assets/components and run bower intall again.
+- partners table: field 'logo' is now 'image'
 
 ### Added
-- Angular JS for lists in admin
-- Manual position for partners
-- A partner can be visible on homepage or not
+- Angular JS for tables in admin
+- Manual position for partners: field position:integer added
+- A partner can be visible on homepage or not: fields homepage:boolean added 
+- Field 'image' added to tables pages, news, categories, events, projects
 
 ## 1.4.11 - 2014-09-07
 
