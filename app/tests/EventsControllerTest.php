@@ -10,15 +10,7 @@ class EventsControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // Event::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'events.admin.index';
-        $this->registerNestedView($view);
-
         $this->get('admin/events');
-        $events = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Pagination\Paginator', $events);
     }
 
     public function testStoreFails()

@@ -10,15 +10,7 @@ class PlacesControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // Place::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'places.admin.index';
-        $this->registerNestedView($view);
-
         $this->get('admin/places');
-        $places = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Pagination\Paginator', $places);
     }
 
     public function testStoreFails()

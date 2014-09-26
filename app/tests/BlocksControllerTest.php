@@ -10,15 +10,7 @@ class BlocksControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // Block::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'blocks.admin.index';
-        $this->registerNestedView($view);
-
         $this->get('admin/blocks');
-        $blocks = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Pagination\Paginator', $blocks);
     }
 
     public function testStoreFails()
