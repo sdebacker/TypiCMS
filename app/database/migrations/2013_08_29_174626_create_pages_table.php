@@ -25,8 +25,6 @@ class CreatePagesTable extends Migration
             $table->integer('position')->unsigned()->default(0);
             $table->integer('parent')->unsigned()->default(0);
 
-            $table->tinyInteger('rss_enabled')->default(0);
-            $table->tinyInteger('comments_enabled')->default(0);
             $table->tinyInteger('is_home')->default(0);
 
             $table->text('css')->nullable();

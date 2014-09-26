@@ -21,8 +21,6 @@ class Page extends Base
         'meta_robots_no_follow',
         'position',
         'parent',
-        'rss_enabled',
-        'comments_enabled',
         'is_home',
         'css',
         'js',
