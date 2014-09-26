@@ -5,7 +5,7 @@
         {{ $model->present()->title }}
     </h1>
 
-    {{ Form::model( $model, array( 'route' => array('admin.' . $route . '.update', $model->id), 'method' => 'put', 'role' => 'form' ) ) }}
+    {{ Form::model( $model, array( 'route' => array('admin.' . $route . '.update', $model->id), 'files' => true, 'method' => 'put', 'role' => 'form' ) ) }}
         @include($module . '.admin._form')
     {{ Form::close() }}
 

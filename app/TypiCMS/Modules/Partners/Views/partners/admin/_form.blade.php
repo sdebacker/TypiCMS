@@ -15,7 +15,7 @@
 
 {{ Form::hidden('id'); }}
 
-@include('admin._image-fieldset', ['field' => 'logo'])
+@include('admin._image-fieldset', ['field' => 'image'])
 
 @include('admin._tabs-lang-form', ['target' => 'content'])
 

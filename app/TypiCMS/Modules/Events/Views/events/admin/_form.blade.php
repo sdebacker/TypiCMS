@@ -15,6 +15,8 @@
 
 {{ Form::hidden('id'); }}
 
+@include('admin._image-fieldset', ['field' => 'image'])
+
 <div class="row">
     <div class="col-sm-4 form-group @if($errors->has('start_date'))has-error @endif">
         {{ Form::label('start_date', trans('validation.attributes.start_date'), array('class' => 'control-label')) }}

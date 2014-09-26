@@ -20,7 +20,7 @@
         <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('global.Content')</a>
     </li>
     <li>
-        <a href="#tab-galleries" data-target="#tab-galleries" data-toggle="tab">@lang('global.Galleries')</a>
+        <a href="#tab-files" data-target="#tab-files" data-toggle="tab">@lang('global.Files')</a>
     </li>
     <li>
         <a href="#tab-meta" data-target="#tab-meta" data-toggle="tab">@lang('global.Meta')</a>
@@ -83,7 +83,9 @@
     </div>
 
     {{-- Galleries tab --}}
-    <div class="tab-pane fade in" id="tab-galleries">
+    <div class="tab-pane fade in" id="tab-files">
+
+        @include('admin._image-fieldset', ['field' => 'image'])
 
         @include('admin._galleries-fieldset')
 
@@ -126,18 +128,6 @@
 
     {{-- Options --}}
     <div class="tab-pane fade in" id="tab-options">
-
-        <div class="checkbox">
-            <label>
-                {{ Form::checkbox('rss_enabled') }} @lang('validation.attributes.rss_enabled')
-            </label>
-        </div>
-
-        <div class="checkbox">
-            <label>
-                {{ Form::checkbox('comments_enabled') }} @lang('validation.attributes.comments_enabled')
-            </label>
-        </div>
 
         <div class="checkbox">
             @if ($model->is_home)

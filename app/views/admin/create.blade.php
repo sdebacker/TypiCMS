@@ -5,7 +5,7 @@
         @lang($module . '::global.New')
     </h1>
 
-    {{ Form::open( array( 'route' => array('admin.' . $route . '.index'), 'method' => 'post', 'role' => 'form' ) ) }}
+    {{ Form::open( array( 'route' => array('admin.' . $route . '.index'), 'files' => true, 'method' => 'post', 'role' => 'form' ) ) }}
         @include($module . '.admin._form')
     {{ Form::close() }}
 

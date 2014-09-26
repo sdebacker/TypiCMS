@@ -14,7 +14,7 @@ class Partner extends Base
     protected $presenter = 'TypiCMS\Modules\Partners\Presenters\PartnerPresenter';
 
     protected $fillable = array(
-        'logo',
+        'image',
         // Translatable fields
         'title',
         'slug',
@@ -46,7 +46,7 @@ class Partner extends Base
      * @var array
      */
     public $attachments = array(
-        'logo',
+        'image',
     );
 
     /**

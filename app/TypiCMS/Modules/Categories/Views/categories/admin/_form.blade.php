@@ -14,6 +14,8 @@
 
 {{ Form::hidden('id'); }}
 
+@include('admin._image-fieldset', ['field' => 'image'])
+
 @include('admin._tabs-lang')
 
 <div class="tab-content">
