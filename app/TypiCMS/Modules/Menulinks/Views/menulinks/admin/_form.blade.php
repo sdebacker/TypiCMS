@@ -68,8 +68,8 @@
             {{ Form::select('module_name', $selectModules, null, array('class' => 'form-control')) }}
         </div>
 
-        <div class="form-group">
-            <label class="checkbox">
+        <div class="checkbox">
+            <label>
                 {{ Form::checkbox('has_categories') }} @lang('validation.attributes.has_categories')
             </label>
         </div>
