@@ -2,7 +2,7 @@
 
     <h1>
         <a href="{{ url }}/create" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only" translate>New</span></a>
-        <span translate translate-n="{{ models.length }}" translate-plural="{{ models.length }} projects">{{ models.length }} project</span>
+        <span translate translate-n="models.length" translate-plural="{{ models.length }} projects">{{ models.length }} project</span>
     </h1>
 
     <div class="table-responsive">
