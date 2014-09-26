@@ -15,6 +15,7 @@ class Project extends Base
 
     protected $fillable = array(
         'category_id',
+        'image',
         // Translatable fields
         'title',
         'slug',
@@ -34,6 +35,15 @@ class Project extends Base
         'status',
         'summary',
         'body',
+    );
+
+    /**
+     * List of fields that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'image',
     );
 
     protected $appends = ['status', 'title', 'category_name'];

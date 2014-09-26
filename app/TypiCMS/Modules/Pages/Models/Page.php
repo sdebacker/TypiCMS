@@ -27,6 +27,7 @@ class Page extends Base
         'css',
         'js',
         'template',
+        'image',
         // Translatable fields
         'title',
         'slug',
@@ -52,6 +53,15 @@ class Page extends Base
         'meta_title',
         'meta_keywords',
         'meta_description',
+    );
+
+    /**
+     * List of fields that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'image',
     );
 
     /**

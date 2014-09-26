@@ -18,6 +18,7 @@ class News extends Base
 
     protected $fillable = array(
         'date',
+        'image',
         // Translatable fields
         'title',
         'slug',
@@ -37,6 +38,15 @@ class News extends Base
         'status',
         'summary',
         'body',
+    );
+
+    /**
+     * List of fields that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'image',
     );
 
     /**
