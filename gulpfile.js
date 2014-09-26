@@ -172,6 +172,7 @@ gulp.task('js-public', function () {
             '!alertify*',
             '!fastclick*',
             '!angular*',
+            '!smart-table*',
             '!dropzone*'
         ]))
         .pipe(newer(destDir + destFile))
