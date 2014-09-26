@@ -20,7 +20,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class MigrationCartalystSentryInstallUsersX extends Migration
+class MigrationInstallUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -42,6 +42,9 @@ class MigrationCartalystSentryInstallUsersX extends Migration
             $table->string('reset_password_code')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+
+            $table->text('preferences')->nullable();
+
             $table->timestamps();
 
             // We'll need to ensure that MySQL uses the InnoDB engine to

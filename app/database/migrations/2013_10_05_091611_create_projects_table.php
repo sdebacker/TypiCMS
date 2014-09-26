@@ -17,6 +17,8 @@ class CreateProjectsTable extends Migration
 
             $table->increments('id');
             $table->integer('category_id')->unsigned();
+            $table->string('image')->nullable();
+
             $table->timestamps();
         });
 
