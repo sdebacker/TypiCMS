@@ -13,7 +13,7 @@
                     <th class="delete"></th>
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort" translate>Status</th>
-                    <th st-sort="name" class="name st-sort" translate>Name</th>
+                    <th st-sort="name" st-sort-default class="name st-sort" translate>Name</th>
                     <th st-sort="body" class="body st-sort" translate>Content</th>
                 </tr>
                 <tr>
