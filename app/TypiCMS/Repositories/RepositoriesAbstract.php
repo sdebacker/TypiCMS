@@ -38,6 +38,11 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function make(array $with = array())
     {
+        if (method_exists($this->model, 'translations')) {
+            if (! in_array('translations', $with)) {
+                $with[] = 'translations';
+            }
+        }
         return $this->model->with($with);
     }
 
@@ -48,7 +53,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param string $value
      * @param array  $with
      */
-    public function getFirstBy($key, $value, array $with = array('translations'), $all = false)
+    public function getFirstBy($key, $value, array $with = array(), $all = false)
     {
         $query = $this->make($with);
         if (! $all) {
@@ -65,7 +70,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param  int       $id model ID
      * @return Model
      */
-    public function byId($id, array $with = array('translations'))
+    public function byId($id, array $with = array())
     {
         $query = $this->make($with)->where('id', $id);
 
@@ -83,7 +88,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param  array    $with  Eager load related models
      * @return StdClass Object with $items && $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
         $result = new StdClass;
         $result->page = $page;
@@ -145,7 +150,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param  array                      $with Eager load related models
      * @return \TypiCMS\NestedCollection  with $items
      */
-    public function getAllNested(array $with = array('translations'), $all = false)
+    public function getAllNested(array $with = array(), $all = false)
     {
         // Get
         return $this->getAll($with, $all)->nest();
@@ -157,7 +162,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param  boolean                                  $all Show published or all
      * @return \Illuminate\Database\Eloquent\Collection Object with $items
      */
-    public function getAllBy($key, $value, array $with = array('translations'), $all = false)
+    public function getAllBy($key, $value, array $with = array(), $all = false)
     {
         $query = $this->make($with);
 
@@ -184,7 +189,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param  array        $with array of related items
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function latest($number = 10, array $with = array('translations'))
+    public function latest($number = 10, array $with = array())
     {
         $query = $this->make($with);
         return $query->whereHasOnlineTranslation()->order()->take($number)->get();
@@ -197,7 +202,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * @param  array  $with related tables
      * @return mixed
      */
-    public function bySlug($slug, array $with = array('translations'))
+    public function bySlug($slug, array $with = array())
     {
         $model = $this->make($with)
             ->whereHas(

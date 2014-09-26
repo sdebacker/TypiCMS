@@ -93,7 +93,7 @@ abstract class BaseAdminController extends Controller
 
         $itemsPerPage = Config::get($this->module . '::admin.itemsPerPage');
 
-        $data = $this->repository->byPage($page, $itemsPerPage, ['translations'], true);
+        $data = $this->repository->byPage($page, $itemsPerPage, [], true);
 
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 

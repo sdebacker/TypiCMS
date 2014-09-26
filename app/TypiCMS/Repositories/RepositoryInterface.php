@@ -23,7 +23,7 @@ interface RepositoryInterface
      * @param string $value
      * @param array  $with
      */
-    public function getFirstBy($key, $value, array $with = array('translations'), $all = false);
+    public function getFirstBy($key, $value, array $with = array(), $all = false);
 
     /**
      * Retrieve model by id
@@ -32,7 +32,7 @@ interface RepositoryInterface
      * @param  int       $id model ID
      * @return stdObject object of model information
      */
-    public function byId($id, array $with = array('translations'));
+    public function byId($id, array $with = array());
 
     /**
      * Get paginated models
@@ -43,7 +43,7 @@ interface RepositoryInterface
      * @param  array    $with  Eager load related models
      * @return StdClass Object with $items && $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false);
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false);
 
     /**
      * Get all models
@@ -52,7 +52,7 @@ interface RepositoryInterface
      * @param  boolean     $all  Show published or all
      * @return \Illuminate\Database\Eloquent\Collection|\TypiCMS\NestedCollection
      */
-    public function getAll(array $with = array('translations'), $all = false);
+    public function getAll(array $with = array(), $all = false);
 
     /**
      * Get all models and nest
@@ -61,7 +61,7 @@ interface RepositoryInterface
      * @param  array                      $with Eager load related models
      * @return \TypiCMS\NestedCollection  with $items
      */
-    public function getAllNested(array $with = array('translations'), $all = false);
+    public function getAllNested(array $with = array(), $all = false);
 
     /**
      * Get all models with categories
@@ -69,7 +69,7 @@ interface RepositoryInterface
      * @param  boolean                                  $all Show published or all
      * @return \Illuminate\Database\Eloquent\Collection Object with $items
      */
-    public function getAllBy($key, $value, array $with = array('translations'), $all = false);
+    public function getAllBy($key, $value, array $with = array(), $all = false);
 
     /**
      * Get latest models
@@ -78,7 +78,7 @@ interface RepositoryInterface
      * @param  array        $with array of related items
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function latest($number = 10, array $with = array('translations'));
+    public function latest($number = 10, array $with = array());
 
     /**
      * Get single model by Slug
@@ -87,7 +87,7 @@ interface RepositoryInterface
      * @param  array  $with related tables
      * @return mixed
      */
-    public function bySlug($slug, array $with = array('translations'));
+    public function bySlug($slug, array $with = array());
 
     /**
      * Return all results that have a required relationship

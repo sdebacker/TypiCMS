@@ -9,7 +9,6 @@ use Input;
 use Mail;
 use Notification;
 use Redirect;
-use Request;
 use TypiCMS\Controllers\BaseAdminController;
 use TypiCMS\Modules\Users\Repositories\UserInterface;
 use TypiCMS\Modules\Users\Services\Form\UserForm;
@@ -65,20 +64,6 @@ class AdminController extends BaseAdminController
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        // Grab all the users
-        $models = $this->repository->getAll(array(), true);
-
-        $this->layout->content = View::make('admin.index')
-            ->withModels($models);
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return Response
@@ -109,61 +94,6 @@ class AdminController extends BaseAdminController
             ->withGroups($this->repository->getGroups())
             ->with('selectedGroups', $this->repository->getGroups($model));
 
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-
-        if ($model = $this->form->save(Input::all())) {
-            return Input::get('exit') ?
-                Redirect::route('admin.users.index') :
-                Redirect::route('admin.users.edit', $model->id) ;
-        }
-
-        return Redirect::route('admin.users.create')
-            ->withInput(Input::except('groups'))
-            ->withErrors($this->form->errors());
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int      $id
-     * @return Response
-     */
-    public function update($id)
-    {
-
-        if ($this->form->update(Input::all())) {
-            return Input::get('exit') ?
-                Redirect::route('admin.users.index') :
-                Redirect::route('admin.users.edit', $id) ;
-        }
-
-        return Redirect::route('admin.users.edit', $id)
-            ->withInput()
-            ->withErrors($this->form->errors());
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int      $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        if ($this->repository->destroy($id)) {
-            if (! Request::ajax()) {
-                return Redirect::back();
-            }
-        }
     }
 
     /**

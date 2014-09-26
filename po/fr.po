@@ -151,7 +151,7 @@ msgstr "Website"
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Contacts/Views/contacts/admin/index.php
 msgid "{{ models.length }} contact"
 msgid_plural "{{ models.length }} contacts"
-msgstr[0] "{{ models.length }} contact\t"
+msgstr[0] "{{ models.length }} contact"
 msgstr[1] "{{ models.length }} contacts"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php

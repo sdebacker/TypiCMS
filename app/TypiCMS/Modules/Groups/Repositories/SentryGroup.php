@@ -137,11 +137,13 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     }
 
     /**
-     * Return all the registered groups
+     * Get all models
      *
-     * @return Collection Collection of groups
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
+     * @return Collection Object with $items
      */
-    public function all()
+    public function getAll(array $with = array(), $all = false)
     {
         return Collection::make($this->sentry->getGroupProvider()->findAll());
     }
