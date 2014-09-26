@@ -1,4 +1,6 @@
 <?php
+Route::model('groups', 'TypiCMS\Modules\Groups\Models\Group');
+
 Route::group(
     array(
         'namespace' => 'TypiCMS\Modules\Groups\Controllers',

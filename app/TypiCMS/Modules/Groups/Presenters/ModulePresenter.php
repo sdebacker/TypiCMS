@@ -18,4 +18,13 @@ class ModulePresenter extends Presenter
 
         return '<input type="checkbox" value="' . $this->entity->id . '"' . $disabled . '>';
     }
+
+    /**
+     * Return name
+     * @return String
+     */
+    public function title()
+    {
+        return $this->entity->name;
+    }
 }

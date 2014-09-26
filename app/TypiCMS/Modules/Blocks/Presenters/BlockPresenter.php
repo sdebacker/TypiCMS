@@ -7,7 +7,7 @@ class BlockPresenter extends Presenter
 {
 
     /**
-     * Return filename
+     * Return name
      * @return String
      */
     public function title()
