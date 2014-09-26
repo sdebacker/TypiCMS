@@ -49,6 +49,7 @@ return array(
     'Meta' => 'Meta',
     'Options' => 'Options',
     'Galleries' => 'Galleries',
+    'Files' => 'Files',
 
     'Toggle navigation' => 'Toggle navigation',
 
