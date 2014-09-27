@@ -144,7 +144,7 @@ function initListForm() {
         }
         $(this).removeClass(statuses[oldStatus].class).addClass(statuses[newStatus].class);
         $.ajax({
-            type: 'PATCH',
+            type: 'PUT',
             url: document.URL.split('?')[0] + '/' + id,
             data: data
         }).done(function(){
@@ -189,7 +189,7 @@ function initListForm() {
             }
 
             $.ajax({
-                type: 'PATCH',
+                type: 'PUT',
                 url: url + '/' + id,
                 data: data
             }).done(function(){
@@ -266,7 +266,7 @@ function initListForm() {
             $.ajax({
                 url: cleanUrl() + '/' + data['id'],
                 data: data,
-                type: 'patch'
+                type: 'PUT'
             }).done(function(){
                 cell.addClass('success-fade-out');
             }).fail(function(){
