@@ -89,7 +89,7 @@ class AdminController extends AdminNestedController
 
         if ($model = $this->form->save(Input::all())) {
             return (Input::get('exit')) ?
-                Redirect::route('admin.menus.menulinks.index', $menu->id) :
+                Redirect::route('admin.menus.edit', $menu->id) :
                 Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]) ;
         }
 
@@ -113,7 +113,7 @@ class AdminController extends AdminNestedController
 
         if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ?
-                Redirect::route('admin.menus.menulinks.index', $menu->id) :
+                Redirect::route('admin.menus.edit', $menu->id) :
                 Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]) ;
         }
 
