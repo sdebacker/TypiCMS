@@ -8,19 +8,6 @@ class MenulinksControllerTest extends TestCase
         Mockery::close();
     }
 
-    public function testAdminIndex()
-    {
-        // Menulink::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'menulinks.admin.index';
-        $this->registerNestedView($view);
-
-        $this->get('admin/menus/1/menulinks');
-        $menulinks = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $menulinks);
-    }
-
     public function testStoreFails()
     {
         $input = array();
