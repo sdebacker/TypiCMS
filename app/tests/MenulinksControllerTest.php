@@ -48,7 +48,7 @@ class MenulinksControllerTest extends TestCase
         Menulink::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'menu_id' => '1', 'exit' => true);
         $this->call('POST', 'admin/menus/1/menulinks', $input);
-        $this->assertRedirectedToRoute('admin.menus.menulinks.index', array('menu_id' => 1));
+        $this->assertRedirectedToRoute('admin.menus.edit', array('menu_id' => 1));
     }
 
 }
