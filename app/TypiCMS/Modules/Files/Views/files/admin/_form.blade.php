@@ -3,9 +3,6 @@
     {{ HTML::script(asset('js/admin/form.js')) }}
 @stop
 
-@section('titleLeftButton')
-    @include('admin._button-back', ['table' => $model->route])
-@stop
 
 @include('admin._buttons-form')
 
