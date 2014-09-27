@@ -26,11 +26,7 @@ class AdminController extends AdminNestedController
      */
     public function index($menu = null)
     {
-        $models = $this->repository->getAllFromMenu(true, $menu->id);
-
-        $this->layout->content = View::make('admin.index')
-            ->withModels($models)
-            ->withMenu($menu);
+        return Redirect::route('admin.menus.edit', $menu->id);
     }
 
     /**
