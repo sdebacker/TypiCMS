@@ -118,4 +118,18 @@ abstract class AdminNestedController extends BaseAdminController
             ->withInput()
             ->withErrors($this->form->errors());
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return Response
+     */
+    public function destroy($parent = null, $model)
+    {
+        if ($this->repository->delete($model)) {
+            if (! Request::ajax()) {
+                return Redirect::back();
+            }
+        }
+    }
 }
