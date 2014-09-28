@@ -75,6 +75,7 @@ msgstr "Message"
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Groups/Views/groups/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
 msgid "Name"
 msgstr "Name"
 
@@ -83,6 +84,7 @@ msgstr "Name"
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Groups/Views/groups/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
@@ -116,6 +118,10 @@ msgstr "Permissions"
 msgid "Search"
 msgstr "Search"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
+msgid "Side"
+msgstr "Side"
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 msgid "Start date"
 msgstr "Start date"
@@ -123,6 +129,7 @@ msgstr "Start date"
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
@@ -135,6 +142,7 @@ msgid "Superuser"
 msgstr "Superuser"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
@@ -176,6 +184,12 @@ msgid "{{ models.length }} group"
 msgid_plural "{{ models.length }} groups"
 msgstr[0] "{{ models.length }} group"
 msgstr[1] "{{ models.length }} groups"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
+msgid "{{ models.length }} menu"
+msgid_plural "{{ models.length }} menus"
+msgstr[0] "{{ models.length }} menu"
+msgstr[1] "{{ models.length }} menus"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 msgid "{{ models.length }} news"
