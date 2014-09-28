@@ -58,7 +58,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         $query = $this->make($with);
         if (! $all) {
             // take only translated items that are online
-            $query = $query->whereHasOnlineTranslation();
+            $query->whereHasOnlineTranslation();
         }
         return $query->where($key, '=', $value)->first();
     }
@@ -100,12 +100,12 @@ abstract class RepositoriesAbstract implements RepositoryInterface
 
         if (! $all) {
             // take only translated items that are online
-            $query = $query->whereHasOnlineTranslation();
+            $query->whereHasOnlineTranslation();
         }
 
         $totalItems = $query->count();
 
-        $query = $query->order()
+        $query->order()
             ->skip($limit * ($page - 1))
             ->take($limit);
 
@@ -133,11 +133,11 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         
         if (! $all) {
             // take only translated items that are online
-            $query = $query->whereHasOnlineTranslation();
+            $query->whereHasOnlineTranslation();
         }
 
         // Query ORDER BY
-        $query = $query->order();
+        $query->order();
 
         // Get
         return $query->get();
@@ -168,13 +168,13 @@ abstract class RepositoriesAbstract implements RepositoryInterface
 
         if (! $all) {
             // Take only online and translated items
-            $query = $query->whereHasOnlineTranslation();
+            $query->whereHasOnlineTranslation();
         }
 
         $query->where($key, $value);
 
         // Query ORDER BY
-        $query = $query->order();
+        $query->order();
 
         // Get
         $models = $query->get();

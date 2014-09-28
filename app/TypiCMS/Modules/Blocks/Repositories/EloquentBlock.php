@@ -38,7 +38,7 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
         }
 
         // Query ORDER BY
-        $query = $query->order();
+        $query->order();
 
         // Get
         $models = $query->get();
