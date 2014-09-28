@@ -16,22 +16,31 @@ class AdminFilter
     // Set App and Translator locale
     public function setLocale()
     {
-        // If we have a query string like ?locale=xx
-        if (Input::get('locale')) {
-            // If locale is present in app.locales…
-            if (in_array(Input::get('locale'), Config::get('app.locales'))) {
-                // …store locale in session
-                Session::put('locale', Input::get('locale'));
-            }
+        $locale      = Config::get('app.locale');
+        $adminLocale = Config::get('typicms.adminLocale');
+        $locales     = Config::get('app.locales');
+        // If locale is present in app.locales…
+        if (in_array(Input::get('locale'), $locales)) {
+            // …store locale in session
+            Session::put('locale', Input::get('locale'));
         }
         // Set app.locale
-        Config::set('app.locale', Session::get('locale', Config::get('app.locale')));
+        Config::set('app.locale', Session::get('locale', $locale));
         // Set Translator locale to typicms.adminLocale config
-        Lang::setLocale(Config::get('typicms.adminLocale'));
+        Lang::setLocale($adminLocale);
+
+        $localesForJS = [];  
+        foreach ($locales as $key => $locale) {
+            $localesForJS[] = [
+                'short' => $locale,
+                'long' => trans('global.languages.' . $locale)
+            ];
+        }
         // Set Locales to JS.
         JavaScript::put([
-            'adminLocale' => Config::get('typicms.adminLocale'),
-            'locales'     => Config::get('app.locales'),
+            'adminLocale' => $adminLocale,
+            'locales'     => $localesForJS,
+            'locale'      => Config::get('app.locale'),
         ]);
     }
 }

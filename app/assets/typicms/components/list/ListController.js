@@ -7,6 +7,8 @@
             $scope.itemsByPage = 25;
             $scope.url = $location.absUrl().split('?')[0];
 
+            $scope.TypiCMS = TypiCMS;
+
             $api.query().$promise.then(function(all) {
                 $scope.models = all;
                 //copy the references (you could clone ie angular.copy but then have to go through a dirty checking for the matches)
