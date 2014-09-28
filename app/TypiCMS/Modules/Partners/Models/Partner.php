@@ -38,7 +38,7 @@ class Partner extends Base
         'body',
     );
 
-    protected $appends = ['status', 'title', 'website'];
+    protected $appends = ['status', 'title', 'thumb', 'website'];
 
     /**
      * List of fields that are file.

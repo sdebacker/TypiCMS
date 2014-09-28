@@ -46,7 +46,7 @@ class Project extends Base
         'image',
     );
 
-    protected $appends = ['status', 'title', 'category_name'];
+    protected $appends = ['status', 'title', 'thumb', 'category_name'];
 
     /**
      * The default route for admin side.

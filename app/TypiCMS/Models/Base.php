@@ -12,7 +12,7 @@ use Route;
 abstract class Base extends Eloquent
 {
 
-    protected $appends = ['status', 'title'];
+    protected $appends = ['status', 'title', 'thumb'];
 
     /**
      * Generic Translate method to maintain compatibility 
@@ -234,6 +234,16 @@ abstract class Base extends Eloquent
     public function getStatusAttribute($value)
     {
         return $this->status;
+    }
+
+    /**
+     * Get status attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getThumbAttribute($value)
+    {
+        return $this->present()->thumbSrc(null, 22);
     }
 
     /**
