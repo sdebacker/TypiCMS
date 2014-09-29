@@ -1,17 +1,17 @@
 <?php
 namespace TypiCMS\Observers;
 
-use Input;
 use Croppa;
+use File;
 use FileUpload;
 use Illuminate\Database\Eloquent\Model;
+use Input;
 
 class FileObserver
 {
 
     /**
      * On delete, unlink files and thumbs
-     *
      * @param  Model $model eloquent
      * @return mixed false or void
      */
@@ -22,13 +22,24 @@ class FileObserver
         }
 
         foreach ($attachments as $fieldname) {
-            Croppa::delete('/uploads/' . $model->getTable() . '/' . $model->$fieldname);
+            $file = '/uploads/' . $model->getTable() . '/' . $model->getOriginal($fieldname);
+            $this->delete($file);
         }
     }
 
     /**
+     * Delete file and thumbs
+     * @param  string $file
+     * @return void
+     */
+    public function delete($file)
+    {
+        Croppa::delete($file);
+        File::delete(public_path() . $file);
+    }
+
+    /**
      * On save, upload files
-     *
      * @param  Model $model eloquent
      * @return mixed false or void
      */
@@ -44,14 +55,17 @@ class FileObserver
                 $file = FileUpload::handle(Input::file($fieldname), 'uploads/' . $model->getTable());
                 $model->$fieldname = $file['filename'];
             } else {
-                $model->$fieldname = $model->getOriginal($fieldname);
+                if ($model->$fieldname == 'delete') {
+                    $model->$fieldname = null;
+                } else {
+                    $model->$fieldname = $model->getOriginal($fieldname);
+                }
             }
         }
     }
 
     /**
      * On update, delete previous file if changed
-     *
      * @param  Model $model eloquent
      * @return mixed false or void
      */
@@ -64,11 +78,12 @@ class FileObserver
         foreach ($attachments as $fieldname) {
 
             // Nothing to do if file did not change
-            if ($model->getOriginal($fieldname) == $model->$fieldname) {
-                return;
+            if (! $model->isDirty($fieldname)) {
+                continue;
             }
 
-            Croppa::delete('/uploads/' . $model->getTable() . '/' . $model->getOriginal($fieldname));
+            $file = '/uploads/' . $model->getTable() . '/' . $model->getOriginal($fieldname);
+            $this->delete($file);
 
         }
     }
