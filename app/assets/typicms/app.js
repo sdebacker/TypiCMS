@@ -9,7 +9,7 @@
     angular.module('typicms').run(function (gettextCatalog) {
         gettextCatalog.setCurrentLanguage(lang);
         gettextCatalog.loadRemote("/languages/" + lang + ".json");
-        gettextCatalog.debug = true;
+        // gettextCatalog.debug = true;
     });
 
     angular.module('typicms').factory('$api', ['$location', '$resource', function($location, $resource) {
