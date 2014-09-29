@@ -86,7 +86,6 @@ class File extends Base
 
     /**
      * get translated title
-     * @todo add title field for image
      */
     public function getTitleAttribute($value)
     {

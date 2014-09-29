@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Projects\Controllers;
 
-use App;
 use Response;
 use Session;
 use TypiCMS\Controllers\AdminSimpleController;

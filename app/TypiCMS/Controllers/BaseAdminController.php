@@ -5,13 +5,8 @@ use Config;
 use Controller;
 use Input;
 use Lang;
-use Paginator;
 use Patchwork\Utf8;
-use Redirect;
-use Request;
 use Response;
-use Str;
-use TypiCMS;
 use View;
 
 abstract class BaseAdminController extends Controller

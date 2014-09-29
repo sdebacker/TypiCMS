@@ -1,9 +1,7 @@
 <?php
 namespace TypiCMS\Controllers;
 
-use App;
 use Input;
-use Config;
 use Response;
 use Controller;
 

@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Dashboard\Controllers;
 
 use View;
-use TypiCMS\Modules\Menus\Models\Menu;
 use TypiCMS\Modules\Dashboard\Repositories\DashboardInterface;
 use TypiCMS\Controllers\AdminSimpleController;
 

@@ -1,16 +1,10 @@
 <?php
 namespace TypiCMS\Controllers;
 
-use Config;
 use Input;
-use Lang;
-use Paginator;
-use Patchwork\Utf8;
 use Redirect;
 use Request;
 use Response;
-use Str;
-use TypiCMS;
 use View;
 
 abstract class AdminSimpleController extends BaseAdminController
