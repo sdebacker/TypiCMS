@@ -2,15 +2,12 @@
     {{ HTML::script(asset('js/admin/list.js')) }}
 @stop
 
-@section('h1')
-    <span id="nb_elements">{{ $models->count() }}</span> @choice('categories::global.categories', $models->count())
-@stop
-
-@section('titleLeftButton')
-    <a href="{{ route('admin.categories.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('categories::global.New')) }}</span></a>
-@stop
-
 @section('main')
+
+    <h1>
+        <a href="{{ route('admin.categories.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('categories::global.New')) }}</span></a>
+        <span id="nb_elements">{{ $models->count() }}</span> @choice('categories::global.categories', $models->count())
+    </h1>
 
     <div class="list-form" lang="{{ Config::get('app.locale') }}">
 

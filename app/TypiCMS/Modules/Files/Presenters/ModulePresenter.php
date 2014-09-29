@@ -48,4 +48,13 @@ class ModulePresenter extends Presenter
         $html .= '</div>';
         return $html;
     }
+
+    /**
+     * Return filename
+     * @return String
+     */
+    public function title()
+    {
+        return $this->entity->filename;
+    }
 }

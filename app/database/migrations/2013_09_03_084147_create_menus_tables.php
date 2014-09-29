@@ -18,6 +18,7 @@ class CreateMenusTables extends Migration
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->string('class')->nullable();
+            $table->enum('side', ['Front office', 'Back office']);
 
             $table->timestamps();
 
@@ -51,6 +52,7 @@ class CreateMenusTables extends Migration
             $table->string('module_name', 50)->nullable();
             $table->string('class')->nullable();
             $table->string('icon_class')->nullable();
+            $table->boolean('has_categories')->nullable();
 
             $table->timestamps();
 

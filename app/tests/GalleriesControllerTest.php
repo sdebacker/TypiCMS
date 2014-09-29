@@ -10,15 +10,7 @@ class GalleriesControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // Gallery::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'galleries.admin.index';
-        $this->registerNestedView($view);
-
         $this->get('admin/galleries');
-        $galleries = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Pagination\Paginator', $galleries);
     }
 
     public function testStoreFails()

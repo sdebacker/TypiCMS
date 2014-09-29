@@ -1,10 +1,22 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.4.12 - 2014
+## 1.5.0 - 2014-11-29
 
 ### Changed
 - bower_components back in its default place, please remove app/assets/components and run bower intall again.
+- partners table: field 'logo' is now 'image'
+
+### Added
+- Angular JS for tables in admin
+- Manual position for partners: field position:integer added
+- Partners: fields homepage:boolean added 
+- Field 'image' added to tables pages, news, categories, events, projects
+- Field 'side' in menus table
+
+### Removed
+- removed 'title' field from menu_translations table
+- removed 'rss_enabled' and 'comments_enabled' fields from 'pages' table
 
 ## 1.4.11 - 2014-09-07
 

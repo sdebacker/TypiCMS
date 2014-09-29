@@ -17,7 +17,9 @@ class CreatePartnersTable extends Migration
 
             $table->increments('id');
 
-            $table->string('logo')->nullable();
+            $table->boolean('homepage')->default(0);
+            $table->integer('position')->unsigned()->default(1);
+            $table->string('image')->nullable();
 
             $table->timestamps();
         });

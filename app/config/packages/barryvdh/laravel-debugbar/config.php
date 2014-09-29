@@ -26,7 +26,7 @@ return array(
      |
      */
     'storage' => array(
-        'enabled' => false,
+        'enabled' => true,
         'path' => storage_path() . '/debugbar',
     ),
 
@@ -39,7 +39,7 @@ return array(
      | This can also be set to 'js' or 'css', to only include javascript or css vendor files.
      | Vendor files are for css: font-awesome (including fonts) and highlight.js (css files)
      | and for js: jquery and and highlight.js
-     | So if you want syntax highlighting, set it to true. 
+     | So if you want syntax highlighting, set it to true.
      | jQuery is set to not conflict with existing jQuery scripts.
      |
      */
@@ -57,7 +57,7 @@ return array(
      */
 
     'capture_ajax' => true,
-    
+
     /*
      |--------------------------------------------------------------------------
      | Capture Console Commands
@@ -97,6 +97,7 @@ return array(
         'files'           => false, // Show the included files
         'config'          => false, // Display config settings
         'auth'            => false, // Display Laravel authentication status
+        'session'         => true,  // Display session data in a separate tab
     ),
 
     /*
@@ -114,7 +115,8 @@ return array(
         ),
         'db' => array(
             'with_params'       => true,   // Render SQL with the parameters substituted
-            'timeline'          => false,   // Add the queries to the timeline
+            'timeline'          => false,  // Add the queries to the timeline
+            'backtrace'         => true,   // EXPERIMENTAL: Use a backtrace to find the origin of the query in your files.
         ),
         'mail' => array(
             'full_log' => false

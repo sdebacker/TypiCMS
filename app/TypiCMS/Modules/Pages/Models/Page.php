@@ -21,12 +21,11 @@ class Page extends Base
         'meta_robots_no_follow',
         'position',
         'parent',
-        'rss_enabled',
-        'comments_enabled',
         'is_home',
         'css',
         'js',
         'template',
+        'image',
         // Translatable fields
         'title',
         'slug',
@@ -52,6 +51,15 @@ class Page extends Base
         'meta_title',
         'meta_keywords',
         'meta_description',
+    );
+
+    /**
+     * List of fields that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'image',
     );
 
     /**
@@ -122,19 +130,6 @@ class Page extends Base
     public function newCollection(array $models = array())
     {
         return new NestedCollection($models);
-    }
-
-    /**
-     * A page has many galleries.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
-    public function galleries()
-    {
-        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
-            ->withPivot('position')
-            ->orderBy('position')
-            ->withTimestamps();
     }
 
     /**

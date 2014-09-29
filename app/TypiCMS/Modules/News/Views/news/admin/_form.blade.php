@@ -7,13 +7,12 @@
     @include('admin._navbar-public-link')
 @stop
 
-@section('titleLeftButton')
-    @include('admin._button-back', ['table' => $model->route])
-@stop
 
 @include('admin._buttons-form')
 
 {{ Form::hidden('id') }}
+
+@include('admin._image-fieldset', ['field' => 'image'])
 
 <ul class="nav nav-tabs">
     <li class="active">

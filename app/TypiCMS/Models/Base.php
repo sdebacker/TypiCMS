@@ -11,8 +11,12 @@ use Route;
 
 abstract class Base extends Eloquent
 {
+
+    protected $appends = ['status', 'title', 'thumb'];
+
     /**
-     * Translate method
+     * Generic Translate method to maintain compatibility 
+     * when a model doesn't have Translatable trait.
      * @param  string $lang
      * @return $this
      */
@@ -153,6 +157,24 @@ abstract class Base extends Eloquent
     }
 
     /**
+     * Join translations
+     *
+     * @param  Builder $query
+     * @return Builder $query
+     */
+    public function scopeJoinTranslations(Builder $query)
+    {
+        if (method_exists($this, 'translations')) {
+            $translationTable = str_plural(snake_case(class_basename($this->getTranslationModelName()))); // TODO: move this to a separate method
+            $query->select()
+                ->addSelect($this->getTable() . '.id as id')
+                ->where('locale', App::getLocale());
+            return $query->join($translationTable, $this->getTable() . '.id', '=', $translationTable . '.' . $this->getRelationKey());
+        }
+        return $query;
+    }
+
+    /**
      * Get online galleries
      *
      * @param  Builder $query
@@ -192,5 +214,58 @@ abstract class Base extends Eloquent
         $direction = Input::get('direction', $this->direction) ? : 'asc' ;
 
         return $query->orderBy($order, $direction);
+    }
+
+    /**
+     * Get title attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getTitleAttribute($value)
+    {
+        return $this->title;
+    }
+
+    /**
+     * Get status attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getStatusAttribute($value)
+    {
+        return $this->status;
+    }
+
+    /**
+     * Get status attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getThumbAttribute($value)
+    {
+        return $this->present()->thumbSrc(null, 22);
+    }
+
+    /**
+     * A model has many tags.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function tags()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Tags\Models\Tag', 'taggable')->withTimestamps();
+    }
+
+    /**
+     * A model has many galleries.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function galleries()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
+            ->withPivot('position')
+            ->orderBy('position')
+            ->withTimestamps();
     }
 }

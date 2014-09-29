@@ -174,6 +174,7 @@ return array(
 
         // Partners
         'logo' => 'Logo',
+        'homepage' => 'Sur la page d’accueil',
 
         // Events
         'start_date' => 'Date de début',
@@ -202,6 +203,9 @@ return array(
         'restricted_to' => 'Restreint à',
         'link_type' => 'Type de lien',
         'has_categories' => 'Afficher les catégories',
+        'side' => 'Côté',
+        'Front office' => 'Public',
+        'Back office' => 'Admin',
 
         // Users
         'first_name' => 'Prénom',

@@ -2,15 +2,12 @@
     {{ HTML::script(asset('js/admin/list.js')) }}
 @stop
 
-@section('h1')
-    <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('files::global.files', $models->getTotal())
-@stop
-
-@section('titleLeftButton')
-    <a id="uploaderAddButtonContainer" href="{{ route('admin.files.create') }}"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('files::global.New')) }}</span></a>
-@stop
-
 @section('main')
+
+    <h1>
+        <a id="uploaderAddButtonContainer" href="{{ route('admin.files.create') }}"><i id="uploaderAddButton" class="fa fa-plus-circle"></i><span class="sr-only">{{ ucfirst(trans('files::global.New')) }}</span></a>
+        <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('files::global.files', $models->getTotal())
+    </h1>
 
     <div class="list-form" lang="{{ Config::get('app.locale') }}">
 

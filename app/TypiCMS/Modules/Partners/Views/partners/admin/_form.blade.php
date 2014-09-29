@@ -7,19 +7,32 @@
     @include('admin._navbar-public-link')
 @stop
 
-@section('titleLeftButton')
-    @include('admin._button-back', ['table' => $model->route])
-@stop
 
 @include('admin._buttons-form')
 
 {{ Form::hidden('id'); }}
 
-@include('admin._image-fieldset', ['field' => 'logo'])
+@include('admin._image-fieldset', ['field' => 'image'])
 
 @include('admin._tabs-lang-form', ['target' => 'content'])
 
 <div class="tab-content">
+
+<div class="checkbox">
+    <label>
+        {{ Form::checkbox('homepage', 1, $model->homepage) }} @lang('validation.attributes.homepage')
+    </label>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 form-group @if($errors->has('position'))has-error @endif">
+        {{ Form::label('position', trans('validation.attributes.position')) }}
+        {{ Form::text('position', null, array('class' => 'form-control')) }}
+        @if($errors->has('position'))
+        <span class="help-block">{{ $errors->first('position') }}</span>
+        @endif
+    </div>
+</div>
 
 @foreach ($locales as $lang)
 

@@ -7,13 +7,12 @@
     @include('admin._navbar-public-link')
 @stop
 
-@section('titleLeftButton')
-    @include('admin._button-back', ['table' => $model->route])
-@stop
 
 @include('admin._buttons-form')
 
 {{ Form::hidden('id'); }}
+
+@include('admin._image-fieldset', ['field' => 'image'])
 
 <div class="row">
     <div class="col-sm-4 form-group @if($errors->has('start_date'))has-error @endif">

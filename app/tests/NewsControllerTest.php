@@ -10,15 +10,7 @@ class NewsControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // News::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'news.admin.index';
-        $this->registerNestedView($view);
-
         $this->get('admin/news');
-        $news = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Pagination\Paginator', $news);
     }
 
     public function testStoreFails()

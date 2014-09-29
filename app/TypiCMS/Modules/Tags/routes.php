@@ -10,3 +10,10 @@ Route::group(
         Route::resource('tags', 'AdminController');
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'tags',
+        'TypiCMS\Modules\Tags\Controllers\ApiController'
+    );
+});

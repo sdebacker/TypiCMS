@@ -11,15 +11,7 @@ class ContactsControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // Contact::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'contacts.admin.index';
-        $this->registerNestedView($view);
-
         $this->get('admin/contacts');
-        $contacts = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Pagination\Paginator', $contacts);
     }
 
     public function testStoreFails()

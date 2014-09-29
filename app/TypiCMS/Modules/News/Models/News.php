@@ -18,6 +18,7 @@ class News extends Base
 
     protected $fillable = array(
         'date',
+        'image',
         // Translatable fields
         'title',
         'slug',
@@ -37,6 +38,15 @@ class News extends Base
         'status',
         'summary',
         'body',
+    );
+
+    /**
+     * List of fields that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'image',
     );
 
     /**
@@ -60,18 +70,5 @@ class News extends Base
     public function setDateAttribute($value)
     {
         $this->attributes['date'] = Carbon::parse($value);
-    }
-
-    /**
-     * A news has many galleries.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
-    public function galleries()
-    {
-        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
-            ->withPivot('position')
-            ->orderBy('position')
-            ->withTimestamps();
     }
 }

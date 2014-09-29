@@ -167,6 +167,7 @@ return array(
 
         // Partners
         'logo' => 'Logo',
+        'homepage' => 'On homepage',
 
         // Events
         'start_date' => 'Start date',
@@ -195,6 +196,9 @@ return array(
         'restricted_to' => 'Restricted to',
         'link_type' => 'Link type',
         'has_categories' => 'Show categories',
+        'side' => 'Side',
+        'Front office' => 'Front office',
+        'Back office' => 'Back office',
 
         // Users
         'first_name' => 'First name',

@@ -28,3 +28,10 @@ Route::group(
         Route::post('categories/sort', array('as' => 'admin.categories.sort', 'uses' => 'AdminController@sort'));
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'categories',
+        'TypiCMS\Modules\Categories\Controllers\ApiController'
+    );
+});

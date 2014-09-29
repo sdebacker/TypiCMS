@@ -21,11 +21,10 @@ class CreatePagesTable extends Migration
             $table->string('meta_robots_no_index')->default(0);
             $table->string('meta_robots_no_follow')->default(0);
 
+            $table->string('image')->nullable();
             $table->integer('position')->unsigned()->default(0);
             $table->integer('parent')->unsigned()->default(0);
 
-            $table->tinyInteger('rss_enabled')->default(0);
-            $table->tinyInteger('comments_enabled')->default(0);
             $table->tinyInteger('is_home')->default(0);
 
             $table->text('css')->nullable();

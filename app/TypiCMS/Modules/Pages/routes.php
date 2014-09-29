@@ -25,3 +25,17 @@ Route::group(
         Route::get('{uri}', 'PublicController@uri')->where('uri', '(.*)');
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'pages',
+        'TypiCMS\Modules\Pages\Controllers\ApiController'
+    );
+});
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'pages',
+        'TypiCMS\Modules\Pages\Controllers\ApiController'
+    );
+});

@@ -39,4 +39,13 @@ class ModulePresenter extends Presenter
     {
         return $this->entity->isSuperUser() ? trans('global.Yes') : trans('global.No') ;
     }
+
+    /**
+     * Concatenate first_name and last_name
+     * @return String
+     */
+    public function title()
+    {
+        return $this->entity->first_name . ' ' . $this->entity->last_name;
+    }
 }

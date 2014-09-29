@@ -13,7 +13,9 @@ var gulp       = require('gulp'),
     filter     = require('gulp-filter'),
     imagemin   = require('gulp-imagemin'),
     newer      = require('gulp-newer'),
-    prefix     = require('gulp-autoprefixer');
+    prefix     = require('gulp-autoprefixer')
+    ngAnnotate = require('gulp-ng-annotate')
+    gettext    = require('gulp-angular-gettext');
 
 function swallowError (error) {
     console.log(error.toString());
@@ -83,6 +85,20 @@ gulp.task('fonts', function () {
 
 });
 
+// Publish angular locales
+gulp.task('angular-locales', function () {
+
+    var destDir = 'public/js/angular-locales';
+
+    return gulp.src([
+            'bower_components/angular-i18n/angular-locale_fr-fr.js',
+            'bower_components/angular-i18n/angular-locale_nl-nl.js'
+        ])
+        .pipe(newer(destDir))
+        .pipe(gulp.dest(destDir));
+
+});
+
 // Publish pickadate locales
 gulp.task('pickadate-locales', function () {
 
@@ -118,6 +134,7 @@ gulp.task('js-admin', function () {
         files = bowerFiles({checkExistence: true});
     
     files.push(path.resolve() + '/app/assets/js/admin/*');
+    files.push(path.resolve() + '/app/assets/typicms/**/*.js');
 
     return gulp.src(files)
         .pipe(filter([
@@ -126,6 +143,7 @@ gulp.task('js-admin', function () {
         ]))
         .pipe(newer(destDir + destFile))
         .pipe(concat('components.js'))
+        .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(rename(destFile))
         .pipe(gulp.dest(destDir))
@@ -153,6 +171,8 @@ gulp.task('js-public', function () {
             '!selectize*',
             '!alertify*',
             '!fastclick*',
+            '!angular*',
+            '!smart-table*',
             '!dropzone*'
         ]))
         .pipe(newer(destDir + destFile))
@@ -164,6 +184,27 @@ gulp.task('js-public', function () {
 
 });
 
+gulp.task('pot', function () {
+    return gulp.src([
+            'public/views/partials/**/*.html',
+            'app/TypiCMS/Modules/**/Views/**/admin/*.php',
+            'app/assets/typicms/**/*.js'
+        ])
+        .pipe(gettext.extract('template.pot', {
+            // options to pass to angular-gettext-tools...
+        }))
+        .pipe(gulp.dest('po/'));
+});
+
+gulp.task('translations', function () {
+    return gulp.src('po/**/*.po')
+        .pipe(gettext.compile({
+            // options to pass to angular-gettext-tools...
+            format: 'json'
+        }))
+        .pipe(gulp.dest('public/languages/'));
+});
+
 // Keep an eye on Less and JS files for changes…
 gulp.task('watch', function () {
     gulp.watch('app/assets/less/public/**/*.less', ['less-public']);
@@ -171,6 +212,7 @@ gulp.task('watch', function () {
     gulp.watch('app/assets/less/*.less', ['less-public', 'less-admin']);
     gulp.watch('app/assets/js/public/**/*.js', ['js-public']);
     gulp.watch('app/assets/js/admin/**/*.js', ['js-admin']);
+    gulp.watch('app/assets/typicms/**/*.js', ['js-admin']);
 });
 
 // What tasks does running gulp trigger?
@@ -182,6 +224,7 @@ gulp.task('default', [
     'img',
     'fonts',
     'pickadate-locales',
+    'angular-locales',
     'fancybox-img',
     'watch'
 ]);

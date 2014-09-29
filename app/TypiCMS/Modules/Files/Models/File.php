@@ -46,6 +46,8 @@ class File extends Base
         'alt_attribute',
     );
 
+    protected $appends = ['alt_attribute', 'description'];
+
     /**
      * The default route for admin side.
      *
@@ -80,5 +82,32 @@ class File extends Base
             Croppa::delete($model->path . '/' . $model->filename);
         });
 
+    }
+
+    /**
+     * get translated title
+     * @todo add title field for image
+     */
+    public function getTitleAttribute($value)
+    {
+        return $value;
+    }
+
+    /**
+     * get translated alt attribute
+     * @return string alt attribute
+     */
+    public function getAltAttributeAttribute()
+    {
+        return $this->alt_attribute;
+    }
+
+    /**
+     * get translated description
+     * @return string description
+     */
+    public function getDescriptionAttribute()
+    {
+        return $this->description;
     }
 }

@@ -62,7 +62,7 @@ class UsersFilter
         $value = ($value) ? : $route->getName() ;
         try {
             $user = Sentry::getUser();
-            if( ! $user->hasAccess($value)) {
+            if (! $user->hasAccess($value)) {
                 App::abort(403);
             }
         } catch (UserNotFoundException $e) {
@@ -79,7 +79,7 @@ class UsersFilter
         try {
             $user = Sentry::getUser();
             $group = Sentry::findGroupByName($value);
-            if(! $user->inGroup($group)) {
+            if (! $user->inGroup($group)) {
                 App::abort(403);
             }
         } catch (UserNotFoundException $e) {

@@ -10,6 +10,10 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
     protected $repo;
     protected $cache;
 
+    /**
+     * get empty model
+     * @return Model
+     */
     public function getModel()
     {
         return $this->repo->getModel();
@@ -32,7 +36,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      * @param  int       $id model ID
      * @return stdObject object of model information
      */
-    public function byId($id, array $with = array('translations'))
+    public function byId($id, array $with = array())
     {
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale() . 'id.' . implode('.', $with) . $id . implode('.', Input::all()));
@@ -56,7 +60,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      * @param string $value
      * @param array  $with
      */
-    public function getFirstBy($key, $value, array $with = array('translations'), $all = false)
+    public function getFirstBy($key, $value, array $with = array(), $all = false)
     {
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale().'getFirstBy'.$key.$value.implode('.', $with).$all.implode('.', Input::all()));
@@ -82,7 +86,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      * @param  array    $with  Eager load related models
      * @return StdClass Object with $items && $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
         $cacheKey = md5(App::getLocale().'byPage'.$page.$limit.implode('.', $with).$all.implode('.', Input::except('page')));
 
@@ -105,7 +109,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      * @param  array    $with Eager load related models
      * @return StdClass Object with $items
      */
-    public function getAll(array $with = array('translations'), $all = false)
+    public function getAll(array $with = array(), $all = false)
     {
         $cacheKey = md5(App::getLocale() . 'all' . implode('.', $with) . $all . implode('.', Input::except('page')));
 
@@ -129,7 +133,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      * @param  array                      $with Eager load related models
      * @return \TypiCMS\NestedCollection  with $items
      */
-    public function getAllNested(array $with = array('translations'), $all = false)
+    public function getAllNested(array $with = array(), $all = false)
     {
         $cacheKey = md5(App::getLocale() . 'allNested' . implode('.', $with) . $all . implode('.', Input::except('page')));
 
@@ -152,7 +156,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      * @param  boolean  $all Show published or all
      * @return StdClass Object with $items
      */
-    public function getAllBy($key, $value, array $with = array('translations'), $all = false)
+    public function getAllBy($key, $value, array $with = array(), $all = false)
     {
         $cacheKey = md5(App::getLocale().'getAllBy'.$key.$value.implode('.', $with).$all.implode('.', Input::all()));
 
@@ -176,7 +180,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      * @param  array        $with array of related items
      * @return Collection
      */
-    public function latest($number = 10, array $with = array('translations'))
+    public function latest($number = 10, array $with = array())
     {
         $cacheKey = md5(App::getLocale() . 'latest' . $number . implode('.', $with) . implode('.', Input::all()));
 
@@ -200,7 +204,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      * @param  array  $with
      * @return object object of model information
      */
-    public function bySlug($slug, array $with = array('translations'))
+    public function bySlug($slug, array $with = array())
     {
         // Build the cache key, unique per model slug
         $cacheKey = md5(App::getLocale() . 'bySlug' . $slug . implode('.', $with) . implode('.', Input::all()));

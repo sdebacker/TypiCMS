@@ -30,6 +30,8 @@ class Block extends Base
         'body',
     );
 
+    protected $appends = ['status'];
+
     /**
      * The default route for admin side.
      *

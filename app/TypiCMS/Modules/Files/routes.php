@@ -12,3 +12,10 @@ Route::group(
         Route::post('files/upload', array( 'as' => 'admin.files.upload', 'uses' => 'AdminController@upload'));
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'files',
+        'TypiCMS\Modules\Files\Controllers\ApiController'
+    );
+});

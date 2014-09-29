@@ -4,7 +4,7 @@
 @stop
 
 @section('titleLeftButton')
-    <a href="{{ route('admin.menus.menulinks.index', $menu->id) }}" title="{{ trans('menulinks::global.Back') }}">
+    <a href="{{ route('admin.menus.edit', $menu->id) }}" title="{{ trans('menulinks::global.Back') }}">
         <span class="text-muted fa fa-arrow-circle-left"></span><span class="sr-only">{{ trans('menulinks::global.Back') }}</span>
     </a>
 @stop
@@ -68,8 +68,8 @@
             {{ Form::select('module_name', $selectModules, null, array('class' => 'form-control')) }}
         </div>
 
-        <div class="form-group">
-            <label class="checkbox">
+        <div class="checkbox">
+            <label>
                 {{ Form::checkbox('has_categories') }} @lang('validation.attributes.has_categories')
             </label>
         </div>

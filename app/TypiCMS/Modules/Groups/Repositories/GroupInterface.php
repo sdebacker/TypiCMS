@@ -46,9 +46,11 @@ interface GroupInterface extends RepositoryInterface
     public function byName($name);
 
     /**
-     * Return all the registered users
+     * Get all models
      *
-     * @return \Illuminate\Support\Collection Collection of users
+     * @param  boolean  $all  Show published or all
+     * @param  array    $with Eager load related models
+     * @return Collection Object with $items
      */
-    public function all();
+    public function getAll(array $with = array(), $all = false);
 }

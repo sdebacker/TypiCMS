@@ -69,3 +69,10 @@ Route::group(
         Route::post('users/current/updatepreferences', 'AdminController@postUpdatePreferences');
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'users',
+        'TypiCMS\Modules\Users\Controllers\ApiController'
+    );
+});

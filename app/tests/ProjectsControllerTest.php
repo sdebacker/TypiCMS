@@ -10,15 +10,7 @@ class ProjectsControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // Project::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'projects.admin.index';
-        $this->registerNestedView($view);
-
         $this->get('admin/projects');
-        $projects = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $projects);
     }
 
     public function testStoreFails()

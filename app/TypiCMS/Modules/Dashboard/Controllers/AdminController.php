@@ -4,9 +4,9 @@ namespace TypiCMS\Modules\Dashboard\Controllers;
 use View;
 use TypiCMS\Modules\Menus\Models\Menu;
 use TypiCMS\Modules\Dashboard\Repositories\DashboardInterface;
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(DashboardInterface $dashboard)
@@ -22,12 +22,7 @@ class AdminController extends BaseAdminController
      */
     public function index()
     {
-        $menus = Menu::with('translations')->get();
-
-        $this->title['child'] = trans('dashboard::global.Dashboard');
-
         $this->layout->content = View::make('dashboard.admin.dashboard')
-            ->with('welcomeMessage', $this->repository->getWelcomeMessage())
-            ->withMenus($menus);
+            ->with('welcomeMessage', $this->repository->getWelcomeMessage());
     }
 }

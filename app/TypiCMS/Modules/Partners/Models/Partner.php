@@ -14,10 +14,12 @@ class Partner extends Base
     protected $presenter = 'TypiCMS\Modules\Partners\Presenters\PartnerPresenter';
 
     protected $fillable = array(
-        'logo',
+        'image',
         // Translatable fields
         'title',
         'slug',
+        'position',
+        'homepage',
         'status',
         'website',
         'body',
@@ -36,13 +38,15 @@ class Partner extends Base
         'body',
     );
 
+    protected $appends = ['status', 'title', 'thumb', 'website'];
+
     /**
      * List of fields that are file.
      *
      * @var array
      */
     public $attachments = array(
-        'logo',
+        'image',
     );
 
     /**
@@ -55,6 +59,16 @@ class Partner extends Base
     /**
      * lists
      */
-    public $order = 'id';
-    public $direction = 'desc';
+    public $order = 'position';
+    public $direction = 'asc';
+
+    /**
+     * Get attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getWebsiteAttribute($value)
+    {
+        return $this->website;
+    }
 }

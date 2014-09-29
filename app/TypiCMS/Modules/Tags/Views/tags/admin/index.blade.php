@@ -2,15 +2,11 @@
     {{ HTML::script(asset('js/admin/list.js')) }}
 @stop
 
-@section('h1')
-    <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('tags::global.tags', $models->getTotal())
-@stop
-
-@section('titleLeftButton')
-    <!-- <a href="{{ route('admin.tags.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('tags::global.New')) }}</span></a> -->
-@stop
-
 @section('main')
+
+    <h1>
+        <span id="nb_elements">{{ $models->getTotal() }}</span> @choice('tags::global.tags', $models->getTotal())
+    </h1>
 
     <div class="list-form" lang="{{ Config::get('app.locale') }}">
 

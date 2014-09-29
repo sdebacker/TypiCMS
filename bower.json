@@ -12,7 +12,12 @@
     "selectize": "~0.*",
     "pickadate": "~3.5.2",
     "fastclick": "~1.0.2",
-    "jsurl": "*"
+    "jsurl": "*",
+    "angular": "~1.2.25",
+    "angular-resource": "~1.2",
+    "angular-smart-table": "~1.3.0",
+    "angular-i18n": "~1.2.25",
+    "angular-gettext": "~1.1.2"
   },
   "overrides": {
     "fancybox": {
@@ -51,6 +56,9 @@
       ]
     },
     "font-awesome": {
+      "ignore": true
+    },
+    "angular-i18n": {
       "ignore": true
     },
     "jsurl": {

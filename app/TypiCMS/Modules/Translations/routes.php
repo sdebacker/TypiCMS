@@ -14,3 +14,10 @@ Route::group(
         Route::resource('translations', 'AdminController');
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'translations',
+        'TypiCMS\Modules\Translations\Controllers\ApiController'
+    );
+});

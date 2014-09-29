@@ -4,14 +4,13 @@ namespace TypiCMS\Modules\Tags\Controllers;
 use Config;
 use Input;
 use Paginator;
-use Redirect;
 use Request;
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Tags\Repositories\TagInterface;
 use TypiCMS\Modules\Tags\Services\Form\TagForm;
 use View;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminSimpleController
 {
 
     public function __construct(TagInterface $tag, TagForm $tagform)
@@ -35,21 +34,7 @@ class AdminController extends BaseAdminController
         $data = $this->repository->byPage($page, $itemsPerPage, array(), true);
         $models = Paginator::make($data->items, $data->totalItems, $itemsPerPage);
 
-        $this->layout->content = View::make('tags.admin.index')
+        $this->layout->content = View::make('admin.index')
             ->withModels($models);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return Response
-     */
-    public function destroy($model)
-    {
-        if ($this->repository->delete($model)) {
-            if (! Request::ajax()) {
-                return Redirect::back();
-            }
-        }
     }
 }

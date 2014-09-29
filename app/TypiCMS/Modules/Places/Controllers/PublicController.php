@@ -29,7 +29,7 @@ class PublicController extends BasePublicController
 
         $this->title['child'] = '';
 
-        $places = $this->repository->getAll(array('translations'));
+        $places = $this->repository->getAll();
 
         if (Request::wantsJson()) {
             return Response::json($places, 200);
@@ -47,7 +47,7 @@ class PublicController extends BasePublicController
     public function search()
     {
 
-        $models = $this->repository->getAll(array('translations'));
+        $models = $this->repository->getAll();
 
         if (Request::wantsJson()) {
             return Response::json($models, 200);

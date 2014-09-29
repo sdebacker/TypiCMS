@@ -24,7 +24,7 @@ class PublicController extends BasePublicController
     {
         $this->title['child'] = '';
 
-        $models = $this->repository->getAll(array('translations'));
+        $models = $this->repository->getAll();
 
         $this->layout->content = View::make('categories.public.index')
             ->with('models', $models);

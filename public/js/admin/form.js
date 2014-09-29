@@ -57,9 +57,9 @@ function initTinymce(selector) {
          * Slug fields
          */
         for (var i = 0; i < TypiCMS.locales.length; i++) {
-            var titleField = $('#' + TypiCMS.locales[i] + '\\[title\\]');
+            var titleField = $('#' + TypiCMS.locales[i]['short'] + '\\[title\\]');
             titleField.slug({
-                slugField: '#' + TypiCMS.locales[i] + '\\[slug\\]'
+                slugField: '#' + TypiCMS.locales[i]['short'] + '\\[slug\\]'
             });
         };
         var titleField = $('#title');

@@ -3,9 +3,15 @@ namespace TypiCMS\Controllers;
 
 use Config;
 use Controller;
+use Input;
 use Lang;
+use Paginator;
 use Patchwork\Utf8;
+use Redirect;
 use Request;
+use Response;
+use Str;
+use TypiCMS;
 use View;
 
 abstract class BaseAdminController extends Controller
@@ -17,6 +23,8 @@ abstract class BaseAdminController extends Controller
     protected $layout = 'admin/master';
 
     protected $repository;
+    protected $module;
+    protected $route;
     protected $form;
 
     // The cool kids’ way of handling page titles.
@@ -31,18 +39,23 @@ abstract class BaseAdminController extends Controller
     public function __construct($repository = null, $form = null)
     {
         $this->repository = $repository;
-        $this->form       = $form;
+
+        $this->module = $this->setModule();
+        $this->route = $this->setRoute();
+
+        $this->form = $form;
 
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
 
         $instance = $this;
         View::composer($this->layout, function (\Illuminate\View\View $view) use ($instance) {
             $view->with('title', $instance->getTitle());
-            $view->with('h1', $instance->getH1());
         });
 
         View::share('locales', Config::get('app.locales'));
         View::share('locale', Config::get('app.locale'));
+        View::share('module', $this->module);
+        View::share('route', $this->route);
     }
 
     public function getTitle()
@@ -56,11 +69,6 @@ abstract class BaseAdminController extends Controller
         return $title;
     }
 
-    public function getH1()
-    {
-        return $this->title['h1'] ? : $this->title['child'] ;
-    }
-
     /**
      * Setup the layout used by the controller.
      *
@@ -69,8 +77,17 @@ abstract class BaseAdminController extends Controller
     protected function setupLayout()
     {
         if (! is_null($this->layout)) {
-            $layout = Request::ajax() ? 'admin/ajax' : $this->layout;
-            $this->layout = View::make($layout);
+            $this->layout = View::make($this->layout);
         }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @return Response
+     */
+    public function sort()
+    {
+        $this->repository->sort(Input::all());
     }
 }

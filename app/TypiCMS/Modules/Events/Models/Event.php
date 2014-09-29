@@ -21,6 +21,7 @@ class Event extends Base
         'end_date',
         'start_time',
         'end_time',
+        'image',
         // Translatable fields
         'title',
         'slug',
@@ -40,6 +41,15 @@ class Event extends Base
         'status',
         'summary',
         'body',
+    );
+
+    /**
+     * List of fields that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'image',
     );
 
     /**

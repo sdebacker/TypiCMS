@@ -15,6 +15,7 @@ class Project extends Base
 
     protected $fillable = array(
         'category_id',
+        'image',
         // Translatable fields
         'title',
         'slug',
@@ -35,6 +36,17 @@ class Project extends Base
         'summary',
         'body',
     );
+
+    /**
+     * List of fields that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'image',
+    );
+
+    protected $appends = ['status', 'title', 'thumb', 'category_name'];
 
     /**
      * The default route for admin side.
@@ -58,12 +70,15 @@ class Project extends Base
     }
 
     /**
-     * A project has many tags.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     * Get name of the category from category table
+     * and append it to main model attributes
+     * @return string title
      */
-    public function tags()
+    public function getCategoryNameAttribute($value)
     {
-        return $this->morphToMany('TypiCMS\Modules\Tags\Models\Tag', 'taggable')->withTimestamps();
+        if ($this->category) {
+            return $this->category->title;
+        }
+        return null;
     }
 }

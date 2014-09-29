@@ -9,9 +9,9 @@ use Redirect;
 use Response;
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
-use TypiCMS\Controllers\BaseAdminController;
+use TypiCMS\Controllers\AdminNestedController;
 
-class AdminController extends BaseAdminController
+class AdminController extends AdminNestedController
 {
 
     public function __construct(MenulinkInterface $menulink, MenulinkForm $menulinkform)
@@ -24,13 +24,9 @@ class AdminController extends BaseAdminController
      * List models
      * GET /admin/model
      */
-    public function index($menu)
+    public function index($menu = null)
     {
-        $models = $this->repository->getAllFromMenu(true, $menu->id);
-
-        $this->layout->content = View::make('menulinks.admin.index')
-            ->withModels($models)
-            ->withMenu($menu);
+        return Redirect::route('admin.menus.edit', $menu->id);
     }
 
     /**
@@ -38,7 +34,7 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function create($menu)
+    public function create($menu = null)
     {
         $model = $this->repository->getModel();
         $this->title['child'] = trans('menulinks::global.New');
@@ -58,7 +54,7 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function edit($menu, $model)
+    public function edit($menu = null, $model)
     {
         $this->title['child'] = trans('menulinks::global.Edit');
 
@@ -74,9 +70,9 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function show($menu, $model)
+    public function show($menu = null, $model)
     {
-        return Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id));
+        return Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]);
     }
 
     /**
@@ -84,13 +80,13 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function store($menu)
+    public function store($menu = null)
     {
 
         if ($model = $this->form->save(Input::all())) {
             return (Input::get('exit')) ?
-                Redirect::route('admin.menus.menulinks.index', $menu->id) :
-                Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
+                Redirect::route('admin.menus.edit', $menu->id) :
+                Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]) ;
         }
 
         return Redirect::route('admin.menus.menulinks.create', $menu->id)
@@ -104,7 +100,7 @@ class AdminController extends BaseAdminController
      *
      * @return Response
      */
-    public function update($menu, $model)
+    public function update($menu = null, $model)
     {
 
         if (Request::ajax()) {
@@ -113,37 +109,13 @@ class AdminController extends BaseAdminController
 
         if ($this->form->update(Input::all())) {
             return (Input::get('exit')) ?
-                Redirect::route('admin.menus.menulinks.index', $menu->id) :
-                Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id)) ;
+                Redirect::route('admin.menus.edit', $menu->id) :
+                Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]) ;
         }
 
-        return Redirect::route('admin.menus.menulinks.edit', array($menu->id, $model->id))
+        return Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id])
             ->withInput()
             ->withErrors($this->form->errors());
 
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @return Response
-     */
-    public function sort()
-    {
-        $this->repository->sort(Input::all());
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return Response
-     */
-    public function destroy($menu, $model)
-    {
-        if ($this->repository->delete($model)) {
-            if (! Request::ajax()) {
-                return Redirect::back();
-            }
-        }
     }
 }

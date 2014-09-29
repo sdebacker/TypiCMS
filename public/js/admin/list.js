@@ -15,7 +15,9 @@ function enableSortable() {
         placeholder = 'placeholder',
         toleranceElement = '> div',
         items = 'li',
-        url = document.URL.split('?')[0] + '/sort';
+        url = sortableList.data('url') ? sortableList.data('url') : document.URL.split('?')[0];
+
+    url += '/sort';
 
     if (sortableList.hasClass('nested')) {
         maxLevels = 3;
@@ -83,7 +85,8 @@ function initListForm() {
         switches = $('.switch').css('cursor', 'pointer'),
         btnDelete = $('#btnDelete'),
         btnOnOff = $('#btnOnline, #btnOffline'),
-        nbElementItem = $('#nb_elements');
+        nbElementItem = $('#nb_elements')
+        url = listForm.find('ul').data('url') ? listForm.find('ul').data('url') : cleanUrl();
 
     // Enable delete checkboxes
     btnDelete.click(function(){
@@ -98,7 +101,6 @@ function initListForm() {
         confirmString += '?';
 
         if (confirm(confirmString)) {
-            var url = cleanUrl();
             checkedCheckboxes.each(function(){
                 var id = $(this).val();
                 $.ajax({
@@ -144,8 +146,8 @@ function initListForm() {
         }
         $(this).removeClass(statuses[oldStatus].class).addClass(statuses[newStatus].class);
         $.ajax({
-            type: 'PATCH',
-            url: document.URL.split('?')[0] + '/' + id,
+            type: 'PUT',
+            url: url + '/' + id,
             data: data
         }).done(function(){
             alertify.success('Item set ' + statuses[newStatus].label + '.');
@@ -166,8 +168,7 @@ function initListForm() {
         }
         var checkedCheckboxes = listForm.find(':checkbox:checked:not(#selectionButton)'),
             nombreElementsTraites = 0,
-            nombreElementsSelectionnes = checkedCheckboxes.length,
-            url = cleanUrl();
+            nombreElementsSelectionnes = checkedCheckboxes.length;
 
         checkedCheckboxes.each(function(){
             var id = $(this).val(),
@@ -189,7 +190,7 @@ function initListForm() {
             }
 
             $.ajax({
-                type: 'PATCH',
+                type: 'PUT',
                 url: url + '/' + id,
                 data: data
             }).done(function(){
@@ -266,7 +267,7 @@ function initListForm() {
             $.ajax({
                 url: cleanUrl() + '/' + data['id'],
                 data: data,
-                type: 'patch'
+                type: 'PUT'
             }).done(function(){
                 cell.addClass('success-fade-out');
             }).fail(function(){

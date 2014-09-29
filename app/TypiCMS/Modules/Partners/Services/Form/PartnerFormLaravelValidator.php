@@ -18,5 +18,7 @@ class PartnerFormLaravelValidator extends AbstractLaravelValidator
         'fr.website'     => 'url',
         'nl.website'     => 'url',
         'en.website'     => 'url',
+        'position'       => 'required|integer|min:1',
+        'logo'           => 'image|image_aspect:1|image_size:>=200,>=200|max:2000',
     );
 }

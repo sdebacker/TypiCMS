@@ -39,6 +39,8 @@ class Place extends Base
         'status',
     );
 
+    protected $appends = ['status', 'thumb'];
+
     /**
      * List of fields that are file.
      *
@@ -104,5 +106,15 @@ class Place extends Base
 
         });
 
+    }
+
+    /**
+     * Get title attribute from translation table
+     * and append it to main model attributes
+     * @return string title
+     */
+    public function getTitleAttribute($value)
+    {
+        return $value;
     }
 }

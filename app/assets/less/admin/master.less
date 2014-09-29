@@ -21,6 +21,9 @@
 @import "../../../../bower_components/pickadate/lib/themes-source/default.date.less";
 @import "../../../../bower_components/pickadate/lib/themes-source/default.time.less";
 
+// Angular smart-table
+@import 'smart-table';
+
 @import 'sidebar';
 @import 'offcanvas';
 
@@ -33,9 +36,6 @@
   @media (min-width: @screen-sm-min) {
     min-height: 0;
     padding: 25px;
-  }
-  .page-header {
-    margin-top: 0;
   }
 }
 
@@ -62,12 +62,6 @@ h1 { margin-top: 0; }
 
 .breadcrumb { background-color: #FFF; padding-left: 5px; padding-right: 5px;
   > .active { color: @gray-dark; }
-}
-
-.page-header {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  border-bottom: 0;
 }
 
 .list-main {

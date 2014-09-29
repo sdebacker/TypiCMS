@@ -45,3 +45,10 @@ Route::group(
         Route::resource('contacts', 'AdminController');
     }
 );
+
+Route::group(array('prefix'=>'api/v1'), function() {
+    Route::resource(
+        'contacts',
+        'TypiCMS\Modules\Contacts\Controllers\ApiController'
+    );
+});
