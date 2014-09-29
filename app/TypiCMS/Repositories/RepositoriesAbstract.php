@@ -128,8 +128,6 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     public function getAll(array $with = array(), $all = false)
     {
         $query = $this->make($with);
-
-        // $query->joinTranslations(); // should be necessary to order by related column.
         
         if (! $all) {
             // take only translated items that are online
