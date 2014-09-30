@@ -2,7 +2,7 @@
 
     var lang = $('html').attr('lang');
 
-    angular.module('typicms', ['ngResource', 'smart-table', 'gettext'], function($locationProvider){
+    angular.module('typicms', ['ngResource', 'smart-table', 'gettext', 'ui.tree'], function($locationProvider){
         // $locationProvider.html5Mode(true);
     });
 

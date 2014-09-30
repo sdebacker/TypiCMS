@@ -17,7 +17,8 @@
     "angular-resource": "~1.2",
     "angular-smart-table": "~1.3.0",
     "angular-i18n": "~1.2.25",
-    "angular-gettext": "~1.1.2"
+    "angular-gettext": "~1.1.2",
+    "angular-ui-tree": "~2.1.5"
   },
   "overrides": {
     "fancybox": {
@@ -56,6 +57,9 @@
       ]
     },
     "font-awesome": {
+      "ignore": true
+    },
+    "es5-shim": {
       "ignore": true
     },
     "angular-i18n": {
