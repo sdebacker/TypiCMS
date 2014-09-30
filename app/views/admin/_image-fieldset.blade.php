@@ -2,6 +2,7 @@
             @if($model->$field)
             <div>
                 {{ $model->present()->thumb(150, 150, ['resize'], $field) }}
+                <small class="text-danger delete-attachment" data-key="{{ $field }}">Supprimer</small>
             </div>
             @endif
             <div class="media-body">

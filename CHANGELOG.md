@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.5.1 - 2014
+
+### Added
+- Attachments can now be deleted
+
 ## 1.5.0 - 2014-11-29
 
 ### Changed

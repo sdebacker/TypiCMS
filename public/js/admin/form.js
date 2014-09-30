@@ -68,6 +68,35 @@ function initTinymce(selector) {
         });
 
         /**
+         * Delete attachment
+         */
+        $('.delete-attachment').click(function(){
+
+            var urlForDeleteImg = document.URL.split('?')[0],
+                key = $(this).data('key'),
+                data = {};
+
+            if (! confirm('Delete ' + key + '?')) {
+                return false;
+            }
+
+            urlForDeleteImg = urlForDeleteImg.replace(/\/edit$/, '');
+            data['id'] = urlForDeleteImg.split('/').pop();
+            data[key] = 'delete';
+
+            $.ajax({
+                type: 'PUT',
+                url: urlForDeleteImg,
+                data: data
+            }).done(function() {
+                location.reload();
+            }).fail(function () {
+                alertify.error(translate('An error occurred while deleting attachment.'));
+            });
+            return false;
+        });
+
+        /**
          * TinyMCE on .editor items
          */
         if ($('.editor').length) {
