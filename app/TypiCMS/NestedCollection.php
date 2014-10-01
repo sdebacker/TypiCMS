@@ -11,6 +11,9 @@ class NestedCollection extends Collection
     public function __construct(array $items = array())
     {
         parent::__construct($items);
+        $this->each(function ($item) {
+            $item->models = App::make('\Illuminate\Support\Collection');
+        });
         $this->total = count($items);
     }
 
@@ -28,9 +31,6 @@ class NestedCollection extends Collection
         $keysToDelete = array();
         foreach ($this->items as $item) {
             if ($item->parent && isset($this->items[$item->parent])) {
-                if (! $this->items[$item->parent]->models) {
-                    $this->items[$item->parent]->models = App::make('\Illuminate\Support\Collection');
-                }
                 $this->items[$item->parent]->models->push($item);
                 $keysToDelete[] = $item->id;
             }
