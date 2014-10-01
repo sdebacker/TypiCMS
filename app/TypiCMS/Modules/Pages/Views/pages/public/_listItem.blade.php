@@ -2,9 +2,9 @@
     <a href="/{{ $child->uri }}">
         {{ $child->title }}
     </a>
-    @if ($child->children)
+    @if ($child->models)
         <ul>
-            @foreach ($child->children as $childPage)
+            @foreach ($child->models as $childPage)
                 @include('pages.public._listItem', array('child' => $childPage))
             @endforeach
         </ul>

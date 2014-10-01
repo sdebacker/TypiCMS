@@ -18,7 +18,9 @@ class ApiController extends BaseApiController
      */
     public function index()
     {
-        $models = $this->repository->getAll([], true);
+        $models = $this->repository->getAllNested([], true);
+        // var_dump($models);
+        // exit();
         return Response::json($models, 200);
     }
 }

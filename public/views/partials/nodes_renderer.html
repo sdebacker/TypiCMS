@@ -1,0 +1,8 @@
+<div typi-btn-delete></div>
+<div typi-btn-edit></div>
+<div typi-btn-status></div>
+<div class="title" ui-tree-handle>{{ model.title }}</div>
+<ul ui-tree-nodes="" ng-model="model.models">
+    <li ng-repeat="model in model.models" ui-tree-node ng-include="'/views/partials/nodes_renderer.html'">
+    </li>
+</ul>
