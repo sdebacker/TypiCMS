@@ -23,7 +23,7 @@
 
 .angular-ui-tree-node,
 .angular-ui-tree-placeholder {
-    min-height: 33px;
+    min-height: 32px;
     display: block;
     position: relative;
     margin: 0px;
@@ -50,6 +50,13 @@
     }
 }
 
+.angular-ui-tree-drag > li:first-child {
+    border-color: transparent;
+}
+
+.angular-ui-tree-placeholder {
+    background-color: @gray-lighter;
+}
 
 .angular-ui-tree-hidden {
     display: none;
