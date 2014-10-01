@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS;
 
+use App;
 use Illuminate\Database\Eloquent\Collection;
 
 class NestedCollection extends Collection
@@ -21,22 +22,22 @@ class NestedCollection extends Collection
     public function nest()
     {
         // Set id as keys
-        $this->items = $this->getDictionary($this);
+        $this->items = $this->getDictionary();
 
         // Set children
-        $deleteArray = array();
+        $keysToDelete = array();
         foreach ($this->items as $item) {
             if ($item->parent && isset($this->items[$item->parent])) {
-                if (! $this->items[$item->parent]->children) {
-                    $this->items[$item->parent]->children = new \Illuminate\Support\Collection;
+                if (! $this->items[$item->parent]->models) {
+                    $this->items[$item->parent]->models = App::make('\Illuminate\Support\Collection');
                 }
-                $this->items[$item->parent]->children->put($item->id, $item);
-                $deleteArray[] = $item->id;
+                $this->items[$item->parent]->models->push($item);
+                $keysToDelete[] = $item->id;
             }
         }
 
         // Delete moved items
-        $this->items = array_except($this->items, $deleteArray);
+        $this->items = array_values(array_except($this->items, $keysToDelete));
 
         return $this;
     }
