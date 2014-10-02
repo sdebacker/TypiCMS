@@ -7,8 +7,3 @@ $(".fancybox").fancybox({
     openEffect: 'elastic',
     closeEffect: 'elastic'
 });
-
-/**
- * Flexliders
- */
-$('.slider').flexslider();

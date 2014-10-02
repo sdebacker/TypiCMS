@@ -5,14 +5,13 @@
     "alertify.js": "~0.3.*",
     "bootstrap": "~3.2.*",
     "dropzone": "~3.*",
-    "jquery-ui": "~1.10.*",
     "fancybox": "~2.1.*",
-    "flexslider": "*",
     "font-awesome": "~4.*",
     "selectize": "~0.*",
     "pickadate": "~3.5.2",
     "fastclick": "~1.0.2",
     "jsurl": "*",
+    "swiper": "~2.7.0",
     "angular": "~1.2.25",
     "angular-resource": "~1.2",
     "angular-smart-table": "~1.3.0",
@@ -33,20 +32,6 @@
         "js/alert.js",
         "js/tab.js",
         "js/transition.js"
-      ]
-    },
-    "jquery-ui": {
-      "main": [
-        "ui/jquery-ui.js",
-        "ui/jquery.ui.core.js",
-        "ui/jquery.ui.mouse.js",
-        "ui/jquery.ui.widget.js",
-        "ui/jquery.ui.sortable.js"
-      ]
-    },
-    "flexslider": {
-      "main": [
-        "jquery.flexslider.js"
       ]
     },
     "pickadate": {
