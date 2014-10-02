@@ -4,6 +4,7 @@ namespace TypiCMS\Modules\Pages\Models;
 use App;
 use Config;
 use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 use TypiCMS\Presenters\PresentableTrait;
@@ -113,6 +114,17 @@ class Page extends Base
     public function scopeFrom($query, $relid)
     {
         return $query;
+    }
+
+    /**
+     * Order of pages
+     *
+     * @param  Builder $query
+     * @return Builder $query
+     */
+    public function scopeOrder(Builder $query)
+    {
+        return $query->orderBy('position')->orderBy('parent');
     }
 
     /**

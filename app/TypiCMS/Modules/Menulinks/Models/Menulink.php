@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Menulinks\Models;
 
 use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
 use TypiCMS\NestedCollection;
 use TypiCMS\Presenters\PresentableTrait;
@@ -64,6 +65,17 @@ class Menulink extends Base
     public function page()
     {
         return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page');
+    }
+
+    /**
+     * Order of menulinks
+     *
+     * @param  Builder $query
+     * @return Builder $query
+     */
+    public function scopeOrder(Builder $query)
+    {
+        return $query->orderBy('position')->orderBy('parent');
     }
 
     /**
