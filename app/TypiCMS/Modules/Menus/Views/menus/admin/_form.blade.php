@@ -1,27 +1,12 @@
-@section('js')
-    {{ HTML::script(asset('js/admin/list.js')) }}
-@stop
-
 @include('admin._buttons-form')
 
 <div class="row">
 
     <div class="col-sm-6">
 
-        <div class="list-form" lang="{{ Config::get('app.locale') }}">
-
-            @include('admin._buttons-list')
-
-            <ul class="list-main nested sortable" data-url="/admin/menus/{{ $model->id }}/menulinks">
-            @foreach ($model->menulinks->nest() as $menulink)
-                @include('menulinks.admin._listItem', array('model' => $menulink))
-            @endforeach
-            </ul>
-
-        </div>
+        @include('menus.admin.menulinks')
 
     </div>
-
 
     <div class="col-sm-6">
 

@@ -16,6 +16,11 @@
         // var moduleName = $location.path().split("/")[2]; // ok when in HTML5 route mode
         var url = $location.absUrl().split('?')[0];
         var moduleName = url.split('/')[4];
+
+        if (moduleName == 'menus' && url.split('/')[6] == 'edit') {
+            moduleName = 'menulinks';
+        };
+
         return $resource('/api/v1/' + moduleName + '/:id', null,
             {
                 'update': { method:'PUT' }

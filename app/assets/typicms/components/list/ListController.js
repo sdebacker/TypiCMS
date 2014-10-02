@@ -76,10 +76,6 @@
             $scope.treeOptions = {
                 dragThreshold: 3,
                 levelThreshold: 30,
-                accept: function(sourceNodeScope, destNodesScope, destIndex) {
-                    // console.log(sourceNodeScope.model);
-                    return true;
-                },
                 dropped: function(event) {
                     var model = event.source.nodeScope.model,
                         parent = null,
@@ -97,23 +93,17 @@
                     }
 
                     data['item'] = [];
-                    // alert('ici');
+
                     model.parent = parentId;
                     model.position = event.dest.index + 1;
-                    // console.log(currentList);
 
                     angular.forEach(currentList, function(model, key) {
-                        // console.log(model.id);
                         data['item'].push({'id': model.id, 'position': key, 'parent': model.parent});
-                        // model.position = key; 
-                        // console.log(key, model);
                     });
 
                     $http.post($location.absUrl().split('?')[0] + '/sort', data).
                         error(function(data, status, headers, config) {
                             alertify.error('Error ' + status + ' ' + data.error.message);
-                            // this callback will be called asynchronously
-                            // when the response is available
                         });
                 }
             };
