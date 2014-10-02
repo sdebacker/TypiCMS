@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Translations\Repositories;
 
 use Config;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -18,7 +19,7 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return Collection
      */
     public function getAll(array $with = array(), $all = false)
     {
