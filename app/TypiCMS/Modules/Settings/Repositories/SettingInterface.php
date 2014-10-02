@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Settings\Repositories;
 
 use Illuminate\Database\Eloquent\Collection;
+use stdClass;
 
 interface SettingInterface
 {
@@ -11,7 +12,7 @@ interface SettingInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return Collection
+     * @return stdClass
      */
     public function getAll(array $with = array(), $all = false);
 
