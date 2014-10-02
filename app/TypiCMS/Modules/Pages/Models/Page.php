@@ -76,13 +76,6 @@ class Page extends Base
     public $direction = 'asc';
 
     /**
-     * For nested collection
-     *
-     * @var array
-     */
-    public $children = array();
-
-    /**
      * Get public uri
      *
      * @return string

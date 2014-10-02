@@ -59,13 +59,6 @@ class Menulink extends Base
     public $direction = 'asc';
 
     /**
-     * For nested collection
-     *
-     * @var array
-     */
-    public $children = array();
-
-    /**
      * A menulink can belongs to a page
      */
     public function page()

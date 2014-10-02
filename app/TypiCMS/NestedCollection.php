@@ -12,7 +12,7 @@ class NestedCollection extends Collection
     {
         parent::__construct($items);
         $this->each(function ($item) {
-            $item->models = App::make('\Illuminate\Support\Collection');
+            $item->children = App::make('\Illuminate\Support\Collection');
         });
         $this->total = count($items);
     }
@@ -31,7 +31,7 @@ class NestedCollection extends Collection
         $keysToDelete = array();
         foreach ($this->items as $item) {
             if ($item->parent && isset($this->items[$item->parent])) {
-                $this->items[$item->parent]->models->push($item);
+                $this->items[$item->parent]->children->push($item);
                 $keysToDelete[] = $item->id;
             }
         }
