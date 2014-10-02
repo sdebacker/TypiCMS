@@ -24,12 +24,15 @@ class NestedCollection extends Collection
         // Set id as keys
         $this->items = $this->getDictionary();
 
-        // Set children
         $keysToDelete = array();
+
+        // add empty children collection.
+        $this->each(function ($item) {
+            $item->children = App::make('\Illuminate\Support\Collection');
+        });
+
+        // add items to children collection
         foreach ($this->items as $key => $item) {
-            if (! $this->items[$key]->children) {
-                $this->items[$key]->children = App::make('\Illuminate\Support\Collection');
-            }
             if ($item->parent && isset($this->items[$item->parent])) {
                 $this->items[$item->parent]->children->push($item);
                 $keysToDelete[] = $item->id;

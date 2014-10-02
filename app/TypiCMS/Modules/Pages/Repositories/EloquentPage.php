@@ -166,17 +166,17 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         $this->urisAndSlugs = $this->getAllUris();
         $this->flatUris = $this->flatUris();
 
-        foreach ($data['item'] as $id => $parent) {
+        foreach ($data['item'] as $item) {
 
             $position ++;
 
-            $parent = $parent ? : 0 ;
+            $parent = $item['parent'] ? : 0 ;
 
             DB::table('pages')
-              ->where('id', $id)
+              ->where('id', $item['id'])
               ->update(array('position' => $position, 'parent' => $parent));
 
-            $this->updateUris($id, $parent);
+            $this->updateUris($item['id'], $parent);
 
         }
 
@@ -212,7 +212,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
                         }
                     }
 
-                    // Check uri is unique
+                    // Check that uri is unique
                     $tmpUri = $uri;
                     $i = 0;
                     while ($this->uriExists($tmpUri, $id)) {

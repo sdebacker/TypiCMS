@@ -1,8 +1,8 @@
 (function (angular) {
 
-    angular.module('typicms').controller('ListController', ['$scope', '$location','$api',
+    angular.module('typicms').controller('ListController', ['$scope', '$location', '$api', '$http',
 
-        function ($scope, $location, $api) {
+        function ($scope, $location, $api, $http) {
 
             $scope.itemsByPage = 25;
             $scope.url = $location.absUrl().split('?')[0];
@@ -77,18 +77,46 @@
                     var model = event.source.nodeScope.model,
                         parent = null,
                         parentId = 0,
-                        nodes = event.dest.nodesScope;
+                        nodes = event.dest.nodesScope,
+                        currentList = nodes.$modelValue;
                     if (event.dest.nodesScope.$nodeScope) {
                         parentId = nodes.$nodeScope.model.id;
                     }
+
+                    var data = {};
+                    data['moved'] = model.id;
+                    data['nested'] = true;
+                    data['item'] = [];
+                    // alert('ici');
+
                     model.parent = parentId;
                     model.position = event.dest.index + 1;
-                    console.log('position = ' + event.dest.index);
-                    $api.update({'id':model.id}, model).$promise.then(function() {
-                    },
-                    function(reason) {
-                        alertify.error('Error ' + reason.status + ' ' + reason.statusText);
+                    // console.log(currentList);
+
+                    angular.forEach(currentList, function(model, key) {
+                        console.log(model.id);
+                        data['item'].push({'id': model.id, 'parent': model.parent});
+                        // model.position = key; 
+                        // console.log(key, model);
                     });
+
+                    $http.post('/admin/pages/sort', data).
+                        success(function(data, status, headers, config) {
+                            console.log(data, status, headers, config);
+                            // this callback will be called asynchronously
+                            // when the response is available
+                        }).
+                        error(function(data, status, headers, config) {
+                            console.log(data, status, headers, config);
+                            // called asynchronously if an error occurs
+                            // or server returns response with an error status.
+                        });
+
+                    // $api.update({'id':model.id}, model).$promise.then(function() {
+                    // },
+                    // function(reason) {
+                    //     alertify.error('Error ' + reason.status + ' ' + reason.statusText);
+                    // });
                 }
             };
 
