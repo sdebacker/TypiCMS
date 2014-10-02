@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Events\Repositories;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -18,7 +19,7 @@ class EloquentEvent extends RepositoriesAbstract implements EventInterface
      *
      * @param  integer      $number number of items to take
      * @param  array        $with array of related items
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public function incoming($number = null, array $with = array('translations'))
     {

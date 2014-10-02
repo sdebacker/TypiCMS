@@ -3,6 +3,7 @@ namespace TypiCMS\Modules\Blocks\Repositories;
 
 use App;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use StdClass;
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -20,7 +21,7 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return Collection
      */
     public function getAll(array $with = array('translations'), $all = false)
     {

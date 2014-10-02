@@ -1,16 +1,18 @@
 <?php
 namespace TypiCMS\Repositories;
 
-use DB;
-use Str;
 use App;
-use Input;
 use Config;
-use StdClass;
+use DB;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use TypiCMS\Modules\Pages\Models\Page;
+use Input;
+use StdClass;
+use Str;
 use TypiCMS;
+use TypiCMS\Modules\Pages\Models\Page;
+use TypiCMS\NestedCollection;
 
 abstract class RepositoriesAbstract implements RepositoryInterface
 {
@@ -123,7 +125,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      *
      * @param  array       $with Eager load related models
      * @param  boolean     $all  Show published or all
-     * @return \Illuminate\Database\Eloquent\Collection|\TypiCMS\NestedCollection
+     * @return Collection|NestedCollection
      */
     public function getAll(array $with = array(), $all = false)
     {
@@ -146,7 +148,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      *
      * @param  boolean                    $all  Show published or all
      * @param  array                      $with Eager load related models
-     * @return \TypiCMS\NestedCollection  with $items
+     * @return NestedCollection
      */
     public function getAllNested(array $with = array(), $all = false)
     {
@@ -157,8 +159,8 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Get all models with categories
      *
-     * @param  boolean                                  $all Show published or all
-     * @return \Illuminate\Database\Eloquent\Collection Object with $items
+     * @param  boolean    $all Show published or all
+     * @return Collection
      */
     public function getAllBy($key, $value, array $with = array(), $all = false)
     {
@@ -185,7 +187,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      *
      * @param  integer      $number number of items to take
      * @param  array        $with array of related items
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public function latest($number = 10, array $with = array())
     {
@@ -229,7 +231,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      *
      * @param string $relation
      * @param array  $with
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public function has($relation, array $with = array())
     {
