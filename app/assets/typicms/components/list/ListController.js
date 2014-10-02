@@ -66,6 +66,13 @@
                 });
             };
 
+            var nested = function() {
+                if ($('#tree-root').data('max-depth') > 1) {
+                    return true;
+                }
+                return false;
+            };
+
             $scope.treeOptions = {
                 dragThreshold: 3,
                 levelThreshold: 30,
@@ -84,11 +91,13 @@
                     }
 
                     var data = {};
-                    
-                    data['nested'] = true;
+
+                    if (nested()) {
+                        data['nested'] = true;
+                    }
+
                     data['item'] = [];
                     // alert('ici');
-                    console.log(event);
                     model.parent = parentId;
                     model.position = event.dest.index + 1;
                     // console.log(currentList);
