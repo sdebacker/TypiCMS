@@ -74,15 +74,22 @@
                     return true;
                 },
                 dropped: function(event) {
-                    var sourceModel = event.source.nodeScope.model,
-                        destModel = null;
-                    console.log(sourceModel.id);
+                    var model = event.source.nodeScope.model,
+                        parent = null,
+                        parentId = 0,
+                        nodes = 0;
                     if (event.dest.nodesScope.$nodeScope) {
-                        destModel = event.dest.nodesScope.$nodeScope.model;
-                        console.log(destModel.id);
-                    } else {
-                        console.log('rien');
+                        nodes = event.dest.nodesScope;
+                        parentId = nodes.$nodeScope.model.id;
                     }
+                    model.parent = parentId;
+                    // console.log('model id = ' + model.id);
+                    // console.log('parent = ' + parentId);
+                    $api.update({'id':model.id}, model).$promise.then(function() {
+                    },
+                    function(reason) {
+                        alertify.error('Error ' + reason.status + ' ' + reason.statusText);
+                    });
                 }
             };
 
