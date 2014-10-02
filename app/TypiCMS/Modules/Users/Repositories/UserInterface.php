@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Users\Repositories;
 
+use Illuminate\Support\Collection;
+
 interface UserInterface
 {
 
@@ -9,7 +11,7 @@ interface UserInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return \Illuminate\Support\Collection Object with $items
+     * @return Collection
      */
     public function getAll(array $with = array(), $all = false);
 
