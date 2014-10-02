@@ -1,10 +1,11 @@
 <?php
 namespace TypiCMS\Modules\Tags\Repositories;
 
-use StdClass;
 use DB;
-use Str;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use StdClass;
+use Str;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentTag extends RepositoriesAbstract implements TagInterface
@@ -61,7 +62,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return Collection
      */
     public function getAll(array $with = array(), $all = false)
     {

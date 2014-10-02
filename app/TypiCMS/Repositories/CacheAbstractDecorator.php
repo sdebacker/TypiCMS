@@ -2,7 +2,9 @@
 namespace TypiCMS\Repositories;
 
 use App;
+use Illuminate\Database\Eloquent\Collection;
 use Input;
+use TypiCMS\NestedCollection;
 use TypiCMS\Repositories\RepositoryInterface;
 
 abstract class CacheAbstractDecorator implements RepositoryInterface
@@ -107,7 +109,7 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return Collection
      */
     public function getAll(array $with = array(), $all = false)
     {
@@ -129,9 +131,9 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
     /**
      * Get all models and nest
      *
-     * @param  boolean                    $all  Show published or all
-     * @param  array                      $with Eager load related models
-     * @return \TypiCMS\NestedCollection  with $items
+     * @param  boolean          $all  Show published or all
+     * @param  array            $with Eager load related models
+     * @return NestedCollection
      */
     public function getAllNested(array $with = array(), $all = false)
     {

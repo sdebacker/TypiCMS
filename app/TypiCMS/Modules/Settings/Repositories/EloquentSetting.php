@@ -1,9 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Settings\Repositories;
 
-use stdClass;
 use DB;
 use Illuminate\Database\Eloquent\Model;
+use stdClass;
 
 class EloquentSetting implements SettingInterface
 {

@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Places\Repositories;
 
 use App;
+use Illuminate\Database\Eloquent\Collection;
 use Input;
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
@@ -45,7 +46,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
      *
      * @param  boolean  $all  Show published or all
      * @param  array    $with Eager load related models
-     * @return StdClass Object with $items
+     * @return Collection
      */
     public function getAll(array $with = array('translations'), $all = false)
     {

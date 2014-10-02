@@ -1,11 +1,15 @@
 <?php
 namespace TypiCMS\Repositories;
 
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use TypiCMS\NestedCollection;
+
 interface RepositoryInterface
 {
     /**
      * get empty model
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return Model
      */
     public function getModel();
 
@@ -30,7 +34,7 @@ interface RepositoryInterface
      * regardless of status
      *
      * @param  int       $id model ID
-     * @return stdObject object of model information
+     * @return Model
      */
     public function byId($id, array $with = array());
 
@@ -50,24 +54,24 @@ interface RepositoryInterface
      *
      * @param  array       $with Eager load related models
      * @param  boolean     $all  Show published or all
-     * @return \Illuminate\Database\Eloquent\Collection|\TypiCMS\NestedCollection
+     * @return Collection|NestedCollection
      */
     public function getAll(array $with = array(), $all = false);
 
     /**
      * Get all models and nest
      *
-     * @param  boolean                    $all  Show published or all
-     * @param  array                      $with Eager load related models
-     * @return \TypiCMS\NestedCollection  with $items
+     * @param  boolean           $all  Show published or all
+     * @param  array             $with Eager load related models
+     * @return NestedCollection
      */
     public function getAllNested(array $with = array(), $all = false);
 
     /**
      * Get all models with categories
      *
-     * @param  boolean                                  $all Show published or all
-     * @return \Illuminate\Database\Eloquent\Collection Object with $items
+     * @param  boolean   $all Show published or all
+     * @return Collection
      */
     public function getAllBy($key, $value, array $with = array(), $all = false);
 
@@ -76,7 +80,7 @@ interface RepositoryInterface
      *
      * @param  integer      $number number of items to take
      * @param  array        $with array of related items
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public function latest($number = 10, array $with = array());
 
@@ -92,16 +96,16 @@ interface RepositoryInterface
     /**
      * Return all results that have a required relationship
      *
-     * @param string $relation
-     * @param array  $with
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @param  string $relation
+     * @param  array  $with
+     * @return Collection
      */
     public function has($relation, array $with = array());
 
     /**
      * Create a new model
      *
-     * @param array  Data needed for model creation
+     * @param  array  Data needed for model creation
      * @return mixed Model or false on error during save
      */
     public function create(array $data);
@@ -109,7 +113,7 @@ interface RepositoryInterface
     /**
      * Update an existing model
      *
-     * @param array  Data needed for model update
+     * @param  array  Data needed for model update
      * @return boolean
      */
     public function update(array $data);
@@ -117,7 +121,7 @@ interface RepositoryInterface
     /**
      * Sort models
      *
-     * @param array  Data to update Pages
+     * @param  array  Data to update Pages
      * @return boolean
      */
     public function sort(array $data);
