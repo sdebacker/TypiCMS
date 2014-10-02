@@ -66,6 +66,26 @@
                 });
             };
 
+            $scope.treeOptions = {
+                dragThreshold: 3,
+                levelThreshold: 30,
+                accept: function(sourceNodeScope, destNodesScope, destIndex) {
+                    // console.log(sourceNodeScope.model);
+                    return true;
+                },
+                dropped: function(event) {
+                    var sourceModel = event.source.nodeScope.model,
+                        destModel = null;
+                    console.log(sourceModel.id);
+                    if (event.dest.nodesScope.$nodeScope) {
+                        destModel = event.dest.nodesScope.$nodeScope.model;
+                        console.log(destModel.id);
+                    } else {
+                        console.log('rien');
+                    }
+                }
+            };
+
         }
 
     ]);
