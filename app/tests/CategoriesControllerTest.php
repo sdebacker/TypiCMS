@@ -10,15 +10,7 @@ class CategoriesControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // Category::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'categories.admin.index';
-        $this->registerNestedView($view);
-
         $this->get('admin/categories');
-        $categories = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $categories);
     }
 
     public function testStoreFails()
