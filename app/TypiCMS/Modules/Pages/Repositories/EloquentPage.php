@@ -161,23 +161,15 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function sort(array $data)
     {
 
-        $position = 0;
-
         $this->urisAndSlugs = $this->getAllUris();
         $this->flatUris = $this->flatUris();
 
         foreach ($data['item'] as $item) {
-
-            $position ++;
-
             $parent = $item['parent'] ? : 0 ;
-
             DB::table('pages')
               ->where('id', $item['id'])
-              ->update(array('position' => $position, 'parent' => $parent));
-
+              ->update(array('position' => $item['position'], 'parent' => $parent));
             $this->updateUris($item['id'], $parent);
-
         }
 
         return true;

@@ -1,34 +1,17 @@
-@section('js')
-    {{ HTML::script(asset('js/admin/list.js')) }}
-@stop
+<div ng-app="typicms" ng-cloak ng-controller="ListController">
 
-@section('h1')
-    <span id="nb_elements">{{ $models->count() }}</span> @choice('categories::global.categories', $models->count())
-@stop
+    <h1>
+        <a href="{{ url }}/create" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only" translate>New</span></a>
+        <span translate translate-n="models.length" translate-plural="{{ models.length }} categories">{{ models.length }} categories</span>
+    </h1>
 
-@section('titleLeftButton')
-    <a href="{{ route('admin.categories.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('categories::global.New')) }}</span></a>
-@stop
+    <div class="btn-toolbar" role="toolbar" ng-include="'/views/partials/btnLocales.html'"></div>
 
-@section('main')
-
-    <div class="list-form" lang="{{ Config::get('app.locale') }}">
-
-        @include('admin._buttons-list')
-
-        <ul class="list-main sortable">
-        @foreach ($models as $model)
-            <li id="item_{{ $model->id }}">
-                <div>
-                    {{ $model->present()->checkbox }}
-                    {{ $model->present()->edit }}
-                    {{ $model->present()->status }}
-                    {{ $model->title }}
-                </div>
-            </li>
-        @endforeach
+    <!-- Nested node template -->
+    <div ui-tree="treeOptions" data-max-depth="1">
+        <ul ui-tree-nodes="" ng-model="models" id="tree-root">
+            <li ng-repeat="model in models" ui-tree-node ng-include="'/views/partials/nodes_renderer.html'"></li>
         </ul>
-
     </div>
 
-@stop
+</div>

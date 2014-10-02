@@ -290,32 +290,21 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     public function sort(array $data)
     {
 
-        $position = 0;
-
         if (isset($data['nested']) && $data['nested']) {
 
             foreach ($data['item'] as $item) {
-
-                $position ++;
-
                 $parent = $item['parent'] ? : 0 ;
-
                 DB::table($this->model->getTable())
                   ->where('id', $item['id'])
-                  ->update(array('position' => $position, 'parent' => $parent));
-
+                  ->update(array('position' => $item['position'], 'parent' => $parent));
             }
 
         } else {
 
             foreach ($data['item'] as $item) {
-
-                $position ++;
-
                 DB::table($this->model->getTable())
                   ->where('id', $item['id'])
-                  ->update(array('position' => $position));
-
+                  ->update(array('position' => $item['position']));
             }
 
         }
