@@ -49,6 +49,11 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
+        /**
+         * Sidebar view composer
+         */
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Projects\Composers\SideBarViewComposer');
+
         $app->bind('TypiCMS\Modules\Projects\Repositories\ProjectInterface', function (Application $app) {
             $repository = new EloquentProject(
                 new Project,

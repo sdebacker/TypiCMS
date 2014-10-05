@@ -1,17 +1,23 @@
 <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas" id="sidebar" role="navigation">
+    @foreach ($menus as $section => $items)
     <div class="sidebar-panel">
-        <ul class="nav nav-sidebar">
-            <li class="@if (Request::path() == 'admin')active @endif">
-                <a href="{{ route('dashboard') }}">
-                    <span class="icon fa fa-dashboard fa-fw"></span>
-                    <div>@lang('dashboard::global.name')</div>
-                </a>
-            </li>
-        </ul>
+        @if ($section)
+        <a class="sidebar-title @if(Config::get('current_user.menus_'.$section.'_collapsed'))collapsed @endif" href="#{{ $section }}" data-toggle="collapse">
+            <div> @lang('global.menus.' . $section)</div>
+        </a>
+        @endif
+        <div class="panel-collapse collapse @if(! Config::get('current_user.menus_'.$section.'_collapsed'))in @endif" id="{{ $section }}">
+            <ul class="nav nav-sidebar">
+                @foreach ($items->sortBy('weight') as $name => $item)
+                <li class="{{ Request::is($item['request']) ? 'active' : ''}}">
+                    <a href="{{ URL::route($item['route']) }}">
+                        <span class="{{ $item['icon-class'] }}"></span>
+                        <div> {{ \Patchwork\Utf8::ucfirst(trans($name . '::global.name')) }}</div>
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
     </div>
-    @include('admin._sidebar-menu', ['name' => 'applications'])
-    @include('admin._sidebar-menu', ['name' => 'content'])
-    @include('admin._sidebar-menu', ['name' => 'media'])
-    @include('admin._sidebar-menu', ['name' => 'system'])
-    @include('admin._sidebar-menu', ['name' => 'users'])
+    @endforeach
 </div>

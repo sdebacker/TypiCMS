@@ -1,7 +1,12 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.5.1 - 2014
+## 1.5.2 - 2014
+
+### Changed
+- Admin menus items managed by each module
+
+## 1.5.1 - 2014-10-03
 
 ### Added
 - Attachments can now be deleted

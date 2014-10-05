@@ -40,6 +40,11 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
+        /**
+         * Sidebar view composer
+         */
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Menus\Composers\SideBarViewComposer');
+
         $app->bind('TypiCMS\Modules\Menus\Repositories\MenuInterface', function (Application $app) {
             $repository = new EloquentMenu(new Menu);
             if (! Config::get('app.cache')) {

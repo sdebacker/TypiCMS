@@ -31,6 +31,11 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
+        /**
+         * Sidebar view composer
+         */
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Groups\Composers\SideBarViewComposer');
+
         $app->bind('TypiCMS\Modules\Groups\Repositories\GroupInterface', function (Application $app) {
             return new SentryGroup(
                 $app['sentry']

@@ -17,6 +17,12 @@ return array(
         'meta data' => 'meta data',
         'options' => 'options',
     ),
+    'menus' => array(
+        'content' => 'Content',
+        'users' => 'Users and groups',
+        'media' => 'Media',
+        'contacts' => 'Contacts',
+    ),
     'Index' => 'List',
     'Create' => 'Create',
     'Store' => 'Store',
