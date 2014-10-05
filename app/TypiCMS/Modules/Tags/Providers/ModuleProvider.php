@@ -40,6 +40,11 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
+        /**
+         * Sidebar view composer
+         */
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Tags\Composers\SideBarViewComposer');
+
         $app->bind('TypiCMS\Modules\Tags\Repositories\TagInterface', function (Application $app) {
             $repository = new EloquentTag(new Tag);
             if (! Config::get('app.cache')) {

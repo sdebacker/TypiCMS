@@ -47,6 +47,11 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
+        /**
+         * Sidebar view composer
+         */
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Galleries\Composers\SideBarViewComposer');
+
         $app->bind('TypiCMS\Modules\Galleries\Repositories\GalleryInterface', function (Application $app) {
             $repository = new EloquentGallery(new Gallery);
             if (! Config::get('app.cache')) {

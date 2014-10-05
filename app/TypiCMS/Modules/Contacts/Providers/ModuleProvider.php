@@ -46,6 +46,11 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
+        /**
+         * Sidebar view composer
+         */
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Contacts\Composers\SideBarViewComposer');
+
         $app->bind('TypiCMS\Modules\Contacts\Repositories\ContactInterface', function (Application $app) {
             $repository = new EloquentContact(new Contact);
             if (! Config::get('app.cache')) {
