@@ -8,7 +8,7 @@ class SideBarViewCreator
 {
     public function create($view)
     {
-        $view->prefix = Config::get('app.admin-prefix');
+        $view->prefix = 'admin';
         $view->menus = [
             0          => new Collection,
             'contacts' => new Collection,
