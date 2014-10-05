@@ -49,6 +49,11 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
+        /**
+         * Sidebar view composer
+         */
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Categories\Composers\SideBarViewComposer');
+
         $app->bind('TypiCMS\Modules\Categories\Repositories\CategoryInterface', function (Application $app) {
             $repository = new EloquentCategory(new Category);
             if (! Config::get('app.cache')) {

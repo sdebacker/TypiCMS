@@ -27,11 +27,6 @@
 
         {{ Form::hidden('id'); }}
 
-        <div class="form-group @if($errors->has('class'))has-error @endif">
-        {{ Form::label('side', trans('validation.attributes.side'), array('class' => 'control-label')) }}
-        {{ Form::select('side', ['Front office' => trans('validation.attributes.Front office'), 'Back office' => trans('validation.attributes.Back office')], null, array('class' => 'form-control')) }}
-        </div>
-
         <div class="form-group @if($errors->has('name'))has-error @endif">
             {{ Form::label('name', trans('validation.attributes.name'), array('class' => 'control-label')) }}
             {{ Form::text('name', null, array('class' => 'form-control')) }}

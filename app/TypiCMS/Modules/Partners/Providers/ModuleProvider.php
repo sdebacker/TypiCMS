@@ -49,6 +49,11 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
+        /**
+         * Sidebar view composer
+         */
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Partners\Composers\SideBarViewComposer');
+
         $app->bind('TypiCMS\Modules\Partners\Repositories\PartnerInterface', function (Application $app) {
             $repository = new EloquentPartner(new Partner);
             if (! Config::get('app.cache')) {

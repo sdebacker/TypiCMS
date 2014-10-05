@@ -17,7 +17,6 @@
                     <th st-sort="status" class="status st-sort" translate>Status</th>
                     <th st-sort="name" st-sort-default class="name st-sort" translate>Name</th>
                     <th st-sort="title" class="title st-sort" translate>Title</th>
-                    <th st-sort="side" class="side st-sort" translate>Side</th>
                 </tr>
             </thead>
 
@@ -28,14 +27,8 @@
                     <td typi-btn-status></td>
                     <td>{{ model.name }}</td>
                     <td>{{ model.title }}</td>
-                    <td>{{ model.side }}</td>
                 </tr>
             </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="8" typi-pagination></td>
-                </tr>
-            </tfoot>
         </table>
 
     </div>
