@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "28979c0b6463f73be703a6fc021e9764",
+    "hash": "c3ebcabd23846a8f0585835c9a5d71dc",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -703,16 +703,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "4.2.2",
+            "version": "4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "9c4fbbf6457768f5036fbd88f1229f3fca812a5d"
+                "reference": "66fd916e9f9130bc22c51450476823391cb2f67c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9c4fbbf6457768f5036fbd88f1229f3fca812a5d",
-                "reference": "9c4fbbf6457768f5036fbd88f1229f3fca812a5d",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/66fd916e9f9130bc22c51450476823391cb2f67c",
+                "reference": "66fd916e9f9130bc22c51450476823391cb2f67c",
                 "shasum": ""
             },
             "require": {
@@ -764,7 +764,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-09-08 22:11:58"
+            "time": "2014-10-05 19:29:14"
         },
         {
             "name": "guzzlehttp/streams",
@@ -1050,16 +1050,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.10",
+            "version": "v4.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3fe430a55ec73346c708f0b864820528d6c28eda"
+                "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3fe430a55ec73346c708f0b864820528d6c28eda",
-                "reference": "3fe430a55ec73346c708f0b864820528d6c28eda",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
+                "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
                 "shasum": ""
             },
             "require": {
@@ -1161,7 +1161,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-10-02 19:50:12"
+            "time": "2014-10-04 18:48:27"
         },
         {
             "name": "mccool/database-backup",
@@ -1804,20 +1804,20 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.2.2",
+            "version": "v5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1"
+                "reference": "b86b927dfefdb56ab0b22d1350033d9a38e9f205"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e02f71a35436af4bd58a1bd90116089e632e29e1",
-                "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/b86b927dfefdb56ab0b22d1350033d9a38e9f205",
+                "reference": "b86b927dfefdb56ab0b22d1350033d9a38e9f205",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4"
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9.1"
@@ -1825,7 +1825,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.2-dev"
+                    "dev-master": "5.3-dev"
                 }
             },
             "autoload": {
@@ -1852,7 +1852,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-09-20 07:17:36"
+            "time": "2014-10-04 05:53:18"
         },
         {
             "name": "symfony/browser-kit",
@@ -2824,16 +2824,16 @@
         },
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "26404e0c90565b614ee76b988b9bc8790d77f590"
+                "reference": "8806c41c178ad4a2e87294b851d730779555d252"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/26404e0c90565b614ee76b988b9bc8790d77f590",
-                "reference": "26404e0c90565b614ee76b988b9bc8790d77f590",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8806c41c178ad4a2e87294b851d730779555d252",
+                "reference": "8806c41c178ad4a2e87294b851d730779555d252",
                 "shasum": ""
             },
             "require": {
@@ -2874,7 +2874,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2014-08-25 15:09:25"
+            "time": "2014-10-04 22:48:25"
         },
         {
             "name": "maximebf/debugbar",
