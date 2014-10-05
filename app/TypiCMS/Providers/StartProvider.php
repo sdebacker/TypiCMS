@@ -3,13 +3,14 @@ namespace TypiCMS\Providers;
 
 use App;
 use Config;
-use Request;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
-use TypiCMS\Commands\Install;
+use Illuminate\Support\ServiceProvider;
+use Request;
 use TypiCMS\Commands\CacheKeyPrefix;
 use TypiCMS\Commands\Database;
+use TypiCMS\Commands\Install;
+use View;
 
 class StartProvider extends ServiceProvider
 {
@@ -20,6 +21,7 @@ class StartProvider extends ServiceProvider
         $this->commands('command.cachekeyprefix');
         $this->commands('command.database');
     }
+
     /**
      * Register the service provider.
      *
@@ -30,7 +32,7 @@ class StartProvider extends ServiceProvider
         /*
         |--------------------------------------------------------------------------
         | Set app locale on public side.
-        |--------------------------------------------------------------------------|
+        |--------------------------------------------------------------------------
         */
         if (Request::segment(1) != 'admin') {
 
@@ -45,8 +47,15 @@ class StartProvider extends ServiceProvider
 
         /*
         |--------------------------------------------------------------------------
+        | Sidebar view creator.
+        |--------------------------------------------------------------------------
+        */
+        $this->app->view->creator('admin._sidebar', 'TypiCMS\SideBarViewCreator');
+
+        /*
+        |--------------------------------------------------------------------------
         | Bind commands.
-        |--------------------------------------------------------------------------|
+        |--------------------------------------------------------------------------
         */
         $this->app->bind('command.install', function () {
             return new Install(new Filesystem);
@@ -61,7 +70,7 @@ class StartProvider extends ServiceProvider
         /*
         |--------------------------------------------------------------------------
         | Get custom routes for public side modules.
-        |--------------------------------------------------------------------------|
+        |--------------------------------------------------------------------------
         */
         $this->app->singleton('TypiCMS.routes', function (Application $app) {
             return $app->make('TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface')->getForRoutes();
@@ -70,7 +79,7 @@ class StartProvider extends ServiceProvider
         /*
         |--------------------------------------------------------------------------
         | Register modules.
-        |--------------------------------------------------------------------------|
+        |--------------------------------------------------------------------------
         */
         $this->app->register('TypiCMS\Modules\News\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Places\Providers\ModuleProvider');
