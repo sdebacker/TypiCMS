@@ -1,5 +1,6 @@
 <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas" id="sidebar" role="navigation">
     @foreach ($menus as $section => $items)
+    @if ($items->count())
     <div class="sidebar-panel">
         @if ($section)
         <a class="sidebar-title @if(Config::get('current_user.menus_'.$section.'_collapsed'))collapsed @endif" href="#{{ $section }}" data-toggle="collapse">
@@ -19,5 +20,6 @@
             </ul>
         </div>
     </div>
+    @endif
     @endforeach
 </div>
