@@ -50,8 +50,8 @@ class PublicController extends BasePublicController
 
         TypiCMS::setModel($model);
 
-        // get children pages
-        $children = $this->repository->getChildren($model->uri);
+        // get submenu
+        $children = $this->repository->getSubMenu($model->uri);
 
         $defaultTemplate = 'default';
 
