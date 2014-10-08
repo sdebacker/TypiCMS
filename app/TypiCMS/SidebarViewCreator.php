@@ -2,7 +2,6 @@
 namespace TypiCMS;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Config;
 use Illuminate\View\View;
 
 class SideBarViewCreator
