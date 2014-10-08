@@ -2,10 +2,11 @@
 namespace TypiCMS\Modules\Galleries\Composers;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\View\View;
 
 class SidebarViewComposer
 {
-    public function compose($view)
+    public function compose(View $view)
     {
         $view->menus['media']->put('galleries', [
             'weight' => Config::get('galleries::admin.weight'),

@@ -2,10 +2,11 @@
 namespace TypiCMS\Modules\Users\Composers;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\View\View;
 
 class SidebarViewComposer
 {
-    public function compose($view)
+    public function compose(View $view)
     {
         $view->menus['users']->put('users', [
             'weight' => Config::get('users::admin.weight'),

@@ -2,10 +2,11 @@
 namespace TypiCMS\Modules\Places\Composers;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\View\View;
 
 class SidebarViewComposer
 {
-    public function compose($view)
+    public function compose(View $view)
     {
         $view->menus['content']->put('places', [
             'weight' => Config::get('places::admin.weight'),

@@ -2,10 +2,11 @@
 namespace TypiCMS\Modules\Files\Composers;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\View\View;
 
 class SidebarViewComposer
 {
-    public function compose($view)
+    public function compose(View $view)
     {
         $view->menus['media']->put('files', [
             'weight' => Config::get('files::admin.weight'),
