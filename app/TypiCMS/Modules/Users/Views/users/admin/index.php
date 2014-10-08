@@ -30,7 +30,7 @@
 
             <tbody>
                 <tr ng-repeat="model in displayedModels">
-                    <td typi-btn-delete></td>
+                    <td><typi-btn-delete ng-click="delete(model, model.first_name + ' ' + model.last_name)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td>{{ model.first_name }}</td>
                     <td>{{ model.last_name }}</td>

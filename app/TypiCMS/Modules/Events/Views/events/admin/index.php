@@ -30,7 +30,7 @@
 
             <tbody>
                 <tr ng-repeat="model in displayedModels">
-                    <td typi-btn-delete></td>
+                    <td><typi-btn-delete ng-click="delete(model)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td typi-btn-status></td>
                     <td typi-thumb-list-item></td>

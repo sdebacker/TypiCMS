@@ -30,7 +30,7 @@
 
             <tbody>
                 <tr ng-repeat="model in displayedModels">
-                    <td typi-btn-delete></td>
+                    <td><typi-btn-delete ng-click="delete(model, model.name)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td>{{ model.name }}</td>
                     <td>{{ model.permissions }}</td>

@@ -16,7 +16,7 @@
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort" translate>Status</th>
                     <th st-sort="name" st-sort-default class="name st-sort" translate>Name</th>
-                    <th st-sort="title" class="title st-sort" translate>Content</th>
+                    <th st-sort="title" class="title st-sort" translate>Title</th>
                 </tr>
                 <tr>
                     <td colspan="3"></td>
@@ -31,7 +31,7 @@
 
             <tbody>
                 <tr ng-repeat="model in displayedModels">
-                    <td typi-btn-delete></td>
+                    <td><typi-btn-delete ng-click="delete(model)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td typi-btn-status></td>
                     <td>{{ model.name }}</td>
