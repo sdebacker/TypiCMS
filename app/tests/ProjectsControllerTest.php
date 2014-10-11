@@ -11,6 +11,7 @@ class ProjectsControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/projects');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()

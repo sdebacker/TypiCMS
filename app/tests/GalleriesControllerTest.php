@@ -11,6 +11,7 @@ class GalleriesControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/galleries');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()
