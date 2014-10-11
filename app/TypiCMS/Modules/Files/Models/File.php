@@ -46,7 +46,7 @@ class File extends Base
         'alt_attribute',
     );
 
-    protected $appends = ['alt_attribute', 'description'];
+    protected $appends = ['alt_attribute', 'description', 'thumb', 'thumb_sm'];
 
     /**
      * The default route for admin side.
@@ -102,7 +102,25 @@ class File extends Base
     }
 
     /**
-     * get translated description
+     * Get thumb attribute from presenter
+     * @return string src
+     */
+    public function getThumbAttribute($value)
+    {
+        return $this->present()->thumbSrc(null, 22, [], 'filename');
+    }
+
+    /**
+     * Get thumb attribute from presenter
+     * @return string src
+     */
+    public function getThumbSmAttribute($value)
+    {
+        return $this->present()->thumbSrc(130, 130, [], 'filename');
+    }
+
+    /**
+     * Get translated description
      * @return string description
      */
     public function getDescriptionAttribute()

@@ -3,6 +3,7 @@ namespace TypiCMS\Presenters;
 
 use Croppa;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class Presenter
 {
@@ -98,7 +99,22 @@ abstract class Presenter
     }
 
     /**
-     * Return a resized src or cropped image
+     * Get the path of files linked to this model
+     * 
+     * @param  Model  $model
+     * @param  string $field file’s field name in model
+     * @return string path
+     */
+    protected function getPath(Model $model = null, $field = null)
+    {
+        if (! $model || ! $field) {
+            return null;
+        }
+        return '/uploads/' . $model->getTable() . '/' . $model->$field;
+    }
+
+    /**
+     * Return src string of a resized or cropped image
      *
      * @param  int $width      width of image, null for auto
      * @param  int $height     height of image, null for auto
@@ -108,26 +124,24 @@ abstract class Presenter
      */
     public function thumbSrc($width = null, $height = null, array $options = array(), $field = 'image')
     {
-        $uploadDir = '/uploads';
-        $file = $uploadDir . '/' . $this->entity->getTable() . '/' . $this->entity->$field;
-        if (! is_file(public_path() . $file)) {
-            $file = $this->imgNotFound();
+        $src = $this->getPath($this->entity, $field);
+        if (! is_file(public_path() . $src)) {
+            $src = $this->imgNotFound();
         }
-        $src = $file;
         if ($width || $height) {
-            $src = Croppa::url($file, $width, $height, $options);
+            $src = Croppa::url($src, $width, $height, $options);
         }
         return $src;
     }
 
     /**
-     * Return a resized or cropped image
+     * Return a resized or cropped img tag
      *
      * @param  int $width      width of image, null for auto
      * @param  int $height     height of image, null for auto
      * @param  array $options  see Croppa doc for options (https://github.com/BKWLD/croppa)
      * @param  string $field   field name
-     * @return string          HTML markup of an image
+     * @return string          img HTML tag
      */
     public function thumb($width = null, $height = null, array $options = array(), $field = 'image')
     {
@@ -148,14 +162,13 @@ abstract class Presenter
     /**
      * Return an icon and file name
      *
-     * @param  int $size       size of the icon
+     * @param  int $size       icon size
      * @param  string $field   field name
      * @return string          HTML markup of an image
      */
     public function icon($size = 2, $field = 'document')
     {
-        $uploadDir = '/uploads';
-        $file = $uploadDir . '/' . $this->entity->getTable() . '/' . $this->entity->$field;
+        $file = $this->getPath($this->entity, $field);
         if (! is_file(public_path() . $file)) {
             $file = $uploadDir . '/img-not-found.png';
         }

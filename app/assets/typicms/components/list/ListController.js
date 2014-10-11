@@ -9,7 +9,13 @@
 
             $scope.TypiCMS = TypiCMS;
 
-            $api.query().$promise.then(function(all) {
+            // if we query files from a gallery, we need the gallery_id value :
+            $params = {};
+            if ($scope.url.split('/')[4] == 'galleries' && $scope.url.split('/')[5]) {
+                $params.gallery_id = $scope.url.split('/')[5];
+            }
+
+            $api.query($params).$promise.then(function(all) {
                 $scope.models = all;
                 //copy the references (you could clone ie angular.copy but then have to go through a dirty checking for the matches)
                 $scope.displayedModels = [].concat($scope.models);
