@@ -56,7 +56,7 @@ class File extends Base
     public $route = 'files';
 
     /**
-     * lists
+     * Lists
      */
     public $order = 'position';
     public $direction = 'asc';
@@ -85,7 +85,7 @@ class File extends Base
     }
 
     /**
-     * get translated title
+     * Get translated title
      */
     public function getTitleAttribute($value)
     {
@@ -93,7 +93,7 @@ class File extends Base
     }
 
     /**
-     * get translated alt attribute
+     * Get translated alt attribute
      * @return string alt attribute
      */
     public function getAltAttributeAttribute()
