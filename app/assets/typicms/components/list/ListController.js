@@ -21,6 +21,9 @@
                 $scope.displayedModels = [].concat($scope.models);
             });
 
+            /**
+             * Set status = 0 or 1 for item
+             */
             $scope.toggleStatus = function(model) {
                 var index = $scope.models.indexOf(model),
                     status = Math.abs(model.status - 1)
@@ -37,6 +40,9 @@
                 });
             };
 
+            /**
+             * Set homepage = 0 or 1 for item
+             */
             $scope.toggleHomepage = function(model) {
                 var index = $scope.models.indexOf(model),
                     homepage = Math.abs(model.homepage - 1);
@@ -48,6 +54,9 @@
                 });
             };
 
+            /**
+             * Change position of item
+             */
             $scope.changePosition = function(model) {
                 var index = $scope.models.indexOf(model);
                 $api.update({'id':model.id}, model).$promise.then(function() {
@@ -57,6 +66,18 @@
                 });
             };
 
+            /**
+             * TinyMCE File picker
+             */
+            $scope.selectAndClose = function(file) {
+                var TinyMCEWindow = top.tinymce.activeEditor.windowManager;
+                TinyMCEWindow.getParams().oninsert(file);
+                TinyMCEWindow.close();
+            };
+
+            /**
+             * Delete an item
+             */
             $scope.delete = function(model, title) {
                 if (! title) {
                     title = model.title;

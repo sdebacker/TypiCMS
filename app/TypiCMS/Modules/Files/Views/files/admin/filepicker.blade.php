@@ -1,14 +1,3 @@
-@section('js')
-    {{ HTML::script(asset('js/admin/list.js')) }}
-    <script>
-        function selectAndClose(image) {
-            var TinyMCEWindow = top.tinymce.activeEditor.windowManager;
-            TinyMCEWindow.getParams().oninsert(image);
-            TinyMCEWindow.close();
-        }
-    </script>
-@stop
-
 @section('bodyClass')
 @stop
 @section('navbar')
