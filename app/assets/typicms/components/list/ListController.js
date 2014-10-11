@@ -6,6 +6,12 @@
 
             $scope.itemsByPage = 25;
             $scope.url = $location.absUrl().split('?')[0];
+            var moduleName = $scope.url.split('/')[4];
+            var lastSegment = $scope.url.split('/').pop();
+            if (moduleName == 'galleries' && lastSegment == 'edit') {
+                $scope.url = '/admin/files';
+            }
+
 
             $scope.TypiCMS = TypiCMS;
 

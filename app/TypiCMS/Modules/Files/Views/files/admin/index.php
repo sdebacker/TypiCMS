@@ -19,6 +19,7 @@
                     <th class="delete"></th>
                     <th class="edit"></th>
                     <th st-sort="image" class="image st-sort" translate>Image</th>
+                    <th st-sort="position" st-sort-default class="position st-sort" translate>Position</th>
                     <th st-sort="filename" st-sort-default class="title st-sort" translate>Filename</th>
                     <th st-sort="alt_attribute" class="selected st-sort">Alt attribute</th>
                     <th st-sort="width" class="width st-sort" translate>Width</th>
@@ -42,6 +43,9 @@
                     <td><typi-btn-delete ng-click="delete(model, model.filename)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td typi-thumb-list-item></td>
+                    <td>
+                        <input class="form-control input-sm" min="1" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="changePosition(model)">
+                    </td>
                     <td>{{ model.filename }}</td>
                     <td>{{ model.alt_attribute }}</td>
                     <td>{{ model.width }}</td>
