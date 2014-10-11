@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Files\Presenters;
 
-use Croppa;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Presenters\Presenter;
 
