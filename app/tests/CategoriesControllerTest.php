@@ -11,6 +11,7 @@ class CategoriesControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/categories');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()

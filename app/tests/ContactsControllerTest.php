@@ -12,6 +12,7 @@ class ContactsControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/contacts');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()

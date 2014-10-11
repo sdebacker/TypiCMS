@@ -7,7 +7,7 @@
         <div class="col-xs-4 col-sm-3 col-md-2">
             <a href="{{ route($lang.'.partners.slug', $partner->slug) }}" class="thumbnail">
                 <div class="img-container">
-                    {{ $partner->present()->thumb(null, 200, array(), 'logo') }}
+                    {{ $partner->present()->thumb(null, 200) }}
                 </div>
                 <div class="caption">
                     <p><small>{{ $partner->title }}</small></p>

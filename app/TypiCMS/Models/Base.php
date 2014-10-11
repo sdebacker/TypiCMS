@@ -2,14 +2,14 @@
 namespace TypiCMS\Models;
 
 use App;
-use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Input;
 use Mockery;
 use Route;
 
-abstract class Base extends Eloquent
+abstract class Base extends Model
 {
 
     protected $appends = ['status', 'title', 'thumb'];

@@ -11,6 +11,7 @@ class NewsControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/news');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()

@@ -4,9 +4,6 @@ namespace TypiCMS\Modules\Files\Controllers;
 use Config;
 use Input;
 use Paginator;
-use Redirect;
-use Request;
-use Response;
 use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Files\Repositories\FileInterface;
 use TypiCMS\Modules\Files\Services\Form\FileForm;
@@ -32,8 +29,10 @@ class AdminController extends AdminSimpleController
         $page       = Input::get('page');
         $type       = Input::get('type');
         $gallery_id = Input::get('gallery_id');
-        $view       = Input::get('view', 'thumbnails');
-        $view       = ! in_array($view, $allowedViews) ? 'thumbnails' : $view ;
+        $view       = Input::get('view');
+        if ($view != 'filepicker') {
+            return parent::index();
+        }
 
         $itemsPerPage = Config::get('files::admin.itemsPerPage');
 
@@ -43,37 +42,5 @@ class AdminController extends AdminSimpleController
 
         $this->layout->content = View::make('files.admin.' . $view)
             ->withModels($models);
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-
-        if ($model = $this->form->save(Input::all())) {
-
-            if (Request::ajax()) {
-                return Response::json(['id' => $model->id]);
-            }
-
-            if (Input::get('exit')) {
-                return Redirect::route('admin.files.index');
-            }
-            return Redirect::route('admin.files.edit', array($model->id));
-
-        }
-
-        if (Request::ajax()) {
-            return Response::json('error', 400);
-        }
-
-        return Redirect::route('admin.files.create')
-            ->withInput()
-            ->withErrors($this->form->errors());
-
     }
 }

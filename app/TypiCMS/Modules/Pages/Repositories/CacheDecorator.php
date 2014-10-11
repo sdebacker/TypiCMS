@@ -50,19 +50,19 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
 
 
     /**
-     * Retrieve children pages
+     * Get submenu for a page
      *
      * @return Collection
      */
-    public function getChildren($uri, $all = false)
+    public function getSubMenu($uri, $all = false)
     {
-        $cacheKey = md5(App::getLocale().'childrenOfId.'.$uri.$all);
+        $cacheKey = md5(App::getLocale().'getSubMenu.'.$uri.$all);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
-        $models = $this->repo->getChildren($uri, $all);
+        $models = $this->repo->getSubMenu($uri, $all);
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $models);

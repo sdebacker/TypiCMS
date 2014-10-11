@@ -30,11 +30,11 @@ interface PageInterface extends RepositoryInterface
     public function getFirstByUri($uri);
 
     /**
-     * Retrieve children pages
+     * Get submenu for a page
      *
      * @return Collection
      */
-    public function getChildren($uri, $all = false);
+    public function getSubMenu($uri, $all = false);
 
     /**
      * Get Pages to build routes

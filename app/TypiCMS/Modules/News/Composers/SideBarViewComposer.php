@@ -2,10 +2,11 @@
 namespace TypiCMS\Modules\News\Composers;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\View\View;
 
 class SidebarViewComposer
 {
-    public function compose($view)
+    public function compose(View $view)
     {
         $view->menus['content']->put('news', [
             'weight' => Config::get('news::admin.weight'),

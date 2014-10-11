@@ -10,7 +10,6 @@ use Request;
 use TypiCMS\Commands\CacheKeyPrefix;
 use TypiCMS\Commands\Database;
 use TypiCMS\Commands\Install;
-use View;
 
 class StartProvider extends ServiceProvider
 {

@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Settings\Repositories;
 
-use Illuminate\Database\Eloquent\Collection;
 use stdClass;
 
 interface SettingInterface

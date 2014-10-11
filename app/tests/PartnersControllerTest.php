@@ -11,6 +11,7 @@ class PartnersControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/partners');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()

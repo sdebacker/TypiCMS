@@ -11,6 +11,7 @@ class PagesControllerTest extends TestCase
     public function testRoot()
     {
         $this->get('/');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testAdminIndex()

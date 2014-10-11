@@ -91,31 +91,24 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     }
 
     /**
-     * Retrieve children pages
+     * Get submenu for a page
      *
      * @return Collection
      */
-    public function getChildren($uri, $all = false)
+    public function getSubMenu($uri, $all = false)
     {
         $rootUriArray = explode('/', $uri);
         $uri = $rootUriArray[0];
-        if (isset($rootUriArray[1])) {
-            $uri .= '/' . $rootUriArray[1];
+        if (Config::get('app.locale_in_url')) {
+            if (isset($rootUriArray[1])) {
+                $uri .= '/' . $rootUriArray[1];
+            }
         }
 
         $query = $this->model
             ->with('translations')
-            ->select(
-                array(
-                    'pages.id AS id',
-                    'slug',
-                    'uri',
-                    'title',
-                    'status',
-                    'position',
-                    'parent'
-                )
-            )
+            ->select('*')
+            ->addSelect('pages.id AS id')
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
             ->where('uri', '!=', $uri)
             ->where('uri', 'LIKE', $uri.'%');
