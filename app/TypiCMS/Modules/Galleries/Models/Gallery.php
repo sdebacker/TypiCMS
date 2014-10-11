@@ -80,8 +80,8 @@ class Gallery extends Base
     }
 
     /**
-     * Get status attribute from translation table
-     * and append it to main model attributes
+     * Get files count
+     * 
      * @return string title
      */
     public function getFilesCountAttribute()

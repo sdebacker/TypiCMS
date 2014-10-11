@@ -17,6 +17,7 @@
                     <th st-sort="status" class="status st-sort" translate>Status</th>
                     <th st-sort="name" st-sort-default class="name st-sort" translate>Name</th>
                     <th st-sort="title" class="title st-sort" translate>Title</th>
+                    <th st-sort="files_count" class="files_count st-sort" translate>Files</th>
                 </tr>
                 <tr>
                     <td colspan="3"></td>
@@ -26,6 +27,7 @@
                     <td>
                         <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
+                    <td></td>
                 </tr>
             </thead>
 
@@ -36,11 +38,7 @@
                     <td typi-btn-status></td>
                     <td>{{ model.name }}</td>
                     <td>{{ model.title }}</td>
-                    <td>
-                        <span class="label label-default">
-                            {{ model.files_count }}
-                        </span>
-                    </td>
+                    <td typi-btn-files></td>
                 </tr>
             </tbody>
             <tfoot>
