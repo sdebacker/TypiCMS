@@ -15,6 +15,7 @@ class CategoriesControllerTest extends TestCase
         $this->registerNestedView($view);
 
         $this->get('admin/categories');
+        $this->assertTrue($this->client->getResponse()->isOk());
         $categories = $this->nestedViewsData[$view]['models'];
 
         $this->assertNestedViewHas($view, 'models');

@@ -11,15 +11,8 @@ class FilesControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // File::shouldReceive('getAll')->once()->andReturn(true);
-        $view = 'files.admin.thumbnails';
-        $this->registerNestedView($view);
-
         $this->get('admin/files');
-        $files = $this->nestedViewsData[$view]['models'];
-
-        $this->assertNestedViewHas($view, 'models');
-        $this->assertInstanceOf('Illuminate\Pagination\Paginator', $files);
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreSuccess()

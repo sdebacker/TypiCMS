@@ -11,6 +11,7 @@ class EventsControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/events');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()

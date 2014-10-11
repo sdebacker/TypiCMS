@@ -6,15 +6,30 @@
 
             $scope.itemsByPage = 25;
             $scope.url = $location.absUrl().split('?')[0];
+            var moduleName = $scope.url.split('/')[4];
+            var lastSegment = $scope.url.split('/').pop();
+            if (moduleName == 'galleries' && lastSegment == 'edit') {
+                $scope.url = '/admin/files';
+            }
+
 
             $scope.TypiCMS = TypiCMS;
 
-            $api.query().$promise.then(function(all) {
+            // if we query files from a gallery, we need the gallery_id value :
+            $params = {};
+            if ($scope.url.split('/')[4] == 'galleries' && $scope.url.split('/')[5]) {
+                $params.gallery_id = $scope.url.split('/')[5];
+            }
+
+            $api.query($params).$promise.then(function(all) {
                 $scope.models = all;
                 //copy the references (you could clone ie angular.copy but then have to go through a dirty checking for the matches)
                 $scope.displayedModels = [].concat($scope.models);
             });
 
+            /**
+             * Set status = 0 or 1 for item
+             */
             $scope.toggleStatus = function(model) {
                 var index = $scope.models.indexOf(model),
                     status = Math.abs(model.status - 1)
@@ -31,6 +46,9 @@
                 });
             };
 
+            /**
+             * Set homepage = 0 or 1 for item
+             */
             $scope.toggleHomepage = function(model) {
                 var index = $scope.models.indexOf(model),
                     homepage = Math.abs(model.homepage - 1);
@@ -42,6 +60,9 @@
                 });
             };
 
+            /**
+             * Change position of item
+             */
             $scope.changePosition = function(model) {
                 var index = $scope.models.indexOf(model);
                 $api.update({'id':model.id}, model).$promise.then(function() {
@@ -51,6 +72,18 @@
                 });
             };
 
+            /**
+             * TinyMCE File picker
+             */
+            $scope.selectAndClose = function(file) {
+                var TinyMCEWindow = top.tinymce.activeEditor.windowManager;
+                TinyMCEWindow.getParams().oninsert(file);
+                TinyMCEWindow.close();
+            };
+
+            /**
+             * Delete an item
+             */
             $scope.delete = function(model, title) {
                 if (! title) {
                     title = model.title;

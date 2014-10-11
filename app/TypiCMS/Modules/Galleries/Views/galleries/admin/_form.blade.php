@@ -12,9 +12,19 @@
 
 {{ Form::hidden('id'); }}
 
-<div class="row">
+<ul class="nav nav-tabs">
+    <li class="@if (input::get('tab') != 'tab-files')active @endif">
+        <a href="#tab-main" data-target="#tab-main" data-toggle="tab">@lang('global.Content')</a>
+    </li>
+    <li class="@if (input::get('tab') == 'tab-files')active @endif">
+        <a href="#tab-files" data-target="#tab-files" data-toggle="tab">@lang('global.Files')</a>
+    </li>
+</ul>
 
-    <div class="col-sm-6">
+<div class="tab-content">
+
+    {{-- Main tab --}}
+    <div class="tab-pane fade in @if (input::get('tab') != 'tab-files')active @endif" id="tab-main">
 
         <div class="form-group @if($errors->has('name'))has-error @endif">
             {{ Form::label('name', trans('validation.attributes.name'), array('class' => 'control-label')) }}
@@ -60,13 +70,16 @@
         </div>
 
     </div>
+    
+    {{-- Galleries tab --}}
+    <div class="tab-pane fade in @if (input::get('tab') == 'tab-files')active @endif" id="tab-files">
 
-    @if ($model->id)
-        <iframe class="col-sm-6" height="1000" src="/admin/files?view=gallery&amp;gallery_id={{ $model->id }}" frameborder="0"></iframe>
-    @else
-        <div class="col-sm-6">
-            <p class="alert alert-info">Create the gallery, then add files</p>
-        </div>
-    @endif
+        @if ($model->id)
+            @include('files.admin.index')
+        @else
+            <p class="alert alert-info">@lang('galleries::global.Save your gallery, then add files.')</p>
+        @endif
+
+    </div>
 
 </div>

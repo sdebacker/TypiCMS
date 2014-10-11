@@ -11,6 +11,7 @@ class BlocksControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/blocks');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()

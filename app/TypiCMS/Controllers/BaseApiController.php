@@ -47,6 +47,20 @@ abstract class BaseApiController extends Controller
     }
 
     /**
+     * Store a new resource in storage.
+     * @return Response
+     */
+    public function store()
+    {
+        $model = $this->repository->create(Input::all());
+        return Response::json([
+            'error'   => false,
+            'message' => 'Item saved',
+            'model'   => $model
+        ], 200);
+    }
+
+    /**
      * Update the specified resource in storage.
      * @param  int      $id
      * @return Response

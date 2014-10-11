@@ -2,41 +2,37 @@
 namespace TypiCMS\Modules\Files\Presenters;
 
 use Croppa;
+use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Presenters\Presenter;
 
 class ModulePresenter extends Presenter
 {
 
     /**
-     * Create thumb
-     * @param  array  $options PHPThumb style option
-     * @return string          html img tag or div with doc icon
+     * Get the path of files linked to this model
+     * 
+     * @param  Model  $model
+     * @param  string $field file’s field name in model
+     * @return string path
      */
-    public function thumb($width = 130, $height = 130, array $options = array(), $field = 'filename')
+    protected function getPath(Model $model = null, $field = null)
     {
-        if ($this->entity->type == 'i') {
-            $src = Croppa::url(
-                '/'.$this->entity->path.'/'.$this->entity->filename,
-                $width,
-                $height,
-                $options
-            );
-            return '<img class="img-responsive" src="' . $src . '" alt="' . $this->entity->alt_attribute . '">';
-        } else {
-            return '<div class="text-center doc"><i class="text-center fa fa-file-text-o"></i></div>';
+        if (! $model || ! $field) {
+            return null;
         }
+        return '/' . $model->path . '/' . $model->$field;
     }
 
     /**
      * Return an icon and file name
      *
-     * @param  int $size       size of the icon
+     * @param  int    $size    icon size
      * @param  string $field   field name
-     * @return string          HTML markup of an image
+     * @return string          HTML code
      */
     public function icon($size = 1, $field = 'document')
     {
-        $file = '/' . $this->entity->path . $this->entity->$field;
+        $file = $this->getPath($this->entity, $field);
         $html = '<div class="doc">';
         $html .= '<span class="text-center fa fa-file-o fa-' . $size . 'x"></span>';
         $html .= ' <a href="' . $file . '">';

@@ -11,6 +11,7 @@ class PlacesControllerTest extends TestCase
     public function testAdminIndex()
     {
         $this->get('admin/places');
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     public function testStoreFails()
