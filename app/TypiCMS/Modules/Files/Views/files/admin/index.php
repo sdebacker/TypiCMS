@@ -6,7 +6,7 @@
     </h1>
 
     <div class="dropzone" drop-zone="" id="dropzone">
-        <div class="dz-message">Click or drop files to upload.</div>
+        <div class="dz-message" translate>Click or drop files to upload.</div>
     </div>
 
     <div class="btn-toolbar" role="toolbar" ng-include="'/views/partials/btnLocales.html'"></div>

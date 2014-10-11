@@ -16,7 +16,7 @@
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort" translate>Status</th>
                     <th st-sort="image" class="image st-sort" translate>Image</th>
-                    <th st-sort="position" st-sort-default class="position st-sort">Position</th>
+                    <th st-sort="position" st-sort-default class="position st-sort" translate>Position</th>
                     <th st-sort="homepage" class="homepage st-sort">Home</th>
                     <th st-sort="title" class="title st-sort" translate>Title</th>
                     <th st-sort="website" class="website st-sort" translate>Website</th>
