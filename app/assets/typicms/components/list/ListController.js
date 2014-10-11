@@ -5,9 +5,10 @@
         function ($scope, $location, $api) {
 
             $scope.itemsByPage = 25;
-            $scope.url = $location.absUrl().split('?')[0];
-            var moduleName = $scope.url.split('/')[4];
-            var lastSegment = $scope.url.split('/').pop();
+            var url = $location.absUrl().split('?')[0];
+            var moduleName = url.split('/')[4];
+            var lastSegment = url.split('/').pop();
+            $scope.url = url;
             if (moduleName == 'galleries' && lastSegment == 'edit') {
                 $scope.url = '/admin/files';
             }
@@ -17,8 +18,8 @@
 
             // if we query files from a gallery, we need the gallery_id value :
             $params = {};
-            if ($scope.url.split('/')[4] == 'galleries' && $scope.url.split('/')[5]) {
-                $params.gallery_id = $scope.url.split('/')[5];
+            if (url.split('/')[4] == 'galleries' && url.split('/')[5]) {
+                $params.gallery_id = url.split('/')[5];
             }
 
             $api.query($params).$promise.then(function(all) {
