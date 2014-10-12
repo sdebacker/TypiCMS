@@ -56,8 +56,11 @@ class StartProvider extends ServiceProvider
         | Bind commands.
         |--------------------------------------------------------------------------
         */
-        $this->app->bind('command.install', function () {
-            return new Install(new Filesystem);
+        $this->app->bind('command.install', function ($app) {
+            return new Install(
+                $app['TypiCMS\Modules\Users\Repositories\SentryUser'],
+                new Filesystem
+            );
         });
         $this->app->bind('command.cachekeyprefix', function () {
             return new CacheKeyPrefix(new Filesystem);
