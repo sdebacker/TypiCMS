@@ -290,7 +290,7 @@ Commands are located in app/TypiCMS/Commands
 
 ## Contributing
 
-Feel free to fork and pull request!  
+Feel free to fork and make pull requests!  
 TypiCMS follows [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.  
 
 Thanks to [elvendor](https://github.com/elvendor) and [jekjek](https://github.com/jekjek) for their contributions!
