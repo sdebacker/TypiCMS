@@ -145,13 +145,17 @@ class Install extends Command
             'last_name'   => $lastname,
             'email'       => $email,
             'permissions' => ['superuser' => 1],
-            'groups'      => [],
+            'groups'      => [1 => 1],
             'activated'   => 1,
             'password'    => $password,
         ];
-        $this->user->create($user);
+        $user = $this->user->create($user);
 
-        $this->info('Superuser created.');
+        if ($user) {
+            $this->info('Superuser created.');
+        } else {
+            $this->error('User could not be created.');
+        }
         $this->line('----------------------');
     }
 }
