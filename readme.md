@@ -10,8 +10,8 @@ TypiCMS is a multilingual content management system built with [Laravel 4.2](htt
 
 **Demo**
 
-* [Back-end](http://typicms.samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
-* [Front-end](http://typicms.samsfactory.com)
+* [Back office](http://typicms.samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
+* [Front office](http://typicms.samsfactory.com)
 
 ![TypiCMS screenshot](http://typicms.samsfactory.com/uploads/pages/TypiCMS-screenshot.png)
 

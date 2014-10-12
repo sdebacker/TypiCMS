@@ -42,6 +42,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Concatenate first_name and last_name
+     * 
      * @return String
      */
     public function title()
