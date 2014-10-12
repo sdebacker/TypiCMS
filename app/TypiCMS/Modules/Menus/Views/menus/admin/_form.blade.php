@@ -12,6 +12,10 @@
 
             @include('admin._buttons-list')
 
+            <a href="{{ route('admin.menus.menulinks.create', $model->id) }}">
+                <i class="fa fa-fw fa-plus-circle"></i>Add menu link
+            </a>
+
             <ul class="list-main nested sortable" data-url="/admin/menus/{{ $model->id }}/menulinks">
             @foreach ($model->menulinks->nest() as $menulink)
                 @include('menulinks.admin._listItem', array('model' => $menulink))
