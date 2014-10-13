@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d24b05b2cd0a79f76c42dbf7690b1c90",
+    "hash": "9e8a6ae3bb4b138eb157f68ea27502cc",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3311,16 +3311,16 @@
         },
         {
             "name": "way/generators",
-            "version": "2.6.1",
+            "version": "3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
-                "reference": "484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c"
+                "reference": "978712d55cac12175bb8310dffcd0e6c68e482c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c",
-                "reference": "484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c",
+                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/978712d55cac12175bb8310dffcd0e6c68e482c8",
+                "reference": "978712d55cac12175bb8310dffcd0e6c68e482c8",
                 "shasum": ""
             },
             "require": {
@@ -3349,13 +3349,11 @@
             "authors": [
                 {
                     "name": "Jeffrey Way",
-                    "email": "jeffrey@jeffrey-way.com",
-                    "homepage": "http://jeffrye-way.com",
-                    "role": "Developer"
+                    "email": "jeffrey@jeffrey-way.com"
                 }
             ],
             "description": "Rapidly generate resources, migrations, models, and much more.",
-            "time": "2014-05-27 14:21:26"
+            "time": "2014-09-01 19:24:09"
         }
     ],
     "aliases": [
