@@ -6,10 +6,10 @@
 
 html,
 body {
-  overflow-x: hidden; /* Prevent scroll on narrow devices */
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
 }
 footer {
-  padding: 30px 0;
+    padding: 30px 0;
 }
 
 /*
@@ -17,47 +17,47 @@ footer {
  * --------------------------------------------------
  */
 @media screen and (max-width: 767px) {
-  .row-offcanvas {
-    position: relative;
-    -webkit-transition: all .25s ease-out;
-         -o-transition: all .25s ease-out;
-            transition: all .25s ease-out;
-  }
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all .25s ease-out;
+                 -o-transition: all .25s ease-out;
+                        transition: all .25s ease-out;
+    }
 
-  .row-offcanvas-right {
-    right: 0;
-  }
+    .row-offcanvas-right {
+        right: 0;
+    }
 
-  .row-offcanvas-left {
-    left: 0;
-  }
+    .row-offcanvas-left {
+        left: 0;
+    }
 
-  .row-offcanvas-right
-  .sidebar-offcanvas {
-    right: -@offcanvas-width; /* 6 columns */
-  }
+    .row-offcanvas-right
+    .sidebar-offcanvas {
+        right: -@offcanvas-width; /* 6 columns */
+    }
 
-  .row-offcanvas-left
-  .sidebar-offcanvas {
-    left: -@offcanvas-width; /* 6 columns */
-  }
+    .row-offcanvas-left
+    .sidebar-offcanvas {
+        left: -@offcanvas-width; /* 6 columns */
+    }
 
-  .row-offcanvas-right.active {
-    right: @offcanvas-width; /* 6 columns */
-  }
+    .row-offcanvas-right.active {
+        right: @offcanvas-width; /* 6 columns */
+    }
 
-  .row-offcanvas-left.active {
-    left: @offcanvas-width; /* 6 columns */
-  }
+    .row-offcanvas-left.active {
+        left: @offcanvas-width; /* 6 columns */
+    }
 
-  .btn-toggle-offcanvas {
-    margin-left: -10px;
-    margin-right: 5px;
-  }
+    .btn-toggle-offcanvas {
+        margin-left: -10px;
+        margin-right: 5px;
+    }
 
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-    width: @offcanvas-width; /* 6 columns */
-  }
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: @offcanvas-width; /* 6 columns */
+    }
 }
