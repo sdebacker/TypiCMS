@@ -197,10 +197,12 @@ class SentryUser extends RepositoriesAbstract implements UserInterface
             $allGroups = $this->sentry->findAllGroups();
 
             foreach ($allGroups as $group) {
-                if ($data['groups'][$group->id]) {
-                    $user->addGroup($group);
-                } else {
-                    $user->removeGroup($group);
+                if (isset($data['groups'][$group->id])) {
+                    if ($data['groups'][$group->id]) {
+                        $user->addGroup($group);
+                    } else {
+                        $user->removeGroup($group);
+                    }
                 }
             }
             return $user;

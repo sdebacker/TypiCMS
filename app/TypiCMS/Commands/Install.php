@@ -4,6 +4,7 @@ namespace TypiCMS\Commands;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use TypiCMS\Modules\Users\Repositories\SentryUser;
 
 class Install extends Command
 {
@@ -25,20 +26,29 @@ class Install extends Command
     /**
      * The filesystem instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var Filesystem
      */
     protected $files;
 
     /**
+     * The user repository.
+     *
+     * @var SentryUser
+     */
+    protected $user;
+
+    /**
      * Create a new key generator command.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  SentryUser  $user
+     * @param  Filesystem  $files
      * @return void
      */
-    public function __construct(Filesystem $files)
+    public function __construct(SentryUser $user, Filesystem $files)
     {
         parent::__construct();
 
+        $this->user = $user;
         $this->files = $files;
     }
 
@@ -67,11 +77,15 @@ class Install extends Command
         $this->checkThatEnvTemplateExists();
 
         // Ask for database name
+        $this->info('Setting up database...');
         $dbName = $this->ask('What is your database name? ');
 
         // Set database credentials in env.local.php and migrate
         $this->call('typicms:database', array('database' => $dbName));
         $this->line('----------------------');
+
+        // Create a super user
+        $this->createSuperUser();
 
         // Set cache key prefix
         $this->call('cache:prefix', array('prefix' => $dbName));
@@ -81,16 +95,16 @@ class Install extends Command
         if (function_exists('system')) {
             $this->info('Running npm install...');
             system('npm install');
-            $this->info('npm packages installed');
+            $this->info('npm packages installed.');
             $this->line('----------------------');
             $this->info('Running bower install...');
             system('bower install');
-            $this->info('Bower packages installed');
+            $this->info('Bower packages installed.');
             $this->line('----------------------');
             system('chmod -R 777 app/storage');
-            $this->info('app/storage is now writable');
+            $this->info('app/storage is now writable.');
             system('chmod -R 777 public/uploads');
-            $this->info('public/uploads is now writable');
+            $this->info('public/uploads is now writable.');
         } else {
             $this->line('You can now make app/storage and public/uploads writable');
             $this->line('and run composer install, npm install and bower install.');
@@ -112,5 +126,36 @@ class Install extends Command
         if (! $this->files->exists('env.php')) {
             throw new Exception('No env.php template found.');
         }
+    }
+
+    /**
+     * Create a superuser
+     */
+    private function createSuperUser()
+    {
+        $this->info('Creating a Super User...');
+
+        $firstname = $this->ask('Enter your first name   ');
+        $lastname  = $this->ask('Enter your last name    ');
+        $email     = $this->ask('Enter your email address');
+        $password  = $this->secret('Enter a password        ');
+
+        $user = [
+            'first_name'  => $firstname,
+            'last_name'   => $lastname,
+            'email'       => $email,
+            'permissions' => ['superuser' => 1],
+            'groups'      => [1 => 1],
+            'activated'   => 1,
+            'password'    => $password,
+        ];
+        $user = $this->user->create($user);
+
+        if ($user) {
+            $this->info('Superuser created.');
+        } else {
+            $this->error('User could not be created.');
+        }
+        $this->line('----------------------');
     }
 }

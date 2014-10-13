@@ -22,4 +22,14 @@ class ModulePresenter extends Presenter
 
         return implode("\r\n", $html);
     }
+
+    /**
+     * Use name as title
+     * 
+     * @return String
+     */
+    public function title()
+    {
+        return $this->entity->name;
+    }
 }

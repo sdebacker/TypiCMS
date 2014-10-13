@@ -54,7 +54,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="7" typi-pagination></td>
+                    <td colspan="8" typi-pagination></td>
                 </tr>
             </tfoot>
         </table>

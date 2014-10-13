@@ -10,6 +10,7 @@ use Request;
 use TypiCMS\Commands\CacheKeyPrefix;
 use TypiCMS\Commands\Database;
 use TypiCMS\Commands\Install;
+use TypiCMS\Modules\Users\Repositories\SentryUser;
 
 class StartProvider extends ServiceProvider
 {
@@ -56,8 +57,11 @@ class StartProvider extends ServiceProvider
         | Bind commands.
         |--------------------------------------------------------------------------
         */
-        $this->app->bind('command.install', function () {
-            return new Install(new Filesystem);
+        $this->app->bind('command.install', function (Application $app) {
+            return new Install(
+                new SentryUser($app['sentry']),
+                new Filesystem
+            );
         });
         $this->app->bind('command.cachekeyprefix', function () {
             return new CacheKeyPrefix(new Filesystem);

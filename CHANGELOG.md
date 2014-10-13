@@ -1,10 +1,19 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.5.2 - 2014
+## 1.5.3 - 2014-10-13
+
+### Fixed
+- Bug when editing a user.
+
+## 1.5.2 - 2014-10-12
+
+### Added
+- Creation of a user during installation.
 
 ### Changed
-- Admin menus items managed by each module
+- Admin sidebar items managed by each module.
+- Better files upload system, with angular js.
 
 ## 1.5.1 - 2014-10-03
 

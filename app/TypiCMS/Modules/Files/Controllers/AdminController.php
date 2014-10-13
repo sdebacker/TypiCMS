@@ -24,8 +24,6 @@ class AdminController extends AdminSimpleController
      */
     public function index()
     {
-        $allowedViews = ['index', 'filepicker', 'thumbnails', 'gallery'];
-
         $page       = Input::get('page');
         $type       = Input::get('type');
         $gallery_id = Input::get('gallery_id');

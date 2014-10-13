@@ -10,8 +10,8 @@ TypiCMS is a multilingual content management system built with [Laravel 4.2](htt
 
 **Demo**
 
-* [Back-end](http://typicms.samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
-* [Front-end](http://typicms.samsfactory.com)
+* [Back office](http://typicms.samsfactory.com/admin) (login: ``` admin@example.com ```, password: ``` admin ```)
+* [Front office](http://typicms.samsfactory.com)
 
 ![TypiCMS screenshot](http://typicms.samsfactory.com/uploads/pages/TypiCMS-screenshot.png)
 
@@ -86,15 +86,12 @@ This kind of urls are managed by the CMS :
    ```
    cd mywebsite
    ```
-5. DB Migrate and seed, npm install, bower install and chmod dirs
+5. DB Migrate and seed, create user, npm install, bower install and directory rights
 
    ```
    php artisan typicms:install
    ```
-6. Go to http://mywebsite.local/admin and log in:
-    
-   * email: ```admin@example.com```
-   * password: ```admin```
+6. Go to http://mywebsite.local/admin and log in.
 
 ### Manual installation
 
@@ -290,7 +287,7 @@ Commands are located in app/TypiCMS/Commands
 
 ## Contributing
 
-Feel free to fork and pull request!  
+Feel free to fork and make pull requests!  
 TypiCMS follows [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.  
 
 Thanks to [elvendor](https://github.com/elvendor) and [jekjek](https://github.com/jekjek) for their contributions!

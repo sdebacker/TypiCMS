@@ -84,10 +84,9 @@ class AdminController extends AdminSimpleController
      * @param  int      $id
      * @return Response
      */
-    public function edit($id)
+    public function edit($model)
     {
         $this->title['child'] = trans('users::global.Edit');
-        $model = $this->repository->byId($id);
         $this->layout->content = View::make('admin.edit')
             ->withModel($model)
             ->withPermissions($model->getPermissions())
