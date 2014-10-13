@@ -7,6 +7,7 @@ use Cartalyst\Sentry\Groups\NameRequiredException;
 use Cartalyst\Sentry\Sentry;
 use Cartalyst\Sentry\Users\LoginRequiredException;
 use Cartalyst\Sentry\Users\UserExistsException;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Input;
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -36,7 +37,7 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return Model|boolean false on error
      */
     public function create(array $data)
     {
@@ -106,14 +107,14 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
      * Return a specific group by a given id
      *
      * @param  integer $id
-     * @return Group
+     * @return Model|null null on group not found
      */
     public function byId($id, array $with = array())
     {
         try {
             $group = $this->sentry->findGroupById($id);
         } catch (GroupNotFoundException $e) {
-            return false;
+            return null;
         }
 
         return $group;
@@ -123,14 +124,14 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
      * Return a specific group by a given name
      *
      * @param  string $name
-     * @return Group
+     * @return Model|null null on group not found
      */
     public function byName($name)
     {
         try {
             $group = $this->sentry->findGroupByName($name);
         } catch (GroupNotFoundException $e) {
-            return false;
+            return null;
         }
 
         return $group;
@@ -139,8 +140,8 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     /**
      * Get all models
      *
-     * @param  boolean  $all  Show published or all
-     * @param  array    $with Eager load related models
+     * @param  boolean    $all  Show published or all
+     * @param  array      $with Eager load related models
      * @return Collection Object with $items
      */
     public function getAll(array $with = array(), $all = false)

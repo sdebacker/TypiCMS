@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Groups\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Groups\Repositories\GroupInterface;
 use TypiCMS\Modules\Groups\Services\Form\GroupForm;
@@ -29,7 +30,7 @@ class AdminController extends AdminSimpleController
      *
      * @return Response
      */
-    public function edit($group)
+    public function edit(Model $group)
     {
         $this->title['child'] = trans('groups::global.Edit');
 

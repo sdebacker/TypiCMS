@@ -9,7 +9,7 @@ interface GroupInterface extends RepositoryInterface
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return Model|boolean false on error
      */
     public function create(array $data);
 
@@ -33,7 +33,7 @@ interface GroupInterface extends RepositoryInterface
      * Return a specific user by a given id
      *
      * @param  integer $id
-     * @return User
+     * @return Model|null null on group not found
      */
     public function byId($id, array $with = array());
 
@@ -41,15 +41,15 @@ interface GroupInterface extends RepositoryInterface
      * Return a specific user by a given name
      *
      * @param  string $name
-     * @return User
+     * @return Model|null null on group not found
      */
     public function byName($name);
 
     /**
      * Get all models
      *
-     * @param  boolean  $all  Show published or all
-     * @param  array    $with Eager load related models
+     * @param  boolean    $all  Show published or all
+     * @param  array      $with Eager load related models
      * @return Collection Object with $items
      */
     public function getAll(array $with = array(), $all = false);

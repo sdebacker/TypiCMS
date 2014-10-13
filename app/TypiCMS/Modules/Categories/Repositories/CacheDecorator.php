@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Categories\Repositories;
 
 use App;
+use Illuminate\Database\Eloquent\Collection;
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
@@ -28,7 +29,7 @@ class CacheDecorator extends CacheAbstractDecorator implements CategoryInterface
      * Get all categories and prepare for menu
      *
      * @param  string $uri
-     * @return array
+     * @return Collection
      */
     public function getAllForMenu($uri = '')
     {

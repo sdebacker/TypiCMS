@@ -81,8 +81,8 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
     /**
      * Create a new model
      *
-     * @param array  Data to create a new model
-     * @return boolean
+     * @param  array         Data to create a new model
+     * @return boolean|Model false on error
      */
     public function create(array $data)
     {

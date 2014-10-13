@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Files\Repositories;
 
 use stdClass;
+use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoryInterface;
 
 interface FileInterface extends RepositoryInterface
@@ -37,8 +38,8 @@ interface FileInterface extends RepositoryInterface
     /**
      * Create a new model
      *
-     * @param array  Data to create a new model
-     * @return boolean
+     * @param  array         Data to create a new model
+     * @return boolean|Model false on error
      */
     public function create(array $data);
 
