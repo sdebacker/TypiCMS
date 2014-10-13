@@ -25,12 +25,12 @@
             <div class="col-sm-6">
                 <div class="form-group @if($errors->has('password'))has-error @endif">
                     {{ Form::label('password', trans('validation.attributes.password'), array('class' => 'control-label')) }}
-                    {{ Form::password('password', array('class' => 'form-control', 'required' => 'required', 'autocomplete' => 'off')) }}
+                    {{ Form::password('password', array('class' => 'form-control', 'autocomplete' => 'off')) }}
                     {{ $errors->first('password', '<p class="help-block">:message</p>') }}
                 </div>
                 <div class="form-group @if($errors->has('password_confirmation'))has-error @endif">
                     {{ Form::label('password_confirmation', trans('validation.attributes.password_confirmation'), array('class' => 'control-label')) }}
-                    {{ Form::password('password_confirmation', array('class' => 'form-control', 'required' => 'required', 'autocomplete' => 'off')) }}
+                    {{ Form::password('password_confirmation', array('class' => 'form-control', 'autocomplete' => 'off')) }}
                     {{ $errors->first('password_confirmation', '<p class="help-block">:message</p>') }}
                 </div>
             </div>
