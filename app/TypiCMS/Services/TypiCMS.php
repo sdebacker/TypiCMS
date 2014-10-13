@@ -164,7 +164,7 @@ class TypiCMS
     }
 
     /**
-    * Check if we are on backend
+    * Check if we are on back office
     *
     * @return boolean true if we are on backend
     */

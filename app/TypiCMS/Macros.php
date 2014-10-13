@@ -1,6 +1,6 @@
 <?php
 /**
- * Back end table headers
+ * Back office table headers
  */
 HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true, $label = true) {
     $inputs = Input::all();
@@ -37,7 +37,7 @@ HTML::macro('th', function ($field = '', $defaultOrder = null, $sortable = true,
 });
 
 /**
- * Back end buttons in view list
+ * Back office buttons in view list
  */
 HTML::macro('langButton', function ($locale = null, $attributes = []) {
 
@@ -56,7 +56,7 @@ HTML::macro('langButton', function ($locale = null, $attributes = []) {
 });
 
 /**
- * Front end lang switcher
+ * Front office lang switcher
  */
 HTML::macro('languagesMenu', function (array $langsArray = array(), array $attributes = array()) {
 
@@ -77,7 +77,7 @@ HTML::macro('languagesMenu', function (array $langsArray = array(), array $attri
 });
 
 /**
- * Front end menu
+ * Front office menu
  */
 HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) use (&$builtMenu) {
 
