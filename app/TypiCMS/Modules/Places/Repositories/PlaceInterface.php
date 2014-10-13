@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Places\Repositories;
 
 use Illuminate\Database\Eloquent\Collection;
+use stdClass;
 use TypiCMS\Repositories\RepositoryInterface;
 
 interface PlaceInterface extends RepositoryInterface
