@@ -1,4 +1,6 @@
 <?php
+Route::model('users', 'TypiCMS\Modules\Users\Models\User');
+
 /**
  * User registration
  */
