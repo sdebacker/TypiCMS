@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.5.4 - 2014
+
+### Changed
+- Front office views for http errors extends master.blade.php.
+
 ## 1.5.3 - 2014-10-13
 
 ### Fixed
