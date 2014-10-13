@@ -76,16 +76,16 @@
         },
         {
             "name": "bkwld/croppa",
-            "version": "3.4.0",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BKWLD/croppa.git",
-                "reference": "688259916d34dcb73ee67538dbbfbd9558e414ba"
+                "reference": "cbd46bdc6f790f35f6378aa92aa97a208c193141"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/688259916d34dcb73ee67538dbbfbd9558e414ba",
-                "reference": "688259916d34dcb73ee67538dbbfbd9558e414ba",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/cbd46bdc6f790f35f6378aa92aa97a208c193141",
+                "reference": "cbd46bdc6f790f35f6378aa92aa97a208c193141",
                 "shasum": ""
             },
             "require": {
@@ -116,7 +116,7 @@
                 }
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
-            "time": "2014-08-06 17:30:41"
+            "time": "2014-10-13 16:37:08"
         },
         {
             "name": "cartalyst/sentry",
