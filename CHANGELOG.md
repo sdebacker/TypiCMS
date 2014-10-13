@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.5.3 - 2014-10-13
+
+### Fixed
+- Bug when editing a user.
+
 ## 1.5.2 - 2014-10-12
 
 ### Added
