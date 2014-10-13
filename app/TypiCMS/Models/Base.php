@@ -213,7 +213,7 @@ abstract class Base extends Model
      * and append it to main model attributes
      * @return string title
      */
-    public function getStatusAttribute($value)
+    public function getStatusAttribute()
     {
         return $this->status;
     }

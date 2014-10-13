@@ -108,11 +108,6 @@ class Place extends Base
 
     }
 
-    /**
-     * Get title attribute from translation table
-     * and append it to main model attributes
-     * @return string title
-     */
     public function getTitleAttribute($value)
     {
         return $value;

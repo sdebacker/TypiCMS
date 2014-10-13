@@ -74,7 +74,7 @@ class Project extends Base
      * and append it to main model attributes
      * @return string title
      */
-    public function getCategoryNameAttribute($value)
+    public function getCategoryNameAttribute()
     {
         if ($this->category) {
             return $this->category->title;
