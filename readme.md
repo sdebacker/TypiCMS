@@ -86,15 +86,12 @@ This kind of urls are managed by the CMS :
    ```
    cd mywebsite
    ```
-5. DB Migrate and seed, npm install, bower install and chmod dirs
+5. DB Migrate and seed, create user, npm install, bower install and directory rights
 
    ```
    php artisan typicms:install
    ```
-6. Go to http://mywebsite.local/admin and log in:
-    
-   * email: ```admin@example.com```
-   * password: ```admin```
+6. Go to http://mywebsite.local/admin and log in.
 
 ### Manual installation
 
