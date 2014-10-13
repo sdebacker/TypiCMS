@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use Input;
 use Redirect;
 use Request;
@@ -52,9 +53,10 @@ abstract class AdminSimpleController extends BaseAdminController
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  Model    $model
      * @return Response
      */
-    public function edit($model)
+    public function edit(Model $model)
     {
         $this->layout->content = View::make('admin.edit')
             ->withModel($model);
@@ -65,7 +67,7 @@ abstract class AdminSimpleController extends BaseAdminController
      *
      * @return Response
      */
-    public function show($model)
+    public function show(Model $model)
     {
         return Redirect::route('admin.' . $this->module . '.edit', $model->id);
     }
@@ -73,6 +75,7 @@ abstract class AdminSimpleController extends BaseAdminController
     /**
      * Store a newly created resource in storage.
      *
+     * @param  Model    $model
      * @return Response
      */
     public function store()
@@ -93,9 +96,10 @@ abstract class AdminSimpleController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
+     * @param  Model    $model
      * @return Response
      */
-    public function update($model)
+    public function update(Model $model)
     {
 
         if (Request::ajax()) {
@@ -116,9 +120,10 @@ abstract class AdminSimpleController extends BaseAdminController
     /**
      * Remove the specified resource from storage.
      *
+     * @param  Model    $model
      * @return Response
      */
-    public function destroy($model)
+    public function destroy(Model $model)
     {
         if ($this->repository->delete($model)) {
             if (! Request::ajax()) {
