@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Groups\Repositories;
 
+use Cartalyst\Sentry\Groups\GroupInterface as Model;
 use TypiCMS\Repositories\RepositoryInterface;
 
 interface GroupInterface extends RepositoryInterface
@@ -30,7 +31,7 @@ interface GroupInterface extends RepositoryInterface
     public function destroy($id);
 
     /**
-     * Return a specific user by a given id
+     * Return a specific group by a given id
      *
      * @param  integer $id
      * @return Model|null null on group not found
@@ -38,7 +39,7 @@ interface GroupInterface extends RepositoryInterface
     public function byId($id, array $with = array());
 
     /**
-     * Return a specific user by a given name
+     * Return a specific group by a given name
      *
      * @param  string $name
      * @return Model|null null on group not found

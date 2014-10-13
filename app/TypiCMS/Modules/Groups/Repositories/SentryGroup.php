@@ -2,12 +2,10 @@
 namespace TypiCMS\Modules\Groups\Repositories;
 
 use Cartalyst\Sentry\Groups\GroupExistsException;
+use Cartalyst\Sentry\Groups\GroupInterface as Model;
 use Cartalyst\Sentry\Groups\GroupNotFoundException;
 use Cartalyst\Sentry\Groups\NameRequiredException;
 use Cartalyst\Sentry\Sentry;
-use Cartalyst\Sentry\Users\LoginRequiredException;
-use Cartalyst\Sentry\Users\UserExistsException;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Input;
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -27,7 +25,8 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
 
     /**
      * get empty model
-     * @return model
+     * 
+     * @return Model
      */
     public function getModel()
     {
@@ -49,8 +48,8 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
                 'permissions' => $data['permissions'],
             ));
             return $model;
-        } catch (LoginRequiredException $e) {
-        } catch (UserExistsException $e) {
+        } catch (NameRequiredException $e) {
+        } catch (GroupExistsException $e) {
         }
 
         return false;
