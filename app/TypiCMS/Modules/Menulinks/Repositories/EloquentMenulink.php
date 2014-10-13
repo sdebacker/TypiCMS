@@ -17,7 +17,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
      * Get all models for listing on admin side
      *
      * @param  boolean  $all Show published or all
-     * @return StdClass Object with $items
+     * @return stdClass Object with $items
      */
     public function getAllFromMenu($all = false, $menuId = null)
     {

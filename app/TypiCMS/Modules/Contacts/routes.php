@@ -1,5 +1,5 @@
 <?php
-Route::bind('contacts', function ($value, $route) {
+Route::bind('contacts', function ($value) {
     return TypiCMS\Modules\Contacts\Models\Contact::where('id', $value)
         ->firstOrFail();
 });

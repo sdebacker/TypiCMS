@@ -1,5 +1,5 @@
 <?php
-Route::bind('projects', function ($value, $route) {
+Route::bind('projects', function ($value) {
     return TypiCMS\Modules\Projects\Models\Project::where('id', $value)
         ->with('translations')
         ->firstOrFail();

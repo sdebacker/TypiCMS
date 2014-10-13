@@ -2,8 +2,9 @@
 namespace TypiCMS\Modules\Users\Repositories;
 
 use Illuminate\Support\Collection;
+use TypiCMS\Repositories\RepositoryInterface;
 
-interface UserInterface
+interface UserInterface extends RepositoryInterface
 {
 
     /**

@@ -1,5 +1,5 @@
 <?php
-Route::bind('events', function ($value, $route) {
+Route::bind('events', function ($value) {
     return TypiCMS\Modules\Events\Models\Event::where('id', $value)
         ->with('translations')
         ->firstOrFail();

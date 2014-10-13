@@ -1,5 +1,5 @@
 <?php
-Route::bind('menus', function ($value, $route) {
+Route::bind('menus', function ($value) {
     return TypiCMS\Modules\Menus\Models\Menu::with('menulinks', 'menulinks.translations')
         ->where('id', $value)
         ->firstOrFail();

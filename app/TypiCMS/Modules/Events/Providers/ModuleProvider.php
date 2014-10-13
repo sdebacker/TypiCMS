@@ -76,7 +76,7 @@ class ModuleProvider extends ServiceProvider
             );
         });
 
-        $app->bind('TypiCMS\Modules\Events\Services\Calendar', function (Application $app) {
+        $app->bind('TypiCMS\Modules\Events\Services\Calendar', function () {
             return new Calendar(
                 new EluceoCalendar('TypiCMS'),
                 new EluceoEvent

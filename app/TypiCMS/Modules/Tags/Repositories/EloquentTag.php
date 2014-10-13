@@ -4,7 +4,7 @@ namespace TypiCMS\Modules\Tags\Repositories;
 use DB;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use StdClass;
+use stdClass;
 use Str;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -23,11 +23,11 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
      * @param  int      $limit Results per page
      * @param  boolean  $all   get published models or all
      * @param  array    $with  Eager load related models
-     * @return StdClass Object with $items && $totalItems for pagination
+     * @return stdClass Object with $items && $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
-        $result = new StdClass;
+        $result = new stdClass;
         $result->page = $page;
         $result->limit = $limit;
         $result->totalItems = 0;
@@ -50,7 +50,7 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
                         ->take($limit)
                         ->get();
 
-        // Put items and totalItems in StdClass
+        // Put items and totalItems in stdClass
         $result->totalItems = $this->model->count();
         $result->items = $models->all();
 

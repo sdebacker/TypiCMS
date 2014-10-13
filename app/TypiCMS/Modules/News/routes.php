@@ -1,5 +1,5 @@
 <?php
-Route::bind('news', function ($value, $route) {
+Route::bind('news', function ($value) {
     return TypiCMS\Modules\News\Models\News::where('id', $value)
         ->with('translations')
         ->firstOrFail();

@@ -223,7 +223,7 @@ abstract class Base extends Model
      * and append it to main model attributes
      * @return string title
      */
-    public function getThumbAttribute($value)
+    public function getThumbAttribute()
     {
         return $this->present()->thumbSrc(null, 22);
     }

@@ -24,7 +24,7 @@ class ProjectsControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new StdClass;
+        $object = new stdClass;
 
         $object->id = 1;
         Project::shouldReceive('create')->once()->andReturn($object);
@@ -35,7 +35,7 @@ class ProjectsControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new StdClass;
+        $object = new stdClass;
 
         $object->id = 1;
         Project::shouldReceive('create')->once()->andReturn($object);
