@@ -1,9 +1,10 @@
 <?php
 namespace TypiCMS\Controllers;
 
+use Controller;
+use Illuminate\Database\Eloquent\Model;
 use Input;
 use Response;
-use Controller;
 
 abstract class BaseApiController extends Controller
 {
@@ -18,6 +19,7 @@ abstract class BaseApiController extends Controller
 
     /**
      * Get models
+     * 
      * @return Response
      */
     public function index()
@@ -28,26 +30,29 @@ abstract class BaseApiController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param  int      $id
+     * 
+     * @param  Model    $model
      * @return Response
      */
-    public function show($model)
+    public function show(Model $model)
     {
         return Response::json($model, 200);
     }
 
     /**
      * Update the specified resource in storage.
-     * @param  int      $id
+     * 
+     * @param  Model    $model
      * @return Response
      */
-    public function edit($model)
+    public function edit(Model $model)
     {
         return Response::json($model, 200);
     }
 
     /**
      * Store a new resource in storage.
+     * 
      * @return Response
      */
     public function store()
@@ -62,10 +67,11 @@ abstract class BaseApiController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param  int      $id
+     * 
+     * @param  Model    $model
      * @return Response
      */
-    public function update($model)
+    public function update(Model $model)
     {
         $this->repository->update(Input::all());
         return Response::json([
@@ -76,10 +82,11 @@ abstract class BaseApiController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param  int      $id
+     * 
+     * @param  Model    $model
      * @return Response
      */
-    public function destroy($model)
+    public function destroy(Model $model)
     {
         $this->repository->delete($model);
         return Response::json([

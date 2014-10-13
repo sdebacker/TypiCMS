@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Projects\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use Response;
 use Session;
 use TypiCMS\Controllers\AdminSimpleController;
@@ -34,9 +35,10 @@ class AdminController extends AdminSimpleController
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  Model    $model
      * @return Response
      */
-    public function edit($model)
+    public function edit(Model $model)
     {
         $tags = implode(', ', $model->tags->lists('tag'));
         $this->layout->content = View::make('admin.edit')
