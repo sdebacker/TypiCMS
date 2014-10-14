@@ -17,10 +17,3 @@ Route::group(array('prefix'=>'api/v1'), function() {
         'TypiCMS\Modules\Blocks\Controllers\ApiController'
     );
 });
-
-Route::group(array('prefix'=>'api/v1'), function() {
-    Route::resource(
-        'blocks',
-        'TypiCMS\Modules\Blocks\Controllers\ApiController'
-    );
-});
