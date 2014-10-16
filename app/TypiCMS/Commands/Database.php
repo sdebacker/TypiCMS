@@ -22,7 +22,7 @@ class Database extends Command
      *
      * @var string
      */
-    protected $description = "Set database credentials in env.php";
+    protected $description = "Set database credentials in .env file";
 
     /**
      * The filesystem instance.
@@ -57,22 +57,22 @@ class Database extends Command
         $dbUserName = $this->ask('What is your MySQL username?');
         $dbPassword = $this->secret('What is your MySQL password?');
 
-        // Replace DB credentials taken from env.php file
-        $keys = ['MYSQL_DATABASE', 'MYSQL_USERNAME', 'MYSQL_PASSWORD'];
+        // Replace DB credentials taken from .env.example file
+        $keys = ['DB_NAME', 'DB_USERNAME', 'DB_PASSWORD'];
         $search = [
-            "'$keys[0]' => ''",
-            "'$keys[1]' => ''",
-            "'$keys[2]' => ''",
+            "$keys[0]=typicms",
+            "$keys[1]=homestead",
+            "$keys[2]=homestead",
         ];
         $replace = [
-            "'$keys[0]' => '$dbName'",
-            "'$keys[1]' => '$dbUserName'",
-            "'$keys[2]' => '$dbPassword'",
+            "$keys[0]=$dbName",
+            "$keys[1]=$dbUserName",
+            "$keys[2]=$dbPassword",
         ];
         $contents = str_replace($search, $replace, $contents, $count);
 
         if ($count != 3) {
-            throw new Exception('Error while writing credentials to .env.php.');
+            throw new Exception('Error while writing credentials to .env.');
         }
 
         // Set DB credentials to laravel config
@@ -90,10 +90,8 @@ class Database extends Command
             $this->error('A migrations table was found in database ['.$dbName.'], no migrate and seed were done.');
         }
 
-        // Write to .env.php
-        $env = $this->laravel->environment();
-        $newPath = $env == 'production' ? '.env.php' : '.env.'.$env.'.php' ;
-        $this->files->put($newPath, $contents);
+        // Write to .env
+        $this->files->put('.env', $contents);
     }
 
     /**
@@ -115,6 +113,6 @@ class Database extends Command
      */
     protected function getKeyFile()
     {
-        return $this->files->get('env.php');
+        return $this->files->get('.env.example');
     }
 }

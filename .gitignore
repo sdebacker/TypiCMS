@@ -6,6 +6,7 @@ bower_components
 node_modules
 .env.*.php
 .env.php
+.env
 Thumbs.db
 
 app/tests/_log
