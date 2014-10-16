@@ -88,7 +88,9 @@ class TypiCMS
             if ($routeName == $lang) {
                 return '/' . $lang;
             }
-            return route($routeName);
+            if (Route::has($routeName)) {
+                return route($routeName);
+            }
         }
         return '/' . $lang;
     }
