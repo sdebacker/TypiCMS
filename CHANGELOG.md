@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.5.5 - 2014
+
+### Fixed
+- impossible to remove all galleries from a news or a page
+- impossible to select tags via /admin/tags
+- TinyMCE skin updated
+
 ## 1.5.4 - 2014-10-13
 
 ### Added
