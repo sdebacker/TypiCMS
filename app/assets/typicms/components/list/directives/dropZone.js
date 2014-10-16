@@ -41,7 +41,7 @@ angular.module('typicms').directive('dropZone', function() {
             'image/png'
         ];
 
-        var parentId = scope.url.split('/')[5] ? scope.url.split('/')[5] : 0,
+        var parentId = scope.parentId,
             locales  = scope.TypiCMS.locales;
 
         Dropzone.options.dropzone = {
