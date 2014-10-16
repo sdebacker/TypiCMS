@@ -1,5 +1,7 @@
 @extends('public.master')
 
+@section('languagesMenu') @stop
+
 @section('main')
 
     <article class="http-error-message">
