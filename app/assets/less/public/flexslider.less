@@ -21,13 +21,7 @@
 //
 
 .transition( @duration: 1s, @easing: ease ) {
-
-  -webkit-transition: all @duration @easing;
-     -moz-transition: all @duration @easing;
-      -ms-transition: all @duration @easing;
-       -o-transition: all @duration @easing;
-          transition: all @duration @easing;
-
+    transition: all @duration @easing;
 }
 
 
@@ -36,11 +30,7 @@
 //
 
 .border-radius( @radius: 4px ){
-
-  -webkit-border-radius: @arguments;
-     -moz-border-radius: @arguments;
-          border-radius: @arguments;
-
+    border-radius: @arguments;
 }
 
 
@@ -49,12 +39,7 @@
 //
 
 .box-shadow( @x-axis: 0, @y-axis: 1px, @blur: 2px, @color: rgba( 0, 0, 0, 0.1 ), @inset: '' ) {
-  
-  -webkit-box-shadow: @inset @x-axis @y-axis @blur @color;
-     -moz-box-shadow: @inset @x-axis @y-axis @blur @color;
-       -o-box-shadow: @inset @x-axis @y-axis @blur @color;
-          box-shadow: @inset @x-axis @y-axis @blur @color;
-
+    box-shadow: @inset @x-axis @y-axis @blur @color;
 }
 
 
@@ -68,14 +53,14 @@
 
 @font-face {
 
-  font-family: 'flexslider-icon';
-  src:url('../fonts/flexslider-icon.eot');
-  src:url('../fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/flexslider-icon.woff') format('woff'),
-    url('../fonts/flexslider-icon.ttf') format('truetype'),
-    url('../fonts/flexslider-icon.svg#flexslider-icon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'flexslider-icon';
+    src:url('../fonts/flexslider-icon.eot');
+    src:url('../fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/flexslider-icon.woff') format('woff'),
+        url('../fonts/flexslider-icon.ttf') format('truetype'),
+        url('../fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
 }
 
@@ -91,28 +76,28 @@
 .flex-container,
 .flex-slider{
 
-  a:hover,
-  a:focus{
+    a:hover,
+    a:focus{
 
-    outline: none;
+        outline: none;
 
-  }
+    }
 
 }
 
 .slides,
 .flex-control-nav,
 .flex-direction-nav {
-  
-  margin: 0; 
-  padding: 0; 
-  list-style: none;
+    
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
 
 }
 
 .flex-pauseplay span {
 
-  text-transform: capitalize;
+    text-transform: capitalize;
 
 }
 
@@ -127,75 +112,75 @@
 
 .flexslider {
 
-  margin: 0; 
-  padding: 0;
+    margin: 0; 
+    padding: 0;
 
-  .slides {
+    .slides {
 
-    > li {
+        > li {
 
-      display: none; 
-      -webkit-backface-visibility: hidden;
-
-    }
-
-    img{
-
-      width: 100%;
-      display: block;
-
-    }
-
-
-    //
-    // Clearfix for the .slides element
-    //
-
-    &:after{
-
-      content: "\0020"; 
-      display: block; 
-      clear: both; 
-      visibility: hidden; 
-      line-height: 0; 
-      height: 0;
-
-
-    }
-
-    html[xmlns] &{
-      
-      display: block;
-
-    }
-
-    * html &{
-      
-      height: 1%;
-
-    }
-
-
-    
-     // 
-     // No JavaScript Fallback
-     // If you are not using another script, such as Modernizr, make sure you
-     // include js that eliminates this class on page load
-     // 
-    
-
-    .no-js &{
-
-      > li{
-
-        &:first-child{
-
-          display: block;
+            display: none; 
+            -webkit-backface-visibility: hidden;
 
         }
-      }
+
+        img{
+
+            width: 100%;
+            display: block;
+
+        }
+
+
+        //
+        // Clearfix for the .slides element
+        //
+
+        &:after{
+
+            content: "\0020"; 
+            display: block; 
+            clear: both; 
+            visibility: hidden; 
+            line-height: 0; 
+            height: 0;
+
+
+        }
+
+        html[xmlns] &{
+            
+            display: block;
+
+        }
+
+        * html &{
+            
+            height: 1%;
+
+        }
+
+
+        
+         // 
+         // No JavaScript Fallback
+         // If you are not using another script, such as Modernizr, make sure you
+         // include js that eliminates this class on page load
+         // 
+        
+
+        .no-js &{
+
+            > li{
+
+                &:first-child{
+
+                    display: block;
+
+                }
+            }
+        }
     }
-  }
 }
 
 
@@ -209,38 +194,38 @@
 
 .flexslider { 
 
-  margin: 0 0 60px; 
-  background: #fff; 
-  border: 4px solid #fff; 
-  position: relative;
-  zoom: 1; 
+    margin: 0 0 60px; 
+    background: #fff; 
+    border: 4px solid #fff; 
+    position: relative;
+    zoom: 1; 
 
-  .border-radius( 4px );
-  .box-shadow( 0, 1px, 4px, rgba( 0, 0, 0, 0.2 ));
+    .border-radius( 4px );
+    .box-shadow( 0, 1px, 4px, rgba( 0, 0, 0, 0.2 ));
 
-  .slides{
+    .slides{
 
-    zoom: 1;
+        zoom: 1;
 
-  }
+    }
 }
 
 .flex-viewport { 
 
-  max-height: 2000px; 
+    max-height: 2000px; 
 
-  .transition();
+    .transition();
 
-  .loading &{
+    .loading &{
 
-    max-height: 300px;
+        max-height: 300px;
 
-  }
+    }
 }
 
 .carousel li { 
 
-  margin-right: 5px; 
+    margin-right: 5px; 
 
 }
 
@@ -251,118 +236,118 @@
 
 .flex-direction-nav {
 
-  *height: 0;
+    *height: 0;
 
-  
-  //
-  // Global styles
-  //
+    
+    //
+    // Global styles
+    //
 
-  a  { 
+    a    { 
 
-    text-decoration:none; 
-    display: block; 
-    width: 40px; 
-    height: 60px; 
-    margin: -30px 0 0; 
-    position: absolute; 
-    top: 50%; 
-    z-index: 10; 
-    overflow: hidden; 
-    opacity: 0; 
-    cursor: pointer; 
-    color: rgba(0,0,0,0.8); 
-    text-shadow: 1px 1px 0 rgba( 255, 255, 255, 0.3 );
+        text-decoration:none; 
+        display: block; 
+        width: 40px; 
+        height: 60px; 
+        margin: -30px 0 0; 
+        position: absolute; 
+        top: 50%; 
+        z-index: 10; 
+        overflow: hidden; 
+        opacity: 0; 
+        cursor: pointer; 
+        color: rgba(0,0,0,0.8); 
+        text-shadow: 1px 1px 0 rgba( 255, 255, 255, 0.3 );
 
-    .transition( 0.3s, ease-in-out );
+        .transition( 0.3s, ease-in-out );
 
-    &:before  { 
+        &:before    { 
 
-      font-family: "flexslider-icon"; 
-      font-size: 40px; 
-      display: inline-block; 
-      content: '\f001';
+            font-family: "flexslider-icon"; 
+            font-size: 40px; 
+            display: inline-block; 
+            content: '\f001';
+
+        }
+
+        &.flex-next:before { 
+
+            content: '\f002';
+
+        }
 
     }
 
-    &.flex-next:before { 
 
-      content: '\f002';
+    //
+    // Prev
+    //
 
-    }
-
-  }
-
-
-  //
-  // Prev
-  //
-
-  .flex-prev { 
-
-    left: -50px;
-
-  }
-
-
-  //
-  // Next
-  //
-
-  .flex-next { 
-    
-    right: -50px; 
-    text-align: right;
-
-  }
-
-
-  //
-  // Hover states
-  //
-
-  .flexslider:hover &{
-    
     .flex-prev { 
 
-      opacity: 0.7; 
-      left: 10px;
-
-      &:hover{
-        
-        opacity: 1;
-
-      }
+        left: -50px;
 
     }
-    
+
+
+    //
+    // Next
+    //
+
     .flex-next { 
-
-      opacity: 0.7; 
-      right: 10px;
-
-      &:hover{
         
-        opacity: 1;
-        
-      }
+        right: -50px; 
+        text-align: right;
 
     }
 
-  }
+
+    //
+    // Hover states
+    //
+
+    .flexslider:hover &{
+        
+        .flex-prev { 
+
+            opacity: 0.7; 
+            left: 10px;
+
+            &:hover{
+                
+                opacity: 1;
+
+            }
+
+        }
+        
+        .flex-next { 
+
+            opacity: 0.7; 
+            right: 10px;
+
+            &:hover{
+                
+                opacity: 1;
+                
+            }
+
+        }
+
+    }
 
 
-  //
-  // Disabled
-  //
+    //
+    // Disabled
+    //
 
-  .flex-disabled { 
+    .flex-disabled { 
 
-    opacity: 0!important; 
-    filter: alpha(opacity=0); 
-    cursor: default;
+        opacity: 0!important; 
+        filter: alpha(opacity=0); 
+        cursor: default;
 
-  }
+    }
 }
 
 
@@ -372,38 +357,38 @@
 
 .flex-pauseplay a {
 
-  display: block; 
-  width: 20px; 
-  height: 20px; 
-  position: absolute; 
-  bottom: 5px; 
-  left: 10px; 
-  opacity: 0.8; 
-  z-index: 10; 
-  overflow: hidden; 
-  cursor: pointer; 
-  color: #000;
+    display: block; 
+    width: 20px; 
+    height: 20px; 
+    position: absolute; 
+    bottom: 5px; 
+    left: 10px; 
+    opacity: 0.8; 
+    z-index: 10; 
+    overflow: hidden; 
+    cursor: pointer; 
+    color: #000;
 
-  &:before { 
+    &:before { 
 
-    font-family: "flexslider-icon"; 
-    font-size: 20px; 
-    display: inline-block; 
-    content: '\f004';
+        font-family: "flexslider-icon"; 
+        font-size: 20px; 
+        display: inline-block; 
+        content: '\f004';
 
-  }
+    }
 
-  &:hover {
+    &:hover {
 
-    opacity: 1;
+        opacity: 1;
 
-  }
+    }
 
-  .flex-play:before { 
+    .flex-play:before { 
 
-    content: '\f003';
+        content: '\f003';
 
-  }
+    }
 
 }
 
@@ -414,19 +399,19 @@
 
 .flex-control-nav {
 
-  width: 100%; 
-  position: absolute; 
-  bottom: -40px; 
-  text-align: center;
+    width: 100%; 
+    position: absolute; 
+    bottom: -40px; 
+    text-align: center;
 
-  li {
-    
-    margin: 0 6px; 
-    display: inline-block; 
-    zoom: 1; 
-    *display: inline;
+    li {
+        
+        margin: 0 6px; 
+        display: inline-block; 
+        zoom: 1; 
+        *display: inline;
 
-  }
+    }
 
 }
 
@@ -437,70 +422,70 @@
 
 .flex-control-paging li {
 
-  a {
+    a {
 
-    width: 11px; 
-    height: 11px; 
-    display: block; 
-    background: #666; 
-    background: rgba(0,0,0,0.5); 
-    cursor: pointer; 
-    text-indent: -9999px;
+        width: 11px; 
+        height: 11px; 
+        display: block; 
+        background: #666; 
+        background: rgba(0,0,0,0.5); 
+        cursor: pointer; 
+        text-indent: -9999px;
 
-    .box-shadow( 0, 0, 3px, rgba(0,0,0,0.3), inset );
-    .border-radius( 20px );
+        .box-shadow( 0, 0, 3px, rgba(0,0,0,0.3), inset );
+        .border-radius( 20px );
 
-    &:hover { 
+        &:hover { 
 
-      background: #333; 
-      background: rgba(0,0,0,0.7);
+            background: #333; 
+            background: rgba(0,0,0,0.7);
 
+        }
+
+        &.flex-active { 
+
+            background: #000;
+            background: rgba( 0, 0, 0, 0.9 );
+            cursor: default;
+
+        }
     }
-
-    &.flex-active { 
-
-      background: #000;
-      background: rgba( 0, 0, 0, 0.9 );
-      cursor: default;
-
-    }
-  }
 }
 
 
 .flex-control-thumbs {
 
-  margin: 5px 0 0; 
-  position: static; 
-  overflow: hidden;
+    margin: 5px 0 0; 
+    position: static; 
+    overflow: hidden;
 
-  li {
+    li {
 
-    width: 25%; 
-    float: left; 
-    margin: 0;
+        width: 25%; 
+        float: left; 
+        margin: 0;
 
-  }
+    }
 
-  img {
-  
-    width: 100%; 
-    display: block; 
-    opacity: .7; 
-    cursor: pointer;
+    img {
+    
+        width: 100%; 
+        display: block; 
+        opacity: .7; 
+        cursor: pointer;
 
-    .transition();
+        .transition();
 
-    &:hover {opacity: 1;}
+        &:hover {opacity: 1;}
 
-  }
+    }
 
-  .flex-active {
+    .flex-active {
 
-    opacity: 1; 
-    cursor: default;
+        opacity: 1; 
+        cursor: default;
 
-  }
+    }
 }
 
 
@@ -513,20 +498,20 @@
 
 @media screen and ( max-width: 860px ) {
 
-  .flex-direction-nav{
+    .flex-direction-nav{
 
-    .flex-prev { 
+        .flex-prev { 
 
-      opacity: 1; 
-      left: 10px;
+            opacity: 1; 
+            left: 10px;
 
+        }
+
+        .flex-next { 
+
+            opacity: 1; 
+            right: 10px;
+
+        }
     }
-
-    .flex-next { 
-
-      opacity: 1; 
-      right: 10px;
-
-    }
-  }
 }
