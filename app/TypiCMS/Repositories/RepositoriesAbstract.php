@@ -434,7 +434,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         }
 
         if (! isset($data[$table])) {
-            return false;
+            $data[$table] = [];
         }
 
         // add related items
