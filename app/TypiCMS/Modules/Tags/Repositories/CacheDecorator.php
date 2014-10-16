@@ -22,7 +22,7 @@ class CacheDecorator extends CacheAbstractDecorator implements TagInterface
      * @param  int      $page  Number of pages per page
      * @param  int      $limit Results per page
      * @param  boolean  $all   Show published or all
-     * @return StdClass Object with $items && $totalItems for pagination
+     * @return stdClass Object with $items && $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {

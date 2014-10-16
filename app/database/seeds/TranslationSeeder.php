@@ -19,7 +19,12 @@ class TranslationSeeder extends Seeder
             array('id' => '11','group' => 'db','key' => 'All events','created_at' => '2014-06-18 15:40:04','updated_at' => '2014-06-18 15:40:04'),
             array('id' => '12','group' => 'db','key' => 'Partners','created_at' => '2014-06-18 15:40:35','updated_at' => '2014-06-18 15:40:35'),
             array('id' => '13','group' => 'db','key' => 'Latest news','created_at' => '2014-06-18 15:41:21','updated_at' => '2014-06-18 15:41:21'),
-            array('id' => '14','group' => 'db','key' => 'Incoming events','created_at' => '2014-06-18 15:41:54','updated_at' => '2014-06-18 15:41:54')
+            array('id' => '14','group' => 'db','key' => 'Incoming events','created_at' => '2014-06-18 15:41:54','updated_at' => '2014-06-18 15:41:54'),
+            array('id' => '16','group' => 'db','key' => 'Error :code','created_at' => '2014-10-13 16:35:45','updated_at' => '2014-10-13 16:35:45'),
+            array('id' => '17','group' => 'db','key' => 'Sorry, you are not authorized to view this page','created_at' => '2014-10-13 16:38:43','updated_at' => '2014-10-13 16:38:43'),
+            array('id' => '18','group' => 'db','key' => 'Go to our homepage?','created_at' => '2014-10-13 16:40:40','updated_at' => '2014-10-13 16:40:40'),
+            array('id' => '19','group' => 'db','key' => 'Sorry, this page was not found','created_at' => '2014-10-13 16:42:18','updated_at' => '2014-10-13 16:42:18'),
+            array('id' => '20','group' => 'db','key' => 'Sorry, a server error occurred','created_at' => '2014-10-13 16:44:46','updated_at' => '2014-10-13 16:44:46')
         );
 
         $typi_translation_translations = array(
@@ -64,7 +69,22 @@ class TranslationSeeder extends Seeder
             array('id' => '39','translation_id' => '13','locale' => 'en','translation' => 'Latest news','created_at' => '2014-06-18 15:41:21','updated_at' => '2014-06-18 15:41:21'),
             array('id' => '40','translation_id' => '14','locale' => 'fr','translation' => 'Prochains événements','created_at' => '2014-06-18 15:41:54','updated_at' => '2014-06-18 15:41:54'),
             array('id' => '41','translation_id' => '14','locale' => 'nl','translation' => 'Aankomende evenementen','created_at' => '2014-06-18 15:41:54','updated_at' => '2014-06-18 15:41:54'),
-            array('id' => '42','translation_id' => '14','locale' => 'en','translation' => 'Incoming events','created_at' => '2014-06-18 15:41:54','updated_at' => '2014-06-18 15:41:54')
+            array('id' => '42','translation_id' => '14','locale' => 'en','translation' => 'Incoming events','created_at' => '2014-06-18 15:41:54','updated_at' => '2014-06-18 15:41:54'),
+            array('id' => '46','translation_id' => '16','locale' => 'fr','translation' => 'Erreur :code','created_at' => '2014-10-13 16:35:45','updated_at' => '2014-10-13 16:35:45'),
+            array('id' => '47','translation_id' => '16','locale' => 'nl','translation' => 'Error :code','created_at' => '2014-10-13 16:35:45','updated_at' => '2014-10-13 16:35:45'),
+            array('id' => '48','translation_id' => '16','locale' => 'en','translation' => 'Error :code','created_at' => '2014-10-13 16:35:45','updated_at' => '2014-10-13 16:35:45'),
+            array('id' => '49','translation_id' => '17','locale' => 'fr','translation' => 'Désolé, vous n’êtes pas autorisé à voir cette page','created_at' => '2014-10-13 16:38:43','updated_at' => '2014-10-13 16:38:43'),
+            array('id' => '50','translation_id' => '17','locale' => 'nl','translation' => 'Sorry, u bent niet bevoegd om deze pagina te bekijken','created_at' => '2014-10-13 16:38:43','updated_at' => '2014-10-13 16:38:43'),
+            array('id' => '51','translation_id' => '17','locale' => 'en','translation' => 'Sorry, you are not authorized to view this page','created_at' => '2014-10-13 16:38:43','updated_at' => '2014-10-13 16:38:43'),
+            array('id' => '52','translation_id' => '18','locale' => 'fr','translation' => 'Souhaitez-vous visiter notre :a_openpage d’accueil:a_close ?','created_at' => '2014-10-13 16:40:40','updated_at' => '2014-10-13 16:40:40'),
+            array('id' => '53','translation_id' => '18','locale' => 'nl','translation' => 'Wilt u onze :a_openhomepage:a_close te bezoeken?','created_at' => '2014-10-13 16:40:40','updated_at' => '2014-10-13 16:40:40'),
+            array('id' => '54','translation_id' => '18','locale' => 'en','translation' => 'Go to our :a_openhomepage:a_close?','created_at' => '2014-10-13 16:40:40','updated_at' => '2014-10-13 16:40:40'),
+            array('id' => '55','translation_id' => '19','locale' => 'fr','translation' => 'Désolé, cette page n’a pas été trouvée','created_at' => '2014-10-13 16:42:18','updated_at' => '2014-10-13 16:42:18'),
+            array('id' => '56','translation_id' => '19','locale' => 'nl','translation' => 'Sorry, deze pagina is niet gevonden','created_at' => '2014-10-13 16:42:18','updated_at' => '2014-10-13 16:42:18'),
+            array('id' => '57','translation_id' => '19','locale' => 'en','translation' => 'Sorry, this page was not found','created_at' => '2014-10-13 16:42:18','updated_at' => '2014-10-13 16:42:18'),
+            array('id' => '58','translation_id' => '20','locale' => 'fr','translation' => 'Désolé, une erreur serveur est survenue','created_at' => '2014-10-13 16:44:46','updated_at' => '2014-10-13 16:44:46'),
+            array('id' => '59','translation_id' => '20','locale' => 'nl','translation' => 'Sorry, er is een serverfout opgetreden','created_at' => '2014-10-13 16:44:46','updated_at' => '2014-10-13 16:44:46'),
+            array('id' => '60','translation_id' => '20','locale' => 'en','translation' => 'Sorry, a server error occurred','created_at' => '2014-10-13 16:44:46','updated_at' => '2014-10-13 16:44:46')
         );
 
         DB::table('translations')->insert( $typi_translations );

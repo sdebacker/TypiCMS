@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Events\Repositories;
 
+use Illuminate\Database\Eloquent\Collection;
 use TypiCMS\Repositories\RepositoryInterface;
 
 interface EventInterface extends RepositoryInterface

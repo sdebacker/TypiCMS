@@ -1,5 +1,5 @@
 <?php
-Route::bind('galleries', function ($value, $route) {
+Route::bind('galleries', function ($value) {
     return TypiCMS\Modules\Galleries\Models\Gallery::where('id', $value)
         ->with('translations')
         ->firstOrFail();

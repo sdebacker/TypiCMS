@@ -1,9 +1,10 @@
-@import "bootstrap";
-@import "../../../../bower_components/font-awesome/less/font-awesome.less";
-@import "variables";
-@import "../navbar";
-@import "navbar-hide-left-button";
-@import "../../../../bower_components/fancybox/source/jquery.fancybox.css";
+@import 'bootstrap';
+@import '../../../../bower_components/font-awesome/less/font-awesome.less';
+@import 'variables';
+@import 'errors';
+@import '../navbar';
+@import 'navbar-hide-left-button';
+@import '../../../../bower_components/fancybox/source/jquery.fancybox.css';
 
 .has-navbar { padding-top: 50px; }
 
@@ -12,7 +13,3 @@
 }
 
 form .fa-asterisk { color: @state-danger-text; }
-
-.alert-error {
-    .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
-}

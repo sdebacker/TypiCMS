@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e4b67773f61cefffc0cad026fa94c0e6",
+    "hash": "c1cfa30a2c6640ccbd212f638787cb69",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -76,16 +76,16 @@
         },
         {
             "name": "bkwld/croppa",
-            "version": "3.4.0",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BKWLD/croppa.git",
-                "reference": "688259916d34dcb73ee67538dbbfbd9558e414ba"
+                "reference": "cbd46bdc6f790f35f6378aa92aa97a208c193141"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/688259916d34dcb73ee67538dbbfbd9558e414ba",
-                "reference": "688259916d34dcb73ee67538dbbfbd9558e414ba",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/cbd46bdc6f790f35f6378aa92aa97a208c193141",
+                "reference": "cbd46bdc6f790f35f6378aa92aa97a208c193141",
                 "shasum": ""
             },
             "require": {
@@ -116,7 +116,7 @@
                 }
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
-            "time": "2014-08-06 17:30:41"
+            "time": "2014-10-13 16:37:08"
         },
         {
             "name": "cartalyst/sentry",
@@ -2824,20 +2824,20 @@
         },
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8806c41c178ad4a2e87294b851d730779555d252"
+                "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8806c41c178ad4a2e87294b851d730779555d252",
-                "reference": "8806c41c178ad4a2e87294b851d730779555d252",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/f976e5de371104877ebc89bd8fecb0019ed9c119",
+                "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119",
                 "shasum": ""
             },
             "require": {
-                "php": "~5.3"
+                "php": ">=5.3,<8.0-DEV"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
@@ -2874,7 +2874,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2014-10-04 22:48:25"
+            "time": "2014-10-13 12:58:55"
         },
         {
             "name": "maximebf/debugbar",
@@ -3311,16 +3311,16 @@
         },
         {
             "name": "way/generators",
-            "version": "2.6.1",
+            "version": "3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
-                "reference": "484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c"
+                "reference": "978712d55cac12175bb8310dffcd0e6c68e482c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c",
-                "reference": "484d379c6bc1d38c75e4f52f74efcbcd11f7dd2c",
+                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/978712d55cac12175bb8310dffcd0e6c68e482c8",
+                "reference": "978712d55cac12175bb8310dffcd0e6c68e482c8",
                 "shasum": ""
             },
             "require": {
@@ -3349,13 +3349,11 @@
             "authors": [
                 {
                     "name": "Jeffrey Way",
-                    "email": "jeffrey@jeffrey-way.com",
-                    "homepage": "http://jeffrye-way.com",
-                    "role": "Developer"
+                    "email": "jeffrey@jeffrey-way.com"
                 }
             ],
             "description": "Rapidly generate resources, migrations, models, and much more.",
-            "time": "2014-05-27 14:21:26"
+            "time": "2014-09-01 19:24:09"
         }
     ],
     "aliases": [

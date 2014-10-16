@@ -86,11 +86,13 @@ class TypiCMS
         if ($routeName = Route::current()->getUri() != '/') {
             $routeName = $lang . strstr(Route::current()->getName(), '.');
             if ($routeName == $lang) {
-                return $lang;
+                return '/' . $lang;
             }
-            return route($routeName);
+            if (Route::has($routeName)) {
+                return route($routeName);
+            }
         }
-        return $lang;
+        return '/' . $lang;
     }
 
     /**
@@ -164,7 +166,7 @@ class TypiCMS
     }
 
     /**
-    * Check if we are on backend
+    * Check if we are on back office
     *
     * @return boolean true if we are on backend
     */

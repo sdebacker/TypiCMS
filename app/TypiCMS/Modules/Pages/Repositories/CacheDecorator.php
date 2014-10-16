@@ -18,7 +18,7 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     /**
      * Get Uris of all pages
      *
-     * @return Array[id][lang] = uri
+     * @return array
      */
     public function getAllUris()
     {

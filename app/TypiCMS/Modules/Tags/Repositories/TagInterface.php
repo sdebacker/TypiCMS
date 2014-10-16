@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Tags\Repositories;
 
 use Illuminate\Database\Eloquent\Collection;
+use stdClass;
 use TypiCMS\Repositories\RepositoryInterface;
 
 interface TagInterface extends RepositoryInterface
@@ -14,7 +15,7 @@ interface TagInterface extends RepositoryInterface
      * @param  int      $limit Results per page
      * @param  boolean  $all   get published models or all
      * @param  array    $with  Eager load related models
-     * @return StdClass Object with $items && $totalItems for pagination
+     * @return stdClass Object with $items && $totalItems for pagination
      */
     public function byPage($page = 1, $limit = 10, array $with = array(), $all = false);
 

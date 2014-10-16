@@ -1,31 +1,13 @@
-<!doctype html>
-<html lang="fr">
+@extends('public.master')
 
-<head>
+@section('main')
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Error 403</title>
-    
-    {{ HTML::style(asset('css/public.css')) }}
+    <article class="http-error-message">
+        <h1>@lang('db.Error :code', ['code' => '403'])</h1>
+        <p>
+            @lang('db.Sorry, you are not authorized to view this page').<br>
+            @lang('db.Go to our homepage?', ['a_open' => '<a href="/">', 'a_close' => '</a>'])
+        </p>
+    </article>
 
-</head>
-
-<body>
-
-
-<div class="container">
-    
-    <div class="jumbotron">
-
-        <h1>403</h1>
-        <p>Sorry, but you are not authorized to access this area.</p>
-        <p>Go to our <a href="/">homepage</a>?</p>
-
-    </div>
-
-</div>
-
-</body>
-
-</html>
+@stop

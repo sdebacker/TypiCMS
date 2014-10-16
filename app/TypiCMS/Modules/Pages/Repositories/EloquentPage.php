@@ -51,7 +51,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     /**
      * Get uris and slugs from all pages
      *
-     * @return Array[id][lang] = array('uri' => $uri, 'slug' => $slug)
+     * @return array
      */
     public function getAllUris()
     {

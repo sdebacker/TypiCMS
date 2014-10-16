@@ -4,6 +4,7 @@ namespace TypiCMS\Modules\Users\Controllers;
 use App;
 use Config;
 use Exception;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Mail\Message;
 use Input;
 use Mail;
@@ -81,10 +82,10 @@ class AdminController extends AdminSimpleController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int      $id
+     * @param  Model      $model
      * @return Response
      */
-    public function edit($model)
+    public function edit(Model $model)
     {
         $this->title['child'] = trans('users::global.Edit');
         $this->layout->content = View::make('admin.edit')

@@ -67,7 +67,7 @@ class Partner extends Base
      * and append it to main model attributes
      * @return string title
      */
-    public function getWebsiteAttribute($value)
+    public function getWebsiteAttribute()
     {
         return $this->website;
     }

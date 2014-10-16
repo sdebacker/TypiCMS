@@ -24,7 +24,7 @@ class CacheDecorator extends CacheAbstractDecorator implements FileInterface
      * @param  boolean  $all   get published models or all
      * @param  array    $with  Eager load related models
      * @param  string   $type  file type : a,v,d,i,o
-     * @return StdClass Object with $items && $totalItems for pagination
+     * @return stdClass Object with $items && $totalItems for pagination
      */
     public function byPageFrom(
         $page = 1,

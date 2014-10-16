@@ -1,31 +1,13 @@
-<!doctype html>
-<html lang="fr">
+@extends('public.master')
 
-<head>
+@section('main')
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Error 404</title>
-    
-    {{ HTML::style(asset('css/public.css')) }}
+    <article class="http-error-message">
+        <h1>@lang('db.Error :code', ['code' => '404'])</h1>
+        <p>
+            @lang('db.Sorry, this page was not found').<br>
+            @lang('db.Go to our homepage?', ['a_open' => '<a href="/">', 'a_close' => '</a>'])
+        </p>
+    </article>
 
-</head>
-
-<body>
-
-
-<div class="container">
-    
-    <div class="jumbotron">
-
-        <h1>404</h1>
-        <p>Sorry, but this page was not found.</p>
-        <p>Go to our <a href="/">homepage</a>?</p>
-
-    </div>
-
-</div>
-
-</body>
-
-</html>
+@stop

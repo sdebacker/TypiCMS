@@ -1,7 +1,7 @@
 <?php
 namespace TypiCMS\Services\Cache;
 
-use StdClass;
+use stdClass;
 use Illuminate\Cache\CacheManager;
 
 class LaravelCache implements CacheInterface
@@ -53,17 +53,17 @@ class LaravelCache implements CacheInterface
      * Add data to the cache
      * taking pagination data into account
      *
-     * @param integer   Page of the cached items
-     * @param integer   Number of results per page
-     * @param integer   Total number of possible items
-     * @param mixed     The actual items for this page
-     * @param string    Cache item key
-     * @param integer   The number of minutes to store the item
-     * @return \stdClass $items variable returned for convenience
+     * @param  integer  Page of the cached items
+     * @param  integer  Number of results per page
+     * @param  integer  Total number of possible items
+     * @param  mixed    The actual items for this page
+     * @param  string   Cache item key
+     * @param  integer  The number of minutes to store the item
+     * @return stdClass $items variable returned for convenience
      */
     public function putPaginated($currentPage, $perPage, $totalItems, $items, $key, $minutes = null)
     {
-        $cached = new StdClass;
+        $cached = new stdClass;
 
         $cached->currentPage = $currentPage;
         $cached->items = $items;

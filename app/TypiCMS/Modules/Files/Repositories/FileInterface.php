@@ -1,6 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Files\Repositories;
 
+use stdClass;
+use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoryInterface;
 
 interface FileInterface extends RepositoryInterface
@@ -15,7 +17,7 @@ interface FileInterface extends RepositoryInterface
      * @param  array    $with  Eager load related models
      * @param  boolean  $all   get published models or all
      * @param  string   $type  file type : a,v,d,i,o
-     * @return StdClass Object with $items && $totalItems for pagination
+     * @return stdClass Object with $items && $totalItems for pagination
      */
     public function byPageFrom(
         $page = 1,
@@ -36,8 +38,8 @@ interface FileInterface extends RepositoryInterface
     /**
      * Create a new model
      *
-     * @param array  Data to create a new model
-     * @return boolean
+     * @param  array         Data to create a new model
+     * @return boolean|Model false on error
      */
     public function create(array $data);
 

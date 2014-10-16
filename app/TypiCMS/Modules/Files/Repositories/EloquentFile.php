@@ -1,7 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Files\Repositories;
 
-use StdClass;
+use stdClass;
 use Illuminate\Database\Eloquent\Model;
 use FileUpload;
 use TypiCMS\Repositories\RepositoriesAbstract;
@@ -23,7 +23,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
      * @param  boolean  $all   get published models or all
      * @param  array    $with  Eager load related models
      * @param  string   $type  file type : a,v,d,i,o
-     * @return StdClass Object with $items && $totalItems for pagination
+     * @return stdClass Object with $items && $totalItems for pagination
      */
     public function byPageFrom(
         $page = 1,
@@ -33,7 +33,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
         $all = false,
         $type = null
     ) {
-        $result = new StdClass;
+        $result = new stdClass;
         $result->page = $page;
         $result->limit = $limit;
         $result->totalItems = 0;
@@ -57,7 +57,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
 
         $models = $query->get();
 
-        // Put items and totalItems in StdClass
+        // Put items and totalItems in stdClass
         $result->totalItems = $totalItems;
         $result->items = $models->all();
 
@@ -81,8 +81,8 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
     /**
      * Create a new model
      *
-     * @param array  Data to create a new model
-     * @return boolean
+     * @param  array         Data to create a new model
+     * @return boolean|Model false on error
      */
     public function create(array $data)
     {

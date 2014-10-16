@@ -1,5 +1,5 @@
 <?php
-Route::bind('pages', function ($value, $route) {
+Route::bind('pages', function ($value) {
     return TypiCMS\Modules\Pages\Models\Page::where('id', $value)
         ->with('translations')
         ->firstOrFail();
