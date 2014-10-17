@@ -7,7 +7,6 @@
     "dropzone": "~3.*",
     "jquery-ui": "~1.10.*",
     "fancybox": "~2.1.*",
-    "flexslider": "*",
     "font-awesome": "~4.*",
     "selectize": "~0.*",
     "pickadate": "~3.5.2",
@@ -41,11 +40,6 @@
         "ui/jquery.ui.mouse.js",
         "ui/jquery.ui.widget.js",
         "ui/jquery.ui.sortable.js"
-      ]
-    },
-    "flexslider": {
-      "main": [
-        "jquery.flexslider.js"
       ]
     },
     "pickadate": {

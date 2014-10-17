@@ -11,4 +11,3 @@ $(".fancybox").fancybox({
 /**
  * Flexliders
  */
-$('.slider').flexslider();
