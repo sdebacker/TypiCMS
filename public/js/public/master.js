@@ -9,7 +9,7 @@ $(".fancybox").fancybox({
 });
 
 /**
- * Flexliders
+ * Slider
  */
 var mySwiper = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',

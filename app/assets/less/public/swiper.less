@@ -13,16 +13,15 @@
  *
 */
 
-/* ===============================================================
-Basic Swiper Styles 
-================================================================*/
+.swiper-device {
+    max-width: 1200px;
+}
 .swiper-container {
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     overflow: hidden;
     backface-visibility: hidden;
-    /* Fix of Webkit flickering */
-    z-index: 1;
+    z-index: 1; // Fix of Webkit flickering */
 }
 .swiper-wrapper {
     position: relative;
@@ -42,43 +41,17 @@ Basic Swiper Styles
 .swiper-slide {
     float: left;
     box-sizing: content-box;
+    // width: 100%;
+    // height: 100%;
 }
 
-/* IE10 Windows Phone 8 Fixes */
-.swiper-wp8-horizontal {
-    -ms-touch-action: pan-y;
+/**
+ * Swiper Pagination Styles
+ */
+.swiper-pagination {
+    text-align: center;
+    width: 100%;
 }
-.swiper-wp8-vertical {
-    -ms-touch-action: pan-x;
-}
-
-/* ===============================================================
-Your custom styles, here you need to specify container's and slide's
-sizes, pagination, etc.
-================================================================*/
-.swiper-container {
-    /* Specify Swiper's Size: */
-
-    // width: 200px;
-    // height: 350px;
-}
-.swiper-slide {
-    /* Specify Slides's Size: */
-    
-    /*width: 100%;
-    height: 100%;*/
-}
-.swiper-slide-active {
-    /* Specific active slide styling: */
-    
-}
-.swiper-slide-visible {
-    /* Specific visible slide styling: */   
-
-}
-/* ===============================================================
-Pagination Styles
-================================================================*/
 .swiper-pagination-switch {
     /* Stylize pagination button: */    
     display: inline-block;
@@ -94,17 +67,11 @@ Pagination Styles
     /* Specific active button style: */ 
     background: #333;
 }
-.swiper-visible-switch {
-    /* Specific visible button style: */    
-    
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+    -ms-touch-action: pan-y;
 }
-.swiper-device {
-    // position: relative;
-}
-.swiper-pagination {
-    // position: absolute;
-    // left: 0;
-    text-align: center;
-    // bottom: 5px;
-    width: 100%;
+.swiper-wp8-vertical {
+    -ms-touch-action: pan-x;
 }
