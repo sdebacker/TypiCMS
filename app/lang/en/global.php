@@ -11,6 +11,7 @@ return array(
         'fr' => 'French',
         'nl' => 'Dutch',
         'en' => 'English',
+        'zh' => 'Chinese',
     ),
     'form' => array(
         'page content' => 'page content',
