@@ -12,10 +12,11 @@ $(".fancybox").fancybox({
  * Flexliders
  */
 var mySwiper = new Swiper('.swiper-container', {
-    pagination: '.pagination',
+    pagination: '.swiper-pagination',
     loop: true,
     grabCursor: true,
-    paginationClickable: true
+    paginationClickable: true,
+    calculateHeight: true
 });
 $('.arrow-left').on('click', function(e){
     e.preventDefault()
