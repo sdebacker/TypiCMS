@@ -10,6 +10,6 @@
         <div class="body">{{ $model->body }}</div>
     </article>
 
-    @include('public._galleries')
+    @include('galleries.public._galleries')
 
 @stop

@@ -77,8 +77,7 @@ gulp.task('fonts', function () {
     var destDir = 'public/fonts';
 
     return gulp.src([
-            'bower_components/font-awesome/fonts/*',
-            'bower_components/flexslider/fonts/*'
+            'bower_components/font-awesome/fonts/*'
         ])
         .pipe(newer(destDir))
         .pipe(gulp.dest(destDir));

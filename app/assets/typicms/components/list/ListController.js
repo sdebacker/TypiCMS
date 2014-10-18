@@ -9,6 +9,7 @@
             var moduleName = url.split('/')[4];
             var lastSegment = url.split('/').pop();
             $scope.url = url;
+            $scope.parentId = $scope.url.split('/')[5] ? $scope.url.split('/')[5] : 0;
             if (moduleName == 'galleries' && lastSegment == 'edit') {
                 $scope.url = '/admin/files';
             }

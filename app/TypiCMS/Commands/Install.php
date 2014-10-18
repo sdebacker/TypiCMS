@@ -59,20 +59,10 @@ class Install extends Command
      */
     public function fire()
     {
-        $defaultEnvironmentFile = 'bootstrap/environment.local.php';
-        $environmentFile = 'bootstrap/environment.php';
 
         $this->line('Welcome to TypiCMS');
 
-        if (! $this->files->exists($environmentFile) && $this->files->exists($defaultEnvironmentFile)) {
-            // move default environment file so current environment will be local.
-            $this->files->move($defaultEnvironmentFile, $environmentFile);
-            // set environment to local
-            $this->laravel['env'] = 'local';
-            $this->line('----------------------');
-            $this->info('Environment set to local');
-            $this->line('----------------------');
-        }
+        $this->laravel['env'] = 'local';
 
         $this->checkThatEnvTemplateExists();
 
@@ -117,14 +107,14 @@ class Install extends Command
     }
 
     /**
-     * Check that env.php exists
+     * Check that .env.example exists
      *
-     * @return void      Exception if env.php is not found
+     * @return void|Exception when .env.example is not found
      */
     public function checkThatEnvTemplateExists()
     {
-        if (! $this->files->exists('env.php')) {
-            throw new Exception('No env.php template found.');
+        if (! $this->files->exists('.env.example')) {
+            throw new Exception('No .env.example file found.');
         }
     }
 

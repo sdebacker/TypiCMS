@@ -1,6 +1,22 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.5.7 - 2014
+
+### Changed
+- flexslider replaced by swiper
+
+### Fixed
+- Dryier template code for galleries
+
+## 1.5.6 - 2014-10-16
+
+### Changed
+- .env like in Laravel 5
+
+### Fixed
+- Bug with files linked to galleries
+
 ## 1.5.5 - 2014-10-16
 
 ### Fixed
