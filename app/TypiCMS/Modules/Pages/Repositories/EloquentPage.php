@@ -121,11 +121,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
         $query->order();
 
-        $models = $query->get();
-
-        $models->nest();
-
-        return $models;
+        return $query->get();
     }
 
     /**

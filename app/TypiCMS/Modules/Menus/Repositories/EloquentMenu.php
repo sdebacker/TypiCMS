@@ -82,8 +82,6 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
 
         $menu->menulinks = $this->prepare($menu->menulinks);
 
-        $menu->menulinks->nest();
-
         return $menu;
     }
 

@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Menulinks\Repositories;
 
 use DB;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -11,6 +12,29 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
     public function __construct(Model $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * Get a menu’s items and children
+     *
+     * @param  integer  $id
+     * @param  boolean  $all published or all
+     * @return Collection
+     */
+    public function getAllFromMenu($id = null, $all = false)
+    {
+        $query = $this->model
+            ->with('translations', 'children', 'children.children')
+            ->order()
+            ->where('parent', 0)
+            ->where('menu_id', $id);
+
+        // All posts or only published
+        if (! $all) {
+            $query->where('status', 1);
+        }
+
+        return $query->get();
     }
 
     /**

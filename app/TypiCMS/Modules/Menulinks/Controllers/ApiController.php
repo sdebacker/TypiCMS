@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Menulinks\Controllers;
 
+use Input;
 use Response;
 use TypiCMS\Controllers\BaseApiController;
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface as Repository;
@@ -18,7 +19,8 @@ class ApiController extends BaseApiController
      */
     public function index()
     {
-        $models = $this->repository->getAllBy('menu_id', 1, ['children', 'children.children'], true);
+        $id = Input::get('menu_id');
+        $models = $this->repository->getAllFromMenu($id, true);
         return Response::json($models, 200);
     }
 }
