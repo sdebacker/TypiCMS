@@ -60,14 +60,6 @@ class Menulink extends Base
     public $direction = 'asc';
 
     /**
-     * A menulink can belongs to a page
-     */
-    public function page()
-    {
-        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page');
-    }
-
-    /**
      * Order of menulinks
      *
      * @param  Builder $query
@@ -87,12 +79,18 @@ class Menulink extends Base
     }
 
     /**
-     * Custom collection
-     *
-     * @return NestedCollection object
+     * A menulink can belongs to a page
      */
-    public function newCollection(array $models = array())
+    public function page()
     {
-        return new NestedCollection($models);
+        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page');
+    }
+
+    /**
+     * Relations
+     */
+    public function children()
+    {
+        return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink', 'parent')->order();
     }
 }

@@ -18,7 +18,7 @@ class ApiController extends BaseApiController
      */
     public function index()
     {
-        $models = $this->repository->getAllBy('menu_id', 1, [], true);
+        $models = $this->repository->getAllBy('menu_id', 1, ['children', 'children.children'], true);
         return Response::json($models, 200);
     }
 }

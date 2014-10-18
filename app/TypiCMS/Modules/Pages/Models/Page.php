@@ -103,11 +103,13 @@ class Page extends Base
     }
 
     /**
-     * Relations
+     * Get uri attribute from translation table
+     *
+     * @return string uri
      */
-    public function menulinks()
+    public function getUriAttribute($value)
     {
-        return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
+        return $this->uri;
     }
 
     /**
@@ -119,24 +121,19 @@ class Page extends Base
     }
 
     /**
-     * Order of pages
-     *
-     * @param  Builder $query
-     * @return Builder $query
+     * Relations
      */
-    public function scopeOrder(Builder $query)
+    public function menulinks()
     {
-        return $query->orderBy('position')->orderBy('parent');
+        return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
     }
 
     /**
-     * Custom collection
-     *
-     * @return NestedCollection object
+     * Relations
      */
-    public function newCollection(array $models = array())
+    public function children()
     {
-        return new NestedCollection($models);
+        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page', 'parent')->order();
     }
 
     /**
@@ -162,15 +159,5 @@ class Page extends Base
                     ->update(array('is_home' => 0));
             }
         });
-    }
-
-    /**
-     * Get uri attribute from translation table
-     *
-     * @return string uri
-     */
-    public function getUriAttribute($value)
-    {
-        return $this->uri;
     }
 }

@@ -60,15 +60,6 @@ interface RepositoryInterface
     public function getAll(array $with = array(), $all = false);
 
     /**
-     * Get all models and nest
-     *
-     * @param  boolean           $all  Show published or all
-     * @param  array             $with Eager load related models
-     * @return NestedCollection
-     */
-    public function getAllNested(array $with = array(), $all = false);
-
-    /**
      * Get all models with categories
      *
      * @param  boolean   $all Show published or all

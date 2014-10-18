@@ -144,19 +144,6 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     }
 
     /**
-     * Get all models and nest
-     *
-     * @param  boolean                    $all  Show published or all
-     * @param  array                      $with Eager load related models
-     * @return NestedCollection
-     */
-    public function getAllNested(array $with = array(), $all = false)
-    {
-        // Get
-        return $this->getAll($with, $all)->nest();
-    }
-
-    /**
      * Get all models with categories
      *
      * @param  boolean    $all Show published or all
