@@ -14,28 +14,6 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
     }
 
     /**
-     * Get all models for listing on admin side
-     *
-     * @param  boolean  $all Show published or all
-     * @return stdClass Object with $items
-     */
-    public function getAllFromMenu($all = false, $menuId = null)
-    {
-        $query = $this->model->with('translations')
-            ->orderBy('position', 'asc')
-            ->where('menu_id', $menuId);
-
-        // All posts or only published
-        if (! $all) {
-            $query->where('status', 1);
-        }
-
-        $models = $query->get()->nest();
-
-        return $models;
-    }
-
-    /**
      * Get Items to build routes
      *
      * @return Array

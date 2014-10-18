@@ -7,14 +7,6 @@ interface MenulinkInterface extends RepositoryInterface
 {
 
     /**
-     * Get all models for listing on admin side
-     *
-     * @param  boolean  $all Show published or all
-     * @return stdClass Object with $items
-     */
-    public function getAllFromMenu($all = false, $relid = null);
-
-    /**
      * Get Items to build routes
      *
      * @return Array

@@ -15,28 +15,6 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     }
 
     /**
-     * Get all models for listing on admin side
-     *
-     * @param  boolean  $all Show published or all
-     * @return stdClass Object with $items
-     */
-    public function getAllFromMenu($all = false, $menuId = null)
-    {
-        $cacheKey = md5(App::getLocale().'all'.$all.$menuId);
-
-        if ($this->cache->has($cacheKey)) {
-            return $this->cache->get($cacheKey);
-        }
-
-        $models = $this->repo->getAllFromMenu($all, $menuId);
-
-        // Store in cache for next request
-        $this->cache->put($cacheKey, $models);
-
-        return $models;
-    }
-
-    /**
      * Get Items to build routes
      *
      * @return Array
