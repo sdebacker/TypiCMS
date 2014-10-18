@@ -54,6 +54,8 @@ class Page extends Base
         'meta_description',
     );
 
+    protected $appends = ['status', 'title', 'thumb', 'uri'];
+
     /**
      * List of fields that are file.
      *
@@ -160,5 +162,15 @@ class Page extends Base
                     ->update(array('is_home' => 0));
             }
         });
+    }
+
+    /**
+     * Get uri attribute from translation table
+     *
+     * @return string uri
+     */
+    public function getUriAttribute($value)
+    {
+        return $this->uri;
     }
 }

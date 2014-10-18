@@ -75,14 +75,4 @@ abstract class BaseAdminController extends Controller
             $this->layout = View::make($this->layout);
         }
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @return Response
-     */
-    public function sort()
-    {
-        $this->repository->sort(Input::all());
-    }
 }
