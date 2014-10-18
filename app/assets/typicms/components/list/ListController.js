@@ -123,9 +123,11 @@
                     model.parent = parentId;
                     model.position = event.dest.index + 1;
 
-                    // console.log(currentList);
+                    console.log(currentList);
 
-                    angular.forEach(currentList, function (model) {
+                    angular.forEach(currentList, function (model, key) {
+                        console.log(key);
+                        model.position = key;
                         $api.update({'id': model.id}, model).$promise.then(
                             function () {
                             },
