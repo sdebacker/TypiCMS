@@ -121,6 +121,14 @@ class Page extends Base
     }
 
     /**
+     * Scope from
+     */
+    public function parent()
+    {
+        return static::find($this->parent);
+    }
+
+    /**
      * Relations
      */
     public function menulinks()
@@ -134,30 +142,5 @@ class Page extends Base
     public function children()
     {
         return $this->hasMany('TypiCMS\Modules\Pages\Models\Page', 'parent')->order();
-    }
-
-    /**
-     * Observers
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function (Page $model) {
-            // set is_home = 0 on previous homepage
-            if ($model->is_home) {
-                static::where('is_home', 1)
-                    ->update(array('is_home' => 0));
-            }
-        });
-
-        static::updating(function (Page $model) {
-            // set is_home = 0 on previous homepage
-            if ($model->is_home) {
-                static::where('is_home', 1)
-                    ->where('id', '!=', $model->id)
-                    ->update(array('is_home' => 0));
-            }
-        });
     }
 }

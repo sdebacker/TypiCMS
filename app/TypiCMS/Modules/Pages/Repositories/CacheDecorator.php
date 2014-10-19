@@ -16,17 +16,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
     }
 
     /**
-     * Get Uris of all pages
-     *
-     * @return array
-     */
-    public function getAllUris()
-    {
-        return $this->repo->getAllUris();
-    }
-
-
-    /**
      * Get page by uri
      *
      * @param  string                      $uri
@@ -89,17 +78,5 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
         $this->cache->put($cacheKey, $models);
 
         return $models;
-    }
-
-    /**
-     * Update pages uris
-     *
-     * @param  int  $id
-     * @param $parent
-     * @return void
-     */
-    public function updateUris($id, $parent = null)
-    {
-        return $this->repo->updateUris($id, $parent);
     }
 }
