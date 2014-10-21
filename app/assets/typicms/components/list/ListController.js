@@ -123,6 +123,11 @@
                         currentList = nodes.$modelValue;
                     if (event.dest.nodesScope.$nodeScope) {
                         parentId = nodes.$nodeScope.model.id;
+                        console.log(nodes.$nodeScope.model.translations);
+                        for (var i = nodes.$nodeScope.model.translations.length - 1; i >= 0; i--) {
+                            var lang = nodes.$nodeScope.model.translations[i].locale;
+                            model[lang] = { 'uri': nodes.$nodeScope.model.translations[i].uri + '/' + model.translations[i].slug };
+                        }
                     }
 
                     model.parent = parentId;

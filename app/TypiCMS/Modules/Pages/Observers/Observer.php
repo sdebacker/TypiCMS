@@ -49,17 +49,17 @@ class Observer
             //     continue;
             // }
 
-            if ($parent = $model->parent()) {
-                $uri = $parent->translate($locale)->uri . '/' . $model->translate($locale)->slug;
-            } else {
-                $uri = $model->translate($locale)->slug;
-                if (Config::get('app.locale_in_url')) {
-                    $uri = $locale . '/' . $uri;
-                }
-            }
+            // if ($parent = $model->parent()) {
+            //     $uri = $parent->translate($locale)->uri . '/' . $model->translate($locale)->slug;
+            // } else {
+            //     $uri = $model->translate($locale)->slug;
+            //     if (Config::get('app.locale_in_url')) {
+            //         $uri = $locale . '/' . $uri;
+            //     }
+            // }
 
             // Check that uri is unique
-            $tmpUri = $uri;
+            $tmpUri = $model->translate($locale)->uri;
             $i = 0;
             while ($this->uriExists($tmpUri, $model->id)) {
                 $i ++;
