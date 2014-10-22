@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                {{ Form::hidden($lang.'[uri]') }}
+                {{ Form::hidden($lang.'[uri]', $model->translate($lang)->uri) }}
 
                 <div class="checkbox">
                     <label>

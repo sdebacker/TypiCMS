@@ -9,6 +9,7 @@ use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Pages\Models\Page;
+use TypiCMS\Modules\Pages\Models\PageTranslation;
 
 // Repo
 use TypiCMS\Modules\Pages\Repositories\EloquentPage;
@@ -24,6 +25,7 @@ use TypiCMS\Modules\Pages\Services\Form\PageFormLaravelValidator;
 // Observers
 use TypiCMS\Observers\FileObserver;
 use TypiCMS\Modules\Pages\Observers\Observer;
+use TypiCMS\Modules\Pages\Observers\UriObserver;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -41,6 +43,7 @@ class ModuleProvider extends ServiceProvider
         // Observers
         Page::observe(new FileObserver);
         Page::observe(new Observer);
+        PageTranslation::observe(new UriObserver);
     }
 
     public function register()
