@@ -73,7 +73,6 @@ abstract class BaseApiController extends Controller
      */
     public function update(Model $model)
     {
-        // print_r(Input::all());
         $this->repository->update(Input::all());
         return Response::json([
             'error'   => false,

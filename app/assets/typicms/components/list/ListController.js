@@ -123,7 +123,7 @@
                         currentList = nodes.$modelValue;
                     if (event.dest.nodesScope.$nodeScope) {
                         parentId = nodes.$nodeScope.model.id;
-                        console.log(nodes.$nodeScope.model.translations);
+                        // console.log(nodes.$nodeScope.model.translations);
                         for (var i = nodes.$nodeScope.model.translations.length - 1; i >= 0; i--) {
                             var lang = nodes.$nodeScope.model.translations[i].locale;
                             model[lang] = { 'uri': nodes.$nodeScope.model.translations[i].uri + '/' + model.translations[i].slug };
@@ -133,10 +133,10 @@
                     model.parent = parentId;
                     model.position = event.dest.index + 1;
 
-                    console.log(currentList);
+                    // console.log(currentList);
 
                     angular.forEach(currentList, function (model, key) {
-                        console.log(key);
+                        // console.log(key);
                         model.position = key;
                         $api.update({'id': model.id}, model).$promise.then(
                             function () {

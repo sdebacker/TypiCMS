@@ -121,14 +121,6 @@ class Page extends Base
     }
 
     /**
-     * Scope from
-     */
-    public function parent()
-    {
-        return static::find($this->parent);
-    }
-
-    /**
      * Relations
      */
     public function menulinks()
@@ -136,11 +128,13 @@ class Page extends Base
         return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
     }
 
-    /**
-     * Relations
-     */
     public function children()
     {
         return $this->hasMany('TypiCMS\Modules\Pages\Models\Page', 'parent')->order();
+    }
+
+    public function parentpage()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page', 'parent');
     }
 }
