@@ -24,7 +24,7 @@ use TypiCMS\Modules\Pages\Services\Form\PageFormLaravelValidator;
 
 // Observers
 use TypiCMS\Observers\FileObserver;
-use TypiCMS\Modules\Pages\Observers\Observer;
+use TypiCMS\Modules\Pages\Observers\HomePageObserver;
 use TypiCMS\Modules\Pages\Observers\UriObserver;
 
 class ModuleProvider extends ServiceProvider
@@ -42,7 +42,7 @@ class ModuleProvider extends ServiceProvider
 
         // Observers
         Page::observe(new FileObserver);
-        Page::observe(new Observer);
+        Page::observe(new HomePageObserver);
         PageTranslation::observe(new UriObserver);
     }
 
