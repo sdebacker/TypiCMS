@@ -135,12 +135,4 @@ class Page extends Base
     {
         return $this->hasMany('TypiCMS\Modules\Pages\Models\Page')->order();
     }
-
-    /**
-     * A page can have a parent
-     */
-    public function parent()
-    {
-        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page');
-    }
 }

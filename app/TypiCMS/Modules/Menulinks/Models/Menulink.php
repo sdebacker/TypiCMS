@@ -93,12 +93,4 @@ class Menulink extends Base
     {
         return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink')->order();
     }
-
-    /**
-     * A menulink can have a parent
-     */
-    public function parent()
-    {
-        return $this->belongsTo('TypiCMS\Modules\Menulinks\Models\Menulink');
-    }
 }
