@@ -26,14 +26,14 @@ class UriObserver
                 $uri = $model->locale . '/' . $uri;
             }
 
-            $model->uri = $this->indentWhileExists($uri);
+            $model->uri = $this->incrementWhileExists($uri);
 
         }
 
     }
 
     /**
-     * On update, when slug has changed, update uri
+     * On update, change uri
      * 
      * @param  PageTranslation $model
      * @return void
@@ -44,14 +44,10 @@ class UriObserver
         // if uri is an empty string, set it to null before inserting it to DB.
         $model->uri = $model->uri ? : null ;
 
-        if ($model->isDirty('slug')) {
+        // Replace last segment of uri with new slug
+        $uri = substr($model->uri, 0, strrpos($model->uri, '/') + 1) . $model->slug;
 
-            // Replace last segment of uri with new slug
-            $uri = substr($model->uri, 0, strrpos($model->uri, '/') + 1) . $model->slug;
-
-            $model->uri = $this->indentWhileExists($uri);
-
-        }
+        $model->uri = $this->incrementWhileExists($uri);
 
     }
 
@@ -61,7 +57,7 @@ class UriObserver
      * @param  string $uri
      * @return string
      */
-    private function indentWhileExists($uri)
+    private function incrementWhileExists($uri)
     {
         $originalUri = $uri;
 
