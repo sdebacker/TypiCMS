@@ -1,5 +1,5 @@
 <?php
-if (Request::segment(1) != 'admin') {
+if (Request::segment(1) != 'admin' && Request::segment(1) != 'api') {
 
     Route::bind('categories', function ($value) {
         $query = TypiCMS\Modules\Categories\Models\Category::select('categories.id AS id', 'slug', 'locale', 'status')
