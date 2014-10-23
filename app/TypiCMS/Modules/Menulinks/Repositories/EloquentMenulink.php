@@ -26,7 +26,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
         $query = $this->model
             ->with('translations', 'children', 'children.children')
             ->order()
-            ->where('parent', 0)
+            ->where('menulink_id', 0)
             ->where('menu_id', $id);
 
         // All posts or only published

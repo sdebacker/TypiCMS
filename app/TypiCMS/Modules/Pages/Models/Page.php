@@ -21,7 +21,7 @@ class Page extends Base
         'meta_robots_no_index',
         'meta_robots_no_follow',
         'position',
-        'parent',
+        'page_id',
         'is_home',
         'css',
         'js',
@@ -121,20 +121,26 @@ class Page extends Base
     }
 
     /**
-     * Relations
+     * A page can have menulinks
      */
     public function menulinks()
     {
         return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
     }
 
+    /**
+     * A page can have children
+     */
     public function children()
     {
-        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page', 'parent')->order();
+        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page')->order();
     }
 
-    public function parentpage()
+    /**
+     * A page can have a parent
+     */
+    public function parent()
     {
-        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page', 'parent');
+        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page');
     }
 }

@@ -271,29 +271,16 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Sort models
      *
-     * @param array  Data to update Pages
-     * @return boolean
+     * @param  array   $data
+     * @return true
      */
     public function sort(array $data)
     {
 
-        if (isset($data['nested']) && $data['nested']) {
-
-            foreach ($data['item'] as $item) {
-                $parent = $item['parent'] ? : 0 ;
-                DB::table($this->model->getTable())
-                  ->where('id', $item['id'])
-                  ->update(array('position' => $item['position'], 'parent' => $parent));
-            }
-
-        } else {
-
-            foreach ($data['item'] as $item) {
-                DB::table($this->model->getTable())
-                  ->where('id', $item['id'])
-                  ->update(array('position' => $item['position']));
-            }
-
+        foreach ($data['item'] as $item) {
+            DB::table($this->model->getTable())
+              ->where('id', $item['id'])
+              ->update(array('position' => $item['position']));
         }
 
         return true;
@@ -325,7 +312,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function getPagesForSelect()
     {
-        $pages = Page::select('pages.id', 'title', 'locale', 'parent')
+        $pages = Page::select('pages.id', 'title', 'locale', 'page_id')
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
             ->where('locale', Config::get('typicms.adminLocale'))
             ->order()

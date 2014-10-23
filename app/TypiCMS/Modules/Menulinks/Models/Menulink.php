@@ -18,7 +18,7 @@ class Menulink extends Base
     protected $fillable = array(
         'menu_id',
         'page_id',
-        'parent',
+        'menulink_id',
         'position',
         'target',
         'module_name',
@@ -67,7 +67,7 @@ class Menulink extends Base
      */
     public function scopeOrder(Builder $query)
     {
-        return $query->orderBy('position')->orderBy('parent');
+        return $query->orderBy('position')->orderBy('menulink_id');
     }
 
     /**
@@ -87,10 +87,18 @@ class Menulink extends Base
     }
 
     /**
-     * Relations
+     * A menulink can have children
      */
     public function children()
     {
-        return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink', 'parent')->order();
+        return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink')->order();
+    }
+
+    /**
+     * A menulink can have a parent
+     */
+    public function parent()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Menulinks\Models\Menulink');
     }
 }

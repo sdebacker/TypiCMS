@@ -10,7 +10,9 @@
 
 @include('admin._buttons-form')
 
-{{ Form::hidden('id'); }}
+{{ Form::hidden('id') }}
+{{ Form::hidden('position', $model->position ? : 0) }}
+{{ Form::hidden('page_id', $model->page_id ? : 0) }}
 
 <ul class="nav nav-tabs">
     <li class="active">

@@ -5,6 +5,8 @@ All notable changes to TypiCMS will be documented in this file.
 
 ### Changed
 - flexslider replaced by swiper
+- pages : parent column changed to page_id
+- menulinks : parent column changed to menulink_id
 
 ### Fixed
 - Dryier template code for galleries

@@ -17,6 +17,9 @@
 <div class="row">
 
     {{ Form::hidden('id'); }}
+    {{ Form::hidden('menu_id', $menu->id) }}
+    {{ Form::hidden('position', $model->position ? : 0) }}
+    {{ Form::hidden('menulink_id', $model->menulink_id ? : 0) }}
 
     <div class="col-sm-6">
 
@@ -92,8 +95,3 @@
     </div>
 
 </div>
-
-{{ Form::hidden('menu_id', $menu->id); }}
-{{ Form::hidden('position', $model->position ?: 0); }}
-{{ Form::hidden('parent', $model->parent ?: 0); }}
-{{ Form::hidden('id'); }}
