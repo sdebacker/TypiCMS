@@ -5,9 +5,9 @@
     /*jslint browser: true*/
     /*globals $, jQuery, angular, TypiCMS, alertify, top*/
 
-    angular.module('typicms').controller('ListController', ['$scope', '$location', '$api',
+    angular.module('typicms').controller('ListController', ['$http', '$scope', '$location', '$api',
 
-        function ($scope, $location, $api) {
+        function ($http, $scope, $location, $api) {
 
             $scope.itemsByPage = 25;
             var url = $location.absUrl().split('?')[0],
@@ -127,19 +127,31 @@
                         parentId = nodes.$nodeScope.model.id;
                     }
 
+                    var data = {};
+                    data['moved'] = model.id;
+                    data['nested'] = true;
+                    data['item'] = [];
                     model.page_id = parentId;
+                    model.position = event.dest.index + 1;
 
-                    angular.forEach(currentList, function (model, key) {
-                        // console.log(key);
-                        model.position = key;
-                        $api.update({'id': model.id}, model).$promise.then(
-                            function () {
-                            },
-                            function (reason) {
-                                alertify.error('Error ' + reason.status + ' ' + reason.statusText);
-                            }
-                        );
+                    angular.forEach(currentList, function(model, key) {
+                        // console.log(model.id);
+                        data['item'].push({'id': model.id, 'page_id': model.page_id});
+                        // model.position = key; 
                     });
+                    // console.log(data);
+
+                    $http.post('/admin/pages/sort', data).
+                        success(function(data, status, headers, config) {
+                            // console.log(data, status, headers, config);
+                            // this callback will be called asynchronously
+                            // when the response is available
+                        }).
+                        error(function(data, status, headers, config) {
+                            // console.log(data, status, headers, config);
+                            // called asynchronously if an error occurs
+                            // or server returns response with an error status.
+                        });
 
                 }
             };

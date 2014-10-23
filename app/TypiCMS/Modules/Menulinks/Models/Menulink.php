@@ -87,6 +87,14 @@ class Menulink extends Base
     }
 
     /**
+     * A menulink can have children
+     */
+    public function children()
+    {
+        return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
+    }
+
+    /**
      * Menulinks are nestable
      *
      * @return NestableCollection object

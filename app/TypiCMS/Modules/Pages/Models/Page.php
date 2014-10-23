@@ -129,6 +129,14 @@ class Page extends Base
     }
 
     /**
+     * A page can have children
+     */
+    public function children()
+    {
+        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page');
+    }
+
+    /**
      * Pages are nestable
      *
      * @return NestableCollection object

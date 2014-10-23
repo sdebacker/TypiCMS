@@ -3,7 +3,6 @@ namespace TypiCMS\Modules\Pages\Observers;
 
 use Config;
 use DB;
-use Input;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Modules\Pages\Models\Page;
 
@@ -20,7 +19,7 @@ class SortObserver
     {
         if ($model->isDirty('page_id')) {
 
-            $parentModel = Page::find(Input::get('page_id'));
+            $parentModel = Page::find($model->page_id);
 
             foreach (Config::get('app.locales') as $locale) {
 
@@ -54,16 +53,14 @@ class SortObserver
     {
 
         // exit('update children');
-        if ($model->children) {
-            foreach ($model->children as $child) {
-                foreach (Config::get('app.locales') as $locale) {
-                    $child->translate($locale)->uri = $model->translate($locale)->uri . '/' . $child->translate($locale)->slug;
-                }
-                // print_r($child->translate('fr')->uri);
-                $child->save();
-                if ($child->children()->count()) {
-                    $this->updateChildren($child);
-                }
+        foreach ($model->children as $child) {
+            foreach (Config::get('app.locales') as $locale) {
+                $child->translate($locale)->uri = $model->translate($locale)->uri . '/' . $child->translate($locale)->slug;
+            }
+            // print_r($child->translate('fr')->uri);
+            $child->save();
+            if ($child->children()->count()) {
+                $this->updateChildren($child);
             }
         }
     }
