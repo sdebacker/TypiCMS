@@ -121,19 +121,13 @@
                         parentId = 0,
                         nodes = event.dest.nodesScope,
                         currentList = nodes.$modelValue;
+
+                    // if there is a parent
                     if (event.dest.nodesScope.$nodeScope) {
                         parentId = nodes.$nodeScope.model.id;
-                        // console.log(nodes.$nodeScope.model.translations);
-                        for (var i = nodes.$nodeScope.model.translations.length - 1; i >= 0; i--) {
-                            var lang = nodes.$nodeScope.model.translations[i].locale;
-                            model[lang] = { 'uri': nodes.$nodeScope.model.translations[i].uri + '/' + model.translations[i].slug };
-                        }
                     }
 
-                    model.parent = parentId;
-                    model.position = event.dest.index + 1;
-
-                    // console.log(currentList);
+                    model.page_id = parentId;
 
                     angular.forEach(currentList, function (model, key) {
                         // console.log(key);
