@@ -20,22 +20,13 @@ class UriObserver
 
         if ($model->slug) {
 
-            $model->uri = $model->slug;
+            $uri = $model->slug;
 
             if (Config::get('app.locale_in_url')) {
-                $model->uri = $model->locale . '/' . $model->uri;
+                $uri = $model->locale . '/' . $uri;
             }
 
-            $i = 0;
-            // Check uri is unique
-            while (PageTranslation::where('uri', $model->uri)->count()) {
-                $i++;
-                // increment uri if exists
-                $model->uri = $model->slug . '-' . $i;
-                if (Config::get('app.locale_in_url')) {
-                    $model->uri = $model->locale . '/' . $model->uri;
-                }
-            }
+            $model->uri = $this->indentWhileExists($uri);
 
         }
 
@@ -50,37 +41,38 @@ class UriObserver
     public function updating(PageTranslation $model)
     {
 
-        // if uri == '', set it to null before insert it to DB.
+        // if uri is an empty string, set it to null before inserting it to DB.
         $model->uri = $model->uri ? : null ;
 
-        // If slug has changed
         if ($model->isDirty('slug')) {
 
-            // Explode uri string to array
-            $array = explode('/', $model->uri);
+            // Replace last segment of uri with new slug
+            $uri = substr($model->uri, 0, strrpos($model->uri, '/') + 1) . $model->slug;
 
-            // remove last value of array
-            array_pop($array);
-
-            // add slug to array
-            $array[] = $model->slug;
-
-            // rebuild uri string
-            $uri = implode('/', $array);
-
-            $model->uri = $uri;
-
-            $i = 0;
-
-            // Check if uri is unique
-            while (PageTranslation::where('uri', $model->uri)->count()) {
-                $i++;
-                // increment uri if exists
-                $model->uri = $uri . '-' . $i;
-            }
+            $model->uri = $this->indentWhileExists($uri);
 
         }
 
     }
 
+    /**
+     * Add '-x' on uri if it exists in page_translations table
+     *  
+     * @param  string $uri
+     * @return string
+     */
+    private function indentWhileExists($uri)
+    {
+        $originalUri = $uri;
+
+        $i = 0;
+        // Check if uri is unique
+        while (PageTranslation::where('uri', $uri)->count()) {
+            $i++;
+            // increment uri if exists
+            $uri = $originalUri . '-' . $i;
+        }
+
+        return $uri;
+    }
 }
