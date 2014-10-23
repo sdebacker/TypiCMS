@@ -4,7 +4,7 @@ namespace TypiCMS\Modules\Menulinks\Models;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
-use TypiCMS\NestedCollection;
+use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
 
 class Menulink extends Base
@@ -87,10 +87,12 @@ class Menulink extends Base
     }
 
     /**
-     * A menulink can have children
+     * Menulinks are nestable
+     *
+     * @return NestableCollection object
      */
-    public function children()
+    public function newCollection(array $models = array())
     {
-        return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink')->order();
+        return new NestableCollection($models, 'menulink_id');
     }
 }

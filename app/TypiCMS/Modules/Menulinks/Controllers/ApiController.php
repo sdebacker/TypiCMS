@@ -20,7 +20,7 @@ class ApiController extends BaseApiController
     public function index()
     {
         $id = Input::get('menu_id');
-        $models = $this->repository->getAllFromMenu($id, true);
+        $models = $this->repository->getAllBy('menu_id', $id, [], true);
         return Response::json($models, 200);
     }
 }

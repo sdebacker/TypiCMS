@@ -54,14 +54,16 @@ class SortObserver
     {
 
         // exit('update children');
-        foreach ($model->children as $child) {
-            foreach (Config::get('app.locales') as $locale) {
-                $child->translate($locale)->uri = $model->translate($locale)->uri . '/' . $child->translate($locale)->slug;
-            }
-            // print_r($child->translate('fr')->uri);
-            $child->save();
-            if ($child->children()->count()) {
-                $this->updateChildren($child);
+        if ($model->children) {
+            foreach ($model->children as $child) {
+                foreach (Config::get('app.locales') as $locale) {
+                    $child->translate($locale)->uri = $model->translate($locale)->uri . '/' . $child->translate($locale)->slug;
+                }
+                // print_r($child->translate('fr')->uri);
+                $child->save();
+                if ($child->children()->count()) {
+                    $this->updateChildren($child);
+                }
             }
         }
     }

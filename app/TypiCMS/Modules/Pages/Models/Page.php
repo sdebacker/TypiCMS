@@ -6,7 +6,7 @@ use Config;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
-use TypiCMS\NestedCollection;
+use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
 
 class Page extends Base
@@ -129,10 +129,12 @@ class Page extends Base
     }
 
     /**
-     * A page can have children
+     * Pages are nestable
+     *
+     * @return NestableCollection object
      */
-    public function children()
+    public function newCollection(array $models = array())
     {
-        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page')->order();
+        return new NestableCollection($models, 'page_id');
     }
 }

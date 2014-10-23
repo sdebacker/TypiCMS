@@ -129,6 +129,30 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
     }
 
     /**
+     * Get all models and nest
+     *
+     * @param  boolean          $all  Show published or all
+     * @param  array            $with Eager load related models
+     * @return NestedCollection
+     */
+    public function getAllNested(array $with = array(), $all = false)
+    {
+        $cacheKey = md5(App::getLocale() . 'allNested' . implode('.', $with) . $all . implode('.', Input::except('page')));
+
+        if ($this->cache->has($cacheKey)) {
+            return $this->cache->get($cacheKey);
+        }
+
+        // Item not cached, retrieve it
+        $models = $this->repo->getAllNested($with, $all);
+
+        // Store in cache for next request
+        $this->cache->put($cacheKey, $models);
+
+        return $models;
+    }
+
+    /**
      * Get all models with categories
      *
      * @param  boolean  $all Show published or all
