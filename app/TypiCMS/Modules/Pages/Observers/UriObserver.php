@@ -33,7 +33,7 @@ class UriObserver
     }
 
     /**
-     * On update, update uri
+     * On update, when slug has changed, update uri
      * 
      * @param  PageTranslation $model
      * @return void
