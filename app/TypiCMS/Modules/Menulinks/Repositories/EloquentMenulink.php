@@ -45,7 +45,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
     public function getForRoutes()
     {
         $menulinks = DB::table('menulinks')
-            ->select('menulinks.id', 'menulink_id', 'uri', 'locale', 'module_name')
+            ->select('menulinks.id', 'menulinks.menulink_id', 'uri', 'locale', 'module_name')
             ->join('menulink_translations', 'menulinks.id', '=', 'menulink_translations.menulink_id')
             ->where('uri', '!=', '')
             ->where('module_name', '!=', '')
