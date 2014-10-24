@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Pages\Observers;
 
 use Config;
+use DB;
 use TypiCMS\Modules\Pages\Models\PageTranslation;
 
 class UriObserver
@@ -52,6 +53,20 @@ class UriObserver
     }
 
     /**
+     * Check if uri exists in all uris array
+     *
+     * @param  string $uri
+     * @return bool
+     */
+    private function uriExists($uri)
+    {
+        if (in_array($uri, app('TypiCMS.pages.uris'))) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Add '-x' on uri if it exists in page_translations table
      *  
      * @param  string $uri
@@ -63,9 +78,9 @@ class UriObserver
 
         $i = 0;
         // Check if uri is unique
-        while (PageTranslation::where('uri', $uri)->count()) {
+        while ($this->uriExists($uri)) {
             $i++;
-            // increment uri if exists
+            // increment uri if it exists
             $uri = $originalUri . '-' . $i;
         }
 

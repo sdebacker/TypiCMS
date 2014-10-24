@@ -88,4 +88,14 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
             ->orderBy('locale')
             ->get();
     }
+
+    /**
+     * Get all uris
+     *
+     * @return array
+     */
+    public function getAllUris()
+    {
+        return DB::table('page_translations')->lists('uri');
+    }
 }

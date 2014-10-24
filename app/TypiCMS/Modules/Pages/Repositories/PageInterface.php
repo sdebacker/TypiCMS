@@ -27,4 +27,11 @@ interface PageInterface extends RepositoryInterface
      * @return Collection
      */
     public function getForRoutes();
+
+    /**
+     * Get all uris
+     *
+     * @return array
+     */
+    public function getAllUris();
 }

@@ -79,4 +79,25 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
 
         return $models;
     }
+
+    /**
+     * Get all uris
+     *
+     * @return array
+     */
+    public function getAllUris()
+    {
+        $cacheKey = md5(App::getLocale().'getAllUris');
+
+        if ($this->cache->has($cacheKey)) {
+            return $this->cache->get($cacheKey);
+        }
+
+        $models = $this->repo->getAllUris();
+
+        // Store in cache for next request
+        $this->cache->put($cacheKey, $models);
+
+        return $models;
+    }
 }

@@ -285,41 +285,23 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      * Sort models
      *
      * @param array  Data to update Pages
-     * @return boolean
+     * @return void
      */
     public function sort(array $data)
     {
 
-        if (isset($data['nested']) && $data['nested']) {
+        foreach ($data['item'] as $position => $item) {
 
-            foreach ($data['item'] as $position => $item) {
+            $page = $this->model
+                ->select('id')
+                ->find($item['id']);
 
-                $this->model
-                    ->find($item['id'])
-                    ->update([
-                        'position' => $position,
-                        'page_id' => $item['page_id']
-                    ]);
-
-            }
-
-        } else {
-
-            foreach ($data['item'] as $key => $id) {
-
-                $position = $key + 1;
-
-                $this->model
-                    ->find($id)
-                    ->update([
-                        'position' => $position
-                    ]);
-
-            }
+            $page->update([
+                'position' => $position,
+                'page_id' => $item['page_id']
+            ]);
 
         }
-
-        return true;
 
     }
 

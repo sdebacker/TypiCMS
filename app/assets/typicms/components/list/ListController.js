@@ -148,8 +148,8 @@
                             // when the response is available
                         }).
                         error(function(data, status, headers, config) {
-                            // console.log(data, status, headers, config);
-                            // called asynchronously if an error occurs
+                            console.log(data);
+                            alertify.error(data.error.message);
                             // or server returns response with an error status.
                         });
 

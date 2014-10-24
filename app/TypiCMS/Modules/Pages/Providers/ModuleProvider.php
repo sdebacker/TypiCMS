@@ -58,6 +58,13 @@ class ModuleProvider extends ServiceProvider
          */
         $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Pages\Composers\SideBarViewComposer');
 
+        /**
+         * Store all uris
+         */
+        $this->app->singleton('TypiCMS.pages.uris', function (Application $app) {
+            return $app->make('TypiCMS\Modules\Pages\Repositories\PageInterface')->getAllUris();
+        });
+
         $app->bind('TypiCMS\Modules\Pages\Repositories\PageInterface', function (Application $app) {
             $repository = new EloquentPage(new Page);
             if (! Config::get('app.cache')) {
