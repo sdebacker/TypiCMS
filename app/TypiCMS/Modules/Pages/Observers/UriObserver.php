@@ -54,6 +54,17 @@ class UriObserver
 
         }
 
+    }
+
+    /**
+     * After update, update children’s uri
+     * 
+     * @param  PageTranslation $model
+     * @return void
+     */
+    public function updated(PageTranslation $model)
+    {
+
         $this->updateChildren($model->page);
 
     }
