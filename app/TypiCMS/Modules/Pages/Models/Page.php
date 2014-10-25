@@ -137,6 +137,14 @@ class Page extends Base
     }
 
     /**
+     * A page can have a parent
+     */
+    public function parent()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page', 'page_id');
+    }
+
+    /**
      * Pages are nestable
      *
      * @return NestableCollection object

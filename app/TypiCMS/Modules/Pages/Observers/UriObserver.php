@@ -3,6 +3,7 @@ namespace TypiCMS\Modules\Pages\Observers;
 
 use Config;
 use DB;
+use TypiCMS\Modules\Pages\Models\Page;
 use TypiCMS\Modules\Pages\Models\PageTranslation;
 
 class UriObserver
@@ -42,14 +43,32 @@ class UriObserver
     public function updating(PageTranslation $model)
     {
 
-        // if uri is an empty string, set it to null before inserting it to DB.
-        $model->uri = $model->uri ? : null ;
+        if ($model->slug) {
 
-        // Replace last segment of uri with new slug
-        $uri = substr($model->uri, 0, strrpos($model->uri, '/') + 1) . $model->slug;
+            $uri = $this->getParentUri($model) . '/' . $model->slug;
 
-        $model->uri = $this->incrementWhileExists($uri);
+            $model->uri = $this->incrementWhileExists($uri);
 
+        } else {
+
+            $model->uri = null;
+
+        }
+
+    }
+
+    /**
+     * Get parent page’s URI
+     *
+     * @param  PageTranslation $model
+     * @return string
+     */
+    private function getParentUri(PageTranslation $model)
+    {
+        if ($model->page->parent) {
+            return $model->page->parent->translate($model->locale)->uri;
+        }
+        return $model->locale;
     }
 
     /**
