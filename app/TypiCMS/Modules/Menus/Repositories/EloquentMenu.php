@@ -120,9 +120,9 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     }
 
     /**
-     * 1. Uri = menulink->uri or
-     * 2. if page linke, take the uri of the page or
-     * 3. if url field filled, take it
+     * 1. Uri = menulink->uri
+     * 2. if menulink has a page, take the uri of the page
+     * 3. if menulink has url field, take it
      *
      * @param Model   $menulink
      * @return string uri
