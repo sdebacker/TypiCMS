@@ -87,17 +87,6 @@ class CacheDecorator extends CacheAbstractDecorator implements PageInterface
      */
     public function getAllUris()
     {
-        $cacheKey = md5(App::getLocale().'getAllUris');
-
-        if ($this->cache->has($cacheKey)) {
-            return $this->cache->get($cacheKey);
-        }
-
-        $models = $this->repo->getAllUris();
-
-        // Store in cache for next request
-        $this->cache->put($cacheKey, $models);
-
-        return $models;
+        return $this->repo->getAllUris();
     }
 }
