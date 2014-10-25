@@ -96,6 +96,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
      */
     public function getAllUris()
     {
-        return DB::table('page_translations')->lists('uri');
+        return DB::table('page_translations')->lists('uri', 'id');
     }
 }

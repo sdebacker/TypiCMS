@@ -47,7 +47,7 @@ class UriObserver
 
             $uri = $this->getParentUri($model) . '/' . $model->slug;
 
-            $model->uri = $this->incrementWhileExists($uri);
+            $model->uri = $this->incrementWhileExists($uri, $model->id);
 
         } else {
 
@@ -74,12 +74,15 @@ class UriObserver
     /**
      * Check if uri exists in all uris array
      *
-     * @param  string $uri
+     * @param  string  $uri
+     * @param  integer $id
      * @return bool
      */
-    private function uriExists($uri)
+    private function uriExists($uri, $id)
     {
-        if (in_array($uri, app('TypiCMS.pages.uris'))) {
+        $uris = app('TypiCMS.pages.uris');
+        unset($uris[$id]);
+        if (in_array($uri, $uris)) {
             return true;
         }
         return false;
@@ -88,16 +91,17 @@ class UriObserver
     /**
      * Add '-x' on uri if it exists in page_translations table
      *  
-     * @param  string $uri
+     * @param  string  $uri
+     * @param  integer $id in case of update, except this id
      * @return string
      */
-    private function incrementWhileExists($uri)
+    private function incrementWhileExists($uri, $id = 0)
     {
         $originalUri = $uri;
 
         $i = 0;
         // Check if uri is unique
-        while ($this->uriExists($uri)) {
+        while ($this->uriExists($uri, $id)) {
             $i++;
             // increment uri if it exists
             $uri = $originalUri . '-' . $i;
