@@ -42,7 +42,7 @@ class UriObserver
     public function updating(PageTranslation $model)
     {
 
-        if ($model->slug) {
+        if ($model->slug && ! is_null($model->uri)) {
 
             $uri = $this->getParentUri($model) . '/' . $model->slug;
 
@@ -132,7 +132,11 @@ class UriObserver
     {
         foreach ($page->children as $child) {
             foreach (Config::get('app.locales') as $locale) {
-                $child->translate($locale)->uri = null;
+                if (is_null($page->translate($locale)->uri)) {
+                    $child->translate($locale)->uri = null;
+                } else {
+                    $child->translate($locale)->uri = '';
+                }
             }
             $child->save();
             $this->updateChildren($child);

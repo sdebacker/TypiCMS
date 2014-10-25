@@ -20,7 +20,7 @@ class SortObserver
         if ($model->isDirty('page_id')) {
 
             foreach (Config::get('app.locales') as $locale) {
-                $model->translate($locale)->uri = null;
+                $model->translate($locale)->uri = '';
             }
 
         }
