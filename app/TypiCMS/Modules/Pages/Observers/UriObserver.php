@@ -77,8 +77,8 @@ class UriObserver
      */
     private function getParentUri(PageTranslation $model)
     {
-        if ($model->page->parent) {
-            return $model->page->parent->translate($model->locale)->uri;
+        if ($parentPage = $model->page->parent) {
+            return $parentPage->translate($model->locale)->uri;
         }
         return $model->locale;
     }
