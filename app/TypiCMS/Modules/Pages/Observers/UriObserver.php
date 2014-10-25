@@ -2,8 +2,6 @@
 namespace TypiCMS\Modules\Pages\Observers;
 
 use Config;
-use DB;
-use TypiCMS\Modules\Pages\Models\Page;
 use TypiCMS\Modules\Pages\Models\PageTranslation;
 
 class UriObserver
