@@ -84,5 +84,9 @@ abstract class BaseAdminController extends Controller
     public function sort()
     {
         $this->repository->sort(Input::all());
+        return Response::json([
+            'error'   => false,
+            'message' => 'Items sorted'
+        ], 200);
     }
 }
