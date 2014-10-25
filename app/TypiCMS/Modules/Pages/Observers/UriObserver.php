@@ -2,7 +2,6 @@
 namespace TypiCMS\Modules\Pages\Observers;
 
 use Config;
-use TypiCMS\Modules\Pages\Models\Page;
 use TypiCMS\Modules\Pages\Models\PageTranslation;
 
 class UriObserver
@@ -57,19 +56,6 @@ class UriObserver
     }
 
     /**
-     * After update, update children’s uri
-     * 
-     * @param  PageTranslation $model
-     * @return void
-     */
-    public function updated(PageTranslation $model)
-    {
-
-        $this->updateChildren($model->page);
-
-    }
-
-    /**
      * Get parent page’s URI
      *
      * @param  PageTranslation $model
@@ -120,26 +106,5 @@ class UriObserver
         }
 
         return $uri;
-    }
-
-    /**
-     * Recursive method for children’s uri update
-     * 
-     * @param  Page $page
-     * @return void
-     */
-    private function updateChildren(Page $page)
-    {
-        foreach ($page->children as $child) {
-            foreach (Config::get('app.locales') as $locale) {
-                if (is_null($page->translate($locale)->uri)) {
-                    $child->translate($locale)->uri = null;
-                } else {
-                    $child->translate($locale)->uri = '';
-                }
-            }
-            $child->save();
-            $this->updateChildren($child);
-        }
     }
 }

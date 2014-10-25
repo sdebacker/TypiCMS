@@ -4,6 +4,7 @@ namespace TypiCMS\Repositories;
 use App;
 use Config;
 use DB;
+use Event;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -243,7 +244,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Create a new model
      *
-     * @param array  Data needed for model creation
+     * @param  array $data
      * @return mixed Model or false on error during save
      */
     public function create(array $data)
@@ -262,7 +263,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Update an existing model
      *
-     * @param array  Data needed for model update
+     * @param  array  $data
      * @return boolean
      */
     public function update(array $data)
@@ -284,7 +285,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Sort models
      *
-     * @param array  Data to update Pages
+     * @param  array $data updated data
      * @return void
      */
     public function sort(array $data)
@@ -301,8 +302,12 @@ abstract class RepositoriesAbstract implements RepositoryInterface
                 'page_id' => $item['page_id']
             ]);
 
+            if ($data['moved'] == $item['id']) {
+                Event::fire('page.resetChildrenUri', [$page]);
+            }
+            
         }
-
+        
     }
 
     /**

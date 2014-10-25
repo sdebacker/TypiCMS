@@ -1,11 +1,12 @@
 <?php
 namespace TypiCMS\Modules\Pages\Repositories;
 
-use DB;
-use Input;
 use Config;
-use Illuminate\Database\Eloquent\Model;
+use DB;
+use Event;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Input;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentPage extends RepositoriesAbstract implements PageInterface
@@ -15,6 +16,28 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     {
         parent::__construct();
         $this->model = $model;
+    }
+
+    /**
+     * Update an existing model
+     *
+     * @param array  Data needed for model update
+     * @return boolean
+     */
+    public function update(array $data)
+    {
+        $model = $this->model->find($data['id']);
+
+        $model->fill($data);
+
+        $this->syncRelation($model, $data, 'galleries');
+
+        if ($model->save()) {
+            Event::fire('page.resetChildrenUri', [$model]);
+            return true;
+        }
+
+        return false;
     }
 
     /**

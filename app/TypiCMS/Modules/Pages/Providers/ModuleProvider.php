@@ -28,6 +28,9 @@ use TypiCMS\Modules\Pages\Observers\HomePageObserver;
 use TypiCMS\Modules\Pages\Observers\UriObserver;
 use TypiCMS\Modules\Pages\Observers\SortObserver;
 
+// Events
+use TypiCMS\Modules\Pages\Events\ResetChildren;
+
 class ModuleProvider extends ServiceProvider
 {
 
@@ -57,6 +60,11 @@ class ModuleProvider extends ServiceProvider
          * Sidebar view composer
          */
         $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Pages\Composers\SideBarViewComposer');
+
+        /**
+         * Events
+         */
+        $app->events->subscribe(new ResetChildren);
 
         /**
          * Store all uris
