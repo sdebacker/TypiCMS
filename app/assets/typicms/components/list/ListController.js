@@ -24,7 +24,7 @@
             $scope.TypiCMS = TypiCMS;
 
             // if we query files from a gallery, we need the gallery_id value :
-            if (url.split('/')[4] === 'galleries' && url.split('/')[5]) {
+            if (moduleName === 'galleries' && url.split('/')[5]) {
                 $params.gallery_id = url.split('/')[5];
             }
 
@@ -141,7 +141,7 @@
                     });
                     // console.log(data);
 
-                    $http.post('/admin/pages/sort', data).
+                    $http.post('/admin/' + moduleName + '/sort', data).
                         success(function(data, status, headers, config) {
                             // console.log(data, status, headers, config);
                             // this callback will be called asynchronously
