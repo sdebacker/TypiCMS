@@ -121,4 +121,31 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     {
         return DB::table('page_translations')->lists('uri', 'id');
     }
+
+    /**
+     * Get sort data
+     * 
+     * @param  integer $position
+     * @param  array   $item
+     * @return array
+     */
+    protected function getSortData($position, $item)
+    {
+        return [
+            'position' => $position,
+            'page_id' => $item['page_id']
+        ];
+    }
+
+    /**
+     * Fire event to reset children’s uri
+     * Only applicable on nestable collections
+     * 
+     * @param  Page    $page
+     * @return void|null
+     */
+    protected function fireResetChildrenUriEvent($page)
+    {
+        Event::fire('page.resetChildrenUri', [$page]);
+    }
 }

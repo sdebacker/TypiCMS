@@ -290,24 +290,48 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function sort(array $data)
     {
-
         foreach ($data['item'] as $position => $item) {
 
             $page = $this->model
                 ->select('id')
                 ->find($item['id']);
 
-            $page->update([
-                'position' => $position,
-                'page_id' => $item['page_id']
-            ]);
+            $sortData = $this->getSortData($position, $item);
+            
+            $page->update($sortData);
 
             if ($data['moved'] == $item['id']) {
-                Event::fire('page.resetChildrenUri', [$page]);
+                $this->fireResetChildrenUriEvent($page);
             }
             
         }
         
+    }
+
+    /**
+     * Get sort data
+     * 
+     * @param  integer $position
+     * @param  array   $item
+     * @return array
+     */
+    protected function getSortData($position, $item)
+    {
+        return [
+            'position' => $position
+        ];
+    }
+
+    /**
+     * Fire event to reset children’s uri
+     * Only applicable on nestable collections
+     * 
+     * @param  Page    $page
+     * @return void|null
+     */
+    protected function fireResetChildrenUriEvent($page)
+    {
+        return null;
     }
 
     /**

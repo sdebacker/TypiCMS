@@ -15,7 +15,6 @@ class ResetChildren {
      */
     public function resetChildrenUri(Page $page)
     {
-        \Log::info('resetChildrenUri on id : ' . $page->id);
         foreach ($page->children as $childPage) {
             foreach (Config::get('app.locales') as $locale) {
                 if (is_null($page->translate($locale)->uri)) {
