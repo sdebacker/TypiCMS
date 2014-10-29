@@ -292,9 +292,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     {
         foreach ($data['item'] as $position => $item) {
 
-            $page = $this->model
-                ->select('id')
-                ->find($item['id']);
+            $page = $this->model->find($item['id']);
 
             $sortData = $this->getSortData($position, $item);
             
