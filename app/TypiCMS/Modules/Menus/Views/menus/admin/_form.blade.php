@@ -2,11 +2,11 @@
 
 <div class="row">
 
+    @if ($model->id)
     <div class="col-sm-6">
-
         @include('menus.admin.menulinks')
-
     </div>
+    @endif
 
     <div class="col-sm-6">
 
