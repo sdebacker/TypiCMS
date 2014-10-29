@@ -12,7 +12,7 @@
 
 {{ Form::hidden('id') }}
 {{ Form::hidden('position', $model->position ? : 0) }}
-{{ Form::hidden('page_id', $model->page_id ? : 0) }}
+{{ Form::hidden('parent_id', $model->parent_id ? : 0) }}
 
 <ul class="nav nav-tabs">
     <li class="active">
@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-md-6 form-group">
                         {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                        {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
+                        {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('class' => 'form-control')) }}
                     </div>
                     <div class="col-md-6 form-group @if($errors->has($lang.'.slug'))has-error @endif">
                         {{ Form::label($lang.'[slug]', trans('validation.attributes.url'), array('class' => 'control-label')) }}

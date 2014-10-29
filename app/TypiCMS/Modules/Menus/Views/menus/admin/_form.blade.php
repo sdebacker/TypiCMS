@@ -33,7 +33,7 @@
             <div class="tab-pane fade @if ($locale == $lang)in active @endif" id="{{ $lang }}">
                 <div class="form-group">
                     {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
+                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('class' => 'form-control')) }}
                 </div>
                 <div class="checkbox">
                     <label>

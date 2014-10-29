@@ -10,7 +10,7 @@
 
 <div class="form-group @if($errors->has('key'))has-error @endif">
     {{ Form::label('key', trans('validation.attributes.key'), array('class' => 'control-label')) }}
-    {{ Form::text('key', null, array('class' => 'form-control', 'autofocus')) }}
+    {{ Form::text('key', null, array('class' => 'form-control')) }}
     {{ $errors->first('key', '<p class="help-block">:message</p>') }}
 </div>
 

@@ -20,7 +20,7 @@
 
         <div class="form-group @if($errors->has('title'))has-error @endif">
             {{ Form::label('title', trans('validation.attributes.title')) }}
-            {{ Form::text('title', null, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
+            {{ Form::text('title', null, array('class' => 'form-control')) }}
             {{ $errors->first('title', '<p class="help-block">:message</p>') }}
         </div>
         <div class="form-group @if($errors->has('slug'))has-error @endif">
