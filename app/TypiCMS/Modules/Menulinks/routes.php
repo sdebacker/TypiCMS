@@ -9,8 +9,8 @@ Route::group(
     function () {
         Route::resource('menus.menulinks', 'AdminController');
         Route::post(
-            'menus/{menus}/menulinks/sort',
-            array('as' => 'admin.menus.menulinks.sort', 'uses' => 'AdminController@sort')
+            'menulinks/sort',
+            array('as' => 'admin.menulinks.sort', 'uses' => 'AdminController@sort')
         );
     }
 );

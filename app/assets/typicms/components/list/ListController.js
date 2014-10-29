@@ -29,8 +29,9 @@
             }
 
             // if we query menulinks menu_id value :
-            if (url.split('/')[4] === 'menus' && url.split('/')[5]) {
+            if (moduleName === 'menus' && url.split('/')[5]) {
                 $params.menu_id = url.split('/')[5];
+                moduleName = 'menulinks';
             }
 
             $api.query($params).$promise.then(function (all) {
