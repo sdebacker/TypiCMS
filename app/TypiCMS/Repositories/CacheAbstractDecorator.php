@@ -153,9 +153,12 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
     }
 
     /**
-     * Get all models with categories
+     * Get all models by key/value
      *
-     * @param  boolean  $all Show published or all
+     * @param  string     $key
+     * @param  string     $value
+     * @param  array      $with
+     * @param  boolean    $all
      * @return stdClass Object with $items
      */
     public function getAllBy($key, $value, array $with = array(), $all = false)
@@ -168,6 +171,32 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
 
         // Item not cached, retrieve it
         $models = $this->repo->getAllBy($key, $value, $with, $all);
+
+        // Store in cache for next request
+        $this->cache->put($cacheKey, $models);
+
+        return $models;
+    }
+
+    /**
+     * Get all models by key/value and nest collection
+     *
+     * @param  string     $key
+     * @param  string     $value
+     * @param  array      $with
+     * @param  boolean    $all
+     * @return stdClass Object with $items
+     */
+    public function getAllByNested($key, $value, array $with = array(), $all = false)
+    {
+        $cacheKey = md5(App::getLocale().'getAllByNested'.$key.$value.implode('.', $with).$all.implode('.', Input::all()));
+
+        if ($this->cache->has($cacheKey)) {
+            return $this->cache->get($cacheKey);
+        }
+
+        // Item not cached, retrieve it
+        $models = $this->repo->getAllByNested($key, $value, $with, $all);
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $models);

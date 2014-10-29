@@ -158,9 +158,12 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     }
 
     /**
-     * Get all models with categories
+     * Get all models by key/value
      *
-     * @param  boolean    $all Show published or all
+     * @param  string     $key
+     * @param  string     $value
+     * @param  array      $with
+     * @param  boolean    $all
      * @return Collection
      */
     public function getAllBy($key, $value, array $with = array(), $all = false)
@@ -181,6 +184,21 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         $models = $query->get();
 
         return $models;
+    }
+
+    /**
+     * Get all models by key/value and nest collection
+     *
+     * @param  string     $key
+     * @param  string     $value
+     * @param  array      $with
+     * @param  boolean    $all
+     * @return Collection
+     */
+    public function getAllByNested($key, $value, array $with = array(), $all = false)
+    {
+        // Get
+        return $this->getAllBy($key, $value, $with, $all)->nest();
     }
 
     /**
