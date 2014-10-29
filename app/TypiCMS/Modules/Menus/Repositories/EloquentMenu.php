@@ -163,20 +163,22 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
      */
     public function setClass($menulink)
     {
-        $activeUri = '/' . Request::path();
+        $activeUri = Request::path();
+        if ($activeUri != '/') {
+            $activeUri = '/' . $activeUri;
+        }
+        $classArray = preg_split('/ /', $menulink->class, null, PREG_SPLIT_NO_EMPTY);
+        // add active class if item uri equals current uri
+        // or current uri contain item uri
+        // item uri must be bigger than 3 to avoid homepage link always active ('/', '/lg')
         if ($menulink->uri == $activeUri ||
                 (
                     strlen($menulink->uri) > 3 &&
                     preg_match('@^'.$menulink->uri.'@', $activeUri)
                 )
             ) {
-            // if item uri equals current uri
-            // or current uri contain item uri (item uri must be bigger than 3 to avoid homepage link always active)
-            // then add active class.
-            $classArray = preg_split('/ /', $menulink->class, null, PREG_SPLIT_NO_EMPTY);
             $classArray[] = 'active';
-            return implode(' ', $classArray);
         }
-        return $menulink->class;
+        return implode(' ', $classArray);
     }
 }
