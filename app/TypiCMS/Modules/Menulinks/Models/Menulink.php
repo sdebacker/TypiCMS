@@ -60,17 +60,6 @@ class Menulink extends Base
     public $direction = 'asc';
 
     /**
-     * Order of menulinks
-     *
-     * @param  Builder $query
-     * @return Builder $query
-     */
-    // public function scopeOrder(Builder $query)
-    // {
-    //     return $query->orderBy('position')->orderBy('parent_id');
-    // }
-
-    /**
      * A menulink belongs to a menu
      */
     public function menu()
