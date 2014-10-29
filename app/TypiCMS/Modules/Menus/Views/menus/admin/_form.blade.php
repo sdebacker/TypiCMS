@@ -4,6 +4,9 @@
 
     @if ($model->id)
     <div class="col-sm-6">
+        <a href="{{ route('admin.menus.menulinks.create', $model->id) }}">
+            <i class="fa fa-fw fa-plus-circle"></i>Add menu link
+        </a>
         @include('menus.admin.menulinks')
     </div>
     @endif
