@@ -25,7 +25,7 @@ class NestableCollection extends Collection
     {
         $parentKey = $this->parentKey;
         if (! $parentKey) {
-            return false;
+            return $this;
         }
 
         // Set id as keys
@@ -35,7 +35,7 @@ class NestableCollection extends Collection
 
         // add empty children collection.
         $this->each(function ($item) {
-            $item->children = App::make('\Illuminate\Support\Collection');
+            $item->children = App::make('Illuminate\Support\Collection');
         });
 
         // add items to children collection

@@ -23,18 +23,18 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
      */
     public function getAllFromMenu($id = null, $all = false)
     {
-        $query = $this->model
-            ->with('translations', 'children', 'children.children')
+        $query = $this->model->with('translations')
             ->order()
-            ->where('menulink_id', 0)
-            ->where('menu_id', $id);
+            ->where('menu_id', $menuId);
 
         // All posts or only published
         if (! $all) {
             $query->where('status', 1);
         }
 
-        return $query->get();
+        $models = $query->get()->nest();
+
+        return $models;
     }
 
     /**
@@ -45,7 +45,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
     public function getForRoutes()
     {
         $menulinks = DB::table('menulinks')
-            ->select('menulinks.id', 'menulinks.menulink_id', 'uri', 'locale', 'module_name')
+            ->select('menulinks.id', 'menulinks.parent_id', 'uri', 'locale', 'module_name')
             ->join('menulink_translations', 'menulinks.id', '=', 'menulink_translations.menulink_id')
             ->where('uri', '!=', '')
             ->where('module_name', '!=', '')

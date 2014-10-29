@@ -357,7 +357,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function getPagesForSelect()
     {
-        $pages = Page::select('pages.id', 'title', 'locale', 'page_id')
+        $pages = Page::select('pages.id', 'title', 'locale', 'parent_id')
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
             ->where('locale', Config::get('typicms.adminLocale'))
             ->order()

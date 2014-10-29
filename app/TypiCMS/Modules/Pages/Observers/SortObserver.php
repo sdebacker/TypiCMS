@@ -17,7 +17,7 @@ class SortObserver
      */
     public function updating(Page $model)
     {
-        if ($model->isDirty('page_id')) {
+        if ($model->isDirty('parent_id')) {
 
             foreach (Config::get('app.locales') as $locale) {
                 $model->translate($locale)->uri = '';

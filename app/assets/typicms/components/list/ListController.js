@@ -115,8 +115,7 @@
             };
 
             $scope.treeOptions = {
-                dragThreshold: 3,
-                levelThreshold: 30,
+                dragThreshold: 0,
                 dropped: function (event) {
                     var model = event.source.nodeScope.model,
                         parentId = 0,
@@ -131,16 +130,11 @@
                     var data = {};
                     data['moved'] = model.id;
                     data['item'] = [];
-                    if (moduleName === 'menulinks') {
-                        model.menulink_id = parentId;
-                    }
-                    if (moduleName === 'pages') {
-                        model.page_id = parentId;
-                    }
                     model.position = event.dest.index + 1;
+                    model.parent_id = parentId;
 
                     angular.forEach(currentList, function(model, key) {
-                        data['item'].push({'id': model.id, 'page_id': model.page_id});
+                        data['item'].push({'id': model.id, 'parent_id': model.parent_id});
                     });
 
                     $http.post('/admin/' + moduleName + '/sort', data).
@@ -148,7 +142,6 @@
                             alertify.success(data.message);
                         }).
                         error(function(data, status, headers, config) {
-                            console.log(data);
                             alertify.error(data.error.message);
                         });
 

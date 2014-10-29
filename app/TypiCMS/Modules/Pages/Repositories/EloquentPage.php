@@ -103,7 +103,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function getForRoutes()
     {
         return DB::table('pages')
-            ->select('pages.id', 'page_id', 'uri', 'locale')
+            ->select('pages.id', 'parent_id', 'uri', 'locale')
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
             ->where('uri', '!=', '')
             ->where('is_home', '!=', 1)
@@ -133,7 +133,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     {
         return [
             'position' => $position,
-            'page_id' => $item['page_id']
+            'parent_id' => $item['parent_id']
         ];
     }
 

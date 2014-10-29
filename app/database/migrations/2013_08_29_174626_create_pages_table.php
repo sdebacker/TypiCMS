@@ -23,7 +23,7 @@ class CreatePagesTable extends Migration
 
             $table->string('image')->nullable();
             $table->integer('position')->unsigned()->default(0);
-            $table->integer('page_id')->unsigned()->default(0);
+            $table->integer('parent_id')->unsigned()->default(0);
 
             $table->tinyInteger('is_home')->default(0);
 

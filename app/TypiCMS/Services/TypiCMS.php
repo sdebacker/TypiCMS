@@ -189,13 +189,13 @@ class TypiCMS
         $items = [];
         foreach ($array as $item) {
             $indent = '';
-            if ($item->page_id) {
+            if ($item->parent_id) {
                 $indent = '&nbsp;&nbsp;&nbsp;&nbsp;';
-                if ($parent && $parent < $item->page_id) {
+                if ($parent && $parent < $item->parent_id) {
                     $indent .= $indent;
                 }
             }
-            $parent = $item->page_id;
+            $parent = $item->parent_id;
             $items[$indent . $item->title] = $item->id;
         }
         return $items;

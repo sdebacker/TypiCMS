@@ -21,7 +21,7 @@ class Page extends Base
         'meta_robots_no_index',
         'meta_robots_no_follow',
         'position',
-        'page_id',
+        'parent_id',
         'is_home',
         'css',
         'js',
@@ -133,7 +133,7 @@ class Page extends Base
      */
     public function children()
     {
-        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page');
+        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page', 'parent_id');
     }
 
     /**
@@ -141,7 +141,7 @@ class Page extends Base
      */
     public function parent()
     {
-        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page', 'page_id');
+        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page', 'parent_id');
     }
 
     /**
@@ -151,6 +151,6 @@ class Page extends Base
      */
     public function newCollection(array $models = array())
     {
-        return new NestableCollection($models, 'page_id');
+        return new NestableCollection($models, 'parent_id');
     }
 }
