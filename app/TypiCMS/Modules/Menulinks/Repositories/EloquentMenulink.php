@@ -38,6 +38,21 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
     }
 
     /**
+     * Get sort data
+     * 
+     * @param  integer $position
+     * @param  array   $item
+     * @return array
+     */
+    protected function getSortData($position, $item)
+    {
+        return [
+            'position' => $position,
+            'parent_id' => $item['parent_id']
+        ];
+    }
+
+    /**
      * Get Items to build routes
      *
      * @return Array
