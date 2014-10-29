@@ -144,14 +144,11 @@
 
                     $http.post('/admin/' + moduleName + '/sort', data).
                         success(function(data, status, headers, config) {
-                            // console.log(data, status, headers, config);
-                            // this callback will be called asynchronously
-                            // when the response is available
+                            alertify.success(data.message);
                         }).
                         error(function(data, status, headers, config) {
                             console.log(data);
                             alertify.error(data.error.message);
-                            // or server returns response with an error status.
                         });
 
                 }

@@ -61,4 +61,5 @@ return array(
     'Toggle navigation' => 'Menu',
 
     'Drag and drop to sort' => 'Organisez-les par glisser-déposer',
+    'Items sorted' => 'Les éléments ont été réorganisés.',
 );
