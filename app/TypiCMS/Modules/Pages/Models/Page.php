@@ -113,14 +113,6 @@ class Page extends Base
     }
 
     /**
-     * Scope from
-     */
-    public function scopeFrom($query, $relid)
-    {
-        return $query;
-    }
-
-    /**
      * A page can have menulinks
      */
     public function menulinks()
