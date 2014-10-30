@@ -6,7 +6,7 @@
     </h1>
 
     <div class="dropzone hidden" drop-zone="" id="dropzone">
-        <div class="dz-message">Click or drop files to upload.</div>
+        <div class="dz-message" translate>Click or drop files to upload.</div>
     </div>
 
     <div class="thumbnail" ng-repeat="model in models" id="item_{{ model.id }}">

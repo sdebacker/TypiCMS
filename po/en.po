@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.6.10\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Users/Views/users/admin/index.php
@@ -24,11 +24,16 @@ msgstr "Address"
 msgid "Category"
 msgstr "Category"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/files.php
+msgid "Click or drop files to upload."
+msgstr "Click or drop files to upload."
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
 msgid "Content"
 msgstr "Content"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 msgid "Date"
 msgstr "Date"
@@ -50,18 +55,38 @@ msgstr "Email"
 msgid "End date"
 msgstr "End date"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/files.php
+msgid "Filename"
+msgstr "Filename"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
+msgid "Files"
+msgstr "Files"
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Contacts/Views/contacts/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Users/Views/users/admin/index.php
 msgid "First name"
 msgstr "First name"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/files.php
+msgid "Height"
+msgstr "Height"
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/files.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
 msgid "Image"
 msgstr "Image"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/thumbnails.php
+msgid "Insert"
+msgstr "Insert"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Contacts/Views/contacts/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Users/Views/users/admin/index.php
@@ -80,15 +105,18 @@ msgid "Name"
 msgstr "Name"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Categories/Views/categories/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Contacts/Views/contacts/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Groups/Views/groups/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Pages/Views/pages/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Tags/Views/tags/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Users/Views/users/admin/index.php
 msgid "New"
 msgstr "New"
@@ -101,32 +129,41 @@ msgstr "Offline"
 msgid "Online"
 msgstr "Online"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Pages/Views/pages/admin/index.php
+msgid "Pages"
+msgstr "Pages"
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Groups/Views/groups/admin/index.php
 msgid "Permissions"
 msgstr "Permissions"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/files.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
+msgid "Position"
+msgstr "Position"
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Contacts/Views/contacts/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/files.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Groups/Views/groups/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Projects/Views/projects/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Tags/Views/tags/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Users/Views/users/admin/index.php
 msgid "Search"
 msgstr "Search"
-
-#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
-msgid "Side"
-msgstr "Side"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 msgid "Start date"
 msgstr "Start date"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Blocks/Views/blocks/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Categories/Views/categories/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
@@ -141,7 +178,13 @@ msgstr "Status"
 msgid "Superuser"
 msgstr "Superuser"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Tags/Views/tags/admin/index.php
+msgid "Tag"
+msgstr "Tag"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Categories/Views/categories/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Events/Views/events/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Menus/Views/menus/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/News/Views/news/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
@@ -150,10 +193,29 @@ msgstr "Superuser"
 msgid "Title"
 msgstr "Title"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
+msgid "Type"
+msgstr "Type"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Tags/Views/tags/admin/index.php
+msgid "Uses"
+msgstr "Uses"
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Partners/Views/partners/admin/index.php
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Places/Views/places/admin/index.php
 msgid "Website"
 msgstr "Website"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/files.php
+msgid "Width"
+msgstr "Width"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Categories/Views/categories/admin/index.php
+msgid "{{ models.length }} category"
+msgid_plural "{{ models.length }} categories"
+msgstr[0] "{{ models.length }} category"
+msgstr[1] "{{ models.length }} categories"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Contacts/Views/contacts/admin/index.php
 msgid "{{ models.length }} contact"
@@ -172,6 +234,14 @@ msgid "{{ models.length }} event"
 msgid_plural "{{ models.length }} events"
 msgstr[0] "{{ models.length }} event"
 msgstr[1] "{{ models.length }} events"
+
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/index.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Files/Views/files/admin/thumbnails.php
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/files.php
+msgid "{{ models.length }} file"
+msgid_plural "{{ models.length }} files"
+msgstr[0] "{{ models.length }} file"
+msgstr[1] "{{ models.length }} files"
 
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Galleries/Views/galleries/admin/index.php
 msgid "{{ models.length }} gallery"
@@ -215,8 +285,17 @@ msgid_plural "{{ models.length }} projects"
 msgstr[0] "{{ models.length }} project"
 msgstr[1] "{{ models.length }} projects"
 
+#: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Tags/Views/tags/admin/index.php
+msgid "{{ models.length }} tag"
+msgid_plural "{{ models.length }} tags"
+msgstr[0] "{{ models.length }} tag"
+msgstr[1] "{{ models.length }} tags"
+
 #: /Users/samuel/Sites/typicms/app/TypiCMS/Modules/Users/Views/users/admin/index.php
 msgid "{{ models.length }} user"
 msgid_plural "{{ models.length }} users"
 msgstr[0] "{{ models.length }} user"
 msgstr[1] "{{ models.length }} users"
+
+#~ msgid "Side"
+#~ msgstr "Side"
