@@ -43,7 +43,7 @@
                 <tr ng-repeat="model in displayedModels">
                     <td><typi-btn-delete ng-click="delete(model, model.filename)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
-                    <td>{{ model.created_at }}</td>
+                    <td>{{ model.created_at | dateFromMySQL:'short' }}</td>
                     <td>{{ model.type }}</td>
                     <td typi-thumb-list-item></td>
                     <td>{{ model.filename }}</td>
