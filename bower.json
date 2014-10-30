@@ -3,7 +3,7 @@
   "dependencies": {
     "jquery": "~1.*",
     "alertify.js": "~0.3.*",
-    "bootstrap": "~3.2.*",
+    "bootstrap": "~3.3.*",
     "dropzone": "~3.*",
     "fancybox": "~2.1.*",
     "font-awesome": "~4.*",

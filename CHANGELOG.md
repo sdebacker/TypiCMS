@@ -3,10 +3,13 @@ All notable changes to TypiCMS will be documented in this file.
 
 ## 1.5.7 - 2014
 
+### Added
+- Twitter Bootstrap 3.3.
+
 ### Changed
 - flexslider replaced by swiper
-- pages : parent column changed to page_id
-- menulinks : parent column changed to menulink_id
+- pages : parent column changed to parent_id
+- menulinks : parent column changed to parent_id
 
 ### Fixed
 - Dryier template code for galleries
