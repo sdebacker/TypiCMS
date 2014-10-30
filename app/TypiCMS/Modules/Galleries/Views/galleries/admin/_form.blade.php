@@ -75,7 +75,7 @@
     <div class="tab-pane fade in @if (input::get('tab') == 'tab-files')active @endif" id="tab-files">
 
         @if ($model->id)
-            @include('files.admin.index')
+            @include('galleries.admin.files')
         @else
             <p class="alert alert-info">@lang('galleries::global.Save your gallery, then add files.')</p>
         @endif
