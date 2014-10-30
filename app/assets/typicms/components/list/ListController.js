@@ -97,7 +97,7 @@
             };
 
             /**
-             * Delete an item
+             * Delete an item from a non-nested list
              */
             $scope.delete = function (model, title) {
                 if (!title) {
@@ -111,6 +111,21 @@
                     if (index !== -1) {
                         $scope.models.splice(index, 1);
                     }
+                });
+            };
+
+            /**
+             * Delete an item from a nested list
+             */
+            $scope.deleteFromNested = function (scope, title) {
+                if (!title) {
+                    title = scope.model.title;
+                }
+                if (!window.confirm('Supprimer « ' + title + ' » ?')) {
+                    return false;
+                }
+                $api.delete({'id': scope.model.id}, function () {
+                    scope.remove();
                 });
             };
 
