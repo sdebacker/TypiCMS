@@ -121,6 +121,10 @@
                 if (!title) {
                     title = scope.model.title;
                 }
+                if (scope.hasChild()) {
+                    alertify.error('Cannot delete item because it has children.');
+                    return false;
+                }
                 if (!window.confirm('Supprimer « ' + title + ' » ?')) {
                     return false;
                 }
