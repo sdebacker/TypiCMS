@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col-md-6 form-group">
                 {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
+                {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('class' => 'form-control')) }}
             </div>
             <div class="col-md-6 form-group @if($errors->has($lang.'.slug'))has-error @endif">
                 {{ Form::label($lang.'[slug]', trans('validation.attributes.slug'), array('class' => 'control-label')) }}

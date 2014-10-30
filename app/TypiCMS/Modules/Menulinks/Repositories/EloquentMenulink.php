@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Menulinks\Repositories;
 
 use DB;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -14,15 +15,16 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
     }
 
     /**
-     * Get all models for listing on admin side
+     * Get a menu’s items and children
      *
-     * @param  boolean  $all Show published or all
-     * @return stdClass Object with $items
+     * @param  integer  $id
+     * @param  boolean  $all published or all
+     * @return Collection
      */
-    public function getAllFromMenu($all = false, $menuId = null)
+    public function getAllFromMenu($id = null, $all = false)
     {
         $query = $this->model->with('translations')
-            ->orderBy('position', 'asc')
+            ->order()
             ->where('menu_id', $menuId);
 
         // All posts or only published
@@ -36,6 +38,21 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
     }
 
     /**
+     * Get sort data
+     * 
+     * @param  integer $position
+     * @param  array   $item
+     * @return array
+     */
+    protected function getSortData($position, $item)
+    {
+        return [
+            'position' => $position,
+            'parent_id' => $item['parent_id']
+        ];
+    }
+
+    /**
      * Get Items to build routes
      *
      * @return Array
@@ -43,7 +60,7 @@ class EloquentMenulink extends RepositoriesAbstract implements MenulinkInterface
     public function getForRoutes()
     {
         $menulinks = DB::table('menulinks')
-            ->select('menulinks.id', 'menulink_id', 'uri', 'locale', 'module_name')
+            ->select('menulinks.id', 'menulinks.parent_id', 'uri', 'locale', 'module_name')
             ->join('menulink_translations', 'menulinks.id', '=', 'menulink_translations.menulink_id')
             ->where('uri', '!=', '')
             ->where('module_name', '!=', '')

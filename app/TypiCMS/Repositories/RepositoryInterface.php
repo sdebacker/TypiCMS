@@ -69,12 +69,26 @@ interface RepositoryInterface
     public function getAllNested(array $with = array(), $all = false);
 
     /**
-     * Get all models with categories
+     * Get all models by key/value
      *
-     * @param  boolean   $all Show published or all
+     * @param  string     $key
+     * @param  string     $value
+     * @param  array      $with
+     * @param  boolean    $all
      * @return Collection
      */
     public function getAllBy($key, $value, array $with = array(), $all = false);
+
+    /**
+     * Get all models by key/value and nest collection
+     *
+     * @param  string     $key
+     * @param  string     $value
+     * @param  array      $with
+     * @param  boolean    $all
+     * @return Collection
+     */
+    public function getAllByNested($key, $value, array $with = array(), $all = false);
 
     /**
      * Get latest models

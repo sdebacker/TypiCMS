@@ -16,12 +16,7 @@ class PagesControllerTest extends TestCase
 
     public function testAdminIndex()
     {
-        // Page::shouldReceive('getAll')->once();
-
-        $view = 'pages.admin.index';
-        $this->registerNestedView($view);
         $this->get('admin/pages');
-        $this->assertNestedViewHas($view, 'models');
     }
 
     public function testStoreFails()

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Pages\Models\Page;
+use TypiCMS\Modules\Pages\Models\PageTranslation;
 
 // Repo
 use TypiCMS\Modules\Pages\Repositories\EloquentPage;
@@ -23,6 +24,12 @@ use TypiCMS\Modules\Pages\Services\Form\PageFormLaravelValidator;
 
 // Observers
 use TypiCMS\Observers\FileObserver;
+use TypiCMS\Modules\Pages\Observers\HomePageObserver;
+use TypiCMS\Modules\Pages\Observers\UriObserver;
+use TypiCMS\Modules\Pages\Observers\SortObserver;
+
+// Events
+use TypiCMS\Modules\Pages\Events\ResetChildren;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -39,6 +46,9 @@ class ModuleProvider extends ServiceProvider
 
         // Observers
         Page::observe(new FileObserver);
+        Page::observe(new HomePageObserver);
+        Page::observe(new SortObserver);
+        PageTranslation::observe(new UriObserver);
     }
 
     public function register()
@@ -50,6 +60,18 @@ class ModuleProvider extends ServiceProvider
          * Sidebar view composer
          */
         $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Pages\Composers\SideBarViewComposer');
+
+        /**
+         * Events
+         */
+        $app->events->subscribe(new ResetChildren);
+
+        /**
+         * Store all uris
+         */
+        $this->app->singleton('TypiCMS.pages.uris', function (Application $app) {
+            return $app->make('TypiCMS\Modules\Pages\Repositories\PageInterface')->getAllUris();
+        });
 
         $app->bind('TypiCMS\Modules\Pages\Repositories\PageInterface', function (Application $app) {
             $repository = new EloquentPage(new Page);

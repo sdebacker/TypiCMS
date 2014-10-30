@@ -23,7 +23,7 @@ class CreatePagesTable extends Migration
 
             $table->string('image')->nullable();
             $table->integer('position')->unsigned()->default(0);
-            $table->integer('parent')->unsigned()->default(0);
+            $table->integer('parent_id')->unsigned()->nullable()->default(null);
 
             $table->tinyInteger('is_home')->default(0);
 
@@ -34,6 +34,7 @@ class CreatePagesTable extends Migration
 
             $table->timestamps();
 
+            $table->foreign('parent_id')->references('id')->on('pages')->onDelete('cascade');
         });
 
         Schema::create('page_translations', function (Blueprint $table) {

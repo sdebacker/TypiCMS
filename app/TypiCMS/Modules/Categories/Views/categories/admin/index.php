@@ -1,34 +1,38 @@
-@section('js')
-    {{ HTML::script(asset('js/admin/list.js')) }}
-@stop
+<div ng-app="typicms" ng-cloak ng-controller="ListController">
 
-@section('h1')
-    <span id="nb_elements">{{ $models->count() }}</span> @choice('categories::global.categories', $models->count())
-@stop
+    <h1>
+        <a href="{{ url }}/create" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only" translate>New</span></a>
+        <span translate translate-n="models.length" translate-plural="{{ models.length }} categories">{{ models.length }} category</span>
+    </h1>
 
-@section('titleLeftButton')
-    <a href="{{ route('admin.categories.create') }}" class=""><span class="fa fa-plus-circle"></span><span class="sr-only">{{ ucfirst(trans('categories::global.New')) }}</span></a>
-@stop
+    <div class="btn-toolbar" role="toolbar" ng-include="'/views/partials/btnLocales.html'"></div>
 
-@section('main')
+    <div class="table-responsive">
 
-    <div class="list-form" lang="{{ Config::get('app.locale') }}">
+        <table st-table="displayedModels" st-safe-src="models" st-order st-filter class="table table-condensed table-main">
+            <thead>
+                <tr>
+                    <th class="delete"></th>
+                    <th class="edit"></th>
+                    <th st-sort="status" class="status st-sort" translate>Status</th>
+                    <th st-sort="position" st-sort-default class="position st-sort">Position</th>
+                    <th st-sort="title" class="title st-sort" translate>Title</th>
+                </tr>
+            </thead>
 
-        @include('admin._buttons-list')
-
-        <ul class="list-main sortable">
-        @foreach ($models as $model)
-            <li id="item_{{ $model->id }}">
-                <div>
-                    {{ $model->present()->checkbox }}
-                    {{ $model->present()->edit }}
-                    {{ $model->present()->status }}
-                    {{ $model->title }}
-                </div>
-            </li>
-        @endforeach
-        </ul>
+            <tbody>
+                <tr ng-repeat="model in displayedModels">
+                    <td><typi-btn-delete ng-click="delete(model)"></typi-btn-delete></td>
+                    <td typi-btn-edit></td>
+                    <td typi-btn-status></td>
+                    <td>
+                        <input class="form-control input-sm" min="1" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="changePosition(model)">
+                    </td>
+                    <td>{{ model.title }}</td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
 
-@stop
+</div>

@@ -77,12 +77,16 @@ abstract class BaseAdminController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Sort list.
      *
      * @return Response
      */
     public function sort()
     {
         $this->repository->sort(Input::all());
+        return Response::json([
+            'error'   => false,
+            'message' => trans('global.Items sorted')
+        ], 200);
     }
 }

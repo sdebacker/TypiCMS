@@ -1,18 +1,16 @@
 <?php
 namespace TypiCMS\Modules\Pages\Repositories;
 
-use DB;
-use Input;
 use Config;
-use Illuminate\Database\Eloquent\Model;
+use DB;
+use Event;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Input;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentPage extends RepositoriesAbstract implements PageInterface
 {
-
-    protected $urisAndSlugs = array();
-    protected $flatUris = array();
 
     public function __construct(Model $model)
     {
@@ -23,50 +21,23 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     /**
      * Update an existing model
      *
-     * @param array  Data to update a model
+     * @param array  Data needed for model update
      * @return boolean
      */
     public function update(array $data)
     {
         $model = $this->model->find($data['id']);
+
         $model->fill($data);
 
         $this->syncRelation($model, $data, 'galleries');
 
-        $model->save();
-
-        $this->urisAndSlugs = $this->getAllUris();
-        $this->flatUris = $this->flatUris();
-
-        // update URI in all pages
-        $pages = $this->model->order()->get();
-        foreach ($pages as $key => $page) {
-            $this->updateUris($page->id, $page->parent);
+        if ($model->save()) {
+            Event::fire('page.resetChildrenUri', [$model]);
+            return true;
         }
 
-        return true;
-
-    }
-
-    /**
-     * Get uris and slugs from all pages
-     *
-     * @return array
-     */
-    public function getAllUris()
-    {
-        // Build uris array of all pages (needed for uris updating after sorting)
-        $pages = DB::table('page_translations')
-                   ->select('page_id', 'locale', 'uri', 'slug')
-                   ->get();
-        $urisAndSlugs = array();
-        foreach ($pages as $page) {
-            $urisAndSlugs[$page->page_id][$page->locale] = array(
-                'uri' => $page->uri,
-                'slug' => $page->slug
-            );
-        }
-        return $urisAndSlugs;
+        return false;
     }
 
     /**
@@ -121,11 +92,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
         $query->order();
 
-        $models = $query->get();
-
-        $models->nest();
-
-        return $models;
+        return $query->get();
     }
 
     /**
@@ -136,7 +103,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     public function getForRoutes()
     {
         return DB::table('pages')
-            ->select('pages.id', 'page_id', 'uri', 'locale')
+            ->select('pages.id', 'parent_id', 'uri', 'locale')
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
             ->where('uri', '!=', '')
             ->where('is_home', '!=', 1)
@@ -146,118 +113,39 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     }
 
     /**
-     * Sort models
-     *
-     * @param array  Data to update Pages
-     * @return boolean
-     */
-    public function sort(array $data)
-    {
-
-        $position = 0;
-
-        $this->urisAndSlugs = $this->getAllUris();
-        $this->flatUris = $this->flatUris();
-
-        foreach ($data['item'] as $id => $parent) {
-
-            $position ++;
-
-            $parent = $parent ? : 0 ;
-
-            DB::table('pages')
-              ->where('id', $id)
-              ->update(array('position' => $position, 'parent' => $parent));
-
-            $this->updateUris($id, $parent);
-
-        }
-
-        return true;
-
-    }
-
-    /**
-     * Update pages uris
-     *
-     * @param  int $id
-     * @param  int $parent
-     * @return void
-     */
-    public function updateUris($id, $parent = null)
-    {
-
-        // transform URI
-        foreach (Config::get('app.locales') as $locale) {
-
-            if (isset($this->urisAndSlugs[$id][$locale]['slug'])) {
-
-                if ($this->urisAndSlugs[$id][$locale]['slug']) {
-
-                    if (isset($this->urisAndSlugs[$parent][$locale]['uri'])) {
-                        $uri = $this->urisAndSlugs[$parent][$locale]['uri'] .
-                            '/' .
-                            $this->urisAndSlugs[$id][$locale]['slug'];
-                    } else {
-                        $uri = $this->urisAndSlugs[$id][$locale]['slug'];
-                        if (Config::get('app.locale_in_url')) {
-                            $uri = $locale . '/' . $uri;
-                        }
-                    }
-
-                    // Check uri is unique
-                    $tmpUri = $uri;
-                    $i = 0;
-                    while ($this->uriExists($tmpUri, $id)) {
-                        $i ++;
-                        // increment uri if exists
-                        $tmpUri = $uri . '-' . $i;
-                    }
-                    $uri = $tmpUri;
-                } else {
-                    $uri = null;
-                }
-
-                // update uri if needed
-                if ($uri != $this->urisAndSlugs[$id][$locale]['uri']) {
-                    // update uri in DB
-                    DB::table('page_translations')
-                      ->where('page_id', '=', $id)
-                      ->where('locale', '=', $locale)
-                      ->update(array('uri' => $uri));
-                    // update uri in array
-                    $this->urisAndSlugs[$id][$locale]['uri'] = $uri;
-                }
-
-            }
-
-        }
-    }
-
-    /**
-     * Get flat array of all uris
+     * Get all uris
      *
      * @return array
      */
-    public function flatUris()
+    public function getAllUris()
     {
-        return DB::table('page_translations')->lists('page_id', 'uri');
+        return DB::table('page_translations')->lists('uri', 'id');
     }
 
     /**
-     * Check if uri exists in flatUris
-     *
-     * @param  string $uri
-     * @param  int    $id
-     * @return bool
+     * Get sort data
+     * 
+     * @param  integer $position
+     * @param  array   $item
+     * @return array
      */
-    public function uriExists($uri, $id)
+    protected function getSortData($position, $item)
     {
-        if (array_key_exists($uri, $this->flatUris)) {
-            if ($id != $this->flatUris[$uri]) {
-                return true;
-            }
-        }
-        return false;
+        return [
+            'position' => $position,
+            'parent_id' => $item['parent_id']
+        ];
+    }
+
+    /**
+     * Fire event to reset children’s uri
+     * Only applicable on nestable collections
+     * 
+     * @param  Page    $page
+     * @return void|null
+     */
+    protected function fireResetChildrenUriEvent($page)
+    {
+        Event::fire('page.resetChildrenUri', [$page]);
     }
 }

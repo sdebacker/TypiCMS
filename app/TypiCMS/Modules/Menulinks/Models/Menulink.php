@@ -2,8 +2,9 @@
 namespace TypiCMS\Modules\Menulinks\Models;
 
 use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
-use TypiCMS\NestedCollection;
+use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
 
 class Menulink extends Base
@@ -17,7 +18,7 @@ class Menulink extends Base
     protected $fillable = array(
         'menu_id',
         'page_id',
-        'parent',
+        'parent_id',
         'position',
         'target',
         'module_name',
@@ -59,11 +60,12 @@ class Menulink extends Base
     public $direction = 'asc';
 
     /**
-     * For nested collection
-     *
-     * @var array
+     * A menulink belongs to a menu
      */
-    public $children = array();
+    public function menu()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Menus\Models\Menu');
+    }
 
     /**
      * A menulink can belongs to a page
@@ -74,20 +76,28 @@ class Menulink extends Base
     }
 
     /**
-     * A menulink belongs to a menu
+     * A menulink can have children
      */
-    public function menu()
+    public function children()
     {
-        return $this->belongsTo('TypiCMS\Modules\Menus\Models\Menu');
+        return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink', 'parent_id');
     }
 
     /**
-     * Custom collection
+     * A menulink can have a parent
+     */
+    public function parent()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Menulinks\Models\Menulink', 'parent_id');
+    }
+
+    /**
+     * Menulinks are nestable
      *
-     * @return NestedCollection object
+     * @return NestableCollection object
      */
     public function newCollection(array $models = array())
     {
-        return new NestedCollection($models);
+        return new NestableCollection($models, 'parent_id');
     }
 }

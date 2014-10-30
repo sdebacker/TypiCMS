@@ -16,6 +16,17 @@ class MenulinkForm extends AbstractForm
     }
 
     /**
+     * Create a new item
+     *
+     * @return boolean
+     */
+    public function save(array $input)
+    {
+        $input['parent_id'] = null;
+        return parent::save($input);
+    }
+
+    /**
      * Update an existing item
      *
      * @return boolean
@@ -24,6 +35,7 @@ class MenulinkForm extends AbstractForm
     {
         // add checkboxes data
         $input['has_categories'] = Input::get('has_categories', 0);
+        $input['parent_id']      = Input::get('parent_id') ? : null ;
         return parent::update($input);
     }
 }

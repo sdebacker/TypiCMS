@@ -37,55 +37,6 @@ abstract class Presenter
     }
 
     /**
-    * Online / Offline switches
-    *
-    * @return string
-    */
-    public function status()
-    {
-        $class  = 'off';
-        $status = 'Offline';
-        if ($this->entity->status) {
-            $class  = 'on';
-            $status = 'Online';
-        }
-
-        return '<span class="switch fa fa-fw fa-toggle-' . $class . '"><i class="sr-only">' . trans('global.' . $status) . '</i></span>';
-    }
-
-    /**
-    * Checkboxes
-    *
-    * @return string
-    */
-    public function checkbox()
-    {
-        return '<input type="checkbox" value="' . $this->entity->id . '">';
-    }
-
-    /**
-    * Edit button
-    *
-    * @return string
-    */
-    public function edit()
-    {
-        $url = route('admin.' . $this->entity->route . '.edit', $this->entity->id);
-        return '<a class="btn btn-default btn-xs" href="' . $url .'">' . trans('global.Edit') . '</a>';
-    }
-
-    /**
-    * Edit button
-    *
-    * @return string
-    */
-    public function titleAnchor()
-    {
-        $url = route('admin.' . $this->entity->route . '.edit', $this->entity->id);
-        return '<a href="' . $url . '">' . $this->entity->title . '</a>';
-    }
-
-    /**
      * Return resource's date or curent date if empty
      *
      * @param  string $fieldname

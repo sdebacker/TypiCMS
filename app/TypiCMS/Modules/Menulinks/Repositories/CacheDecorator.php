@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Menulinks\Repositories;
 
 use App;
+use Illuminate\Database\Eloquent\Collection;
 use TypiCMS\Repositories\CacheAbstractDecorator;
 use TypiCMS\Services\Cache\CacheInterface;
 
@@ -15,20 +16,21 @@ class CacheDecorator extends CacheAbstractDecorator implements MenulinkInterface
     }
 
     /**
-     * Get all models for listing on admin side
+     * Get a menu’s items and children
      *
-     * @param  boolean  $all Show published or all
-     * @return stdClass Object with $items
+     * @param  integer  $id
+     * @param  boolean  $all published or all
+     * @return Collection
      */
-    public function getAllFromMenu($all = false, $menuId = null)
+    public function getAllFromMenu($id = null, $all = false)
     {
-        $cacheKey = md5(App::getLocale().'all'.$all.$menuId);
+        $cacheKey = md5(App::getLocale().'all'.$all.$id);
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
         }
 
-        $models = $this->repo->getAllFromMenu($all, $menuId);
+        $models = $this->repo->getAllFromMenu($id, $all);
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $models);

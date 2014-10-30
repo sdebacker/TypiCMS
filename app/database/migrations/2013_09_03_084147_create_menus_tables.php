@@ -45,7 +45,7 @@ class CreateMenusTables extends Migration
             $table->increments('id')->unsigned();
             $table->integer('menu_id')->unsigned();
             $table->integer('page_id')->unsigned()->nullable();
-            $table->integer('parent')->unsigned()->default(0);
+            $table->integer('parent_id')->unsigned()->nullable()->default(null);
             $table->integer('position')->unsigned()->default(0);
             $table->string('target', 10)->nullable();
             $table->string('module_name', 50)->nullable();
@@ -56,6 +56,7 @@ class CreateMenusTables extends Migration
             $table->timestamps();
 
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
+            $table->foreign('parent_id')->references('id')->on('menulinks')->onDelete('cascade');
         });
         Schema::create('menulink_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';

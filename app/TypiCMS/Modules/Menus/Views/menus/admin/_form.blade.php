@@ -1,31 +1,15 @@
-@section('js')
-    {{ HTML::script(asset('js/admin/list.js')) }}
-@stop
-
 @include('admin._buttons-form')
 
 <div class="row">
 
+    @if ($model->id)
     <div class="col-sm-6">
-
-        <div class="list-form" lang="{{ Config::get('app.locale') }}">
-
-            @include('admin._buttons-list')
-
-            <a href="{{ route('admin.menus.menulinks.create', $model->id) }}">
-                <i class="fa fa-fw fa-plus-circle"></i>Add menu link
-            </a>
-
-            <ul class="list-main nested sortable" data-url="/admin/menus/{{ $model->id }}/menulinks">
-            @foreach ($model->menulinks->nest() as $menulink)
-                @include('menulinks.admin._listItem', array('model' => $menulink))
-            @endforeach
-            </ul>
-
-        </div>
-
+        <a href="{{ route('admin.menus.menulinks.create', $model->id) }}">
+            <i class="fa fa-fw fa-plus-circle"></i>Add menu link
+        </a>
+        @include('menus.admin.menulinks')
     </div>
-
+    @endif
 
     <div class="col-sm-6">
 
@@ -52,7 +36,7 @@
             <div class="tab-pane fade @if ($locale == $lang)in active @endif" id="{{ $lang }}">
                 <div class="form-group">
                     {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
+                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('class' => 'form-control')) }}
                 </div>
                 <div class="checkbox">
                     <label>

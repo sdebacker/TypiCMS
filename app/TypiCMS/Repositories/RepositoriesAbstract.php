@@ -4,6 +4,7 @@ namespace TypiCMS\Repositories;
 use App;
 use Config;
 use DB;
+use Event;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -157,9 +158,12 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     }
 
     /**
-     * Get all models with categories
+     * Get all models by key/value
      *
-     * @param  boolean    $all Show published or all
+     * @param  string     $key
+     * @param  string     $value
+     * @param  array      $with
+     * @param  boolean    $all
      * @return Collection
      */
     public function getAllBy($key, $value, array $with = array(), $all = false)
@@ -180,6 +184,21 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         $models = $query->get();
 
         return $models;
+    }
+
+    /**
+     * Get all models by key/value and nest collection
+     *
+     * @param  string     $key
+     * @param  string     $value
+     * @param  array      $with
+     * @param  boolean    $all
+     * @return Collection
+     */
+    public function getAllByNested($key, $value, array $with = array(), $all = false)
+    {
+        // Get
+        return $this->getAllBy($key, $value, $with, $all)->nest();
     }
 
     /**
@@ -243,7 +262,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Create a new model
      *
-     * @param array  Data needed for model creation
+     * @param  array $data
      * @return mixed Model or false on error during save
      */
     public function create(array $data)
@@ -262,7 +281,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Update an existing model
      *
-     * @param array  Data needed for model update
+     * @param  array  $data
      * @return boolean
      */
     public function update(array $data)
@@ -284,43 +303,51 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     /**
      * Sort models
      *
-     * @param array  Data to update Pages
-     * @return boolean
+     * @param  array $data updated data
+     * @return void
      */
     public function sort(array $data)
     {
+        foreach ($data['item'] as $position => $item) {
 
-        if (isset($data['nested']) && $data['nested']) {
+            $page = $this->model->find($item['id']);
 
-            $position = 0;
+            $sortData = $this->getSortData($position, $item);
+            
+            $page->update($sortData);
 
-            foreach ($data['item'] as $id => $parent) {
-
-                $position ++;
-
-                $parent = $parent ? : 0 ;
-
-                DB::table($this->model->getTable())
-                  ->where('id', $id)
-                  ->update(array('position' => $position, 'parent' => $parent));
-
+            if ($data['moved'] == $item['id']) {
+                $this->fireResetChildrenUriEvent($page);
             }
-
-        } else {
-
-            foreach ($data['item'] as $key => $id) {
-
-                $position = $key + 1;
-
-                $this->model->find($id)
-                    ->update(array('position' => $position));
-
-            }
-
+            
         }
+        
+    }
 
-        return true;
+    /**
+     * Get sort data
+     * 
+     * @param  integer $position
+     * @param  array   $item
+     * @return array
+     */
+    protected function getSortData($position, $item)
+    {
+        return [
+            'position' => $position
+        ];
+    }
 
+    /**
+     * Fire event to reset children’s uri
+     * Only applicable on nestable collections
+     * 
+     * @param  Page    $page
+     * @return void|null
+     */
+    protected function fireResetChildrenUriEvent($page)
+    {
+        return null;
     }
 
     /**
@@ -348,7 +375,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function getPagesForSelect()
     {
-        $pages = Page::select('pages.id', 'title', 'locale', 'parent')
+        $pages = Page::select('pages.id', 'title', 'locale', 'parent_id')
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
             ->where('locale', Config::get('typicms.adminLocale'))
             ->order()

@@ -179,7 +179,7 @@ class TypiCMS
     }
 
     /**
-     * Indent values of an array with spaces.
+     * Indent values of an array of pages with spaces.
      *
      * @return array
      */
@@ -189,13 +189,13 @@ class TypiCMS
         $items = [];
         foreach ($array as $item) {
             $indent = '';
-            if ($item->parent) {
+            if ($item->parent_id) {
                 $indent = '&nbsp;&nbsp;&nbsp;&nbsp;';
-                if ($parent && $parent < $item->parent) {
+                if ($parent && $parent < $item->parent_id) {
                     $indent .= $indent;
                 }
             }
-            $parent = $item->parent;
+            $parent = $item->parent_id;
             $items[$indent . $item->title] = $item->id;
         }
         return $items;

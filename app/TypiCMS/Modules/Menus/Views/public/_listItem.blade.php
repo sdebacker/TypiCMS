@@ -13,18 +13,18 @@ Code for manually display a menu in a blade template :
 -->
 
 <li id="menuitem_{{ $menulink->id }}" class="{{ $menulink->class }}" role="menuitem">
-    <a href="{{ $menulink->uri }}" @if($menulink->children) class="dropdown-toggle" data-toggle="dropdown" @endif>
+    <a href="{{ $menulink->uri }}" @if($menulink->models) class="dropdown-toggle" data-toggle="dropdown" @endif>
         @if ($menulink->icon_class)
             <span class="{{ $menulink->icon_class }}"></span>
         @endif
         {{ $menulink->title }}
-        @if ($menulink->children)
+        @if ($menulink->models)
             <span class="caret"></span>
         @endif
     </a>
-    @if ($menulink->children)
+    @if ($menulink->models)
         <ul class="dropdown-menu">
-            @foreach ($menulink->children as $childMenulink)
+            @foreach ($menulink->models as $childMenulink)
                 @include('menus.public._listItem', array('menulink' => $childMenulink))
             @endforeach
         </ul>

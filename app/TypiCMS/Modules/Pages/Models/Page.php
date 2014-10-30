@@ -4,8 +4,9 @@ namespace TypiCMS\Modules\Pages\Models;
 use App;
 use Config;
 use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
-use TypiCMS\NestedCollection;
+use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
 
 class Page extends Base
@@ -20,7 +21,7 @@ class Page extends Base
         'meta_robots_no_index',
         'meta_robots_no_follow',
         'position',
-        'parent',
+        'parent_id',
         'is_home',
         'css',
         'js',
@@ -53,6 +54,8 @@ class Page extends Base
         'meta_description',
     );
 
+    protected $appends = ['status', 'title', 'thumb', 'uri'];
+
     /**
      * List of fields that are file.
      *
@@ -74,13 +77,6 @@ class Page extends Base
      */
     public $order = 'position';
     public $direction = 'asc';
-
-    /**
-     * For nested collection
-     *
-     * @var array
-     */
-    public $children = array();
 
     /**
      * Get public uri
@@ -107,7 +103,17 @@ class Page extends Base
     }
 
     /**
-     * Relations
+     * Get uri attribute from translation table
+     *
+     * @return string uri
+     */
+    public function getUriAttribute($value)
+    {
+        return $this->uri;
+    }
+
+    /**
+     * A page can have menulinks
      */
     public function menulinks()
     {
@@ -115,45 +121,28 @@ class Page extends Base
     }
 
     /**
-     * Scope from
+     * A page can have children
      */
-    public function scopeFrom($query, $relid)
+    public function children()
     {
-        return $query;
+        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page', 'parent_id');
     }
 
     /**
-     * Custom collection
+     * A page can have a parent
+     */
+    public function parent()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page', 'parent_id');
+    }
+
+    /**
+     * Pages are nestable
      *
-     * @return NestedCollection object
+     * @return NestableCollection object
      */
     public function newCollection(array $models = array())
     {
-        return new NestedCollection($models);
-    }
-
-    /**
-     * Observers
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function (Page $model) {
-            // set is_home = 0 on previous homepage
-            if ($model->is_home) {
-                static::where('is_home', 1)
-                    ->update(array('is_home' => 0));
-            }
-        });
-
-        static::updating(function (Page $model) {
-            // set is_home = 0 on previous homepage
-            if ($model->is_home) {
-                static::where('is_home', 1)
-                    ->where('id', '!=', $model->id)
-                    ->update(array('is_home' => 0));
-            }
-        });
+        return new NestableCollection($models, 'parent_id');
     }
 }

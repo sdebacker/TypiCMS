@@ -17,6 +17,17 @@ class PageForm extends AbstractForm
     }
 
     /**
+     * Create a new item
+     *
+     * @return boolean
+     */
+    public function save(array $input)
+    {
+        $input['parent_id'] = null;
+        return parent::save($input);
+    }
+
+    /**
      * Update an existing item
      *
      * @return boolean
@@ -30,6 +41,7 @@ class PageForm extends AbstractForm
         $input['rss_enabled']      = Input::get('rss_enabled', 0);
         $input['comments_enabled'] = Input::get('comments_enabled', 0);
         $input['is_home']          = Input::get('is_home', 0);
+        $input['parent_id']        = Input::get('parent_id') ? : null ;
 
         $inputDot = array_dot($input);
 

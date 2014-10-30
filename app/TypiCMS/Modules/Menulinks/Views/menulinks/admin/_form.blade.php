@@ -17,6 +17,9 @@
 <div class="row">
 
     {{ Form::hidden('id'); }}
+    {{ Form::hidden('menu_id', $menu->id) }}
+    {{ Form::hidden('position', $model->position ? : 0) }}
+    {{ Form::hidden('parent_id') }}
 
     <div class="col-sm-6">
 
@@ -29,7 +32,7 @@
             <div class="tab-pane fade @if ($locale == $lang)in active @endif" id="{{ $lang }}">
                 <div class="form-group">
                     {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
-                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('autofocus' => 'autofocus', 'class' => 'form-control')) }}
+                    {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
                     {{ Form::label($lang.'[uri]', trans('validation.attributes.uri')) }}
@@ -92,8 +95,3 @@
     </div>
 
 </div>
-
-{{ Form::hidden('menu_id', $menu->id); }}
-{{ Form::hidden('position', $model->position ?: 0); }}
-{{ Form::hidden('parent', $model->parent ?: 0); }}
-{{ Form::hidden('id'); }}

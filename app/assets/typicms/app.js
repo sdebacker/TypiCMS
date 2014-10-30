@@ -1,8 +1,13 @@
 (function (angular) {
 
+    'use strict';
+
+    /*jslint browser: true*/
+    /*globals $, jQuery, angular*/
+
     var lang = $('html').attr('lang');
 
-    angular.module('typicms', ['ngResource', 'smart-table', 'gettext'], function($locationProvider){
+    angular.module('typicms', ['ngResource', 'smart-table', 'gettext', 'ui.tree'], function ($locationProvider) {
         // $locationProvider.html5Mode(true);
     });
 
@@ -12,18 +17,21 @@
         // gettextCatalog.debug = true;
     });
 
-    angular.module('typicms').factory('$api', ['$location', '$resource', function($location, $resource) {
+    angular.module('typicms').factory('$api', ['$location', '$resource', function ($location, $resource) {
         // var moduleName = $location.path().split('/').pop(); // ok when in HTML5 route mode
         var url = $location.absUrl().split('?')[0],
             moduleName = url.split('/')[4];
-        if (moduleName == 'galleries' && url.split('/')[6] == 'edit') {
+        if (moduleName === 'galleries' && url.split('/')[6] === 'edit') {
             moduleName = 'files';
         }
+        if (moduleName === 'menus' && url.split('/')[6] === 'edit') {
+            moduleName = 'menulinks';
+        }
+
         return $resource('/api/v1/' + moduleName + '/:id', null,
             {
-                'update': { method:'PUT' }
+                'update': { method: 'PUT' }
             });
-        }]
-    );
+    }]);
 
 })(angular);

@@ -5,18 +5,19 @@
     "alertify.js": "~0.3.*",
     "bootstrap": "~3.2.*",
     "dropzone": "~3.*",
-    "jquery-ui": "~1.10.*",
     "fancybox": "~2.1.*",
     "font-awesome": "~4.*",
     "selectize": "~0.*",
     "pickadate": "~3.5.2",
     "fastclick": "~1.0.2",
     "jsurl": "*",
+    "swiper": "~2.7.0",
     "angular": "~1.2.25",
     "angular-resource": "~1.2",
     "angular-smart-table": "~1.3.0",
     "angular-i18n": "~1.2.25",
     "angular-gettext": "~1.1.2",
+    "angular-ui-tree": "~2.1.5",
     "swiper": "~2.7.0"
   },
   "overrides": {
@@ -34,15 +35,6 @@
         "js/transition.js"
       ]
     },
-    "jquery-ui": {
-      "main": [
-        "ui/jquery-ui.js",
-        "ui/jquery.ui.core.js",
-        "ui/jquery.ui.mouse.js",
-        "ui/jquery.ui.widget.js",
-        "ui/jquery.ui.sortable.js"
-      ]
-    },
     "pickadate": {
       "main": [
         "lib/picker.js",
@@ -51,6 +43,9 @@
       ]
     },
     "font-awesome": {
+      "ignore": true
+    },
+    "es5-shim": {
       "ignore": true
     },
     "angular-i18n": {

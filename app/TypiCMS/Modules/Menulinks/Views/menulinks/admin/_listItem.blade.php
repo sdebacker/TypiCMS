@@ -5,9 +5,9 @@
         {{ $model->present()->status }}
         {{ $model->title }}
     </div>
-    @if ($model->children)
+    @if ($model->models)
         <ul>
-            @foreach ($model->children as $submodel)
+            @foreach ($model->models as $submodel)
                 @include('menulinks.admin._listItem', array('model' => $submodel))
             @endforeach
         </ul>
