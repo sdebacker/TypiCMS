@@ -142,8 +142,8 @@ gulp.task('js-admin', function () {
         ]))
         .pipe(newer(destDir + destFile))
         .pipe(concat('components.js'))
-        // .pipe(ngAnnotate())
-        // .pipe(uglify())
+        .pipe(ngAnnotate())
+        .pipe(uglify())
         .pipe(rename(destFile))
         .pipe(gulp.dest(destDir))
         .pipe(notify('js-admin done'));

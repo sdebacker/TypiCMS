@@ -19,6 +19,9 @@
             if (moduleName === 'galleries' && lastSegment === 'edit') {
                 $scope.url = '/admin/files';
             }
+            if (moduleName === 'menus' && lastSegment === 'edit') {
+                $scope.url = url.slice(0, url.lastIndexOf('/')) + '/menulinks';
+            }
 
 
             $scope.TypiCMS = TypiCMS;
