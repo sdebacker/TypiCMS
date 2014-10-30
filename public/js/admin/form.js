@@ -125,7 +125,6 @@ function initTinymce(selector) {
          * Selectize for galleries
          */
         $('select#galleries').selectize({
-            plugins: ['drag_drop'],
             createOnBlur: true
         });
 
