@@ -12,7 +12,7 @@
 
 {{ Form::hidden('id') }}
 {{ Form::hidden('position', $model->position ? : 0) }}
-{{ Form::hidden('parent_id', $model->parent_id ? : 0) }}
+{{ Form::hidden('parent_id') }}
 
 <ul class="nav nav-tabs">
     <li class="active">

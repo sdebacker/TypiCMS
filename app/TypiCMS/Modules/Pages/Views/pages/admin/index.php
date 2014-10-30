@@ -2,7 +2,7 @@
 
     <h1>
         <a href="{{ url }}/create" class="btn-add"><i class="fa fa-plus-circle"></i><span class="sr-only" translate>New</span></a>
-        <span translate translate-n="models.length" translate-plural="{{ models.length }} pages">{{ models.length }} page</span>
+        <span translate>Pages</span>
     </h1>
 
     <div class="btn-toolbar" role="toolbar" ng-include="'/views/partials/btnLocales.html'"></div>

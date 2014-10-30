@@ -19,7 +19,7 @@
     {{ Form::hidden('id'); }}
     {{ Form::hidden('menu_id', $menu->id) }}
     {{ Form::hidden('position', $model->position ? : 0) }}
-    {{ Form::hidden('parent_id', $model->parent_id ? : 0) }}
+    {{ Form::hidden('parent_id') }}
 
     <div class="col-sm-6">
 
