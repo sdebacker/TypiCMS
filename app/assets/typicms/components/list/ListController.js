@@ -136,6 +136,7 @@
             $scope.treeOptions = {
                 dragThreshold: 0,
                 dropped: function (event) {
+
                     var model = event.source.nodeScope.model,
                         parentId = null,
                         data = {},
@@ -145,6 +146,11 @@
                     // if there is a parent
                     if (event.dest.nodesScope.$nodeScope) {
                         parentId = nodes.$nodeScope.model.id;
+                    }
+
+                    // do nothing when no move
+                    if (event.dest.index === event.source.index && model.parent_id === parentId) {
+                        return false;
                     }
 
                     data.moved = model.id;
