@@ -11,6 +11,7 @@ All notable changes to TypiCMS will be documented in this file.
 - Menulinks : parent column changed to parent_id
 
 ### Fixed
+- Selectize for Tags
 - Dryier template code for galleries
 
 ## 1.5.6 - 2014-10-16

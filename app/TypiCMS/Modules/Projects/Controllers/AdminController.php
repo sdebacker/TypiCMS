@@ -2,11 +2,13 @@
 namespace TypiCMS\Modules\Projects\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
+use JavaScript;
 use Response;
 use Session;
 use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Projects\Repositories\ProjectInterface;
 use TypiCMS\Modules\Projects\Services\Form\ProjectForm;
+use TypiCMS\Modules\Tags\Models\Tag;
 use View;
 
 class AdminController extends AdminSimpleController
@@ -40,6 +42,10 @@ class AdminController extends AdminSimpleController
      */
     public function edit(Model $model)
     {
+        JavaScript::put([
+            'tags' => Tag::lists('tag')
+        ]);
+
         $tags = implode(', ', $model->tags->lists('tag'));
         $this->layout->content = View::make('admin.edit')
             ->withTags($tags)

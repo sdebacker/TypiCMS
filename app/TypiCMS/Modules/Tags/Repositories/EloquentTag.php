@@ -66,11 +66,19 @@ class EloquentTag extends RepositoriesAbstract implements TagInterface
      */
     public function getAll(array $with = array(), $all = false)
     {
-        $query = $this->model;
-
-        $models = $query->lists('tag');
-
-        return $models;
+        $query = $this->model->select(
+            'id',
+            'tag',
+            DB::raw(
+                "(SELECT COUNT(*) FROM `" .
+                DB::getTablePrefix() .
+                "taggables` WHERE `tag_id` = `" .
+                DB::getTablePrefix() .
+                "tags`.`id`) AS 'uses'"
+            )
+        )
+        ->order();
+        return $query->get();
     }
 
     /**

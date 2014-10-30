@@ -21,6 +21,8 @@ class Tag extends Base
         'slug',
     );
 
+    protected $appends = [];
+
     /**
      * The default route for admin side.
      *
