@@ -137,7 +137,8 @@
                 dragThreshold: 0,
                 dropped: function (event) {
                     var model = event.source.nodeScope.model,
-                        parentId = 0,
+                        parentId = null,
+                        data = {},
                         nodes = event.dest.nodesScope,
                         currentList = nodes.$modelValue;
 
@@ -146,21 +147,20 @@
                         parentId = nodes.$nodeScope.model.id;
                     }
 
-                    var data = {};
-                    data['moved'] = model.id;
-                    data['item'] = [];
+                    data.moved = model.id;
+                    data.item = [];
                     model.position = event.dest.index + 1;
                     model.parent_id = parentId;
 
-                    angular.forEach(currentList, function(model, key) {
-                        data['item'].push({'id': model.id, 'parent_id': model.parent_id});
+                    angular.forEach(currentList, function (model) {
+                        data.item.push({'id': model.id, 'parent_id': model.parent_id});
                     });
 
                     $http.post('/admin/' + moduleName + '/sort', data).
-                        success(function(data, status, headers, config) {
+                        success(function (data) {
                             alertify.success(data.message);
                         }).
-                        error(function(data, status, headers, config) {
+                        error(function (data) {
                             alertify.error(data.error.message);
                         });
 
