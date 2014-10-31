@@ -1,5 +1,5 @@
 @section('js')
-    {{ HTML::script(asset('js/admin/list.js')) }}
+    {{ HTML::script(asset('js/admin/editable-translations-list.js')) }}
 @stop
 
 @section('main')
