@@ -12,7 +12,6 @@
     <div class="list-form" lang="{{ Config::get('app.locale') }}">
 
         @section('btn-locales') @stop
-        @include('admin._buttons-list')
 
         <div class="table-responsive">
 
@@ -21,7 +20,6 @@
                 <thead>
 
                     <tr>
-                        {{ Html::th('checkboxes', null, false, false) }}
                         {{ Html::th('key', 'asc') }}
                         @foreach (Config::get('app.locales') as $locale)
                             <th>@lang('global.languages.' . $locale)</th>
@@ -35,7 +33,6 @@
                     @foreach ($models as $item)
 
                     <tr id="item_{{ $item['id'] }}">
-                        <td><input type="checkbox" value="{{ $item['id'] }}"></td>
                         <td contenteditable data-name="key">{{ $item['key'] }}</td>
                         @foreach (Config::get('app.locales') as $locale)
                             <td contenteditable data-name="{{ $locale }}[translation]">{{ $item[$locale] or '' }}</td>

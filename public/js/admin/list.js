@@ -6,73 +6,6 @@ function translate(string) {
     return string;
 }
 
-function enableSortable() {
-    // Sorting avec imbrication
-    var sortableList = $('.sortable'),
-        maxLevels = 1,
-        isTree = false,
-        handle = 'div',
-        placeholder = 'placeholder',
-        toleranceElement = '> div',
-        items = 'li',
-        url = sortableList.data('url') ? sortableList.data('url') : document.URL.split('?')[0];
-
-    url += '/sort';
-
-    if (sortableList.hasClass('nested')) {
-        maxLevels = 3;
-        isTree = true;
-        sortableList.find('li > div').prepend('<span class="disclose"></span>');
-    }
-
-    if (sortableList.hasClass('sortable-thumbnails')) {
-        handle = 'img,div';
-        items = '.thumbnail';
-        placeholder = false;
-        toleranceElement = false;
-        url = '/admin/files/sort';
-    }
-
-    var sortableOptions = {
-        forcePlaceholderSize: true,
-        handle: handle,
-        cancel: 'input, .label, .attachments a, .mjs-nestedSortable-branch .disclose',
-        helper: 'clone',
-        // distance: 2,
-        items: items,
-        opacity: .6,
-        placeholder: placeholder,
-        revert: 250,
-        tabSize: 25,
-        tolerance: 'pointer',
-        toleranceElement: toleranceElement,
-        maxLevels: maxLevels,
-        listType: 'ul',
-        isTree: isTree,
-        expandOnHover: 700,
-        startCollapsed: false,
-        update: function(event, ui) {
-            var serializedDatas = sortableList.sortable('serialize').replace(/null/g, '0'),
-                elementId = ui.item.attr('id').split(/[_]+/).pop();
-            if (isTree) {
-                serializedDatas += '&nested=true&moved=' + elementId;
-            }
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: serializedDatas
-            }).fail(function () {
-                alertify.error(translate('An error occurred'));
-            });
-        }
-    };
-    if (isTree) {
-        sortableList.nestedSortable(sortableOptions);
-    } else {
-        sortableList.sortable(sortableOptions);
-    }
-}
-
 /**
  * Ajaxifier les listes (delete, online, offline)
  */
@@ -215,18 +148,7 @@ function initListForm() {
 
     $(function () {
 
-        enableSortable();
-        $('.list-main.nested').nestedCookie();
         initListForm();
-
-        $('.list-form').listEnhancer({
-            done: function(data) {
-                reloadPage();
-            },
-            error: function() {
-                reloadPage();
-            }
-        });
 
         // Save translations
         $('[contenteditable]').on('keyup', function (event) {
