@@ -11,7 +11,7 @@ class Partner extends Base
     use PresentableTrait;
     use Translatable;
 
-    protected $presenter = 'TypiCMS\Modules\Partners\Presenters\PartnerPresenter';
+    protected $presenter = 'TypiCMS\Modules\Partners\Presenters\ModulePresenter';
 
     protected $fillable = array(
         'image',
