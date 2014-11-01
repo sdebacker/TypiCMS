@@ -106,8 +106,8 @@ function initTinymce(selector) {
         /**
          * Selectize for tags
          */
-        var tags = TypiCMS.tags.map(function(x) { return { item: x }; });
         if ($('#tags').length) {
+            var tags = TypiCMS.tags.map(function(x) { return { item: x }; });
             $('#tags').selectize({
                 persist: false,
                 create: true,
