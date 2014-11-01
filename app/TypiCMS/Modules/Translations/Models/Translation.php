@@ -3,11 +3,15 @@ namespace TypiCMS\Modules\Translations\Models;
 
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
+use TypiCMS\Presenters\PresentableTrait;
 
 class Translation extends Base
 {
 
     use Translatable;
+    use PresentableTrait;
+
+    protected $presenter = 'TypiCMS\Modules\Translations\Presenters\ModulePresenter';
 
     protected $fillable = array(
         'group',
