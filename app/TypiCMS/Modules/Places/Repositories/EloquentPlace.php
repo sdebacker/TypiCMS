@@ -15,7 +15,6 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
 
     public function __construct(Model $model)
     {
-        parent::__construct();
         $this->model = $model;
     }
 

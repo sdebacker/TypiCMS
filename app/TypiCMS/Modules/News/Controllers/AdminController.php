@@ -1,9 +1,9 @@
 <?php
 namespace TypiCMS\Modules\News\Controllers;
 
+use TypiCMS\Controllers\AdminSimpleController;
 use TypiCMS\Modules\News\Repositories\NewsInterface;
 use TypiCMS\Modules\News\Services\Form\NewsForm;
-use TypiCMS\Controllers\AdminSimpleController;
 
 class AdminController extends AdminSimpleController
 {

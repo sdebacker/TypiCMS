@@ -13,7 +13,6 @@ class EloquentProject extends RepositoriesAbstract implements ProjectInterface
     // Class expects an Eloquent model and a TagInterface
     public function __construct(Model $model, TagInterface $tag)
     {
-        parent::__construct();
         $this->model = $model;
         $this->tag = $tag;
     }

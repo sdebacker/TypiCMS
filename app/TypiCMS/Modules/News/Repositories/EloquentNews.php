@@ -9,7 +9,6 @@ class EloquentNews extends RepositoriesAbstract implements NewsInterface
 
     public function __construct(Model $model)
     {
-        parent::__construct();
         $this->model = $model;
     }
 }

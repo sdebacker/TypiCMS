@@ -18,12 +18,6 @@ use TypiCMS\NestedCollection;
 abstract class RepositoriesAbstract implements RepositoryInterface
 {
     protected $model;
-    protected $gallery;
-
-    public function __construct()
-    {
-        $this->gallery = App::make('TypiCMS\Modules\Galleries\Repositories\GalleryInterface');
-    }
 
     /**
      * get empty model

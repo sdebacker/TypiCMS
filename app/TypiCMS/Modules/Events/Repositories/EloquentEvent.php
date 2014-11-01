@@ -10,7 +10,6 @@ class EloquentEvent extends RepositoriesAbstract implements EventInterface
 
     public function __construct(Model $model)
     {
-        parent::__construct();
         $this->model = $model;
     }
 

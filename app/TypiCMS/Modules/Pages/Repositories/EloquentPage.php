@@ -14,7 +14,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
 
     public function __construct(Model $model)
     {
-        parent::__construct();
         $this->model = $model;
     }
 
