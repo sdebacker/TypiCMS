@@ -39,7 +39,7 @@
                     <td typi-btn-status></td>
                     <td typi-thumb-list-item></td>
                     <td>
-                        <input class="form-control input-sm" min="1" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="changePosition(model)">
+                        <input class="form-control input-sm" min="1" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="update(model)">
                     </td>
                     <td>{{ model.homepage }}</td>
                     <td>{{ model.title }}</td>

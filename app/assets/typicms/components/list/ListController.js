@@ -78,9 +78,9 @@
             };
 
             /**
-             * Change position of item
+             * Update model
              */
-            $scope.changePosition = function (model) {
+            $scope.update = function (model) {
                 $api.update({'id': model.id}, model).$promise.then(
                     function () {
                     },
