@@ -7,15 +7,6 @@ interface TranslationInterface extends RepositoryInterface
 {
 
     /**
-     * Get all models
-     *
-     * @param  boolean  $all  Show published or all
-     * @param  array    $with Eager load related models
-     * @return array
-     */
-    public function getAll(array $with = array(), $all = false);
-
-    /**
      * Get translations to Array
      *
      * @return array
