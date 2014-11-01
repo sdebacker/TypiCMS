@@ -33,7 +33,9 @@
                     <td><typi-btn-delete ng-click="delete(model, model.key)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td>{{ model.key }}</td>
-                    <td>{{ model.translation }}</td>
+                    <td contentEditable highlighter="model.translation" ng-model="model.translation" ng-blur="update(model)">
+                        {{ model.translation }}
+                    </td>
                 </tr>
             </tbody>
             <tfoot>
