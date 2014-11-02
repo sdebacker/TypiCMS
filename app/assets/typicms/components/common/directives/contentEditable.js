@@ -12,7 +12,7 @@ angular.module('typicms').directive('contenteditable', function () {
                 element.html(ngModel.$viewValue || '');
             };
 
-            element.bind('blur', function () {
+            element.bind('blur keyup change', function () {
                 scope.$apply(read);
             });
         }
