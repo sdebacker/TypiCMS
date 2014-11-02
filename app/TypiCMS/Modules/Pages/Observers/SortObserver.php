@@ -2,8 +2,6 @@
 namespace TypiCMS\Modules\Pages\Observers;
 
 use Config;
-use DB;
-use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Modules\Pages\Models\Page;
 
 class SortObserver

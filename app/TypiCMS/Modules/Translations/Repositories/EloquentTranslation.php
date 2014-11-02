@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Translations\Repositories;
 
-use Config;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoriesAbstract;
 

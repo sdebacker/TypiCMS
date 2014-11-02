@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Users\Presenters;
 
-use Sentry;
 use TypiCMS\Presenters\Presenter;
 
 class ModulePresenter extends Presenter
