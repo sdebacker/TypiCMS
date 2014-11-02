@@ -2,6 +2,7 @@
 namespace TypiCMS\Modules\Pages\Events;
 
 use Config;
+use Illuminate\Events\Dispatcher;
 use TypiCMS\Modules\Pages\Models\Page;
 
 class ResetChildren {
@@ -34,7 +35,7 @@ class ResetChildren {
      * @param  Dispatcher  $events
      * @return array
      */
-    public function subscribe($events)
+    public function subscribe(Dispatcher $events)
     {
         $events->listen('page.resetChildrenUri', 'TypiCMS\Modules\Pages\Events\ResetChildren@resetChildrenUri');
     }
