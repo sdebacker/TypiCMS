@@ -47,7 +47,9 @@
                         <input class="form-control input-sm" min="1" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="update(model)">
                     </td>
                     <td>{{ model.filename }}</td>
-                    <td>{{ model.alt_attribute }}</td>
+                    <td contentEditable highlighter="model.alt_attribute" ng-model="model.alt_attribute" ng-blur="update(model)">
+                        {{ model.alt_attribute }}
+                    </td>
                     <td>{{ model.width }}</td>
                     <td>{{ model.height }}</td>
                 </tr>

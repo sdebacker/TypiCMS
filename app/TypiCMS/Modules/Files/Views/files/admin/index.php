@@ -47,7 +47,9 @@
                     <td>{{ model.type }}</td>
                     <td typi-thumb-list-item></td>
                     <td>{{ model.filename }}</td>
-                    <td>{{ model.alt_attribute }}</td>
+                    <td contentEditable highlighter="model.alt_attribute" ng-model="model.alt_attribute" ng-blur="update(model)">
+                        {{ model.alt_attribute }}
+                    </td>
                     <td>{{ model.width }}</td>
                     <td>{{ model.height }}</td>
                 </tr>
