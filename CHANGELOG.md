@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.5.7 - 2014
+## 1.6.0 - 2014-11-02
 
 ### Changed
 - Twitter Bootstrap 3.3.
