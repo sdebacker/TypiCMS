@@ -1,9 +1,9 @@
 <?php
 namespace TypiCMS\Modules\Translations\Models;
 
-use TypiCMS\Models\Base;
+use Eloquent;
 
-class TranslationTranslation extends Base
+class TranslationTranslation extends Eloquent
 {
 
 }
