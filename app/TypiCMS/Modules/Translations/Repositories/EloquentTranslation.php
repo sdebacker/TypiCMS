@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Modules\Translations\Repositories;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -19,7 +20,8 @@ class EloquentTranslation extends RepositoriesAbstract implements TranslationInt
      */
     public function getAllToArray($locale, $group, $namespace = null)
     {
-        $array = $this->model
+        $array = DB::table('translations')
+                ->select('translation', 'key')
                 ->join('translation_translations', 'translations.id', '=', 'translation_translations.translation_id')
                 ->where('locale', $locale)
                 ->where('group', $group)
