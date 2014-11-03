@@ -4,10 +4,12 @@ namespace TypiCMS\Modules\Partners\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Partner extends Base
 {
 
+    use Historable;
     use PresentableTrait;
     use Translatable;
 

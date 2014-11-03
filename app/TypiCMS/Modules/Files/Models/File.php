@@ -5,10 +5,12 @@ use Dimsav\Translatable\Translatable;
 use Croppa;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class File extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 

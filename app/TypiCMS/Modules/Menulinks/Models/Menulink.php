@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
 use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Menulink extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 

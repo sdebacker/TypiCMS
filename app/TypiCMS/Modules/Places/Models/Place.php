@@ -4,10 +4,12 @@ namespace TypiCMS\Modules\Places\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Place extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 

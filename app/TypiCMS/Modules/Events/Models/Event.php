@@ -5,10 +5,12 @@ use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Event extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 

@@ -3,10 +3,12 @@ namespace TypiCMS\Modules\Contacts\Models;
 
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Contact extends Base
 {
 
+    use Historable;
     use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Contacts\Presenters\ModulePresenter';

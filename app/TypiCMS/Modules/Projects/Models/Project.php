@@ -4,10 +4,12 @@ namespace TypiCMS\Modules\Projects\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Project extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
