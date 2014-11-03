@@ -9,7 +9,7 @@ class NestableCollection extends Collection
     private $total = 0;
     private $parentKey = null;
 
-    public function __construct(array $items = array(), $parentKey)
+    public function __construct(array $items = array(), $parentKey = 'parent_id')
     {
         parent::__construct($items);
         $this->total = count($items);

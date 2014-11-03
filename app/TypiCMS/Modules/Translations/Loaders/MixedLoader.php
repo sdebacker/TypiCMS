@@ -53,7 +53,7 @@ class MixedLoader implements LoaderInterface
      *
      * @param  string   $group
      * @param  string   $namespace
-     * @param string $locale
+     * @param  string   $locale
      * @return array
      */
     public function loadFromDB($locale, $group, $namespace = null)
