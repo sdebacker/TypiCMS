@@ -19,7 +19,7 @@ class History extends Base
         'action',
     );
 
-    protected $appends = ['email', 'name'];
+    protected $appends = ['user_name'];
 
     /**
      * The default route for admin side.
@@ -51,21 +51,11 @@ class History extends Base
     }
 
     /**
-     * Get user email
-     *
-     * @return string
-     */
-    public function getEmailAttribute()
-    {
-        return $this->user->email;
-    }
-
-    /**
      * Get user name
      *
      * @return string
      */
-    public function getNameAttribute()
+    public function getUserNameAttribute()
     {
         return $this->user->first_name . ' ' . $this->user->last_name;
     }
