@@ -12,12 +12,13 @@ trait Historable {
         parent::boot();
 
         static::created(function ($model) {
-            \Log::info('saved');
             $model->writeHistory($model, 'created');
         });
         static::updated(function ($model) {
-            \Log::info('updated');
             $model->writeHistory($model, 'updated');
+        });
+        static::deleted(function ($model) {
+            $model->writeHistory($model, 'deleted');
         });
     }
 
