@@ -4,8 +4,6 @@
         <span translate translate-n="models.length" translate-plural="{{ models.length }} items in history">{{ models.length }} item in history</span>
     </h1>
 
-    <div class="btn-toolbar" role="toolbar" ng-include="'/views/partials/btnLocales.html'"></div>
-
     <div class="table-responsive">
 
         <table st-table="displayedModels" st-safe-src="models" st-order st-filter class="table table-condensed table-main">

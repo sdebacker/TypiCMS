@@ -36,11 +36,6 @@ class ModuleProvider extends ServiceProvider
 
         $app = $this->app;
 
-        /**
-         * Sidebar view composer
-         */
-        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\History\Composers\SideBarViewComposer');
-
         $app->bind('TypiCMS\Modules\History\Repositories\HistoryInterface', function (Application $app) {
             $repository = new EloquentHistory(new History);
             if (! Config::get('app.cache')) {

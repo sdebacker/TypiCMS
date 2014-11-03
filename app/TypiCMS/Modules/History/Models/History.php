@@ -8,6 +8,7 @@ class History extends Base
 {
 
     use PresentableTrait;
+
     protected $table = 'history';
     protected $presenter = 'TypiCMS\Modules\History\Presenters\ModulePresenter';
 
