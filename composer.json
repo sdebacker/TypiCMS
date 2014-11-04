@@ -1,68 +1,68 @@
 {
-	"name": "sdebacker/typicms",
-	"description": "Multilingual CMS build with Laravel 4.2",
-	"version": "1.6.1",
-	"keywords": ["CMS", "multilingual", "Laravel", "Typi"],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Samuel De Backer",
-			"email": "samuel@typidesign.be",
-			"role": "Developer"
-		}
-	],
-	"require": {
-		"bkwld/croppa": "~3.4.2",
-		"cartalyst/sentry": "~2.1.4",
-		"davejamesmiller/laravel-breadcrumbs": "~2.2.3",
-		"dimsav/laravel-translatable": "~4.3",
-		"edvinaskrucas/notification": "~3.0",
-		"eluceo/ical": "~0.3",
-		"guzzlehttp/guzzle": "~4.2.3",
-		"jwage/easy-csv": "~0.0.2",
-		"laravel/framework": "~4.2.11",
-		"mccool/database-backup": "~1.0.1",
-		"msurguy/honeypot": "~0.2",
-		"thomaswelton/laravel-gravatar": "~0.1",
-		"cviebrock/image-validator": "~1.0.4",
-		"jenssegers/rollbar": "~1.3",
-		"roumen/sitemap": "~2.4.6",
-		"laracasts/utilities": "~1.0",
-		"vlucas/phpdotenv": "~1.0"
-	},
-	"require-dev": {
-		"way/generators": "~3.0",
-		"barryvdh/laravel-debugbar": "~1.7",
-		"mockery/mockery": "~0.9.2",
-		"phpspec/phpspec": "~2.0",
-		"raveren/kint": "~0.9.1"
-	},
-	"autoload": {
-		"classmap": [
-			"app/commands",
-			"app/database/migrations",
-			"app/database/seeds",
-			"app/tests/TestCase.php"
-		],
-		"psr-4": {
-			"TypiCMS\\": "app/TypiCMS"
-		}
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"php artisan clear-compiled",
-			"php artisan optimize"
-		],
-		"post-update-cmd": [
-			"php artisan clear-compiled",
-			"php artisan optimize"
-		],
-		"post-create-project-cmd": [
-			"php artisan key:generate"
-		]
-	},
-	"config": {
-		"preferred-install": "dist"
-	},
-	"minimum-stability": "stable"
+    "name": "sdebacker/typicms",
+    "description": "Multilingual CMS build with Laravel 4.2",
+    "version": "1.6.2",
+    "keywords": ["CMS", "multilingual", "Laravel", "Typi"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samuel De Backer",
+            "email": "samuel@typidesign.be",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "bkwld/croppa": "~3.4.2",
+        "cartalyst/sentry": "~2.1.4",
+        "davejamesmiller/laravel-breadcrumbs": "~2.2.3",
+        "dimsav/laravel-translatable": "~4.3",
+        "edvinaskrucas/notification": "~3.0",
+        "eluceo/ical": "~0.3",
+        "guzzlehttp/guzzle": "~4.2.3",
+        "jwage/easy-csv": "~0.0.2",
+        "laravel/framework": "~4.2.11",
+        "mccool/database-backup": "~1.0.2",
+        "msurguy/honeypot": "~0.2",
+        "thomaswelton/laravel-gravatar": "~0.1",
+        "cviebrock/image-validator": "~1.0.4",
+        "jenssegers/rollbar": "~1.3",
+        "roumen/sitemap": "~2.4.6",
+        "laracasts/utilities": "~1.0",
+        "vlucas/phpdotenv": "~1.0"
+    },
+    "require-dev": {
+        "way/generators": "~3.0",
+        "barryvdh/laravel-debugbar": "~1.7",
+        "mockery/mockery": "~0.9.2",
+        "phpspec/phpspec": "~2.0",
+        "raveren/kint": "~0.9.1"
+    },
+    "autoload": {
+        "classmap": [
+            "app/commands",
+            "app/database/migrations",
+            "app/database/seeds",
+            "app/tests/TestCase.php"
+        ],
+        "psr-4": {
+            "TypiCMS\\": "app/TypiCMS"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable"
 }

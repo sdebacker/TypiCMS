@@ -32,7 +32,7 @@ class Block extends Base
         'body',
     );
 
-    protected $appends = ['status'];
+    protected $appends = ['status', 'body'];
 
     /**
      * The default route for admin side.
@@ -46,4 +46,14 @@ class Block extends Base
      */
     public $order = 'name';
     public $direction = 'asc';
+
+    /**
+     * Get Body attribute from translation table
+     * and append it to main model attributes
+     * @return string
+     */
+    public function getBodyAttribute()
+    {
+        return strip_tags($this->body);
+    }
 }
