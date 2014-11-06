@@ -242,6 +242,7 @@ return array(
 		'Categories'      => 'TypiCMS\Modules\Categories\Facades\Facade',
 		'Events'          => 'TypiCMS\Modules\Events\Facades\Facade',
 		'Galleries'       => 'TypiCMS\Modules\Galleries\Facades\Facade',
+		'Files'           => 'TypiCMS\Modules\Files\Facades\Facade',
 		'Menus'           => 'TypiCMS\Modules\Menus\Facades\Facade',
 		'News'            => 'TypiCMS\Modules\News\Facades\Facade',
 		'Pages'           => 'TypiCMS\Modules\Pages\Facades\Facade',
