@@ -5,14 +5,17 @@ use Eloquent;
 
 class PageTranslation extends Eloquent
 {
-
-    protected $touches = array('page');
+    protected $touches = ['owner'];
 
     /**
-     * get the page
+     * get the parent model
      */
     public function page()
     {
         return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page');
+    }
+    public function owner()
+    {
+        return $this->page();
     }
 }
