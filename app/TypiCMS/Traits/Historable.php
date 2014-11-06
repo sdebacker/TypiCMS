@@ -12,20 +12,34 @@ trait Historable {
         parent::boot();
 
         static::created(function ($model) {
-            $model->writeHistory($model, 'created');
+            if (! $model->owner) {
+                $model->writeHistory('created');
+            }
         });
         static::updated(function ($model) {
-            $model->writeHistory($model, 'updated');
+            $action = 'updated';
+            if (! $model->owner) {
+                $model->writeHistory($action);
+            } else {
+                // When owner is dirty, history will be written for owner model
+                if ($model->owner->getDirty()) {
+                    return;
+                }
+                if ($model->isDirty('status')) {
+                    $action = ($model->status) ? 'set online' : 'set offline' ;
+                }
+                $model->owner->writeHistory($model->locale . ' translation ' . $action);
+            }
         });
         static::deleted(function ($model) {
-            $model->writeHistory($model, 'deleted');
+            $model->writeHistory('deleted');
         });
     }
 
     /**
      * Save history
      */
-    public function writeHistory($model, $action)
+    public function writeHistory($action)
     {
         $item                    = new History;
         $item->historable_id     = $this->getKey();
