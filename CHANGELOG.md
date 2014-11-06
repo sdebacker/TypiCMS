@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.6.2 - 2014
+
+### Added
+- Facade for Files
+
 ## 1.6.1 - 2014-11-03
 
 ### Fixed
