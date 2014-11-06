@@ -1,12 +1,10 @@
 <?php
 namespace TypiCMS\Modules\Pages\Models;
 
-use Eloquent;
+use TypiCMS\Models\BaseTranslation;
 
-class PageTranslation extends Eloquent
+class PageTranslation extends BaseTranslation
 {
-    protected $touches = ['owner'];
-
     /**
      * get the parent model
      */
@@ -16,6 +14,6 @@ class PageTranslation extends Eloquent
     }
     public function owner()
     {
-        return $this->page();
+        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page', 'page_id');
     }
 }

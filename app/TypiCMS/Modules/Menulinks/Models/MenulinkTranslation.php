@@ -1,12 +1,10 @@
 <?php
 namespace TypiCMS\Modules\Menulinks\Models;
 
-use Eloquent;
+use TypiCMS\Models\BaseTranslation;
 
-class MenulinkTranslation extends Eloquent
+class MenulinkTranslation extends BaseTranslation
 {
-    protected $touches = ['owner'];
-
     /**
      * get the parent model
      */
@@ -16,6 +14,6 @@ class MenulinkTranslation extends Eloquent
     }
     public function owner()
     {
-        return $this->menulink();
+        return $this->belongsTo('TypiCMS\Modules\Menulinks\Models\Menulink', 'menulink_id');
     }
 }

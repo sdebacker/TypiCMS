@@ -1,17 +1,15 @@
 <?php
 namespace TypiCMS\Modules\News\Models;
 
-use Eloquent;
+use TypiCMS\Models\BaseTranslation;
 
-class NewsTranslation extends Eloquent
+class NewsTranslation extends BaseTranslation
 {
-    protected $touches = ['owner'];
-
     /**
      * get the parent model
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\News\Models\News');
+        return $this->belongsTo('TypiCMS\Modules\News\Models\News', 'news_id');
     }
 }

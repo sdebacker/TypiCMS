@@ -1,17 +1,15 @@
 <?php
 namespace TypiCMS\Modules\Menus\Models;
 
-use Eloquent;
+use TypiCMS\Models\BaseTranslation;
 
-class MenuTranslation extends Eloquent
+class MenuTranslation extends BaseTranslation
 {
-    protected $touches = ['owner'];
-
     /**
      * get the parent model
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\Menus\Models\Menu');
+        return $this->belongsTo('TypiCMS\Modules\Menus\Models\Menu', 'menu_id');
     }
 }
