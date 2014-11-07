@@ -15,11 +15,13 @@ class History extends Base
     protected $fillable = array(
         'historable_id',
         'historable_type',
+        'historable_table',
+        'title',
         'user_id',
         'action',
     );
 
-    protected $appends = ['user_name'];
+    protected $appends = ['user_name', 'href'];
 
     /**
      * The default route for admin side.
@@ -57,6 +59,30 @@ class History extends Base
      */
     public function getUserNameAttribute()
     {
-        return $this->user->first_name . ' ' . $this->user->last_name;
+        if ($this->user) {
+            return $this->user->first_name . ' ' . $this->user->last_name;
+        }
+        return null;
+    }
+
+    /**
+     * Get title (overwrite Base model method)
+     * 
+     * @param  string $value
+     * @return string
+     */
+    public function getTitleAttribute($value)
+    {
+        return $value;
+    }
+
+    /**
+     * Get title (overwrite Base model method)
+     * 
+     * @return string
+     */
+    public function getHrefAttribute()
+    {
+        return route('admin.' . $this->historable_table . '.edit', $this->historable_id);
     }
 }

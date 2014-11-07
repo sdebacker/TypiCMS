@@ -13,13 +13,13 @@ trait Historable {
 
         static::created(function ($model) {
             if (! $model->owner) {
-                $model->writeHistory('created');
+                $model->writeHistory($model->present()->title, 'created');
             }
         });
         static::updated(function ($model) {
             $action = 'updated';
             if (! $model->owner) {
-                $model->writeHistory($action);
+                $model->writeHistory($model->present()->title, $action);
             } else {
                 // When owner is dirty, history will be written for owner model
                 if ($model->owner->getDirty()) {
@@ -28,23 +28,26 @@ trait Historable {
                 if ($model->isDirty('status')) {
                     $action = ($model->status) ? 'set online' : 'set offline' ;
                 }
-                $model->owner->writeHistory($model->locale . ' translation ' . $action);
+                $model->owner->writeHistory($model->title, $action, $model->locale);
             }
         });
         static::deleted(function ($model) {
-            $model->writeHistory('deleted');
+            $model->writeHistory($model->present()->title, 'deleted');
         });
     }
 
     /**
      * Save history
      */
-    public function writeHistory($action)
+    public function writeHistory($title, $action, $locale = null)
     {
         $item                    = new History;
         $item->historable_id     = $this->getKey();
         $item->historable_type   = get_class($this);
         $item->user_id           = $this->getAuthUserId();
+        $item->title             = $title;
+        $item->locale            = $locale;
+        $item->historable_table  = $this->getTable();
         $item->action            = $action;
         $item->save();
     }

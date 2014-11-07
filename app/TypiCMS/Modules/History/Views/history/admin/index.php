@@ -12,21 +12,14 @@
                 <thead>
                     <tr>
                         <th st-sort="created_at" st-sort-default="reverse" class="created_at st-sort" translate>Date</th>
+                        <th st-sort="title" class="title st-sort" translate>Title</th>
+                        <th st-sort="historable_table" class="historable_table st-sort" translate>Module</th>
                         <th st-sort="action" class="action st-sort" translate>Action</th>
-                        <th st-sort="historable_type" class="historable_type st-sort" translate>Type</th>
-                        <th st-sort="historable_id" class="historable_id st-sort" translate>ID</th>
                         <th st-sort="user_name" class="user_name st-sort" translate>User</th>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>
-                            <input st-search="'action'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                        </td>
-                        <td>
-                            <input st-search="'historable_type'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
-                        </td>
-                        <td>
-                            <input st-search="'user_name'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <td colspan="5">
+                            <input st-search="" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
                         </td>
                     </tr>
                 </thead>
@@ -34,9 +27,9 @@
                 <tbody>
                     <tr ng-repeat="model in displayedModels">
                         <td>{{ model.created_at | dateFromMySQL:'short' }}</td>
+                        <td><a href="{{ model.href }}">{{ model.title }}</a></td>
+                        <td>{{ model.historable_table }}</td>
                         <td>{{ model.action }}</td>
-                        <td>{{ model.historable_type }}</td>
-                        <td>{{ model.historable_id }}</td>
                         <td>{{ model.user_name }}</td>
                     </tr>
                 </tbody>
