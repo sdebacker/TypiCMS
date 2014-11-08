@@ -83,7 +83,6 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
             ->where('uri', '!=', $uri)
             ->where('uri', 'LIKE', $uri.'%');
 
-        // All posts or only published
         if (! $all) {
             $query->where('status', 1);
         }
