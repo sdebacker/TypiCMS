@@ -21,27 +21,13 @@ class EloquentCategory extends RepositoriesAbstract implements CategoryInterface
      */
     public function getAllForSelect()
     {
-        $query = $this->model->with('translations');
+        $categories = $this->make(['translations'])
+            ->whereHasOnlineTranslation()
+            ->order()
+            ->get()
+            ->lists('title', 'id');
 
-        // take only translated items that are online
-        $query->whereHasOnlineTranslation();
-
-        // Get
-        $categories = $query->get();
-
-        // Sorting of collection
-        $desc = ($this->model->direction == 'desc') ? true : false ;
-        $categories = $categories->sortBy(function (Model $model) {
-            return $model->{$this->model->order};
-        }, null, $desc);
-
-        $array = array('' => '');
-        $categories->each(function (Category $category) use (&$array) {
-            $array[$category->id] = $category->title;
-        });
-
-        return $array;
-
+        return ['' => ''] + $categories;
     }
 
     /**

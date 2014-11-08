@@ -56,12 +56,6 @@ class Menulink extends Base
     public $route = 'menus.menulinks';
 
     /**
-     * lists
-     */
-    public $order = 'position';
-    public $direction = 'asc';
-
-    /**
      * A menulink belongs to a menu
      */
     public function menu()

@@ -41,12 +41,6 @@ class Menu extends Base
     public $route = 'menus';
 
     /**
-     * lists
-     */
-    public $order = 'name';
-    public $direction = 'asc';
-
-    /**
      * Relations
      */
     public function menulinks()

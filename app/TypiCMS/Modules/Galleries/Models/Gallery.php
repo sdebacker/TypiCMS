@@ -46,12 +46,6 @@ class Gallery extends Base
     public $route = 'galleries';
 
     /**
-     * lists
-     */
-    public $order = 'name';
-    public $direction = 'asc';
-
-    /**
      * One gallery has many files.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

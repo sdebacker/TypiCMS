@@ -58,12 +58,6 @@ class Project extends Base
     public $route = 'projects';
 
     /**
-     * Lists
-     */
-    public $order = 'id';
-    public $direction = 'desc';
-
-    /**
      * Relation
      */
     public function category()

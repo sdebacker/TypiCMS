@@ -2,6 +2,7 @@
 namespace TypiCMS\Models;
 
 use App;
+use Config;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -192,10 +193,12 @@ abstract class Base extends Model
      */
     public function scopeOrder(Builder $query)
     {
-        $order = Input::get('order', $this->order) ? : 'id' ;
-        $direction = Input::get('direction', $this->direction) ? : 'asc' ;
-
-        return $query->orderBy($order, $direction);
+        if ($order = Config::get($this->getTable() . '::order')) {
+            foreach ($order as $column => $direction) {
+                $query->orderBy($column, $direction);
+            }
+        }
+        return $query;
     }
 
     /**

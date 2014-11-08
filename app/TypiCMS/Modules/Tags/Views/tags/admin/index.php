@@ -12,7 +12,7 @@
                 <tr>
                     <th class="delete"></th>
                     <th st-sort="tag" class="tag st-sort" translate>Tag</th>
-                    <th st-sort="uses" st-sort-default class="uses st-sort" translate>Uses</th>
+                    <th st-sort="uses" st-sort-default="reverse" class="uses st-sort" translate>Uses</th>
                 </tr>
                 <tr>
                     <td></td>
