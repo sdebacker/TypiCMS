@@ -31,12 +31,6 @@ class Tag extends Base
     protected $route = 'tags';
 
     /**
-     * lists
-     */
-    public $order = 'tag';
-    public $direction = 'asc';
-
-    /**
      * Define a many-to-many polymorphic relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphedByMany

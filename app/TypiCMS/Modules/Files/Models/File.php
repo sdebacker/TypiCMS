@@ -56,12 +56,6 @@ class File extends Base
     public $route = 'files';
 
     /**
-     * Lists
-     */
-    public $order = 'position';
-    public $direction = 'asc';
-
-    /**
      * One file belongs to one gallery.
      *
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo

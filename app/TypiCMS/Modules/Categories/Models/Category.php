@@ -42,12 +42,6 @@ class Category extends Base
     public $route = 'categories';
 
     /**
-     * lists
-     */
-    public $order = 'position';
-    public $direction = 'asc';
-
-    /**
      * Get public uri
      *
      * @return string|null string or void

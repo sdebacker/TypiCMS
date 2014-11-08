@@ -17,10 +17,4 @@ class User extends SentryUserModel
      * @var string
      */
     public $route = 'users';
-
-    /**
-     * lists
-     */
-    public static $order = 'email';
-    public static $direction = 'asc';
 }

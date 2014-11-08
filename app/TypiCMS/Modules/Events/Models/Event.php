@@ -60,12 +60,6 @@ class Event extends Base
     public $route = 'events';
 
     /**
-     * lists
-     */
-    public $order = 'end_date';
-    public $direction = 'desc';
-
-    /**
      * Transform start_date in Carbon object
      *
      * @param string $value date string

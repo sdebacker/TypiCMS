@@ -57,12 +57,6 @@ class News extends Base
     public $route = 'news';
 
     /**
-     * lists
-     */
-    public $order = 'date';
-    public $direction = 'desc';
-
-    /**
      * Transform date in Carbon object
      *
      * @param string $value date string

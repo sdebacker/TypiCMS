@@ -73,12 +73,6 @@ class Page extends Base
     public $route = 'pages';
 
     /**
-     * lists
-     */
-    public $order = 'position';
-    public $direction = 'asc';
-
-    /**
      * Get public uri
      *
      * @return string

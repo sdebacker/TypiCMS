@@ -58,12 +58,6 @@ class Place extends Base
     public $route = 'places';
 
     /**
-     * lists
-     */
-    public $order = 'title';
-    public $direction = 'asc';
-
-    /**
      * Observers
      */
     public static function boot()

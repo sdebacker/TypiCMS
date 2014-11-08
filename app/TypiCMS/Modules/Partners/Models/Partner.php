@@ -57,12 +57,6 @@ class Partner extends Base
     public $route = 'partners';
 
     /**
-     * lists
-     */
-    public $order = 'position';
-    public $direction = 'asc';
-
-    /**
      * Get attribute from translation table
      * and append it to main model attributes
      * @return string title

@@ -39,12 +39,6 @@ class Contact extends Base
     public $route = 'contacts';
 
     /**
-     * lists
-     */
-    public $order = 'created_at';
-    public $direction = 'desc';
-
-    /**
      * Get title attribute from translation table
      * and append it to main model attributes
      * @return string title

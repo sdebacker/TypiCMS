@@ -39,12 +39,6 @@ class Translation extends Base
     public $route = 'translations';
 
     /**
-     * Lists
-     */
-    public $order = 'key';
-    public $direction = 'asc';
-
-    /**
      * Get translation attribute from translation table
      *
      * @return string
