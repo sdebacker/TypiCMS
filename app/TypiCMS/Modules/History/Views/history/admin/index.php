@@ -27,7 +27,10 @@
                 <tbody>
                     <tr ng-repeat="model in displayedModels">
                         <td>{{ model.created_at | dateFromMySQL:'short' }}</td>
-                        <td><a href="{{ model.href }}">{{ model.title }}</a></td>
+                        <td>
+                            <a ng-if="model.action !== 'deleted'" href="{{ model.href }}">{{ model.title }}</a>
+                            <span ng-if="model.action === 'deleted'">{{ model.title }}</span>
+                        </td>
                         <td>{{ model.historable_table }}</td>
                         <td>{{ model.action }}</td>
                         <td>{{ model.user_name }}</td>
