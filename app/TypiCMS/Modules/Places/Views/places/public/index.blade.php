@@ -1,7 +1,3 @@
-@section('css')
-    {{ HTML::style(asset('css/gmaps.css')) }}
-@stop
-
 @section('js')
     {{ HTML::script(asset('//maps.googleapis.com/maps/api/js?sensor=false&amp;language='.Config::get('app.locale'))) }}
     {{ HTML::script(asset('js/public/gmaps.js')) }}
@@ -52,7 +48,9 @@
 
         </div>
 
-        <div id="map" class="map col-sm-8"></div>
+        <div class="col-sm-8">
+            <div id="map" class="map"></div>
+        </div>
 
     </div>
 
