@@ -44,7 +44,7 @@ class EloquentNews extends RepositoriesAbstract implements NewsInterface
      */
     private function combineDateTime($data)
     {
-        if (isset($data['date']) && isset($data['time']) {
+        if (isset($data['date']) && isset($data['time'])) {
             $data['date'] .= ' ' . $data['time'] . ':00';
             unset($data['time']);
         }
