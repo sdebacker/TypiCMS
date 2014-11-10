@@ -18,6 +18,7 @@ class History extends Base
         'historable_table',
         'title',
         'locale',
+        'icon_class',
         'user_id',
         'action',
     );

@@ -58,9 +58,39 @@ trait Historable {
         $item->user_id           = $this->getAuthUserId();
         $item->title             = $title;
         $item->locale            = $locale;
+        $item->icon_class        = $this->iconClass($action);
         $item->historable_table  = $this->getTable();
         $item->action            = $action;
         $item->save();
+    }
+
+    private function iconClass($action = null)
+    {
+        switch ($action) {
+            case 'deleted':
+                return 'fa-trash';
+                break;
+            
+            case 'updated':
+                return 'fa-edit';
+                break;
+            
+            case 'created':
+                return 'fa-plus-circle';
+                break;
+            
+            case 'set online':
+                return 'fa-toggle-on';
+                break;
+            
+            case 'set offline':
+                return 'fa-toggle-off';
+                break;
+            
+            default:
+                return null;
+                break;
+        }
     }
 
     /**

@@ -33,7 +33,9 @@
                             <span ng-if="model.locale">({{ model.locale }})</span>
                         </td>
                         <td>{{ model.historable_table }}</td>
-                        <td>{{ model.action }}</td>
+                        <td>
+                            <span class="fa fa-fw {{ model.icon_class }}"></span> {{ model.action }}
+                        </td>
                         <td>{{ model.user_name }}</td>
                     </tr>
                 </tbody>

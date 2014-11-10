@@ -19,6 +19,7 @@ class CreateHistoryTable extends Migration
             $table->string('historable_type');
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('title')->nullable();
+            $table->string('icon_class')->nullable();
             $table->string('locale')->nullable();
             $table->string('historable_table');
             $table->string('action');
