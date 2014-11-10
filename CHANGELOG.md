@@ -4,11 +4,13 @@ All notable changes to TypiCMS will be documented in this file.
 ## 1.6.2 - 2014
 
 ### Added
-- Facade for Files
+- Facade for Files.
+- Tags can be created/edited via back office.
+- History module that keep track of created/updated/deleted/set offline/set online events.
 
 ### Changed
-- Events module : start_date and end_date db columns are now timestamp in place of date
-- Events module : start_time and end_time columns removed
+- Events module : start_date and end_date db columns are now timestamp in place of date.
+- Events module : start_time and end_time columns removed.
 
 ## 1.6.1 - 2014-11-03
 
