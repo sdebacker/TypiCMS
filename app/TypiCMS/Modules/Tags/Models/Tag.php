@@ -3,10 +3,12 @@ namespace TypiCMS\Modules\Tags\Models;
 
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Tag extends Base
 {
 
+    use Historable;
     use PresentableTrait;
 
     protected $presenter = 'TypiCMS\Modules\Tags\Presenters\ModulePresenter';

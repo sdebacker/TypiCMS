@@ -4,12 +4,14 @@ namespace TypiCMS\Modules\Translations\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Translation extends Base
 {
 
-    use Translatable;
+    use Historable;
     use PresentableTrait;
+    use Translatable;
 
     protected $presenter = 'TypiCMS\Modules\Translations\Presenters\ModulePresenter';
 
