@@ -21,7 +21,7 @@ class News extends Base
     protected $fillable = array(
         'date',
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',
@@ -43,7 +43,7 @@ class News extends Base
     );
 
     /**
-     * List of fields that are file.
+     * List of columns that are file.
      *
      * @var array
      */

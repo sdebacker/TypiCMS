@@ -31,7 +31,7 @@ class File extends Base
         'filesize',
         'download_count',
         'position',
-        // Translatable fields
+        // Translatable columns
         'keywords',
         'description',
         'alt_attribute',

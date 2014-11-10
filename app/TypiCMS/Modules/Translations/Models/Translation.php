@@ -18,7 +18,7 @@ class Translation extends Base
     protected $fillable = array(
         'group',
         'key',
-        // Translatable fields
+        // Translatable columns
         'translation'
     );
 

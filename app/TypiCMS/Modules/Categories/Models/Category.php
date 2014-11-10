@@ -19,7 +19,7 @@ class Category extends Base
 
     protected $fillable = array(
         'position',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',

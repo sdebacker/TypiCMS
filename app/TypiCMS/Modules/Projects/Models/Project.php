@@ -18,7 +18,7 @@ class Project extends Base
     protected $fillable = array(
         'category_id',
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',
@@ -40,7 +40,7 @@ class Project extends Base
     );
 
     /**
-     * List of fields that are file.
+     * List of columns that are file.
      *
      * @var array
      */

@@ -17,7 +17,7 @@ class Block extends Base
 
     protected $fillable = array(
         'name',
-        // Translatable fields
+        // Translatable columns
         'status',
         'body',
     );

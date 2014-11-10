@@ -29,7 +29,7 @@ class Page extends Base
         'js',
         'template',
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'uri',
@@ -59,7 +59,7 @@ class Page extends Base
     protected $appends = ['status', 'title', 'thumb', 'uri'];
 
     /**
-     * List of fields that are file.
+     * List of columns that are file.
      *
      * @var array
      */

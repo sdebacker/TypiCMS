@@ -29,7 +29,7 @@ class Menulink extends Base
         'icon_class',
         'link_type',
         'has_categories',
-        // Translatable fields
+        // Translatable columns
         'title',
         'uri',
         'url',

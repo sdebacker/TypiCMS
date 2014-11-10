@@ -17,7 +17,7 @@ class Gallery extends Base
 
     protected $fillable = array(
         'name',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',

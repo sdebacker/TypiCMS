@@ -24,7 +24,7 @@ class Event extends Base
         'start_time',
         'end_time',
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',
@@ -46,7 +46,7 @@ class Event extends Base
     );
 
     /**
-     * List of fields that are file.
+     * List of columns that are file.
      *
      * @var array
      */

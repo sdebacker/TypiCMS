@@ -17,7 +17,7 @@ class Partner extends Base
 
     protected $fillable = array(
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'position',
@@ -43,7 +43,7 @@ class Partner extends Base
     protected $appends = ['status', 'title', 'thumb', 'website'];
 
     /**
-     * List of fields that are file.
+     * List of columns that are file.
      *
      * @var array
      */
