@@ -18,26 +18,27 @@ trait Historable {
 
         static::created(function ($model) {
             if (! $model->owner) {
-                $model->writeHistory($model->present()->title, 'created');
+                $model->writeHistory('created', $model->present()->title);
             }
         });
         static::updated(function ($model) {
             $action = 'updated';
-            if (! $model->owner) {
-                $model->writeHistory($model->present()->title, $action);
-            } else {
+            if (! $model->owner) { // if model has no owner, $model is not a translation
+                $model->writeHistory($action);
+            } else { // if model has owner, $model is a translation
                 // When owner is dirty, history will be written for owner model
                 if ($model->owner->getDirty()) {
                     return;
                 }
-                if ($model->isDirty('status')) {
-                    $action = ($model->status) ? 'set online' : 'set offline' ;
+                // if status change, getDirty returns updated_at and status columns 
+                if (count($model->getDirty()) == 2 && $model->isDirty('status')) {
+                    $action = $model->status ? 'set online' : 'set offline' ;
                 }
-                $model->owner->writeHistory($model->title, $action, $model->locale);
+                $model->owner->writeHistory($action, $model->owner->present()->title, $model->locale);
             }
         });
         static::deleted(function ($model) {
-            $model->writeHistory($model->present()->title, 'deleted');
+            $model->writeHistory('deleted', $model->present()->title);
         });
     }
 
@@ -49,7 +50,7 @@ trait Historable {
      * @param  string $locale
      * @return void
      */
-    public function writeHistory($title, $action, $locale = null)
+    public function writeHistory($action, $title = null, $locale = null)
     {
         $item                    = new History;
         $item->historable_id     = $this->getKey();
