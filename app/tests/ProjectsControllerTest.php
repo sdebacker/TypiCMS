@@ -16,7 +16,7 @@ class ProjectsControllerTest extends TestCase
 
     public function testStoreFails()
     {
-        $input = array('fr.title' => 'test', 'fr.slug' => '', 'category_id' => 1, 'tags' => ''); // 19.02.2014 11:04
+        $input = array('fr.title' => 'test', 'fr.slug' => '', 'category_id' => 1, 'tags' => '');
         $this->call('POST', 'admin/projects', $input);
         $this->assertRedirectedToRoute('admin.projects.create');
         $this->assertSessionHasErrors('fr.slug');

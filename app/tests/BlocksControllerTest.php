@@ -16,7 +16,7 @@ class BlocksControllerTest extends TestCase
 
     public function testStoreFails()
     {
-        $input = ['name' => '']; // 19.02.2014 11:04
+        $input = ['name' => ''];
         $this->call('POST', 'admin/blocks', $input);
         $this->assertRedirectedToRoute('admin.blocks.create');
         $this->assertSessionHasErrors();
