@@ -59,13 +59,13 @@ trait Historable {
         $item->user_id           = $this->getAuthUserId();
         $item->title             = $title;
         $item->locale            = $locale;
-        $item->icon_class        = $this->iconClass($action);
+        $item->icon_class        = $this->historyIconClass($action);
         $item->historable_table  = $this->getTable();
         $item->action            = $action;
         $item->save();
     }
 
-    private function iconClass($action = null)
+    private function historyIconClass($action = null)
     {
         switch ($action) {
             case 'deleted':
