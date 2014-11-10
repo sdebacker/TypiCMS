@@ -46,6 +46,6 @@ class Block extends Base
      */
     public function getBodyAttribute()
     {
-        return strip_tags($this->body);
+        return $this->body;
     }
 }
