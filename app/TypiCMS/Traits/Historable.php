@@ -7,6 +7,11 @@ use TypiCMS\Modules\History\Models\History;
 
 trait Historable {
 
+    /**
+     * boot method
+     * 
+     * @return void
+     */
     public static function boot()
     {
         parent::boot();
@@ -37,7 +42,12 @@ trait Historable {
     }
 
     /**
-     * Save history
+     * Write History row
+     * 
+     * @param  string $action
+     * @param  string $title
+     * @param  string $locale
+     * @return void
      */
     public function writeHistory($title, $action, $locale = null)
     {
@@ -53,6 +63,8 @@ trait Historable {
     }
 
     /**
+     * Get current user id
+     * 
      * @return int|null
      */
     private function getAuthUserId()

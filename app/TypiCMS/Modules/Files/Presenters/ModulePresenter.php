@@ -45,8 +45,9 @@ class ModulePresenter extends Presenter
     }
 
     /**
-     * Return filename
-     * @return String
+     * Get title
+     * 
+     * @return string
      */
     public function title()
     {
