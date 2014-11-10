@@ -30,7 +30,8 @@ trait Historable {
                 if ($model->owner->getDirty()) {
                     return;
                 }
-                // if status change, getDirty returns updated_at and status columns 
+                // When item is set online or offline,
+                // getDirty returns only two columns : updated_at and status
                 if (count($model->getDirty()) == 2 && $model->isDirty('status')) {
                     $action = $model->status ? 'set online' : 'set offline' ;
                 }
