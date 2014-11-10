@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <td colspan="5">
-                            <input st-search="" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                            <input st-search="" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
                         </td>
                     </tr>
                 </thead>

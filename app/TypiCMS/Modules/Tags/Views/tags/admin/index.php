@@ -18,7 +18,7 @@
                 <tr>
                     <td colspan="2"></td>
                     <td>
-                        <input st-search="'tag'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search="'tag'" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
                     <td></td>
                 </tr>
