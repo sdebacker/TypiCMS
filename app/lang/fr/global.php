@@ -57,6 +57,7 @@ return array(
     'Galleries' => 'Galeries',
     'Files' => 'Fichiers',
     'Images' => 'Images',
+    'Info' => 'Coordonnées',
 
     'Toggle navigation' => 'Menu',
 

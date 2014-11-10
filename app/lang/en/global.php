@@ -57,6 +57,7 @@ return array(
     'Galleries' => 'Galleries',
     'Files' => 'Files',
     'Images' => 'Images',
+    'Info' => 'Info',
 
     'Toggle navigation' => 'Toggle navigation',
 

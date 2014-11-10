@@ -16,8 +16,6 @@ class Place extends Base
     protected $presenter = 'TypiCMS\Modules\Places\Presenters\ModulePresenter';
 
     protected $fillable = array(
-        'title',
-        'slug',
         'address',
         'email',
         'phone',
@@ -27,7 +25,9 @@ class Place extends Base
         'latitude',
         'longitude',
         // Translatable fields
-        'info',
+        'title',
+        'slug',
+        'body',
         'status',
     );
 
@@ -37,11 +37,11 @@ class Place extends Base
      * @var array
      */
     public $translatedAttributes = array(
-        'info',
+        'title',
+        'slug',
+        'body',
         'status',
     );
-
-    protected $appends = ['status', 'thumb'];
 
     /**
      * List of fields that are file.
@@ -58,54 +58,4 @@ class Place extends Base
      * @var string
      */
     public $route = 'places';
-
-    /**
-     * Observers
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        $self = __CLASS__;
-
-        static::creating(function ($model) use ($self) {
-            // slug = null si vide
-            $slug = ($model->slug) ? $model->slug : null ;
-            $model->slug = $slug;
-
-            if ($slug) {
-                $i = 0;
-                // Check uri is unique
-                while ($self::where('slug', $model->slug)->first()) {
-                    $i++;
-                    // increment slug if exists
-                    $model->slug = $slug.'-'.$i;
-                }
-            }
-
-        });
-
-        static::updating(function ($model) use ($self) {
-            // slug = null si vide
-            $slug = ($model->slug) ? $model->slug : null ;
-            $model->slug = $slug;
-
-            if ($slug) {
-                $i = 0;
-                // Check uri is unique
-                while ($self::where('slug', $model->slug)->where('id', '!=', $model->id)->first()) {
-                    $i++;
-                    // increment slug if exists
-                    $model->slug = $slug.'-'.$i;
-                }
-            }
-
-        });
-
-    }
-
-    public function getTitleAttribute($value)
-    {
-        return $value;
-    }
 }

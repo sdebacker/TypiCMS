@@ -35,7 +35,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         $result->items = array();
 
         $query = $this->model
-            ->select('places.*', 'status')
+            ->select('places.*', 'status', 'title')
             ->with('translations')
             ->join('place_translations', 'place_translations.place_id', '=', 'places.id')
             ->where('locale', App::getLocale())
@@ -69,55 +69,21 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         // get search string
         $string = Input::get('string');
 
-        $query = $this->model->with('translations');
-
+        $query = $this->make($with)
+            ->select('places.*', 'status', 'title')
+            ->where('locale', App::getLocale())
+            ->join('place_translations', 'place_translations.place_id', '=', 'places.id');
+        
         if (! $all) {
             // take only translated items that are online
-            $query->whereHas(
-                'translations',
-                function (Builder $query) {
-                    $query->where('status', 1);
-                    $query->where('locale', '=', App::getLocale());
-                }
-            );
-        }
-
-        if (Request::wantsJson()) { // pour affichage sur la carte
-            $query->where('latitude', '!=', '');
-            $query->where('longitude', '!=', '');
+            $query->whereHasOnlineTranslation();
         }
 
         $string && $query->where('title', 'LIKE', '%'.$string.'%');
 
         $query->order();
 
-        $models = $query->get();
-
-        return $models;
-    }
-
-    /**
-     * Get single model by slug
-     *
-     * @param  string $slug slug of model
-     * @return Model  $model
-     */
-    public function bySlug($slug, array $with = array('translations'))
-    {
-        $model = $this->model->with('translations')
-            ->where('slug', $slug)
-            ->whereHas(
-                'translations',
-                function (Builder $query) {
-                    if (! Input::get('preview')) {
-                        $query->where('status', 1);
-                    }
-                    $query->where('locale', '=', App::getLocale());
-                }
-            )
-            ->firstOrFail();
-
-        return $model;
-
+        // Get
+        return $query->get();
     }
 }

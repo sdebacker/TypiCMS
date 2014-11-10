@@ -31,17 +31,13 @@
             <ul class="list-unstyled addresses">
                 @foreach ($places as $place)
                 <li id="item-{{ $place->id }}">
-                    <div class="row">
-                        <div class="col-xs-9">
-                            <strong>{{ $place->title }}</strong>
-                        </div>
-                        <div class="col-xs-3 btns">
+                    <div class="btns">
                         @if ($place->latitude && $place->longitude)
-                            <a class="btn-map" href="" title="{{ trans('db.Show on map') }}"><i class="fa fa-map-marker"></i><span class="sr-only">{{ trans('db.Show on map') }}</span></a>
+                        <a class="btn-map" href="" title="{{ trans('db.Show on map') }}"><i class="fa fa-map-marker"></i><span class="sr-only">{{ trans('db.Show on map') }}</span></a>
                         @endif
-                        <a href="{{ route($lang.'.places.slug', array($place->slug)) }}" title="{{ trans('db.More') }}" class="fancybox" data-fancybox-type="iframe"><span class="glyphicon glyphicon-plus"></span><span class="sr-only">{{ trans('db.More') }}</span></a>
-                        </div>
+                        <a href="{{ route($lang.'.places.slug', array($place->slug)) }}" title="{{ trans('db.More') }}"><span class="fa fa-plus"></span><span class="sr-only">{{ trans('db.More') }}</span></a>
                     </div>
+                    {{ $place->title }}
                 </li>
                 @endforeach
             </ul>
