@@ -26,7 +26,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * @param  boolean  $all   Show published or all
      * @return stdClass Object with $items && $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
         $result = new stdClass;
         $result->page = $page;
@@ -34,21 +34,26 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         $result->totalItems = 0;
         $result->items = array();
 
-        $query = $this->model
+        $query = $this->make($with)
             ->select('places.*', 'status', 'title')
-            ->with('translations')
             ->join('place_translations', 'place_translations.place_id', '=', 'places.id')
             ->where('locale', App::getLocale())
             ->skip($limit * ($page - 1))
             ->take($limit);
 
-        ! $all && $query->where('status', 1);
+        if (! $all) {
+            // take only translated items that are online
+            $query->whereHasOnlineTranslation();
+        }
         $query->order();
         $models = $query->get();
 
         // Build query to get totalItems
         $queryTotal = $this->model;
-        ! $all && $queryTotal->where('status', 1);
+        if (! $all) {
+            // take only translated items that are online
+            $queryTotal->whereHasOnlineTranslation();
+        }
 
         // Put items and totalItems in stdClass
         $result->totalItems = $queryTotal->count();
@@ -64,15 +69,15 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * @param  array    $with Eager load related models
      * @return Collection Object with $items
      */
-    public function getAll(array $with = array('translations'), $all = false)
+    public function getAll(array $with = array(), $all = false)
     {
         // get search string
         $string = Input::get('string');
 
         $query = $this->make($with)
             ->select('places.*', 'status', 'title')
-            ->where('locale', App::getLocale())
-            ->join('place_translations', 'place_translations.place_id', '=', 'places.id');
+            ->join('place_translations', 'place_translations.place_id', '=', 'places.id')
+            ->where('locale', App::getLocale());
         
         if (! $all) {
             // take only translated items that are online
