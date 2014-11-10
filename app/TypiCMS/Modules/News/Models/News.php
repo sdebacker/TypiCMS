@@ -57,14 +57,4 @@ class News extends Base
      * @var string
      */
     public $route = 'news';
-
-    /**
-     * Transform date in Carbon object
-     *
-     * @param string $value date string
-     */
-    public function setDateAttribute($value)
-    {
-        $this->attributes['date'] = Carbon::parse($value);
-    }
 }

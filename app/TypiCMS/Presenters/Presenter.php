@@ -39,14 +39,25 @@ abstract class Presenter
     /**
      * Return resource's date or curent date if empty
      *
-     * @param  string $fieldname
-     * @param  string $format date format
+     * @param  string $column
      * @return Carbon
      */
-    public function dateOrNow($fieldname, $format)
+    public function dateOrNow($column = 'date')
     {
-        $date = $this->entity->$fieldname ? : Carbon::now() ;
-        return $date->format($format);
+        $date = $this->entity->$column ? : Carbon::now() ;
+        return $date->format('Y-m-d');
+    }
+
+    /**
+     * Return resource's time or curent time if empty
+     *
+     * @param  string $column
+     * @return Carbon
+     */
+    public function timeOrNow($column = 'date')
+    {
+        $date = $this->entity->$column ? : Carbon::now() ;
+        return $date->format('H:i');
     }
 
     /**

@@ -8,6 +8,7 @@ All notable changes to TypiCMS will be documented in this file.
 
 ### Changed
 - Events module : start_date and end_date db columns are now timestamp in place of date
+- Events module : start_time and end_time columns removed
 
 ## 1.6.1 - 2014-11-03
 

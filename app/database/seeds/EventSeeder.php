@@ -6,10 +6,10 @@ class EventSeeder extends Seeder
     {
 
         $typi_events = array(
-            array('id' => '1','start_date' => '2014-10-24','end_date' => '2014-10-24','start_time' => '20:30','end_time' => '','created_at' => '2013-10-28 23:20:14','updated_at' => '2013-10-28 23:20:14'),
-            array('id' => '2','start_date' => '2014-11-16','end_date' => '2014-11-18','start_time' => '20:00','end_time' => '','created_at' => '2013-10-28 23:21:10','updated_at' => '2013-10-28 23:21:10'),
-            array('id' => '3','start_date' => '2014-05-20','end_date' => '2014-08-09','start_time' => '','end_time' => '','created_at' => '2013-10-28 23:22:37','updated_at' => '2013-10-28 23:22:37'),
-            array('id' => '4','start_date' => '2014-12-20','end_date' => '2015-01-09','start_time' => '','end_time' => '','created_at' => '2013-10-28 23:22:37','updated_at' => '2013-10-28 23:22:37')
+            array('id' => '1','start_date' => '2014-10-24 00:00:00','end_date' => '2014-10-24 00:00:00','created_at' => '2013-10-28 23:20:14','updated_at' => '2013-10-28 23:20:14'),
+            array('id' => '2','start_date' => '2014-11-16 08:00:00','end_date' => '2014-11-18 18:30:00','created_at' => '2013-10-28 23:21:10','updated_at' => '2013-10-28 23:21:10'),
+            array('id' => '3','start_date' => '2014-05-20 22:00:00','end_date' => '2014-08-09 10:30:00','created_at' => '2013-10-28 23:22:37','updated_at' => '2013-10-28 23:22:37'),
+            array('id' => '4','start_date' => '2014-12-20 10:00:00','end_date' => '2015-01-09 18:30:00','created_at' => '2013-10-28 23:22:37','updated_at' => '2013-10-28 23:22:37')
         );
 
         $typi_event_translations = array(
