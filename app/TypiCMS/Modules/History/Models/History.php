@@ -17,6 +17,7 @@ class History extends Base
         'historable_type',
         'historable_table',
         'title',
+        'locale',
         'user_id',
         'action',
     );
@@ -66,9 +67,8 @@ class History extends Base
     }
 
     /**
-     * Get title (overwrite Base model method)
-     * 
-     * @param  string $value
+     * Get title
+     *
      * @return string
      */
     public function getTitleAttribute($value)
@@ -79,10 +79,13 @@ class History extends Base
     /**
      * Get title (overwrite Base model method)
      * 
-     * @return string
+     * @return string|null
      */
     public function getHrefAttribute()
     {
-        return route('admin.' . $this->historable_table . '.edit', $this->historable_id);
+        if ($this->historable) {
+            return route('admin.' . $this->historable_table . '.edit', $this->historable_id);
+        }
+        return null;
     }
 }

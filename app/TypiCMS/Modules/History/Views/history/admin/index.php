@@ -28,8 +28,9 @@
                     <tr ng-repeat="model in displayedModels">
                         <td>{{ model.created_at | dateFromMySQL:'short' }}</td>
                         <td>
-                            <a ng-if="model.action !== 'deleted'" href="{{ model.href }}">{{ model.title }}</a>
-                            <span ng-if="model.action === 'deleted'">{{ model.title }}</span>
+                            <a ng-if="model.href" href="{{ model.href }}?locale={{ model.locale }}">{{ model.title }}</a>
+                            <span ng-if="! model.href">{{ model.title }}</span>
+                            <span ng-if="model.locale">({{ model.locale }})</span>
                         </td>
                         <td>{{ model.historable_table }}</td>
                         <td>{{ model.action }}</td>
