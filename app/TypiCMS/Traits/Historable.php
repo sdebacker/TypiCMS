@@ -24,7 +24,7 @@ trait Historable {
         static::updated(function ($model) {
             $action = 'updated';
             if (! $model->owner) { // if model has no owner, $model is not a translation
-                $model->writeHistory($action);
+                $model->writeHistory($action, $model->present()->title);
             } else { // if model has owner, $model is a translation
                 // When owner is dirty, history will be written for owner model
                 if ($model->owner->getDirty()) {
