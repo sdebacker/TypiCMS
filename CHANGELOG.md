@@ -1,10 +1,13 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.6.2 - 2014
+## 1.6.2 - 2014-11-11
 
 ### Added
 - Facade for Files
+
+### Fixed
+- Nested menu items bug
 
 ## 1.6.1 - 2014-11-03
 
