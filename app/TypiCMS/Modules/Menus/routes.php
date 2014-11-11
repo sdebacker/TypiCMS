@@ -1,7 +1,7 @@
 <?php
 Route::bind('menus', function ($value) {
-    return TypiCMS\Modules\Menus\Models\Menu::with('menulinks', 'menulinks.translations')
-        ->where('id', $value)
+    return TypiCMS\Modules\Menus\Models\Menu::where('id', $value)
+        ->with('translations', 'menulinks', 'menulinks.translations')
         ->firstOrFail();
 });
 

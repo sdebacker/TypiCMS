@@ -1,5 +1,9 @@
 <?php
-Route::model('places', 'TypiCMS\Modules\Places\Models\Place');
+Route::bind('places', function ($value) {
+    return TypiCMS\Modules\Places\Models\Place::where('id', $value)
+        ->with('translations')
+        ->firstOrFail();
+});
 
 if (! App::runningInConsole()) {
     Route::group(

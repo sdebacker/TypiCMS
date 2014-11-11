@@ -1,5 +1,9 @@
 <?php
-Route::model('files', 'TypiCMS\Modules\Files\Models\File');
+Route::bind('files', function ($value) {
+    return TypiCMS\Modules\Files\Models\File::where('id', $value)
+        ->with('translations')
+        ->firstOrFail();
+});
 
 Route::group(
     array(

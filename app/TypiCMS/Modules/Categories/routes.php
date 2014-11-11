@@ -14,7 +14,11 @@ if (Request::segment(1) != 'admin' && Request::segment(1) != 'api') {
 
 } else {
 
-    Route::model('categories', 'TypiCMS\Modules\Categories\Models\Category');
+    Route::bind('categories', function ($value) {
+        return TypiCMS\Modules\Categories\Models\Category::where('id', $value)
+            ->with('translations')
+            ->firstOrFail();
+    });
 
 }
 
