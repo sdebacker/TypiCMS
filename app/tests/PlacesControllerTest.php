@@ -39,7 +39,7 @@ class PlacesControllerTest extends TestCase
 
         $object->id = 1;
         Place::shouldReceive('create')->once()->andReturn($object);
-        $input = array('title' => 'test', 'slug' => 'test', 'fr.body' => '', 'status' => 0, 'exit' => true);
+        $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'fr.body' => '', 'status' => 0, 'exit' => true);
         $this->call('POST', 'admin/places', $input);
         $this->assertRedirectedToRoute('admin.places.index');
     }
