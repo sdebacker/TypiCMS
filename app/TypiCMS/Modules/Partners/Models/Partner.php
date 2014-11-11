@@ -43,7 +43,7 @@ class Partner extends Base
     protected $appends = ['status', 'title', 'thumb', 'website'];
 
     /**
-     * List of columns that are file.
+     * Columns that are file.
      *
      * @var array
      */

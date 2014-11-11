@@ -40,7 +40,7 @@ class Project extends Base
     );
 
     /**
-     * List of columns that are file.
+     * Columns that are file.
      *
      * @var array
      */
