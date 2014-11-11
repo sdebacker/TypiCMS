@@ -82,6 +82,8 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
 
         $menu->menulinks = $this->prepare($menu->menulinks);
 
+        $menu->menulinks->nest();
+
         return $menu;
     }
 
@@ -89,7 +91,7 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     {
         $items->each(function ($item) {
             if ($item->has_categories) {
-                $item->models = $this->prepare(Categories::getAllForMenu($item->uri));
+                $item->items = $this->prepare(Categories::getAllForMenu($item->uri));
             }
             $item->uri = $this->setUri($item);
             $item->class = $this->setClass($item);
