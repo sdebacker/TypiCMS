@@ -35,13 +35,15 @@ class NestableCollection extends Collection
 
         // add empty children collection.
         $this->each(function ($item) {
-            $item->children = App::make('Illuminate\Support\Collection');
+            if (! $item->items) {
+                $item->items = App::make('Illuminate\Support\Collection');
+            }
         });
 
         // add items to children collection
         foreach ($this->items as $key => $item) {
             if ($item->$parentKey && isset($this->items[$item->$parentKey])) {
-                $this->items[$item->$parentKey]->children->push($item);
+                $this->items[$item->$parentKey]->items->push($item);
                 $keysToDelete[] = $item->id;
             }
         }

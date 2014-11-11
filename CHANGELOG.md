@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.6.2 - 2014
+## 1.6.2 - 2014-11-11
 
 ### Added
 - Facade for Files.
@@ -12,6 +12,9 @@ All notable changes to TypiCMS will be documented in this file.
 - Events module : start_date and end_date db columns are now timestamp in place of date.
 - Events module : start_time and end_time columns removed.
 - Places module harmonized with other modules : title is now translatable, info columns changed to body,…
+
+### Fixed
+- Nested menu items bug
 
 ## 1.6.1 - 2014-11-03
 

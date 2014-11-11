@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.7.2",
+            "version": "2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "21115c088549520a8b268557601987c12d835f4b"
+                "reference": "142116308c921e18777fb73a46e87f7f899209b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/21115c088549520a8b268557601987c12d835f4b",
-                "reference": "21115c088549520a8b268557601987c12d835f4b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/142116308c921e18777fb73a46e87f7f899209b2",
+                "reference": "142116308c921e18777fb73a46e87f7f899209b2",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-10-23 20:13:09"
+            "time": "2014-11-06 22:36:17"
         },
         {
             "name": "bkwld/croppa",
@@ -398,16 +398,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "46f2284c7f8b9c2ec02fc30c952b9bf32f29c3e7"
+                "reference": "152953046cb659032a0f10f2a5a4814b6e11a87a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/46f2284c7f8b9c2ec02fc30c952b9bf32f29c3e7",
-                "reference": "46f2284c7f8b9c2ec02fc30c952b9bf32f29c3e7",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/152953046cb659032a0f10f2a5a4814b6e11a87a",
+                "reference": "152953046cb659032a0f10f2a5a4814b6e11a87a",
                 "shasum": ""
             },
             "require": {
@@ -445,7 +445,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2014-09-04 19:04:56"
+            "time": "2014-11-05 15:30:50"
         },
         {
             "name": "edvinaskrucas/notification",
@@ -988,7 +988,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -1421,16 +1421,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.25",
+            "version": "v1.1.26",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "2d43bd047b120279511d45e76e61c5a9812d9a83"
+                "url": "https://github.com/tchwork/utf8.git",
+                "reference": "6b8e46603b49ee87ad6bceb314da94cc04ffcdce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/2d43bd047b120279511d45e76e61c5a9812d9a83",
-                "reference": "2d43bd047b120279511d45e76e61c5a9812d9a83",
+                "url": "https://api.github.com/repos/tchwork/utf8/zipball/6b8e46603b49ee87ad6bceb314da94cc04ffcdce",
+                "reference": "6b8e46603b49ee87ad6bceb314da94cc04ffcdce",
                 "shasum": ""
             },
             "require": {
@@ -1461,32 +1461,32 @@
             "authors": [
                 {
                     "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com",
-                    "role": "Developer"
+                    "email": "p@tchwork.com"
                 }
             ],
-            "description": "Extensive, portable and performant handling of UTF-8 and grapheme clusters for PHP",
-            "homepage": "https://github.com/nicolas-grekas/Patchwork-UTF8",
+            "description": "Portable and performant UTF-8, Unicode and Grapheme Clusters for PHP",
+            "homepage": "https://github.com/tchwork/utf8",
             "keywords": [
+                "grapheme",
                 "i18n",
                 "unicode",
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-08-05 08:00:32"
+            "time": "2014-11-08 10:13:25"
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "0.3.8",
+            "version": "0.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "5085202f1f37769aae59f9711c423f28159c9b29"
+                "reference": "c6e88ca6e81bc5a2d7161658e16a95b7ef8d6ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/5085202f1f37769aae59f9711c423f28159c9b29",
-                "reference": "5085202f1f37769aae59f9711c423f28159c9b29",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c6e88ca6e81bc5a2d7161658e16a95b7ef8d6ad1",
+                "reference": "c6e88ca6e81bc5a2d7161658e16a95b7ef8d6ad1",
                 "shasum": ""
             },
             "require": {
@@ -1571,7 +1571,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-09-13 02:42:45"
+            "time": "2014-11-10 03:08:59"
         },
         {
             "name": "predis/predis",
@@ -1705,20 +1705,20 @@
         },
         {
             "name": "roumen/sitemap",
-            "version": "v2.4.6",
+            "version": "v2.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-sitemap.git",
-                "reference": "802533a6fa580edb0682e9f234abb8fb6913a209"
+                "reference": "8dd6bddf2d328b2ec3021197a0a5503a0b7e1f0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/802533a6fa580edb0682e9f234abb8fb6913a209",
-                "reference": "802533a6fa580edb0682e9f234abb8fb6913a209",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/8dd6bddf2d328b2ec3021197a0a5503a0b7e1f0e",
+                "reference": "8dd6bddf2d328b2ec3021197a0a5503a0b7e1f0e",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~4",
+                "illuminate/support": "~4|~5",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -1748,7 +1748,7 @@
                 "Sitemap",
                 "laravel"
             ],
-            "time": "2014-07-09 13:16:53"
+            "time": "2014-11-11 13:27:18"
         },
         {
             "name": "stack/builder",
@@ -2670,7 +2670,7 @@
                     "email": "damian@emberlabs.org"
                 },
                 {
-                    "name": "ThomasWelton",
+                    "name": "Thomas Welton",
                     "email": "thomaswelton@me.com",
                     "homepage": "https://github.com/thomaswelton",
                     "role": "Developer"
@@ -3122,7 +3122,8 @@
             "authors": [
                 {
                     "name": "Chris Boulton",
-                    "homepage": "http://github.com/chrisboulton"
+                    "homepage": "http://github.com/chrisboulton",
+                    "role": "Original developer"
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",

@@ -93,7 +93,7 @@ HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) 
         $menuList[] = '<li ' . HTML::attributes($liAttr) . '>';
 
         $aAttr = array();
-        if ($item->models && $item->models->count()) {
+        if ($item->items && $item->items->count()) {
             $aAttr['class'] = 'dropdown-toggle';
             $aAttr['data-toggle'] = 'dropdown';
         }
@@ -105,14 +105,14 @@ HTML::macro('menu', $builtMenu = function ($items = array(), $ulAttr = array()) 
             $menuList[] = '<span class="'.$item->icon_class.'"></span>';
         }
         $menuList[] = $item->title;
-        if ($item->models && $item->models->count()) {
+        if ($item->items && $item->items->count()) {
             $menuList[] = '<span class="caret"></span>';
         }
         $menuList[] = '</a>';
 
         // nested list
-        if ($item->models && $item->models->count()) {
-            $menuList[] = $builtMenu($item->models, array('class' => 'dropdown-menu'));
+        if ($item->items && $item->items->count()) {
+            $menuList[] = $builtMenu($item->items, array('class' => 'dropdown-menu'));
         }
 
         $menuList[] = '</li>';
