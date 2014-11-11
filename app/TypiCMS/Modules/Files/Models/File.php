@@ -77,19 +77,6 @@ class File extends Base
     }
 
     /**
-     * Observers
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleted(function (File $model) {
-            Croppa::delete($model->path . '/' . $model->filename);
-        });
-
-    }
-
-    /**
      * Get translated title
      */
     public function getTitleAttribute($value)
