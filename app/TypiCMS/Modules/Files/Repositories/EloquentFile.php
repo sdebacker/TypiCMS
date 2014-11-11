@@ -87,7 +87,7 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
     public function create(array $data)
     {
         if (isset($data['file']) && $data['file']) {
-            $path = 'uploads/';
+            $path = 'uploads/files/';
             $file = FileUpload::handle($data['file'], $path);
             $data = array_merge($data, $file);
         }
