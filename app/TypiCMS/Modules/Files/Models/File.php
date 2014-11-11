@@ -48,15 +48,6 @@ class File extends Base
         'alt_attribute',
     );
 
-    /**
-     * Columns that are file.
-     *
-     * @var array
-     */
-    public $attachments = array(
-        'image',
-    );
-
     protected $appends = ['alt_attribute', 'description', 'thumb', 'thumb_sm'];
 
     /**
