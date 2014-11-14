@@ -5,7 +5,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sdebacker/TypiCMS/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sdebacker/TypiCMS/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5c96a56f-2006-4911-bf7c-d9afad35db5a/mini.png)](https://insight.sensiolabs.com/projects/5c96a56f-2006-4911-bf7c-d9afad35db5a)
 
-TypiCMS is a multilingual content management system built with [Laravel 4.2](http://laravel.com).  
+TypiCMS is a multilingual content management system built with [Laravel 4.2](http://laravel.com).
 [Bower](http://bower.io) and [gulp](http://gulpjs.com) are used for assets management and user interface is build with [Bootstrap 3](http://getbootstrap.com) with Less.
 
 **Demo**
@@ -68,7 +68,7 @@ This kind of urls are managed by the CMS :
 
 - PHP >= 5.4.0
 - MCrypt PHP Extension
-- Memcached or APC
+- Memcached or Redis or APC
 
 ## Installation
 
@@ -76,13 +76,13 @@ This kind of urls are managed by the CMS :
 
 1. Install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com)
 2. Create an empty MySQL database
-3. Create a new project 
-   
+3. Create a new project
+
    ```
    composer create-project sdebacker/typicms mywebsite
    ```
 4. Enter newly created folder
-   
+
    ```
    cd mywebsite
    ```
@@ -97,54 +97,50 @@ This kind of urls are managed by the CMS :
 
 1. Create an empty database
 2. Download TypiCMS
-   
+
    ```
    git clone https://github.com/sdebacker/TypiCMS.git mywebsite
    ```
 3. Enter newly created folder
-   
+
    ```
    cd mywebsite
    ```
-4. Set a new encryption key
-   
-   ```
-   php artisan key:generate
-   ```
-5. Change cache prefix in app/config/cache.php
-
-   ```
-   php artisan cache:prefix yourCachePrefix
-   ```
-6. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md)
+4. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md)
 
    ```
    composer install
    ```
-7. Fill in your database credentials in env.local.php
-8. Rename env.local.php to .env.local.php
-   
+5. Set a new encryption key
+
    ```
-   mv env.local.php .env.local.php
+   php artisan key:generate
    ```
+6. Change cache prefix in app/config/cache.php
+
+   ```
+   php artisan cache:prefix yourCachePrefix
+   ```
+7. Rename .env.example to .env
+
+   ```
+   mv .env.example .env
+   ```
+8. Fill in your database credentials in .env
+
 9. Migrate and seed Database
-   
+
    ```
    php artisan migrate --seed
    ```
 10. Set permissions
-    
+
     ```
     chmod -R 777 app/storage
     chmod -R 777 public/uploads
     ```
-11. In development mode you should run
-    
-    ```
-    php artisan debugbar:publish
-    ``` 
-12. Go to http://mywebsite.local/admin and log in:
-    
+11. Go to http://mywebsite.local/admin and log in:
+
    * email: ```admin@example.com```
    * password: ```admin```
 
@@ -153,17 +149,17 @@ This kind of urls are managed by the CMS :
 In order to work on assets, you need to install [Node.js](http://nodejs.org), [Bower](http://bower.io) and [gulp](http://gulpjs.com), then cd to your website folder and run these commands:
 
 1. Install bower packages according to bower.json (directory app/assets/components)
-    
+
    ```
    bower install
    ```
 2. Install Gulp packages according to gulpfile.js (directory node_modules)
-    
+
    ```
    npm install
    ```
 3. Compile admin and public assets
-    
+
    ```
    gulp
    ```
@@ -171,7 +167,7 @@ In order to work on assets, you need to install [Node.js](http://nodejs.org), [B
 ### Configuration
 
 1. Set available locales and default locale in app/config/app.php
-2. Cache driver is set to memcached, you can change it to apc in app/config/cache.php
+2. Cache driver is set to memcached, you can change it to another taggable cache system such as redis in app/config/cache.php
 
 ## Modules
 
@@ -195,7 +191,7 @@ Categories has many projects.
 
 ### Tags
 
-Tags are linked to projects and use [Select2](http://ivaynberg.github.io/select2/) js plugin.  
+Tags are linked to projects and use [Selectize](https://brianreavis.github.io/selectize.js/) jQuery plugin.
 It has many to many polymorphic relations so it could easily be linked to other modules.
 
 ### Events
@@ -216,17 +212,17 @@ A partner has a logo, website url, title and body content.
 
 ### Files
 
-Files module allows you to upload multiple files, it uses [DropzoneJS](http://www.dropzonejs.com).  
+Files module allows you to upload multiple files, it uses [DropzoneJS](http://www.dropzonejs.com).
 Thumbnails are generated on the fly with [Croppa](https://github.com/BKWLD/croppa).
 
 ### Galleries
 
-You can create as many galleries as you want, each gallery has many files.  
+You can create as many galleries as you want, each gallery has many files.
 Galleries are linkable to any module item through a polymorphic many to many relation, for now only News module is properly set up to support galleries.
 
 ### Users and groups
 
-[Sentry 2](https://cartalyst.com/manual/sentry) is used to manage users, groups and permissions.  
+[Sentry 2](https://cartalyst.com/manual/sentry) is used to manage users, groups and permissions.
 Users registration can be enable through the settings panel (/admin/settings).
 
 ### Blocks
@@ -236,14 +232,13 @@ You can get content of a block with ``` Blocks::build('blockname') ```.
 
 ### Translations
 
-Translations can be store in database through the admin panel (/admin/translations).  
-Each cell of the translation table is editable in place.
+Translations can be stored in database through the admin panel (/admin/translations).
 
 You can call DB translation everywhere with ``` Lang::get('db.Key') ```, ``` trans('db.Key') ``` or ``` @lang('db.Key') ```.
 
 ### Sitemap
 
-Route sitemap.xml generate a sitemap file in xml format.  
+Route sitemap.xml generate a sitemap file in xml format.
 Configure modules to add to the site map in app/config/sitemap.php file.
 
 ### Settings
@@ -252,7 +247,7 @@ Change website title, and other options trough the settings panel. Settings are 
 
 ## Facades
 
-Modules that have their own Facade: News, Events, Projects, Places, Partners, Galleries, Blocks and Menus.
+Modules that have their own Facade: News, Events, Projects, Places, Partners, Galleries, Blocks, Files and Menus.
 
 In your views, you can call for example ```News::latest(3)``` to get the three latest news.
 Check available methods in each module's repository.
@@ -287,8 +282,8 @@ Commands are located in app/TypiCMS/Commands
 
 ## Contributing
 
-Feel free to fork and make pull requests!  
-TypiCMS follows [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.  
+Feel free to fork and make pull requests directly on master branch!
+TypiCMS follows [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.
 
 Thanks to [elvendor](https://github.com/elvendor) and [jekjek](https://github.com/jekjek) for their contributions!
 
