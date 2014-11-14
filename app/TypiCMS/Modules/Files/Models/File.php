@@ -51,6 +51,15 @@ class File extends Base
     protected $appends = ['alt_attribute', 'description', 'thumb', 'thumb_sm'];
 
     /**
+     * Columns that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'filename',
+    );
+
+    /**
      * The default route for admin side.
      *
      * @var string

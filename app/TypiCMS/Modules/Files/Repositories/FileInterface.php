@@ -27,27 +27,4 @@ interface FileInterface extends RepositoryInterface
         $all = false,
         $type = null
     );
-
-    /**
-     * Delete model
-     *
-     * @return boolean
-     */
-    public function delete($model);
-
-    /**
-     * Create a new model
-     *
-     * @param  array         Data to create a new model
-     * @return boolean|Model false on error
-     */
-    public function create(array $data);
-
-    /**
-     * Update an existing model
-     *
-     * @param array  Data to update a model
-     * @return boolean
-     */
-    public function update(array $data);
 }

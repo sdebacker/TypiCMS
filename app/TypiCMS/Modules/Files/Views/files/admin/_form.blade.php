@@ -54,35 +54,7 @@
         {{ Form::hidden('height') }}
         {{ Form::hidden('download_count', $model->download_count ?: 0) }}
 
-        <div class="clearfix well media @if($errors->has('file'))has-error @endif">
-            <!-- There is a file -->
-            @if(isset($model->filename) && $model->filename)
-            <div>
-                @if ($model->type == 'i')
-                {{ $model->present()->thumb(null, 100, [], 'filename') }}
-                @else
-                {{ $model->present()->icon(2, 'filename') }}
-                @endif
-            </div>
-            <div class="media-body">
-                {{ Form::label('file', trans('validation.attributes.replace file'), array('class' => 'control-label')) }}
-                {{ Form::file('file') }}
-                <span class="help-block">
-                    @lang('validation.attributes.max') 2 
-                    @lang('validation.attributes.MB')
-                </span>
-            </div>
-            @else
-            <!-- No file -->
-            {{ Form::label('file', trans('validation.attributes.file'), array('class' => 'control-label')) }}
-            {{ Form::file('file') }}
-            <span class="help-block">
-                @lang('validation.attributes.max') 2 
-                @lang('validation.attributes.MB')
-            </span>
-            @endif
-            {{ $errors->first('file', '<p class="help-block">:message</p>') }}
-        </div>
+        @include('admin._image-fieldset', ['field' => 'filename'])
 
         <table class="table table-condensed">
             <thead>

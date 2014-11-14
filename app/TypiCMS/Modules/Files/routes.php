@@ -11,7 +11,7 @@ Route::group(
         'prefix'    => 'admin',
     ),
     function () {
-        Route::resource('files', 'AdminController', ['except' => ['create']]);
+        Route::resource('files', 'AdminController');
         Route::post('files/sort', array( 'as' => 'admin.files.sort', 'uses' => 'AdminController@sort'));
         Route::post('files/upload', array( 'as' => 'admin.files.upload', 'uses' => 'AdminController@upload'));
     }
