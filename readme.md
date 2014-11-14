@@ -68,7 +68,7 @@ This kind of urls are managed by the CMS :
 
 - PHP >= 5.4.0
 - MCrypt PHP Extension
-- Memcached or APC
+- Memcached or Redis or APC
 
 ## Installation
 
@@ -121,7 +121,7 @@ This kind of urls are managed by the CMS :
    ```
    php artisan cache:prefix yourCachePrefix
    ```
-7. Rename env.local.php to .env.local.php
+7. Rename .env.example to .env
 
    ```
    mv .env.example .env
@@ -139,12 +139,7 @@ This kind of urls are managed by the CMS :
     chmod -R 777 app/storage
     chmod -R 777 public/uploads
     ```
-11. In development mode you should run
-
-    ```
-    php artisan debugbar:publish
-    ```
-12. Go to http://mywebsite.local/admin and log in:
+11. Go to http://mywebsite.local/admin and log in:
 
    * email: ```admin@example.com```
    * password: ```admin```
@@ -172,7 +167,7 @@ In order to work on assets, you need to install [Node.js](http://nodejs.org), [B
 ### Configuration
 
 1. Set available locales and default locale in app/config/app.php
-2. Cache driver is set to memcached, you can change it to apc in app/config/cache.php
+2. Cache driver is set to memcached, you can change it to another taggable cache system such as redis in app/config/cache.php
 
 ## Modules
 
@@ -196,7 +191,7 @@ Categories has many projects.
 
 ### Tags
 
-Tags are linked to projects and use [Select2](http://ivaynberg.github.io/select2/) js plugin.
+Tags are linked to projects and use [Selectize](https://brianreavis.github.io/selectize.js/) jQuery plugin.
 It has many to many polymorphic relations so it could easily be linked to other modules.
 
 ### Events
@@ -237,8 +232,7 @@ You can get content of a block with ``` Blocks::build('blockname') ```.
 
 ### Translations
 
-Translations can be store in database through the admin panel (/admin/translations).
-Each cell of the translation table is editable in place.
+Translations can be stored in database through the admin panel (/admin/translations).
 
 You can call DB translation everywhere with ``` Lang::get('db.Key') ```, ``` trans('db.Key') ``` or ``` @lang('db.Key') ```.
 
@@ -253,7 +247,7 @@ Change website title, and other options trough the settings panel. Settings are 
 
 ## Facades
 
-Modules that have their own Facade: News, Events, Projects, Places, Partners, Galleries, Blocks and Menus.
+Modules that have their own Facade: News, Events, Projects, Places, Partners, Galleries, Blocks, Files and Menus.
 
 In your views, you can call for example ```News::latest(3)``` to get the three latest news.
 Check available methods in each module's repository.
@@ -288,7 +282,7 @@ Commands are located in app/TypiCMS/Commands
 
 ## Contributing
 
-Feel free to fork and make pull requests!
+Feel free to fork and make pull requests directly on master branch!
 TypiCMS follows [PSR-2](http://www.php-fig.org/psr/psr-2/) standard.
 
 Thanks to [elvendor](https://github.com/elvendor) and [jekjek](https://github.com/jekjek) for their contributions!
