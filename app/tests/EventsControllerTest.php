@@ -24,8 +24,7 @@ class EventsControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Event;
         $object->id = 1;
         Event::shouldReceive('create')->once()->andReturn($object);
         $input = array('start_date' => '2014-03-10', 'end_date' => '2014-03-10');
@@ -35,8 +34,7 @@ class EventsControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Event;
         $object->id = 1;
         Event::shouldReceive('create')->once()->andReturn($object);
         $input = array('start_date' => '2014-03-10', 'end_date' => '2014-03-10', 'exit' => true);

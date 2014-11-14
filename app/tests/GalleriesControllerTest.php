@@ -28,8 +28,7 @@ class GalleriesControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Gallery;
         $object->id = 1;
         Gallery::shouldReceive('create')->once()->andReturn($object);
         $input = array('name' => 'test');
@@ -39,8 +38,7 @@ class GalleriesControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Gallery;
         $object->id = 1;
         Gallery::shouldReceive('create')->once()->andReturn($object);
         $input = array('name' => 'test', 'exit' => true);

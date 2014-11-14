@@ -24,8 +24,7 @@ class TranslationsControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Translation;
         $object->id = 1;
         Translation::shouldReceive('create')->once()->andReturn($object);
         $input = array('key' => 'test');
@@ -35,8 +34,7 @@ class TranslationsControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Translation;
         $object->id = 1;
         Translation::shouldReceive('create')->once()->andReturn($object);
         $input = array('key' => 'test', 'exit' => true);

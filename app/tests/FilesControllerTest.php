@@ -17,8 +17,7 @@ class FilesControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new File;
         $object->id = 1;
         File::shouldReceive('create')->once()->andReturn($object);
         $this->call('POST', 'admin/files');
@@ -27,8 +26,7 @@ class FilesControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new File;
         $object->id = 1;
         File::shouldReceive('create')->once()->andReturn($object);
         $input = array('exit' => true);

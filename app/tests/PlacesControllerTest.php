@@ -24,8 +24,7 @@ class PlacesControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Place;
         $object->id = 1;
         Place::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'fr.body' => '', 'status' => 0);
@@ -35,8 +34,7 @@ class PlacesControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Place;
         $object->id = 1;
         Place::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'fr.body' => '', 'status' => 0, 'exit' => true);

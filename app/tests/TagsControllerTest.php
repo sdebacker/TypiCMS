@@ -24,8 +24,7 @@ class TagsControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Tag;
         $object->id = 1;
         Tag::shouldReceive('create')->once()->andReturn($object);
         $input = array('tag' => 'test', 'slug' => 'test');
@@ -35,8 +34,7 @@ class TagsControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Tag;
         $object->id = 1;
         Tag::shouldReceive('create')->once()->andReturn($object);
         $input = array('tag' => 'test', 'slug' => 'test', 'exit' => true);
