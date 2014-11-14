@@ -85,7 +85,7 @@ class History extends Base
     public function getHrefAttribute()
     {
         if ($this->historable) {
-            return route('admin.' . $this->historable_table . '.edit', $this->historable_id);
+            return $this->historable->editUrl();
         }
         return null;
     }

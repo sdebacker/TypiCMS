@@ -96,4 +96,32 @@ class Menulink extends Base
     {
         return new NestableCollection($models, 'parent_id');
     }
+
+    /**
+     * Get back office’s create url of a model
+     * 
+     * @return string|void
+     */
+    public function createUrl()
+    {
+        try {
+            return route('admin.menus.menulinks.create');
+        } catch (InvalidArgumentException $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    /**
+     * Get edit url of model
+     * 
+     * @return string|void
+     */
+    public function editUrl()
+    {
+        try {
+            return route('admin.menus.menulinks.edit', [$this->menu_id, $this->id]);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+    }
 }

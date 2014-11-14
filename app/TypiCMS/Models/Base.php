@@ -3,10 +3,13 @@ namespace TypiCMS\Models;
 
 use App;
 use Config;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use InvalidArgumentException;
 use Input;
+use Log;
 use Mockery;
 use Route;
 
@@ -252,5 +255,47 @@ abstract class Base extends Model
             ->withPivot('position')
             ->orderBy('position')
             ->withTimestamps();
+    }
+
+    /**
+     * Get back office’s create url of a model
+     * 
+     * @return string|void
+     */
+    public function createUrl()
+    {
+        try {
+            return route('admin.' . $this->getTable() . '.create');
+        } catch (InvalidArgumentException $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    /**
+     * Get back office’s edit url of model
+     * 
+     * @return string|void
+     */
+    public function editUrl()
+    {
+        try {
+            return route('admin.' . $this->getTable() . '.edit', $this->id);
+        } catch (InvalidArgumentException $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    /**
+     * Get back office’s index url of model
+     * 
+     * @return string|void
+     */
+    public function indexUrl()
+    {
+        try {
+            return route('admin.' . $this->getTable() . '.index');
+        } catch (InvalidArgumentException $e) {
+            Log::error($e->getMessage());
+        }
     }
 }
