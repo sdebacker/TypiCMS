@@ -8,7 +8,7 @@
     </h1>
 
     {{ Form::model( $model, array( 'route' => array('admin.menus.menulinks.update', $menu->id, $model->id), 'files' => true, 'method' => 'put', 'role' => 'form' ) ) }}
-        @include($module . '.admin._form')
+        @include('menulinks.admin._form')
     {{ Form::close() }}
 
 @stop

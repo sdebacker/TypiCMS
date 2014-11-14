@@ -98,20 +98,6 @@ class Menulink extends Base
     }
 
     /**
-     * Get back office’s create url of a model
-     * 
-     * @return string|void
-     */
-    public function createUrl()
-    {
-        try {
-            return route('admin.menus.menulinks.create');
-        } catch (InvalidArgumentException $e) {
-            Log::error($e->getMessage());
-        }
-    }
-
-    /**
      * Get edit url of model
      * 
      * @return string|void
@@ -121,6 +107,20 @@ class Menulink extends Base
         try {
             return route('admin.menus.menulinks.edit', [$this->menu_id, $this->id]);
         } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    /**
+     * Get back office’s index of models url
+     * 
+     * @return string|void
+     */
+    public function indexUrl()
+    {
+        try {
+            return route('admin.menus.menulinks.index', $this->menu_id);
+        } catch (InvalidArgumentException $e) {
             Log::error($e->getMessage());
         }
     }

@@ -18,8 +18,6 @@ abstract class BaseAdminController extends Controller
     protected $layout = 'admin/master';
 
     protected $repository;
-    protected $module;
-    protected $route;
     protected $form;
 
     // The cool kids’ way of handling page titles.
@@ -34,10 +32,6 @@ abstract class BaseAdminController extends Controller
     public function __construct($repository = null, $form = null)
     {
         $this->repository = $repository;
-
-        $this->module = $this->setModule();
-        $this->route = $this->setRoute();
-
         $this->form = $form;
 
         $this->applicationName = Config::get('typicms.' . Lang::getLocale() . '.websiteTitle');
@@ -49,8 +43,6 @@ abstract class BaseAdminController extends Controller
 
         View::share('locales', Config::get('app.locales'));
         View::share('locale', Config::get('app.locale'));
-        View::share('module', $this->module);
-        View::share('route', $this->route);
     }
 
     public function getTitle()

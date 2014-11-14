@@ -258,20 +258,6 @@ abstract class Base extends Model
     }
 
     /**
-     * Get back office’s create url of a model
-     * 
-     * @return string|void
-     */
-    public function createUrl()
-    {
-        try {
-            return route('admin.' . $this->getTable() . '.create');
-        } catch (InvalidArgumentException $e) {
-            Log::error($e->getMessage());
-        }
-    }
-
-    /**
      * Get back office’s edit url of model
      * 
      * @return string|void
@@ -286,7 +272,7 @@ abstract class Base extends Model
     }
 
     /**
-     * Get back office’s index url of model
+     * Get back office’s index of models url
      * 
      * @return string|void
      */

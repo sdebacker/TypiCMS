@@ -24,8 +24,7 @@ class BlocksControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Block;
         $object->id = 1;
         Block::shouldReceive('create')->once()->andReturn($object);
         $input = array('name' => 'test');
@@ -35,8 +34,7 @@ class BlocksControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Block;
         $object->id = 1;
         Block::shouldReceive('create')->once()->andReturn($object);
         $input = array('name' => 'test', 'exit' => true);
