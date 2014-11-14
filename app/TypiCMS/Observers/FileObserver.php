@@ -47,8 +47,7 @@ class FileObserver
      */
     public function saving(Model $model)
     {
-        print_r(Input::hasFile('file'));
-        exit('ok');
+
         if (! $attachments = $model->attachments) {
             return;
         }
