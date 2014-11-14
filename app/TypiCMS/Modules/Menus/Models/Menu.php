@@ -34,13 +34,6 @@ class Menu extends Base
     );
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'menus';
-
-    /**
      * Relations
      */
     public function menulinks()

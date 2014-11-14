@@ -50,11 +50,4 @@ class News extends Base
     public $attachments = array(
         'image',
     );
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'news';
 }

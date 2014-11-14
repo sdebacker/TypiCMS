@@ -51,13 +51,6 @@ class Project extends Base
     protected $appends = ['status', 'title', 'thumb', 'category_name'];
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'projects';
-
-    /**
      * Relation
      */
     public function category()

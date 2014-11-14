@@ -8,6 +8,20 @@ interface GroupInterface extends RepositoryInterface
 {
 
     /**
+     * Get empty model
+     * 
+     * @return model
+     */
+    public function getModel();
+
+    /**
+     * Get table name
+     * 
+     * @return string
+     */
+    public function getTable();
+
+    /**
      * Store a newly created resource in storage.
      *
      * @return Model|boolean false on error

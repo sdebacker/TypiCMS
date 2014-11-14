@@ -34,13 +34,6 @@ class Translation extends Base
     protected $appends = ['translation'];
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'translations';
-
-    /**
      * Get translation attribute from translation table
      *
      * @return string

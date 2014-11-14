@@ -34,13 +34,6 @@ class Contact extends Base
     protected $appends = [];
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'contacts';
-
-    /**
      * Get title attribute from translation table
      * and append it to main model attributes
      * @return string title

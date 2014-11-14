@@ -39,13 +39,6 @@ class Gallery extends Base
     protected $appends = ['status', 'title', 'files_count'];
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'galleries';
-
-    /**
      * One gallery has many files.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

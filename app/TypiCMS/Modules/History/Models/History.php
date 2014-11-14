@@ -26,13 +26,6 @@ class History extends Base
     protected $appends = ['user_name', 'href'];
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'history';
-
-    /**
      * lists
      */
     public $order = 'id';

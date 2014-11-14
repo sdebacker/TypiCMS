@@ -49,13 +49,6 @@ class Menulink extends Base
     );
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'menus.menulinks';
-
-    /**
      * A menulink belongs to a menu
      */
     public function menu()

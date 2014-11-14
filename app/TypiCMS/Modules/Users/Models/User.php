@@ -12,9 +12,30 @@ class User extends SentryUserModel
     protected $presenter = 'TypiCMS\Modules\Users\Presenters\ModulePresenter';
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
+     * Get back office’s edit url of model
+     * 
+     * @return string|void
      */
-    public $route = 'users';
+    public function editUrl()
+    {
+        try {
+            return route('admin.' . $this->getTable() . '.edit', $this->id);
+        } catch (InvalidArgumentException $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    /**
+     * Get back office’s index of models url
+     * 
+     * @return string|void
+     */
+    public function indexUrl()
+    {
+        try {
+            return route('admin.' . $this->getTable() . '.index');
+        } catch (InvalidArgumentException $e) {
+            Log::error($e->getMessage());
+        }
+    }
 }

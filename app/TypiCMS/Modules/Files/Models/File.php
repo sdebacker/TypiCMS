@@ -60,13 +60,6 @@ class File extends Base
     );
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'files';
-
-    /**
      * One file belongs to one gallery.
      *
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo

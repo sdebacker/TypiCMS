@@ -68,13 +68,6 @@ class Page extends Base
     );
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'pages';
-
-    /**
      * Get public uri
      *
      * @return string

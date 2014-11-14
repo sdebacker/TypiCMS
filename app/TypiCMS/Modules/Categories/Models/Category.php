@@ -37,13 +37,6 @@ class Category extends Base
     );
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'categories';
-
-    /**
      * Get public uri
      *
      * @return string|null string or void

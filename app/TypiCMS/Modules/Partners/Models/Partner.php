@@ -52,13 +52,6 @@ class Partner extends Base
     );
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'partners';
-
-    /**
      * Get attribute from translation table
      * and append it to main model attributes
      * @return string title
