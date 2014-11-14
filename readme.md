@@ -106,27 +106,27 @@ This kind of urls are managed by the CMS :
    ```
    cd mywebsite
    ```
-4. Set a new encryption key
-   
-   ```
-   php artisan key:generate
-   ```
-5. Change cache prefix in app/config/cache.php
-
-   ```
-   php artisan cache:prefix yourCachePrefix
-   ```
-6. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md)
+4. Install dependencies with [Composer](https://getcomposer.org/doc/00-intro.md)
 
    ```
    composer install
    ```
-7. Fill in your database credentials in env.local.php
-8. Rename env.local.php to .env.local.php
+5. Set a new encryption key
    
    ```
-   mv env.local.php .env.local.php
+   php artisan key:generate
    ```
+6. Change cache prefix in app/config/cache.php
+
+   ```
+   php artisan cache:prefix yourCachePrefix
+   ```
+7. Rename .env.example to .env
+   
+   ```
+   mv .env.example .env
+   ```
+8. Fill in your database credentials in .env
 9. Migrate and seed Database
    
    ```
