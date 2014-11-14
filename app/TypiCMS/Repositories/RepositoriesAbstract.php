@@ -18,12 +18,23 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     protected $model;
 
     /**
-     * get empty model
+     * Get empty model
+     * 
      * @return Model
      */
     public function getModel()
     {
         return $this->model;
+    }
+
+    /**
+     * Get table name
+     * 
+     * @return string
+     */
+    public function getTable()
+    {
+        return $this->model->getTable();
     }
 
     /**

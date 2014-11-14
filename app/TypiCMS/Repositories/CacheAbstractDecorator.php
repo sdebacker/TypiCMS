@@ -13,12 +13,23 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
     protected $cache;
 
     /**
-     * get empty model
+     * Get empty model
+     * 
      * @return Model
      */
     public function getModel()
     {
         return $this->repo->getModel();
+    }
+
+    /**
+     * Get table name
+     * 
+     * @return string
+     */
+    public function getTable()
+    {
+        return $this->repo->getTable();
     }
 
     /**

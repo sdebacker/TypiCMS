@@ -9,10 +9,18 @@ use TypiCMS\NestedCollection;
 interface RepositoryInterface
 {
     /**
-     * get empty model
+     * Get empty model
+     * 
      * @return Model
      */
     public function getModel();
+
+    /**
+     * Get table name
+     * 
+     * @return string
+     */
+    public function getTable();
 
     /**
      * Make a new instance of the entity to query on
