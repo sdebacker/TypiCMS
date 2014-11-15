@@ -250,6 +250,7 @@ return array(
 		'Places'          => 'TypiCMS\Modules\Places\Facades\Facade',
 		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',
 		'Tags'            => 'TypiCMS\Modules\Tags\Facades\Facade',
+		'History'         => 'TypiCMS\Modules\History\Facades\Facade',
 
 	),
 

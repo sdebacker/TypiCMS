@@ -28,10 +28,10 @@
                 <tr>
                     <td colspan="4"></td>
                     <td>
-                        <input st-search="'title'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search="'title'" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
                     <td>
-                        <input st-search="'alt_attribute'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search="'alt_attribute'" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
                     <td></td>
                     <td></td>

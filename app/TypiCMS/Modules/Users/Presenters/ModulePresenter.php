@@ -27,9 +27,9 @@ class ModulePresenter extends Presenter
     }
 
     /**
-     * Concatenate first_name and last_name
+     * Get title by concatenating first_name and last_name
      * 
-     * @return String
+     * @return string
      */
     public function title()
     {

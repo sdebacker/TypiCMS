@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
 use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Page extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -27,7 +29,7 @@ class Page extends Base
         'js',
         'template',
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'uri',
@@ -57,20 +59,13 @@ class Page extends Base
     protected $appends = ['status', 'title', 'thumb', 'uri'];
 
     /**
-     * List of fields that are file.
+     * Columns that are file.
      *
      * @var array
      */
     public $attachments = array(
         'image',
     );
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'pages';
 
     /**
      * Get public uri

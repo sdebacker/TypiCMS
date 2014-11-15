@@ -39,12 +39,23 @@ class SentryUser extends RepositoriesAbstract implements UserInterface
     }
 
     /**
-     * get empty model
+     * Get empty model
+     * 
      * @return model
      */
     public function getModel()
     {
         return $this->sentry->getModel();
+    }
+
+    /**
+     * Get table name
+     * 
+     * @return string
+     */
+    public function getTable()
+    {
+        return 'users';
     }
 
     /**

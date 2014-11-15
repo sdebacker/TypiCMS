@@ -63,27 +63,4 @@ class CacheDecorator extends CacheAbstractDecorator implements PlaceInterface
 
         return $models;
     }
-
-    /**
-     * Get single model by URL
-     *
-     * @param string  URL slug of model
-     * @return object object of model information
-     */
-    public function bySlug($slug, array $with = array('translations'))
-    {
-        $cacheKey = md5(App::getLocale() . 'bySlug' . $slug . implode('.', $with) . implode('.', Input::all()));
-
-        if ($this->cache->has($cacheKey)) {
-            return $this->cache->get($cacheKey);
-        }
-
-        $model = $this->repo->bySlug($slug);
-
-        // Store in cache for next request
-        $this->cache->put($cacheKey, $model);
-
-        return $model;
-
-    }
 }

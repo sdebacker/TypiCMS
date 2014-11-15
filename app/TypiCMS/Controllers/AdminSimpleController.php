@@ -12,24 +12,6 @@ abstract class AdminSimpleController extends BaseAdminController
 {
 
     /**
-     * Set module name
-     * @return string
-     */
-    protected function setModule()
-    {
-        return Request::segment(2);
-    }
-
-    /**
-     * Set route base name
-     * @return string
-     */
-    protected function setRoute()
-    {
-        return Request::segment(2);
-    }
-
-    /**
      * List models
      * GET /admin/model
      */
@@ -69,7 +51,7 @@ abstract class AdminSimpleController extends BaseAdminController
      */
     public function show(Model $model)
     {
-        return Redirect::route('admin.' . $this->module . '.edit', $model->id);
+        return Redirect::to($model->editUrl());
     }
 
     /**
@@ -80,14 +62,12 @@ abstract class AdminSimpleController extends BaseAdminController
      */
     public function store()
     {
-
         if ($model = $this->form->save(Input::all())) {
-            return Input::get('exit') ?
-                Redirect::route('admin.' . $this->module . '.index') :
-                Redirect::route('admin.' . $this->module . '.edit', $model->id) ;
+            $redirectUrl = Input::get('exit') ? $model->indexUrl() : $model->editUrl() ;
+            return Redirect::to($redirectUrl);
         }
 
-        return Redirect::route('admin.' . $this->module . '.create')
+        return Redirect::route('admin.' . $this->repository->getTable() . '.create')
             ->withInput()
             ->withErrors($this->form->errors());
 
@@ -107,12 +87,11 @@ abstract class AdminSimpleController extends BaseAdminController
         }
 
         if ($this->form->update(Input::all())) {
-            return Input::get('exit') ?
-                Redirect::route('admin.' . $this->module . '.index') :
-                Redirect::route('admin.' . $this->module . '.edit', $model->id) ;
+            $redirectUrl = Input::get('exit') ? $model->indexUrl() : $model->editUrl() ;
+            return Redirect::to($redirectUrl);
         }
 
-        return Redirect::route('admin.' . $this->module . '.edit', $model->id)
+        return Redirect::to($model->editUrl())
             ->withInput()
             ->withErrors($this->form->errors());
     }

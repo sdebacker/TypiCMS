@@ -4,10 +4,12 @@ namespace TypiCMS\Modules\Projects\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Project extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -16,7 +18,7 @@ class Project extends Base
     protected $fillable = array(
         'category_id',
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',
@@ -38,7 +40,7 @@ class Project extends Base
     );
 
     /**
-     * List of fields that are file.
+     * Columns that are file.
      *
      * @var array
      */
@@ -47,13 +49,6 @@ class Project extends Base
     );
 
     protected $appends = ['status', 'title', 'thumb', 'category_name'];
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'projects';
 
     /**
      * Relation

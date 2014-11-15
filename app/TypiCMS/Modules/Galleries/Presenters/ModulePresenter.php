@@ -24,9 +24,9 @@ class ModulePresenter extends Presenter
     }
 
     /**
-     * Use name as title
+     * Get title
      * 
-     * @return String
+     * @return string
      */
     public function title()
     {

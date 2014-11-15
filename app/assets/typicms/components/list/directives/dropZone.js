@@ -1,18 +1,22 @@
 /**
  * Dropzone multi-upload
  */
-angular.module('typicms').directive('dropZone', function() {
+angular.module('typicms').directive('dropZone', function () {
 
-    return function(scope, element, attrs) {
+    return function (scope, element, attrs) {
 
-        $('#uploaderAddButtonContainer').click(function(event) {
+        $('#uploaderAddButtonContainer').click(function (event) {
             return false;
         });
-        $( "#uploaderAddButton" ).on( "click", function() {
+        $( "#uploaderAddButton" ).on('click', function () {
             $('#dropzone').trigger('click');
         });
+        var dropZoneTemplate,
+            acceptedFiles,
+            parentId = scope.parentId,
+            locales = scope.TypiCMS.locales;
 
-        var dropZoneTemplate = '<div class="thumbnail dz-preview dz-file-preview">\
+        dropZoneTemplate = '<div class="thumbnail dz-preview dz-file-preview">\
                 <div class="dz-details">\
                     <div class="thumb-container">\
                         <img data-dz-thumbnail src="" alt="">\
@@ -26,7 +30,7 @@ angular.module('typicms').directive('dropZone', function() {
                 <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>\
             </div>';
 
-        var acceptedFiles = [
+        acceptedFiles = [
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             'application/vnd.openxmlformats-officedocument.presentationml.presentation',
@@ -41,27 +45,25 @@ angular.module('typicms').directive('dropZone', function() {
             'image/png'
         ];
 
-        var parentId = scope.parentId,
-            locales  = scope.TypiCMS.locales;
-
         Dropzone.options.dropzone = {
             url: '/api/v1/files',
+            paramName: 'filename',
             clickable: true,
             maxFilesize: 2, // MB
             acceptedFiles: acceptedFiles.join(),
             previewTemplate: dropZoneTemplate,
             thumbnailWidth: 130,
             thumbnailHeight: 130,
-            init: function() {
+            init: function () {
 
-                this.on('success', function(file, response) {
+                this.on('success', function (file, response) {
 
                     // Fade out and add file after 1 sec.
                     var $this = this;
-                    window.setTimeout(function(){
-                        $(file.previewElement).fadeOut('fast', function(){
+                    window.setTimeout(function () {
+                        $(file.previewElement).fadeOut('fast', function () {
                             $this.removeFile(file);
-                            scope.$apply(function(){
+                            scope.$apply(function () {
                                 scope.models.push(response.model);
                             });
                         });
@@ -69,7 +71,7 @@ angular.module('typicms').directive('dropZone', function() {
 
                 });
 
-                this.on('sending', function(file, xhr, formData){
+                this.on('sending', function (file, xhr, formData) {
 
                     formData.append('gallery_id', parentId);
                     for (var i = locales.length - 1; i >= 0; i--) {

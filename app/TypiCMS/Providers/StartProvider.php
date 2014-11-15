@@ -10,6 +10,7 @@ use Request;
 use TypiCMS\Commands\CacheKeyPrefix;
 use TypiCMS\Commands\Database;
 use TypiCMS\Commands\Install;
+use TypiCMS\Models\Base;
 use TypiCMS\Modules\Users\Repositories\SentryUser;
 
 class StartProvider extends ServiceProvider
@@ -96,6 +97,7 @@ class StartProvider extends ServiceProvider
         $this->app->register('TypiCMS\Modules\Translations\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Blocks\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Settings\Providers\ModuleProvider');
+        $this->app->register('TypiCMS\Modules\History\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Users\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Groups\Providers\ModuleProvider');
         $this->app->register('TypiCMS\Modules\Files\Providers\ModuleProvider');

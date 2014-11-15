@@ -15,7 +15,7 @@
 
     <div class="form-group @if($errors->has('password'))has-error @endif">
         {{ Form::label('password', trans('validation.attributes.password'), array('class' => 'control-label')) }}
-        {{ Form::password('password', array('class' => 'input-lg form-control', 'autocomplete' => 'off')) }}
+        {{ Form::password('password', array('class' => 'input-lg form-control', 'autofocus', 'autocomplete' => 'off')) }}
         @if($errors->has('password'))
         <span class="help-block">{{ $errors->first('password') }}</span>
         @endif

@@ -5,5 +5,4 @@ use TypiCMS\Presenters\Presenter;
 
 class ModulePresenter extends Presenter
 {
-
 }

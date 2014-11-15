@@ -7,8 +7,9 @@ class BlockPresenter extends Presenter
 {
 
     /**
-     * Return name
-     * @return String
+     * Get title
+     * 
+     * @return string
      */
     public function title()
     {

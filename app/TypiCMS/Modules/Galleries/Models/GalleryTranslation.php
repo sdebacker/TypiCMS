@@ -1,9 +1,15 @@
 <?php
 namespace TypiCMS\Modules\Galleries\Models;
 
-use Eloquent;
+use TypiCMS\Models\BaseTranslation;
 
-class GalleryTranslation extends Eloquent
+class GalleryTranslation extends BaseTranslation
 {
-
+    /**
+     * get the parent model
+     */
+    public function owner()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Galleries\Models\Gallery', 'gallery_id');
+    }
 }

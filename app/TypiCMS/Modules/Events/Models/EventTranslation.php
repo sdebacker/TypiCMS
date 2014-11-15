@@ -1,9 +1,15 @@
 <?php
 namespace TypiCMS\Modules\Events\Models;
 
-use Eloquent;
+use TypiCMS\Models\BaseTranslation;
 
-class EventTranslation extends Eloquent
+class EventTranslation extends BaseTranslation
 {
-
+    /**
+     * get the parent model
+     */
+    public function owner()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Events\Models\Event', 'event_id');
+    }
 }

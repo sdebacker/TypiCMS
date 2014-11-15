@@ -1,5 +1,5 @@
 @section('main')
 
-@include($module . '.admin.index')
+@include(Request::segment(2) . '.admin.index')
 
 @stop

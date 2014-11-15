@@ -8,7 +8,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Format creation date
-     * @return String
+     * @return string
      */
     public function createdAt()
     {
@@ -16,8 +16,9 @@ class ModulePresenter extends Presenter
     }
 
     /**
-     * Concatenate title, first_name and last_name
-     * @return String
+     * Get title by concatenate title, first_name and last_name
+     * 
+     * @return string
      */
     public function title()
     {

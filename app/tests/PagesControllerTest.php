@@ -29,7 +29,7 @@ class PagesControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
+        $object = new Page;
         $object->id = 1;
         Page::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test');
@@ -39,7 +39,7 @@ class PagesControllerTest extends TestCase
 
     public function testUpdateSuccess()
     {
-        $object = new stdClass;
+        $object = new Page;
         $object->id = 1;
         $input = array('id' => 1, 'fr.title' => 'test', 'fr.slug' => '');
         $this->call('PATCH', 'admin/pages/1', $input);
@@ -48,7 +48,7 @@ class PagesControllerTest extends TestCase
 
     public function testUpdateFails()
     {
-        $object = new stdClass;
+        $object = new Page;
         $object->id = 1;
         $input = array('id' => 1, 'fr.title' => 'test', 'fr.slug' => '');
         $this->call('PATCH', 'admin/pages/1', $input);
@@ -58,8 +58,7 @@ class PagesControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Page;
         $object->id = 1;
         Page::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'exit' => true);

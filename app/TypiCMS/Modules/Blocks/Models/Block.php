@@ -4,10 +4,12 @@ namespace TypiCMS\Modules\Blocks\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Block extends Base
 {
 
+    use Historable;
     use PresentableTrait;
     use Translatable;
 
@@ -15,7 +17,7 @@ class Block extends Base
 
     protected $fillable = array(
         'name',
-        // Translatable fields
+        // Translatable columns
         'status',
         'body',
     );
@@ -31,13 +33,6 @@ class Block extends Base
     );
 
     protected $appends = ['status', 'body'];
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'blocks';
 
     /**
      * Get Body attribute from translation table

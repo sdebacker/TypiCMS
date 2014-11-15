@@ -6,10 +6,12 @@ use Route;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Category extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -17,7 +19,7 @@ class Category extends Base
 
     protected $fillable = array(
         'position',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',
@@ -33,13 +35,6 @@ class Category extends Base
         'slug',
         'status',
     );
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'categories';
 
     /**
      * Get public uri

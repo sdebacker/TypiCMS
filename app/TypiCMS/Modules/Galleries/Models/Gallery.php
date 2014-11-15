@@ -4,10 +4,12 @@ namespace TypiCMS\Modules\Galleries\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Gallery extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -15,7 +17,7 @@ class Gallery extends Base
 
     protected $fillable = array(
         'name',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',
@@ -35,13 +37,6 @@ class Gallery extends Base
     );
 
     protected $appends = ['status', 'title', 'files_count'];
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'galleries';
 
     /**
      * One gallery has many files.

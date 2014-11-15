@@ -18,6 +18,8 @@
 
         </div>
 
+        @include('history.admin.index')
+
     </div>
 
 </div>

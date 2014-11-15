@@ -11,24 +11,6 @@ abstract class AdminNestedController extends BaseAdminController
 {
 
     /**
-     * Set module name
-     * @return string
-     */
-    protected function setModule()
-    {
-        return Request::segment(4);
-    }
-
-    /**
-     * Set route base name
-     * @return string
-     */
-    protected function setRoute()
-    {
-        return Request::segment(2) . '.' . Request::segment(4);
-    }
-
-    /**
      * List models
      * GET /admin/model
      */
@@ -67,7 +49,7 @@ abstract class AdminNestedController extends BaseAdminController
      */
     public function show($parent = null, $model)
     {
-        return Redirect::route('admin.' . $this->module . '.edit', [$parent->id, $model->id]);
+        return Redirect::to($model->editUrl());
     }
 
     /**
@@ -79,12 +61,11 @@ abstract class AdminNestedController extends BaseAdminController
     {
 
         if ($model = $this->form->save(Input::all())) {
-            return Input::get('exit') ?
-                Redirect::route('admin.' . $this->route . '.index', $parent->id) :
-                Redirect::route('admin.' . $this->route . '.edit', [$parent->id, $model->id]) ;
+            $redirectUrl = Input::get('exit') ? $model->indexUrl() : $model->editUrl() ;
+            return Redirect::to($redirectUrl);
         }
 
-        return Redirect::route('admin.' . $this->route . '.create')
+        return Redirect::route('admin.' . $this->repository->getTable() . '.create')
             ->withInput()
             ->withErrors($this->form->errors());
 
@@ -103,12 +84,11 @@ abstract class AdminNestedController extends BaseAdminController
         }
 
         if ($this->form->update(Input::all())) {
-            return Input::get('exit') ?
-                Redirect::route('admin.' . $this->route . '.index', $parent->id) :
-                Redirect::route('admin.' . $this->route . '.edit', [$parent->id, $model->id]) ;
+            $redirectUrl = Input::get('exit') ? $model->indexUrl() : $model->editUrl() ;
+            return Redirect::to($redirectUrl);
         }
 
-        return Redirect::route('admin.' . $this->route . '.edit', [$parent->id, $model->id])
+        return Redirect::to($model->editUrl())
             ->withInput()
             ->withErrors($this->form->errors());
     }

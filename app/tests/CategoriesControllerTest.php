@@ -24,8 +24,7 @@ class CategoriesControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Category;
         $object->id = 1;
         Category::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test');
@@ -35,8 +34,7 @@ class CategoriesControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Category;
         $object->id = 1;
         Category::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr[title]' => 'test', 'fr[slug]' => 'test', 'exit' => true);

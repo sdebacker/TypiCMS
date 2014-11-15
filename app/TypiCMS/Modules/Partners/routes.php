@@ -1,5 +1,9 @@
 <?php
-Route::model('partners', 'TypiCMS\Modules\Partners\Models\Partner');
+Route::bind('partners', function ($value) {
+    return TypiCMS\Modules\Partners\Models\Partner::where('id', $value)
+        ->with('translations')
+        ->firstOrFail();
+});
 
 if (! App::runningInConsole()) {
     Route::group(

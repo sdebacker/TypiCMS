@@ -142,9 +142,9 @@ class TypiCMS
         $title = ucfirst(trans('global.admin side', array(), null, Config::get('typicms.adminLocale')));
         if ($this->model) {
             if (! $this->model->id) {
-                $url = route('admin.' . $this->model->route . '.index');
+                $url = $this->model->indexUrl();
             } else {
-                $url = route('admin.' . $this->model->route . '.edit', $this->model->id);
+                $url = $this->model->editUrl();
             }
             $url .= '?locale=' . App::getLocale();
         }

@@ -16,8 +16,6 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('title');
-            $table->string('slug')->unique()->nullable();
             $table->string('address')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
@@ -35,11 +33,14 @@ class CreatePlacesTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('place_id')->unsigned();
 
-            $table->tinyInteger('status')->default(0);
-
             $table->string('locale')->index();
 
-            $table->text('info')->nullable();
+            $table->tinyInteger('status')->default(0);
+
+            $table->string('title');
+            $table->string('slug')->nullable();
+
+            $table->text('body');
 
             $table->timestamps();
 

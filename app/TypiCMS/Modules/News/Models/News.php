@@ -5,10 +5,12 @@ use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class News extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -19,7 +21,7 @@ class News extends Base
     protected $fillable = array(
         'date',
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'status',
@@ -41,28 +43,11 @@ class News extends Base
     );
 
     /**
-     * List of fields that are file.
+     * Columns that are file.
      *
      * @var array
      */
     public $attachments = array(
         'image',
     );
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'news';
-
-    /**
-     * Transform date in Carbon object
-     *
-     * @param string $value date string
-     */
-    public function setDateAttribute($value)
-    {
-        $this->attributes['date'] = Carbon::parse($value);
-    }
 }

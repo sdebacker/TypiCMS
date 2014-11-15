@@ -39,21 +39,32 @@ abstract class Presenter
     /**
      * Return resource's date or curent date if empty
      *
-     * @param  string $fieldname
-     * @param  string $format date format
+     * @param  string $column
      * @return Carbon
      */
-    public function dateOrNow($fieldname, $format)
+    public function dateOrNow($column = 'date')
     {
-        $date = $this->entity->$fieldname ? : Carbon::now() ;
-        return $date->format($format);
+        $date = $this->entity->$column ? : Carbon::now() ;
+        return $date->format('Y-m-d');
+    }
+
+    /**
+     * Return resource's time or curent time if empty
+     *
+     * @param  string $column
+     * @return Carbon
+     */
+    public function timeOrNow($column = 'date')
+    {
+        $date = $this->entity->$column ? : Carbon::now() ;
+        return $date->format('H:i');
     }
 
     /**
      * Get the path of files linked to this model
      * 
      * @param  Model  $model
-     * @param  string $field file’s field name in model
+     * @param  string $field
      * @return string path
      */
     protected function getPath(Model $model = null, $field = null)
@@ -70,7 +81,7 @@ abstract class Presenter
      * @param  int $width      width of image, null for auto
      * @param  int $height     height of image, null for auto
      * @param  array $options  see Croppa doc for options (https://github.com/BKWLD/croppa)
-     * @param  string $field   field name
+     * @param  string $field   column name
      * @return string          HTML markup of an image
      */
     public function thumbSrc($width = null, $height = null, array $options = array(), $field = 'image')
@@ -91,7 +102,7 @@ abstract class Presenter
      * @param  int $width      width of image, null for auto
      * @param  int $height     height of image, null for auto
      * @param  array $options  see Croppa doc for options (https://github.com/BKWLD/croppa)
-     * @param  string $field   field name
+     * @param  string $field   column name
      * @return string          img HTML tag
      */
     public function thumb($width = null, $height = null, array $options = array(), $field = 'image')
@@ -114,7 +125,7 @@ abstract class Presenter
      * Return an icon and file name
      *
      * @param  int $size       icon size
-     * @param  string $field   field name
+     * @param  string $field   column name
      * @return string          HTML markup of an image
      */
     public function icon($size = 2, $field = 'document')
