@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.7.4",
+            "version": "2.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "bbc37ce7b3a5d51564eb73c2a9436678a29ae3c2"
+                "reference": "a514b00acb75af5470057c5cc4a90cb01b935eb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bbc37ce7b3a5d51564eb73c2a9436678a29ae3c2",
-                "reference": "bbc37ce7b3a5d51564eb73c2a9436678a29ae3c2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a514b00acb75af5470057c5cc4a90cb01b935eb8",
+                "reference": "a514b00acb75af5470057c5cc4a90cb01b935eb8",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-11-12 06:30:57"
+            "time": "2014-11-13 17:14:36"
         },
         {
             "name": "bkwld/croppa",
@@ -2819,16 +2819,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.8.0",
+            "version": "v1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "97d92e663c5e8e391f701629a515951280e1b724"
+                "reference": "5eb06e09a2086c0254b4b808cb5544d140284374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/97d92e663c5e8e391f701629a515951280e1b724",
-                "reference": "97d92e663c5e8e391f701629a515951280e1b724",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/5eb06e09a2086c0254b4b808cb5544d140284374",
+                "reference": "5eb06e09a2086c0254b4b808cb5544d140284374",
                 "shasum": ""
             },
             "require": {
@@ -2840,7 +2840,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -2869,7 +2869,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-10-31 20:36:44"
+            "time": "2014-11-14 07:51:09"
         },
         {
             "name": "doctrine/instantiator",
@@ -3204,16 +3204,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.2.1",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "ed9c0bcffe4639a5b0ff83e399eeb28e7fcc68f0"
+                "reference": "91c2e9b44e5899738e1949dc248370cabdd5a9ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/ed9c0bcffe4639a5b0ff83e399eeb28e7fcc68f0",
-                "reference": "ed9c0bcffe4639a5b0ff83e399eeb28e7fcc68f0",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/91c2e9b44e5899738e1949dc248370cabdd5a9ae",
+                "reference": "91c2e9b44e5899738e1949dc248370cabdd5a9ae",
                 "shasum": ""
             },
             "require": {
@@ -3259,7 +3259,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2014-09-23 10:52:18"
+            "time": "2014-11-14 15:31:18"
         },
         {
             "name": "raveren/kint",
