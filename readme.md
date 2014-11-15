@@ -248,7 +248,7 @@ Change website title, and other options trough the settings panel. Settings are 
 
 ### History
 
-Last changes are recorded and displayed in back office’s dashboard. Logged actions are *created*, *updated*, *deleted*, *set online* and *set offline*.
+History table records changes and 25 latest are displayed in back office’s dashboard. Logged actions are *created*, *updated*, *deleted*, *set online* and *set offline*.
 It works for each modules excepted Users and Groups.
 
 ## Facades

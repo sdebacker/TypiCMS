@@ -19,7 +19,7 @@ class ApiController extends BaseApiController
      */
     public function index()
     {
-        $models = $this->repository->byPage(1, 100, ['historable', 'user'], true);
-        return Response::json($models->items, 200);
+        $models = $this->repository->latest(25, ['historable', 'user'], true);
+        return Response::json($models, 200);
     }
 }
