@@ -48,6 +48,8 @@ class Menulink extends Base
         'status',
     );
 
+    protected $appends = ['status', 'title'];
+
     /**
      * A menulink belongs to a menu
      */
