@@ -1,11 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.7.0 - 2014
+## 1.7.0 - 2014-11-15
 
 ### Added
 - Tags can be created/edited in back office.
-- Dashboard : History of created/updated/deleted/offline/online items.
+- History of changes in dashboard.
 
 ### Changed
 - Events module : start_date and end_date db columns are now timestamp in place of date.

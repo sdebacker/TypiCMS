@@ -41,6 +41,7 @@ TypiCMS is a multilingual content management system built with [Laravel 4.2](htt
   - [Translations](#translations)
   - [Sitemap](#sitemap)
   - [Settings](#settings)
+  - [History](#history)
 - [Facades](#facades)
 - [Artisan commands](#artisan-commands)
 - [Roadmap](#roadmap)
@@ -244,6 +245,11 @@ Configure modules to add to the site map in app/config/sitemap.php file.
 ### Settings
 
 Change website title, and other options trough the settings panel. Settings are saved in database.
+
+### History
+
+Last changes are recorded and displayed in back office’s dashboard. Logged actions are *created*, *updated*, *deleted*, *set online* and *set offline*.
+It works for each modules excepted Users and Groups.
 
 ## Facades
 
