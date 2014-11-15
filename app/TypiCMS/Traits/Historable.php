@@ -17,7 +17,7 @@ trait Historable {
         parent::boot();
 
         static::created(function ($model) {
-            if (! $model->owner) {
+            if (! $model->owner) { // don't write history for each translation
                 $model->writeHistory('created', $model->present()->title);
             }
         });
@@ -65,6 +65,12 @@ trait Historable {
         $item->save();
     }
 
+    /**
+     * Return icon class for each action
+     * 
+     * @param  string $action
+     * @return string|void
+     */
     private function historyIconClass($action = null)
     {
         switch ($action) {
