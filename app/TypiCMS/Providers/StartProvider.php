@@ -10,7 +10,6 @@ use Request;
 use TypiCMS\Commands\CacheKeyPrefix;
 use TypiCMS\Commands\Database;
 use TypiCMS\Commands\Install;
-use TypiCMS\Models\Base;
 use TypiCMS\Modules\Users\Repositories\SentryUser;
 
 class StartProvider extends ServiceProvider

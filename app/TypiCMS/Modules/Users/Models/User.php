@@ -2,6 +2,8 @@
 namespace TypiCMS\Modules\Users\Models;
 
 use Cartalyst\Sentry\Users\Eloquent\User as SentryUserModel;
+use InvalidArgumentException;
+use Log;
 use TypiCMS\Presenters\PresentableTrait;
 
 class User extends SentryUserModel

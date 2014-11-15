@@ -1,9 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Files\Repositories;
 
-use stdClass;
 use Illuminate\Database\Eloquent\Model;
-use FileUpload;
+use stdClass;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentFile extends RepositoriesAbstract implements FileInterface

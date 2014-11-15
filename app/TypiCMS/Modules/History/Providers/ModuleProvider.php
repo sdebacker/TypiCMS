@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\History\Providers;
 
-use Lang;
 use View;
 use Config;
 use Illuminate\Support\ServiceProvider;

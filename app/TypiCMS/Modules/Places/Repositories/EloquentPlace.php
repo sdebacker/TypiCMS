@@ -2,11 +2,9 @@
 namespace TypiCMS\Modules\Places\Repositories;
 
 use App;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Input;
-use Request;
 use stdClass;
 use TypiCMS\Repositories\RepositoriesAbstract;
 

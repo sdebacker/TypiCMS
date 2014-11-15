@@ -2,6 +2,7 @@
 namespace TypiCMS\Traits;
 
 use Cartalyst\Sentry\Users\UserNotFoundException;
+use Illuminate\Database\Eloquent\Model;
 use Sentry;
 use TypiCMS\Modules\History\Models\History;
 
@@ -16,12 +17,12 @@ trait Historable {
     {
         parent::boot();
 
-        static::created(function ($model) {
+        static::created(function (Model $model) {
             if (! $model->owner) { // don't write history for each translation
                 $model->writeHistory('created', $model->present()->title);
             }
         });
-        static::updated(function ($model) {
+        static::updated(function (Model $model) {
             $action = 'updated';
             if (! $model->owner) { // if model has no owner, $model is not a translation
                 $model->writeHistory($action, $model->present()->title);
@@ -38,7 +39,7 @@ trait Historable {
                 $model->owner->writeHistory($action, $model->owner->present()->title, $model->locale);
             }
         });
-        static::deleted(function ($model) {
+        static::deleted(function (Model $model) {
             $model->writeHistory('deleted', $model->present()->title);
         });
     }

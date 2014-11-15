@@ -3,6 +3,8 @@ namespace TypiCMS\Modules\Menulinks\Models;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
+use InvalidArgumentException;
+use Log;
 use TypiCMS\Models\Base;
 use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
@@ -101,7 +103,7 @@ class Menulink extends Base
     {
         try {
             return route('admin.menus.menulinks.edit', [$this->menu_id, $this->id]);
-        } catch (Exception $e) {
+        } catch (InvalidArgumentException $e) {
             Log::error($e->getMessage());
         }
     }
