@@ -4,8 +4,6 @@ namespace TypiCMS\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Input;
 use Redirect;
-use Request;
-use Response;
 use View;
 
 abstract class AdminSimpleController extends BaseAdminController
@@ -13,7 +11,8 @@ abstract class AdminSimpleController extends BaseAdminController
 
     /**
      * List models
-     * GET /admin/model
+     * 
+     * @return void
      */
     public function index()
     {
@@ -23,7 +22,7 @@ abstract class AdminSimpleController extends BaseAdminController
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return void
      */
     public function create()
     {
@@ -35,8 +34,8 @@ abstract class AdminSimpleController extends BaseAdminController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Model    $model
-     * @return Response
+     * @param  Model $model
+     * @return void
      */
     public function edit(Model $model)
     {
@@ -47,7 +46,8 @@ abstract class AdminSimpleController extends BaseAdminController
     /**
      * Show resource.
      *
-     * @return Response
+     * @param  Model $model
+     * @return Redirect
      */
     public function show(Model $model)
     {
@@ -58,10 +58,11 @@ abstract class AdminSimpleController extends BaseAdminController
      * Store a newly created resource in storage.
      *
      * @param  Model    $model
-     * @return Response
+     * @return Redirect
      */
     public function store()
     {
+
         if ($model = $this->form->save(Input::all())) {
             $redirectUrl = Input::get('exit') ? $model->indexUrl() : $model->editUrl() ;
             return Redirect::to($redirectUrl);
@@ -77,14 +78,10 @@ abstract class AdminSimpleController extends BaseAdminController
      * Update the specified resource in storage.
      *
      * @param  Model    $model
-     * @return Response
+     * @return Redirect
      */
     public function update(Model $model)
     {
-
-        if (Request::ajax()) {
-            return Response::json($this->repository->update(Input::all()));
-        }
 
         if ($this->form->update(Input::all())) {
             $redirectUrl = Input::get('exit') ? $model->indexUrl() : $model->editUrl() ;
@@ -94,20 +91,19 @@ abstract class AdminSimpleController extends BaseAdminController
         return Redirect::to($model->editUrl())
             ->withInput()
             ->withErrors($this->form->errors());
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  Model    $model
-     * @return Response
+     * @return Redirect
      */
     public function destroy(Model $model)
     {
         if ($this->repository->delete($model)) {
-            if (! Request::ajax()) {
-                return Redirect::back();
-            }
+            return Redirect::back();
         }
     }
 }

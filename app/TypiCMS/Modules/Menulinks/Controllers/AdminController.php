@@ -3,10 +3,9 @@ namespace TypiCMS\Modules\Menulinks\Controllers;
 
 use Lang;
 use View;
+use Illuminate\Database\Eloquent\Model;
 use Input;
-use Request;
 use Redirect;
-use Response;
 use TypiCMS\Modules\Menulinks\Repositories\MenulinkInterface;
 use TypiCMS\Modules\Menulinks\Services\Form\MenulinkForm;
 use TypiCMS\Controllers\AdminNestedController;
@@ -21,20 +20,23 @@ class AdminController extends AdminNestedController
     }
 
     /**
-     * List models
-     * GET /admin/model
+     * Redirect to menu edit form
+     * 
+     * @param  Model $parent
+     * @return Redirect
      */
-    public function index($menu = null)
+    public function index(Model $parent = null)
     {
-        return Redirect::route('admin.menus.edit', $menu->id);
+        return Redirect::route('admin.menus.edit', $parent->id);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @param  Model $parent
+     * @return void
      */
-    public function create($menu = null)
+    public function create(Model $parent = null)
     {
         $model = $this->repository->getModel();
         $this->title['child'] = trans('menulinks::global.New');
@@ -43,7 +45,7 @@ class AdminController extends AdminNestedController
         $selectModules = $this->repository->getModulesForSelect();
 
         $this->layout->content = View::make('menulinks.admin.create')
-            ->withMenu($menu)
+            ->withMenu($parent)
             ->with('selectPages', $selectPages)
             ->with('selectModules', $selectModules)
             ->withModel($model);
@@ -52,14 +54,16 @@ class AdminController extends AdminNestedController
     /**
      * Show the form for editing the specified resource.
      *
-     * @return Response
+     * @param  Model $parent
+     * @param  Model $model
+     * @return void
      */
-    public function edit($menu = null, $model)
+    public function edit(Model $parent = null, Model $model)
     {
         $this->title['child'] = trans('menulinks::global.Edit');
 
         $this->layout->content = View::make('menulinks.admin.edit')
-            ->withMenu($menu)
+            ->withMenu($parent)
             ->with('selectPages', $this->repository->getPagesForSelect())
             ->with('selectModules', $this->repository->getModulesForSelect())
             ->withModel($model);
@@ -68,28 +72,29 @@ class AdminController extends AdminNestedController
     /**
      * Show resource.
      *
-     * @return Response
+     * @param  Model $parent
+     * @param  Model $model
+     * @return Redirect
      */
-    public function show($menu = null, $model)
+    public function show(Model $parent = null, Model $model)
     {
-        return Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]);
+        return Redirect::route('admin.menus.menulinks.edit', [$parent->id, $model->id]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @param  Model $parent
+     * @return Redirect
      */
-    public function store($menu = null)
+    public function store(Model $parent = null)
     {
-
         if ($model = $this->form->save(Input::all())) {
-            return (Input::get('exit')) ?
-                Redirect::route('admin.menus.edit', $menu->id) :
-                Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]) ;
+            $redirectUrl = Input::get('exit') ? $parent->editUrl() : $model->editUrl() ;
+            return Redirect::to($redirectUrl);
         }
 
-        return Redirect::route('admin.menus.menulinks.create', $menu->id)
+        return Redirect::route('admin.menus.menulinks.create', $parent->id)
             ->withInput()
             ->withErrors($this->form->errors());
 
@@ -98,22 +103,19 @@ class AdminController extends AdminNestedController
     /**
      * Update the specified resource in storage.
      *
-     * @return Response
+     * @param  Model $parent
+     * @param  Model $model
+     * @return Redirect
      */
-    public function update($menu = null, $model)
+    public function update(Model $parent = null, Model $model)
     {
 
-        if (Request::ajax()) {
-            return Response::json($this->repository->update(Input::all()));
-        }
-
         if ($this->form->update(Input::all())) {
-            return (Input::get('exit')) ?
-                Redirect::route('admin.menus.edit', $menu->id) :
-                Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id]) ;
+            $redirectUrl = Input::get('exit') ? $parent->editUrl() : $model->editUrl() ;
+            return Redirect::to($redirectUrl);
         }
 
-        return Redirect::route('admin.menus.menulinks.edit', [$menu->id, $model->id])
+        return Redirect::to($model->editUrl())
             ->withInput()
             ->withErrors($this->form->errors());
 
