@@ -37,7 +37,7 @@
         @section('header')
         <header>
             <h1>
-                <a href="/@if(Config::get('app.locale_in_url')){{ $lang }}@endif">{{ Config::get('typicms.' . $lang . '.websiteTitle') }}</a>
+                <a href="{{ URL::to('/') }}">{{ Config::get('typicms.' . $lang . '.websiteTitle') }}</a>
             </h1>
         </header>
         @show
