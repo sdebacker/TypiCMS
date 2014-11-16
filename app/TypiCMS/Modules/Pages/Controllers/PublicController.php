@@ -2,14 +2,15 @@
 namespace TypiCMS\Modules\Pages\Controllers;
 
 use App;
-use Str;
-use View;
 use Config;
-use Redirect;
+use InvalidArgumentException;
 use Notification;
+use Redirect;
+use Str;
 use TypiCMS;
-use TypiCMS\Modules\Pages\Repositories\PageInterface;
 use TypiCMS\Controllers\BasePublicController;
+use TypiCMS\Modules\Pages\Repositories\PageInterface;
+use View;
 
 class PublicController extends BasePublicController
 {
@@ -23,7 +24,7 @@ class PublicController extends BasePublicController
     /**
      * Page uri : lang/slug
      *
-     * @return \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition|null
+     * @return void
      */
     public function uri($uri = null)
     {
@@ -58,7 +59,7 @@ class PublicController extends BasePublicController
         $template = $model->template ? $model->template : $defaultTemplate ;
         try {
             $view = View::make('pages.public.' . $template);
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             Notification::error('<b>Error:</b> Template “' . $template . '” not found.');
             $view = View::make('pages.public.' . $defaultTemplate);
         }
