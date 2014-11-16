@@ -65,14 +65,11 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Do you want locale as first segment in url ?
+	| Does main locale’s content has locale in url ?
 	|--------------------------------------------------------------------------
-	| Only compatible with unilingual sites. Don't set this to true
-	| if you have more than one item in locales array above.
-	|
 	*/
 
-	'locale_in_url' => true,
+	'main_locale_in_url' => false,
 
 	/*
 	|--------------------------------------------------------------------------
