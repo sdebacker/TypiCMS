@@ -18,7 +18,7 @@ if (! App::runningInConsole()) {
                     $uri = $routes['places'][$lang];
                 } else {
                     $uri = 'places';
-                    if (Config::get('app.locale_in_url')) {
+                    if (App::getLocale() == $lang && Config::get('app.main_locale_in_url')) {
                         $uri = $lang . '/' . $uri;
                     }
                 }
