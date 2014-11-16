@@ -65,7 +65,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Does main locale’s content has locale in url ?
+	| Does locale defined in fallback_locale content has locale in url ?
 	|--------------------------------------------------------------------------
 	*/
 
