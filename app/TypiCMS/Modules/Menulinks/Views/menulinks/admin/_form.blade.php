@@ -34,12 +34,13 @@
                     {{ Form::label($lang.'[title]', trans('validation.attributes.title')) }}
                     {{ Form::text($lang.'[title]', $model->translate($lang)->title, array('class' => 'form-control')) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group @if($errors->has($lang.'.uri'))has-error @endif">
                     {{ Form::label($lang.'[uri]', trans('validation.attributes.uri')) }}
                     <div class="input-group">
                         <span class="input-group-addon">/</span>
                         {{ Form::text($lang.'[uri]', $model->translate($lang)->uri, array('class' => 'form-control')) }}
                     </div>
+                    {{ $errors->first($lang.'.uri', '<p class="help-block">:message</p>') }}
                 </div>
                 <div class="form-group @if($errors->has($lang.'.url'))has-error @endif">
                     {{ Form::label($lang.'[url]', trans('validation.attributes.website')) }}
