@@ -18,7 +18,7 @@ if (! App::runningInConsole()) {
                     $uri = $routes['galleries'][$lang];
                 } else {
                     $uri = 'galleries';
-                    if (App::getLocale() == $lang && Config::get('app.main_locale_in_url')) {
+                    if (Config::get('app.fallback_locale') != $lang || Config::get('app.main_locale_in_url')) {
                         $uri = $lang . '/' . $uri;
                     }
                 }
