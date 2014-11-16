@@ -25,6 +25,20 @@ class TypiCMS
     }
 
     /**
+    * Get Homepage URI
+    *
+    * @return string
+    */
+    public function homepage()
+    {
+        $uri = '/';
+        if (Config::get('app.main_locale_in_url') || Config::get('app.fallback_locale') != App::getLocale()) {
+            $uri .= App::getLocale();
+        }
+        return $uri;
+    }
+
+    /**
     * Return online public locales
     *
     * @return array

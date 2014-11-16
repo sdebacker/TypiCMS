@@ -37,7 +37,7 @@
         @section('header')
         <header>
             <h1>
-                <a href="{{ URL::to('/') }}">{{ Config::get('typicms.' . $lang . '.websiteTitle') }}</a>
+                <a href="{{ TypiCMS::homepage() }}">{{ Config::get('typicms.' . $lang . '.websiteTitle') }}</a>
             </h1>
         </header>
         @show
