@@ -17,8 +17,9 @@ class PublicFilter
     public function checkLocale()
     {
 
-        // Throw a 404 if website in this language is not online
         $locale = Request::segment(1);
+
+        // Throw a 404 if website in this language is offline
         if (! Config::get('typicms.' . $locale . '.status')) {
             App::abort(404);
         }
