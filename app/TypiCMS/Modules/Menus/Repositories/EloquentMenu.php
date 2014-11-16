@@ -133,10 +133,6 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
     {
         $uri = $menulink->uri;
 
-        if (! $uri && $menulink->module_name) {
-            $uri = 'admin/' . $menulink->module_name;
-        }
-
         if ($menulink->page) {
             $uri = $menulink->page->uri;
             if ($menulink->page->is_home) {
