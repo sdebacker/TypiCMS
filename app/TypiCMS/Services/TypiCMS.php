@@ -125,10 +125,14 @@ class TypiCMS
         if (Route::has($route)) {
             return route($route);
         }
-        if (Config::get('app.locale_in_url')) {
-            return '/' . $lang;
+        if (
+            ! Config::get('typicms.langChooser') &&
+            Config::get('app.fallback_locale') == $lang &&
+            ! Config::get('app.main_locale_in_url')
+        ) {
+            return '/';
         }
-        return '/';
+        return '/' . $lang;
     }
 
     /**

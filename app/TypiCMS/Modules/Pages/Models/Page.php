@@ -74,8 +74,16 @@ class Page extends Base
      */
     public function getPublicUri($preview = false, $index = false, $lang = null)
     {
-        $lang = $lang ? : App::getlocale() ;
-        $indexUri = Config::get('app.locale_in_url') ? '/'.$lang : '/' ;
+        $lang = $lang ? : App::getLocale() ;
+
+        $indexUri = '/' . $lang;
+        if (
+            ! Config::get('typicms.langChooser') &&
+            Config::get('app.fallback_locale') == $lang &&
+            ! Config::get('app.main_locale_in_url')
+        ) {
+            $indexUri = '/';
+        }
 
         if ($index || $this->is_home) {
             return $indexUri;
