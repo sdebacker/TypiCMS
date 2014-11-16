@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.2 - 2014-11-
+
+### Fixed
+- Nested subpages menu.
+
 ## 1.7.1 - 2014-11-15
 
 ### Fixed
