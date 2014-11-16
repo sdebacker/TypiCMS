@@ -1,10 +1,31 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.2 - 2014-11-
+
+### Fixed
+- Nested subpages menu.
+
+## 1.7.1 - 2014-11-15
+
+### Fixed
+- SensioLabsInsight 4 stars.
+
+## 1.7.0 - 2014-11-15
+
+### Added
+- Tags can be created/edited in back office.
+- History of changes in dashboard.
+
+### Changed
+- Events module : start_date and end_date db columns are now timestamp in place of date.
+- Events module : start_time and end_time columns removed.
+- Places module harmonized with other modules : title is now translatable, info column changed to body,…
+
 ## 1.6.2 - 2014-11-11
 
 ### Added
-- Facade for Files
+- Facade for Files.
 
 ### Fixed
 - Nested menu items bug

@@ -32,8 +32,7 @@ class MenusControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Menu;
         $object->id = 1;
         Menu::shouldReceive('create')->once()->andReturn($object);
         $input = array('name' => 'test');
@@ -43,8 +42,7 @@ class MenusControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Menu;
         $object->id = 1;
         Menu::shouldReceive('create')->once()->andReturn($object);
         $input = array('name' => 'test', 'exit' => true);

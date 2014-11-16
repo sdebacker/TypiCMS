@@ -8,7 +8,7 @@ class ModulePresenter extends Presenter
 
     /**
      * Return name
-     * @return String
+     * @return string
      */
     public function title()
     {

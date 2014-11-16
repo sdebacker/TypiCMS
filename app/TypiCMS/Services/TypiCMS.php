@@ -25,6 +25,20 @@ class TypiCMS
     }
 
     /**
+    * Get Homepage URI
+    *
+    * @return string
+    */
+    public function homepage()
+    {
+        $uri = '/';
+        if (Config::get('app.main_locale_in_url') || Config::get('app.fallback_locale') != App::getLocale()) {
+            $uri .= App::getLocale();
+        }
+        return $uri;
+    }
+
+    /**
     * Return online public locales
     *
     * @return array
@@ -111,10 +125,14 @@ class TypiCMS
         if (Route::has($route)) {
             return route($route);
         }
-        if (Config::get('app.locale_in_url')) {
-            return '/' . $lang;
+        if (
+            ! Config::get('typicms.langChooser') &&
+            Config::get('app.fallback_locale') == $lang &&
+            ! Config::get('app.main_locale_in_url')
+        ) {
+            return '/';
         }
-        return '/';
+        return '/' . $lang;
     }
 
     /**
@@ -142,9 +160,9 @@ class TypiCMS
         $title = ucfirst(trans('global.admin side', array(), null, Config::get('typicms.adminLocale')));
         if ($this->model) {
             if (! $this->model->id) {
-                $url = route('admin.' . $this->model->route . '.index');
+                $url = $this->model->indexUrl();
             } else {
-                $url = route('admin.' . $this->model->route . '.edit', $this->model->id);
+                $url = $this->model->editUrl();
             }
             $url .= '?locale=' . App::getLocale();
         }

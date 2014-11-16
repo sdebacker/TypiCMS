@@ -5,10 +5,12 @@ use Dimsav\Translatable\Translatable;
 use Croppa;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class File extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -29,7 +31,7 @@ class File extends Base
         'filesize',
         'download_count',
         'position',
-        // Translatable fields
+        // Translatable columns
         'keywords',
         'description',
         'alt_attribute',
@@ -49,11 +51,13 @@ class File extends Base
     protected $appends = ['alt_attribute', 'description', 'thumb', 'thumb_sm'];
 
     /**
-     * The default route for admin side.
+     * Columns that are file.
      *
-     * @var string
+     * @var array
      */
-    public $route = 'files';
+    public $attachments = array(
+        'filename',
+    );
 
     /**
      * One file belongs to one gallery.
@@ -63,19 +67,6 @@ class File extends Base
     public function gallery()
     {
         return $this->belongsTo('TypiCMS\Modules\Galleries\Models\Gallery');
-    }
-
-    /**
-     * Observers
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleted(function (File $model) {
-            Croppa::delete($model->path . '/' . $model->filename);
-        });
-
     }
 
     /**

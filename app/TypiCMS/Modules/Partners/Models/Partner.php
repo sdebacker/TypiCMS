@@ -4,10 +4,12 @@ namespace TypiCMS\Modules\Partners\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Partner extends Base
 {
 
+    use Historable;
     use PresentableTrait;
     use Translatable;
 
@@ -15,7 +17,7 @@ class Partner extends Base
 
     protected $fillable = array(
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'position',
@@ -41,20 +43,13 @@ class Partner extends Base
     protected $appends = ['status', 'title', 'thumb', 'website'];
 
     /**
-     * List of fields that are file.
+     * Columns that are file.
      *
      * @var array
      */
     public $attachments = array(
         'image',
     );
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'partners';
 
     /**
      * Get attribute from translation table

@@ -12,11 +12,11 @@ class PlaceFormLaravelValidator extends AbstractLaravelValidator
      * @var Array
      */
     protected $rules = array(
-        'title'       => 'required',
-        'slug'        => 'required_with:title|alpha_dash',
+        'fr.slug'     => 'required_with:fr.title|required_if:fr.status,1|alpha_dash',
+        'nl.slug'     => 'required_with:nl.title|required_if:nl.status,1|alpha_dash',
+        'en.slug'     => 'required_with:en.title|required_if:en.status,1|alpha_dash',
         'email'       => 'email',
         'website'     => 'url',
-        'logo'        => 'image|max:500',
         'image'       => 'image|max:2000|image_size:>=500',
     );
 }

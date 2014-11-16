@@ -8,6 +8,20 @@ interface UserInterface extends RepositoryInterface
 {
 
     /**
+     * Get empty model
+     * 
+     * @return model
+     */
+    public function getModel();
+
+    /**
+     * Get table name
+     * 
+     * @return string
+     */
+    public function getTable();
+
+    /**
      * Get all models
      *
      * @param  boolean  $all  Show published or all

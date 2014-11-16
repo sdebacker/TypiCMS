@@ -3,13 +3,17 @@ namespace TypiCMS\Modules\Menulinks\Models;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
+use InvalidArgumentException;
+use Log;
 use TypiCMS\Models\Base;
 use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Menulink extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -27,7 +31,7 @@ class Menulink extends Base
         'icon_class',
         'link_type',
         'has_categories',
-        // Translatable fields
+        // Translatable columns
         'title',
         'uri',
         'url',
@@ -46,12 +50,7 @@ class Menulink extends Base
         'status',
     );
 
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'menus.menulinks';
+    protected $appends = ['status', 'title'];
 
     /**
      * A menulink belongs to a menu
@@ -93,5 +92,33 @@ class Menulink extends Base
     public function newCollection(array $models = array())
     {
         return new NestableCollection($models, 'parent_id');
+    }
+
+    /**
+     * Get edit url of model
+     * 
+     * @return string|void
+     */
+    public function editUrl()
+    {
+        try {
+            return route('admin.menus.menulinks.edit', [$this->menu_id, $this->id]);
+        } catch (InvalidArgumentException $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    /**
+     * Get back office’s index of models url
+     * 
+     * @return string|void
+     */
+    public function indexUrl()
+    {
+        try {
+            return route('admin.menus.menulinks.index', $this->menu_id);
+        } catch (InvalidArgumentException $e) {
+            Log::error($e->getMessage());
+        }
     }
 }

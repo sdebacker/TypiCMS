@@ -4,10 +4,12 @@ namespace TypiCMS\Modules\Menus\Models;
 use Dimsav\Translatable\Translatable;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Menu extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -16,7 +18,7 @@ class Menu extends Base
     protected $fillable = array(
         'name',
         'class',
-        // Translatable fields
+        // Translatable columns
         'title',
         'status',
     );
@@ -30,13 +32,6 @@ class Menu extends Base
         'title',
         'status',
     );
-
-    /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'menus';
 
     /**
      * Relations

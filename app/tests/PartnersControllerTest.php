@@ -16,7 +16,7 @@ class PartnersControllerTest extends TestCase
 
     public function testStoreFails()
     {
-        $input = ['fr.title' => 'test', 'fr.slug' => '']; // 19.02.2014 11:04
+        $input = ['fr.title' => 'test', 'fr.slug' => ''];
         $this->call('POST', 'admin/partners', $input);
         $this->assertRedirectedToRoute('admin.partners.create');
         $this->assertSessionHasErrors();
@@ -24,8 +24,7 @@ class PartnersControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Partner;
         $object->id = 1;
         Partner::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'fr.body' => '', 'position' => '1');
@@ -35,8 +34,7 @@ class PartnersControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Partner;
         $object->id = 1;
         Partner::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'fr.body' => '', 'position' => '1', 'exit' => true);

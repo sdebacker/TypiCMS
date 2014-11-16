@@ -9,6 +9,7 @@ use Illuminate\Foundation\Application;
 
 // Model
 use TypiCMS\Modules\Places\Models\Place;
+use TypiCMS\Modules\Places\Models\PlaceTranslation;
 
 // Repo
 use TypiCMS\Modules\Places\Repositories\EloquentPlace;
@@ -22,6 +23,7 @@ use TypiCMS\Modules\Places\Services\Form\PlaceForm;
 use TypiCMS\Modules\Places\Services\Form\PlaceFormLaravelValidator;
 
 // Observers
+use TypiCMS\Observers\SlugObserver;
 use TypiCMS\Observers\FileObserver;
 
 class ModuleProvider extends ServiceProvider
@@ -38,6 +40,7 @@ class ModuleProvider extends ServiceProvider
         Config::addNamespace('places', __DIR__ . '/../config');
 
         // Observers
+        PlaceTranslation::observe(new SlugObserver);
         Place::observe(new FileObserver);
     }
 

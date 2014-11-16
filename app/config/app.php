@@ -65,14 +65,11 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Do you want locale as first segment in url ?
+	| Does locale defined in fallback_locale content has locale in url ?
 	|--------------------------------------------------------------------------
-	| Only compatible with unilingual sites. Don't set this to true
-	| if you have more than one item in locales array above.
-	|
 	*/
 
-	'locale_in_url' => true,
+	'main_locale_in_url' => false,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -250,6 +247,7 @@ return array(
 		'Places'          => 'TypiCMS\Modules\Places\Facades\Facade',
 		'Projects'        => 'TypiCMS\Modules\Projects\Facades\Facade',
 		'Tags'            => 'TypiCMS\Modules\Tags\Facades\Facade',
+		'History'         => 'TypiCMS\Modules\History\Facades\Facade',
 
 	),
 

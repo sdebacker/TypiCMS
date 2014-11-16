@@ -1,18 +1,19 @@
 <?php
 namespace TypiCMS\Modules\Pages\Models;
 
-use Eloquent;
+use TypiCMS\Models\BaseTranslation;
 
-class PageTranslation extends Eloquent
+class PageTranslation extends BaseTranslation
 {
-
-    protected $touches = array('page');
-
     /**
-     * get the page
+     * get the parent model
      */
     public function page()
     {
         return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page');
+    }
+    public function owner()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Pages\Models\Page', 'page_id');
     }
 }

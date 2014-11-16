@@ -6,9 +6,9 @@ class MenuSeeder extends Seeder
     {
 
         $typi_menulinks = array(
-            array('id' => '1','menu_id' => '1','page_id' => '1','position' => '1','target' => '','module_name' => '','class' => '','icon_class' => NULL,'has_categories' => 0,'created_at' => '2013-09-03 22:08:05','updated_at' => '2014-02-04 18:58:25'),
-            array('id' => '2','menu_id' => '1','page_id' => '0','position' => '8','target' => '','module_name' => 'contacts','class' => 'menu-contact','icon_class' => NULL,'has_categories' => 0,'created_at' => '2013-09-03 22:08:35','updated_at' => '2014-03-28 13:32:30'),
-            array('id' => '16','menu_id' => '1','page_id' => '29','position' => '2','target' => '','module_name' => 'poi','class' => '','icon_class' => NULL,'has_categories' => 0,'created_at' => '2013-09-09 23:18:49','updated_at' => '2014-02-04 18:58:25'),
+            array('id' => '1', 'menu_id' => '1','page_id' => '1','position' => '1','target' => '','module_name' => '','class' => '','icon_class' => NULL,'has_categories' => 0,'created_at' => '2013-09-03 22:08:05','updated_at' => '2014-02-04 18:58:25'),
+            array('id' => '2', 'menu_id' => '1','page_id' => '0','position' => '8','target' => '','module_name' => 'contacts','class' => 'menu-contact','icon_class' => NULL,'has_categories' => 0,'created_at' => '2013-09-03 22:08:35','updated_at' => '2014-03-28 13:32:30'),
+            array('id' => '16','menu_id' => '1','page_id' => '2','position' => '2','target' => '','module_name' => '','class' => '','icon_class' => NULL,'has_categories' => 0,'created_at' => '2013-09-09 23:18:49','updated_at' => '2014-02-04 18:58:25'),
             array('id' => '17','menu_id' => '1','page_id' => '0','position' => '3','target' => '','module_name' => 'events','class' => '','icon_class' => NULL,'has_categories' => 0,'created_at' => '2013-10-05 19:30:30','updated_at' => '2014-02-04 18:58:25'),
             array('id' => '18','menu_id' => '1','page_id' => '0','position' => '5','target' => '','module_name' => 'projects','class' => '','icon_class' => NULL,'has_categories' => 1,'created_at' => '2013-10-05 19:31:09','updated_at' => '2014-02-04 18:58:25'),
             array('id' => '19','menu_id' => '2','page_id' => '0','position' => '2','target' => '','module_name' => 'contacts','class' => '','icon_class' => NULL,'has_categories' => 0,'created_at' => '2013-11-02 17:20:16','updated_at' => '2014-03-28 13:32:46'),

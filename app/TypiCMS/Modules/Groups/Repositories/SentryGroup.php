@@ -24,13 +24,23 @@ class SentryGroup extends RepositoriesAbstract implements GroupInterface
     }
 
     /**
-     * get empty model
+     * Get empty model
      * 
-     * @return Model
+     * @return model
      */
     public function getModel()
     {
         return $this->sentry->getGroupProvider()->createModel();
+    }
+
+    /**
+     * Get table name
+     * 
+     * @return string
+     */
+    public function getTable()
+    {
+        return $this->sentry->getGroupProvider()->createModel()->getTable();
     }
 
     /**

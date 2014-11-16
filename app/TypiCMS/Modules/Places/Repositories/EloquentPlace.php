@@ -2,11 +2,9 @@
 namespace TypiCMS\Modules\Places\Repositories;
 
 use App;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Input;
-use Request;
 use stdClass;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
@@ -26,7 +24,7 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * @param  boolean  $all   Show published or all
      * @return stdClass Object with $items && $totalItems for pagination
      */
-    public function byPage($page = 1, $limit = 10, array $with = array('translations'), $all = false)
+    public function byPage($page = 1, $limit = 10, array $with = array(), $all = false)
     {
         $result = new stdClass;
         $result->page = $page;
@@ -34,21 +32,26 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
         $result->totalItems = 0;
         $result->items = array();
 
-        $query = $this->model
-            ->select('places.*', 'status')
-            ->with('translations')
+        $query = $this->make($with)
+            ->select('places.*', 'status', 'title')
             ->join('place_translations', 'place_translations.place_id', '=', 'places.id')
             ->where('locale', App::getLocale())
             ->skip($limit * ($page - 1))
             ->take($limit);
 
-        ! $all && $query->where('status', 1);
+        if (! $all) {
+            // take only translated items that are online
+            $query->whereHasOnlineTranslation();
+        }
         $query->order();
         $models = $query->get();
 
         // Build query to get totalItems
         $queryTotal = $this->model;
-        ! $all && $queryTotal->where('status', 1);
+        if (! $all) {
+            // take only translated items that are online
+            $queryTotal->whereHasOnlineTranslation();
+        }
 
         // Put items and totalItems in stdClass
         $result->totalItems = $queryTotal->count();
@@ -64,60 +67,26 @@ class EloquentPlace extends RepositoriesAbstract implements PlaceInterface
      * @param  array    $with Eager load related models
      * @return Collection Object with $items
      */
-    public function getAll(array $with = array('translations'), $all = false)
+    public function getAll(array $with = array(), $all = false)
     {
         // get search string
         $string = Input::get('string');
 
-        $query = $this->model->with('translations');
-
+        $query = $this->make($with)
+            ->select('places.*', 'status', 'title')
+            ->join('place_translations', 'place_translations.place_id', '=', 'places.id')
+            ->where('locale', App::getLocale());
+        
         if (! $all) {
             // take only translated items that are online
-            $query->whereHas(
-                'translations',
-                function (Builder $query) {
-                    $query->where('status', 1);
-                    $query->where('locale', '=', App::getLocale());
-                }
-            );
-        }
-
-        if (Request::wantsJson()) { // pour affichage sur la carte
-            $query->where('latitude', '!=', '');
-            $query->where('longitude', '!=', '');
+            $query->whereHasOnlineTranslation();
         }
 
         $string && $query->where('title', 'LIKE', '%'.$string.'%');
 
         $query->order();
 
-        $models = $query->get();
-
-        return $models;
-    }
-
-    /**
-     * Get single model by slug
-     *
-     * @param  string $slug slug of model
-     * @return Model  $model
-     */
-    public function bySlug($slug, array $with = array('translations'))
-    {
-        $model = $this->model->with('translations')
-            ->where('slug', $slug)
-            ->whereHas(
-                'translations',
-                function (Builder $query) {
-                    if (! Input::get('preview')) {
-                        $query->where('status', 1);
-                    }
-                    $query->where('locale', '=', App::getLocale());
-                }
-            )
-            ->firstOrFail();
-
-        return $model;
-
+        // Get
+        return $query->get();
     }
 }

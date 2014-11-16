@@ -26,12 +26,4 @@ interface PlaceInterface extends RepositoryInterface
      * @return Collection
      */
     public function getAll(array $with = array('translations'), $all = false);
-
-    /**
-     * Get single model by slug
-     *
-     * @param  string $slug slug of model
-     * @return object model
-     */
-    public function bySlug($slug, array $with = array('translations'));
 }

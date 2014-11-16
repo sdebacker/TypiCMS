@@ -54,13 +54,11 @@
     {{ Form::label('googleAnalyticsCode', trans('validation.attributes.googleAnalyticsCode'), array('class' => 'control-label')) }}
     {{ Form::text('googleAnalyticsCode', null, array('class' => 'form-control')) }}
 </div>
-@if (Config::get('app.locale_in_url'))
 <div class="checkbox">
     <label>
         {{ Form::checkbox('langChooser', 1) }} {{ trans('validation.attributes.langChooser') }}
     </label>
 </div>
-@endif
 <div class="checkbox">
     <label>
         {{ Form::checkbox('authPublic', 1) }} {{ trans('validation.attributes.authPublic') }}

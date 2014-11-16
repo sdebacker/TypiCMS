@@ -69,9 +69,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     {
         $rootUriArray = explode('/', $uri);
         $uri = $rootUriArray[0];
-        if (Config::get('app.locale_in_url')) {
-            if (isset($rootUriArray[1])) {
-                $uri .= '/' . $rootUriArray[1];
+        if (in_array($uri, Config::get('app.locales'))) {
+            if (isset($rootUriArray[1])) { // i
+                $uri .= '/' . $rootUriArray[1]; // add next part of uri in locale
             }
         }
 
@@ -88,9 +88,9 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
         }
         $query->where('locale', Config::get('app.locale'));
 
-        $query->order();
+        $models = $query->order()->get()->nest();
 
-        return $query->get();
+        return $models;
     }
 
     /**

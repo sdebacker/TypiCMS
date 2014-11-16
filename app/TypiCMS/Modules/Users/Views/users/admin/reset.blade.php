@@ -15,7 +15,7 @@
 
         <div class="form-group @if($errors->has('email'))has-error @endif">
             {{ Form::label('email', trans('validation.attributes.email'), array('class' => 'sr-only')) }}
-            {{ Form::email('email', null, array('class' => 'form-control input-lg', 'placeholder' => trans('validation.attributes.email'))) }}
+            {{ Form::email('email', null, array('class' => 'form-control input-lg', 'autofocus', 'placeholder' => trans('validation.attributes.email'))) }}
             @if($errors->has('email'))
             <span class="help-block">{{ $errors->first('email') }}</span>
             @endif

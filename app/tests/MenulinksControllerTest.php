@@ -18,8 +18,8 @@ class MenulinksControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Menulink;
+        $object->menu_id = 1;
         $object->id = 1;
         Menulink::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'menu_id' => '1');
@@ -29,8 +29,7 @@ class MenulinksControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Menulink;
         $object->id = 1;
         Menulink::shouldReceive('create')->once()->andReturn($object);
         $input = array('fr.title' => 'test', 'menu_id' => '1', 'exit' => true);

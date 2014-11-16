@@ -15,6 +15,9 @@ class MenulinkFormLaravelValidator extends AbstractLaravelValidator
         'fr.url'   => 'url',
         'en.url'   => 'url',
         'nl.url'   => 'url',
+        'fr.uri'   => 'regex:/^[\pL\pM\pN\/_-]+$/', // AlphaDash + '/'
+        'en.uri'   => 'regex:/^[\pL\pM\pN\/_-]+$/', // AlphaDash + '/'
+        'nl.uri'   => 'regex:/^[\pL\pM\pN\/_-]+$/', // AlphaDash + '/'
         'menu_id'  => 'required',
     );
 }

@@ -28,11 +28,20 @@
     {{-- Main tab --}}
     <div class="tab-pane fade in active" id="tab-main">
 
-        <div class="form-group @if($errors->has('date'))has-error @endif">
-            {{ Form::label('date', trans('validation.attributes.date'), array('class' => 'control-label')) }}
-            {{ Form::text('date', $model->present()->dateOrNow('date', 'd.m.Y H:i'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
-            {{ $errors->first('date', '<p class="help-block">:message</p>') }}
+        <div class="row">
+            <div class="col-sm-6 form-group @if($errors->has('date'))has-error @endif">
+                {{ Form::label('date', trans('validation.attributes.date'), array('class' => 'control-label')) }}
+                {{ Form::text('date', $model->present()->dateOrNow(), array('class' => 'datepicker form-control', 'data-value' => $model->present()->dateOrNow(), 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
+                {{ $errors->first('date', '<p class="help-block">:message</p>') }}
+            </div>
+            <div class="col-sm-3 form-group @if($errors->has('time'))has-error @endif">
+                {{ Form::label('time', trans('validation.attributes.time'), array('class' => 'control-label')) }}
+                {{ Form::text('time', $model->present()->timeOrNow(), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
+                {{ $errors->first('time', '<p class="help-block">:message</p>') }}
+            </div>
         </div>
+
+
         @include('admin._tabs-lang-form', ['target' => 'content'])
 
         <div class="tab-content">

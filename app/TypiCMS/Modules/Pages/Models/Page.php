@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Builder;
 use TypiCMS\Models\Base;
 use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
+use TypiCMS\Traits\Historable;
 
 class Page extends Base
 {
 
+    use Historable;
     use Translatable;
     use PresentableTrait;
 
@@ -27,7 +29,7 @@ class Page extends Base
         'js',
         'template',
         'image',
-        // Translatable fields
+        // Translatable columns
         'title',
         'slug',
         'uri',
@@ -57,7 +59,7 @@ class Page extends Base
     protected $appends = ['status', 'title', 'thumb', 'uri'];
 
     /**
-     * List of fields that are file.
+     * Columns that are file.
      *
      * @var array
      */
@@ -66,21 +68,22 @@ class Page extends Base
     );
 
     /**
-     * The default route for admin side.
-     *
-     * @var string
-     */
-    public $route = 'pages';
-
-    /**
      * Get public uri
      *
      * @return string
      */
     public function getPublicUri($preview = false, $index = false, $lang = null)
     {
-        $lang = $lang ? : App::getlocale() ;
-        $indexUri = Config::get('app.locale_in_url') ? '/'.$lang : '/' ;
+        $lang = $lang ? : App::getLocale() ;
+
+        $indexUri = '/' . $lang;
+        if (
+            ! Config::get('typicms.langChooser') &&
+            Config::get('app.fallback_locale') == $lang &&
+            ! Config::get('app.main_locale_in_url')
+        ) {
+            $indexUri = '/';
+        }
 
         if ($index || $this->is_home) {
             return $indexUri;

@@ -23,7 +23,7 @@
                 <tr>
                     <td colspan="2"></td>
                     <td colspan="3">
-                        <input st-search class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
                 </tr>
             </thead>

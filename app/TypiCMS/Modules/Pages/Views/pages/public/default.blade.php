@@ -4,15 +4,15 @@
 
     <div class="row">
 
-        @if($children)
         <div class="col-sm-4">
-            <ul class="list-main nested sortable">
-            @foreach ($children as $child)
+            @if($children)
+            <ul class="nav nav-subpages">
+                @foreach ($children as $child)
                 @include('pages.public._listItem', array('child' => $child))
-            @endforeach
+                @endforeach
             </ul>
+            @endif
         </div>
-        @endif
 
 
         <div class="col-sm-8">

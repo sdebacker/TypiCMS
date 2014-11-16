@@ -74,7 +74,7 @@ class PublicController extends BasePublicController
 
         $this->title['parent'] = $model->title;
 
-        return View::make('places.public.show')
+        $this->layout->content = View::make('places.public.show')
             ->with('model', $model);
     }
 }

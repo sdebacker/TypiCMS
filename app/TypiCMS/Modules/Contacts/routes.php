@@ -17,7 +17,7 @@ if (! App::runningInConsole()) {
                     $uri = $routes['contacts'][$lang];
                 } else {
                     $uri = 'contacts';
-                    if (Config::get('app.locale_in_url')) {
+                    if (Config::get('app.fallback_locale') != $lang || Config::get('app.main_locale_in_url')) {
                         $uri = $lang . '/' . $uri;
                     }
                 }

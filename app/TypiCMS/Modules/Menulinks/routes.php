@@ -1,5 +1,9 @@
 <?php
-Route::model('menulinks', 'TypiCMS\Modules\Menulinks\Models\Menulink');
+Route::bind('menulinks', function ($value) {
+    return TypiCMS\Modules\Menulinks\Models\Menulink::where('id', $value)
+        ->with('translations')
+        ->firstOrFail();
+});
 
 Route::group(
     array(

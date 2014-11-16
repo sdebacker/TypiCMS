@@ -11,13 +11,14 @@
             <thead>
                 <tr>
                     <th class="delete"></th>
+                    <th class="edit"></th>
                     <th st-sort="tag" class="tag st-sort" translate>Tag</th>
                     <th st-sort="uses" st-sort-default="reverse" class="uses st-sort" translate>Uses</th>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td colspan="2"></td>
                     <td>
-                        <input st-search="'tag'" class="form-control" placeholder="{{ 'Search' | translate }}…" type="text">
+                        <input st-search="'tag'" class="form-control input-sm" placeholder="{{ 'Search' | translate }}…" type="text">
                     </td>
                     <td></td>
                 </tr>
@@ -26,13 +27,14 @@
             <tbody>
                 <tr ng-repeat="model in displayedModels">
                     <td><typi-btn-delete ng-click="delete(model, model.tag)"></typi-btn-delete></td>
+                    <td typi-btn-edit></td>
                     <td>{{ model.tag }}</td>
                     <td>{{ model.uses }}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3" typi-pagination></td>
+                    <td colspan="4" typi-pagination></td>
                 </tr>
             </tfoot>
         </table>

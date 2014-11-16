@@ -1,5 +1,9 @@
 <?php
-Route::model('blocks', 'TypiCMS\Modules\Blocks\Models\Block');
+Route::bind('blocks', function ($value) {
+    return TypiCMS\Modules\Blocks\Models\Block::where('id', $value)
+        ->with('translations')
+        ->firstOrFail();
+});
 
 Route::group(
     array(

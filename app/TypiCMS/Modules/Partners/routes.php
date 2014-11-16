@@ -1,5 +1,9 @@
 <?php
-Route::model('partners', 'TypiCMS\Modules\Partners\Models\Partner');
+Route::bind('partners', function ($value) {
+    return TypiCMS\Modules\Partners\Models\Partner::where('id', $value)
+        ->with('translations')
+        ->firstOrFail();
+});
 
 if (! App::runningInConsole()) {
     Route::group(
@@ -14,7 +18,7 @@ if (! App::runningInConsole()) {
                     $uri = $routes['partners'][$lang];
                 } else {
                     $uri = 'partners';
-                    if (Config::get('app.locale_in_url')) {
+                    if (Config::get('app.fallback_locale') != $lang || Config::get('app.main_locale_in_url')) {
                         $uri = $lang . '/' . $uri;
                     }
                 }

@@ -17,12 +17,12 @@
 <div class="row">
     <div class="col-sm-4 form-group @if($errors->has('start_date'))has-error @endif">
         {{ Form::label('start_date', trans('validation.attributes.start_date'), array('class' => 'control-label')) }}
-        {{ Form::text('start_date', $model->present()->dateOrNow('start_date', 'd.m.Y'), array('class' => 'datepicker form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
+        {{ Form::text('start_date', $model->present()->dateOrNow('start_date'), array('class' => 'datepicker form-control', 'data-value' => $model->present()->dateOrNow('start_date'), 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
         {{ $errors->first('start_date', '<p class="help-block">:message</p>') }}
     </div>
     <div class="col-sm-3 form-group @if($errors->has('start_time'))has-error @endif">
         {{ Form::label('start_time', trans('validation.attributes.start_time'), array('class' => 'control-label')) }}
-        {{ Form::text('start_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
+        {{ Form::text('start_time', $model->start_date->format('H:i'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
         {{ $errors->first('start_time', '<p class="help-block">:message</p>') }}
     </div>
 </div>
@@ -30,12 +30,12 @@
 <div class="row">
     <div class="col-sm-4 form-group @if($errors->has('end_date'))has-error @endif">
         {{ Form::label('end_date', trans('validation.attributes.end_date'), array('class' => 'control-label')) }}
-        {{ Form::text('end_date', $model->present()->dateOrNow('end_date', 'd.m.Y'), array('class' => 'datepicker form-control', 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
+        {{ Form::text('end_date', $model->present()->dateOrNow('end_date'), array('class' => 'datepicker form-control', 'data-value' => $model->present()->dateOrNow('end_date'), 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
         {{ $errors->first('end_date', '<p class="help-block">:message</p>') }}
     </div>
     <div class="col-sm-3 form-group @if($errors->has('end_time'))has-error @endif">
         {{ Form::label('end_time', trans('validation.attributes.end_time'), array('class' => 'control-label')) }}
-        {{ Form::text('end_time', null, array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
+        {{ Form::text('end_time', $model->end_date->format('H:i'), array('class' => 'form-control', 'placeholder' => trans('validation.attributes.HH:MM'))) }}
         {{ $errors->first('end_time', '<p class="help-block">:message</p>') }}
     </div>
 </div>

@@ -62,7 +62,7 @@ function initTinymce(selector) {
                 slugField: '#' + TypiCMS.locales[i]['short'] + '\\[slug\\]'
             });
         };
-        var titleField = $('#title');
+        var titleField = $('#title, #tag');
         titleField.slug({
             slugField: '#slug'
         });
@@ -160,8 +160,9 @@ function initTinymce(selector) {
         if ($('.datepicker').length) {
             $('.datepicker').pickadate({
                 editable: true,
-                // formatSubmit: 'yyyy-mm-dd',
-                format: 'dd.mm.yyyy'
+                formatSubmit: 'yyyy-mm-dd',
+                format: 'dd.mm.yyyy',
+                hiddenName: true,
             });
         }
 

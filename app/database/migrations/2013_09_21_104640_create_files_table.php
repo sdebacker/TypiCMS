@@ -22,15 +22,15 @@ class CreateFilesTable extends Migration
 
             $table->integer('user_id')->unsigned()->default(0);
 
-            $table->enum('type', array('a', 'v', 'd', 'i', 'o'));
-            $table->string('filename');
-            $table->string('path');
-            $table->string('extension', 8);
-            $table->string('mimetype', 100);
+            $table->enum('type', array('a', 'v', 'd', 'i', 'o'))->nullable();
+            $table->string('filename')->nullable();
+            $table->string('path')->nullable();
+            $table->string('extension', 8)->nullable();
+            $table->string('mimetype', 100)->nullable();
             $table->integer('width')->unsigned()->nullable();
             $table->integer('height')->unsigned()->nullable();
-            $table->integer('filesize')->unsigned();
-            $table->integer('download_count')->default(0);
+            $table->integer('filesize')->unsigned()->nullable();
+            $table->integer('download_count')->unsigned()->default(0);
 
             $table->integer('position')->unsigned()->default(0);
 

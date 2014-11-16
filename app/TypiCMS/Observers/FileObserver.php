@@ -29,6 +29,7 @@ class FileObserver
 
     /**
      * Delete file and thumbs
+     * 
      * @param  string $file
      * @return void
      */
@@ -40,11 +41,13 @@ class FileObserver
 
     /**
      * On save, upload files
+     * 
      * @param  Model $model eloquent
      * @return mixed false or void
      */
     public function saving(Model $model)
     {
+
         if (! $attachments = $model->attachments) {
             return;
         }
@@ -54,6 +57,9 @@ class FileObserver
                 // delete prev image
                 $file = FileUpload::handle(Input::file($fieldname), 'uploads/' . $model->getTable());
                 $model->$fieldname = $file['filename'];
+                if ($model->getTable() == 'files') {
+                    $model->fill($file);
+                }
             } else {
                 if ($model->$fieldname == 'delete') {
                     $model->$fieldname = null;
@@ -66,6 +72,7 @@ class FileObserver
 
     /**
      * On update, delete previous file if changed
+     * 
      * @param  Model $model eloquent
      * @return mixed false or void
      */

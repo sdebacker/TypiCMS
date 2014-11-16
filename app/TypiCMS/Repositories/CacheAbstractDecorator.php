@@ -13,12 +13,23 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
     protected $cache;
 
     /**
-     * get empty model
+     * Get empty model
+     * 
      * @return Model
      */
     public function getModel()
     {
         return $this->repo->getModel();
+    }
+
+    /**
+     * Get table name
+     * 
+     * @return string
+     */
+    public function getTable()
+    {
+        return $this->repo->getTable();
     }
 
     /**
@@ -321,8 +332,8 @@ abstract class CacheAbstractDecorator implements RepositoryInterface
      *
      * @param  string  $method     with method to call from the repository ?
      * @param  boolean $firstEmpty generate an empty item
-     * @param  string  $value      witch field as value ?
-     * @param  string  $key        witch field as key ?
+     * @param  string  $value      witch column as value ?
+     * @param  string  $key        witch column as key ?
      * @return array               array with key = $key and value = $value
      */
     public function select($method = 'getAll', $firstEmpty = false, $value = 'title', $key = 'id')

@@ -5,8 +5,8 @@
         {{ $model->present()->title }}
     </h1>
 
-    {{ Form::model( $model, array( 'route' => array('admin.' . $route . '.update', $model->id), 'files' => true, 'method' => 'put', 'role' => 'form' ) ) }}
-        @include($module . '.admin._form')
+    {{ Form::model( $model, array( 'route' => array('admin.' . $model->getTable() . '.update', $model->id), 'files' => true, 'method' => 'put', 'role' => 'form' ) ) }}
+        @include($model->getTable() . '.admin._form')
     {{ Form::close() }}
 
 @stop

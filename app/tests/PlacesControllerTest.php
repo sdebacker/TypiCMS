@@ -16,7 +16,7 @@ class PlacesControllerTest extends TestCase
 
     public function testStoreFails()
     {
-        $input = ['title' => '', 'slug' => '']; // 19.02.2014 11:04
+        $input = ['fr.title' => 'test', 'fr.slug' => ''];
         $this->call('POST', 'admin/places', $input);
         $this->assertRedirectedToRoute('admin.places.create');
         $this->assertSessionHasErrors();
@@ -24,22 +24,20 @@ class PlacesControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
-
+        $object = new Place;
         $object->id = 1;
         Place::shouldReceive('create')->once()->andReturn($object);
-        $input = array('title' => 'test', 'slug' => 'test', 'status' => 0);
+        $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'fr.body' => '', 'status' => 0);
         $this->call('POST', 'admin/places', $input);
         $this->assertRedirectedToRoute('admin.places.edit', array('id' => 1));
     }
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Place;
         $object->id = 1;
         Place::shouldReceive('create')->once()->andReturn($object);
-        $input = array('title' => 'test', 'slug' => 'test', 'status' => 0, 'exit' => true);
+        $input = array('fr.title' => 'test', 'fr.slug' => 'test', 'fr.body' => '', 'status' => 0, 'exit' => true);
         $this->call('POST', 'admin/places', $input);
         $this->assertRedirectedToRoute('admin.places.index');
     }

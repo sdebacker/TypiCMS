@@ -1,9 +1,15 @@
 <?php
 namespace TypiCMS\Modules\Partners\Models;
 
-use Eloquent;
+use TypiCMS\Models\BaseTranslation;
 
-class PartnerTranslation extends Eloquent
+class PartnerTranslation extends BaseTranslation
 {
-
+    /**
+     * get the parent model
+     */
+    public function owner()
+    {
+        return $this->belongsTo('TypiCMS\Modules\Partners\Models\Partner', 'partner_id');
+    }
 }

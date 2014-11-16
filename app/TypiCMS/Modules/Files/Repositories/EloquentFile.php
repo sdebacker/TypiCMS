@@ -1,9 +1,8 @@
 <?php
 namespace TypiCMS\Modules\Files\Repositories;
 
-use stdClass;
 use Illuminate\Database\Eloquent\Model;
-use FileUpload;
+use stdClass;
 use TypiCMS\Repositories\RepositoriesAbstract;
 
 class EloquentFile extends RepositoriesAbstract implements FileInterface
@@ -62,69 +61,5 @@ class EloquentFile extends RepositoriesAbstract implements FileInterface
         $result->items = $models->all();
 
         return $result;
-    }
-
-    /**
-     * Delete model
-     *
-     * @return boolean
-     */
-    public function delete($model)
-    {
-        if ($model->delete()) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Create a new model
-     *
-     * @param  array         Data to create a new model
-     * @return boolean|Model false on error
-     */
-    public function create(array $data)
-    {
-        if (isset($data['file']) && $data['file']) {
-            $path = 'uploads/';
-            $file = FileUpload::handle($data['file'], $path);
-            $data = array_merge($data, $file);
-        }
-
-        // Create the model
-        $model = $this->model->fill($data);
-
-        $model->save();
-
-        if (! $model) {
-            return false;
-        }
-
-        return $model;
-    }
-
-    /**
-     * Update an existing model
-     *
-     * @param array  Data to update a model
-     * @return boolean
-     */
-    public function update(array $data)
-    {
-        if (isset($data['file']) && $data['file']) {
-            $path = 'uploads/';
-            $file = FileUpload::handle($data['file'], $path);
-            $data = array_merge($data, $file);
-        }
-
-        $model = $this->model->find($data['id']);
-
-        $model->fill($data);
-
-        $model->save();
-
-        return true;
-
     }
 }

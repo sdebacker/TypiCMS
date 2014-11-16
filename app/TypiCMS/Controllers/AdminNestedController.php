@@ -1,38 +1,21 @@
 <?php
 namespace TypiCMS\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use Input;
 use Redirect;
-use Request;
-use Response;
 use View;
 
 abstract class AdminNestedController extends BaseAdminController
 {
 
     /**
-     * Set module name
-     * @return string
-     */
-    protected function setModule()
-    {
-        return Request::segment(4);
-    }
-
-    /**
-     * Set route base name
-     * @return string
-     */
-    protected function setRoute()
-    {
-        return Request::segment(2) . '.' . Request::segment(4);
-    }
-
-    /**
      * List models
-     * GET /admin/model
+     * 
+     * @param  Model $parent
+     * @return void
      */
-    public function index($parent = null)
+    public function index(Model $parent = null)
     {
         $this->layout->content = View::make('admin.index');
     }
@@ -40,9 +23,10 @@ abstract class AdminNestedController extends BaseAdminController
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @param  Model $parent
+     * @return void
      */
-    public function create($parent = null)
+    public function create(Model $parent = null)
     {
         $model = $this->repository->getModel();
         $this->layout->content = View::make('admin.create')
@@ -52,9 +36,11 @@ abstract class AdminNestedController extends BaseAdminController
     /**
      * Show the form for editing the specified resource.
      *
-     * @return Response
+     * @param  Model $parent
+     * @param  Model $model
+     * @return void
      */
-    public function edit($parent = null, $model)
+    public function edit(Model $parent = null, Model $model)
     {
         $this->layout->content = View::make('admin.edit')
             ->withModel($model);
@@ -63,28 +49,30 @@ abstract class AdminNestedController extends BaseAdminController
     /**
      * Show resource.
      *
-     * @return Response
+     * @param  Model $parent
+     * @param  Model $model
+     * @return Redirect
      */
-    public function show($parent = null, $model)
+    public function show(Model $parent = null, Model $model)
     {
-        return Redirect::route('admin.' . $this->module . '.edit', [$parent->id, $model->id]);
+        return Redirect::to($model->editUrl());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @param  Model $parent
+     * @return Redirect
      */
-    public function store($parent = null)
+    public function store(Model $parent = null)
     {
 
         if ($model = $this->form->save(Input::all())) {
-            return Input::get('exit') ?
-                Redirect::route('admin.' . $this->route . '.index', $parent->id) :
-                Redirect::route('admin.' . $this->route . '.edit', [$parent->id, $model->id]) ;
+            $redirectUrl = Input::get('exit') ? $model->indexUrl() : $model->editUrl() ;
+            return Redirect::to($redirectUrl);
         }
 
-        return Redirect::route('admin.' . $this->route . '.create')
+        return Redirect::route('admin.' . $this->repository->getTable() . '.create')
             ->withInput()
             ->withErrors($this->form->errors());
 
@@ -93,22 +81,19 @@ abstract class AdminNestedController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @return Response
+     * @param  Model $parent
+     * @param  Model $model
+     * @return Redirect
      */
-    public function update($parent = null, $model)
+    public function update(Model $parent = null, Model $model)
     {
 
-        if (Request::ajax()) {
-            return Response::json($this->repository->update(Input::all()));
-        }
-
         if ($this->form->update(Input::all())) {
-            return Input::get('exit') ?
-                Redirect::route('admin.' . $this->route . '.index', $parent->id) :
-                Redirect::route('admin.' . $this->route . '.edit', [$parent->id, $model->id]) ;
+            $redirectUrl = Input::get('exit') ? $model->indexUrl() : $model->editUrl() ;
+            return Redirect::to($redirectUrl);
         }
 
-        return Redirect::route('admin.' . $this->route . '.edit', [$parent->id, $model->id])
+        return Redirect::to($model->editUrl())
             ->withInput()
             ->withErrors($this->form->errors());
     }
@@ -116,14 +101,14 @@ abstract class AdminNestedController extends BaseAdminController
     /**
      * Remove the specified resource from storage.
      *
-     * @return Response
+     * @param  Model $parent
+     * @param  Model $model
+     * @return Redirect
      */
-    public function destroy($parent = null, $model)
+    public function destroy(Model $parent = null, Model $model)
     {
         if ($this->repository->delete($model)) {
-            if (! Request::ajax()) {
-                return Redirect::back();
-            }
+            return Redirect::back();
         }
     }
 }

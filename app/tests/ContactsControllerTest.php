@@ -25,7 +25,7 @@ class ContactsControllerTest extends TestCase
 
     public function testStoreSuccess()
     {
-        $object = new stdClass;
+        $object = new Contact;
         $object->id = 1;
         Contact::shouldReceive('create')->once()->andReturn($object);
         $input = array('title' => 'mr', 'first_name' => 'John', 'last_name' => 'Doe', 'email' => 'john@doe.com', 'message' => 'Hello', 'my_time' => Crypt::encrypt(time()-60));
@@ -35,8 +35,7 @@ class ContactsControllerTest extends TestCase
 
     public function testStoreSuccessWithRedirectToList()
     {
-        $object = new stdClass;
-
+        $object = new Contact;
         $object->id = 1;
         Contact::shouldReceive('create')->once()->andReturn($object);
         $input = array('title' => 'mr', 'first_name' => 'John', 'last_name' => 'Doe', 'email' => 'john@doe.com', 'message' => 'Hello', 'my_time' => Crypt::encrypt(time()-60), 'exit' => true);

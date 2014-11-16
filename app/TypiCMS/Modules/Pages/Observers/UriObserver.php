@@ -20,10 +20,12 @@ class UriObserver
 
         if ($model->slug) {
 
-            $uri = $model->slug;
-
-            if (Config::get('app.locale_in_url')) {
-                $uri = $model->locale . '/' . $uri;
+            $uri = $model->locale . '/' . $model->slug;
+            if (
+                Config::get('app.fallback_locale') == $model->locale &&
+                ! Config::get('app.main_locale_in_url')
+            ) {
+                $uri = $model->slug;
             }
 
             $model->uri = $this->incrementWhileExists($uri);
@@ -43,7 +45,13 @@ class UriObserver
 
         if ($model->slug && ! is_null($model->uri)) {
 
-            $uri = $this->getParentUri($model) . '/' . $model->slug;
+            $parentUri = $this->getParentUri($model);
+            if ($parentUri) {
+                $uri = $parentUri . '/' . $model->slug;
+            } else {
+                $uri = $model->slug;
+            }
+
 
             $model->uri = $this->incrementWhileExists($uri, $model->id);
 
@@ -65,6 +73,12 @@ class UriObserver
     {
         if ($parentPage = $model->page->parent) {
             return $parentPage->translate($model->locale)->uri;
+        }
+        if (
+            Config::get('app.fallback_locale') == $model->locale &&
+            ! Config::get('app.main_locale_in_url')
+        ) {
+            return '';
         }
         return $model->locale;
     }
