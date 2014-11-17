@@ -1,6 +1,7 @@
 <?php
 namespace TypiCMS\Traits;
 
+use App;
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use Illuminate\Database\Eloquent\Model;
 use Sentry;
@@ -54,16 +55,16 @@ trait Historable {
      */
     public function writeHistory($action, $title = null, $locale = null)
     {
-        $item                    = new History;
-        $item->historable_id     = $this->getKey();
-        $item->historable_type   = get_class($this);
-        $item->user_id           = $this->getAuthUserId();
-        $item->title             = $title;
-        $item->locale            = $locale;
-        $item->icon_class        = $this->historyIconClass($action);
-        $item->historable_table  = $this->getTable();
-        $item->action            = $action;
-        $item->save();
+        $history = App::make('TypiCMS\Modules\History\Repositories\HistoryInterface');
+        $data['historable_id']    = $this->getKey();
+        $data['historable_type']  = get_class($this);
+        $data['user_id']          = $this->getAuthUserId();
+        $data['title']            = $title;
+        $data['locale']           = $locale;
+        $data['icon_class']       = $this->historyIconClass($action);
+        $data['historable_table'] = $this->getTable();
+        $data['action']           = $action;
+        $history->create($data);
     }
 
     /**
