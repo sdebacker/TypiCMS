@@ -57,7 +57,7 @@ class UsersFilter
     public function hasAccess(
         \Illuminate\Routing\Route $route,
         \Illuminate\Http\Request $request,
-        $value = 'chose'
+        $value = null
     ) {
         $value = ($value) ? : $route->getName() ;
         try {
