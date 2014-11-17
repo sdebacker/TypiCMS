@@ -38,8 +38,8 @@ class PublicController extends BasePublicController
             $model = $this->repository->getFirstBy('is_home', 1);
         } else if (
             in_array($uri, Config::get('app.locales')) &&
-            Config::get('app.fallback_locale') != app::getLocale() &&
-            ! Config::get('app.main_locale_in_url')
+            (Config::get('app.fallback_locale') != App::getLocale() ||
+            Config::get('app.main_locale_in_url'))
         ) {
             $model = $this->repository->getFirstBy('is_home', 1);
         } else {
