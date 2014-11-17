@@ -18,7 +18,7 @@
 
         </div>
 
-        @include('history.admin.index')
+        @include('history.admin.latest')
 
     </div>
 
