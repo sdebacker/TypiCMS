@@ -13,7 +13,7 @@ class LaravelCache implements CacheInterface
 
     /**
      * @param CacheManager $cache
-     * @param array        $tags
+     * @param array|string $tags
      * @param integer      $minutes
      */
     public function __construct(CacheManager $cache, $tags, $minutes = null)
