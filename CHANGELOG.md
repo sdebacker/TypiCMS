@@ -4,7 +4,7 @@ All notable changes to TypiCMS will be documented in this file.
 ## 1.7.2 - 2014-11-17
 
 ### Added
-- Main language can have no lang in url.
+- Main language can have no lang in url (main_locale_in_url item in config file).
 
 ### Changed
 - Search and sort feature removed on 25 latest changes in Dashboard.
