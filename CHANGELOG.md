@@ -1,10 +1,19 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.7.2 - 2014-11-
+## 1.7.2 - 2014-11-17
+
+### Added
+- Main language can have no lang in url.
+
+### Changed
+- Search and sort feature removed on 25 latest changes in Dashboard.
+- GET api calls doesn’t need authentification.
 
 ### Fixed
 - Nested subpages menu.
+- History : DB query orderBy.
+- History when cache enabled.
 
 ## 1.7.1 - 2014-11-15
 
