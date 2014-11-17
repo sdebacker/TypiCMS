@@ -27,6 +27,32 @@ class ModulePresenter extends Presenter
     }
 
     /**
+     * Return start_date formated as H:i
+     *
+     * @return string
+     */
+    public function startTime()
+    {
+        if (! $this->entity->start_date) {
+            return '';
+        }
+        return $this->entity->start_date->format('H:i');
+    }
+
+    /**
+     * Return end_date formated as H:i
+     *
+     * @return string
+     */
+    public function endTime()
+    {
+        if (! $this->entity->end_date) {
+            return '';
+        }
+        return $this->entity->end_date->format('H:i');
+    }
+
+    /**
      * concat start and end date
      * without repeating common month and year
      *
