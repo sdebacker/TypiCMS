@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-sm-6 form-group @if($errors->has('date'))has-error @endif">
                 {{ Form::label('date', trans('validation.attributes.date'), array('class' => 'control-label')) }}
-                {{ Form::text('date', $model->present()->dateOrNow(), array('class' => 'datepicker form-control', 'data-value' => $model->present()->dateOrNow(), 'placeholder' => trans('validation.attributes.DDMMYYYY HHMM'))) }}
+                {{ Form::text('date', $model->present()->dateOrNow(), array('class' => 'datepicker form-control', 'data-value' => $model->present()->dateOrNow(), 'placeholder' => trans('validation.attributes.DDMMYYYY'))) }}
                 {{ $errors->first('date', '<p class="help-block">:message</p>') }}
             </div>
             <div class="col-sm-3 form-group @if($errors->has('time'))has-error @endif">
