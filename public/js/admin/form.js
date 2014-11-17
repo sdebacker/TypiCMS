@@ -159,7 +159,7 @@ function initTinymce(selector) {
          */
         if ($('.datepicker').length) {
             $('.datepicker').pickadate({
-                editable: true,
+                // editable: true,
                 formatSubmit: 'yyyy-mm-dd',
                 format: 'dd.mm.yyyy',
                 hiddenName: true,
