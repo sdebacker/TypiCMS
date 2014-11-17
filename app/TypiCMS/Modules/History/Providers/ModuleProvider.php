@@ -26,6 +26,7 @@ class ModuleProvider extends ServiceProvider
 
         // Add dirs
         View::addLocation(__DIR__ . '/../Views');
+        Config::addNamespace('history', __DIR__ . '/../config');
     }
 
     public function register()
