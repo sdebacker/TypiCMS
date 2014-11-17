@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.3 - 2014-11-17
+
+### Fixed
+- Bug on getting homepage.
+
 ## 1.7.2 - 2014-11-17
 
 ### Added
