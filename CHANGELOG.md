@@ -14,6 +14,8 @@ All notable changes to TypiCMS will be documented in this file.
 - Nested subpages menu.
 - History : DB query orderBy.
 - History when cache enabled.
+- Events module : creating a new event trown an exception.
+- Pickadate bug.
 
 ## 1.7.1 - 2014-11-15
 
