@@ -31,9 +31,9 @@ class PublicController extends BasePublicController
 
         $places = $this->repository->getAll();
 
-        if (Request::wantsJson()) {
-            return Response::json($places, 200);
-        }
+        // if (Request::wantsJson()) {
+        //     return Response::json($places, 200);
+        // }
 
         $this->layout->content = View::make('places.public.index')
             ->withPlaces($places);
@@ -49,10 +49,6 @@ class PublicController extends BasePublicController
 
         $models = $this->repository->getAll();
 
-        if (Request::wantsJson()) {
-            return Response::json($models, 200);
-        }
-
         $this->layout->content = View::make('places.public.results')
             ->with('models', $models);
     }
@@ -67,10 +63,6 @@ class PublicController extends BasePublicController
         $model = $this->repository->bySlug($slug);
 
         TypiCMS::setModel($model);
-
-        if (Request::wantsJson()) {
-            return Response::json($model, 200);
-        }
 
         $this->title['parent'] = $model->title;
 
