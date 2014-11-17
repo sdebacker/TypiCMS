@@ -36,7 +36,6 @@ Route::group(
     ),
     function () {
         Route::resource('places', 'AdminController');
-        Route::post('places/sort', array('as' => 'admin.places.sort', 'uses' => 'AdminController@sort'));
     }
 );
 
