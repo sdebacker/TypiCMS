@@ -1,7 +1,6 @@
 {
     "name": "sdebacker/typicms",
     "description": "Multilingual CMS build with Laravel 4.2",
-    "version": "1.7.3",
     "keywords": ["CMS", "multilingual", "Laravel", "Typi"],
     "license": "MIT",
     "authors": [
