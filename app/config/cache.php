@@ -84,6 +84,6 @@ return array(
 	|
 	*/
 
-	'prefix' => 'typicms',
+	'prefix' => 'moto',
 
 );

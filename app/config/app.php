@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => false,
+	'debug' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'Europe/Brussels',
+	'timezone' => 'Asia/Chongqing',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -60,8 +60,8 @@ return array(
 	|
 	*/
 
-	'locales' => array('fr', 'nl', 'en'),
-	'locale' => 'en',
+	'locales' => array('fr', 'nl', 'en','zh'),
+	'locale' => 'zh',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return array(
 	|
 	*/
 
-	'key' => 'dmPUc2CDU6sL15UQerWGKIdK5QzXtgji',
+	'key' => 'T3j6tL4GcjCmHwNRkP5CBEd0sykvsvwD',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
