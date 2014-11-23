@@ -27,6 +27,11 @@ class UriObserver
             ) {
                 $uri = $model->slug;
             }
+            
+            if (!Config::get('app.main_locale_in_url')) {
+                
+                $uri = $model->slug;
+            }
 
             $model->uri = $this->incrementWhileExists($uri);
 
@@ -46,7 +51,7 @@ class UriObserver
         if ($model->slug && ! is_null($model->uri)) {
 
             $parentUri = $this->getParentUri($model);
-            if ($parentUri) {
+            if ($parentUri && Config::get('app.main_locale_in_url')) {
                 $uri = $parentUri . '/' . $model->slug;
             } else {
                 $uri = $model->slug;
