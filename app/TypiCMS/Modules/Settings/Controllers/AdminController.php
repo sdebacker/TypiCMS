@@ -80,11 +80,11 @@ class AdminController extends AdminSimpleController
      */
     public function backup()
     {
+        $databaseType = Config::get('database.default');
+        $databaseName = Config::get('database.connections.' . $databaseType . '.database');
+        $filedir      = Config::get('backup-manager::storage.local.root');
+        $filename     = $databaseName . '-' . date('Y-m-d_H:i:s') . '.sql';
         try {
-            $databaseType = Config::get('database.default');
-            $databaseName = Config::get('database.connections.' . $databaseType . '.database');
-            $filedir      = Config::get('backup-manager::storage.local.root');
-            $filename     = $databaseName . '-' . date('Y-m-d_H:i:s') . '.sql';
             $this->manager->makeBackup()->run($databaseType, 'local', $filename, 'gzip');
             return Response::download($filedir . '/' . $filename . '.gz');
         } catch (Exception $e) {
