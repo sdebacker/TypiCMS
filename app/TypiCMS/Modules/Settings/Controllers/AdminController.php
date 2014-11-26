@@ -87,7 +87,6 @@ class AdminController extends AdminSimpleController
             $fileName     = $databaseName . '-' . date('Y-m-d_H:i:s') . '.sql';
             $pathToFile   = $fileDir . '/' . $fileName . '.gz';
             $this->manager->makeBackup()->run($databaseType, 'local', $fileName, 'gzip');
-            sleep(2);
             return Response::download($pathToFile);
         } catch (Exception $e) {
             Log::info($e->getMessage());
