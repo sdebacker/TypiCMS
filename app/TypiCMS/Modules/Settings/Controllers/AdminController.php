@@ -1,25 +1,28 @@
 <?php
 namespace TypiCMS\Modules\Settings\Controllers;
 
-use View;
+use App;
+use BigName\BackupManager\Manager;
 use Cache;
-use Input;
 use Config;
-use Response;
-use Redirect;
+use Exception;
+use Input;
+use Log;
 use Notification;
-use Symfony\Component\Process\Process;
-use McCool\DatabaseBackup\BackupProcedure;
-use McCool\DatabaseBackup\Dumpers\MysqlDumper;
-use McCool\DatabaseBackup\Processors\ShellProcessor;
-use TypiCMS\Modules\Settings\Repositories\SettingInterface;
+use Redirect;
+use Response;
 use TypiCMS\Controllers\AdminSimpleController;
+use TypiCMS\Modules\Settings\Repositories\SettingInterface;
+use View;
 
 class AdminController extends AdminSimpleController
 {
 
-    public function __construct(SettingInterface $setting)
+    protected $manager;
+
+    public function __construct(SettingInterface $setting, Manager $manager)
     {
+        $this->manager = $manager;
         parent::__construct($setting);
         $this->title['parent'] = ucfirst(trans('global.settings'));
     }
@@ -61,7 +64,7 @@ class AdminController extends AdminSimpleController
     /**
      * Clear app cache
      *
-     * @return redirect
+     * @return Redirect
      */
     public function clearCache()
     {
@@ -73,26 +76,21 @@ class AdminController extends AdminSimpleController
     /**
      * Backup DB
      *
-     * @return File download
+     * @return Response|Redirect
      */
     public function backup()
     {
-        // DB info
-        $host = Config::get('database.connections.mysql.host');
-        $username = Config::get('database.connections.mysql.username');
-        $password = Config::get('database.connections.mysql.password');
-        $database = Config::get('database.connections.mysql.database');
-
-        // SQL file
-        $file = storage_path().'/backup/'.$database.'.sql';
-
-        // Export
-        $shellProcessor = new ShellProcessor(new Process(''));
-        $dumper = new MysqlDumper($shellProcessor, $host, 3306, $username, $password, $database, $file);
-        $backup = new BackupProcedure($dumper);
-        $backup->backup();
-
-        // DL File
-        return Response::download($file);
+        try {
+            $databaseType = Config::get('database.default');
+            $databaseName = Config::get('database.connections.' . $databaseType . '.database');
+            $filedir      = Config::get('backup-manager::storage.local.root');
+            $filename     = $databaseName . '-' . date("Y-m-d_H:i:s") . '.sql';
+            $this->manager->makeBackup()->run($databaseType, 'local', $filename, 'gzip');
+            return Response::download($filedir . '/' . $filename . '.gz');
+        } catch (Exception $e) {
+            Log::info($e->getMessage());
+            Notification::error(trans('settings::global.Unable to backup database') . '.');
+        }
+        return Redirect::route('admin.settings.index');
     }
 }

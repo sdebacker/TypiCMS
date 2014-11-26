@@ -13,4 +13,5 @@ return array(
     'Yes' => 'Yes',
     'Clear cache' => 'Clear cache',
     'Cache cleared' => 'Cache cleared',
+    'Unable to backup database' => 'Unable to backup database',
 );

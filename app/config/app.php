@@ -147,11 +147,11 @@ return array(
 		'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 		'Msurguy\Honeypot\HoneypotServiceProvider',
-		'McCool\DatabaseBackup\ServiceProviders\LaravelServiceProvider',
 		'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
 		'Jenssegers\Rollbar\RollbarServiceProvider',
 		'Roumen\Sitemap\SitemapServiceProvider',
 		'Laracasts\Utilities\UtilitiesServiceProvider',
+		'BigName\BackupManager\Integrations\Laravel\BackupManagerServiceProvider',
 
 		'TypiCMS\Providers\StartProvider',
 		'TypiCMS\Providers\UploadServiceProvider',
