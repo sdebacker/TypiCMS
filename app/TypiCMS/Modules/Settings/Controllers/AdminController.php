@@ -80,21 +80,16 @@ class AdminController extends AdminSimpleController
      */
     public function backup()
     {
-        $databaseType = Config::get('database.default');
-        $databaseName = Config::get('database.connections.' . $databaseType . '.database');
-        $filedir      = Config::get('backup-manager::storage.local.root');
-        $filename     = $databaseName . '-' . date('Y-m-d_His') . '.sql';
-
         try {
-            $this->manager->makeBackup()->run($databaseType, 'local', $filename, null);
+            $databaseType = Config::get('database.default');
+            $databaseName = Config::get('database.connections.' . $databaseType . '.database');
+            $fileDir      = Config::get('backup-manager::storage.local.root');
+            $fileName     = $databaseName . '-' . date('Y-m-d_H:i:s') . '.sql';
+            $this->manager->makeBackup()->run($databaseType, 'local', $fileName, 'gzip');
+            return Response::download($fileDir . '/' . $fileName . '.gz');
         } catch (Exception $e) {
             Log::info($e->getMessage());
             Notification::error(trans('settings::global.Unable to backup database') . '.');
-        }
-        try {
-            return Response::download($filedir . '/' . $filename);
-        } catch (Exception $e) {
-            Log::info($e->getMessage());
         }
         return Redirect::route('admin.settings.index');
     }
