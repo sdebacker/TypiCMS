@@ -85,7 +85,9 @@ class AdminController extends AdminSimpleController
             $databaseName = Config::get('database.connections.' . $databaseType . '.database');
             $fileDir      = Config::get('backup-manager::storage.local.root');
             $fileName     = $databaseName . '-' . date('Y-m-d_H:i:s') . '.sql';
-            $this->manager->makeBackup()->run($databaseType, 'local', $fileName, 'gzip');
+            $truc = $this->manager->makeBackup()->run($databaseType, 'local', $fileName, 'gzip');
+            d($truc);
+            exit();
             return Response::download($fileDir . '/' . $fileName . '.gz');
         } catch (Exception $e) {
             Log::info($e->getMessage());
