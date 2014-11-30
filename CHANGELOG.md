@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.4 - 2014-11-30
+
+### Fixed
+- Database export from back end.
+
 ## 1.7.3 - 2014-11-17
 
 ### Fixed
