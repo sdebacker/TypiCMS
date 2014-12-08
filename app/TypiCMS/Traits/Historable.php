@@ -5,7 +5,6 @@ use App;
 use Cartalyst\Sentry\Users\UserNotFoundException;
 use Illuminate\Database\Eloquent\Model;
 use Sentry;
-use TypiCMS\Modules\History\Models\History;
 
 trait Historable {
 

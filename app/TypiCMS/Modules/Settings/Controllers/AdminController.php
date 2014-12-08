@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Settings\Controllers;
 
-use App;
 use BigName\BackupManager\Manager;
 use Cache;
 use Config;

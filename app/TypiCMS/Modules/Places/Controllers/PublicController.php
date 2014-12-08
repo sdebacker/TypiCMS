@@ -3,7 +3,6 @@ namespace TypiCMS\Modules\Places\Controllers;
 
 use Str;
 use View;
-use Request;
 use Response;
 use TypiCMS;
 use TypiCMS\Modules\Places\Repositories\PlaceInterface;
@@ -30,10 +29,6 @@ class PublicController extends BasePublicController
         $this->title['child'] = '';
 
         $places = $this->repository->getAll();
-
-        // if (Request::wantsJson()) {
-        //     return Response::json($places, 200);
-        // }
 
         $this->layout->content = View::make('places.public.index')
             ->withPlaces($places);
