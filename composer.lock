@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "99b32bcec17a014cc95f90e42cabd1d6",
+    "hash": "ccdd377344ffbea99ae5e1fccb28dfb0",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -887,91 +887,6 @@
             "time": "2014-09-12 12:52:18"
         },
         {
-            "name": "intouch/laravel-newrelic",
-            "version": "1.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/In-Touch/laravel-newrelic.git",
-                "reference": "d170386537bf5bc093d37a0b4345df12b6dcf9d5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/In-Touch/laravel-newrelic/zipball/d170386537bf5bc093d37a0b4345df12b6dcf9d5",
-                "reference": "d170386537bf5bc093d37a0b4345df12b6dcf9d5",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.*",
-                "intouch/newrelic": ">=1.0.2",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Intouch\\LaravelNewrelic": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache 2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Patrick Leckey",
-                    "email": "pleckey@intouchinsight.com"
-                }
-            ],
-            "description": "Laravel 4 NewRelic Integration",
-            "homepage": "https://github.com/In-Touch/laravel-newrelic",
-            "keywords": [
-                "laravel",
-                "new relic",
-                "newrelic"
-            ],
-            "time": "2014-06-26 13:01:42"
-        },
-        {
-            "name": "intouch/newrelic",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/In-Touch/newrelic.git",
-                "reference": "20db6cb25a9eb88e504e16829077c56828c176cc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/In-Touch/newrelic/zipball/20db6cb25a9eb88e504e16829077c56828c176cc",
-                "reference": "20db6cb25a9eb88e504e16829077c56828c176cc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Intouch\\Newrelic": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache 2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Patrick Leckey",
-                    "email": "pleckey@intouchinsight.com"
-                }
-            ],
-            "description": "Namespaced Wrapper for NewRelic PHP Agent",
-            "homepage": "http://github.com/In-Touch/newrelic/",
-            "keywords": [
-                "new relic",
-                "newrelic"
-            ],
-            "time": "2014-08-18 12:08:45"
-        },
-        {
             "name": "ircmaxell/password-compat",
             "version": "v1.0.4",
             "source": {
@@ -1012,6 +927,55 @@
                 "password"
             ],
             "time": "2014-11-20 16:49:30"
+        },
+        {
+            "name": "jenssegers/rollbar",
+            "version": "v1.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/laravel-rollbar.git",
+                "reference": "e0a3139b085aadb615a338f1b3ce2d8bef7db367"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/laravel-rollbar/zipball/e0a3139b085aadb615a338f1b3ce2d8bef7db367",
+                "reference": "e0a3139b085aadb615a338f1b3ce2d8bef7db367",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*",
+                "php": ">=5.3",
+                "rollbar/rollbar": "0.9.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "*",
+                "orchestra/testbench": "2.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Rollbar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "http://jenssegers.be"
+                }
+            ],
+            "description": "Rollbar error monitoring integration for Laravel projects",
+            "keywords": [
+                "error",
+                "laravel",
+                "logging",
+                "monitoring",
+                "rollbar"
+            ],
+            "time": "2014-06-15 14:09:33"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1810,6 +1774,48 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "rollbar/rollbar",
+            "version": "v0.9.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rollbar/rollbar-php.git",
+                "reference": "31f2c59355ab1733e788f6927290b9ae15229836"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/31f2c59355ab1733e788f6927290b9ae15229836",
+                "reference": "31f2c59355ab1733e788f6927290b9ae15229836",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "rollbar.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rollbar, Inc.",
+                    "email": "support@rollbar.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monitors errors and exceptions and reports them to Rollbar",
+            "homepage": "http://github.com/rollbar/rollbar-php",
+            "keywords": [
+                "debugging",
+                "errors",
+                "exceptions",
+                "logging",
+                "monitoring"
+            ],
+            "time": "2014-09-11 19:19:11"
         },
         {
             "name": "roumen/sitemap",
