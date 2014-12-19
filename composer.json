@@ -14,7 +14,7 @@
         "bkwld/croppa": "~3.4.2",
         "cartalyst/sentry": "~2.1.4",
         "davejamesmiller/laravel-breadcrumbs": "~2.2.3",
-        "dimsav/laravel-translatable": "~4.3",
+        "dimsav/laravel-translatable": "~4.3.2",
         "edvinaskrucas/notification": "~3.0",
         "eluceo/ical": "~0.4",
         "guzzlehttp/guzzle": "~4.2.3",
