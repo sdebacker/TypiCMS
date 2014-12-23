@@ -17,7 +17,7 @@ class ResetChildren {
     public function resetChildrenUri(Page $page)
     {
         foreach ($page->children as $childPage) {
-            foreach (Config::get('app.locales') as $locale) {
+            foreach (Config::get('translatable::config.locales') as $locale) {
                 if (is_null($page->translate($locale)->uri)) {
                     $childPage->translate($locale)->uri = null;
                 } else {

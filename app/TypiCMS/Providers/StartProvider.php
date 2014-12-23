@@ -37,7 +37,10 @@ class StartProvider extends ServiceProvider
         if (Request::segment(1) != 'admin') {
 
             $firstSegment = Request::segment(1);
-            if (in_array($firstSegment, Config::get('app.locales'))) {
+
+            Config::addNamespace('translatable-config', __DIR__ . '/../../config/packages/dimsav/laravel-translatable');
+
+            if (in_array($firstSegment, Config::get('translatable-config::config.locales'))) {
                 Config::set('app.locale', $firstSegment);
             }
             // Not very reliable, need to be refactored
