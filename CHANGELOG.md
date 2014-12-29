@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.7 - 2014-12-29
+
+### Fixed
+- Bug fixes.
+
 ## 1.7.6 - 2014-12-19
 
 ### Fixed
