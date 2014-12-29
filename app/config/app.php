@@ -60,6 +60,7 @@ return array(
 	|
 	*/
 
+	'locales' => array('en', 'fr', 'nl'),
 	'locale' => 'en',
 
 	/*
@@ -145,7 +146,6 @@ return array(
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Cviebrock\ImageValidator\ImageValidatorServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
-		'Dimsav\Translatable\TranslatableServiceProvider',
 		'Jenssegers\Rollbar\RollbarServiceProvider',
 		'Krucas\Notification\NotificationServiceProvider',
 		'Laracasts\Utilities\UtilitiesServiceProvider',

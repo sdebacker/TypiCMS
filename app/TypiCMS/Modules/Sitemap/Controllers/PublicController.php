@@ -35,7 +35,7 @@ class PublicController extends Controller
         // check if there is cached sitemap and build new only if is not
         if (! $sitemap->isCached()) {
 
-            foreach (Config::get('translatable::config.locales') as $locale) {
+            foreach (Config::get('app.locales') as $locale) {
 
                 App::setLocale($locale);
 

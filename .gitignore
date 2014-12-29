@@ -1,6 +1,7 @@
 /bootstrap/compiled.php
 /bootstrap/environment.php
 /vendor
+/workbench
 public/packages
 bower_components
 node_modules

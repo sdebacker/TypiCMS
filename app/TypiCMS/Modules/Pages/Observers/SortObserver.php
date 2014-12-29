@@ -17,7 +17,7 @@ class SortObserver
     {
         if ($model->isDirty('parent_id')) {
 
-            foreach (Config::get('translatable::config.locales') as $locale) {
+            foreach (Config::get('app.locales') as $locale) {
                 $model->translate($locale)->uri = '';
             }
 

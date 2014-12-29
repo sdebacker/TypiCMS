@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d1ac1138283322be6ee25847c44516f0",
+    "hash": "ccdd377344ffbea99ae5e1fccb28dfb0",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -398,16 +398,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v4.4",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "d2264eeb367b11e320f38256e4643245f4521e67"
+                "reference": "152953046cb659032a0f10f2a5a4814b6e11a87a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/d2264eeb367b11e320f38256e4643245f4521e67",
-                "reference": "d2264eeb367b11e320f38256e4643245f4521e67",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/152953046cb659032a0f10f2a5a4814b6e11a87a",
+                "reference": "152953046cb659032a0f10f2a5a4814b6e11a87a",
                 "shasum": ""
             },
             "require": {
@@ -421,7 +421,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Dimsav\\Translatable\\": "src/Translatable/"
+                    "Dimsav\\Translatable\\": "Translatable/"
                 },
                 "classmap": [
                     "tests"
@@ -445,7 +445,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2014-12-16 18:55:26"
+            "time": "2014-11-05 15:30:50"
         },
         {
             "name": "edvinaskrucas/notification",
@@ -1120,16 +1120,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.16",
+            "version": "v4.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f"
+                "reference": "70a60f2ff9b96b3fcd88a68ef5382557733fe671"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f",
-                "reference": "31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/70a60f2ff9b96b3fcd88a68ef5382557733fe671",
+                "reference": "70a60f2ff9b96b3fcd88a68ef5382557733fe671",
                 "shasum": ""
             },
             "require": {
@@ -1231,7 +1231,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-12-22 20:56:10"
+            "time": "2014-12-11 17:14:36"
         },
         {
             "name": "league/flysystem",
@@ -1819,16 +1819,16 @@
         },
         {
             "name": "roumen/sitemap",
-            "version": "v2.4.14",
+            "version": "v2.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-sitemap.git",
-                "reference": "f420f10ce77d482697c2e6ee30a28e60ce3b993b"
+                "reference": "d7836337e780c172b10ae1cebf614eb4177fea86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/f420f10ce77d482697c2e6ee30a28e60ce3b993b",
-                "reference": "f420f10ce77d482697c2e6ee30a28e60ce3b993b",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/d7836337e780c172b10ae1cebf614eb4177fea86",
+                "reference": "d7836337e780c172b10ae1cebf614eb4177fea86",
                 "shasum": ""
             },
             "require": {
@@ -1867,7 +1867,7 @@
                 "Sitemap",
                 "laravel"
             ],
-            "time": "2014-12-22 20:17:53"
+            "time": "2014-11-27 11:09:06"
         },
         {
             "name": "stack/builder",
@@ -3102,16 +3102,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.3",
+            "version": "0.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1"
+                "reference": "95a4855380dc70176c51807c678fb3bd6198529a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1",
-                "reference": "686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/95a4855380dc70176c51807c678fb3bd6198529a",
+                "reference": "95a4855380dc70176c51807c678fb3bd6198529a",
                 "shasum": ""
             },
             "require": {
@@ -3164,7 +3164,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-12-22 10:06:19"
+            "time": "2014-09-03 10:11:10"
         },
         {
             "name": "phpdocumentor/reflection-docblock",

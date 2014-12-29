@@ -69,7 +69,7 @@ class EloquentPage extends RepositoriesAbstract implements PageInterface
     {
         $rootUriArray = explode('/', $uri);
         $uri = $rootUriArray[0];
-        if (in_array($uri, Config::get('translatable::config.locales'))) {
+        if (in_array($uri, Config::get('app.locales'))) {
             if (isset($rootUriArray[1])) { // i
                 $uri .= '/' . $rootUriArray[1]; // add next part of uri in locale
             }

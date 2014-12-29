@@ -13,7 +13,7 @@ if (! App::runningInConsole()) {
         ),
         function () {
             $routes = app('TypiCMS.routes');
-            foreach (Config::get('translatable::config.locales') as $lang) {
+            foreach (Config::get('app.locales') as $lang) {
                 if (isset($routes['projects'][$lang])) {
                     $uri = $routes['projects'][$lang];
                 } else {

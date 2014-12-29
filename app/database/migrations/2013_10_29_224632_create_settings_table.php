@@ -20,7 +20,7 @@ class CreateSettingsTable extends Migration
             $table->string('group_name')->default('config');
             $table->string('key_name');
             $table->string('value')->nullable();
-            $table->string('type')->nullable();
+            $table->string('type');
             $table->string('environment')->nullable();
             $table->timestamps();
         });

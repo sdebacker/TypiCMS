@@ -13,7 +13,7 @@ Route::filter('user.inGroup',         'TypiCMS\Filters\UsersFilter@inGroup');
 /**
  * Route filter "public"
  */
-foreach (Config::get('translatable::config.locales') as $locale) {
+foreach (Config::get('app.locales') as $locale) {
     Route::when($locale,      'public.checkLocale');
     Route::when($locale.'/*', 'public.checkLocale');
 }

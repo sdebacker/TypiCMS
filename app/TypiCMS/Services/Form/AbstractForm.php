@@ -49,7 +49,7 @@ abstract class AbstractForm
     public function update(array $input)
     {
         // add checkboxes data
-        foreach (Config::get('translatable::config.locales') as $locale) {
+        foreach (Config::get('app.locales') as $locale) {
             $input[$locale]['status'] = Input::get($locale.'.status', 0);
         }
 

@@ -1,15 +1,10 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
-## 1.7.7 - 2014-12-29
-
-### Changed
-- laravel-translatable is ~4.4.0.
-
 ## 1.7.6 - 2014-12-19
 
 ### Fixed
-- laravel-translatable version set to 4.3.x.
+- Laravel translatable version set to 4.3.x.
 
 ## 1.7.4 - 2014-11-30
 

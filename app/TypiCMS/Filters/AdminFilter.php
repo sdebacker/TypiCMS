@@ -18,7 +18,7 @@ class AdminFilter
     {
         $locale      = Config::get('app.locale');
         $adminLocale = Config::get('typicms.adminLocale');
-        $locales     = Config::get('translatable::config.locales');
+        $locales     = Config::get('app.locales');
         // If locale is present in app.locales…
         if (in_array(Input::get('locale'), $locales)) {
             // …store locale in session

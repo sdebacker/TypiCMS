@@ -45,7 +45,7 @@ class TypiCMS
     */
     public function getPublicLocales()
     {
-        $locales = Config::get('translatable::config.locales');
+        $locales = Config::get('app.locales');
         foreach ($locales as $key => $locale) {
             if (! Config::get('typicms.' . $locale . '.status')) {
                 unset($locales[$key]);

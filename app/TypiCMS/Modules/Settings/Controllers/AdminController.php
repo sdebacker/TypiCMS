@@ -50,7 +50,7 @@ class AdminController extends AdminSimpleController
         $data['langChooser'] = Input::get('langChooser', 0);
         $data['authPublic']  = Input::get('authPublic', 0);
         $data['register']    = Input::get('register', 0);
-        foreach (Config::get('translatable::config.locales') as $locale) {
+        foreach (Config::get('app.locales') as $locale) {
             $data[$locale]['status'] = Input::get($locale.'.status', 0);
         }
 

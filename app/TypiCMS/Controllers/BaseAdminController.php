@@ -41,7 +41,7 @@ abstract class BaseAdminController extends Controller
             $view->with('title', $instance->getTitle());
         });
 
-        View::share('locales', Config::get('translatable::config.locales'));
+        View::share('locales', Config::get('app.locales'));
         View::share('locale', Config::get('app.locale'));
     }
 
