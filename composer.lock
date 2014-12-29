@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ccdd377344ffbea99ae5e1fccb28dfb0",
+    "hash": "67520b538eaa259039a0033ed8a8ae28",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1120,16 +1120,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.12",
+            "version": "v4.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "70a60f2ff9b96b3fcd88a68ef5382557733fe671"
+                "reference": "31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/70a60f2ff9b96b3fcd88a68ef5382557733fe671",
-                "reference": "70a60f2ff9b96b3fcd88a68ef5382557733fe671",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f",
+                "reference": "31fe6a5747bbe3c2df21dc4cc8f291e75ab6144f",
                 "shasum": ""
             },
             "require": {
@@ -1231,7 +1231,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-12-11 17:14:36"
+            "time": "2014-12-22 20:56:10"
         },
         {
             "name": "league/flysystem",
@@ -1819,21 +1819,21 @@
         },
         {
             "name": "roumen/sitemap",
-            "version": "v2.4.11",
+            "version": "v2.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RoumenDamianoff/laravel-sitemap.git",
-                "reference": "d7836337e780c172b10ae1cebf614eb4177fea86"
+                "reference": "29d6ee0e75bd89a01b2d01146b254cac840d4cec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/d7836337e780c172b10ae1cebf614eb4177fea86",
-                "reference": "d7836337e780c172b10ae1cebf614eb4177fea86",
+                "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/29d6ee0e75bd89a01b2d01146b254cac840d4cec",
+                "reference": "29d6ee0e75bd89a01b2d01146b254cac840d4cec",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "~4|~5",
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "3.7.*"
@@ -1867,7 +1867,7 @@
                 "Sitemap",
                 "laravel"
             ],
-            "time": "2014-11-27 11:09:06"
+            "time": "2014-12-23 23:58:56"
         },
         {
             "name": "stack/builder",
@@ -2938,21 +2938,21 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v1.8.4",
+            "version": "v1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "410e98739c58ccd1b9ad2f49afd77a8d40144515"
+                "reference": "548e12d45760ee66192029f4b642d2f4e3d64118"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/410e98739c58ccd1b9ad2f49afd77a8d40144515",
-                "reference": "410e98739c58ccd1b9ad2f49afd77a8d40144515",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/548e12d45760ee66192029f4b642d2f4e3d64118",
+                "reference": "548e12d45760ee66192029f4b642d2f4e3d64118",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "4.*|5.0.*",
-                "maximebf/debugbar": "~1.10.1",
+                "maximebf/debugbar": "~1.10.2",
                 "php": ">=5.3.0",
                 "symfony/finder": "~2.3"
             },
@@ -2988,7 +2988,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-12-04 12:14:32"
+            "time": "2014-12-24 08:00:07"
         },
         {
             "name": "doctrine/instantiator",
@@ -3102,16 +3102,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.2",
+            "version": "0.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "95a4855380dc70176c51807c678fb3bd6198529a"
+                "reference": "686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/95a4855380dc70176c51807c678fb3bd6198529a",
-                "reference": "95a4855380dc70176c51807c678fb3bd6198529a",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1",
+                "reference": "686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1",
                 "shasum": ""
             },
             "require": {
@@ -3164,7 +3164,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-09-03 10:11:10"
+            "time": "2014-12-22 10:06:19"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -3651,6 +3651,7 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
