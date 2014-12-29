@@ -12,7 +12,7 @@
     <div class="thumbnail" ng-repeat="model in models" id="item_{{ model.id }}">
         <img class="img-responsive" ng-src="{{ model.thumb_sm }}" alt="">
         <div class="caption">
-            <a href="#" class="btn btn-default btn-xs btn-block btn-insert" ng-click="selectAndClose('/' + model.path + model.filename)" translate>Insert</a>
+            <a href="#" class="btn btn-default btn-xs btn-block btn-insert" ng-click="selectAndClose('/' + model.path + '/' + model.filename)" translate>Insert</a>
             <small>{{ model.filename }}</small>
         </div>
     </div>
