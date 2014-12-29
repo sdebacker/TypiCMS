@@ -12,7 +12,7 @@ function initTinymce(selector) {
         relative_urls: false,
         skin_url: '/components/tinymce/skins/typicms',
         file_browser_callback: function(field_name, url, type, win) {
-        	// Help : http://www.tinymce.com/forum/viewtopic.php?id=30861&p=2
+            // Help : http://www.tinymce.com/forum/viewtopic.php?id=30861&p=2
             tinymce.activeEditor.windowManager.open({
                 title: 'Choose image',
                 url: '/admin/files?type=i&view=filepicker',
