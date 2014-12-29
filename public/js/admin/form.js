@@ -20,15 +20,17 @@ function initTinymce(selector) {
                 height: 550
             }, {
                 oninsert: function(url) {
-                	fieldElm = win.document.getElementById(field_name);
+                    fieldElm = win.document.getElementById(field_name);
                     fieldElm.value = url;
-                    if ("createEvent" in document) {
-                        var evt = document.createEvent("HTMLEvents");
-                        evt.initEvent("change", false, true);
-                        fieldElm.dispatchEvent(evt);
-                    } else {
-                        fieldElm.fireEvent("onchange");
-                    }
+                    // Bellow code doesn't work anymore with TinyMCE 4.1.7
+                    // so width and height fields are no more automatically set
+                    // if ("createEvent" in document) {
+                    //     var evt = document.createEvent("HTMLEvents");
+                    //     evt.initEvent("change", false, true);
+                    //     fieldElm.dispatchEvent(evt);
+                    // } else {
+                    //     fieldElm.fireEvent("onchange");
+                    // }
                 }
             });
         },
