@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Input;
 use stdClass;
 use Str;
-use TypiCMS;
+use TypiCMS\Services\Indent;
 use TypiCMS\Modules\Pages\Models\Page;
 use TypiCMS\NestedCollection;
 
@@ -382,9 +382,10 @@ abstract class RepositoriesAbstract implements RepositoryInterface
             ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
             ->where('locale', Config::get('typicms.adminLocale'))
             ->order()
-            ->get();
+            ->get()
+            ->nest();
 
-        $pagesArray = TypiCMS::arrayIndent($pages);
+        $pagesArray = Indent::collection($pages);
 
         $pagesArray = array_merge(['' => '0'], $pagesArray);
         $pagesArray = array_flip($pagesArray);

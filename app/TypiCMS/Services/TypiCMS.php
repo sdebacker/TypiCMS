@@ -195,27 +195,4 @@ class TypiCMS
         }
         return false;
     }
-
-    /**
-     * Indent values of an array of pages with spaces.
-     *
-     * @return array
-     */
-    public function arrayIndent($array)
-    {
-        $parent = 0;
-        $items = [];
-        foreach ($array as $item) {
-            $indent = '';
-            if ($item->parent_id) {
-                $indent = '&nbsp;&nbsp;&nbsp;&nbsp;';
-                if ($parent && $parent < $item->parent_id) {
-                    $indent .= $indent;
-                }
-            }
-            $parent = $item->parent_id;
-            $items[$indent . $item->title] = $item->id;
-        }
-        return $items;
-    }
 }
