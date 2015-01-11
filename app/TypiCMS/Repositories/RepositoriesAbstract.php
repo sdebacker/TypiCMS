@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Input;
 use stdClass;
 use Str;
-use TypiCMS\Services\Indent;
 use TypiCMS\Modules\Pages\Models\Page;
 use TypiCMS\NestedCollection;
 
@@ -378,19 +377,13 @@ abstract class RepositoriesAbstract implements RepositoryInterface
      */
     public function getPagesForSelect()
     {
-        $pages = Page::select('pages.id', 'title', 'locale', 'parent_id')
-            ->join('page_translations', 'pages.id', '=', 'page_translations.page_id')
-            ->where('locale', Config::get('typicms.adminLocale'))
-            ->order()
-            ->get()
-            ->nest();
-
-        $pagesArray = Indent::collection($pages);
-
-        $pagesArray = array_merge(['' => '0'], $pagesArray);
-        $pagesArray = array_flip($pagesArray);
-
-        return $pagesArray;
+        $pages = App::make('TypiCMS\Modules\Pages\Repositories\PageInterface')
+            ->getAll([], true)
+            ->nest()
+            ->flatten();
+        $pages = array_merge(['' => '0'], $pages);
+        $pages = array_flip($pages);
+        return $pages;
     }
 
     /**
