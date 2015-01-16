@@ -380,7 +380,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         $pages = App::make('TypiCMS\Modules\Pages\Repositories\PageInterface')
             ->getAll([], true)
             ->nest()
-            ->flatten();
+            ->listsFlattened();
         $pages = array_merge(['' => '0'], $pages);
         $pages = array_flip($pages);
         return $pages;

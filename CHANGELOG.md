@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.11 - 2014-01-16
+
+### Fixed
+- Bug on getting pages array in menulink form.
+
 ## 1.7.9 - 2014-01-11
 
 ### Added
