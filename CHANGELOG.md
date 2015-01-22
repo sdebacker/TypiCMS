@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.12 - 2014-01-22
+
+### Added
+- In production, errors 500 return a custom view.
+- package.json file updated.
+- bower.json file updated.
+
 ## 1.7.11 - 2014-01-16
 
 ### Fixed
