@@ -73,13 +73,15 @@ App::error(function(Exception $exception, $code)
 				], $code
 			);
 	}
-	// return Response::view(
-	// 	'errors.500', [
-	// 		'title' => 'Erreur 500 – ' . Config::get('typicms.' . App::getLocale() . '.websiteTitle'), 
-	// 		'lang' => App::getLocale(),
-	// 		'bodyClass' => 'error-500'
-	// 	], 500
-	// );
+	if (! App::isLocal()) {
+		return Response::view(
+			'errors.500', [
+				'title' => 'Erreur 500 – ' . Config::get('typicms.' . App::getLocale() . '.websiteTitle'), 
+				'lang' => App::getLocale(),
+				'bodyClass' => 'error-500'
+			], 500
+		);
+	}
 });
 
 /*
