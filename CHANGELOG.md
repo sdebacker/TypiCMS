@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.13 - 2014-01-27
+
+### Fixed
+- Problem with .gitignore for assets.
+
 ## 1.7.12 - 2014-01-22
 
 ### Added
