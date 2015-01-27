@@ -74,27 +74,30 @@ function initTinymce(selector) {
          */
         $('.delete-attachment').click(function(){
 
-            var urlForDeleteImg = document.URL.split('?')[0],
-                key = $(this).data('key'),
-                data = {};
+            var field  = $(this).data('field'),
+                id     = $(this).data('id'),
+                table  = $(this).data('table'),
+                data   = {},
+                $this  = $(this),
+                url    = '/api/v1/' + table + '/' + id;
 
-            if (! confirm('Delete ' + key + '?')) {
+            if (! confirm('Delete ' + field + '?')) {
                 return false;
             }
 
-            urlForDeleteImg = urlForDeleteImg.replace(/\/edit$/, '');
-            data['id'] = urlForDeleteImg.split('/').pop();
-            data[key] = 'delete';
+            data['id'] = id;
+            data[field] = 'delete';
 
             $.ajax({
                 type: 'PUT',
-                url: urlForDeleteImg,
+                url: url,
                 data: data
             }).done(function() {
-                location.reload();
+                $this.parent().remove();
             }).fail(function () {
                 alertify.error('An error occurred while deleting attachment.');
             });
+
             return false;
         });
 
