@@ -3,6 +3,7 @@ namespace TypiCMS\Modules\News\Models;
 
 use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use TypiCMS\Models\Base;
 use TypiCMS\Presenters\PresentableTrait;
 use TypiCMS\Traits\Historable;
@@ -50,4 +51,17 @@ class News extends Base
     public $attachments = array(
         'image',
     );
+
+    /**
+     * A news has many galleries.
+     *
+     * @return MorphToMany
+     */
+    public function galleries()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
+            ->withPivot('position')
+            ->orderBy('position')
+            ->withTimestamps();
+    }
 }

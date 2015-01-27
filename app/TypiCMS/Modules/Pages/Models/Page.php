@@ -5,6 +5,7 @@ use App;
 use Config;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use TypiCMS\Models\Base;
 use TypiCMS\NestableCollection;
 use TypiCMS\Presenters\PresentableTrait;
@@ -115,6 +116,19 @@ class Page extends Base
     public function menulinks()
     {
         return $this->hasMany('TypiCMS\Modules\Menulinks\Models\Menulink');
+    }
+
+    /**
+     * A page has many galleries.
+     *
+     * @return MorphToMany
+     */
+    public function galleries()
+    {
+        return $this->morphToMany('TypiCMS\Modules\Galleries\Models\Gallery', 'galleryable')
+            ->withPivot('position')
+            ->orderBy('position')
+            ->withTimestamps();
     }
 
     /**

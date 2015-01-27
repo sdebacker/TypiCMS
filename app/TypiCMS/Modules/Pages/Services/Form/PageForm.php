@@ -1,11 +1,11 @@
 <?php
 namespace TypiCMS\Modules\Pages\Services\Form;
 
-use Input;
 use Config;
+use Input;
+use TypiCMS\Modules\Pages\Repositories\PageInterface;
 use TypiCMS\Services\Form\AbstractForm;
 use TypiCMS\Services\Validation\ValidableInterface;
-use TypiCMS\Modules\Pages\Repositories\PageInterface;
 
 class PageForm extends AbstractForm
 {
@@ -18,7 +18,8 @@ class PageForm extends AbstractForm
 
     /**
      * Create a new item
-     *
+     * 
+     * @param  array  $input
      * @return boolean
      */
     public function save(array $input)
@@ -29,26 +30,21 @@ class PageForm extends AbstractForm
 
     /**
      * Update an existing item
-     *
+     * 
+     * @param  array  $input
      * @return boolean
      */
     public function update(array $input)
     {
         // add checkboxes data
-        foreach (Config::get('app.locales') as $locale) {
-            $input[$locale]['status'] = Input::get($locale.'.status', 0);
-        }
         $input['rss_enabled']      = Input::get('rss_enabled', 0);
         $input['comments_enabled'] = Input::get('comments_enabled', 0);
         $input['is_home']          = Input::get('is_home', 0);
         $input['parent_id']        = Input::get('parent_id') ? : null ;
 
-        $inputDot = array_dot($input);
+        // add relations data (default to empty array)
+        $input['galleries'] = Input::get('galleries', []);
 
-        if (! $this->valid($inputDot)) {
-            return false;
-        }
-
-        return $this->repository->update($input);
+        return parent::update($input);
     }
 }
