@@ -93,7 +93,7 @@ function initTinymce(selector) {
             }).done(function() {
                 location.reload();
             }).fail(function () {
-                alertify.error(translate('An error occurred while deleting attachment.'));
+                alertify.error('An error occurred while deleting attachment.');
             });
             return false;
         });
