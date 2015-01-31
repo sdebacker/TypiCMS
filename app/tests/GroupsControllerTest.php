@@ -24,7 +24,7 @@ class GroupsControllerTest extends TestCase
     {
         $input = ['name' => 'test', 'permissions' => []];
         $this->call('POST', 'admin/groups', $input);
-        $this->assertRedirectedToRoute('admin.groups.edit', array('id' => 4));
+        $this->assertRedirectedToRoute('admin.groups.edit', array('id' => 3));
     }
 
     public function testStoreSuccessWithRedirectToList()
