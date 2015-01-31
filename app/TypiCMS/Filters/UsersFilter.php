@@ -59,7 +59,9 @@ class UsersFilter
         \Illuminate\Http\Request $request,
         $value = null
     ) {
-        $value = ($value) ? : $route->getName() ;
+        if (! $value) {
+            $value = str_replace(['api.', 'admin.'], '', $route->getName());
+        }
         try {
             $user = Sentry::getUser();
             if (! $user->hasAccess($value)) {

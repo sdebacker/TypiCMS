@@ -26,14 +26,14 @@
                             </div>
                             <div class="info">
                                 <p>{{ Sentry::getUser()->email }}</p>
-                                @if (Sentry::getUser()->hasAccess('admin.users.edit'))
+                                @if (Sentry::getUser()->hasAccess('users.edit'))
                                 <p>{{ link_to_route('admin.users.edit', ucFirst( trans_choice('users::global.profile', 2, array(), null, Config::get('typicms.adminLocale')) ), Sentry::getUser()->id ) }}</p>
                                 @endif
                                 <p>{{ link_to_route('logout', ucfirst(trans('users::global.log out', array(), null, Config::get('typicms.adminLocale'))), null, array('class' => 'btn btn-default btn-xs') ) }}</p>
                             </div>
                         </div>
                     </li>
-                    @if (Sentry::getUser()->hasAccess('admin.settings.index'))
+                    @if (Sentry::getUser()->hasAccess('settings.index'))
                         <li><a href="{{ route('admin.settings.index') }}"><span class="fa fa-cog fa-fw"></span> <span class="hidden-sm">{{ ucfirst(trans('global.settings', array(), null, Config::get('typicms.adminLocale'))) }}</span></a></li>
                     @endif
                 </ul>
