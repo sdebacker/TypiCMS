@@ -79,7 +79,7 @@ function initTinymce(selector) {
                 table  = $(this).data('table'),
                 data   = {},
                 $this  = $(this),
-                url    = '/api/v1/' + table + '/' + id;
+                url    = '/api/' + table + '/' + id;
 
             if (! confirm('Delete ' + field + '?')) {
                 return false;

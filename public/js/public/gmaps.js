@@ -114,7 +114,7 @@ if (jQuery('#map').length) {
         infoWindow.open(map, this);
     };
 
-    jQuery.getJSON('/api/v1/places' + location.search, function(data) {
+    jQuery.getJSON('/api/places' + location.search, function(data) {
         if ( ! jQuery.isArray(data) ) {
             data = [data];
         }
