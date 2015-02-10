@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.17 - 2014-02-10
+
+### Fixed
+- Tags on create project
+
 ## 1.7.15 - 2014-01-27
 
 ### Fixed
