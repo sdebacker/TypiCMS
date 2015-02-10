@@ -27,6 +27,9 @@ class AdminController extends AdminSimpleController
      */
     public function create()
     {
+        JavaScript::put([
+            'tags' => Tag::lists('tag')
+        ]);
         $model = $this->repository->getModel();
         $tags = Session::getOldInput('tags');
         $this->layout->content = View::make('admin.create')
