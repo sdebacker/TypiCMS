@@ -240,7 +240,9 @@ abstract class Base extends Model
      */
     public function tags()
     {
-        return $this->morphToMany('TypiCMS\Modules\Tags\Models\Tag', 'taggable')->withTimestamps();
+        return $this->morphToMany('TypiCMS\Modules\Tags\Models\Tag', 'taggable')
+            ->orderBy('tag')
+            ->withTimestamps();
     }
 
     /**
