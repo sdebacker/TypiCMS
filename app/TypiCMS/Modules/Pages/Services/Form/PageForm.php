@@ -1,7 +1,6 @@
 <?php
 namespace TypiCMS\Modules\Pages\Services\Form;
 
-use Config;
 use Input;
 use TypiCMS\Modules\Pages\Repositories\PageInterface;
 use TypiCMS\Services\Form\AbstractForm;
