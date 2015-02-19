@@ -1,4 +1,6 @@
 # TypiCMS
+
+[![Join the chat at https://gitter.im/sdebacker/TypiCMS](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sdebacker/TypiCMS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/sdebacker/TypiCMS.svg?branch=master)](https://travis-ci.org/sdebacker/TypiCMS)
 [![Latest Stable Version](https://poser.pugx.org/sdebacker/typicms/v/stable.svg)](https://packagist.org/packages/sdebacker/typicms)
 [![License](https://poser.pugx.org/sdebacker/typicms/license.svg)](https://packagist.org/packages/sdebacker/typicms)
