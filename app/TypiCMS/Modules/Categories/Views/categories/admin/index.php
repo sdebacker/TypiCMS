@@ -15,6 +15,7 @@
                     <th class="delete"></th>
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort" translate>Status</th>
+                    <th st-sort="image" class="image st-sort" translate>Image</th>
                     <th st-sort="position" st-sort-default class="position st-sort">Position</th>
                     <th st-sort="title" class="title st-sort" translate>Title</th>
                 </tr>
@@ -25,6 +26,7 @@
                     <td><typi-btn-delete ng-click="delete(model)"></typi-btn-delete></td>
                     <td typi-btn-edit></td>
                     <td typi-btn-status></td>
+                    <td typi-thumb-list-item></td>
                     <td>
                         <input class="form-control input-sm" min="1" type="number" value="{{ model.position }}" name="position" ng-model="model.position" ng-change="update(model)">
                     </td>

@@ -18,6 +18,7 @@ class Category extends Base
     protected $presenter = 'TypiCMS\Modules\Categories\Presenters\ModulePresenter';
 
     protected $fillable = array(
+        'image',
         'position',
         // Translatable columns
         'title',
@@ -34,6 +35,15 @@ class Category extends Base
         'title',
         'slug',
         'status',
+    );
+
+    /**
+     * Columns that are file.
+     *
+     * @var array
+     */
+    public $attachments = array(
+        'image',
     );
 
     /**
