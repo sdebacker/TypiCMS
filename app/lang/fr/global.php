@@ -49,6 +49,7 @@ return array(
     'view website' => 'voir le site',
 
     'Mandatory fields' => 'Champs obligatoires',
+    'Please correct the following errors:' => 'Veuillez corriger les erreurs suivantes :',
 
     // Tabs
     'Content' => 'Contenu',
