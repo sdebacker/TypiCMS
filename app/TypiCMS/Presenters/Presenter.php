@@ -61,6 +61,35 @@ abstract class Presenter
     }
 
     /**
+     * Get url without http://
+     * 
+     * @param  string $column
+     * @return string
+     */
+    public function shortUrl($column = 'website')
+    {
+        $url = $this->entity->$column;
+        if ($url = str_replace('http://', '', $url)) {
+            return $url;
+        }
+        return '';
+    }
+
+    /**
+     * Generate an external link
+     * 
+     * @param  string $column
+     * @return string
+     */
+    public function link($column = 'website')
+    {
+        if ($shortUrl = $this->shortUrl($column)) {
+            return '<a href="' . $this->entity->$column . '" target="_blank">' . $shortUrl . '</a>';
+        }
+        return '';
+    }
+
+    /**
      * Get the path of files linked to this model
      * 
      * @param  Model  $model
