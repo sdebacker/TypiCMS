@@ -37,6 +37,28 @@ abstract class Presenter
     }
 
     /**
+     * Get url without http://
+     * 
+     * @param  string $column
+     * @return string
+     */
+    public function urlWithoutScheme($column = 'website')
+    {
+        return str_replace(['http://', 'https://'], '', $this->entity->$column);
+    }
+
+    /**
+     * Generate an external link
+     * 
+     * @param  string $column
+     * @return string
+     */
+    public function link($column = 'website')
+    {
+        return '<a href="' . $this->entity->$column . '" target="_blank">' . $this->urlWithoutScheme($column) . '</a>';
+    }
+
+    /**
      * Return resource's date or curent date if empty
      *
      * @param  string $column
@@ -58,35 +80,6 @@ abstract class Presenter
     {
         $date = $this->entity->$column ? : Carbon::now() ;
         return $date->format('H:i');
-    }
-
-    /**
-     * Get url without http://
-     * 
-     * @param  string $column
-     * @return string
-     */
-    public function shortUrl($column = 'website')
-    {
-        $url = $this->entity->$column;
-        if ($url = str_replace('http://', '', $url)) {
-            return $url;
-        }
-        return '';
-    }
-
-    /**
-     * Generate an external link
-     * 
-     * @param  string $column
-     * @return string
-     */
-    public function link($column = 'website')
-    {
-        if ($shortUrl = $this->shortUrl($column)) {
-            return '<a href="' . $this->entity->$column . '" target="_blank">' . $shortUrl . '</a>';
-        }
-        return '';
     }
 
     /**
