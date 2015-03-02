@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "68f4f8579e8bf3a063c2b178be848a5c",
+    "hash": "b6a2bd51b3f5268b1795334b9b4284fa",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -75,16 +75,16 @@
         },
         {
             "name": "bkwld/croppa",
-            "version": "3.4.3",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BKWLD/croppa.git",
-                "reference": "79459a5da969929e3e4bcad7be189d2bad20b8b5"
+                "reference": "cbd46bdc6f790f35f6378aa92aa97a208c193141"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/79459a5da969929e3e4bcad7be189d2bad20b8b5",
-                "reference": "79459a5da969929e3e4bcad7be189d2bad20b8b5",
+                "url": "https://api.github.com/repos/BKWLD/croppa/zipball/cbd46bdc6f790f35f6378aa92aa97a208c193141",
+                "reference": "cbd46bdc6f790f35f6378aa92aa97a208c193141",
                 "shasum": ""
             },
             "require": {
@@ -115,7 +115,7 @@
                 }
             ],
             "description": "Image thumbnail creation through specially formatted URLs for Laravel",
-            "time": "2015-01-21 16:34:32"
+            "time": "2014-10-13 16:37:08"
         },
         {
             "name": "cartalyst/sentry",
