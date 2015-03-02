@@ -2,10 +2,10 @@
 namespace TypiCMS\Modules\Users\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
-use TypiCMS\Controllers\BaseApiController;
-use TypiCMS\Modules\Users\Repositories\UserInterface as Repository;
 use Response;
 use Sentry;
+use TypiCMS\Controllers\BaseApiController;
+use TypiCMS\Modules\Users\Repositories\UserInterface as Repository;
 
 class ApiController extends BaseApiController
 {
