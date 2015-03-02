@@ -381,7 +381,7 @@ abstract class RepositoriesAbstract implements RepositoryInterface
             ->getAll([], true)
             ->nest()
             ->listsFlattened();
-        $pages = ['0' => '<none>'] + $pages;
+        $pages = ['0' => ' '] + $pages;
         return $pages;
     }
 
