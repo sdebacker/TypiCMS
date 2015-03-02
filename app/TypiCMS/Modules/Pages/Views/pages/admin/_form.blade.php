@@ -141,6 +141,12 @@
             @endif
         </div>
 
+        <div class="checkbox">
+            <label>
+                {{ Form::checkbox('redirect') }} @lang('validation.attributes.redirect to first child')
+            </label>
+        </div>
+
         <div class="form-group @if($errors->has('template'))has-error @endif">
             {{ Form::label('template', trans('validation.attributes.template'), array('class' => 'control-label')) }}
             {{ Form::text('template', null, array('class' => 'form-control')) }}

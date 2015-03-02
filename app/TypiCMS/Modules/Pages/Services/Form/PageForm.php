@@ -40,6 +40,7 @@ class PageForm extends AbstractForm
         $input['comments_enabled'] = Input::get('comments_enabled', 0);
         $input['is_home']          = Input::get('is_home', 0);
         $input['parent_id']        = Input::get('parent_id') ? : null ;
+        $input['redirect']         = Input::get('redirect') ? : null ;
 
         // add relations data (default to empty array)
         $input['galleries'] = Input::get('galleries', []);

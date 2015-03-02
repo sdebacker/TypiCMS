@@ -152,9 +152,10 @@ return array(
         'rss_enabled' => 'Rss enabled',
         'comments_enabled' => 'Comments enabled',
         'is_home' => 'Is home',
+        'redirect to first child' => 'Redirect to first child',
         'template' => 'Template',
-        'css' => 'Css',
-        'js' => 'Js',
+        'css' => 'CSS',
+        'js' => 'JavaScript',
 
         // Places
         'latitude' => 'Latitude',

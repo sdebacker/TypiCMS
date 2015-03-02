@@ -26,6 +26,7 @@ class Page extends Base
         'position',
         'parent_id',
         'is_home',
+        'redirect',
         'css',
         'js',
         'template',
@@ -136,7 +137,7 @@ class Page extends Base
      */
     public function children()
     {
-        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page', 'parent_id');
+        return $this->hasMany('TypiCMS\Modules\Pages\Models\Page', 'parent_id')->order();
     }
 
     /**
