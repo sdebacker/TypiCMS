@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.18 - 2014-03-02
+
+### Added
+- Swiper 3
+- Dropzone 4
+
+### Fixed
+- Some bugs
+
 ## 1.7.17 - 2014-02-10
 
 ### Fixed
