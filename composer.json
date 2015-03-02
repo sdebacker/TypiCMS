@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "bkwld/croppa": "~3.4.2",
+        "bkwld/croppa": "3.4.2",
         "cartalyst/sentry": "~2.1.4",
         "cviebrock/image-validator": "~1.0.4",
         "davejamesmiller/laravel-breadcrumbs": "~2.2.3",
