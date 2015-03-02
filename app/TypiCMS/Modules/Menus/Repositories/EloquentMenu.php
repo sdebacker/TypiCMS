@@ -173,10 +173,10 @@ class EloquentMenu extends RepositoriesAbstract implements MenuInterface
         // add active class if item uri equals current uri
         // or current uri contain item uri
         // item uri must be bigger than 3 to avoid homepage link always active ('/', '/lg')
-        if ($menulink->uri == $activeUri ||
+        if ($menulink->href == $activeUri ||
                 (
-                    strlen($menulink->uri) > 3 &&
-                    preg_match('@^'.$menulink->uri.'@', $activeUri)
+                    strlen($menulink->href) > 3 &&
+                    preg_match('@^'.$menulink->href.'@', $activeUri)
                 )
             ) {
             $classArray[] = 'active';
