@@ -28,4 +28,9 @@ return array(
 		'secret' => getenv('STRIPE_SECRET'),
 	),
 
+	'rollbar' => array(
+		'access_token' => getenv('ROLLBAR_TOKEN'),
+		'level' => 'debug'
+	),
+
 );
