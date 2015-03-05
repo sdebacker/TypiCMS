@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.19 - 2014-03-05
+
+### Changed
+- Permission 'view' is now 'show'
+
+### Fixed
+- Permission 'update' was missing
+- Livereload in gulpfile
+- Rollbar config
+- setlocale command
+
 ## 1.7.18 - 2014-03-02
 
 ### Added
