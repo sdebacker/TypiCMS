@@ -4,7 +4,7 @@ namespace TypiCMS;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
-class SideBarViewCreator
+class SidebarViewCreator
 {
     public function create(View $view)
     {

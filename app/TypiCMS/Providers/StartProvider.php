@@ -50,7 +50,7 @@ class StartProvider extends ServiceProvider
         | Sidebar view creator.
         |--------------------------------------------------------------------------
         */
-        $this->app->view->creator('admin._sidebar', 'TypiCMS\SideBarViewCreator');
+        $this->app->view->creator('admin._sidebar', 'TypiCMS\SidebarViewCreator');
 
         /*
         |--------------------------------------------------------------------------
