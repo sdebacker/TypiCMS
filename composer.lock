@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.7.20",
+            "version": "2.7.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2c9d93fbe680f64a84f5877209904f414d5cf92f"
+                "reference": "9dc3bb6dd6e16a7ed2f6fab73c2ee385145e26c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2c9d93fbe680f64a84f5877209904f414d5cf92f",
-                "reference": "2c9d93fbe680f64a84f5877209904f414d5cf92f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9dc3bb6dd6e16a7ed2f6fab73c2ee385145e26c0",
+                "reference": "9dc3bb6dd6e16a7ed2f6fab73c2ee385145e26c0",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2015-02-24 00:04:06"
+            "time": "2015-03-05 00:07:56"
         },
         {
             "name": "bkwld/croppa",
@@ -119,16 +119,16 @@
         },
         {
             "name": "cartalyst/sentry",
-            "version": "v2.1.4",
+            "version": "v2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cartalyst/sentry.git",
-                "reference": "1335033432147772c05a509981563409cb3c3d3b"
+                "reference": "0ae4158353e41cc4061631c86c1cddd67c1f23be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/1335033432147772c05a509981563409cb3c3d3b",
-                "reference": "1335033432147772c05a509981563409cb3c3d3b",
+                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/0ae4158353e41cc4061631c86c1cddd67c1f23be",
+                "reference": "0ae4158353e41cc4061631c86c1cddd67c1f23be",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "illuminate/http": ">=4.0.9,<4.2",
                 "illuminate/session": ">=4.0.9,<4.2",
                 "ircmaxell/password-compat": "1.0.*",
-                "mockery/mockery": "0.7.2"
+                "mockery/mockery": "0.9.*"
             },
             "suggest": {
                 "happydemon/txt": "Required Text helpers when using the Kohana implementation",
@@ -215,7 +215,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2014-07-23 20:35:12"
+            "time": "2015-03-06 03:17:20"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1322,16 +1322,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.12.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f"
+                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
-                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c41c218e239b50446fd883acb1ecfd4b770caeae",
+                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae",
                 "shasum": ""
             },
             "require": {
@@ -1348,6 +1348,7 @@
                 "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
+                "swiftmailer/swiftmailer": "~5.3",
                 "videlalvaro/php-amqplib": "~2.4"
             },
             "suggest": {
@@ -1364,7 +1365,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12.x-dev"
+                    "dev-master": "1.13.x-dev"
                 }
             },
             "autoload": {
@@ -1390,7 +1391,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-12-29 21:29:35"
+            "time": "2015-03-05 01:12:12"
         },
         {
             "name": "msurguy/honeypot",
@@ -1443,16 +1444,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.14.0",
+            "version": "1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "bb87460c995d97fe55b39e65f6ffb7f64b0a941e"
+                "reference": "9b7665041754eaa9bb2622349bc9adbc1cf61cb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bb87460c995d97fe55b39e65f6ffb7f64b0a941e",
-                "reference": "bb87460c995d97fe55b39e65f6ffb7f64b0a941e",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/9b7665041754eaa9bb2622349bc9adbc1cf61cb8",
+                "reference": "9b7665041754eaa9bb2622349bc9adbc1cf61cb8",
                 "shasum": ""
             },
             "require": {
@@ -1479,13 +1480,13 @@
                 }
             ],
             "description": "A simple API extension for DateTime.",
-            "homepage": "https://github.com/briannesbitt/Carbon",
+            "homepage": "http://carbon.nesbot.com",
             "keywords": [
                 "date",
                 "datetime",
                 "time"
             ],
-            "time": "2015-02-06 05:07:29"
+            "time": "2015-03-04 04:50:11"
         },
         {
             "name": "nikic/php-parser",
@@ -1777,16 +1778,16 @@
         },
         {
             "name": "rollbar/rollbar",
-            "version": "v0.9.10",
+            "version": "v0.9.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rollbar/rollbar-php.git",
-                "reference": "2b3b2cb0dbe4723af68a502b574d6a1a84c4a383"
+                "reference": "9b4c80cec8d9485fe0d7758cc98e820673ddea82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/2b3b2cb0dbe4723af68a502b574d6a1a84c4a383",
-                "reference": "2b3b2cb0dbe4723af68a502b574d6a1a84c4a383",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/9b4c80cec8d9485fe0d7758cc98e820673ddea82",
+                "reference": "9b4c80cec8d9485fe0d7758cc98e820673ddea82",
                 "shasum": ""
             },
             "type": "library",
@@ -1815,7 +1816,7 @@
                 "logging",
                 "monitoring"
             ],
-            "time": "2015-02-11 21:47:49"
+            "time": "2015-03-06 16:24:58"
         },
         {
             "name": "roumen/sitemap",
