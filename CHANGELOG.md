@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to TypiCMS will be documented in this file.
 
+## 1.7.20 - 2014-03-09
+
+### Fixed
+- Incorrect file name SidebarViewComposer.php
+- Min value for position field
+
 ## 1.7.19 - 2014-03-05
 
 ### Changed
