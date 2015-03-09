@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
         /**
          * Sidebar view composer
          */
-        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Categories\Composers\SideBarViewComposer');
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Categories\Composers\SidebarViewComposer');
 
         $app->bind('TypiCMS\Modules\Categories\Repositories\CategoryInterface', function (Application $app) {
             $repository = new EloquentCategory(new Category);

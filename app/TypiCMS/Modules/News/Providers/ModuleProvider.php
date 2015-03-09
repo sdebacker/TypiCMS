@@ -52,7 +52,7 @@ class ModuleProvider extends ServiceProvider
         /**
          * Sidebar view composer
          */
-        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\News\Composers\SideBarViewComposer');
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\News\Composers\SidebarViewComposer');
 
         $app->bind('TypiCMS\Modules\News\Repositories\NewsInterface', function (Application $app) {
             $repository = new EloquentNews(new News);

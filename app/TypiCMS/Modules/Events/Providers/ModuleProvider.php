@@ -57,7 +57,7 @@ class ModuleProvider extends ServiceProvider
         /**
          * Sidebar view composer
          */
-        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Events\Composers\SideBarViewComposer');
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Events\Composers\SidebarViewComposer');
 
         $app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function (Application $app) {
             $repository = new EloquentEvent(new Event);

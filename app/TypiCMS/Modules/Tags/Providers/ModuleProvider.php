@@ -43,7 +43,7 @@ class ModuleProvider extends ServiceProvider
         /**
          * Sidebar view composer
          */
-        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Tags\Composers\SideBarViewComposer');
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Tags\Composers\SidebarViewComposer');
 
         $app->bind('TypiCMS\Modules\Tags\Repositories\TagInterface', function (Application $app) {
             $repository = new EloquentTag(new Tag);

@@ -48,7 +48,7 @@ class ModuleProvider extends ServiceProvider
         /**
          * Sidebar view composer
          */
-        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Users\Composers\SideBarViewComposer');
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Users\Composers\SidebarViewComposer');
 
         $app->bind('TypiCMS\Modules\Users\Repositories\UserInterface', function (Application $app) {
             return new SentryUser(

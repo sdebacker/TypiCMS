@@ -43,7 +43,7 @@ class ModuleProvider extends ServiceProvider
         /**
          * Sidebar view composer
          */
-        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Blocks\Composers\SideBarViewComposer');
+        $app->view->composer('admin._sidebar', 'TypiCMS\Modules\Blocks\Composers\SidebarViewComposer');
 
         $app->bind('TypiCMS\Modules\Blocks\Repositories\BlockInterface', function (Application $app) {
             $repository = new EloquentBlock(new Block);
