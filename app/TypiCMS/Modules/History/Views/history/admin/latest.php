@@ -3,7 +3,7 @@
     <div class="panel panel-default">
 
         <div class="panel-heading">
-            <h2 class="panel-title" translate>Latest changes</h2>
+            <h2 class="panel-title" translate>Recent Activity</h2>
         </div>
 
         <div class="table-responsive">
