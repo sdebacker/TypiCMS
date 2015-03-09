@@ -154,7 +154,7 @@ abstract class Presenter
     {
         $file = $this->getPath($this->entity, $field);
         if (! is_file(public_path() . $file)) {
-            $file = $uploadDir . '/img-not-found.png';
+            $file = '/uploads/img-not-found.png';
         }
         $html = '<div class="doc">';
         $html .= '<span class="text-center fa fa-file-text-o fa-' . $size . 'x"></span>';
