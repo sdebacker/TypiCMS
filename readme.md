@@ -1,5 +1,6 @@
 **Laravel 5 version ?  
-Have a look at [TypiCMS 2](https://github.com/TypiCMS/Base). Please add a star if you like it !**
+Have a look at [TypiCMS 2](https://github.com/TypiCMS/Base).  
+Please add a star if you like it !**
 
 # TypiCMS
 
