@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b6a2bd51b3f5268b1795334b9b4284fa",
+    "hash": "055115369bf1e869a240fec06897d0e1",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.7.21",
+            "version": "2.7.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "9dc3bb6dd6e16a7ed2f6fab73c2ee385145e26c0"
+                "reference": "340ba93eef5fdef99b8f1134987976b17d81624c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9dc3bb6dd6e16a7ed2f6fab73c2ee385145e26c0",
-                "reference": "9dc3bb6dd6e16a7ed2f6fab73c2ee385145e26c0",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/340ba93eef5fdef99b8f1134987976b17d81624c",
+                "reference": "340ba93eef5fdef99b8f1134987976b17d81624c",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,61 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2015-03-05 00:07:56"
+            "time": "2015-04-02 21:59:44"
+        },
+        {
+            "name": "barryvdh/laravel-debugbar",
+            "version": "v1.8.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "reference": "d510da02fef2381c0946185bddd6271b73e60169"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d510da02fef2381c0946185bddd6271b73e60169",
+                "reference": "d510da02fef2381c0946185bddd6271b73e60169",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*",
+                "maximebf/debugbar": "~1.10.2",
+                "php": ">=5.3.0",
+                "symfony/finder": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-v1.x": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\Debugbar\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "PHP Debugbar integration for Laravel",
+            "keywords": [
+                "debug",
+                "debugbar",
+                "laravel",
+                "profiler",
+                "webprofiler"
+            ],
+            "time": "2015-02-04 09:52:12"
         },
         {
             "name": "bkwld/croppa",
@@ -222,12 +276,12 @@
             "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mtdowling/ClassPreloader.git",
+                "url": "https://github.com/ClassPreloader/ClassPreloader.git",
                 "reference": "2c9f3bcbab329570c57339895bd11b5dd3b00877"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mtdowling/ClassPreloader/zipball/2c9f3bcbab329570c57339895bd11b5dd3b00877",
+                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/2c9f3bcbab329570c57339895bd11b5dd3b00877",
                 "reference": "2c9f3bcbab329570c57339895bd11b5dd3b00877",
                 "shasum": ""
             },
@@ -301,8 +355,7 @@
             "authors": [
                 {
                     "name": "Colin Viebrock",
-                    "email": "colin@viebrock.ca",
-                    "homepage": "https://github.com/cviebrock"
+                    "email": "colin@viebrock.ca"
                 }
             ],
             "description": "Custom Laravel 4 Validator for image dimensions",
@@ -319,12 +372,12 @@
             "version": "v1.0.10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/d11wtq/boris.git",
+                "url": "https://github.com/borisrepl/boris.git",
                 "reference": "31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/d11wtq/boris/zipball/31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483",
+                "url": "https://api.github.com/repos/borisrepl/boris/zipball/31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483",
                 "reference": "31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483",
                 "shasum": ""
             },
@@ -554,16 +607,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "1.1.3",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf"
+                "reference": "c982fe62c44798c433229cb0425c61b487cc1883"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
-                "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/c982fe62c44798c433229cb0425c61b487cc1883",
+                "reference": "c982fe62c44798c433229cb0425c61b487cc1883",
                 "shasum": ""
             },
             "require": {
@@ -608,20 +661,20 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2014-10-26 09:05:09"
+            "time": "2015-03-30 15:26:59"
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.9.2",
+            "version": "v3.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "54991459675c1a2924122afbb0e5609ade581155"
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/54991459675c1a2924122afbb0e5609ade581155",
-                "reference": "54991459675c1a2924122afbb0e5609ade581155",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/0645b70d953bc1c067bbc8d5bc53194706b628d9",
+                "reference": "0645b70d953bc1c067bbc8d5bc53194706b628d9",
                 "shasum": ""
             },
             "require": {
@@ -662,6 +715,9 @@
                 "zendframework/zend-cache": "2.*,<2.3",
                 "zendframework/zend-log": "2.*,<2.3"
             },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -689,7 +745,7 @@
                     "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -700,7 +756,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-11 04:32:36"
+            "time": "2015-03-18 18:23:50"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1239,16 +1295,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "efa1d394bb45b0984a863854c608c607b9c2a9a4"
+                "reference": "3c2400a99ccc3be6884d40361890010449c6b447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/efa1d394bb45b0984a863854c608c607b9c2a9a4",
-                "reference": "efa1d394bb45b0984a863854c608c607b9c2a9a4",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3c2400a99ccc3be6884d40361890010449c6b447",
+                "reference": "3c2400a99ccc3be6884d40361890010449c6b447",
                 "shasum": ""
             },
             "require": {
@@ -1258,23 +1314,23 @@
                 "ext-fileinfo": "*",
                 "league/phpunit-coverage-listener": "~1.1",
                 "mockery/mockery": "~0.9",
-                "phpspec/phpspec": "~2.0.0",
+                "phpspec/phpspec": "~2.0",
                 "phpspec/prophecy-phpunit": "~1.0",
-                "phpunit/phpunit": "~4.0",
+                "phpunit/phpunit": "~4.1",
                 "predis/predis": "~1.0",
                 "tedivm/stash": "~0.12.0"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
-                "league/flysystem-aws-s3-v2": "Use S3 storage with AWS SDK v2",
-                "league/flysystem-aws-s3-v3": "Use S3 storage with AWS SDK v3",
+                "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
+                "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
                 "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
                 "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
                 "league/flysystem-copy": "Allows you to use Copy.com storage",
-                "league/flysystem-dropbox": "Use Dropbox storage",
+                "league/flysystem-dropbox": "Allows you to use Dropbox storage",
                 "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
                 "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
-                "league/flysystem-sftp": "Allows SFTP server storage via phpseclib",
+                "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
                 "league/flysystem-webdav": "Allows you to use WebDAV storage",
                 "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
                 "predis/predis": "Allows you to use Predis for caching"
@@ -1318,20 +1374,76 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-01-23 09:43:34"
+            "time": "2015-03-29 14:01:43"
         },
         {
-            "name": "monolog/monolog",
-            "version": "1.13.0",
+            "name": "maximebf/debugbar",
+            "version": "v1.10.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae"
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c41c218e239b50446fd883acb1ecfd4b770caeae",
-                "reference": "c41c218e239b50446fd883acb1ecfd4b770caeae",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/7b2006e6e095126b5a061ec33fca3d90ea8a8219",
+                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0",
+                "symfony/var-dumper": "~2.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "DebugBar": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug"
+            ],
+            "time": "2015-02-05 07:51:20"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.13.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
                 "shasum": ""
             },
             "require": {
@@ -1391,26 +1503,26 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-03-05 01:12:12"
+            "time": "2015-03-09 09:58:04"
         },
         {
             "name": "msurguy/honeypot",
-            "version": "0.2.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/msurguy/Honeypot.git",
-                "reference": "a28df74ea18947adaef23370c277ecfa5c946b59"
+                "reference": "6d31740fce79271a4aa96b05847ddac60d46b304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msurguy/Honeypot/zipball/a28df74ea18947adaef23370c277ecfa5c946b59",
-                "reference": "a28df74ea18947adaef23370c277ecfa5c946b59",
+                "url": "https://api.github.com/repos/msurguy/Honeypot/zipball/6d31740fce79271a4aa96b05847ddac60d46b304",
+                "reference": "6d31740fce79271a4aa96b05847ddac60d46b304",
                 "shasum": ""
             },
             "require": {
-                "illuminate/config": "4.*",
-                "illuminate/support": "4.*",
-                "illuminate/translation": "4.*",
+                "illuminate/config": "4.*|5.*",
+                "illuminate/support": "4.*|5.*",
+                "illuminate/translation": "4.*|5.*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -1440,20 +1552,20 @@
                 "laravel",
                 "spam"
             ],
-            "time": "2014-04-18 16:26:59"
+            "time": "2015-03-31 02:30:51"
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.16.0",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "9b7665041754eaa9bb2622349bc9adbc1cf61cb8"
+                "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/9b7665041754eaa9bb2622349bc9adbc1cf61cb8",
-                "reference": "9b7665041754eaa9bb2622349bc9adbc1cf61cb8",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
+                "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
                 "shasum": ""
             },
             "require": {
@@ -1486,7 +1598,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-03-04 04:50:11"
+            "time": "2015-03-08 14:05:44"
         },
         {
             "name": "nikic/php-parser",
@@ -1921,16 +2033,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.3.1",
+            "version": "v5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a"
+                "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
-                "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/31454f258f10329ae7c48763eb898a75c39e0a9f",
+                "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f",
                 "shasum": ""
             },
             "require": {
@@ -1942,7 +2054,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.3-dev"
+                    "dev-master": "5.4-dev"
                 }
             },
             "autoload": {
@@ -1969,11 +2081,11 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-12-05 14:17:14"
+            "time": "2015-03-14 06:06:39"
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/BrowserKit",
             "source": {
                 "type": "git",
@@ -2028,17 +2140,17 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "f41807e67f00244f013bb96a66ac02f778a31209"
+                "reference": "a43e750b4c74f3bdfca77c79c343033d35a6cd6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/f41807e67f00244f013bb96a66ac02f778a31209",
-                "reference": "f41807e67f00244f013bb96a66ac02f778a31209",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/a43e750b4c74f3bdfca77c79c343033d35a6cd6e",
+                "reference": "a43e750b4c74f3bdfca77c79c343033d35a6cd6e",
                 "shasum": ""
             },
             "require": {
@@ -2079,11 +2191,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:37:39"
+            "time": "2015-02-08 07:07:45"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/CssSelector",
             "source": {
                 "type": "git",
@@ -2134,7 +2246,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
@@ -2193,7 +2305,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/DomCrawler",
             "source": {
                 "type": "git",
@@ -2246,17 +2358,17 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.6.4",
+            "version": "v2.6.6",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "f75989f3ab2743a82fe0b03ded2598a2b1546813"
+                "reference": "70f7c8478739ad21e3deef0d977b38c77f1fb284"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f75989f3ab2743a82fe0b03ded2598a2b1546813",
-                "reference": "f75989f3ab2743a82fe0b03ded2598a2b1546813",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/70f7c8478739ad21e3deef0d977b38c77f1fb284",
+                "reference": "70f7c8478739ad21e3deef0d977b38c77f1fb284",
                 "shasum": ""
             },
             "require": {
@@ -2267,6 +2379,7 @@
                 "symfony/config": "~2.0,>=2.0.5",
                 "symfony/dependency-injection": "~2.6",
                 "symfony/expression-language": "~2.6",
+                "symfony/phpunit-bridge": "~2.7",
                 "symfony/stopwatch": "~2.3"
             },
             "suggest": {
@@ -2300,25 +2413,28 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-01 16:10:57"
+            "time": "2015-03-13 17:37:22"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.6.4",
+            "version": "v2.6.6",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "a1f566d1f92e142fa1593f4555d6d89e3044a9b7"
+                "reference": "4983964b3693e4f13449cb3800c64a9112c301b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/a1f566d1f92e142fa1593f4555d6d89e3044a9b7",
-                "reference": "a1f566d1f92e142fa1593f4555d6d89e3044a9b7",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/4983964b3693e4f13449cb3800c64a9112c301b4",
+                "reference": "4983964b3693e4f13449cb3800c64a9112c301b4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -2347,11 +2463,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 21:13:09"
+            "time": "2015-03-22 16:55:57"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
@@ -2398,17 +2514,17 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "89c650efaca9540101004852d232c96672bbb91c"
+                "reference": "08e783861dd9579bac4092814bbfb0cae6666b65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/89c650efaca9540101004852d232c96672bbb91c",
-                "reference": "89c650efaca9540101004852d232c96672bbb91c",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/08e783861dd9579bac4092814bbfb0cae6666b65",
+                "reference": "08e783861dd9579bac4092814bbfb0cae6666b65",
                 "shasum": ""
             },
             "require": {
@@ -2447,21 +2563,21 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-01 09:36:16"
+            "time": "2015-04-01 15:49:36"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/HttpKernel",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "a28ec28c98e8f1db9b499fc449a5d33ec281ea2e"
+                "reference": "7b1632cf2bdbc69c59a44942b70d5aae91034304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/a28ec28c98e8f1db9b499fc449a5d33ec281ea2e",
-                "reference": "a28ec28c98e8f1db9b499fc449a5d33ec281ea2e",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/7b1632cf2bdbc69c59a44942b70d5aae91034304",
+                "reference": "7b1632cf2bdbc69c59a44942b70d5aae91034304",
                 "shasum": ""
             },
             "require": {
@@ -2521,21 +2637,21 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-02 09:26:53"
+            "time": "2015-04-01 16:01:45"
         },
         {
             "name": "symfony/process",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/Process",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "7b6632c849f87a062301e853f03f71d726520b58"
+                "reference": "00a1308e8b5aec5eba7c8f1708426a78f929be8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/7b6632c849f87a062301e853f03f71d726520b58",
-                "reference": "7b6632c849f87a062301e853f03f71d726520b58",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/00a1308e8b5aec5eba7c8f1708426a78f929be8c",
+                "reference": "00a1308e8b5aec5eba7c8f1708426a78f929be8c",
                 "shasum": ""
             },
             "require": {
@@ -2568,21 +2684,21 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:37:39"
+            "time": "2015-02-08 07:07:45"
         },
         {
             "name": "symfony/routing",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "3a9c35ca312d8cb6a308b751f9a1cd92cd5d9277"
+                "reference": "46142c34ea830f47429df6e15faec3a33292d618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/3a9c35ca312d8cb6a308b751f9a1cd92cd5d9277",
-                "reference": "3a9c35ca312d8cb6a308b751f9a1cd92cd5d9277",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/46142c34ea830f47429df6e15faec3a33292d618",
+                "reference": "46142c34ea830f47429df6e15faec3a33292d618",
                 "shasum": ""
             },
             "require": {
@@ -2636,11 +2752,11 @@
                 "uri",
                 "url"
             ],
-            "time": "2015-01-13 14:58:43"
+            "time": "2015-02-08 07:07:45"
         },
         {
             "name": "symfony/security-core",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/Security/Core",
             "source": {
                 "type": "git",
@@ -2703,7 +2819,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v2.5.10",
+            "version": "v2.5.11",
             "target-dir": "Symfony/Component/Translation",
             "source": {
                 "type": "git",
@@ -2756,6 +2872,66 @@
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
             "time": "2015-01-03 15:23:51"
+        },
+        {
+            "name": "symfony/var-dumper",
+            "version": "v2.6.6",
+            "target-dir": "Symfony/Component/VarDumper",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "aafae00236e147568832de3c65ccb94cfc836278"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/aafae00236e147568832de3c65ccb94cfc836278",
+                "reference": "aafae00236e147568832de3c65ccb94cfc836278",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "suggest": {
+                "ext-symfony_debug": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-0": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "http://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "time": "2015-03-31 08:12:29"
         },
         {
             "name": "thomaswelton/gravatarlib",
@@ -2946,60 +3122,6 @@
     ],
     "packages-dev": [
         {
-            "name": "barryvdh/laravel-debugbar",
-            "version": "v1.8.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "d510da02fef2381c0946185bddd6271b73e60169"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d510da02fef2381c0946185bddd6271b73e60169",
-                "reference": "d510da02fef2381c0946185bddd6271b73e60169",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.*",
-                "maximebf/debugbar": "~1.10.2",
-                "php": ">=5.3.0",
-                "symfony/finder": "~2.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-v1.x": "1.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Barryvdh\\Debugbar\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Barry vd. Heuvel",
-                    "email": "barryvdh@gmail.com"
-                }
-            ],
-            "description": "PHP Debugbar integration for Laravel",
-            "keywords": [
-                "debug",
-                "debugbar",
-                "laravel",
-                "profiler",
-                "webprofiler"
-            ],
-            "time": "2015-02-04 09:52:12"
-        },
-        {
             "name": "doctrine/instantiator",
             "version": "1.0.4",
             "source": {
@@ -3054,83 +3176,71 @@
             "time": "2014-10-13 12:58:55"
         },
         {
-            "name": "maximebf/debugbar",
-            "version": "v1.10.4",
+            "name": "hamcrest/hamcrest-php",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219"
+                "url": "https://github.com/hamcrest/hamcrest-php.git",
+                "reference": "ac50c470531243944f977b8de75be0b684a9cb51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/7b2006e6e095126b5a061ec33fca3d90ea8a8219",
-                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219",
+                "url": "https://api.github.com/repos/hamcrest/hamcrest-php/zipball/ac50c470531243944f977b8de75be0b684a9cb51",
+                "reference": "ac50c470531243944f977b8de75be0b684a9cb51",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "psr/log": "~1.0",
-                "symfony/var-dumper": "~2.6"
+                "php": ">=5.3.2"
+            },
+            "replace": {
+                "cordoval/hamcrest-php": "*",
+                "davedevelopment/hamcrest-php": "*",
+                "kodova/hamcrest-php": "*"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "kriswallsmith/assetic": "The best way to manage assets",
-                "monolog/monolog": "Log using Monolog",
-                "predis/predis": "Redis storage"
+                "phpunit/php-file-iterator": "1.3.3",
+                "satooshi/php-coveralls": "dev-master"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.10-dev"
-                }
-            },
             "autoload": {
-                "psr-0": {
-                    "DebugBar": "src/"
-                }
+                "classmap": [
+                    "hamcrest"
+                ],
+                "files": [
+                    "hamcrest/Hamcrest.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "BSD"
             ],
-            "authors": [
-                {
-                    "name": "Maxime Bouroumeau-Fuseau",
-                    "email": "maxime.bouroumeau@gmail.com",
-                    "homepage": "http://maximebf.com"
-                }
-            ],
-            "description": "Debug bar in the browser for php application",
-            "homepage": "https://github.com/maximebf/php-debugbar",
+            "description": "This is the PHP port of Hamcrest Matchers",
             "keywords": [
-                "debug"
+                "test"
             ],
-            "time": "2015-02-05 07:51:20"
+            "time": "2015-01-20 19:34:09"
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.3",
+            "version": "0.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1"
+                "reference": "70bba85e4aabc9449626651f48b9018ede04f86b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1",
-                "reference": "686f85fa5b3b079cc0157d7cd3e9adb97f0b41e1",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/70bba85e4aabc9449626651f48b9018ede04f86b",
+                "reference": "70bba85e4aabc9449626651f48b9018ede04f86b",
                 "shasum": ""
             },
             "require": {
+                "hamcrest/hamcrest-php": "~1.1",
                 "lib-pcre": ">=7.0",
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "hamcrest/hamcrest-php": "~1.1",
-                "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "~0.7@dev"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
@@ -3159,7 +3269,7 @@
                     "homepage": "http://davedevelopment.co.uk"
                 }
             ],
-            "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succint API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
+            "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succinct API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
             "homepage": "http://github.com/padraic/mockery",
             "keywords": [
                 "BDD",
@@ -3173,7 +3283,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-12-22 10:06:19"
+            "time": "2015-04-02 19:54:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -3336,21 +3446,22 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.3.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "9ca52329bcdd1500de24427542577ebf3fc2f1c9"
+                "reference": "8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9ca52329bcdd1500de24427542577ebf3fc2f1c9",
-                "reference": "9ca52329bcdd1500de24427542577ebf3fc2f1c9",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5",
+                "reference": "8724cd239f8ef4c046f55a3b18b4d91cc7f3e4c5",
                 "shasum": ""
             },
             "require": {
-                "doctrine/instantiator": "~1.0,>=1.0.2",
-                "phpdocumentor/reflection-docblock": "~2.0"
+                "doctrine/instantiator": "^1.0.2",
+                "phpdocumentor/reflection-docblock": "~2.0",
+                "sebastian/comparator": "~1.1"
             },
             "require-dev": {
                 "phpspec/phpspec": "~2.0"
@@ -3358,7 +3469,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
@@ -3382,7 +3493,7 @@
                 }
             ],
             "description": "Highly opinionated mocking framework for PHP 5.3+",
-            "homepage": "http://phpspec.org",
+            "homepage": "https://github.com/phpspec/prophecy",
             "keywords": [
                 "Double",
                 "Dummy",
@@ -3391,7 +3502,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2014-11-17 16:23:49"
+            "time": "2015-03-27 19:31:25"
         },
         {
             "name": "raveren/kint",
@@ -3443,6 +3554,122 @@
                 "php"
             ],
             "time": "2014-08-11 11:44:51"
+        },
+        {
+            "name": "sebastian/comparator",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/comparator.git",
+                "reference": "1dd8869519a225f7f2b9eb663e225298fade819e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1dd8869519a225f7f2b9eb663e225298fade819e",
+                "reference": "1dd8869519a225f7f2b9eb663e225298fade819e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "sebastian/diff": "~1.2",
+                "sebastian/exporter": "~1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jeff Welch",
+                    "email": "whatthejeff@gmail.com"
+                },
+                {
+                    "name": "Volker Dusch",
+                    "email": "github@wallbash.com"
+                },
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@2bepublished.at"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Provides the functionality to compare PHP values for equality",
+            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "keywords": [
+                "comparator",
+                "compare",
+                "equality"
+            ],
+            "time": "2015-01-29 16:28:08"
+        },
+        {
+            "name": "sebastian/diff",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/diff.git",
+                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/863df9687835c62aa423a22412d26fa2ebde3fd3",
+                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Diff implementation",
+            "homepage": "http://www.github.com/sebastianbergmann/diff",
+            "keywords": [
+                "diff"
+            ],
+            "time": "2015-02-22 15:13:53"
         },
         {
             "name": "sebastian/exporter",
@@ -3564,79 +3791,25 @@
             "time": "2015-01-24 09:48:32"
         },
         {
-            "name": "symfony/var-dumper",
-            "version": "v2.6.4",
-            "target-dir": "Symfony/Component/VarDumper",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "c3d5a36c3e3298bd8b070488fba5537174647353"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c3d5a36c3e3298bd8b070488fba5537174647353",
-                "reference": "c3d5a36c3e3298bd8b070488fba5537174647353",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "suggest": {
-                "ext-symfony_debug": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "Resources/functions/dump.php"
-                ],
-                "psr-0": {
-                    "Symfony\\Component\\VarDumper\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                }
-            ],
-            "description": "Symfony mechanism for exploring and dumping PHP variables",
-            "homepage": "http://symfony.com",
-            "keywords": [
-                "debug",
-                "dump"
-            ],
-            "time": "2015-02-02 16:32:08"
-        },
-        {
             "name": "symfony/yaml",
-            "version": "v2.6.4",
+            "version": "v2.6.6",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "60ed7751671113cf1ee7d7778e691642c2e9acd8"
+                "reference": "174f009ed36379a801109955fc5a71a49fe62dd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/60ed7751671113cf1ee7d7778e691642c2e9acd8",
-                "reference": "60ed7751671113cf1ee7d7778e691642c2e9acd8",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/174f009ed36379a801109955fc5a71a49fe62dd4",
+                "reference": "174f009ed36379a801109955fc5a71a49fe62dd4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -3665,7 +3838,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:39:26"
+            "time": "2015-03-30 15:54:10"
         },
         {
             "name": "way/generators",
