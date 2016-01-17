@@ -1,5 +1,5 @@
 > **Laravel 5.x version ?  
-> Have a look at [TypiCMS 2](https://github.com/TypiCMS/Base).  
+> Have a look at [TypiCMS 2](https://github.com/TypiCMS/Base).**  
 
 # TypiCMS
 
@@ -12,13 +12,6 @@
 
 TypiCMS is a multilingual content management system built with [Laravel 4.2](http://laravel.com).
 [Bower](http://bower.io) and [gulp](http://gulpjs.com) are used for asset management and the user interface is built with [Bootstrap 3](http://getbootstrap.com) with [Less](http://lesscss.org).
-
-**Demo**
-
-* [Back office](http://typicms.samsfactory.com/admin) (login: email ``` admin@example.com ```, password: ``` admin ```)
-* [Front office](http://typicms.samsfactory.com)
-
-![TypiCMS screenshot](http://typicms.samsfactory.com/uploads/pages/TypiCMS-screenshot.png)
 
 ## Table of contents
 
