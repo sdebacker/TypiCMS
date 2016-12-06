@@ -187,6 +187,60 @@ abstract class RepositoriesAbstract implements RepositoryInterface
 
         return $models;
     }
+    
+    /**
+     * Get models with conditions and pagination
+     *
+     * @param  int      $page  Number of models per page
+     * @param  int      $limit Results per page
+     * @param  array    $conditions Array of conditions (wheres)
+     * @param  boolean  $all   get published models or all
+     * @param  array    $with  Eager load related models
+     * @return StdClass Object with $items
+     */
+    public function getPageBy($page = 1, $limit = 10, array $conditions = array(), array $with = array('translations'), $all = false)
+    {
+
+        $result = new StdClass;
+        $result->page = $page;
+        $result->limit = $limit;
+        $result->totalItems = 0;
+        $result->items = array();
+
+        $query = $this->make($with);
+
+        if (!$all) {
+            // take only translated items that are online
+            $query = $query->whereHasOnlineTranslation();
+        }
+
+        if(is_array($conditions) && count($conditions))
+        {
+            foreach($conditions as $key => $value)
+            {
+                if(is_array($value)){
+                    $query->whereIn($key, $value);
+                }else{
+                    $query->where($key, $value);
+                }
+            }
+        }
+
+        $totalItems = $query->count();        
+
+        $query = $query->order()
+            ->skip($limit * ($page - 1))
+            ->take($limit);
+
+        $models = $query->get();
+
+        // Put items and totalItems in StdClass
+        $result->totalItems = $totalItems;
+        $result->items = $models->all();
+
+        return $result;
+
+    }
 
     /**
      * Get all models by key/value and nest collection
