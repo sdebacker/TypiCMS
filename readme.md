@@ -1,5 +1,5 @@
 > **Laravel 5.x version ?  
-> Have a look at [TypiCMS 2](https://github.com/TypiCMS/Base).**  
+> Have a look at [the new TypiCMS repository](https://github.com/TypiCMS/Base).**  
 
 # TypiCMS
 
