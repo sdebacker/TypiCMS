@@ -1,7 +1,6 @@
-> **Laravel 5.x version ?  
-> Have a look at [the new TypiCMS repository](https://github.com/TypiCMS/Base).**  
+This repository is deprecated, please use the latest [TypiCMS](https://github.com/TypiCMS/Base).
 
-# TypiCMS
+# TypiCMS for Laravel 4.2
 
 [![Join the chat at https://gitter.im/sdebacker/TypiCMS](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sdebacker/TypiCMS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/sdebacker/TypiCMS.svg?branch=master)](https://travis-ci.org/sdebacker/TypiCMS)
